@@ -659,7 +659,7 @@ abc/ioWriteBaf.c.ll 135830762
 abc/ioWriteBench.c.ll 305204564
 abc/ioWriteBlif.c.ll 689832742
 abc/ioWriteBlifMv.c.ll 421564288
-abc/ioWriteBook.c.ll 1358826102
+abc/ioWriteBook.c.ll 1357420826
 abc/ioWriteCnf.c.ll 64499508
 abc/ioWriteDot.c.ll 494984528
 abc/ioWriteEdgelist.c.ll 670609945
@@ -980,7 +980,7 @@ abc/superGate.c.ll 1493179638
 abc/timBox.c.ll 105615446
 abc/timDump.c.ll 415687771
 abc/timMan.c.ll 638721782
-abc/timTrav.c.ll 81857666
+abc/timTrav.c.ll 81940920
 abc/trees.c.ll 731835177
 abc/utilBridge.c.ll 511127760
 abc/utilCex.c.ll 369923046
@@ -3894,7 +3894,7 @@ coreutils-rs/1d5gvmr7ggbmo7q2.ll 189862196
 coreutils-rs/1d8fw503khxds3sb.ll 1145366216
 coreutils-rs/1d8sib7pdb3duiks.ll 175712613
 coreutils-rs/1djsrwanm88d6ovo.ll 283233256
-coreutils-rs/1dsngyyz5dcg9o6n.ll 472821165
+coreutils-rs/1dsngyyz5dcg9o6n.ll 472347906
 coreutils-rs/1dx6vdk7m2fhs89j.ll 967443887
 coreutils-rs/1e5pt7vtfxa4ahz7.ll 615798245
 coreutils-rs/1eeanwhpcoczf01g.ll 63401563
@@ -8328,7 +8328,7 @@ gromacs/colvarproxy.cpp.ll 1319552559
 gromacs/colvarproxy_io.cpp.ll 769861004
 gromacs/colvarproxy_replicas.cpp.ll 43293623
 gromacs/colvarproxy_system.cpp.ll 144522409
-gromacs/colvarproxy_tcl.cpp.ll 48461130
+gromacs/colvarproxy_tcl.cpp.ll 48510253
 gromacs/colvarproxy_volmaps.cpp.ll 350585136
 gromacs/colvarproxygromacs.cpp.ll 734292300
 gromacs/colvarsMDModule.cpp.ll 2375042116
@@ -9443,7 +9443,7 @@ grpc/event_engine_client_channel_resolver.cc.ll 3135401343
 grpc/event_log.cc.ll 1024792954
 grpc/event_poller_posix_default.cc.ll 296441203
 grpc/event_string.cc.ll 215229554
-grpc/exec_ctx.cc.ll 85571604
+grpc/exec_ctx.cc.ll 85658194
 grpc/executor.cc.ll 344809742
 grpc/external_account_credentials.cc.ll 2805127052
 grpc/fake_credentials.cc.ll 2120956069
@@ -12103,7 +12103,7 @@ libquic/string_util.cc.ll 1090812481
 libquic/stringprintf.cc.ll 125331731
 libquic/superfasthash.c.ll 63383247
 libquic/symmetric_key.cc.ll 113363153
-libquic/sys_info_linux.cc.ll 75335740
+libquic/sys_info_linux.cc.ll 75411663
 libquic/sys_info_posix.cc.ll 129035672
 libquic/t1_enc.c.ll 137202502
 libquic/t1_lib.c.ll 712276313
@@ -12570,7 +12570,7 @@ lief/DelayImportEntry.cpp.ll 6928583916
 lief/DexFile.cpp.ll 174530666
 lief/DyldBindingInfo.cpp.ll 63207971
 lief/DyldChainedFixups.cpp.ll 7310478658
-lief/DyldEnvironment.cpp.ll 64089709
+lief/DyldEnvironment.cpp.ll 64154848
 lief/DyldExportsTrie.cpp.ll 225783230
 lief/DyldInfo.cpp.ll 16925351281
 lief/DylibCommand.cpp.ll 164130941
@@ -12844,7 +12844,7 @@ linux/acpi_video.ll 480286929
 linux/act_api.ll 651153820
 linux/addr.ll 97389962
 linux/addrconf.ll 1973781519
-linux/addrconf_core.ll 73499523
+linux/addrconf_core.ll 73574502
 linux/addrlabel.ll 192866627
 linux/advise.ll 56981515
 linux/aes.ll 457097701
@@ -13519,7 +13519,7 @@ linux/i386.ll 114225053
 linux/i8042.ll 451034349
 linux/i8237.ll 54445307
 linux/i8253.ll 43985148
-linux/i8259.ll 85948470
+linux/i8259.ll 86034580
 linux/i915_active.ll 332264223
 linux/i915_cmd_parser.ll 264428182
 linux/i915_config.ll 41761674
@@ -15264,7 +15264,7 @@ llvm/ClangSACheckersEmitter.cpp.ll 558598898
 llvm/ClangSyntaxEmitter.cpp.ll 1770894798
 llvm/ClangTypeNodesEmitter.cpp.ll 453082423
 llvm/CloneChecker.cpp.ll 1692654368
-llvm/CloneDetection.cpp.ll 4541759752
+llvm/CloneDetection.cpp.ll 4537099135
 llvm/CloneFunction.cpp.ll 5226229687
 llvm/CloneModule.cpp.ll 1044609572
 llvm/CmpInstAnalysis.cpp.ll 326947295
@@ -16573,7 +16573,7 @@ llvm/RISCVInstructionSelector.cpp.ll 5636554510
 llvm/RISCVLandingPadSetup.cpp.ll 335411267
 llvm/RISCVLegalizerInfo.cpp.ll 4843851896
 llvm/RISCVMCAsmInfo.cpp.ll 55338335
-llvm/RISCVMCCodeEmitter.cpp.ll 2498677003
+llvm/RISCVMCCodeEmitter.cpp.ll 2496106399
 llvm/RISCVMCExpr.cpp.ll 276978339
 llvm/RISCVMCObjectFileInfo.cpp.ll 50300976
 llvm/RISCVMCTargetDesc.cpp.ll 4513231214
@@ -22709,7 +22709,7 @@ opencv/pd_caltech.cpp.ll 639781244
 opencv/pd_inria.cpp.ll 765989773
 opencv/peilin.cpp.ll 113773203
 opencv/peopledetect.cpp.ll 218994499
-opencv/perf_3vs4.cpp.ll 55817669
+opencv/perf_3vs4.cpp.ll 55873998
 opencv/perf_abs.cpp.ll 1265559387
 opencv/perf_accumulate.cpp.ll 8262438249
 opencv/perf_adaptive_manifold.cpp.ll 1996202938
@@ -22727,7 +22727,7 @@ opencv/perf_bgfg_mog2.cpp.ll 2495028025
 opencv/perf_bilateral.cpp.ll 1927323869
 opencv/perf_bilateral_texture_filter.cpp.ll 1962886747
 opencv/perf_bitwise.cpp.ll 2653042479
-opencv/perf_blend.cpp.ll 55817899
+opencv/perf_blend.cpp.ll 55874174
 opencv/perf_blur.cpp.ll 8573232346
 opencv/perf_bm.cpp.ll 2549186092
 opencv/perf_brute_force_matcher.cpp.ll 55836136
@@ -22736,7 +22736,7 @@ opencv/perf_canny.cpp.ll 1858634602
 opencv/perf_cascades.cpp.ll 55861448
 opencv/perf_channels.cpp.ll 55861552
 opencv/perf_cicrlesGrid.cpp.ll 1208981883
-opencv/perf_color.cpp.ll 55817981
+opencv/perf_color.cpp.ll 55874341
 opencv/perf_common.cpp.ll 1407338732
 opencv/perf_compare.cpp.ll 2250225905
 opencv/perf_contours.cpp.ll 4442194509
@@ -22745,7 +22745,7 @@ opencv/perf_convolution.cpp.ll 3116346724
 opencv/perf_convolution1d.cpp.ll 1905028201
 opencv/perf_convolution3d.cpp.ll 1940029971
 opencv/perf_corners.cpp.ll 3342690264
-opencv/perf_cuda.cpp.ll 55817691
+opencv/perf_cuda.cpp.ll 55873818
 opencv/perf_cvround.cpp.ll 3300536960
 opencv/perf_cvt_color.cpp.ll 8273340116
 opencv/perf_daisy.cpp.ll 1173424560
@@ -22762,7 +22762,7 @@ opencv/perf_distanceTransform.cpp.ll 3272655333
 opencv/perf_dnn_superres.cpp.ll 1607207505
 opencv/perf_domain_transform.cpp.ll 2777286642
 opencv/perf_dot.cpp.ll 1267052625
-opencv/perf_dxt.cpp.ll 55817124
+opencv/perf_dxt.cpp.ll 55873212
 opencv/perf_ecc.cpp.ll 1288728284
 opencv/perf_edgepreserving_filter.cpp.ll 1438308446
 opencv/perf_einsum.cpp.ll 2368706743
@@ -22774,8 +22774,8 @@ opencv/perf_filter2d.cpp.ll 3086117777
 opencv/perf_filters.cpp.ll 55855000
 opencv/perf_find_ellipses.cpp.ll 1643272710
 opencv/perf_floodfill.cpp.ll 1752729583
-opencv/perf_gemm.cpp.ll 55817661
-opencv/perf_gftt.cpp.ll 55817603
+opencv/perf_gemm.cpp.ll 55873657
+opencv/perf_gftt.cpp.ll 55873639
 opencv/perf_goodFeaturesToTrack.cpp.ll 2560691046
 opencv/perf_gpumat.cpp.ll 55854566
 opencv/perf_grayworld.cpp.ll 1470558952
@@ -22796,7 +22796,7 @@ opencv/perf_io_base64.cpp.ll 2034536791
 opencv/perf_joint_bilateral_filter.cpp.ll 1933404635
 opencv/perf_jpeg.cpp.ll 357788193
 opencv/perf_l0_smooth.cpp.ll 1670040973
-opencv/perf_latch.cpp.ll 55817883
+opencv/perf_latch.cpp.ll 55874252
 opencv/perf_layer.cpp.ll 11538070724
 opencv/perf_learning_based_color_balance.cpp.ll 1479979954
 opencv/perf_lut.cpp.ll 1083447747
@@ -22806,7 +22806,7 @@ opencv/perf_matchTemplate.cpp.ll 2116299456
 opencv/perf_matchers.cpp.ll 5008070012
 opencv/perf_matching.cpp.ll 680089096
 opencv/perf_math.cpp.ll 8088768444
-opencv/perf_matop.cpp.ll 55818247
+opencv/perf_matop.cpp.ll 55874512
 opencv/perf_mcc.cpp.ll 315458617
 opencv/perf_merge.cpp.ll 1569744771
 opencv/perf_minmaxloc.cpp.ll 1282949103
@@ -22849,7 +22849,7 @@ opencv/perf_stereosgbm.cpp.ll 2541492595
 opencv/perf_stich.cpp.ll 5138828512
 opencv/perf_stitch.cpp.ll 55854476
 opencv/perf_superres.cpp.ll 1623319304
-opencv/perf_surf.cpp.ll 55817728
+opencv/perf_surf.cpp.ll 55873872
 opencv/perf_surf.cuda.cpp.ll 55862005
 opencv/perf_surf.ocl.cpp.ll 55861372
 opencv/perf_teblid.cpp.ll 55854562
@@ -22862,7 +22862,7 @@ opencv/perf_umat.cpp.ll 1647978258
 opencv/perf_undistort.cpp.ll 277079298
 opencv/perf_usage_flags.cpp.ll 55863310
 opencv/perf_variational_refinement.cpp.ll 1542593247
-opencv/perf_vgg.cpp.ll 55816936
+opencv/perf_vgg.cpp.ll 55872968
 opencv/perf_warp.cpp.ll 6112232164
 opencv/perf_warpers.cpp.ll 55855144
 opencv/perf_wechat_qrcode_pipeline.cpp.ll 2541570442
@@ -23235,7 +23235,7 @@ opencv/volume.cpp.ll 280836850
 opencv/waldboost.cpp.ll 1543259304
 opencv/warpPerspective_demo.cpp.ll 474635318
 opencv/warpers.cpp.ll 4058365853
-opencv/warpers_cuda.cpp.ll 56606178
+opencv/warpers_cuda.cpp.ll 56662785
 opencv/warpfield.cpp.ll 9153735790
 opencv/watershed.cpp.ll 401761557
 opencv/wbdetector.cpp.ll 700524347
@@ -23894,7 +23894,7 @@ openjdk/compilerDirectives.ll 703443088
 openjdk/compilerEvent.ll 1297300929
 openjdk/compilerOracle.ll 639379268
 openjdk/compilerThread.ll 96848301
-openjdk/compressedKlass.ll 55074067
+openjdk/compressedKlass.ll 55129245
 openjdk/compressedKlass_x86.ll 38754350
 openjdk/compressedOops.ll 127658884
 openjdk/compressedStream.ll 229631935
@@ -24106,11 +24106,11 @@ openjdk/gcLocker.ll 135057323
 openjdk/gcLogPrecious.ll 69584121
 openjdk/gcNotifier.ll 721125244
 openjdk/gcOverheadChecker.ll 64520663
-openjdk/gcPolicyCounters.ll 77997863
+openjdk/gcPolicyCounters.ll 78075991
 openjdk/gcTimer.ll 251086961
 openjdk/gcTrace.ll 123362354
 openjdk/gcTraceSend.ll 2174008714
-openjdk/gcTraceTime.ll 87987708
+openjdk/gcTraceTime.ll 88075871
 openjdk/gcUtil.ll 99985185
 openjdk/gcVMOperations.ll 2587753110
 openjdk/gcm.ll 1757946627
@@ -24891,7 +24891,7 @@ openjdk/stringTable.ll 3035094661
 openjdk/stringUtils.ll 94727940
 openjdk/stringopts.ll 2457487603
 openjdk/strongRootsScope.ll 41919182
-openjdk/stubCodeGenerator.ll 119280786
+openjdk/stubCodeGenerator.ll 119400382
 openjdk/stubGenerator_x86_64.ll 1779246676
 openjdk/stubGenerator_x86_64_adler.ll 208628124
 openjdk/stubGenerator_x86_64_aes.ll 3668560120
@@ -25862,7 +25862,7 @@ openmpi/libmpi_c_profile_la-session_call_errhandler.ll 66214212
 openmpi/libmpi_c_profile_la-session_f2c.ll 49944720
 openmpi/libmpi_c_profile_la-session_finalize.ll 65716349
 openmpi/libmpi_c_profile_la-session_get_errhandler.ll 74337715
-openmpi/libmpi_c_profile_la-session_get_nth_pset.ll 71227882
+openmpi/libmpi_c_profile_la-session_get_nth_pset.ll 71299334
 openmpi/libmpi_c_profile_la-session_get_num_psets.ll 69443782
 openmpi/libmpi_c_profile_la-session_get_pset_info.ll 71303101
 openmpi/libmpi_c_profile_la-session_init.ll 79882597
@@ -25936,7 +25936,7 @@ openmpi/libmpi_c_profile_la-win_unlock.ll 73958838
 openmpi/libmpi_c_profile_la-win_unlock_all.ll 69823896
 openmpi/libmpi_c_profile_la-win_wait.ll 69794512
 openmpi/libmpi_c_profile_la-wtime.ll 39949737
-openmpi/libmpi_fortran_base_la-f90_accessors.ll 50462629
+openmpi/libmpi_fortran_base_la-f90_accessors.ll 50514706
 openmpi/libmpi_fortran_base_la-strings.ll 107818340
 openmpi/libmpi_mpit_profile_la-category_changed.ll 38435773
 openmpi/libmpi_mpit_profile_la-category_get_categories.ll 48758018
@@ -26400,7 +26400,7 @@ openmpi/preg_base_select.ll 86131274
 openmpi/preg_base_stubs.ll 90333823
 openmpi/preg_compress.ll 90252748
 openmpi/preg_compress_component.ll 38495622
-openmpi/preg_native.ll 538552935
+openmpi/preg_native.ll 538008822
 openmpi/preg_raw.ll 56534449
 openmpi/pregister_datarep_f.ll 97969573
 openmpi/prequest_free_f.ll 38302518
@@ -29051,7 +29051,7 @@ openusd/capsule_1.cpp.ll 1210298187
 openusd/categoriesSchema.cpp.ll 747161277
 openusd/category.cpp.ll 335126709
 openusd/catmarkPatchBuilder.cpp.ll 2644471686
-openusd/cdef.c.ll 532454572
+openusd/cdef.c.ll 532989071
 openusd/cdef_block.c.ll 300228242
 openusd/cfl.c.ll 1168153749
 openusd/changeBlock.cpp.ll 45502930
@@ -34346,7 +34346,7 @@ redis/large.sym.ll 366725139
 redis/latency.ll 292868617
 redis/lauxlib.ll 231487365
 redis/lazyfree.ll 91198675
-redis/lbaselib.ll 162258241
+redis/lbaselib.ll 162420820
 redis/lcode.ll 586002554
 redis/ldblib.ll 138429645
 redis/ldebug.ll 288376252
@@ -42122,7 +42122,7 @@ z3/proof_utils.cpp.ll 2733138462
 z3/propagate_values.cpp.ll 381240359
 z3/propagate_values_tactic.cpp.ll 972313089
 z3/proto_model.cpp.ll 1276181664
-z3/pull_quant.cpp.ll 3258116030
+z3/pull_quant.cpp.ll 3254803151
 z3/purify_arith_tactic.cpp.ll 4778678655
 z3/push_app_ite.cpp.ll 167083658
 z3/q_clause.cpp.ll 88176494
@@ -42180,7 +42180,7 @@ z3/rel_context.cpp.ll 2251243872
 z3/replace_proof_converter.cpp.ll 387049420
 z3/rewriter.cpp.ll 5444648329
 z3/rlimit.cpp.ll 157836494
-z3/rpolynomial.cpp.ll 58015374
+z3/rpolynomial.cpp.ll 58074538
 z3/rule_properties.cpp.ll 1906812554
 z3/s_integer.cpp.ll 69316515
 z3/sat2goal.cpp.ll 881983750
