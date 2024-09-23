@@ -197,7 +197,7 @@
   "instsimplify.NumExpand": 118615,
   "instsimplify.NumReassoc": 333365,
   "instsimplify.NumSimplified": 1799440,
-  "ipt.NumInstScanned": 279080270,
+  "ipt.NumInstScanned": 279081653,
   "jump-threading.NumDupes": 92801,
   "jump-threading.NumFolds": 1587288,
   "jump-threading.NumThreads": 1682885,
