@@ -8908,7 +8908,7 @@ gromacs/muParserBase.cpp.ll 3529056822
 gromacs/muParserBytecode.cpp.ll 757831632
 gromacs/muParserCallback.cpp.ll 213608162
 gromacs/muParserDLL.cpp.ll 1224248892
-gromacs/muParserError.cpp.ll 288624172
+gromacs/muParserError.cpp.ll 288912828
 gromacs/muParserInt.cpp.ll 232074113
 gromacs/muParserTest.cpp.ll 2776781214
 gromacs/muParserTokenReader.cpp.ll 2067354025
@@ -12550,7 +12550,7 @@ lief/ChainedFixup.cpp.ll 12174796433
 lief/Class.cpp.ll 1326778798
 lief/CodeInfo.cpp.ll 47308683
 lief/CodeIntegrity.cpp.ll 6913153849
-lief/CodeSignature.cpp.ll 69043787
+lief/CodeSignature.cpp.ll 69112956
 lief/CodeSignatureDir.cpp.ll 66580248
 lief/CodeView.cpp.ll 6948305135
 lief/CodeViewPDB.cpp.ll 7417014782
