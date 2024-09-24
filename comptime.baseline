@@ -6959,7 +6959,7 @@ faiss/BlockInvertedLists.cpp.ll 659937480
 faiss/Clustering.cpp.ll 1289915892
 faiss/CodePacker.cpp.ll 58439118
 faiss/DirectMap.cpp.ll 790972230
-faiss/FaissException.cpp.ll 88772734
+faiss/FaissException.cpp.ll 88861667
 faiss/HNSW.cpp.ll 3352589924
 faiss/Heap.cpp.ll 2010996935
 faiss/IDSelector.cpp.ll 425130146
@@ -13430,7 +13430,7 @@ linux/hda_controller.ll 352838705
 linux/hda_hwdep.ll 61238792
 linux/hda_intel.ll 430502040
 linux/hda_jack.ll 373210549
-linux/hda_sysfs.ll 70244476
+linux/hda_sysfs.ll 70314903
 linux/hdac_bus.ll 99169607
 linux/hdac_component.ll 90058466
 linux/hdac_controller.ll 186830743
@@ -17082,7 +17082,7 @@ llvm/UnsafeBufferUsage.cpp.ll 38650190387
 llvm/UnwrappedLineFormatter.cpp.ll 2290671346
 llvm/UnwrappedLineParser.cpp.ll 7756260579
 llvm/UpdateCompilerUsed.cpp.ll 670514072
-llvm/Use.cpp.ll 62848789
+llvm/Use.cpp.ll 62911707
 llvm/User.cpp.ll 428129750
 llvm/UsingDeclarationsSorter.cpp.ll 1387351658
 llvm/Utility.cpp.ll 1436881117
