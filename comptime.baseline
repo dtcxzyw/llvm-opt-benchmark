@@ -24645,7 +24645,7 @@ openjdk/outStream.ll 176674154
 openjdk/output.ll 2376871841
 openjdk/p11_convert.ll 436278389
 openjdk/p11_crypt.ll 106340918
-openjdk/p11_digest.ll 81446031
+openjdk/p11_digest.ll 81527480
 openjdk/p11_general.ll 119506653
 openjdk/p11_keymgmt.ll 231617295
 openjdk/p11_md.ll 64606259
@@ -24888,7 +24888,7 @@ openjdk/stringDedupStorageUse.ll 79645691
 openjdk/stringDedupTable.ll 1921176437
 openjdk/stringDedupThread.ll 61818577
 openjdk/stringTable.ll 3039399344
-openjdk/stringUtils.ll 94727940
+openjdk/stringUtils.ll 94822675
 openjdk/stringopts.ll 2457487603
 openjdk/strongRootsScope.ll 41965839
 openjdk/stubCodeGenerator.ll 119763868
