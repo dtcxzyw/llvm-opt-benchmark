@@ -11724,7 +11724,7 @@ libpng/pngrtran.c.ll 2403075477
 libpng/pngrutil.c.ll 1202569368
 libpng/pngset.c.ll 395823037
 libpng/pngtrans.c.ll 194395046
-libpng/pngwio.c.ll 46833131
+libpng/pngwio.c.ll 46880136
 libpng/pngwrite.c.ll 710457563
 libpng/pngwtran.c.ll 285038986
 libpng/pngwutil.c.ll 954092525
@@ -21232,7 +21232,7 @@ openblas/dhsein.c.ll 140954099
 openblas/dhseqr.c.ll 103295000
 openblas/dimatcopy.c.ll 87457248
 openblas/dimatcopy_k_cn.c.ll 46622187
-openblas/dimatcopy_k_ct.c.ll 57621141
+openblas/dimatcopy_k_ct.c.ll 57678947
 openblas/dimatcopy_k_rn.c.ll 46612636
 openblas/dimatcopy_k_rt.c.ll 46429080
 openblas/dlabrd.c.ll 142806045
@@ -32932,7 +32932,7 @@ qemu/net_eth.c.ll 238919380
 qemu/net_filter-mirror.c.ll 123551723
 qemu/net_filter-rewriter.c.ll 173264754
 qemu/net_filter.c.ll 132158484
-qemu/net_hub.c.ll 123070384
+qemu/net_hub.c.ll 123193710
 qemu/net_l2tpv3.c.ll 234929761
 qemu/net_net-hmp-cmds.c.ll 80649693
 qemu/net_net.c.ll 663905931
