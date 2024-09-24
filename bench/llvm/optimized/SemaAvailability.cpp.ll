@@ -2393,24 +2393,22 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %65, %71
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 664
   %105 = tail call i64 @_ZNK5clang5NSAPI24getOrInitNullarySelectorEN4llvm9StringRefERNS_8SelectorE(ptr noundef nonnull align 8 dereferenceable(712) %103, ptr nonnull @.str.111, i64 3, ptr noundef nonnull align 8 dereferenceable(8) %104) #18
-  %106 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
-  %107 = inttoptr i64 %105 to ptr
-  %108 = icmp eq ptr %106, %107
-  br i1 %108, label %109, label %.critedge
+  %106 = icmp eq i64 %.sroa.0.0.copyload.i.i, %105
+  br i1 %106, label %107, label %.critedge
 
-109:                                              ; preds = %99
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %111 = load ptr, ptr %110, align 8
-  %112 = tail call noundef zeroext i1 @_ZNK5clang14ObjCMethodDecl17definedInNSObjectERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(136) %.3, ptr noundef nonnull align 8 dereferenceable(23096) %111) #18
-  br i1 %112, label %113, label %.critedge
+107:                                              ; preds = %99
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %109 = load ptr, ptr %108, align 8
+  %110 = tail call noundef zeroext i1 @_ZNK5clang14ObjCMethodDecl17definedInNSObjectERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(136) %.3, ptr noundef nonnull align 8 dereferenceable(23096) %109) #18
+  br i1 %110, label %111, label %.critedge
 
-113:                                              ; preds = %109
-  %114 = tail call noundef i32 @_ZNK5clang4Decl15getAvailabilityEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleEPNS8_9StringRefE(ptr noundef nonnull align 8 dereferenceable(33) %92, ptr noundef %2, i64 0, i64 0, ptr noundef null) #18
+111:                                              ; preds = %107
+  %112 = tail call noundef i32 @_ZNK5clang4Decl15getAvailabilityEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4llvm12VersionTupleEPNS8_9StringRefE(ptr noundef nonnull align 8 dereferenceable(33) %92, ptr noundef %2, i64 0, i64 0, ptr noundef null) #18
   br label %.critedge
 
-.critedge:                                        ; preds = %82, %99, %95, %89, %113, %109, %79
-  %.392 = phi i32 [ %.291, %79 ], [ %114, %113 ], [ 0, %109 ], [ 0, %99 ], [ 0, %95 ], [ %.291, %89 ], [ %.291, %82 ]
-  %.4 = phi ptr [ %.3, %79 ], [ %92, %113 ], [ %.3, %109 ], [ %.3, %99 ], [ %.3, %95 ], [ %.3, %89 ], [ %.3, %82 ]
+.critedge:                                        ; preds = %82, %99, %95, %89, %111, %107, %79
+  %.392 = phi i32 [ %.291, %79 ], [ %112, %111 ], [ 0, %107 ], [ 0, %99 ], [ 0, %95 ], [ %.291, %89 ], [ %.291, %82 ]
+  %.4 = phi ptr [ %.3, %79 ], [ %92, %111 ], [ %.3, %107 ], [ %.3, %99 ], [ %.3, %95 ], [ %.3, %89 ], [ %.3, %82 ]
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.392, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.4, 1
   ret { i32, ptr } %.fca.1.insert

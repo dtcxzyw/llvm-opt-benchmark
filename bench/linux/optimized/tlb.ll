@@ -110,38 +110,37 @@ module asm ".previous\09\09\09\09\09"
 define dso_local void @leave_mm(i32 %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @cpu_tlbstate) #11, !srcloc !6
-  %4 = inttoptr i64 %3 to ptr
-  %5 = icmp eq ptr %4, @init_mm
-  br i1 %5, label %15, label %6
+  %4 = icmp eq i64 %3, ptrtoint (ptr @init_mm to i64)
+  br i1 %4, label %14, label %5
 
-6:                                                ; preds = %1
-  %7 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @cpu_tlbstate_shared) #11, !srcloc !7
-  %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %10, !prof !8
+5:                                                ; preds = %1
+  %6 = tail call i8 asm sideeffect "movb %gs:$1, $0", "=q,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @cpu_tlbstate_shared) #11, !srcloc !7
+  %7 = icmp eq i8 %6, 0
+  br i1 %7, label %8, label %9, !prof !8
 
-9:                                                ; preds = %6
+8:                                                ; preds = %5
   tail call void asm sideeffect "399: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 399b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 399) #11, !srcloc !9
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 318, i32 2305, i64 12) #11, !srcloc !10
   tail call void asm sideeffect "400: nop\0A\09.pushsection .discard.instr_end\0A\09.long 400b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 400) #11, !srcloc !11
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %6
+9:                                                ; preds = %8, %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
   store i64 0, ptr %2, align 8, !annotation !12
   call void asm sideeffect "# __raw_save_flags\0A\09pushf ; pop $0", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #11, !srcloc !13
-  %11 = load i64, ptr %2, align 8
+  %10 = load i64, ptr %2, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !14
   call void @switch_mm_irqs_off(ptr poison, ptr noundef nonnull @init_mm, ptr noundef null)
-  %12 = and i64 %11, 512
-  %13 = icmp eq i64 %12, 0
-  br i1 %13, label %15, label %14
+  %11 = and i64 %10, 512
+  %12 = icmp eq i64 %11, 0
+  br i1 %12, label %14, label %13
 
-14:                                               ; preds = %10
+13:                                               ; preds = %9
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !15
-  br label %15
+  br label %14
 
-15:                                               ; preds = %14, %10, %1
+14:                                               ; preds = %13, %9, %1
   ret void
 }
 
@@ -193,7 +192,7 @@ define dso_local void @switch_mm_irqs_off(ptr nocapture readnone %0, ptr noundef
   br i1 %13, label %14, label %30
 
 14:                                               ; preds = %12
-  %15 = icmp eq ptr %1, @init_mm
+  %15 = icmp eq i64 %4, ptrtoint (ptr @init_mm to i64)
   br i1 %15, label %23, label %16
 
 16:                                               ; preds = %14
@@ -300,7 +299,7 @@ define dso_local void @switch_mm_irqs_off(ptr nocapture readnone %0, ptr noundef
   br label %71
 
 71:                                               ; preds = %70, %32, %30
-  %72 = icmp eq ptr %5, @init_mm
+  %72 = icmp eq i64 %4, ptrtoint (ptr @init_mm to i64)
   br i1 %72, label %76, label %73
 
 73:                                               ; preds = %71
@@ -637,15 +636,14 @@ declare dso_local void @switch_ldt(ptr noundef, ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @enter_lazy_tlb(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm sideeffect "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @cpu_tlbstate) #11, !srcloc !68
-  %4 = inttoptr i64 %3 to ptr
-  %5 = icmp eq ptr %4, @init_mm
-  br i1 %5, label %7, label %6
+  %4 = icmp eq i64 %3, ptrtoint (ptr @init_mm to i64)
+  br i1 %4, label %6, label %5
 
-6:                                                ; preds = %2
+5:                                                ; preds = %2
   tail call void asm sideeffect "movb $1, %gs:$0", "=*m,qi,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) @cpu_tlbstate_shared, i8 1, ptr nonnull elementtype(i8) @cpu_tlbstate_shared) #11, !srcloc !69
-  br label %7
+  br label %6
 
-7:                                                ; preds = %6, %2
+6:                                                ; preds = %5, %2
   ret void
 }
 
@@ -881,12 +879,12 @@ define internal void @flush_tlb_func(ptr nocapture noundef readonly %0) #0 align
   %15 = icmp ne ptr %14, null
   %16 = icmp ne ptr %14, %3
   %17 = select i1 %15, i1 %16, i1 false
-  %18 = icmp eq ptr %3, @init_mm
+  %18 = icmp eq i64 %2, ptrtoint (ptr @init_mm to i64)
   %19 = select i1 %17, i1 true, i1 %18
   br i1 %19, label %104, label %22, !prof !93
 
 20:                                               ; preds = %1
-  %21 = icmp eq ptr %3, @init_mm
+  %21 = icmp eq i64 %2, ptrtoint (ptr @init_mm to i64)
   br i1 %21, label %104, label %22, !prof !8
 
 22:                                               ; preds = %20, %13

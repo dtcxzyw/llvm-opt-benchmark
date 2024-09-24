@@ -525,10 +525,9 @@ entry:
   %ref.tmp179 = alloca %"class.testing::internal::AssertHelper", align 8
   store i32 0, ptr @_ZN12_GLOBAL__N_15valueE, align 4
   %0 = load atomic i64, ptr @_ZZN12_GLOBAL__N_137AtomicHookTest_NoDefaultFunction_Test8TestBodyEvE4hook acquire, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %0 to ptr
-  %cmp.i = icmp eq ptr %atomic-temp.i.0.i.i.i, @_ZN4absl13base_internal10AtomicHookIPFviEE13DummyFunctionEi
+  %cmp.i = icmp eq i64 %0, ptrtoint (ptr @_ZN4absl13base_internal10AtomicHookIPFviEE13DummyFunctionEi to i64)
   %cmp226 = icmp eq i64 %0, 0
-  %cmp = or i1 %cmp226, %cmp.i
+  %cmp = or i1 %cmp.i, %cmp226
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
@@ -837,8 +836,7 @@ _ZN7testing15AssertionResultD2Ev.exit78:          ; preds = %if.end54, %_ZNKSt14
   %33 = ptrtoint ptr %32 to i64
   %34 = cmpxchg ptr @_ZZN12_GLOBAL__N_137AtomicHookTest_NoDefaultFunction_Test8TestBodyEvE4hook, i64 %33, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_18TestHookEi to i64) acq_rel acquire, align 8
   %35 = load atomic i64, ptr @_ZZN12_GLOBAL__N_137AtomicHookTest_NoDefaultFunction_Test8TestBodyEvE4hook acquire, align 8
-  %atomic-temp.i.0.i.i.i79 = inttoptr i64 %35 to ptr
-  %cmp59227 = icmp eq ptr %atomic-temp.i.0.i.i.i79, @_ZN12_GLOBAL__N_18TestHookEi
+  %cmp59227 = icmp eq i64 %35, ptrtoint (ptr @_ZN12_GLOBAL__N_18TestHookEi to i64)
   %frombool60 = zext i1 %cmp59227 to i8
   store i8 %frombool60, ptr %gtest_ar_56, align 8
   %message_.i83 = getelementptr inbounds i8, ptr %gtest_ar_56, i64 8
@@ -1147,8 +1145,7 @@ _ZN7testing15AssertionResultD2Ev.exit149:         ; preds = %if.end121, %_ZNKSt1
   %68 = ptrtoint ptr %67 to i64
   %69 = cmpxchg ptr @_ZZN12_GLOBAL__N_137AtomicHookTest_NoDefaultFunction_Test8TestBodyEvE4hook, i64 %68, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_18TestHookEi to i64) acq_rel acquire, align 8
   %70 = load atomic i64, ptr @_ZZN12_GLOBAL__N_137AtomicHookTest_NoDefaultFunction_Test8TestBodyEvE4hook acquire, align 8
-  %atomic-temp.i.0.i.i.i150 = inttoptr i64 %70 to ptr
-  %cmp126228 = icmp eq ptr %atomic-temp.i.0.i.i.i150, @_ZN12_GLOBAL__N_18TestHookEi
+  %cmp126228 = icmp eq i64 %70, ptrtoint (ptr @_ZN12_GLOBAL__N_18TestHookEi to i64)
   %frombool127 = zext i1 %cmp126228 to i8
   store i8 %frombool127, ptr %gtest_ar_123, align 8
   %message_.i154 = getelementptr inbounds i8, ptr %gtest_ar_123, i64 8
@@ -1694,8 +1691,7 @@ entry:
   %ref.tmp106 = alloca %"class.testing::internal::AssertHelper", align 8
   store i32 0, ptr @_ZN12_GLOBAL__N_15valueE, align 4
   %0 = load atomic i64, ptr @_ZZN12_GLOBAL__N_139AtomicHookTest_WithDefaultFunction_Test8TestBodyEvE4hook acquire, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %0 to ptr
-  %cmp143 = icmp eq ptr %atomic-temp.i.0.i.i.i, @_ZN12_GLOBAL__N_18TestHookEi
+  %cmp143 = icmp eq i64 %0, ptrtoint (ptr @_ZN12_GLOBAL__N_18TestHookEi to i64)
   %frombool = zext i1 %cmp143 to i8
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
@@ -2004,8 +2000,7 @@ _ZN7testing15AssertionResultD2Ev.exit68:          ; preds = %if.end51, %_ZNKSt14
   %33 = ptrtoint ptr %32 to i64
   %34 = cmpxchg ptr @_ZZN12_GLOBAL__N_139AtomicHookTest_WithDefaultFunction_Test8TestBodyEvE4hook, i64 %33, i64 ptrtoint (ptr @_ZN12_GLOBAL__N_18TestHookEi to i64) acq_rel acquire, align 8
   %35 = load atomic i64, ptr @_ZZN12_GLOBAL__N_139AtomicHookTest_WithDefaultFunction_Test8TestBodyEvE4hook acquire, align 8
-  %atomic-temp.i.0.i.i.i69 = inttoptr i64 %35 to ptr
-  %cmp56144 = icmp eq ptr %atomic-temp.i.0.i.i.i69, @_ZN12_GLOBAL__N_18TestHookEi
+  %cmp56144 = icmp eq i64 %35, ptrtoint (ptr @_ZN12_GLOBAL__N_18TestHookEi to i64)
   %frombool57 = zext i1 %cmp56144 to i8
   store i8 %frombool57, ptr %gtest_ar_53, align 8
   %message_.i73 = getelementptr inbounds i8, ptr %gtest_ar_53, i64 8
@@ -2771,7 +2766,7 @@ _ZN7testing15AssertionResultD2Ev.exit84:          ; preds = %if.end104, %_ZNKSt1
   store ptr @_ZN12_GLOBAL__N_112OverrideFuncEv, ptr %ref.tmp107, align 8
   %41 = load atomic i64, ptr @_ZN4absl20atomic_hook_internal4funcE acquire, align 8
   %atomic-temp.i.0.i.i.i85 = inttoptr i64 %41 to ptr
-  %cmp.i = icmp eq ptr %atomic-temp.i.0.i.i.i85, @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv
+  %cmp.i = icmp eq i64 %41, ptrtoint (ptr @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv to i64)
   %cond.i = select i1 %cmp.i, ptr null, ptr %atomic-temp.i.0.i.i.i85
   store ptr %cond.i, ptr %ref.tmp118, align 8
   call void @_ZNK7testing8internal29PredicateFormatterFromMatcherINS0_9EqMatcherIPFvvEEEEclIS4_EENS_15AssertionResultEPKcRKT_(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar106, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp107, ptr noundef nonnull @.str.20, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp118)

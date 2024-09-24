@@ -7890,56 +7890,58 @@ define ptr @computeCofactor(ptr noundef %0, ptr nocapture noundef readonly %1, p
   %79 = icmp ne i64 %78, %77
   switch i64 %67, label %90 [
     i64 0, label %80
-    i64 1, label %84
+    i64 1, label %83
   ]
 
 80:                                               ; preds = %.lr.ph330
   %81 = xor i64 %77, %78
-  %82 = inttoptr i64 %81 to ptr
-  %83 = icmp ne ptr %82, inttoptr (i64 1 to ptr)
-  %or.cond.not360 = select i1 %79, i1 %83, i1 false
+  %82 = icmp ne i64 %81, 1
+  %or.cond.not359 = and i1 %79, %82
   %switch = icmp ult ptr %74, inttoptr (i64 2 to ptr)
-  %or.cond357 = select i1 %or.cond.not360, i1 %switch, i1 false
-  br i1 %or.cond357, label %.thread311, label %.thread311.sink.split
+  %or.cond356 = select i1 %or.cond.not359, i1 %switch, i1 false
+  br i1 %or.cond356, label %.thread311, label %.thread311.sink.split
 
-84:                                               ; preds = %.lr.ph330
-  br i1 %79, label %85, label %.thread311.sink.split
+83:                                               ; preds = %.lr.ph330
+  br i1 %79, label %84, label %.thread311.sink.split
 
-85:                                               ; preds = %84
-  %86 = xor i64 %77, %78
-  %87 = inttoptr i64 %86 to ptr
-  %88 = icmp eq ptr %87, inttoptr (i64 1 to ptr)
-  br i1 %88, label %.thread311.sink.split, label %89
+84:                                               ; preds = %83
+  %85 = xor i64 %77, %78
+  %86 = icmp eq i64 %85, 1
+  br i1 %86, label %.thread311.sink.split, label %87
 
-89:                                               ; preds = %85
+87:                                               ; preds = %84
   %switch316 = icmp ult ptr %74, inttoptr (i64 2 to ptr)
-  br i1 %switch316, label %.thread311, label %.thread311.sink.split
+  br i1 %switch316, label %.thread311, label %88
+
+88:                                               ; preds = %87
+  %89 = inttoptr i64 %85 to ptr
+  br label %.thread311.sink.split
 
 90:                                               ; preds = %.lr.ph330
   br i1 %79, label %91, label %.thread311.sink.split
 
 91:                                               ; preds = %90
   %92 = xor i64 %77, %78
-  %93 = inttoptr i64 %92 to ptr
-  %94 = icmp eq ptr %93, inttoptr (i64 1 to ptr)
-  br i1 %94, label %.thread311.sink.split, label %95
+  %93 = icmp eq i64 %92, 1
+  br i1 %93, label %.thread311.sink.split, label %94
 
-95:                                               ; preds = %91
+94:                                               ; preds = %91
   %switch317 = icmp ult ptr %74, inttoptr (i64 2 to ptr)
-  br i1 %switch317, label %.thread311, label %96
+  br i1 %switch317, label %.thread311, label %95
 
-96:                                               ; preds = %95
+95:                                               ; preds = %94
+  %96 = inttoptr i64 %92 to ptr
   %97 = load ptr, ptr %30, align 8
-  %98 = tail call ptr @Abc_AigAnd(ptr noundef %97, ptr noundef %68, ptr noundef %93) #12
+  %98 = tail call ptr @Abc_AigAnd(ptr noundef %97, ptr noundef %68, ptr noundef %96) #12
   br label %.thread311.sink.split
 
-.thread311.sink.split:                            ; preds = %91, %90, %89, %85, %84, %80, %96
-  %.sink = phi ptr [ %98, %96 ], [ null, %80 ], [ null, %84 ], [ inttoptr (i64 1 to ptr), %85 ], [ %87, %89 ], [ null, %90 ], [ %68, %91 ]
+.thread311.sink.split:                            ; preds = %91, %90, %84, %83, %80, %88, %95
+  %.sink = phi ptr [ %98, %95 ], [ %89, %88 ], [ null, %80 ], [ null, %83 ], [ inttoptr (i64 1 to ptr), %84 ], [ null, %90 ], [ %68, %91 ]
   %99 = getelementptr inbounds i8, ptr %53, i64 64
   store ptr %.sink, ptr %99, align 8
   br label %.thread311
 
-.thread311:                                       ; preds = %80, %.thread311.sink.split, %95, %89
+.thread311:                                       ; preds = %80, %.thread311.sink.split, %94, %87
   %indvars.iv.next344 = add nuw nsw i64 %indvars.iv343, 1
   %100 = load ptr, ptr %43, align 8
   %101 = getelementptr i8, ptr %100, i64 4

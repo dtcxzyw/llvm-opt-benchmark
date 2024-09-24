@@ -5121,8 +5121,7 @@ define hidden void @"_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h2b47522ebe1333adE"(ptr noundef nonnull align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load atomic i64, ptr %2 acquire, align 8
-  %.0.i.i.i = inttoptr i64 %3 to ptr
-  %.not.i = icmp eq ptr %.0.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i = icmp eq i64 %3, 2
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h1f7ad51c037cef4aE.llvm.15772558698018558306.exit", label %4
 
 4:                                                ; preds = %1
@@ -5141,8 +5140,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17h4052c34cf22e1d1eE"(ptr noundef nonnull align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load atomic i64, ptr %2 acquire, align 8
-  %.0.i.i.i = inttoptr i64 %3 to ptr
-  %.not.i = icmp eq ptr %.0.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i = icmp eq i64 %3, 2
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h4d7380ada28a66eaE.llvm.15772558698018558306.exit", label %4
 
 4:                                                ; preds = %1
@@ -5161,8 +5159,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hc37018e0605706c7E"(ptr noundef nonnull align 8 %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load atomic i64, ptr %2 acquire, align 8
-  %.0.i.i.i = inttoptr i64 %3 to ptr
-  %.not.i = icmp eq ptr %.0.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i = icmp eq i64 %3, 2
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h6cdc17f5d6424022E.llvm.15772558698018558306.exit", label %4
 
 4:                                                ; preds = %1
@@ -5181,8 +5178,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h1f7ad51c037cef4aE.llvm.15772558698018558306"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load atomic i64, ptr %3 acquire, align 8
-  %.0.i.i = inttoptr i64 %4 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %4, 2
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -5201,8 +5197,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h4d7380ada28a66eaE.llvm.15772558698018558306"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load atomic i64, ptr %3 acquire, align 8
-  %.0.i.i = inttoptr i64 %4 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %4, 2
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -5221,8 +5216,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h6cdc17f5d6424022E.llvm.15772558698018558306"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load atomic i64, ptr %3 acquire, align 8
-  %.0.i.i = inttoptr i64 %4 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %4, 2
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
@@ -5243,8 +5237,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN9once_cell4sy
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load atomic i64, ptr %4 acquire, align 8
-  %.0.i.i = inttoptr i64 %5 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %5, 2
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %2
@@ -5280,8 +5273,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sy
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { { i64, ptr, {} }, i64 } } }, align 8
   %5 = load atomic i64, ptr %0 acquire, align 8
-  %.0.i.i = inttoptr i64 %5 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %5, 2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %.not, label %11, label %7
 
@@ -5326,8 +5318,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sy
 define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h5d2869252069ebaaE"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load atomic i64, ptr %2 acquire, align 8
-  %.0.i = inttoptr i64 %3 to ptr
-  %4 = icmp eq ptr %.0.i, inttoptr (i64 2 to ptr)
+  %4 = icmp eq i64 %3, 2
   %spec.select = select i1 %4, ptr %0, ptr null
   ret ptr %spec.select
 }
@@ -5335,8 +5326,7 @@ define hidden noundef align 8 dereferenceable_or_null(96) ptr @"_ZN9once_cell4sy
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17hedb61ded03732158E"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #16 {
   %2 = load atomic i64, ptr %0 acquire, align 8
-  %.0.i = inttoptr i64 %2 to ptr
-  %3 = icmp eq ptr %.0.i, inttoptr (i64 2 to ptr)
+  %3 = icmp eq i64 %2, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %spec.select = select i1 %3, ptr %4, ptr null
   ret ptr %spec.select
@@ -5345,8 +5335,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9once_cell4sy
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$4wait17h4f2e6cfb72a5479aE"(ptr noundef nonnull align 8 %0) unnamed_addr #3 {
   %2 = load atomic i64, ptr %0 acquire, align 8
-  %.0.i = inttoptr i64 %2 to ptr
-  %3 = icmp eq ptr %.0.i, inttoptr (i64 2 to ptr)
+  %3 = icmp eq i64 %2, 2
   br i1 %3, label %5, label %4
 
 4:                                                ; preds = %1
@@ -5365,8 +5354,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9once_cell4sy
 define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$4wait17hfe7a0f589c1fa556E"(ptr noundef nonnull returned align 8 %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load atomic i64, ptr %2 acquire, align 8
-  %.0.i = inttoptr i64 %3 to ptr
-  %4 = icmp eq ptr %.0.i, inttoptr (i64 2 to ptr)
+  %4 = icmp eq i64 %3, 2
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
@@ -6436,8 +6424,7 @@ define hidden void @_ZN9typst_pdf5color11ColorSpaces15write_functions17h7df71820
 10:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   %11 = load atomic i64, ptr @_ZN9typst_pdf5color14OKLAB_DEFLATED17h9559928da962d1afE acquire, align 8
-  %.0.i.i.i.i = inttoptr i64 %11 to ptr
-  %.not.i.i = icmp eq ptr %.0.i.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i.i = icmp eq i64 %11, 2
   br i1 %.not.i.i, label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit", label %12
 
 12:                                               ; preds = %10
@@ -6506,18 +6493,17 @@ define hidden void @_ZN9typst_pdf5color11ColorSpaces15write_functions17h7df71820
 35:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %36 = load atomic i64, ptr @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E acquire, align 8
-  %.0.i.i.i.i17 = inttoptr i64 %36 to ptr
-  %.not.i.i18 = icmp eq ptr %.0.i.i.i.i17, inttoptr (i64 2 to ptr)
-  br i1 %.not.i.i18, label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit19", label %37
+  %.not.i.i17 = icmp eq i64 %36, 2
+  br i1 %.not.i.i17, label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit18", label %37
 
 37:                                               ; preds = %35
   call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hffe969795b087f00E"(ptr noundef nonnull align 8 @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, ptr noundef nonnull align 8 @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E)
   %38 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, i64 8), align 8, !range !574, !noundef !4
   %39 = icmp ne i64 %38, -9223372036854775808
   call void @llvm.assume(i1 %39)
-  br label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit19"
+  br label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit18"
 
-"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit19": ; preds = %35, %37
+"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit18": ; preds = %35, %37
   %40 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, i64 16), align 8, !nonnull !4, !noundef !4
   %41 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17SRGB_ICC_DEFLATED17h6b785d3e0a2cc504E, i64 24), align 8, !noundef !4
   call void @_ZN10pdf_writer5chunk5Chunk11icc_profile17hb4c884d43140ebddE(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, { { ptr, i32, i8, i8, [2 x i8] } } } }) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %25, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef %41)
@@ -6530,13 +6516,13 @@ define hidden void @_ZN9typst_pdf5color11ColorSpaces15write_functions17h7df71820
   %.not15 = icmp eq i32 %45, 0
   br i1 %.not15, label %66, label %58
 
-46:                                               ; preds = %55, %48, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit19"
+46:                                               ; preds = %55, %48, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit18"
   %47 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$pdf_writer..object..Stream$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1569d660eec91129E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
           to label %"_ZN4core3ptr62drop_in_place$LT$pdf_writer..functions..PostScriptFunction$GT$17h9a8a643e044a7377E.exit" unwind label %33
 
-48:                                               ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit19"
+48:                                               ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit18"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   store float 0.000000e+00, ptr %5, align 4
   %49 = getelementptr inbounds i8, ptr %5, i64 4
@@ -6565,18 +6551,17 @@ define hidden void @_ZN9typst_pdf5color11ColorSpaces15write_functions17h7df71820
 58:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %59 = load atomic i64, ptr @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E acquire, align 8
-  %.0.i.i.i.i20 = inttoptr i64 %59 to ptr
-  %.not.i.i21 = icmp eq ptr %.0.i.i.i.i20, inttoptr (i64 2 to ptr)
-  br i1 %.not.i.i21, label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit22", label %60
+  %.not.i.i19 = icmp eq i64 %59, 2
+  br i1 %.not.i.i19, label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit20", label %60
 
 60:                                               ; preds = %58
   call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17hffe969795b087f00E"(ptr noundef nonnull align 8 @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, ptr noundef nonnull align 8 @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E)
   %61 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, i64 8), align 8, !range !574, !noundef !4
   %62 = icmp ne i64 %61, -9223372036854775808
   call void @llvm.assume(i1 %62)
-  br label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit22"
+  br label %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit20"
 
-"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit22": ; preds = %58, %60
+"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit20": ; preds = %58, %60
   %63 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, i64 16), align 8, !nonnull !4, !noundef !4
   %64 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN9typst_pdf5color17GRAY_ICC_DEFLATED17h264f7f53027a0484E, i64 24), align 8, !noundef !4
   call void @_ZN10pdf_writer5chunk5Chunk11icc_profile17hb4c884d43140ebddE(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, { { ptr, i32, i8, i8, [2 x i8] } } } }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %45, ptr noalias noundef nonnull readonly align 1 %63, i64 noundef %64)
@@ -6586,13 +6571,13 @@ define hidden void @_ZN9typst_pdf5color11ColorSpaces15write_functions17h7df71820
 66:                                               ; preds = %73, %43
   ret void
 
-67:                                               ; preds = %71, %69, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit22"
+67:                                               ; preds = %71, %69, %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit20"
   %68 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$pdf_writer..object..Stream$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1569d660eec91129E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
           to label %"_ZN4core3ptr62drop_in_place$LT$pdf_writer..functions..PostScriptFunction$GT$17h9a8a643e044a7377E.exit" unwind label %33
 
-69:                                               ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit22"
+69:                                               ; preds = %"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17ha52b217ae106742bE.exit20"
   %70 = invoke noundef align 8 dereferenceable(32) ptr @_ZN10pdf_writer5color10IccProfile5range17h54cea8a505512ea3E(ptr noalias noundef nonnull align 8 dereferenceable(32) %65, i64 4575657221408423936)
           to label %71 unwind label %67
 
@@ -8431,8 +8416,7 @@ define hidden noundef i64 @_ZN9typst_pdf7pattern16register_pattern17h3280973c824
   %44 = load ptr, ptr %43, align 8, !alias.scope !1331, !nonnull !4, !noundef !4
   %45 = getelementptr inbounds i8, ptr %44, i64 16
   %46 = load atomic i64, ptr %45 acquire, align 8, !noalias !1331
-  %.0.i.i.i = inttoptr i64 %46 to ptr
-  %.not.i = icmp eq ptr %.0.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i = icmp eq i64 %46, 2
   %47 = getelementptr inbounds i8, ptr %44, i64 24
   br i1 %.not.i, label %"_ZN5typst4util8deferred17Deferred$LT$T$GT$4wait17h656ef1edc573ae2eE.exit", label %.preheader.i
 
@@ -8449,8 +8433,7 @@ define hidden noundef i64 @_ZN9typst_pdf7pattern16register_pattern17h3280973c824
 
 51:                                               ; preds = %.noexc
   %52 = load atomic i64, ptr %45 acquire, align 8, !noalias !1331
-  %.0.i.i6.i = inttoptr i64 %52 to ptr
-  %53 = icmp eq ptr %.0.i.i6.i, inttoptr (i64 2 to ptr)
+  %53 = icmp eq i64 %52, 2
   br i1 %53, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$4wait17h4f2e6cfb72a5479aE.exit.i", label %54
 
 54:                                               ; preds = %51

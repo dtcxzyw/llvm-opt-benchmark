@@ -2087,9 +2087,9 @@ thread-pre-split:                                 ; preds = %40, %42
   %66 = icmp ugt i64 %65, %1
   br i1 %66, label %.loopexit24, label %.preheader23, !llvm.loop !30
 
-.preheader26:                                     ; preds = %.preheader26.preheader, %154
-  %67 = phi i32 [ %155, %154 ], [ %.pre, %.preheader26.preheader ]
-  %68 = phi i64 [ %159, %154 ], [ %0, %.preheader26.preheader ]
+.preheader26:                                     ; preds = %.preheader26.preheader, %149
+  %67 = phi i32 [ %150, %149 ], [ %.pre, %.preheader26.preheader ]
+  %68 = phi i64 [ %154, %149 ], [ %0, %.preheader26.preheader ]
   %69 = load ptr, ptr getelementptr inbounds (i8, ptr @init_mm, i64 128), align 64
   %70 = zext nneg i32 %67 to i64
   %71 = lshr i64 %68, %70
@@ -2131,7 +2131,7 @@ thread-pre-split:                                 ; preds = %40, %42
   %91 = load i64, ptr %90, align 8
   %92 = and i64 %91, -97
   %93 = icmp eq i64 %92, 0
-  br i1 %93, label %154, label %94
+  br i1 %93, label %149, label %94
 
 94:                                               ; preds = %89
   tail call void @_raw_spin_lock(ptr noundef nonnull @pgd_lock) #18
@@ -2144,7 +2144,7 @@ thread-pre-split:                                 ; preds = %40, %42
   br label %99
 
 99:                                               ; preds = %.thread33, %97
-  %100 = phi ptr [ %95, %97 ], [ %152, %.thread33 ]
+  %100 = phi ptr [ %95, %97 ], [ %147, %.thread33 ]
   %101 = getelementptr i8, ptr %100, i64 -8
   %102 = load i64, ptr @vmemmap_base, align 8
   %103 = ptrtoint ptr %101 to i64
@@ -2185,83 +2185,78 @@ thread-pre-split:                                 ; preds = %40, %42
   %.pre29 = load i64, ptr %126, align 8
   %.pre31 = and i64 %.pre29, -97
   %132 = icmp eq i64 %.pre31, 0
-  br i1 %131, label %144, label %133
+  br i1 %131, label %139, label %133
 
 133:                                              ; preds = %125
   br i1 %132, label %.thread, label %134
 
 134:                                              ; preds = %133
-  %135 = and i64 %.pre29, 4503599627366400
-  %136 = load i64, ptr @page_offset_base, align 8
-  %137 = add i64 %136, %135
-  %138 = inttoptr i64 %137 to ptr
-  %139 = and i64 %129, 4503599627366400
-  %140 = add i64 %136, %139
-  %141 = inttoptr i64 %140 to ptr
-  %142 = icmp eq ptr %138, %141
-  br i1 %142, label %.thread33, label %143, !prof !10
+  %135 = xor i64 %.pre29, %129
+  %136 = and i64 %135, 4503599627366400
+  %137 = icmp eq i64 %136, 0
+  br i1 %137, label %.thread33, label %138, !prof !10
 
-143:                                              ; preds = %134
+138:                                              ; preds = %134
   tail call void asm sideeffect "502: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 502b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 502) #18, !srcloc !33
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.13, i32 203, i32 0, i64 12) #18, !srcloc !34
   unreachable
 
-144:                                              ; preds = %125
+139:                                              ; preds = %125
   br i1 %132, label %.thread, label %.thread33
 
-.thread:                                          ; preds = %133, %144
+.thread:                                          ; preds = %133, %139
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i64 %129, ptr %3, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #18
-          to label %146 [label %146, label %145], !srcloc !5
+          to label %141 [label %141, label %140], !srcloc !5
 
-145:                                              ; preds = %.thread
+140:                                              ; preds = %.thread
   %.0..0..0..0.3 = load i64, ptr %3, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 235, i32 8, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 69)) #18
-          to label %147 [label %147, label %149], !srcloc !5
+          to label %142 [label %142, label %144], !srcloc !5
 
-146:                                              ; preds = %.thread, %.thread
+141:                                              ; preds = %.thread, %.thread
   %.0..0..0..0.2 = load volatile i64, ptr %3, align 8
   store volatile i64 %.0..0..0..0.2, ptr %126, align 8
-  br label %151
+  br label %146
 
-147:                                              ; preds = %145, %145
-  %148 = tail call i64 @__pti_set_user_pgtbl(ptr noundef %126, i64 %.0..0..0..0.3) #18
-  br label %149
+142:                                              ; preds = %140, %140
+  %143 = tail call i64 @__pti_set_user_pgtbl(ptr noundef %126, i64 %.0..0..0..0.3) #18
+  br label %144
 
-149:                                              ; preds = %147, %145
-  %150 = phi i64 [ %148, %147 ], [ %.0..0..0..0.3, %145 ]
+144:                                              ; preds = %142, %140
+  %145 = phi i64 [ %143, %142 ], [ %.0..0..0..0.3, %140 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  store volatile i64 %150, ptr %4, align 8
+  store volatile i64 %145, ptr %4, align 8
   %.0..0..0..0.1 = load volatile i64, ptr %4, align 8
   store volatile i64 %.0..0..0..0.1, ptr %126, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %151
+  br label %146
 
-151:                                              ; preds = %149, %146
+146:                                              ; preds = %144, %141
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.thread33
 
-.thread33:                                        ; preds = %134, %151, %144
+.thread33:                                        ; preds = %134, %146, %139
   tail call void @_raw_spin_unlock(ptr noundef %128) #18
-  %152 = load ptr, ptr %100, align 8
-  %153 = icmp eq ptr %152, @pgd_list
-  br i1 %153, label %.loopexit25, label %99, !llvm.loop !35
+  %147 = load ptr, ptr %100, align 8
+  %148 = icmp eq ptr %147, @pgd_list
+  br i1 %148, label %.loopexit25, label %99, !llvm.loop !35
 
 .loopexit25:                                      ; preds = %.thread33, %94
   tail call void @_raw_spin_unlock(ptr noundef nonnull @pgd_lock) #18
-  br label %154
+  br label %149
 
-154:                                              ; preds = %.loopexit25, %89
-  %155 = load i32, ptr @pgdir_shift, align 4
-  %156 = zext nneg i32 %155 to i64
-  %157 = shl nsw i64 -1, %156
-  %158 = sub i64 %68, %157
-  %159 = and i64 %158, %157
-  %160 = icmp ugt i64 %159, %1
-  br i1 %160, label %.loopexit24, label %.preheader26, !llvm.loop !36
+149:                                              ; preds = %.loopexit25, %89
+  %150 = load i32, ptr @pgdir_shift, align 4
+  %151 = zext nneg i32 %150 to i64
+  %152 = shl nsw i64 -1, %151
+  %153 = sub i64 %68, %152
+  %154 = and i64 %153, %152
+  %155 = icmp ugt i64 %154, %1
+  br i1 %155, label %.loopexit24, label %.preheader26, !llvm.loop !36
 
-.loopexit24:                                      ; preds = %154, %60, %.preheader23, %8, %6
+.loopexit24:                                      ; preds = %149, %60, %.preheader23, %8, %6
   ret void
 }
 

@@ -95,7 +95,7 @@ define dso_local range(i64 0, 2) i64 @brin_inclusion_add_value(ptr nocapture nou
   %39 = getelementptr i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8
   %.not82 = icmp eq i64 %40, 0
-  br i1 %.not82, label %41, label %166
+  br i1 %.not82, label %41, label %165
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds i8, ptr %4, i64 40
@@ -149,14 +149,14 @@ inclusion_get_procinfo.exit:                      ; preds = %52, %61
   %70 = getelementptr i8, ptr %69, i64 16
   %71 = load i64, ptr %70, align 8
   %.not84 = icmp eq i64 %71, 0
-  br i1 %.not84, label %72, label %166
+  br i1 %.not84, label %72, label %165
 
 72:                                               ; preds = %68
   store i64 1, ptr %70, align 8
-  br label %166
+  br label %165
 
 inclusion_get_procinfo.exit.thread:               ; preds = %41, %65, %66, %inclusion_get_procinfo.exit
-  br i1 %21, label %166, label %73
+  br i1 %21, label %165, label %73
 
 73:                                               ; preds = %inclusion_get_procinfo.exit.thread
   %74 = load ptr, ptr %45, align 8
@@ -201,7 +201,7 @@ inclusion_get_procinfo.exit69:                    ; preds = %80, %89
   %96 = load i64, ptr %95, align 8
   %97 = tail call i64 @FunctionCall2Coll(ptr noundef nonnull %81, i32 noundef %11, i64 noundef %96, i64 noundef %9) #4
   %.not85 = icmp eq i64 %97, 0
-  br i1 %.not85, label %inclusion_get_procinfo.exit69.thread, label %166
+  br i1 %.not85, label %inclusion_get_procinfo.exit69.thread, label %165
 
 inclusion_get_procinfo.exit69.thread:             ; preds = %73, %93, %94, %inclusion_get_procinfo.exit69
   %98 = load ptr, ptr %45, align 8
@@ -252,7 +252,7 @@ inclusion_get_procinfo.exit72:                    ; preds = %104, %113
   %123 = load ptr, ptr %37, align 8
   %124 = getelementptr i8, ptr %123, i64 8
   store i64 1, ptr %124, align 8
-  br label %166
+  br label %165
 
 inclusion_get_procinfo.exit72.thread:             ; preds = %inclusion_get_procinfo.exit69.thread, %117, %118, %inclusion_get_procinfo.exit72
   %125 = load ptr, ptr %45, align 8
@@ -295,38 +295,37 @@ inclusion_get_procinfo.exit75:                    ; preds = %inclusion_get_proci
   %147 = getelementptr inbounds i8, ptr %18, i64 86
   %148 = load i8, ptr %147, align 2
   %149 = trunc i8 %148 to i1
-  br i1 %149, label %164, label %150
+  br i1 %149, label %163, label %150
 
 150:                                              ; preds = %inclusion_get_procinfo.exit75
-  %151 = inttoptr i64 %146 to ptr
-  %152 = load ptr, ptr %37, align 8
-  %153 = load i64, ptr %152, align 8
-  %154 = inttoptr i64 %153 to ptr
-  %.not66 = icmp eq ptr %151, %154
-  br i1 %.not66, label %164, label %155
+  %151 = load ptr, ptr %37, align 8
+  %152 = load i64, ptr %151, align 8
+  %.not66 = icmp eq i64 %146, %152
+  br i1 %.not66, label %163, label %153
 
-155:                                              ; preds = %150
+153:                                              ; preds = %150
+  %154 = inttoptr i64 %152 to ptr
   tail call void @pfree(ptr noundef %154) #4
-  %156 = icmp eq i64 %146, %9
-  br i1 %156, label %157, label %164
+  %155 = icmp eq i64 %146, %9
+  br i1 %155, label %156, label %163
 
-157:                                              ; preds = %155
-  %158 = load i8, ptr %147, align 2
-  %159 = trunc i8 %158 to i1
-  %160 = getelementptr inbounds i8, ptr %18, i64 72
-  %161 = load i16, ptr %160, align 4
-  %162 = sext i16 %161 to i32
-  %163 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %159, i32 noundef %162) #4
-  br label %164
+156:                                              ; preds = %153
+  %157 = load i8, ptr %147, align 2
+  %158 = trunc i8 %157 to i1
+  %159 = getelementptr inbounds i8, ptr %18, i64 72
+  %160 = load i16, ptr %159, align 4
+  %161 = sext i16 %160 to i32
+  %162 = tail call i64 @datumCopy(i64 noundef %9, i1 noundef zeroext %158, i32 noundef %161) #4
+  br label %163
 
-164:                                              ; preds = %155, %157, %150, %inclusion_get_procinfo.exit75
-  %.059 = phi i64 [ %146, %inclusion_get_procinfo.exit75 ], [ %163, %157 ], [ %146, %155 ], [ %146, %150 ]
-  %165 = load ptr, ptr %37, align 8
-  store i64 %.059, ptr %165, align 8
-  br label %166
+163:                                              ; preds = %153, %156, %150, %inclusion_get_procinfo.exit75
+  %.059 = phi i64 [ %146, %inclusion_get_procinfo.exit75 ], [ %162, %156 ], [ %146, %153 ], [ %146, %150 ]
+  %164 = load ptr, ptr %37, align 8
+  store i64 %.059, ptr %164, align 8
+  br label %165
 
-166:                                              ; preds = %94, %inclusion_get_procinfo.exit.thread, %68, %36, %164, %122, %72
-  %.0 = phi i64 [ 1, %72 ], [ 1, %164 ], [ 1, %122 ], [ 0, %36 ], [ 0, %68 ], [ 1, %inclusion_get_procinfo.exit.thread ], [ 0, %94 ]
+165:                                              ; preds = %94, %inclusion_get_procinfo.exit.thread, %68, %36, %163, %122, %72
+  %.0 = phi i64 [ 1, %72 ], [ 1, %163 ], [ 1, %122 ], [ 0, %36 ], [ 0, %68 ], [ 1, %inclusion_get_procinfo.exit.thread ], [ 0, %94 ]
   ret i64 %.0
 }
 
@@ -670,7 +669,7 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
   %32 = getelementptr i8, ptr %31, i64 8
   %33 = load i64, ptr %32, align 8
   %.not49 = icmp eq i64 %33, 0
-  br i1 %.not49, label %34, label %119
+  br i1 %.not49, label %34, label %118
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %10, i64 8
@@ -682,7 +681,7 @@ define dso_local noundef i64 @brin_inclusion_union(ptr nocapture noundef readonl
 
 39:                                               ; preds = %34
   store i64 1, ptr %32, align 8
-  br label %119
+  br label %118
 
 40:                                               ; preds = %34
   %41 = getelementptr inbounds i8, ptr %4, i64 40
@@ -739,7 +738,7 @@ inclusion_get_procinfo.exit:                      ; preds = %51, %60
   %72 = load ptr, ptr %20, align 8
   %73 = getelementptr i8, ptr %72, i64 8
   store i64 1, ptr %73, align 8
-  br label %119
+  br label %118
 
 inclusion_get_procinfo.exit.thread:               ; preds = %40, %64, %65, %inclusion_get_procinfo.exit
   %74 = load ptr, ptr %44, align 8
@@ -784,39 +783,38 @@ inclusion_get_procinfo.exit44:                    ; preds = %inclusion_get_proci
   %98 = getelementptr inbounds i8, ptr %19, i64 86
   %99 = load i8, ptr %98, align 2
   %100 = trunc i8 %99 to i1
-  br i1 %100, label %117, label %101
+  br i1 %100, label %116, label %101
 
 101:                                              ; preds = %inclusion_get_procinfo.exit44
-  %102 = inttoptr i64 %97 to ptr
-  %103 = load ptr, ptr %20, align 8
-  %104 = load i64, ptr %103, align 8
-  %105 = inttoptr i64 %104 to ptr
-  %.not41 = icmp eq ptr %102, %105
-  br i1 %.not41, label %117, label %106
+  %102 = load ptr, ptr %20, align 8
+  %103 = load i64, ptr %102, align 8
+  %.not41 = icmp eq i64 %97, %103
+  br i1 %.not41, label %116, label %104
 
-106:                                              ; preds = %101
+104:                                              ; preds = %101
+  %105 = inttoptr i64 %103 to ptr
   tail call void @pfree(ptr noundef %105) #4
-  %107 = load ptr, ptr %35, align 8
-  %108 = load i64, ptr %107, align 8
-  %109 = icmp eq i64 %97, %108
-  br i1 %109, label %110, label %117
+  %106 = load ptr, ptr %35, align 8
+  %107 = load i64, ptr %106, align 8
+  %108 = icmp eq i64 %97, %107
+  br i1 %108, label %109, label %116
 
-110:                                              ; preds = %106
-  %111 = load i8, ptr %98, align 2
-  %112 = trunc i8 %111 to i1
-  %113 = getelementptr inbounds i8, ptr %19, i64 72
-  %114 = load i16, ptr %113, align 4
-  %115 = sext i16 %114 to i32
-  %116 = tail call i64 @datumCopy(i64 noundef %97, i1 noundef zeroext %112, i32 noundef %115) #4
-  br label %117
+109:                                              ; preds = %104
+  %110 = load i8, ptr %98, align 2
+  %111 = trunc i8 %110 to i1
+  %112 = getelementptr inbounds i8, ptr %19, i64 72
+  %113 = load i16, ptr %112, align 4
+  %114 = sext i16 %113 to i32
+  %115 = tail call i64 @datumCopy(i64 noundef %97, i1 noundef zeroext %111, i32 noundef %114) #4
+  br label %116
 
-117:                                              ; preds = %106, %110, %101, %inclusion_get_procinfo.exit44
-  %.0 = phi i64 [ %97, %inclusion_get_procinfo.exit44 ], [ %116, %110 ], [ %97, %106 ], [ %97, %101 ]
-  %118 = load ptr, ptr %20, align 8
-  store i64 %.0, ptr %118, align 8
-  br label %119
+116:                                              ; preds = %104, %109, %101, %inclusion_get_procinfo.exit44
+  %.0 = phi i64 [ %97, %inclusion_get_procinfo.exit44 ], [ %115, %109 ], [ %97, %104 ], [ %97, %101 ]
+  %117 = load ptr, ptr %20, align 8
+  store i64 %.0, ptr %117, align 8
+  br label %118
 
-119:                                              ; preds = %30, %117, %71, %39
+118:                                              ; preds = %30, %116, %71, %39
   ret i64 0
 }
 

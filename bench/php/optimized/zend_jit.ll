@@ -6212,7 +6212,7 @@ switch.edge317:                                   ; preds = %214
   br label %264
 
 264:                                              ; preds = %252, %263, %258
-  %265 = icmp eq ptr %248, getelementptr inbounds (i8, ptr @executor_globals, i64 1288)
+  %265 = icmp eq i64 %247, ptrtoint (ptr getelementptr inbounds (i8, ptr @executor_globals, i64 1288) to i64)
   br i1 %265, label %266, label %267
 
 266:                                              ; preds = %264
@@ -6220,7 +6220,7 @@ switch.edge317:                                   ; preds = %214
   br label %268
 
 267:                                              ; preds = %264
-  tail call void @_efree(ptr noundef %248) #33
+  tail call void @_efree(ptr noundef nonnull %248) #33
   br label %268
 
 268:                                              ; preds = %266, %267

@@ -3321,7 +3321,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi0EE14EncodingStatusIN9_
   %167 = load i64, ptr %6, align 8
   %.sroa.3.0.extract.shift.i.i = lshr i64 %167, 32
   %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
-  %168 = icmp eq ptr %83, %84
+  %168 = icmp eq i64 %.sroa.065.sroa.0.0.copyload140, %.sroa.065.sroa.2.0.copyload142
   br i1 %168, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi0EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %166
@@ -5026,7 +5026,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi1EE14EncodingStatusIN9_
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds i32, ptr %163, i64 %95
   %165 = load i32, ptr %164, align 4
-  %166 = icmp eq ptr %83, %84
+  %166 = icmp eq i64 %.sroa.065.sroa.0.0.copyload144, %.sroa.065.sroa.2.0.copyload146
   br i1 %166, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi1EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %151
@@ -5979,7 +5979,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi2EE14EncodingStatusIN9_
   %167 = load i64, ptr %6, align 8
   %.sroa.3.0.extract.shift.i.i = lshr i64 %167, 32
   %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
-  %168 = icmp eq ptr %83, %84
+  %168 = icmp eq i64 %.sroa.065.sroa.0.0.copyload140, %.sroa.065.sroa.2.0.copyload142
   br i1 %168, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi2EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %166
@@ -6932,7 +6932,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi3EE14EncodingStatusIN9_
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds i32, ptr %163, i64 %95
   %165 = load i32, ptr %164, align 4
-  %166 = icmp eq ptr %83, %84
+  %166 = icmp eq i64 %.sroa.065.sroa.0.0.copyload144, %.sroa.065.sroa.2.0.copyload146
   br i1 %166, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi3EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %151
@@ -7885,7 +7885,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi4EE14EncodingStatusIN9_
   %167 = load i64, ptr %6, align 8
   %.sroa.3.0.extract.shift.i.i = lshr i64 %167, 32
   %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
-  %168 = icmp eq ptr %83, %84
+  %168 = icmp eq i64 %.sroa.065.sroa.0.0.copyload140, %.sroa.065.sroa.2.0.copyload142
   br i1 %168, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi4EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %166
@@ -8844,7 +8844,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi5EE14EncodingStatusIN9_
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr inbounds i32, ptr %163, i64 %95
   %165 = load i32, ptr %164, align 4
-  %166 = icmp eq ptr %83, %84
+  %166 = icmp eq i64 %.sroa.065.sroa.0.0.copyload152, %.sroa.065.sroa.2.0.copyload154
   br i1 %166, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi5EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %151
@@ -9845,7 +9845,7 @@ _ZNSt5stackIN5draco33DynamicIntegerPointsKdTreeEncoderILi6EE14EncodingStatusIN9_
   %165 = load i64, ptr %6, align 8
   %.sroa.3.0.extract.shift.i.i = lshr i64 %165, 32
   %.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i to i32
-  %166 = icmp eq ptr %83, %84
+  %166 = icmp eq i64 %.sroa.065.sroa.0.0.copyload140, %.sroa.065.sroa.2.0.copyload142
   br i1 %166, label %_ZSt9partitionIN9__gnu_cxx17__normal_iteratorIPN5draco7VectorDIjLi3EEESt6vectorIS4_SaIS4_EEEENS2_33DynamicIntegerPointsKdTreeEncoderILi6EE8SplitterEET_SD_SD_T0_.exit, label %.lr.ph.lr.ph.i.i
 
 .lr.ph.lr.ph.i.i:                                 ; preds = %164

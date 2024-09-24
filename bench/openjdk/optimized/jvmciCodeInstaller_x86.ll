@@ -435,7 +435,7 @@ _ZN10NativeCall15set_destinationEPh.exit:         ; preds = %10
   store i32 6, ptr %23, align 8, !alias.scope !21
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %5, align 8, !alias.scope !21
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %21, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %5, i32 noundef 2) #5
-  br label %75
+  br label %74
 
 .thread5.i:                                       ; preds = %4
   %24 = getelementptr inbounds i8, ptr %1, i64 1
@@ -482,7 +482,7 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit:  ; preds = %.thread5.i, %25, %s
   store i32 6, ptr %41, align 8, !alias.scope !26
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %6, align 8, !alias.scope !26
   call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %39, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 0) #5
-  br label %75
+  br label %74
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %25, %_ZN17NativeInstruction16is_mov_literal64Ev.exit
   %42 = and i8 %9, -3
@@ -490,72 +490,71 @@ _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread: ; preds = %25, %_ZN17Nat
   br i1 %spec.select.i, label %43, label %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread
 
 43:                                               ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
-  %44 = inttoptr i64 %2 to ptr
-  %45 = getelementptr inbounds i8, ptr %1, i64 5
-  %46 = ptrtoint ptr %45 to i64
-  %47 = sub i64 %2, %46
-  %48 = icmp eq ptr %44, inttoptr (i64 -1 to ptr)
-  %49 = trunc i64 %47 to i32
-  %50 = select i1 %48, i32 -5, i32 %49
-  %51 = getelementptr inbounds i8, ptr %1, i64 1
-  store i32 %50, ptr %51, align 4
+  %44 = getelementptr inbounds i8, ptr %1, i64 5
+  %45 = ptrtoint ptr %44 to i64
+  %46 = sub i64 %2, %45
+  %47 = icmp eq i64 %2, -1
+  %48 = trunc i64 %46 to i32
+  %49 = select i1 %47, i32 -5, i32 %48
+  %50 = getelementptr inbounds i8, ptr %1, i64 1
+  store i32 %49, ptr %50, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %1, i32 noundef 1) #5
-  %52 = getelementptr inbounds i8, ptr %0, i64 136
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr null, ptr %54, align 8, !alias.scope !31
-  %55 = getelementptr inbounds i8, ptr %7, i64 16
-  store i32 6, ptr %55, align 8, !alias.scope !31
+  %51 = getelementptr inbounds i8, ptr %0, i64 136
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr null, ptr %53, align 8, !alias.scope !31
+  %54 = getelementptr inbounds i8, ptr %7, i64 16
+  store i32 6, ptr %54, align 8, !alias.scope !31
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %7, align 8, !alias.scope !31
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %53, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 2) #5
-  br label %75
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %52, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef 2) #5
+  br label %74
 
 _ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread: ; preds = %27, %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread
-  %56 = load i32, ptr %1, align 4
-  %57 = and i32 %56, 61695
-  %58 = icmp eq i32 %57, 32783
-  %59 = and i32 %56, 240
-  %60 = icmp eq i32 %59, 112
-  %61 = or i1 %58, %60
-  br i1 %61, label %62, label %74
+  %55 = load i32, ptr %1, align 4
+  %56 = and i32 %55, 61695
+  %57 = icmp eq i32 %56, 32783
+  %58 = and i32 %55, 240
+  %59 = icmp eq i32 %58, 112
+  %60 = or i1 %57, %59
+  br i1 %60, label %61, label %73
 
-62:                                               ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread
-  %63 = tail call noundef ptr @_ZNK17NativeGeneralJump16jump_destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #5
-  %64 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef nonnull %1, i32 noundef 2) #5
-  %65 = ptrtoint ptr %63 to i64
-  %66 = sub i64 %2, %65
-  %67 = load i32, ptr %64, align 4
-  %68 = trunc i64 %66 to i32
-  %69 = add i32 %67, %68
-  store i32 %69, ptr %64, align 4
-  %70 = getelementptr inbounds i8, ptr %0, i64 136
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr null, ptr %72, align 8, !alias.scope !36
-  %73 = getelementptr inbounds i8, ptr %8, i64 16
-  store i32 6, ptr %73, align 8, !alias.scope !36
+61:                                               ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread
+  %62 = tail call noundef ptr @_ZNK17NativeGeneralJump16jump_destinationEv(ptr noundef nonnull align 1 dereferenceable(1) %1) #5
+  %63 = tail call noundef ptr @_ZN9Assembler14locate_operandEPhNS_12WhichOperandE(ptr noundef nonnull %1, i32 noundef 2) #5
+  %64 = ptrtoint ptr %62 to i64
+  %65 = sub i64 %2, %64
+  %66 = load i32, ptr %63, align 4
+  %67 = trunc i64 %65 to i32
+  %68 = add i32 %66, %67
+  store i32 %68, ptr %63, align 4
+  %69 = getelementptr inbounds i8, ptr %0, i64 136
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr null, ptr %71, align 8, !alias.scope !36
+  %72 = getelementptr inbounds i8, ptr %8, i64 16
+  store i32 6, ptr %72, align 8, !alias.scope !36
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV23runtime_call_Relocation, i64 16), ptr %8, align 8, !alias.scope !36
-  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %71, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2) #5
-  br label %75
+  call void @_ZN11CodeSection8relocateEPhRK16RelocationHolderi(ptr noundef nonnull align 8 dereferenceable(88) %70, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %8, i32 noundef 2) #5
+  br label %74
 
-74:                                               ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread
+73:                                               ; preds = %_ZN17NativeInstruction16is_mov_literal64Ev.exit.thread.thread
   tail call void (ptr, ptr, i32, ptr, ...) @_ZN8JVMCIEnv12fthrow_errorEPKciS1_z(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull @.str, i32 noundef 151, ptr noundef nonnull @.str.10) #5
-  br label %82
+  br label %81
 
-75:                                               ; preds = %33, %62, %43, %_ZN10NativeCall15set_destinationEPh.exit
-  %76 = load i64, ptr @JVMCITraceLevel, align 8
-  %77 = icmp slt i64 %76, 3
-  %78 = load i64, ptr @JVMCIEventLogLevel, align 8
-  %79 = icmp slt i64 %78, 3
-  %or.cond = select i1 %77, i1 %79, i1 false
-  br i1 %or.cond, label %82, label %80
+74:                                               ; preds = %33, %61, %43, %_ZN10NativeCall15set_destinationEPh.exit
+  %75 = load i64, ptr @JVMCITraceLevel, align 8
+  %76 = icmp slt i64 %75, 3
+  %77 = load i64, ptr @JVMCIEventLogLevel, align 8
+  %78 = icmp slt i64 %77, 3
+  %or.cond = select i1 %76, i1 %78, i1 false
+  br i1 %or.cond, label %81, label %79
 
-80:                                               ; preds = %75
-  %81 = ptrtoint ptr %1 to i64
-  call void (ptr, ...) @_ZN5JVMCI6event3EPKcz(ptr noundef nonnull @.str.11, i64 noundef %81) #5
-  br label %82
+79:                                               ; preds = %74
+  %80 = ptrtoint ptr %1 to i64
+  call void (ptr, ...) @_ZN5JVMCI6event3EPKcz(ptr noundef nonnull @.str.11, i64 noundef %80) #5
+  br label %81
 
-82:                                               ; preds = %75, %80, %74
+81:                                               ; preds = %74, %79, %73
   ret void
 }
 

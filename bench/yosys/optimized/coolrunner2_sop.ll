@@ -19878,9 +19878,9 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolISt5tupleIJPNS_5RTLIL4Ce
   %.pre64 = load ptr, ptr %9, align 8
   br label %33
 
-33:                                               ; preds = %.lr.ph, %86
-  %34 = phi ptr [ %.pre64, %.lr.ph ], [ %87, %86 ]
-  %.02036 = phi i32 [ %30, %.lr.ph ], [ %89, %86 ]
+33:                                               ; preds = %.lr.ph, %85
+  %34 = phi ptr [ %.pre64, %.lr.ph ], [ %86, %85 ]
+  %.02036 = phi i32 [ %30, %.lr.ph ], [ %88, %85 ]
   %35 = zext nneg i32 %.02036 to i64
   %36 = getelementptr inbounds %"struct.Yosys::hashlib::pool<std::tuple<Yosys::RTLIL::Cell *, Yosys::RTLIL::IdString>>::entry_t", ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
@@ -19899,93 +19899,91 @@ define linkonce_odr noundef i32 @_ZNK5Yosys7hashlib4poolISt5tupleIJPNS_5RTLIL4Ce
 _ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEEC2ERKS5_.exit: ; preds = %33, %38
   %44 = getelementptr inbounds i8, ptr %36, i64 8
   %45 = load i64, ptr %44, align 8
-  %46 = inttoptr i64 %45 to ptr
-  %47 = load i32, ptr %1, align 8
-  %.not.i.i.i.i.i.i24 = icmp eq i32 %47, 0
-  br i1 %.not.i.i.i.i.i.i24, label %54, label %48
+  %46 = load i32, ptr %1, align 8
+  %.not.i.i.i.i.i.i24 = icmp eq i32 %46, 0
+  br i1 %.not.i.i.i.i.i.i24, label %53, label %47
 
-48:                                               ; preds = %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEEC2ERKS5_.exit
-  %49 = sext i32 %47 to i64
-  %50 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
-  %51 = getelementptr inbounds i32, ptr %50, i64 %49
-  %52 = load i32, ptr %51, align 4
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %51, align 4
-  br label %54
+47:                                               ; preds = %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEEC2ERKS5_.exit
+  %48 = sext i32 %46 to i64
+  %49 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
+  %50 = getelementptr inbounds i32, ptr %49, i64 %48
+  %51 = load i32, ptr %50, align 4
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %50, align 4
+  br label %53
 
-54:                                               ; preds = %48, %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEEC2ERKS5_.exit
-  %55 = load i64, ptr %32, align 8
-  %.cast = inttoptr i64 %55 to ptr
-  %56 = icmp ne ptr %46, %.cast
-  %57 = icmp ne i32 %37, %47
-  %.not29 = or i1 %56, %57
-  %58 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
-  %59 = trunc i8 %58 to i1
-  %60 = icmp ne i32 %47, 0
-  %or.cond.i.i.i.i.i.i = and i1 %60, %59
-  br i1 %or.cond.i.i.i.i.i.i, label %61, label %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit
+53:                                               ; preds = %47, %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEEC2ERKS5_.exit
+  %54 = load i64, ptr %32, align 8
+  %55 = icmp ne i64 %45, %54
+  %56 = icmp ne i32 %37, %46
+  %.not29 = or i1 %55, %56
+  %57 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
+  %58 = trunc i8 %57 to i1
+  %59 = icmp ne i32 %46, 0
+  %or.cond.i.i.i.i.i.i = and i1 %59, %58
+  br i1 %or.cond.i.i.i.i.i.i, label %60, label %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit
 
-61:                                               ; preds = %54
-  %62 = sext i32 %47 to i64
-  %63 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
-  %64 = getelementptr inbounds i32, ptr %63, i64 %62
-  %65 = load i32, ptr %64, align 4
-  %66 = add nsw i32 %65, -1
-  store i32 %66, ptr %64, align 4
-  %67 = icmp sgt i32 %65, 1
-  br i1 %67, label %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit, label %68
+60:                                               ; preds = %53
+  %61 = sext i32 %46 to i64
+  %62 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
+  %63 = getelementptr inbounds i32, ptr %62, i64 %61
+  %64 = load i32, ptr %63, align 4
+  %65 = add nsw i32 %64, -1
+  store i32 %65, ptr %63, align 4
+  %66 = icmp sgt i32 %64, 1
+  br i1 %66, label %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit, label %67
 
-68:                                               ; preds = %61
-  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %47)
-          to label %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit unwind label %69
+67:                                               ; preds = %60
+  invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %46)
+          to label %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit unwind label %68
 
-69:                                               ; preds = %68
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %67
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  tail call void @__clang_call_terminate(ptr %71) #23
+  %70 = extractvalue { ptr, i32 } %69, 0
+  tail call void @__clang_call_terminate(ptr %70) #23
   unreachable
 
-_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit: ; preds = %54, %61, %68
-  %72 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
-  %73 = trunc i8 %72 to i1
-  %74 = icmp ne i32 %37, 0
-  %or.cond.i.i.i.i.i.i26 = and i1 %74, %73
-  br i1 %or.cond.i.i.i.i.i.i26, label %75, label %.critedge
+_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit: ; preds = %53, %60, %67
+  %71 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1
+  %72 = trunc i8 %71 to i1
+  %73 = icmp ne i32 %37, 0
+  %or.cond.i.i.i.i.i.i26 = and i1 %73, %72
+  br i1 %or.cond.i.i.i.i.i.i26, label %74, label %.critedge
 
-75:                                               ; preds = %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit
-  %76 = sext i32 %37 to i64
-  %77 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
-  %78 = getelementptr inbounds i32, ptr %77, i64 %76
-  %79 = load i32, ptr %78, align 4
-  %80 = add nsw i32 %79, -1
-  store i32 %80, ptr %78, align 4
-  %81 = icmp sgt i32 %79, 1
-  br i1 %81, label %.critedge, label %82
+74:                                               ; preds = %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit
+  %75 = sext i32 %37 to i64
+  %76 = load ptr, ptr @_ZN5Yosys5RTLIL8IdString24global_refcount_storage_E, align 8
+  %77 = getelementptr inbounds i32, ptr %76, i64 %75
+  %78 = load i32, ptr %77, align 4
+  %79 = add nsw i32 %78, -1
+  store i32 %79, ptr %77, align 4
+  %80 = icmp sgt i32 %78, 1
+  br i1 %80, label %.critedge, label %81
 
-82:                                               ; preds = %75
+81:                                               ; preds = %74
   invoke void @_ZN5Yosys5RTLIL8IdString14free_referenceEi(i32 noundef %37)
-          to label %.critedge unwind label %83
+          to label %.critedge unwind label %82
 
-83:                                               ; preds = %82
-  %84 = landingpad { ptr, i32 }
+82:                                               ; preds = %81
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %85 = extractvalue { ptr, i32 } %84, 0
-  tail call void @__clang_call_terminate(ptr %85) #23
+  %84 = extractvalue { ptr, i32 } %83, 0
+  tail call void @__clang_call_terminate(ptr %84) #23
   unreachable
 
-.critedge:                                        ; preds = %82, %75, %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit
-  br i1 %.not29, label %86, label %.critedge.thread
+.critedge:                                        ; preds = %81, %74, %_ZNSt5tupleIJPN5Yosys5RTLIL4CellENS1_8IdStringEEED2Ev.exit
+  br i1 %.not29, label %85, label %.critedge.thread
 
-86:                                               ; preds = %.critedge
-  %87 = load ptr, ptr %9, align 8
-  %88 = getelementptr inbounds %"struct.Yosys::hashlib::pool<std::tuple<Yosys::RTLIL::Cell *, Yosys::RTLIL::IdString>>::entry_t", ptr %87, i64 %35, i32 1
-  %89 = load i32, ptr %88, align 8
-  %90 = icmp sgt i32 %89, -1
-  br i1 %90, label %33, label %.critedge.thread, !llvm.loop !310
+85:                                               ; preds = %.critedge
+  %86 = load ptr, ptr %9, align 8
+  %87 = getelementptr inbounds %"struct.Yosys::hashlib::pool<std::tuple<Yosys::RTLIL::Cell *, Yosys::RTLIL::IdString>>::entry_t", ptr %86, i64 %35, i32 1
+  %88 = load i32, ptr %87, align 8
+  %89 = icmp sgt i32 %88, -1
+  br i1 %89, label %33, label %.critedge.thread, !llvm.loop !310
 
-.critedge.thread:                                 ; preds = %.critedge, %86, %25, %3
-  %.021 = phi i32 [ -1, %3 ], [ %30, %25 ], [ %89, %86 ], [ %.02036, %.critedge ]
+.critedge.thread:                                 ; preds = %.critedge, %85, %25, %3
+  %.021 = phi i32 [ -1, %3 ], [ %30, %25 ], [ %88, %85 ], [ %.02036, %.critedge ]
   ret i32 %.021
 }
 

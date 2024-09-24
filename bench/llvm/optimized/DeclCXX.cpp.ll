@@ -15526,19 +15526,17 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %_ZNK5clang13Referen
   %71 = load ptr, ptr %70, align 16
   %72 = ptrtoint ptr %71 to i64
   %73 = and i64 %72, -16
-  %74 = inttoptr i64 %73 to ptr
-  %75 = inttoptr i64 %68 to ptr
-  %.not27 = icmp eq ptr %74, %75
-  br i1 %.not27, label %76, label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread
+  %.not27 = icmp eq i64 %73, %68
+  br i1 %.not27, label %74, label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread
 
-76:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit
-  %77 = trunc i64 %49 to i32
-  %78 = and i32 %77, 7
-  store i32 %78, ptr %1, align 4
+74:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit
+  %75 = trunc i64 %49 to i32
+  %76 = and i32 %75, 7
+  store i32 %76, ptr %1, align 4
   br label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread
 
-_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %19, %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit, %2, %4, %6, %76
-  %.0 = phi i1 [ true, %76 ], [ false, %6 ], [ false, %4 ], [ false, %2 ], [ false, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ], [ false, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ false, %19 ]
+_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %19, %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit, %2, %4, %6, %74
+  %.0 = phi i1 [ true, %74 ], [ false, %6 ], [ false, %4 ], [ false, %2 ], [ false, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit ], [ false, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ], [ false, %19 ]
   ret i1 %.0
 }
 
@@ -15644,12 +15642,12 @@ _ZNK5clang4Type6castAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %19, %26
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang18CXXConstructorDecl29isSpecializationCopyingObjectEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef zeroext i1 @_ZNK5clang12FunctionDecl24hasOneParamOrDefaultArgsEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #25
-  br i1 %2, label %3, label %41
+  br i1 %2, label %3, label %39
 
 3:                                                ; preds = %1
   %4 = tail call noundef ptr @_ZNK5clang12FunctionDecl28getDescribedFunctionTemplateEv(ptr noundef nonnull align 8 dereferenceable(168) %0) #25
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %41
+  br i1 %.not, label %5, label %39
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -15693,12 +15691,10 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %5, %22
   %36 = load ptr, ptr %35, align 16
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, -16
-  %39 = inttoptr i64 %38 to ptr
-  %40 = inttoptr i64 %33 to ptr
-  %.not10 = icmp eq ptr %39, %40
-  br label %41
+  %.not10 = icmp eq i64 %38, %33
+  br label %39
 
-41:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %1, %3
+39:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %1, %3
   %.0 = phi i1 [ false, %3 ], [ false, %1 ], [ %.not10, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
   ret i1 %.0
 }

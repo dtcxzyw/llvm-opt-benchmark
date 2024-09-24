@@ -49170,23 +49170,23 @@ define hidden range(i32 -25, 1) i32 @ma_paged_audio_buffer_seek_to_pcm_frame(ptr
   %.not57 = icmp eq i64 %25, 0
   br i1 %.not57, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20, %46
-  %.04459.in = phi i64 [ %47, %46 ], [ %25, %20 ]
-  %.04358 = phi i64 [ %28, %46 ], [ 0, %20 ]
-  %.04459 = inttoptr i64 %.04459.in to ptr
-  %26 = getelementptr inbounds i8, ptr %.04459, i64 8
+.lr.ph:                                           ; preds = %20, %45
+  %.04359 = phi i64 [ %28, %45 ], [ 0, %20 ]
+  %.044.in58 = phi i64 [ %46, %45 ], [ %25, %20 ]
+  %.04460 = inttoptr i64 %.044.in58 to ptr
+  %26 = getelementptr inbounds i8, ptr %.04460, i64 8
   %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, %.04358
-  %.not51 = icmp ult i64 %1, %.04358
-  br i1 %.not51, label %46, label %29
+  %28 = add i64 %27, %.04359
+  %.not51 = icmp ult i64 %1, %.04359
+  br i1 %.not51, label %45, label %29
 
 29:                                               ; preds = %.lr.ph
   %30 = icmp ult i64 %1, %28
-  br i1 %30, label %42, label %31
+  br i1 %30, label %41, label %31
 
 31:                                               ; preds = %29
   %32 = icmp eq i64 %1, %28
-  br i1 %32, label %33, label %46
+  br i1 %32, label %33, label %45
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %21, align 8
@@ -49201,26 +49201,25 @@ define hidden range(i32 -25, 1) i32 @ma_paged_audio_buffer_seek_to_pcm_frame(ptr
 ma_paged_audio_buffer_data_get_tail.exit:         ; preds = %33, %36
   %.0.i53 = phi ptr [ %38, %36 ], [ null, %33 ]
   %39 = load atomic volatile i64, ptr %.0.i53 seq_cst, align 8
-  %40 = inttoptr i64 %39 to ptr
-  %41 = icmp eq ptr %.04459, %40
-  br i1 %41, label %42, label %46
+  %40 = icmp eq i64 %.044.in58, %39
+  br i1 %40, label %41, label %45
 
-42:                                               ; preds = %ma_paged_audio_buffer_data_get_tail.exit, %29
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %.04459, ptr %43, align 8
+41:                                               ; preds = %ma_paged_audio_buffer_data_get_tail.exit, %29
+  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %.04460, ptr %42, align 8
   store i64 %1, ptr %5, align 8
-  %44 = sub i64 %1, %.04358
-  %45 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %44, ptr %45, align 8
+  %43 = sub i64 %1, %.04359
+  %44 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %43, ptr %44, align 8
   br label %.loopexit
 
-46:                                               ; preds = %.lr.ph, %ma_paged_audio_buffer_data_get_tail.exit, %31
-  %47 = load atomic volatile i64, ptr %.04459 seq_cst, align 8
-  %.not = icmp eq i64 %47, 0
+45:                                               ; preds = %.lr.ph, %ma_paged_audio_buffer_data_get_tail.exit, %31
+  %46 = load atomic volatile i64, ptr %.04460 seq_cst, align 8
+  %.not = icmp eq i64 %46, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %46, %20, %17, %4, %2, %42
-  %.046 = phi i32 [ 0, %42 ], [ -2, %2 ], [ 0, %4 ], [ 0, %17 ], [ -25, %20 ], [ -25, %46 ]
+.loopexit:                                        ; preds = %45, %20, %17, %4, %2, %41
+  %.046 = phi i32 [ 0, %41 ], [ -2, %2 ], [ 0, %4 ], [ 0, %17 ], [ -25, %20 ], [ -25, %45 ]
   ret i32 %.046
 }
 
@@ -110771,23 +110770,23 @@ define internal range(i32 -25, 1) i32 @ma_paged_audio_buffer__data_source_on_see
   %.not57.i = icmp eq i64 %25, 0
   br i1 %.not57.i, label %ma_paged_audio_buffer_seek_to_pcm_frame.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %20, %46
-  %.04459.in.i = phi i64 [ %47, %46 ], [ %25, %20 ]
-  %.04358.i = phi i64 [ %28, %46 ], [ 0, %20 ]
-  %.04459.i = inttoptr i64 %.04459.in.i to ptr
-  %26 = getelementptr inbounds i8, ptr %.04459.i, i64 8
+.lr.ph.i:                                         ; preds = %20, %45
+  %.04359.i = phi i64 [ %28, %45 ], [ 0, %20 ]
+  %.044.in58.i = phi i64 [ %46, %45 ], [ %25, %20 ]
+  %.04460.i = inttoptr i64 %.044.in58.i to ptr
+  %26 = getelementptr inbounds i8, ptr %.04460.i, i64 8
   %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, %.04358.i
-  %.not51.i = icmp ult i64 %1, %.04358.i
-  br i1 %.not51.i, label %46, label %29
+  %28 = add i64 %27, %.04359.i
+  %.not51.i = icmp ult i64 %1, %.04359.i
+  br i1 %.not51.i, label %45, label %29
 
 29:                                               ; preds = %.lr.ph.i
   %30 = icmp ult i64 %1, %28
-  br i1 %30, label %42, label %31
+  br i1 %30, label %41, label %31
 
 31:                                               ; preds = %29
   %32 = icmp eq i64 %1, %28
-  br i1 %32, label %33, label %46
+  br i1 %32, label %33, label %45
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %21, align 8
@@ -110802,26 +110801,25 @@ define internal range(i32 -25, 1) i32 @ma_paged_audio_buffer__data_source_on_see
 ma_paged_audio_buffer_data_get_tail.exit.i:       ; preds = %36, %33
   %.0.i53.i = phi ptr [ %38, %36 ], [ null, %33 ]
   %39 = load atomic volatile i64, ptr %.0.i53.i seq_cst, align 8
-  %40 = inttoptr i64 %39 to ptr
-  %41 = icmp eq ptr %.04459.i, %40
-  br i1 %41, label %42, label %46
+  %40 = icmp eq i64 %.044.in58.i, %39
+  br i1 %40, label %41, label %45
 
-42:                                               ; preds = %ma_paged_audio_buffer_data_get_tail.exit.i, %29
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr %.04459.i, ptr %43, align 8
+41:                                               ; preds = %ma_paged_audio_buffer_data_get_tail.exit.i, %29
+  %42 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr %.04460.i, ptr %42, align 8
   store i64 %1, ptr %5, align 8
-  %44 = sub i64 %1, %.04358.i
-  %45 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %44, ptr %45, align 8
+  %43 = sub i64 %1, %.04359.i
+  %44 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %43, ptr %44, align 8
   br label %ma_paged_audio_buffer_seek_to_pcm_frame.exit
 
-46:                                               ; preds = %ma_paged_audio_buffer_data_get_tail.exit.i, %31, %.lr.ph.i
-  %47 = load atomic volatile i64, ptr %.04459.i seq_cst, align 8
-  %.not.i = icmp eq i64 %47, 0
+45:                                               ; preds = %ma_paged_audio_buffer_data_get_tail.exit.i, %31, %.lr.ph.i
+  %46 = load atomic volatile i64, ptr %.04460.i seq_cst, align 8
+  %.not.i = icmp eq i64 %46, 0
   br i1 %.not.i, label %ma_paged_audio_buffer_seek_to_pcm_frame.exit, label %.lr.ph.i
 
-ma_paged_audio_buffer_seek_to_pcm_frame.exit:     ; preds = %46, %2, %4, %17, %20, %42
-  %.046.i = phi i32 [ 0, %42 ], [ -2, %2 ], [ 0, %4 ], [ 0, %17 ], [ -25, %20 ], [ -25, %46 ]
+ma_paged_audio_buffer_seek_to_pcm_frame.exit:     ; preds = %45, %2, %4, %17, %20, %41
+  %.046.i = phi i32 [ 0, %41 ], [ -2, %2 ], [ 0, %4 ], [ 0, %17 ], [ -25, %20 ], [ -25, %45 ]
   ret i32 %.046.i
 }
 

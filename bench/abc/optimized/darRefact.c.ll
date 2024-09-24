@@ -564,8 +564,8 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone %1, ptr noca
   br i1 %.not97, label %.critedge2, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %.not116 = icmp eq i32 %.val78, 0
-  br i1 %.not116, label %.critedge.preheader, label %.lr.ph
+  %.not119 = icmp eq i32 %.val78, 0
+  br i1 %.not119, label %.critedge.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %12 = getelementptr i8, ptr %3, i64 16
@@ -691,7 +691,7 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone %1, ptr noca
   %89 = and i32 %88, 16383
   %90 = tail call i32 @llvm.umax.i32(i32 %86, i32 %89)
   %91 = add nuw nsw i32 %90, 1
-  br i1 %83, label %112, label %92
+  br i1 %83, label %109, label %92
 
 92:                                               ; preds = %82
   %93 = ptrtoint ptr %.06991 to i64
@@ -699,53 +699,48 @@ define i32 @Dar_RefactTryGraph(ptr noundef %0, ptr noundef readnone %1, ptr noca
   %95 = inttoptr i64 %94 to ptr
   %.val87 = load ptr, ptr %19, align 8
   %96 = icmp eq ptr %.val87, %95
-  br i1 %96, label %112, label %97
+  br i1 %96, label %109, label %97
 
 97:                                               ; preds = %92
   %98 = ptrtoint ptr %.06893 to i64
   %99 = and i64 %98, -2
-  %100 = inttoptr i64 %99 to ptr
-  %101 = icmp eq ptr %95, %100
-  br i1 %101, label %.sink.split, label %102
+  %100 = icmp eq i64 %94, %99
+  %101 = ptrtoint ptr %.06795 to i64
+  %102 = and i64 %101, -2
+  %103 = icmp eq i64 %94, %102
+  %or.cond118 = select i1 %100, i1 true, i1 %103
+  br i1 %or.cond118, label %.sink.split, label %109
 
-102:                                              ; preds = %97
-  %103 = ptrtoint ptr %.06795 to i64
-  %104 = and i64 %103, -2
-  %105 = inttoptr i64 %104 to ptr
-  %106 = icmp eq ptr %95, %105
-  br i1 %106, label %.sink.split, label %112
+.sink.split:                                      ; preds = %97
+  %104 = getelementptr inbounds i8, ptr %95, i64 24
+  %105 = load i64, ptr %104, align 8
+  %106 = lshr i64 %105, 32
+  %107 = trunc nuw i64 %106 to i32
+  %108 = and i32 %107, 16777215
+  br label %109
 
-.sink.split:                                      ; preds = %102, %97
-  %.sink = phi ptr [ %100, %97 ], [ %105, %102 ]
-  %107 = getelementptr inbounds i8, ptr %.sink, i64 24
-  %108 = load i64, ptr %107, align 8
-  %109 = lshr i64 %108, 32
-  %110 = trunc nuw i64 %109 to i32
-  %111 = and i32 %110, 16777215
-  br label %112
+109:                                              ; preds = %97, %.sink.split, %92, %82
+  %.062 = phi i32 [ %91, %82 ], [ 0, %92 ], [ %108, %.sink.split ], [ %91, %97 ]
+  %110 = icmp sgt i32 %.062, %5
+  br i1 %110, label %.critedge2, label %.critedge
 
-112:                                              ; preds = %.sink.split, %102, %92, %82
-  %.062 = phi i32 [ %91, %82 ], [ %91, %102 ], [ 0, %92 ], [ %111, %.sink.split ]
-  %113 = icmp sgt i32 %.062, %5
-  br i1 %113, label %.critedge2, label %.critedge
-
-.critedge:                                        ; preds = %112
-  %114 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr %.06991, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %42, i64 16
-  %116 = load i32, ptr %115, align 8
-  %117 = and i32 %.062, 16383
-  %118 = and i32 %116, -16384
-  %119 = or disjoint i32 %118, %117
-  store i32 %119, ptr %115, align 8
+.critedge:                                        ; preds = %109
+  %111 = getelementptr inbounds i8, ptr %42, i64 8
+  store ptr %.06991, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %42, i64 16
+  %113 = load i32, ptr %112, align 8
+  %114 = and i32 %.062, 16383
+  %115 = and i32 %113, -16384
+  %116 = or disjoint i32 %115, %114
+  store i32 %116, ptr %112, align 8
   %indvars.iv.next111 = add nsw i64 %indvars.iv110, 1
-  %120 = load i32, ptr %14, align 8
-  %121 = sext i32 %120 to i64
-  %122 = icmp slt i64 %indvars.iv.next111, %121
-  br i1 %122, label %41, label %.critedge2, !llvm.loop !12
+  %117 = load i32, ptr %14, align 8
+  %118 = sext i32 %117 to i64
+  %119 = icmp slt i64 %indvars.iv.next111, %118
+  br i1 %119, label %41, label %.critedge2, !llvm.loop !12
 
-.critedge2:                                       ; preds = %60, %.thread, %112, %.critedge, %.critedge.preheader, %6, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %6 ], [ 0, %.critedge.preheader ], [ -1, %60 ], [ -1, %.thread ], [ -1, %112 ], [ %.164, %.critedge ]
+.critedge2:                                       ; preds = %60, %.thread, %109, %.critedge, %.critedge.preheader, %6, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %6 ], [ 0, %.critedge.preheader ], [ -1, %60 ], [ -1, %.thread ], [ -1, %109 ], [ %.164, %.critedge ]
   ret i32 %.0
 }
 

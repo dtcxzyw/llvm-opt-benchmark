@@ -605,22 +605,22 @@ _ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit: ; preds =
   %44 = load i64, ptr %3, align 8, !noalias !66
   store i64 %44, ptr %4, align 8, !alias.scope !66
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %45 = inttoptr i64 %44 to ptr
-  %46 = load i64, ptr %43, align 8, !noalias !67
-  %47 = inttoptr i64 %46 to ptr
-  %.not112116 = icmp eq ptr %45, %47
+  %45 = load i64, ptr %43, align 8, !noalias !67
+  %46 = inttoptr i64 %45 to ptr
+  %.not112116 = icmp eq i64 %44, %45
   br i1 %.not112116, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit
+  %47 = inttoptr i64 %44 to ptr
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 416
   br label %49
 
 49:                                               ; preds = %.lr.ph, %49
-  %.sroa.0111.0117 = phi ptr [ %45, %.lr.ph ], [ %50, %49 ]
+  %.sroa.0111.0117 = phi ptr [ %47, %.lr.ph ], [ %50, %49 ]
   %50 = getelementptr inbounds i8, ptr %.sroa.0111.0117, i64 -8
   %51 = load ptr, ptr %50, align 8
   call fastcc void @_ZL16addLoopIntoQueuePN4llvm4LoopERSt5dequeIS1_SaIS1_EE(ptr noundef %51, ptr noundef nonnull align 8 dereferenceable(80) %48)
-  %.not112 = icmp eq ptr %50, %47
+  %.not112 = icmp eq ptr %50, %46
   br i1 %.not112, label %._crit_edge, label %49
 
 ._crit_edge:                                      ; preds = %49, %_ZN4llvm13PMDataManager25populateInheritedAnalysisERNS_7PMStackE.exit
@@ -1103,18 +1103,21 @@ _ZNSt5dequeIPN4llvm4LoopESaIS2_EE9push_backERKS2_.exit: ; preds = %11, %14
   %17 = load i64, ptr %3, align 8, !noalias !88
   store i64 %17, ptr %5, align 8, !alias.scope !88
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load i64, ptr %16, align 8, !noalias !89
-  %20 = inttoptr i64 %19 to ptr
-  %.not6 = icmp eq ptr %18, %20
-  br i1 %.not6, label %._crit_edge, label %.lr.ph
+  %18 = load i64, ptr %16, align 8, !noalias !89
+  %19 = inttoptr i64 %18 to ptr
+  %.not6 = icmp eq i64 %17, %18
+  br i1 %.not6, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE9push_backERKS2_.exit, %.lr.ph
-  %.sroa.05.07 = phi ptr [ %21, %.lr.ph ], [ %18, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE9push_backERKS2_.exit ]
+.lr.ph.preheader:                                 ; preds = %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE9push_backERKS2_.exit
+  %20 = inttoptr i64 %17 to ptr
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.sroa.05.07 = phi ptr [ %21, %.lr.ph ], [ %20, %.lr.ph.preheader ]
   %21 = getelementptr inbounds i8, ptr %.sroa.05.07, i64 -8
   %22 = load ptr, ptr %21, align 8
   call fastcc void @_ZL16addLoopIntoQueuePN4llvm4LoopERSt5dequeIS1_SaIS1_EE(ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(80) %1)
-  %.not = icmp eq ptr %21, %20
+  %.not = icmp eq ptr %21, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNSt5dequeIPN4llvm4LoopESaIS2_EE9push_backERKS2_.exit

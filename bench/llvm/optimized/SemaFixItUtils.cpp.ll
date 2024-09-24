@@ -92,7 +92,7 @@ define dso_local noundef zeroext i1 @_ZN5clang24ConversionFixItGenerator18compar
   %6 = alloca %"class.clang::CanQual", align 8
   store i64 %1, ptr %6, align 8
   %7 = call noundef zeroext i1 @_ZNK5clang8QualType22isAtLeastAsQualifiedAsES0_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %0)
-  br i1 %7, label %8, label %98
+  br i1 %7, label %8, label %96
 
 8:                                                ; preds = %5
   %.not.i.i.i.i = icmp ult i64 %0, 16
@@ -252,24 +252,22 @@ _ZNK5clang7CanQualINS_4TypeEE19getNonReferenceTypeEv.exit33: ; preds = %_ZNK5cla
   %87 = load ptr, ptr %86, align 16
   %88 = ptrtoint ptr %87 to i64
   %89 = and i64 %88, -16
-  %90 = inttoptr i64 %84 to ptr
-  %91 = inttoptr i64 %89 to ptr
-  %92 = icmp eq ptr %90, %91
-  br i1 %92, label %95, label %93
+  %90 = icmp eq i64 %84, %89
+  br i1 %90, label %93, label %91
 
-93:                                               ; preds = %81
-  %94 = call noundef zeroext i1 @_ZN5clang4Sema13IsDerivedFromENS_14SourceLocationENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %84, i64 %89) #15
-  br i1 %94, label %95, label %97
+91:                                               ; preds = %81
+  %92 = call noundef zeroext i1 @_ZN5clang4Sema13IsDerivedFromENS_14SourceLocationENS_8QualTypeES2_(ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %84, i64 %89) #15
+  br i1 %92, label %93, label %95
 
-95:                                               ; preds = %93, %81
-  %96 = call noundef zeroext i1 @_ZNK5clang8QualType22isAtLeastAsQualifiedAsES0_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %.sroa.044.0)
-  br i1 %96, label %98, label %97
+93:                                               ; preds = %91, %81
+  %94 = call noundef zeroext i1 @_ZNK5clang8QualType22isAtLeastAsQualifiedAsES0_(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %.sroa.044.0)
+  br i1 %94, label %96, label %95
 
-97:                                               ; preds = %95, %93
-  br label %98
+95:                                               ; preds = %93, %91
+  br label %96
 
-98:                                               ; preds = %95, %5, %97
-  %.0 = phi i1 [ false, %97 ], [ false, %5 ], [ true, %95 ]
+96:                                               ; preds = %93, %5, %95
+  %.0 = phi i1 [ false, %95 ], [ false, %5 ], [ true, %93 ]
   ret i1 %.0
 }
 

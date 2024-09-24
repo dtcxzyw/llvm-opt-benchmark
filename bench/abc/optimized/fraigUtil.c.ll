@@ -2018,50 +2018,47 @@ declare i32 @Fraig_NodeIsImplification(ptr noundef, ptr noundef, ptr noundef, i3
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @Fraig_NodeIsInSupergate(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %0 to i64
-  %4 = and i64 %3, -2
-  %5 = inttoptr i64 %4 to ptr
-  %6 = ptrtoint ptr %1 to i64
-  %7 = and i64 %6, -2
-  %8 = inttoptr i64 %7 to ptr
-  %9 = icmp eq ptr %5, %8
-  br i1 %9, label %10, label %13
+  %4 = ptrtoint ptr %1 to i64
+  %5 = xor i64 %4, %3
+  %6 = icmp ult i64 %5, 2
+  br i1 %6, label %7, label %10
+
+7:                                                ; preds = %2
+  %8 = icmp eq ptr %0, %1
+  %9 = select i1 %8, i32 1, i32 -1
+  br label %26
 
 10:                                               ; preds = %2
-  %11 = icmp eq ptr %0, %1
-  %12 = select i1 %11, i32 1, i32 -1
-  br label %29
+  %11 = and i64 %3, 1
+  %.not = icmp eq i64 %11, 0
+  br i1 %.not, label %12, label %26
 
-13:                                               ; preds = %2
-  %14 = and i64 %3, 1
-  %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %15, label %29
+12:                                               ; preds = %10
+  %13 = tail call i32 @Fraig_NodeIsVar(ptr noundef %0) #15
+  %.not19 = icmp eq i32 %13, 0
+  br i1 %.not19, label %14, label %26
 
-15:                                               ; preds = %13
-  %16 = tail call i32 @Fraig_NodeIsVar(ptr noundef %0) #15
-  %.not19 = icmp eq i32 %16, 0
-  br i1 %.not19, label %17, label %29
-
-17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 32
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i32 @Fraig_NodeIsInSupergate(ptr noundef %16, ptr noundef %1)
+  %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 @Fraig_NodeIsInSupergate(ptr noundef %19, ptr noundef %1)
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @Fraig_NodeIsInSupergate(ptr noundef %22, ptr noundef %1)
-  %24 = icmp eq i32 %20, -1
-  %25 = icmp eq i32 %23, -1
-  %or.cond = select i1 %24, i1 true, i1 %25
-  br i1 %or.cond, label %29, label %26
+  %21 = icmp eq i32 %17, -1
+  %22 = icmp eq i32 %20, -1
+  %or.cond = select i1 %21, i1 true, i1 %22
+  br i1 %or.cond, label %26, label %23
 
-26:                                               ; preds = %17
-  %27 = icmp eq i32 %20, 1
-  %28 = icmp eq i32 %23, 1
-  %or.cond3 = select i1 %27, i1 true, i1 %28
+23:                                               ; preds = %14
+  %24 = icmp eq i32 %17, 1
+  %25 = icmp eq i32 %20, 1
+  %or.cond3 = select i1 %24, i1 true, i1 %25
   %. = zext i1 %or.cond3 to i32
-  br label %29
+  br label %26
 
-29:                                               ; preds = %26, %17, %13, %15, %10
-  %.0 = phi i32 [ %12, %10 ], [ 0, %15 ], [ 0, %13 ], [ -1, %17 ], [ %., %26 ]
+26:                                               ; preds = %23, %14, %10, %12, %7
+  %.0 = phi i32 [ %9, %7 ], [ 0, %12 ], [ 0, %10 ], [ -1, %14 ], [ %., %23 ]
   ret i32 %.0
 }
 

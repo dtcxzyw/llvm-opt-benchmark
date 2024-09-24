@@ -669,13 +669,13 @@ define dso_local i64 @tsquery_rewrite(ptr nocapture noundef readonly %0) local_u
   %13 = getelementptr inbounds i8, ptr %6, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %61, label %16
+  br i1 %15, label %57, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds i8, ptr %9, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %61, label %20
+  br i1 %19, label %57, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr i8, ptr %6, i64 8
@@ -714,62 +714,58 @@ define dso_local i64 @tsquery_rewrite(ptr nocapture noundef readonly %0) local_u
   tail call void @QTNFree(ptr noundef %31) #5
   tail call void @QTNFree(ptr noundef %.0) #5
   %.not64 = icmp eq ptr %41, null
-  br i1 %.not64, label %42, label %49
+  br i1 %.not64, label %42, label %47
 
 42:                                               ; preds = %40
   store i32 32, ptr %6, align 4
   store i32 0, ptr %13, align 4
   %43 = load i64, ptr %7, align 8
-  %44 = inttoptr i64 %43 to ptr
-  %.not65 = icmp eq ptr %9, %44
-  br i1 %.not65, label %46, label %45
+  %.not65 = icmp eq i64 %8, %43
+  br i1 %.not65, label %45, label %44
 
-45:                                               ; preds = %42
+44:                                               ; preds = %42
   tail call void @pfree(ptr noundef nonnull %9) #5
-  br label %46
+  br label %45
 
-46:                                               ; preds = %45, %42
-  %47 = load i64, ptr %10, align 8
-  %48 = inttoptr i64 %47 to ptr
-  %.not66 = icmp eq ptr %12, %48
-  br i1 %.not66, label %61, label %.sink.split
+45:                                               ; preds = %44, %42
+  %46 = load i64, ptr %10, align 8
+  %.not66 = icmp eq i64 %11, %46
+  br i1 %.not66, label %57, label %.sink.split
 
-49:                                               ; preds = %40
+47:                                               ; preds = %40
   tail call void @QTNBinary(ptr noundef nonnull %41) #5
-  %50 = tail call ptr @QTN2QT(ptr noundef nonnull %41) #5
+  %48 = tail call ptr @QTN2QT(ptr noundef nonnull %41) #5
   tail call void @QTNFree(ptr noundef nonnull %41) #5
-  %51 = load i64, ptr %3, align 8
-  %52 = inttoptr i64 %51 to ptr
-  %.not67 = icmp eq ptr %6, %52
-  br i1 %.not67, label %54, label %53
+  %49 = load i64, ptr %3, align 8
+  %50 = inttoptr i64 %49 to ptr
+  %.not67 = icmp eq ptr %6, %50
+  br i1 %.not67, label %52, label %51
 
-53:                                               ; preds = %49
+51:                                               ; preds = %47
   tail call void @pfree(ptr noundef nonnull %6) #5
-  br label %54
+  br label %52
 
-54:                                               ; preds = %53, %49
-  %55 = load i64, ptr %7, align 8
-  %56 = inttoptr i64 %55 to ptr
-  %.not68 = icmp eq ptr %9, %56
-  br i1 %.not68, label %58, label %57
+52:                                               ; preds = %51, %47
+  %53 = load i64, ptr %7, align 8
+  %.not68 = icmp eq i64 %8, %53
+  br i1 %.not68, label %55, label %54
 
-57:                                               ; preds = %54
+54:                                               ; preds = %52
   tail call void @pfree(ptr noundef nonnull %9) #5
-  br label %58
+  br label %55
 
-58:                                               ; preds = %57, %54
-  %59 = load i64, ptr %10, align 8
-  %60 = inttoptr i64 %59 to ptr
-  %.not69 = icmp eq ptr %12, %60
-  br i1 %.not69, label %61, label %.sink.split
+55:                                               ; preds = %54, %52
+  %56 = load i64, ptr %10, align 8
+  %.not69 = icmp eq i64 %11, %56
+  br i1 %.not69, label %57, label %.sink.split
 
-.sink.split:                                      ; preds = %58, %46
-  %.055.in.ph = phi ptr [ %6, %46 ], [ %50, %58 ]
+.sink.split:                                      ; preds = %55, %45
+  %.055.in.ph = phi ptr [ %6, %45 ], [ %48, %55 ]
   tail call void @pfree(ptr noundef nonnull %12) #5
-  br label %61
+  br label %57
 
-61:                                               ; preds = %.sink.split, %1, %16, %58, %46
-  %.055.in = phi ptr [ %6, %46 ], [ %50, %58 ], [ %6, %16 ], [ %6, %1 ], [ %.055.in.ph, %.sink.split ]
+57:                                               ; preds = %.sink.split, %1, %16, %55, %45
+  %.055.in = phi ptr [ %6, %45 ], [ %48, %55 ], [ %6, %16 ], [ %6, %1 ], [ %.055.in.ph, %.sink.split ]
   %.055 = ptrtoint ptr %.055.in to i64
   ret i64 %.055
 }

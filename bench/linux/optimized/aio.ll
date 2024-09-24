@@ -2111,7 +2111,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @aio_setup_ring(ptr noundef
 
 33:                                               ; preds = %29
   store ptr null, ptr %32, align 64
-  br label %119
+  br label %118
 
 34:                                               ; preds = %29
   store ptr %30, ptr %32, align 64
@@ -2135,7 +2135,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @aio_setup_ring(ptr noundef
 46:                                               ; preds = %42
   %47 = load ptr, ptr %32, align 64
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %119, label %49
+  br i1 %48, label %118, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %47, i64 168
@@ -2150,7 +2150,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @aio_setup_ring(ptr noundef
   store ptr null, ptr %32, align 64
   tail call void @_raw_spin_unlock(ptr noundef %54) #14
   tail call void @fput(ptr noundef nonnull %47) #14
-  br label %119
+  br label %118
 
 56:                                               ; preds = %42, %34
   store i64 0, ptr %3, align 8, !annotation !10
@@ -2190,7 +2190,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @aio_setup_ring(ptr noundef
 
 74:                                               ; preds = %69
   tail call fastcc void @aio_free_ring(ptr noundef nonnull %0)
-  br label %119
+  br label %118
 
 75:                                               ; preds = %.thread, %69
   %76 = getelementptr inbounds i8, ptr %0, i64 80
@@ -2220,7 +2220,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @aio_setup_ring(ptr noundef
 85:                                               ; preds = %83
   store i64 0, ptr %76, align 16
   tail call fastcc void @aio_free_ring(ptr noundef nonnull %0)
-  br label %119
+  br label %118
 
 86:                                               ; preds = %83
   %87 = load ptr, ptr %32, align 64
@@ -2243,50 +2243,49 @@ define internal fastcc noundef range(i32 -12, 1) i32 @aio_setup_ring(ptr noundef
   store volatile i32 %95, ptr %93, align 8
   call void @up_write(ptr noundef %79) #14
   %96 = load i64, ptr %90, align 8
-  %97 = inttoptr i64 %96 to ptr
-  %98 = icmp ugt ptr %97, inttoptr (i64 -4096 to ptr)
-  br i1 %98, label %99, label %100
+  %97 = icmp ugt i64 %96, -4096
+  br i1 %97, label %98, label %99
 
-99:                                               ; preds = %92
+98:                                               ; preds = %92
   store i64 0, ptr %76, align 16
   call fastcc void @aio_free_ring(ptr noundef nonnull %0)
-  br label %119
+  br label %118
 
-100:                                              ; preds = %92
-  %101 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %96, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %38, ptr %102, align 64
-  %103 = load ptr, ptr %40, align 8
-  %104 = load ptr, ptr %103, align 8
-  %105 = load i64, ptr @vmemmap_base, align 8
-  %106 = ptrtoint ptr %104 to i64
-  %107 = sub i64 %106, %105
-  %108 = shl i64 %107, 6
-  %109 = load i64, ptr @page_offset_base, align 8
-  %110 = add i64 %108, %109
-  %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds i8, ptr %111, i64 4
-  store i32 %38, ptr %112, align 4
-  store i32 -1, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %111, i64 12
-  store i32 0, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %111, i64 8
-  store i32 0, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %111, i64 16
-  store i32 -1593175903, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %111, i64 20
-  store i32 1, ptr %116, align 4
-  %117 = getelementptr inbounds i8, ptr %111, i64 24
-  store i32 0, ptr %117, align 8
-  %118 = getelementptr inbounds i8, ptr %111, i64 28
-  store i32 32, ptr %118, align 4
-  br label %119
+99:                                               ; preds = %92
+  %100 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %96, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 64
+  store i32 %38, ptr %101, align 64
+  %102 = load ptr, ptr %40, align 8
+  %103 = load ptr, ptr %102, align 8
+  %104 = load i64, ptr @vmemmap_base, align 8
+  %105 = ptrtoint ptr %103 to i64
+  %106 = sub i64 %105, %104
+  %107 = shl i64 %106, 6
+  %108 = load i64, ptr @page_offset_base, align 8
+  %109 = add i64 %107, %108
+  %110 = inttoptr i64 %109 to ptr
+  %111 = getelementptr inbounds i8, ptr %110, i64 4
+  store i32 %38, ptr %111, align 4
+  store i32 -1, ptr %110, align 8
+  %112 = getelementptr inbounds i8, ptr %110, i64 12
+  store i32 0, ptr %112, align 4
+  %113 = getelementptr inbounds i8, ptr %110, i64 8
+  store i32 0, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %110, i64 16
+  store i32 -1593175903, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %110, i64 20
+  store i32 1, ptr %115, align 4
+  %116 = getelementptr inbounds i8, ptr %110, i64 24
+  store i32 0, ptr %116, align 8
+  %117 = getelementptr inbounds i8, ptr %110, i64 28
+  store i32 32, ptr %117, align 4
+  br label %118
 
-119:                                              ; preds = %100, %99, %85, %74, %49, %46, %33
-  %120 = phi i32 [ -12, %33 ], [ -12, %74 ], [ -4, %85 ], [ -12, %99 ], [ 0, %100 ], [ -12, %46 ], [ -12, %49 ]
+118:                                              ; preds = %99, %98, %85, %74, %49, %46, %33
+  %119 = phi i32 [ -12, %33 ], [ -12, %74 ], [ -4, %85 ], [ -12, %98 ], [ 0, %99 ], [ -12, %46 ], [ -12, %49 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  ret i32 %120
+  ret i32 %119
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid

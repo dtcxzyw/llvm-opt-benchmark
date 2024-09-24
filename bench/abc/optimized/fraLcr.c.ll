@@ -402,7 +402,7 @@ define range(i32 0, 2) i32 @Fra_LcrNodesAreEqual(ptr nocapture noundef readonly 
   %15 = getelementptr inbounds i32, ptr %8, i64 %14
   %16 = load i32, ptr %15, align 4
   %.not = icmp eq i32 %12, %16
-  br i1 %.not, label %17, label %48
+  br i1 %.not, label %17, label %45
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds i8, ptr %6, i64 40
@@ -431,19 +431,16 @@ define range(i32 0, 2) i32 @Fra_LcrNodesAreEqual(ptr nocapture noundef readonly 
   %38 = getelementptr i8, ptr %32, i64 8
   %.val21 = load ptr, ptr %38, align 8
   %39 = ptrtoint ptr %.val21 to i64
-  %40 = and i64 %39, -2
-  %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr i8, ptr %37, i64 8
-  %.val22 = load ptr, ptr %42, align 8
-  %43 = ptrtoint ptr %.val22 to i64
-  %44 = and i64 %43, -2
-  %45 = inttoptr i64 %44 to ptr
-  %46 = icmp eq ptr %41, %45
-  %47 = zext i1 %46 to i32
-  br label %48
+  %40 = getelementptr i8, ptr %37, i64 8
+  %.val22 = load ptr, ptr %40, align 8
+  %41 = ptrtoint ptr %.val22 to i64
+  %42 = xor i64 %41, %39
+  %43 = icmp ult i64 %42, 2
+  %44 = zext i1 %43 to i32
+  br label %45
 
-48:                                               ; preds = %2, %17
-  %.0 = phi i32 [ %47, %17 ], [ 1, %2 ]
+45:                                               ; preds = %2, %17
+  %.0 = phi i32 [ %44, %17 ], [ 1, %2 ]
   ret i32 %.0
 }
 

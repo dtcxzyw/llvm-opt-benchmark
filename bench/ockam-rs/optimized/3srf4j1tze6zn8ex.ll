@@ -2654,8 +2654,7 @@ define hidden void @"_ZN96_$LT$opentelemetry..trace..context..SynchronizedSpan$u
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 1 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h0f16d4c0578a6bd3E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
-  %.0.i.i = inttoptr i64 %3 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %3, 2
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
@@ -2675,8 +2674,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hcf215cf9d2e1368aE"(ptr noundef nonnull returned align 8 %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 acquire, align 8
-  %.0.i.i = inttoptr i64 %3 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %3, 2
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
@@ -2690,8 +2688,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9once_cell4sy
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hf654564437b90a89E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
-  %.0.i.i = inttoptr i64 %3 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %3, 2
   br i1 %.not, label %7, label %4
 
 4:                                                ; preds = %2
@@ -2710,8 +2707,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 1 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h3d232087660b7271E.llvm.15887933665536463318"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #5 {
   %2 = load atomic i64, ptr %0 acquire, align 8
-  %.0.i = inttoptr i64 %2 to ptr
-  %3 = icmp eq ptr %.0.i, inttoptr (i64 2 to ptr)
+  %3 = icmp eq i64 %2, 2
   %4 = getelementptr i8, ptr %0, i64 9
   %spec.select = select i1 %3, ptr %4, ptr null
   ret ptr %spec.select
@@ -2721,8 +2717,7 @@ define hidden noundef align 1 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h
 define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h6e750120eb9ad5b5E.llvm.15887933665536463318"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 acquire, align 8
-  %.0.i = inttoptr i64 %3 to ptr
-  %4 = icmp eq ptr %.0.i, inttoptr (i64 2 to ptr)
+  %4 = icmp eq i64 %3, 2
   %spec.select = select i1 %4, ptr %0, ptr null
   ret ptr %spec.select
 }
@@ -2730,8 +2725,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9once_cell4sy
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17hdc71163bc1de1168E.llvm.15887933665536463318"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #5 {
   %2 = load atomic i64, ptr %0 acquire, align 8
-  %.0.i = inttoptr i64 %2 to ptr
-  %3 = icmp eq ptr %.0.i, inttoptr (i64 2 to ptr)
+  %3 = icmp eq i64 %2, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %spec.select = select i1 %3, ptr %4, ptr null
   ret ptr %spec.select

@@ -4273,7 +4273,7 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %5, %3
 define linkonce_odr hidden void @_ZN32ShenandoahVerifyInToSpaceClosure11do_oop_workI9narrowOopEEvPT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %59, label %5
+  br i1 %4, label %58, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
@@ -4343,18 +4343,17 @@ _ZNK24ShenandoahMarkingContext9is_markedEP7oopDesc.exit.thread: ; preds = %5, %4
   %54 = and i64 %53, 3
   %55 = icmp ne i64 %54, 3
   %56 = and i64 %53, -4
-  %57 = inttoptr i64 %56 to ptr
   %.not.i15 = icmp eq i64 %56, 0
-  %.not1718 = icmp eq ptr %57, %13
+  %.not1718 = icmp eq i64 %56, %12
   %.not17 = or i1 %.not.i15, %.not1718
   %.not = or i1 %55, %.not17
-  br i1 %.not, label %59, label %58
+  br i1 %.not, label %58, label %57
 
-58:                                               ; preds = %52
+57:                                               ; preds = %52
   tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str, i32 noundef 958) #13
-  br label %59
+  br label %58
 
-59:                                               ; preds = %52, %58, %2
+58:                                               ; preds = %52, %57, %2
   ret void
 }
 
@@ -4403,18 +4402,17 @@ define linkonce_odr hidden void @_ZN26ShenandoahVerifyNoForwared6do_oopEP9narrow
   %15 = and i64 %14, 3
   %16 = icmp ne i64 %15, 3
   %17 = and i64 %14, -4
-  %18 = inttoptr i64 %17 to ptr
   %.not.i.i = icmp eq i64 %17, 0
-  %.not78.i = icmp eq ptr %18, %13
+  %.not78.i = icmp eq i64 %17, %12
   %.not7.i = or i1 %.not.i.i, %.not78.i
   %.not.i = or i1 %16, %.not7.i
-  br i1 %.not.i, label %_ZN26ShenandoahVerifyNoForwared11do_oop_workI9narrowOopEEvPT_.exit, label %19
+  br i1 %.not.i, label %_ZN26ShenandoahVerifyNoForwared11do_oop_workI9narrowOopEEvPT_.exit, label %18
 
-19:                                               ; preds = %5
+18:                                               ; preds = %5
   tail call void @_ZN17ShenandoahAsserts13print_failureENS_9SafeLevelEP7oopDescPvS2_PKcS5_S5_i(i32 noundef 3, ptr noundef nonnull %13, ptr noundef nonnull %1, ptr noundef null, ptr noundef nonnull @.str.93, ptr noundef nonnull @.str.83, ptr noundef nonnull @.str, i32 noundef 926) #13
   br label %_ZN26ShenandoahVerifyNoForwared11do_oop_workI9narrowOopEEvPT_.exit
 
-_ZN26ShenandoahVerifyNoForwared11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %2, %5, %19
+_ZN26ShenandoahVerifyNoForwared11do_oop_workI9narrowOopEEvPT_.exit: ; preds = %2, %5, %18
   ret void
 }
 
