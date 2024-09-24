@@ -962,7 +962,7 @@ abc/sswDyn.c.ll 391337007
 abc/sswFilter.c.ll 465587237
 abc/sswIslands.c.ll 444264472
 abc/sswLcorr.c.ll 267266715
-abc/sswMan.c.ll 142418229
+abc/sswMan.c.ll 142560671
 abc/sswPairs.c.ll 316187341
 abc/sswPart.c.ll 287298782
 abc/sswRarity.c.ll 1053865693
@@ -2353,7 +2353,7 @@ casadi/cs_ipvec.c.ll 46619866
 casadi/cs_leaf.c.ll 47497860
 casadi/cs_lsolve.c.ll 52628676
 casadi/cs_ltsolve.c.ll 54529793
-casadi/cs_lu.c.ll 102899764
+casadi/cs_lu.c.ll 103002734
 casadi/cs_lusol.c.ll 43281996
 casadi/cs_maxtrans.c.ll 162604333
 casadi/cs_multiply.c.ll 108941812
@@ -4892,7 +4892,7 @@ cpython/_testinternalcapi.ll 563239628
 cpython/_testmultiphase.ll 157283523
 cpython/_testsinglephase.ll 114115854
 cpython/_threadmodule.ll 450348791
-cpython/_tracemalloc.ll 62084989
+cpython/_tracemalloc.ll 62147148
 cpython/_typingmodule.ll 50995381
 cpython/_uuidmodule.ll 39255783
 cpython/_warnings.ll 858007547
@@ -5605,7 +5605,7 @@ cvc5/oracle_engine.cpp.ll 2042776564
 cvc5/output.cpp.ll 125492850
 cvc5/output_channel.cpp.ll 329962502
 cvc5/parallel_options.cpp.ll 110025080
-cvc5/parse.cpp.ll 2140600845
+cvc5/parse.cpp.ll 2142741516
 cvc5/parser.cpp.ll 405077295
 cvc5/parser_state.cpp.ll 2200274068
 cvc5/partial_model.cpp.ll 2196550750
@@ -6145,7 +6145,7 @@ darktable/tiff.c.ll 410652244
 darktable/timeline.c.ll 826010271
 darktable/view_toolbox.c.ll 60245914
 darktable/viewswitcher.c.ll 110900616
-darktable/webp.c.ll 104724059
+darktable/webp.c.ll 104828938
 darktable/xcf.c.ll 171726326
 delta-rs/11f8x98axanecwnw.ll 42362855799
 delta-rs/11w0at10aiwuq3yr.ll 36756924788
@@ -6880,7 +6880,7 @@ eastl/eathread_rwmutex.cpp.ll 84274215
 eastl/eathread_semaphore.cpp.ll 115468659
 eastl/eathread_thread.cpp.ll 254662777
 eastl/hashtable.cpp.ll 91515668
-eastl/main.cpp.ll 201126652
+eastl/main.cpp.ll 201327814
 eastl/red_black_tree.cpp.ll 186197772
 eastl/string.cpp.ll 159937602
 eastl/thread_support.cpp.ll 53209398
@@ -19944,7 +19944,7 @@ node/libnode.tokens.ll 151726738
 node/libnode.traced_value.ll 186673072
 node/libnode.tracing_agent.ll 835055265
 node/libnode.transportparams.ll 897791164
-node/libnode.tty_wrap.ll 300154174
+node/libnode.tty_wrap.ll 300454367
 node/libnode.udp_wrap.ll 1397575653
 node/libnode.util.ll 632853115
 node/libnode.uv.ll 259810262
@@ -20365,7 +20365,7 @@ nuttx/mq_rcvinternal.c.ll 57460523
 nuttx/mq_receive.c.ll 56842863
 nuttx/mq_send.c.ll 58705008
 nuttx/mq_setattr.c.ll 45523314
-nuttx/mq_sndinternal.c.ll 70810728
+nuttx/mq_sndinternal.c.ll 70881573
 nuttx/mq_timedreceive.c.ll 62707711
 nuttx/mq_timedsend.c.ll 62395533
 nuttx/mq_unlink.c.ll 51167029
@@ -26251,7 +26251,7 @@ openmpi/plm_base_launch_support.ll 1430385624
 openmpi/plm_base_prted_cmds.ll 140856336
 openmpi/plm_base_receive.ll 334833227
 openmpi/plm_base_select.ll 37827999
-openmpi/plm_slurm_component.ll 43380804
+openmpi/plm_slurm_component.ll 43424225
 openmpi/plm_slurm_module.ll 290355706
 openmpi/plm_ssh_component.ll 116559913
 openmpi/plm_ssh_module.ll 632554342
@@ -30373,7 +30373,7 @@ php/funcs.ll 322731461
 php/gammasection.ll 80085080
 php/getopt.ll 99926269
 php/glob_wrapper.ll 138855183
-php/hash.ll 143814300
+php/hash.ll 143958115
 php/hash_adler32.ll 50890308
 php/hash_crc32.ll 65395792
 php/hash_fnv.ll 79119573
@@ -38610,7 +38610,7 @@ wasmedge/variableInstr.cpp.ll 158400632
 wasmedge/vinode.cpp.ll 1384066156
 wasmedge/vm.cpp.ll 34540451622
 wasmedge/wasifunc.cpp.ll 4780571103
-wasmedge/wasimodule.cpp.ll 13429938183
+wasmedge/wasimodule.cpp.ll 13443369549
 wasmedge/wasmedge.cpp.ll 17074900539
 wasmtime-rs/107qmx5guez7s556.ll 37232475
 wasmtime-rs/10btdb6hburpcnyu.ll 40623551
