@@ -5243,7 +5243,7 @@ curl/libcurl_la-getenv.ll 39389462
 curl/libcurl_la-getinfo.ll 140170567
 curl/libcurl_la-hash.ll 121536875
 curl/libcurl_la-headers.ll 155219800
-curl/libcurl_la-hmac.ll 63013292
+curl/libcurl_la-hmac.ll 63076399
 curl/libcurl_la-hostasyn.ll 43609396
 curl/libcurl_la-hostcheck.ll 58539176
 curl/libcurl_la-hostip.ll 344372102
@@ -6940,7 +6940,7 @@ entt/scheduler.cpp.ll 1602805114
 entt/sigh.cpp.ll 1967188094
 entt/sigh_mixin.cpp.ll 12654519343
 entt/signal_less.cpp.ll 839907204
-entt/snapshot.cpp.ll 8742064428
+entt/snapshot.cpp.ll 8750809836
 entt/sparse_set.cpp.ll 41138383986
 entt/storage.cpp.ll 36420602685
 entt/storage_entity.cpp.ll 5629296878
@@ -36391,7 +36391,7 @@ spike/cbo_inval.ll 543599547
 spike/cbo_zero.ll 487754746
 spike/cflush.ll 551870737
 spike/clint.ll 738739380
-spike/clmul.ll 522308152
+spike/clmul.ll 522830646
 spike/clmulh.ll 534374518
 spike/clmulr.ll 527492308
 spike/clrs16.ll 681170526
