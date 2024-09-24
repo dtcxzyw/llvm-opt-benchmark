@@ -25680,7 +25680,7 @@ openmpi/libmpi_c_profile_la-file_get_info.ll 75765031
 openmpi/libmpi_c_profile_la-file_get_position.ll 72656495
 openmpi/libmpi_c_profile_la-file_get_position_shared.ll 72670302
 openmpi/libmpi_c_profile_la-file_get_size.ll 72641631
-openmpi/libmpi_c_profile_la-file_get_type_extent.ll 78915700
+openmpi/libmpi_c_profile_la-file_get_type_extent.ll 78994619
 openmpi/libmpi_c_profile_la-file_get_view.ll 75000215
 openmpi/libmpi_c_profile_la-file_iread.ll 80156951
 openmpi/libmpi_c_profile_la-file_iread_all.ll 81043940
@@ -36328,7 +36328,7 @@ spike/beq.ll 367064658
 spike/bext.ll 462718725
 spike/bexti.ll 452632587
 spike/bf16_to_f32.ll 42955210
-spike/bge.ll 366820591
+spike/bge.ll 367187515
 spike/bgeu.ll 367012770
 spike/binv.ll 470865231
 spike/binvi.ll 460713656
