@@ -88,7 +88,8 @@ if __name__ == '__main__':
         'memory-builtins.ObjectVisitorArgument',
         'aa.NumNoAlias',
         'assume-queries.NumAssumeQueries',
-        'capture-tracking.NumNotCaptured'
+        'capture-tracking.NumNotCaptured',
+        'ipt.NumInstScanned'
     }
 
     with open('test.log', 'w') as log:
