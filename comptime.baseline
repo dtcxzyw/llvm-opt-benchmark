@@ -790,7 +790,7 @@ abc/msatClause.c.ll 167708744
 abc/msatMem.c.ll 150117166
 abc/msatOrderH.c.ll 158235943
 abc/msatQueue.c.ll 52765617
-abc/msatRead.c.ll 154093761
+abc/msatRead.c.ll 154247886
 abc/msatSolverApi.c.ll 217318106
 abc/msatSolverCore.c.ll 87693626
 abc/msatSolverIo.c.ll 88274335
@@ -12410,7 +12410,7 @@ libwebp/tiffdec.c.ll 121957927
 libwebp/token_enc.c.ll 300916651
 libwebp/tree_dec.c.ll 347483629
 libwebp/tree_enc.c.ll 114405382
-libwebp/upsampling.c.ll 1184601684
+libwebp/upsampling.c.ll 1185786314
 libwebp/upsampling_mips_dsp_r2.c.ll 35311203
 libwebp/upsampling_msa.c.ll 34723324
 libwebp/upsampling_neon.c.ll 34723652
@@ -13262,7 +13262,7 @@ linux/ematch.ll 168765884
 linux/endpoint.ll 64730773
 linux/entropy_common.ll 228890204
 linux/epoll.ll 49962262
-linux/error.ll 113642797
+linux/error.ll 113756641
 linux/error_report-traces.ll 61365844
 linux/errseq.ll 57267569
 linux/esp6.ll 339404318
@@ -21354,7 +21354,7 @@ openblas/dpotrf_U_single.c.ll 97606606
 openblas/dpprfs.c.ll 142147349
 openblas/dpttrf.c.ll 61650080
 openblas/drot_k.c.ll 109763178
-openblas/drotm.c.ll 70635967
+openblas/drotm.c.ll 70706627
 openblas/dsbevd.c.ll 68897822
 openblas/dsbgst.c.ll 1552341136
 openblas/dsbgvd.c.ll 66312891
