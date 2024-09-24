@@ -26957,7 +26957,7 @@ openssl/afalgtest-bin-afalgtest.ll 60939352
 openssl/algorithmid_test-bin-algorithmid_test.ll 114880394
 openssl/asn1-test-bin-asn1.ll 125295088
 openssl/asn1-test-bin-fuzz_rand.ll 60303810
-openssl/asn1_decode_test-bin-asn1_decode_test.ll 67676789
+openssl/asn1_decode_test-bin-asn1_decode_test.ll 67744657
 openssl/asn1_dsa_internal_test-bin-asn1_dsa_internal_test.ll 60080444
 openssl/asn1_encode_test-bin-asn1_encode_test.ll 206486994
 openssl/asn1_internal_test-bin-asn1_internal_test.ll 125345385
@@ -29377,7 +29377,7 @@ openusd/instanceKey.cpp.ll 1005979374
 openusd/instanceSchema.cpp.ll 544049652
 openusd/instanceablePrimAdapter.cpp.ll 177334873
 openusd/instancedBySchema.cpp.ll 462371759
-openusd/instancer.cpp.ll 339204134
+openusd/instancer.cpp.ll 339543498
 openusd/instancerTopologySchema.cpp.ll 885463911
 openusd/instancing.cpp.ll 536964092
 openusd/integerCoding.cpp.ll 1907901565
