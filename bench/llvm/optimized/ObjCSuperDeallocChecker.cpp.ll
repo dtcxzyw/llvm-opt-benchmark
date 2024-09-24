@@ -1009,7 +1009,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_123ObjCSuperDeallocC
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 16711680
   %.not = icmp eq i32 %9, 196608
-  br i1 %.not, label %10, label %41
+  br i1 %.not, label %10, label %39
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1049,13 +1049,11 @@ _ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker30initIdentifierInfoAndSelectorsERN5c
   %36 = tail call i64 @_ZNK5clang15ObjCMessageExpr11getSelectorEv(ptr noundef nonnull align 8 dereferenceable(40) %35) #18
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.0.0.copyload = load i64, ptr %37, align 8
-  %38 = inttoptr i64 %36 to ptr
-  %39 = inttoptr i64 %.sroa.0.0.copyload to ptr
-  %40 = icmp eq ptr %38, %39
-  br label %41
+  %38 = icmp eq i64 %36, %.sroa.0.0.copyload
+  br label %39
 
-41:                                               ; preds = %2, %_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker30initIdentifierInfoAndSelectorsERN5clang10ASTContextE.exit
-  %.0 = phi i1 [ %40, %_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker30initIdentifierInfoAndSelectorsERN5clang10ASTContextE.exit ], [ false, %2 ]
+39:                                               ; preds = %2, %_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker30initIdentifierInfoAndSelectorsERN5clang10ASTContextE.exit
+  %.0 = phi i1 [ %38, %_ZNK12_GLOBAL__N_123ObjCSuperDeallocChecker30initIdentifierInfoAndSelectorsERN5clang10ASTContextE.exit ], [ false, %2 ]
   ret i1 %.0
 }
 

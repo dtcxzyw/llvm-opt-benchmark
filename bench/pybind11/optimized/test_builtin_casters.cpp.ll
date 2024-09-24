@@ -48641,11 +48641,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail12tuple_caster
   %15 = load i64, ptr %13, align 8, !noalias !1998
   %16 = add nsw i64 %15, 1
   store i64 %16, ptr %13, align 8, !noalias !1998
-  %17 = icmp eq ptr %13, @_Py_TrueStruct
+  %17 = icmp eq i64 %12, ptrtoint (ptr @_Py_TrueStruct to i64)
   br i1 %17, label %.thread21.i, label %18
 
 18:                                               ; preds = %14
-  %19 = icmp eq ptr %13, @_Py_FalseStruct
+  %19 = icmp eq i64 %12, ptrtoint (ptr @_Py_FalseStruct to i64)
   br i1 %19, label %.thread21.i, label %20
 
 20:                                               ; preds = %18
@@ -48661,7 +48661,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail12tuple_caster
   br i1 %27, label %28, label %68
 
 28:                                               ; preds = %21, %20
-  %29 = icmp eq ptr %13, @_Py_NoneStruct
+  %29 = icmp eq i64 %12, ptrtoint (ptr @_Py_NoneStruct to i64)
   br i1 %29, label %.thread21.i, label %30
 
 30:                                               ; preds = %28
@@ -49386,11 +49386,11 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail12tuple_caster
   %18 = load i64, ptr %16, align 8, !noalias !2072
   %19 = add nsw i64 %18, 1
   store i64 %19, ptr %16, align 8, !noalias !2072
-  %20 = icmp eq ptr %16, @_Py_TrueStruct
+  %20 = icmp eq i64 %15, ptrtoint (ptr @_Py_TrueStruct to i64)
   br i1 %20, label %.thread21.i, label %21
 
 21:                                               ; preds = %17
-  %22 = icmp eq ptr %16, @_Py_FalseStruct
+  %22 = icmp eq i64 %15, ptrtoint (ptr @_Py_FalseStruct to i64)
   br i1 %22, label %.thread21.i, label %23
 
 23:                                               ; preds = %21
@@ -49406,7 +49406,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind116detail12tuple_caster
   br i1 %30, label %31, label %100
 
 31:                                               ; preds = %24, %23
-  %32 = icmp eq ptr %16, @_Py_NoneStruct
+  %32 = icmp eq i64 %15, ptrtoint (ptr @_Py_NoneStruct to i64)
   br i1 %32, label %.thread21.i, label %33
 
 33:                                               ; preds = %31

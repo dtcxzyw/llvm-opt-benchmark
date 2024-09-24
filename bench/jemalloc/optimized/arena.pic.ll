@@ -801,24 +801,23 @@ sz_size2index.exit:                               ; preds = %if.end12.i, %if.end
 lor.lhs.false.i:                                  ; preds = %sz_size2index.exit
   %ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %8 = load atomic i64, ptr %ptr.i.i.i.i acquire, align 8
-  %9 = inttoptr i64 %8 to ptr
-  %cmp.i.i.i = icmp ne ptr %9, @ehooks_default_extent_hooks
+  %cmp.i.i.i = icmp ne i64 %8, ptrtoint (ptr @ehooks_default_extent_hooks to i64)
   %cmp.i.i = icmp eq ptr %tsdn, null
   %or.cond9.i = or i1 %cmp.i.i, %cmp.i.i.i
   br i1 %or.cond9.i, label %san_large_extent_decide_guard.exit, label %if.end.i20
 
 if.end.i20:                                       ; preds = %lor.lhs.false.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_large.i34.i = getelementptr inbounds i8, ptr %tsdn, i64 128
-  %10 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_large.i34.i, align 8
-  %cmp5.i = icmp ult i64 %10, 2
+  %9 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_large.i34.i, align 8
+  %cmp5.i = icmp ult i64 %9, 2
   br i1 %cmp5.i, label %if.end8.i, label %if.end8.thread.i
 
 if.end8.thread.i:                                 ; preds = %if.end.i20
-  %sub.i21 = add i64 %10, -1
+  %sub.i21 = add i64 %9, -1
   br label %return.sink.split.i
 
 if.end8.i:                                        ; preds = %if.end.i20
-  %cmp9.i = icmp eq i64 %10, 1
+  %cmp9.i = icmp eq i64 %9, 1
   %cmp10.i = icmp ult i64 %alignment, 4097
   %or.cond.i = and i1 %cmp10.i, %cmp9.i
   %add.i.i = add i64 %add, 8192
@@ -827,11 +826,11 @@ if.end8.i:                                        ; preds = %if.end.i20
   br i1 %or.cond13.i, label %if.then14.i, label %san_large_extent_decide_guard.exit
 
 if.then14.i:                                      ; preds = %if.end8.i
-  %11 = load i64, ptr @opt_san_guard_large, align 8
+  %10 = load i64, ptr @opt_san_guard_large, align 8
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then14.i, %if.end8.thread.i
-  %sub.sink.i = phi i64 [ %sub.i21, %if.end8.thread.i ], [ %11, %if.then14.i ]
+  %sub.sink.i = phi i64 [ %sub.i21, %if.end8.thread.i ], [ %10, %if.then14.i ]
   store i64 %sub.sink.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_large.i34.i, align 8
   br label %san_large_extent_decide_guard.exit
 
@@ -844,8 +843,8 @@ san_large_extent_decide_guard.exit:               ; preds = %sz_size2index.exit,
 
 if.end:                                           ; preds = %san_large_extent_decide_guard.exit
   call fastcc void @arena_large_malloc_stats_update(ptr noundef %tsdn, ptr noundef nonnull %arena, i64 noundef %usize)
-  %12 = load i64, ptr @sz_large_pad, align 8
-  %cmp7.not = icmp eq i64 %12, 0
+  %11 = load i64, ptr @sz_large_pad, align 8
+  %cmp7.not = icmp eq i64 %11, 0
   br i1 %cmp7.not, label %if.end9, label %if.then8
 
 if.then8:                                         ; preds = %if.end
@@ -858,33 +857,33 @@ if.then.i24:                                      ; preds = %if.then8
   %and.i25 = and i64 %add.i, 8128
   %cmp.i12.i = icmp ne i64 %and.i25, 0
   call void @llvm.assume(i1 %cmp.i12.i)
-  %13 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i25, i1 true)
-  %conv1.i.i.i.i = xor i64 %13, 63
+  %12 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i25, i1 true)
+  %conv1.i.i.i.i = xor i64 %12, 63
   %cmp.i.i26 = icmp eq ptr %tsdn, null
   br i1 %cmp.i.i26, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i24
   %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i = getelementptr inbounds i8, ptr %tsdn, i64 112
-  %14 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i, align 8
-  %mul.i.i = mul i64 %14, 6364136223846793005
+  %13 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i, align 8
+  %mul.i.i = mul i64 %13, 6364136223846793005
   %add.i.i27 = add i64 %mul.i.i, 1442695040888963407
   store i64 %add.i.i27, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_prng_state.i.i, align 8
   br label %if.end.i28
 
 if.else.i:                                        ; preds = %if.then.i24
-  %15 = ptrtoint ptr %r.i to i64
-  %mul.i22.i = mul i64 %15, 6364136223846793005
+  %14 = ptrtoint ptr %r.i to i64
+  %mul.i22.i = mul i64 %14, 6364136223846793005
   %add.i23.i = add i64 %mul.i22.i, 1442695040888963407
   br label %if.end.i28
 
 if.end.i28:                                       ; preds = %if.else.i, %if.then2.i
   %add.i23.sink.i = phi i64 [ %add.i23.i, %if.else.i ], [ %add.i.i27, %if.then2.i ]
-  %sub.i.i = sub nuw nsw i64 115, %13
+  %sub.i.i = sub nuw nsw i64 115, %12
   %shr.i.i = lshr i64 %add.i23.sink.i, %sub.i.i
   %shl.i29 = shl nuw nsw i64 %shr.i.i, %conv1.i.i.i.i
   %e_addr.i = getelementptr inbounds i8, ptr %call5, i64 8
-  %16 = load ptr, ptr %e_addr.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %16, i64 %shl.i29
+  %15 = load ptr, ptr %e_addr.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %shl.i29
   store ptr %add.ptr.i, ptr %e_addr.i, align 8
   br label %arena_cache_oblivious_randomize.exit
 
@@ -2626,19 +2625,18 @@ entry:
 lor.lhs.false.i:                                  ; preds = %entry
   %ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %2 = load atomic i64, ptr %ptr.i.i.i.i acquire, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %cmp.i.i.i = icmp ne ptr %3, @ehooks_default_extent_hooks
+  %cmp.i.i.i = icmp ne i64 %2, ptrtoint (ptr @ehooks_default_extent_hooks to i64)
   %cmp.i.i = icmp eq ptr %tsdn, null
   %or.cond.i = or i1 %cmp.i.i, %cmp.i.i.i
   br i1 %or.cond.i, label %san_slab_extent_decide_guard.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_small.i27.i = getelementptr inbounds i8, ptr %tsdn, i64 120
-  %4 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_small.i27.i, align 8
-  %cmp5.i = icmp eq i64 %4, 1
-  %sub.i = add i64 %4, -1
-  %5 = load i64, ptr @opt_san_guard_small, align 8
-  %sub.sink.i = select i1 %cmp5.i, i64 %5, i64 %sub.i
+  %3 = load i64, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_small.i27.i, align 8
+  %cmp5.i = icmp eq i64 %3, 1
+  %sub.i = add i64 %3, -1
+  %4 = load i64, ptr @opt_san_guard_small, align 8
+  %sub.sink.i = select i1 %cmp5.i, i64 %4, i64 %sub.i
   store i64 %sub.sink.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_san_extents_until_guard_small.i27.i, align 8
   br label %san_slab_extent_decide_guard.exit
 
@@ -2646,10 +2644,10 @@ san_slab_extent_decide_guard.exit:                ; preds = %entry, %lor.lhs.fal
   %retval.0.i = phi i1 [ false, %lor.lhs.false.i ], [ false, %entry ], [ %cmp5.i, %if.end.i ]
   %pa_shard = getelementptr inbounds i8, ptr %arena, i64 10664
   %slab_size = getelementptr inbounds i8, ptr %bin_info, i64 8
-  %6 = load i64, ptr %slab_size, align 8
-  %call3 = call ptr @pa_alloc(ptr noundef %tsdn, ptr noundef nonnull %pa_shard, i64 noundef %6, i64 noundef 4096, i1 noundef zeroext true, i32 noundef %binind, i1 noundef zeroext false, i1 noundef zeroext %retval.0.i, ptr noundef nonnull %deferred_work_generated) #18
-  %7 = load i8, ptr %deferred_work_generated, align 1
-  %tobool4 = trunc i8 %7 to i1
+  %5 = load i64, ptr %slab_size, align 8
+  %call3 = call ptr @pa_alloc(ptr noundef %tsdn, ptr noundef nonnull %pa_shard, i64 noundef %5, i64 noundef 4096, i1 noundef zeroext true, i32 noundef %binind, i1 noundef zeroext false, i1 noundef zeroext %retval.0.i, ptr noundef nonnull %deferred_work_generated) #18
+  %6 = load i8, ptr %deferred_work_generated, align 1
+  %tobool4 = trunc i8 %6 to i1
   br i1 %tobool4, label %if.then, label %if.end
 
 if.then:                                          ; preds = %san_slab_extent_decide_guard.exit
@@ -2661,20 +2659,20 @@ if.end:                                           ; preds = %if.then, %san_slab_
   br i1 %cmp, label %return, label %do.end
 
 do.end:                                           ; preds = %if.end
-  %8 = getelementptr inbounds i8, ptr %call3, i64 64
+  %7 = getelementptr inbounds i8, ptr %call3, i64 64
   %nregs = getelementptr inbounds i8, ptr %bin_info, i64 16
-  %9 = load i32, ptr %nregs, align 8
-  %10 = load i64, ptr %call3, align 8
-  %and.i = and i64 %10, -17591917608961
+  %8 = load i32, ptr %nregs, align 8
+  %9 = load i64, ptr %call3, align 8
+  %and.i = and i64 %9, -17591917608961
   %conv.i = zext i32 %binshard to i64
   %shl.i = shl i64 %conv.i, 38
-  %conv1.i = zext i32 %9 to i64
+  %conv1.i = zext i32 %8 to i64
   %shl2.i = shl nuw nsw i64 %conv1.i, 28
   %or.i = or i64 %shl2.i, %shl.i
   %or3.i = or i64 %or.i, %and.i
   store i64 %or3.i, ptr %call3, align 8
   %bitmap_info = getelementptr inbounds i8, ptr %bin_info, i64 24
-  call void @bitmap_init(ptr noundef nonnull %8, ptr noundef nonnull %bitmap_info, i1 noundef zeroext false) #18
+  call void @bitmap_init(ptr noundef nonnull %7, ptr noundef nonnull %bitmap_info, i1 noundef zeroext false) #18
   br label %return
 
 return:                                           ; preds = %if.end, %do.end
@@ -5731,17 +5729,16 @@ land.lhs.true:                                    ; preds = %for.end
   %call50 = call ptr @base_ehooks_get(ptr noundef %base.0) #18
   %ptr.i.i = getelementptr inbounds i8, ptr %call50, i64 8
   %11 = load atomic i64, ptr %ptr.i.i acquire, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %cmp.i56 = icmp eq ptr %12, @ehooks_default_extent_hooks
+  %cmp.i56 = icmp eq i64 %11, ptrtoint (ptr @ehooks_default_extent_hooks to i64)
   %cmp54 = icmp ne i32 %ind, 0
   %or.cond = and i1 %cmp54, %cmp.i56
   br i1 %or.cond, label %if.then56, label %if.end63
 
 if.then56:                                        ; preds = %land.lhs.true
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %hpa_shard_opts, ptr noundef nonnull align 8 dereferenceable(40) @opt_hpa_opts, i64 40, i1 false)
-  %13 = load atomic i8, ptr @background_thread_enabled_state monotonic, align 1
+  %12 = load atomic i8, ptr @background_thread_enabled_state monotonic, align 1
   %deferral_allowed = getelementptr inbounds i8, ptr %hpa_shard_opts, i64 20
-  %frombool58 = and i8 %13, 1
+  %frombool58 = and i8 %12, 1
   store i8 %frombool58, ptr %deferral_allowed, align 4
   %call60 = call zeroext i1 @pa_shard_enable_hpa(ptr noundef %tsdn, ptr noundef nonnull %pa_shard, ptr noundef nonnull %hpa_shard_opts, ptr noundef nonnull @opt_hpa_sec_opts) #18
   br i1 %call60, label %if.then77, label %do.end68
@@ -5751,11 +5748,11 @@ if.end63:                                         ; preds = %land.lhs.true, %for
 
 do.end68:                                         ; preds = %if.then56, %if.end63
   %state.i.i7.i.i = getelementptr inbounds i8, ptr %tsdn, i64 824
-  %14 = load i8, ptr %state.i.i7.i.i, align 8
-  %cmp.i.i.i = icmp eq i8 %14, 0
+  %13 = load i8, ptr %state.i.i7.i.i, align 8
+  %cmp.i.i.i = icmp eq i8 %13, 0
   %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i = getelementptr inbounds i8, ptr %tsdn, i64 1
-  %15 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
-  %inc.i.i = add i8 %15, 1
+  %14 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
+  %inc.i.i = add i8 %14, 1
   store i8 %inc.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   br i1 %cmp.i.i.i, label %if.then.i.i, label %pre_reentrancy.exit
 
@@ -5764,17 +5761,17 @@ if.then.i.i:                                      ; preds = %do.end68
   br label %pre_reentrancy.exit
 
 pre_reentrancy.exit:                              ; preds = %do.end68, %if.then.i.i
-  %16 = load ptr, ptr @test_hooks_arena_new_hook, align 8
-  %tobool70.not = icmp eq ptr %16, null
+  %15 = load ptr, ptr @test_hooks_arena_new_hook, align 8
+  %tobool70.not = icmp eq ptr %15, null
   br i1 %tobool70.not, label %if.end72, label %if.then71
 
 if.then71:                                        ; preds = %pre_reentrancy.exit
-  call void %16() #18
+  call void %15() #18
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then71, %pre_reentrancy.exit
-  %17 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
-  %dec.i.i = add i8 %17, -1
+  %16 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
+  %dec.i.i = add i8 %16, -1
   store i8 %dec.i.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i, align 1
   %cmp.i.i = icmp eq i8 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i58, label %return

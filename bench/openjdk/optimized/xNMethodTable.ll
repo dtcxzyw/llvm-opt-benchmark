@@ -263,114 +263,112 @@ define hidden void @_ZN13XNMethodTable7rebuildEm(i64 noundef %0) local_unnamed_a
   %29 = add i64 %0, -1
   br label %30
 
-30:                                               ; preds = %.lr.ph, %69
-  %31 = phi i64 [ %27, %.lr.ph ], [ %70, %69 ]
-  %32 = phi ptr [ %.pre22, %.lr.ph ], [ %71, %69 ]
-  %.018 = phi i64 [ 0, %.lr.ph ], [ %72, %69 ]
+30:                                               ; preds = %.lr.ph, %67
+  %31 = phi i64 [ %27, %.lr.ph ], [ %68, %67 ]
+  %32 = phi ptr [ %.pre22, %.lr.ph ], [ %69, %67 ]
+  %.018 = phi i64 [ 0, %.lr.ph ], [ %70, %67 ]
   %33 = getelementptr inbounds %class.XNMethodTableEntry, ptr %32, i64 %.018
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %34, 1
   %.not17 = icmp eq i64 %35, 0
-  br i1 %.not17, label %69, label %36
+  br i1 %.not17, label %67, label %36
 
 36:                                               ; preds = %30
   %37 = and i64 %34, -4
-  %38 = inttoptr i64 %37 to ptr
-  %39 = lshr i64 %34, 3
-  %40 = trunc i64 %39 to i32
-  %41 = xor i32 %40, -1
-  %42 = shl i32 %40, 15
-  %43 = add i32 %42, %41
-  %44 = lshr i32 %43, 12
-  %45 = xor i32 %44, %43
-  %46 = mul i32 %45, 5
-  %47 = lshr i32 %46, 4
-  %48 = xor i32 %47, %46
-  %49 = mul i32 %48, 2057
-  %50 = lshr i32 %49, 16
-  %51 = xor i32 %50, %49
-  %52 = zext i32 %51 to i64
-  %53 = and i64 %28, %52
-  br label %54
+  %38 = lshr i64 %34, 3
+  %39 = trunc i64 %38 to i32
+  %40 = xor i32 %39, -1
+  %41 = shl i32 %39, 15
+  %42 = add i32 %41, %40
+  %43 = lshr i32 %42, 12
+  %44 = xor i32 %43, %42
+  %45 = mul i32 %44, 5
+  %46 = lshr i32 %45, 4
+  %47 = xor i32 %46, %45
+  %48 = mul i32 %47, 2057
+  %49 = lshr i32 %48, 16
+  %50 = xor i32 %49, %48
+  %51 = zext i32 %50 to i64
+  %52 = and i64 %28, %51
+  br label %53
 
-54:                                               ; preds = %64, %36
-  %.0.i = phi i64 [ %53, %36 ], [ %66, %64 ]
-  %55 = getelementptr inbounds %class.XNMethodTableEntry, ptr %25, i64 %.0.i
-  %56 = load i64, ptr %55, align 8
-  %57 = and i64 %56, 1
-  %.not.i15 = icmp eq i64 %57, 0
-  br i1 %.not.i15, label %58, label %60
+53:                                               ; preds = %62, %36
+  %.0.i = phi i64 [ %52, %36 ], [ %64, %62 ]
+  %54 = getelementptr inbounds %class.XNMethodTableEntry, ptr %25, i64 %.0.i
+  %55 = load i64, ptr %54, align 8
+  %56 = and i64 %55, 1
+  %.not.i15 = icmp eq i64 %56, 0
+  br i1 %.not.i15, label %57, label %59
 
-58:                                               ; preds = %54
-  %59 = and i64 %56, 2
-  %.not17.i = icmp eq i64 %59, 0
-  br i1 %.not17.i, label %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit, label %64
+57:                                               ; preds = %53
+  %58 = and i64 %55, 2
+  %.not17.i = icmp eq i64 %58, 0
+  br i1 %.not17.i, label %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit, label %62
 
-60:                                               ; preds = %54
-  %61 = and i64 %56, -4
-  %62 = inttoptr i64 %61 to ptr
-  %63 = icmp eq ptr %38, %62
-  br i1 %63, label %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit, label %64
+59:                                               ; preds = %53
+  %60 = and i64 %55, -4
+  %61 = icmp eq i64 %37, %60
+  br i1 %61, label %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit, label %62
 
-64:                                               ; preds = %60, %58
-  %65 = add i64 %.0.i, 1
-  %66 = and i64 %65, %29
-  br label %54, !llvm.loop !6
+62:                                               ; preds = %59, %57
+  %63 = add i64 %.0.i, 1
+  %64 = and i64 %63, %29
+  br label %53, !llvm.loop !6
 
-_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit: ; preds = %58, %60
-  %67 = getelementptr inbounds %class.XNMethodTableEntry, ptr %25, i64 %.0.i
-  %68 = or disjoint i64 %37, 1
-  store i64 %68, ptr %67, align 8
+_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit: ; preds = %57, %59
+  %65 = getelementptr inbounds %class.XNMethodTableEntry, ptr %25, i64 %.0.i
+  %66 = or disjoint i64 %37, 1
+  store i64 %66, ptr %65, align 8
   %.pre = load ptr, ptr @_ZN13XNMethodTable6_tableE, align 8
   %.pre21 = load i64, ptr @_ZN13XNMethodTable5_sizeE, align 8
-  br label %69
+  br label %67
 
-69:                                               ; preds = %30, %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit
-  %70 = phi i64 [ %31, %30 ], [ %.pre21, %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit ]
-  %71 = phi ptr [ %32, %30 ], [ %.pre, %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit ]
-  %72 = add nuw i64 %.018, 1
-  %73 = icmp ult i64 %72, %70
-  br i1 %73, label %30, label %._crit_edge, !llvm.loop !9
+67:                                               ; preds = %30, %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit
+  %68 = phi i64 [ %31, %30 ], [ %.pre21, %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit ]
+  %69 = phi ptr [ %32, %30 ], [ %.pre, %_ZN13XNMethodTable14register_entryEP18XNMethodTableEntrymP7nmethod.exit ]
+  %70 = add nuw i64 %.018, 1
+  %71 = icmp ult i64 %70, %68
+  br i1 %71, label %30, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %69, %.loopexit
-  %74 = phi ptr [ %.pre22, %.loopexit ], [ %71, %69 ]
+._crit_edge:                                      ; preds = %67, %.loopexit
+  %72 = phi ptr [ %.pre22, %.loopexit ], [ %69, %67 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr %74, ptr %2, align 8
-  %75 = load ptr, ptr @_ZN13XNMethodTable12_safe_deleteE, align 8
-  %.not.i.i.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i, label %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i, label %76
+  store ptr %72, ptr %2, align 8
+  %73 = load ptr, ptr @_ZN13XNMethodTable12_safe_deleteE, align 8
+  %.not.i.i.i = icmp eq ptr %73, null
+  br i1 %.not.i.i.i, label %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i, label %74
 
-76:                                               ; preds = %._crit_edge
-  %77 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %75) #14
+74:                                               ; preds = %._crit_edge
+  %75 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %73) #14
   br label %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
 
-_ZN7XLockerI5XLockEC2EPS0_.exit.i.i:              ; preds = %76, %._crit_edge
-  %78 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
-  %.not.i.i = icmp ne i64 %78, 0
-  br i1 %.not.i.i, label %79, label %81
+_ZN7XLockerI5XLockEC2EPS0_.exit.i.i:              ; preds = %74, %._crit_edge
+  %76 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 8), align 8
+  %.not.i.i = icmp ne i64 %76, 0
+  br i1 %.not.i.i, label %77, label %79
 
-79:                                               ; preds = %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
-  %80 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 16), ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %81
+77:                                               ; preds = %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
+  %78 = call noundef i32 @_ZN26GrowableArrayWithAllocatorIP18XNMethodTableEntry18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (i8, ptr @_ZN13XNMethodTable12_safe_deleteE, i64 16), ptr noundef nonnull align 8 dereferenceable(8) %2)
+  br label %79
 
-81:                                               ; preds = %79, %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
-  br i1 %.not.i.i.i, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i, label %82
+79:                                               ; preds = %77, %_ZN7XLockerI5XLockEC2EPS0_.exit.i.i
+  br i1 %.not.i.i.i, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i, label %80
 
-82:                                               ; preds = %81
-  %83 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %75) #14
+80:                                               ; preds = %79
+  %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %73) #14
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i
 
-_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i: ; preds = %82, %81
+_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i: ; preds = %80, %79
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %84 = icmp eq ptr %74, null
-  %or.cond.i = or i1 %84, %.not.i.i
-  br i1 %or.cond.i, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryEclEPS0_.exit, label %85
+  %82 = icmp eq ptr %72, null
+  %or.cond.i = or i1 %82, %.not.i.i
+  br i1 %or.cond.i, label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryEclEPS0_.exit, label %83
 
-85:                                               ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i
-  call void @_Z8FreeHeapPv(ptr noundef nonnull %74) #14
+83:                                               ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i
+  call void @_Z8FreeHeapPv(ptr noundef nonnull %72) #14
   br label %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryEclEPS0_.exit
 
-_ZN15XSafeDeleteImplIA_18XNMethodTableEntryEclEPS0_.exit: ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i, %85
+_ZN15XSafeDeleteImplIA_18XNMethodTableEntryEclEPS0_.exit: ; preds = %_ZN15XSafeDeleteImplIA_18XNMethodTableEntryE15deferred_deleteEPS0_.exit.i, %83
   store ptr %25, ptr @_ZN13XNMethodTable6_tableE, align 8
   store i64 %0, ptr @_ZN13XNMethodTable5_sizeE, align 8
   store i64 0, ptr @_ZN13XNMethodTable14_nunregisteredE, align 8

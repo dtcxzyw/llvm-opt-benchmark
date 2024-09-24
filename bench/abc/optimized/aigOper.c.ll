@@ -453,83 +453,69 @@ tailrecurse.backedge:                             ; preds = %61, %68, %89, %95, 
   %225 = getelementptr i8, ptr %20, i64 8
   %.val26.i = load ptr, ptr %225, align 8
   %226 = ptrtoint ptr %.val26.i to i64
-  %227 = and i64 %226, -2
-  %228 = inttoptr i64 %227 to ptr
-  %229 = getelementptr i8, ptr %30, i64 8
-  %.val27.i = load ptr, ptr %229, align 8
-  %230 = ptrtoint ptr %.val27.i to i64
-  %231 = and i64 %230, -2
-  %232 = inttoptr i64 %231 to ptr
-  %.not21.i = icmp eq ptr %228, %232
-  br i1 %.not21.i, label %233, label %Aig_ObjIsExorType.exit.thread
+  %227 = getelementptr i8, ptr %30, i64 8
+  %.val27.i = load ptr, ptr %227, align 8
+  %228 = ptrtoint ptr %.val27.i to i64
+  %229 = xor i64 %228, %226
+  %.not21.i = icmp ult i64 %229, 2
+  br i1 %.not21.i, label %230, label %Aig_ObjIsExorType.exit.thread
 
-233:                                              ; preds = %224
-  %234 = getelementptr i8, ptr %20, i64 16
-  %.val28.i = load ptr, ptr %234, align 8
-  %235 = ptrtoint ptr %.val28.i to i64
-  %236 = and i64 %235, -2
-  %237 = inttoptr i64 %236 to ptr
-  %238 = getelementptr i8, ptr %30, i64 16
-  %.val29.i = load ptr, ptr %238, align 8
-  %239 = ptrtoint ptr %.val29.i to i64
-  %240 = and i64 %239, -2
-  %241 = inttoptr i64 %240 to ptr
-  %.not22.i = icmp eq ptr %237, %241
-  br i1 %.not22.i, label %242, label %Aig_ObjIsExorType.exit.thread
+230:                                              ; preds = %224
+  %231 = getelementptr i8, ptr %20, i64 16
+  %.val28.i = load ptr, ptr %231, align 8
+  %232 = ptrtoint ptr %.val28.i to i64
+  %233 = getelementptr i8, ptr %30, i64 16
+  %.val29.i = load ptr, ptr %233, align 8
+  %234 = ptrtoint ptr %.val29.i to i64
+  %235 = xor i64 %234, %232
+  %.not22.i = icmp ugt i64 %235, 1
+  %236 = icmp eq ptr %.val27.i, %.val26.i
+  %or.cond.i = or i1 %236, %.not22.i
+  %237 = icmp eq ptr %.val29.i, %.val28.i
+  %or.cond36.i = or i1 %237, %or.cond.i
+  br i1 %or.cond36.i, label %Aig_ObjIsExorType.exit.thread, label %Aig_ObjIsExorType.exit
 
-242:                                              ; preds = %233
-  %243 = xor i64 %230, %226
-  %244 = and i64 %243, 1
-  %245 = icmp eq i64 %244, 0
-  br i1 %245, label %Aig_ObjIsExorType.exit.thread, label %246
-
-246:                                              ; preds = %242
-  %247 = xor i64 %239, %235
-  %248 = and i64 %247, 1
-  %249 = icmp eq i64 %248, 0
-  br i1 %249, label %Aig_ObjIsExorType.exit.thread, label %Aig_ObjIsExorType.exit
-
-Aig_ObjIsExorType.exit:                           ; preds = %246
-  %250 = tail call ptr @Aig_Exor(ptr noundef nonnull %0, ptr noundef %.val26.i, ptr noundef %.val28.i)
+Aig_ObjIsExorType.exit:                           ; preds = %230
+  %238 = tail call ptr @Aig_Exor(ptr noundef nonnull %0, ptr noundef %.val26.i, ptr noundef %.val28.i)
   br label %.loopexit
 
-Aig_ObjIsExorType.exit.thread:                    ; preds = %242, %246, %224, %233, %218, %221, %.loopexit284
-  %251 = getelementptr inbounds i8, ptr %0, i64 80
-  %252 = load i64, ptr %251, align 8
-  %253 = and i64 %252, -8
-  %254 = or disjoint i64 %253, 5
-  store i64 %254, ptr %251, align 8
-  %255 = icmp eq ptr %.tr283350, null
-  br i1 %255, label %Aig_ObjCreateGhost.exit, label %256
+Aig_ObjIsExorType.exit.thread:                    ; preds = %224, %230, %218, %221, %.loopexit284
+  %239 = getelementptr inbounds i8, ptr %0, i64 80
+  %240 = load i64, ptr %239, align 8
+  %241 = and i64 %240, -8
+  %242 = or disjoint i64 %241, 5
+  store i64 %242, ptr %239, align 8
+  %243 = icmp eq ptr %.tr283350, null
+  br i1 %243, label %Aig_ObjCreateGhost.exit, label %244
 
-256:                                              ; preds = %Aig_ObjIsExorType.exit.thread
-  %257 = getelementptr inbounds i8, ptr %20, i64 36
-  %258 = load i32, ptr %257, align 4
-  %259 = getelementptr inbounds i8, ptr %30, i64 36
-  %260 = load i32, ptr %259, align 4
-  %261 = icmp slt i32 %258, %260
-  %spec.select.i = select i1 %261, ptr %.tr282349, ptr %.tr283350
-  %spec.select17.i = select i1 %261, ptr %.tr283350, ptr %.tr282349
+244:                                              ; preds = %Aig_ObjIsExorType.exit.thread
+  %245 = getelementptr inbounds i8, ptr %20, i64 36
+  %246 = load i32, ptr %245, align 4
+  %247 = getelementptr inbounds i8, ptr %30, i64 36
+  %248 = load i32, ptr %247, align 4
+  %249 = icmp slt i32 %246, %248
+  %spec.select.i = select i1 %249, ptr %.tr282349, ptr %.tr283350
+  %spec.select17.i = select i1 %249, ptr %.tr283350, ptr %.tr282349
   br label %Aig_ObjCreateGhost.exit
 
-Aig_ObjCreateGhost.exit:                          ; preds = %Aig_ObjIsExorType.exit.thread, %256
-  %.sink15.i = phi ptr [ %.tr282349, %Aig_ObjIsExorType.exit.thread ], [ %spec.select.i, %256 ]
-  %.sink.i = phi ptr [ null, %Aig_ObjIsExorType.exit.thread ], [ %spec.select17.i, %256 ]
-  %262 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr %.sink15.i, ptr %262, align 8
-  %263 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %.sink.i, ptr %263, align 8
-  %264 = getelementptr inbounds i8, ptr %0, i64 56
-  %265 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %264) #7
-  %.not229 = icmp eq ptr %265, null
-  br i1 %.not229, label %266, label %.loopexit
+Aig_ObjCreateGhost.exit:                          ; preds = %Aig_ObjIsExorType.exit.thread, %244
+  %.sink15.i = phi ptr [ %.tr282349, %Aig_ObjIsExorType.exit.thread ], [ %spec.select.i, %244 ]
+  %.sink.i = phi ptr [ null, %Aig_ObjIsExorType.exit.thread ], [ %spec.select17.i, %244 ]
+  %250 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %.sink15.i, ptr %250, align 8
+  %251 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %.sink.i, ptr %251, align 8
+  %252 = getelementptr inbounds i8, ptr %0, i64 56
+  %253 = tail call ptr @Aig_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %252) #7
+  %.not229 = icmp eq ptr %253, null
+  br i1 %.not229, label %254, label %.loopexit
 
-266:                                              ; preds = %Aig_ObjCreateGhost.exit
-  %267 = tail call ptr @Aig_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %264) #7
+254:                                              ; preds = %Aig_ObjCreateGhost.exit
+  %255 = tail call ptr @Aig_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %252) #7
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %58, %77, %86, %104, %133, %132, %159, %.thread245, %3, %Aig_ObjCreateGhost.exit, %34, %32, %25, %23, %266, %Aig_ObjIsExorType.exit, %210, %203, %196, %186, %121, %100, %73, %12
-  %.0 = phi ptr [ %16, %12 ], [ %189, %186 ], [ %199, %196 ], [ %206, %203 ], [ %213, %210 ], [ %250, %Aig_ObjIsExorType.exit ], [ %267, %266 ], [ %124, %121 ], [ %103, %100 ], [ %76, %73 ], [ %27, %25 ], [ %.tr283350, %23 ], [ %37, %34 ], [ %.tr282349, %32 ], [ %265, %Aig_ObjCreateGhost.exit ], [ %1, %3 ], [ %.tr282.be, %tailrecurse.backedge ], [ %.tr283350, %58 ], [ %.tr282349, %77 ], [ %.tr282349, %86 ], [ %.tr283350, %104 ], [ %.tr283350, %133 ], [ %.tr283350, %132 ], [ %.tr282349, %159 ], [ %.tr282349, %.thread245 ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %58, %77, %86, %104, %133, %132, %159, %.thread245, %3, %Aig_ObjCreateGhost.exit, %34, %32, %25, %23, %254, %Aig_ObjIsExorType.exit, %210, %203, %196, %186, %121, %100, %73, %12
+  %.0 = phi ptr [ %16, %12 ], [ %189, %186 ], [ %199, %196 ], [ %206, %203 ], [ %213, %210 ], [ %238, %Aig_ObjIsExorType.exit ], [ %255, %254 ], [ %124, %121 ], [ %103, %100 ], [ %76, %73 ], [ %27, %25 ], [ %.tr283350, %23 ], [ %37, %34 ], [ %.tr282349, %32 ], [ %253, %Aig_ObjCreateGhost.exit ], [ %1, %3 ], [ %.tr282.be, %tailrecurse.backedge ], [ %.tr283350, %58 ], [ %.tr282349, %77 ], [ %.tr282349, %86 ], [ %.tr283350, %104 ], [ %.tr283350, %133 ], [ %.tr283350, %132 ], [ %.tr282349, %159 ], [ %.tr282349, %.thread245 ]
   ret ptr %.0
 }
 

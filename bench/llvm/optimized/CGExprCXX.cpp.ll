@@ -6069,7 +6069,7 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %_ZN5clang12DeclList
   %58 = icmp ult i32 %57, -6
   %.not29 = icmp eq ptr %.0.i, null
   %.not = or i1 %.not29, %58
-  br i1 %.not, label %84, label %59
+  br i1 %.not, label %82, label %59
 
 59:                                               ; preds = %_ZNK5clang12DeclListNode8iteratordeEv.exit
   %60 = getelementptr inbounds nuw i8, ptr %.0.i, i64 48
@@ -6081,55 +6081,53 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %_ZN5clang12DeclList
   %65 = and i64 %.sroa.0.0.copyload.i18, 7
   %66 = or i64 %64, %65
   %67 = load i64, ptr %47, align 8
-  %68 = inttoptr i64 %66 to ptr
-  %69 = inttoptr i64 %67 to ptr
-  %70 = icmp eq ptr %68, %69
-  br i1 %70, label %71, label %84
+  %68 = icmp eq i64 %66, %67
+  br i1 %68, label %69, label %82
 
-71:                                               ; preds = %59
+69:                                               ; preds = %59
   call fastcc void @_ZL17EmitNewDeleteCallRN5clang7CodeGen15CodeGenFunctionEPKNS_12FunctionDeclEPKNS_17FunctionProtoTypeERKNS0_11CallArgListE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %.0.i, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(1496) %6)
-  %72 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
-  %73 = load ptr, ptr %10, align 8
-  %74 = icmp eq ptr %73, %11
-  br i1 %74, label %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EED2Ev.exit.i, label %75
+  %70 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #14
+  %71 = load ptr, ptr %10, align 8
+  %72 = icmp eq ptr %71, %11
+  br i1 %72, label %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EED2Ev.exit.i, label %73
 
-75:                                               ; preds = %71
-  call void @free(ptr noundef %73) #14
+73:                                               ; preds = %69
+  call void @free(ptr noundef %71) #14
   br label %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EED2Ev.exit.i: ; preds = %75, %71
-  %76 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
-  %77 = load ptr, ptr %8, align 8
-  %78 = icmp eq ptr %77, %9
-  br i1 %78, label %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i, label %79
+_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EED2Ev.exit.i: ; preds = %73, %69
+  %74 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #14
+  %75 = load ptr, ptr %8, align 8
+  %76 = icmp eq ptr %75, %9
+  br i1 %76, label %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i, label %77
 
-79:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EED2Ev.exit.i
-  call void @free(ptr noundef %77) #14
+77:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EED2Ev.exit.i
+  call void @free(ptr noundef %75) #14
   br label %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i: ; preds = %79, %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EED2Ev.exit.i
-  %80 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
-  %81 = load ptr, ptr %6, align 8
-  %82 = icmp eq ptr %81, %7
-  br i1 %82, label %_ZN5clang7CodeGen11CallArgListD2Ev.exit, label %83
+_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i: ; preds = %77, %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList14CallArgCleanupELj1EED2Ev.exit.i
+  %78 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #14
+  %79 = load ptr, ptr %6, align 8
+  %80 = icmp eq ptr %79, %7
+  br i1 %80, label %_ZN5clang7CodeGen11CallArgListD2Ev.exit, label %81
 
-83:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i
-  call void @free(ptr noundef %81) #14
+81:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i
+  call void @free(ptr noundef %79) #14
   br label %_ZN5clang7CodeGen11CallArgListD2Ev.exit
 
-_ZN5clang7CodeGen11CallArgListD2Ev.exit:          ; preds = %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i, %83
+_ZN5clang7CodeGen11CallArgListD2Ev.exit:          ; preds = %_ZN4llvm11SmallVectorIN5clang7CodeGen11CallArgList9WritebackELj1EED2Ev.exit.i, %81
   ret void
 
-84:                                               ; preds = %_ZNK5clang12DeclListNode8iteratordeEv.exit, %59
-  br i1 %.not.i, label %_ZN5clang12DeclListNode8iteratorppEv.exit.backedge, label %85
+82:                                               ; preds = %_ZNK5clang12DeclListNode8iteratordeEv.exit, %59
+  br i1 %.not.i, label %_ZN5clang12DeclListNode8iteratorppEv.exit.backedge, label %83
 
-_ZN5clang12DeclListNode8iteratorppEv.exit.backedge: ; preds = %84, %85
-  %.sroa.023.0.be = phi i64 [ %87, %85 ], [ 0, %84 ]
+_ZN5clang12DeclListNode8iteratorppEv.exit.backedge: ; preds = %82, %83
+  %.sroa.023.0.be = phi i64 [ %85, %83 ], [ 0, %82 ]
   br label %_ZN5clang12DeclListNode8iteratorppEv.exit
 
-85:                                               ; preds = %84
-  %86 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %87 = load i64, ptr %86, align 8
+83:                                               ; preds = %82
+  %84 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %85 = load i64, ptr %84, align 8
   br label %_ZN5clang12DeclListNode8iteratorppEv.exit.backedge
 }
 

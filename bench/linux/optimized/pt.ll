@@ -2720,7 +2720,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
 
 129:                                              ; preds = %124
   %130 = add i64 %88, 2147483648
-  %131 = icmp ugt ptr %89, inttoptr (i64 -2147483649 to ptr)
+  %131 = icmp ugt i64 %88, -2147483649
   %132 = load i64, ptr @phys_base, align 8
   %133 = load i64, ptr @page_offset_base, align 8
   %134 = sub i64 281472829227008, %133
@@ -2880,7 +2880,7 @@ define internal noundef ptr @pt_buffer_setup_aux(ptr nocapture noundef readonly 
 
 241:                                              ; preds = %236
   %242 = add i64 %203, 2147483648
-  %243 = icmp ugt ptr %204, inttoptr (i64 -2147483649 to ptr)
+  %243 = icmp ugt i64 %203, -2147483649
   %244 = load i64, ptr @phys_base, align 8
   %245 = load i64, ptr @page_offset_base, align 8
   %246 = sub i64 281472829227008, %245

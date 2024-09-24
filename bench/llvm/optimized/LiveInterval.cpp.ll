@@ -352,73 +352,74 @@ _ZN12_GLOBAL__N_120CalcLiveRangeUtilSet4findEN4llvm9SlotIndexE.exit: ; preds = %
   store ptr %.val34.val, ptr %6, align 8
   %93 = call ptr @_ZNSt8_Rb_treeIN4llvm9LiveRange7SegmentES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IRKS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %.val34.val, ptr nonnull %92, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %127
+  br label %128
 
 94:                                               ; preds = %_ZN12_GLOBAL__N_120CalcLiveRangeUtilSet4findEN4llvm9SlotIndexE.exit
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i, i64 32
   %.sroa.07.0.copyload = load i64, ptr %95, align 8
-  %96 = inttoptr i64 %14 to ptr
-  %97 = and i64 %.sroa.07.0.copyload, -8
-  %98 = inttoptr i64 %97 to ptr
-  %99 = icmp eq ptr %96, %98
-  br i1 %99, label %100, label %118
+  %96 = xor i64 %.sroa.07.0.copyload, %1
+  %97 = icmp ult i64 %96, 8
+  br i1 %97, label %98, label %119
 
-100:                                              ; preds = %94
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 24
+98:                                               ; preds = %94
+  %99 = and i64 %.sroa.07.0.copyload, -8
+  %100 = inttoptr i64 %99 to ptr
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %102 = load i32, ptr %101, align 8
   %103 = trunc i64 %.sroa.07.0.copyload to i32
   %104 = lshr i32 %103, 1
   %105 = and i32 %104, 3
   %106 = or i32 %102, %105
-  %107 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  %108 = load i32, ptr %107, align 8
-  %109 = or i32 %108, %12
-  %110 = icmp ult i32 %106, %109
+  %107 = inttoptr i64 %14 to ptr
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
+  %109 = load i32, ptr %108, align 8
+  %110 = or i32 %109, %12
+  %111 = icmp ult i32 %106, %110
   %.not5051 = icmp eq i64 %1, %.sroa.07.0.copyload
-  %.not50 = or i1 %.not5051, %110
-  br i1 %.not50, label %115, label %111
+  %.not50 = or i1 %.not5051, %111
+  br i1 %.not50, label %116, label %112
 
-111:                                              ; preds = %100
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i, i64 48
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  store i64 %1, ptr %114, align 8
+112:                                              ; preds = %98
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i, i64 48
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store i64 %1, ptr %115, align 8
   store i64 %1, ptr %95, align 8
-  br label %115
+  br label %116
 
-115:                                              ; preds = %111, %100
-  %116 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i, i64 48
-  %117 = load ptr, ptr %116, align 8
-  br label %127
+116:                                              ; preds = %112, %98
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.i, i64 48
+  %118 = load ptr, ptr %117, align 8
+  br label %128
 
-118:                                              ; preds = %94
+119:                                              ; preds = %94
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %119, label %121
+  br i1 %.not, label %120, label %122
 
-119:                                              ; preds = %118
-  %120 = tail call noundef ptr @_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(104) %.val, i64 %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
+120:                                              ; preds = %119
+  %121 = tail call noundef ptr @_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(104) %.val, i64 %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
   %.val33.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr i8, ptr %.val33.pre, i64 96
   %.val33.val.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br label %121
+  br label %122
 
-121:                                              ; preds = %118, %119
-  %.val33.val = phi ptr [ %.val33.val.pre, %119 ], [ %.val.val, %118 ]
-  %122 = phi ptr [ %120, %119 ], [ %3, %118 ]
-  %123 = or disjoint i64 %14, 6
+122:                                              ; preds = %119, %120
+  %.val33.val = phi ptr [ %.val33.val.pre, %120 ], [ %.val.val, %119 ]
+  %123 = phi ptr [ %121, %120 ], [ %3, %119 ]
+  %124 = or disjoint i64 %14, 6
   store i64 %1, ptr %8, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %123, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %122, ptr %125, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %124, ptr %125, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %123, ptr %126, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %.val33.val, ptr %5, align 8
-  %126 = call ptr @_ZNSt8_Rb_treeIN4llvm9LiveRange7SegmentES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %.val33.val, ptr nonnull %.sroa.04.0.i, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %127 = call ptr @_ZNSt8_Rb_treeIN4llvm9LiveRange7SegmentES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE17_M_insert_unique_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_ESt23_Rb_tree_const_iteratorIS2_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %.val33.val, ptr nonnull %.sroa.04.0.i, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %127
+  br label %128
 
-127:                                              ; preds = %121, %115, %87
-  %.0 = phi ptr [ %88, %87 ], [ %117, %115 ], [ %122, %121 ]
+128:                                              ; preds = %122, %116, %87
+  %.0 = phi ptr [ %88, %87 ], [ %118, %116 ], [ %123, %122 ]
   ret ptr %.0
 }
 
@@ -499,71 +500,73 @@ _ZN12_GLOBAL__N_123CalcLiveRangeUtilVector4findEN4llvm9SlotIndexE.exit: ; preds 
   store ptr %42, ptr %46, align 8
   %.val35 = load ptr, ptr %0, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_9LiveRange7SegmentELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %.val35, ptr noundef nonnull align 8 dereferenceable(24) %5)
-  br label %84
+  br label %86
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_123CalcLiveRangeUtilVector4findEN4llvm9SlotIndexE.exit
   %.sroa.05.0.copyload = load i64, ptr %.0.lcssa.i.i.i.i, align 8
-  %48 = and i64 %1, -8
-  %49 = inttoptr i64 %48 to ptr
-  %50 = and i64 %.sroa.05.0.copyload, -8
-  %51 = inttoptr i64 %50 to ptr
-  %52 = icmp eq ptr %49, %51
-  br i1 %52, label %53, label %74
+  %48 = xor i64 %.sroa.05.0.copyload, %1
+  %49 = icmp ult i64 %48, 8
+  br i1 %49, label %50, label %75
 
-53:                                               ; preds = %47
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  %55 = load i32, ptr %54, align 8
-  %56 = trunc i64 %.sroa.05.0.copyload to i32
-  %57 = lshr i32 %56, 1
-  %58 = and i32 %57, 3
-  %59 = or i32 %55, %58
-  %60 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %61 = load i32, ptr %60, align 8
-  %62 = trunc i64 %1 to i32
-  %63 = lshr i32 %62, 1
-  %64 = and i32 %63, 3
-  %65 = or i32 %61, %64
-  %66 = icmp ult i32 %59, %65
+50:                                               ; preds = %47
+  %51 = and i64 %.sroa.05.0.copyload, -8
+  %52 = inttoptr i64 %51 to ptr
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  %54 = load i32, ptr %53, align 8
+  %55 = trunc i64 %.sroa.05.0.copyload to i32
+  %56 = lshr i32 %55, 1
+  %57 = and i32 %56, 3
+  %58 = or i32 %54, %57
+  %59 = and i64 %1, -8
+  %60 = inttoptr i64 %59 to ptr
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %62 = load i32, ptr %61, align 8
+  %63 = trunc i64 %1 to i32
+  %64 = lshr i32 %63, 1
+  %65 = and i32 %64, 3
+  %66 = or i32 %62, %65
+  %67 = icmp ult i32 %58, %66
   %.not4849 = icmp eq i64 %1, %.sroa.05.0.copyload
-  %.not48 = select i1 %66, i1 true, i1 %.not4849
-  br i1 %.not48, label %71, label %67
+  %.not48 = select i1 %67, i1 true, i1 %.not4849
+  br i1 %.not48, label %72, label %68
 
-67:                                               ; preds = %53
-  %68 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store i64 %1, ptr %70, align 8
+68:                                               ; preds = %50
+  %69 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store i64 %1, ptr %71, align 8
   store i64 %1, ptr %.0.lcssa.i.i.i.i, align 8
-  br label %71
+  br label %72
 
-71:                                               ; preds = %67, %53
-  %72 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 16
-  %73 = load ptr, ptr %72, align 8
-  br label %84
+72:                                               ; preds = %68, %50
+  %73 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 16
+  %74 = load ptr, ptr %73, align 8
+  br label %86
 
-74:                                               ; preds = %47
+75:                                               ; preds = %47
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %75, label %78
+  br i1 %.not, label %76, label %79
 
-75:                                               ; preds = %74
-  %76 = load ptr, ptr %0, align 8
-  %77 = tail call noundef ptr @_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(104) %76, i64 %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
-  br label %78
+76:                                               ; preds = %75
+  %77 = load ptr, ptr %0, align 8
+  %78 = tail call noundef ptr @_ZN4llvm9LiveRange12getNextValueENS_9SlotIndexERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(104) %77, i64 %1, ptr noundef nonnull align 8 dereferenceable(96) %2)
+  br label %79
 
-78:                                               ; preds = %74, %75
-  %79 = phi ptr [ %77, %75 ], [ %3, %74 ]
+79:                                               ; preds = %75, %76
+  %80 = phi ptr [ %78, %76 ], [ %3, %75 ]
   %.val34 = load ptr, ptr %0, align 8
-  %80 = or disjoint i64 %48, 6
+  %81 = and i64 %1, -8
+  %82 = or disjoint i64 %81, 6
   store i64 %1, ptr %6, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %80, ptr %81, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %79, ptr %82, align 8
-  %83 = call noundef ptr @_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE15insert_one_implIRKS2_EEPS2_S7_OT_(ptr noundef nonnull align 8 dereferenceable(16) %.val34, ptr noundef nonnull %.0.lcssa.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  br label %84
+  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %82, ptr %83, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %80, ptr %84, align 8
+  %85 = call noundef ptr @_ZN4llvm15SmallVectorImplINS_9LiveRange7SegmentEE15insert_one_implIRKS2_EEPS2_S7_OT_(ptr noundef nonnull align 8 dereferenceable(16) %.val34, ptr noundef nonnull %.0.lcssa.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %6)
+  br label %86
 
-84:                                               ; preds = %78, %71, %41
-  %.0 = phi ptr [ %42, %41 ], [ %73, %71 ], [ %79, %78 ]
+86:                                               ; preds = %79, %72, %41
+  %.0 = phi ptr [ %42, %41 ], [ %74, %72 ], [ %80, %79 ]
   ret ptr %.0
 }
 
@@ -7693,7 +7696,7 @@ _ZNK4llvm9LiveRange4findENS_9SlotIndexE.exit:     ; preds = %_ZSt7advanceIPN4llv
 
 30:                                               ; preds = %_ZNK4llvm9LiveRange4findENS_9SlotIndexE.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 25, i1 false)
-  br label %75
+  br label %74
 
 31:                                               ; preds = %_ZNK4llvm9LiveRange4findENS_9SlotIndexE.exit
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %.0.lcssa.i.i.i.i, align 8
@@ -7709,80 +7712,79 @@ _ZNK4llvm9LiveRange4findENS_9SlotIndexE.exit:     ; preds = %_ZSt7advanceIPN4llv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load i32, ptr %41, align 8
   %.not = icmp ugt i32 %39, %42
-  br i1 %.not, label %62, label %43
+  br i1 %.not, label %61, label %43
 
 43:                                               ; preds = %31
   %44 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 8
   %47 = load i64, ptr %46, align 8
-  %48 = and i64 %47, -8
-  %49 = inttoptr i64 %48 to ptr
-  %50 = icmp eq ptr %40, %49
-  br i1 %50, label %51, label %58
+  %48 = xor i64 %47, %2
+  %49 = icmp ult i64 %48, 8
+  br i1 %49, label %50, label %57
 
-51:                                               ; preds = %43
-  %52 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
-  %53 = icmp eq ptr %52, %28
-  br i1 %53, label %54, label %._crit_edge
+50:                                               ; preds = %43
+  %51 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i, i64 24
+  %52 = icmp eq ptr %51, %28
+  br i1 %52, label %53, label %._crit_edge
 
-._crit_edge:                                      ; preds = %51
-  %.sroa.01.0.copyload.pre.pre = load i64, ptr %52, align 8
+._crit_edge:                                      ; preds = %50
+  %.sroa.01.0.copyload.pre.pre = load i64, ptr %51, align 8
   %.pre46 = and i64 %.sroa.01.0.copyload.pre.pre, -8
   %.pre = inttoptr i64 %.pre46 to ptr
-  br label %58
+  br label %57
 
-54:                                               ; preds = %51
+53:                                               ; preds = %50
   store ptr %45, ptr %0, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %47, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %57, align 8
-  br label %75
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %47, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 1, ptr %56, align 8
+  br label %74
 
-58:                                               ; preds = %._crit_edge, %43
+57:                                               ; preds = %._crit_edge, %43
   %.pre44.pre-phi = phi ptr [ %.pre, %._crit_edge ], [ %33, %43 ]
-  %.1 = phi ptr [ %52, %._crit_edge ], [ %.0.lcssa.i.i.i.i, %43 ]
-  %59 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %.0.copyload.i.i.i.i = load i64, ptr %59, align 8
-  %60 = icmp eq i64 %.0.copyload.i.i.i.i, %4
-  %spec.select = select i1 %60, ptr null, ptr %45
-  %61 = zext i1 %50 to i8
-  br label %62
+  %.1 = phi ptr [ %51, %._crit_edge ], [ %.0.lcssa.i.i.i.i, %43 ]
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %.0.copyload.i.i.i.i = load i64, ptr %58, align 8
+  %59 = icmp eq i64 %.0.copyload.i.i.i.i, %4
+  %spec.select = select i1 %59, ptr null, ptr %45
+  %60 = zext i1 %49 to i8
+  br label %61
 
-62:                                               ; preds = %58, %31
-  %.pre-phi45 = phi ptr [ %.pre44.pre-phi, %58 ], [ %33, %31 ]
-  %.sroa.0.0 = phi i64 [ %47, %58 ], [ 0, %31 ]
-  %.028 = phi i8 [ %61, %58 ], [ 0, %31 ]
-  %.026 = phi ptr [ %spec.select, %58 ], [ null, %31 ]
-  %.0 = phi ptr [ %.1, %58 ], [ %.0.lcssa.i.i.i.i, %31 ]
-  %63 = getelementptr inbounds nuw i8, ptr %.pre-phi45, i64 24
-  %64 = load i32, ptr %63, align 8
-  %65 = icmp ult i32 %42, %64
-  br i1 %65, label %71, label %66
+61:                                               ; preds = %57, %31
+  %.pre-phi45 = phi ptr [ %.pre44.pre-phi, %57 ], [ %33, %31 ]
+  %.sroa.0.0 = phi i64 [ %47, %57 ], [ 0, %31 ]
+  %.028 = phi i8 [ %60, %57 ], [ 0, %31 ]
+  %.026 = phi ptr [ %spec.select, %57 ], [ null, %31 ]
+  %.0 = phi ptr [ %.1, %57 ], [ %.0.lcssa.i.i.i.i, %31 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.pre-phi45, i64 24
+  %63 = load i32, ptr %62, align 8
+  %64 = icmp ult i32 %42, %63
+  br i1 %64, label %70, label %65
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %70 = load i64, ptr %69, align 8
-  br label %71
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %69 = load i64, ptr %68, align 8
+  br label %70
 
-71:                                               ; preds = %66, %62
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %62 ], [ %70, %66 ]
-  %.027 = phi ptr [ null, %62 ], [ %68, %66 ]
+70:                                               ; preds = %65, %61
+  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %61 ], [ %69, %65 ]
+  %.027 = phi ptr [ null, %61 ], [ %67, %65 ]
   store ptr %.026, ptr %0, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.027, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.1, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.028, ptr %74, align 8
-  br label %75
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.027, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.0.1, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %.028, ptr %73, align 8
+  br label %74
 
-75:                                               ; preds = %71, %54, %30
+74:                                               ; preds = %70, %53, %30
   ret void
 }
 

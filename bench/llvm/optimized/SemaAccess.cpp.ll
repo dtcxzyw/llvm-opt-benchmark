@@ -9867,79 +9867,75 @@ _ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48: ; preds = %
   %.sroa.0.0.copyload.i.i = load i64, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %.sroa.0.0.copyload.i.i56 = load i64, ptr %87, align 8
-  %88 = inttoptr i64 %.sroa.0.0.copyload.i.i56 to ptr
-  %89 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
-  %90 = icmp eq ptr %88, %89
-  br i1 %90, label %.critedge.i, label %91
+  %88 = icmp eq i64 %.sroa.0.0.copyload.i.i56, %.sroa.0.0.copyload.i.i
+  br i1 %88, label %.critedge.i, label %89
 
-91:                                               ; preds = %85
-  %92 = and i64 %.sroa.0.0.copyload.i.i56, -16
-  %93 = inttoptr i64 %92 to ptr
-  %94 = load ptr, ptr %93, align 16
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 17
-  %96 = load i16, ptr %95, align 1
-  %97 = and i16 %96, 4
-  %.not.i = icmp eq i16 %97, 0
-  br i1 %.not.i, label %98, label %.critedge.i
+89:                                               ; preds = %85
+  %90 = and i64 %.sroa.0.0.copyload.i.i56, -16
+  %91 = inttoptr i64 %90 to ptr
+  %92 = load ptr, ptr %91, align 16
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 17
+  %94 = load i16, ptr %93, align 1
+  %95 = and i16 %94, 4
+  %.not.i = icmp eq i16 %95, 0
+  br i1 %.not.i, label %96, label %.critedge.i
 
-98:                                               ; preds = %91
-  %99 = and i64 %.sroa.0.0.copyload.i.i, -16
-  %100 = inttoptr i64 %99 to ptr
-  %101 = load ptr, ptr %100, align 16
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 17
-  %103 = load i16, ptr %102, align 1
-  %104 = and i16 %103, 4
-  %.not4.i = icmp eq i16 %104, 0
+96:                                               ; preds = %89
+  %97 = and i64 %.sroa.0.0.copyload.i.i, -16
+  %98 = inttoptr i64 %97 to ptr
+  %99 = load ptr, ptr %98, align 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 17
+  %101 = load i16, ptr %100, align 1
+  %102 = and i16 %101, 4
+  %.not4.i = icmp eq i16 %102, 0
   br i1 %.not4.i, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit, label %.critedge.i
 
-.critedge.i:                                      ; preds = %91, %98, %85
+.critedge.i:                                      ; preds = %89, %96, %85
   %.not25100 = icmp eq i32 %76, 0
   br i1 %.not25100, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge.i
-  %105 = getelementptr inbounds i8, ptr %79, i64 48
-  %106 = getelementptr inbounds i8, ptr %71, i64 48
-  %107 = and i64 %74, 65535
-  br label %108
+  %103 = getelementptr inbounds i8, ptr %79, i64 48
+  %104 = getelementptr inbounds i8, ptr %71, i64 48
+  %105 = and i64 %74, 65535
+  br label %106
 
-108:                                              ; preds = %.lr.ph, %.critedge.i67
+106:                                              ; preds = %.lr.ph, %.critedge.i67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge.i67 ]
-  %109 = getelementptr inbounds %"class.clang::QualType", ptr %105, i64 %indvars.iv
-  %.sroa.0.0.copyload.i.i62 = load i64, ptr %109, align 8
-  %110 = getelementptr inbounds %"class.clang::QualType", ptr %106, i64 %indvars.iv
-  %.sroa.0.0.copyload.i.i65 = load i64, ptr %110, align 8
-  %111 = inttoptr i64 %.sroa.0.0.copyload.i.i65 to ptr
-  %112 = inttoptr i64 %.sroa.0.0.copyload.i.i62 to ptr
-  %113 = icmp eq ptr %111, %112
-  br i1 %113, label %.critedge.i67, label %114
+  %107 = getelementptr inbounds %"class.clang::QualType", ptr %103, i64 %indvars.iv
+  %.sroa.0.0.copyload.i.i62 = load i64, ptr %107, align 8
+  %108 = getelementptr inbounds %"class.clang::QualType", ptr %104, i64 %indvars.iv
+  %.sroa.0.0.copyload.i.i65 = load i64, ptr %108, align 8
+  %109 = icmp eq i64 %.sroa.0.0.copyload.i.i65, %.sroa.0.0.copyload.i.i62
+  br i1 %109, label %.critedge.i67, label %110
 
-114:                                              ; preds = %108
-  %115 = and i64 %.sroa.0.0.copyload.i.i65, -16
-  %116 = inttoptr i64 %115 to ptr
-  %117 = load ptr, ptr %116, align 16
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 17
-  %119 = load i16, ptr %118, align 1
-  %120 = and i16 %119, 4
-  %.not.i66 = icmp eq i16 %120, 0
-  br i1 %.not.i66, label %121, label %.critedge.i67
+110:                                              ; preds = %106
+  %111 = and i64 %.sroa.0.0.copyload.i.i65, -16
+  %112 = inttoptr i64 %111 to ptr
+  %113 = load ptr, ptr %112, align 16
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 17
+  %115 = load i16, ptr %114, align 1
+  %116 = and i16 %115, 4
+  %.not.i66 = icmp eq i16 %116, 0
+  br i1 %.not.i66, label %117, label %.critedge.i67
 
-121:                                              ; preds = %114
-  %122 = and i64 %.sroa.0.0.copyload.i.i62, -16
-  %123 = inttoptr i64 %122 to ptr
-  %124 = load ptr, ptr %123, align 16
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 17
-  %126 = load i16, ptr %125, align 1
-  %127 = and i16 %126, 4
-  %.not4.i69 = icmp eq i16 %127, 0
+117:                                              ; preds = %110
+  %118 = and i64 %.sroa.0.0.copyload.i.i62, -16
+  %119 = inttoptr i64 %118 to ptr
+  %120 = load ptr, ptr %119, align 16
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 17
+  %122 = load i16, ptr %121, align 1
+  %123 = and i16 %122, 4
+  %.not4.i69 = icmp eq i16 %123, 0
   br i1 %.not4.i69, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit, label %.critedge.i67
 
-.critedge.i67:                                    ; preds = %114, %121, %108
+.critedge.i67:                                    ; preds = %110, %117, %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not25 = icmp eq i64 %indvars.iv.next, %107
-  br i1 %.not25, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit, label %108, !llvm.loop !51
+  %.not25 = icmp eq i64 %indvars.iv.next, %105
+  br i1 %.not25, label %_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit, label %106, !llvm.loop !51
 
-_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit: ; preds = %.critedge.i67, %121, %.critedge.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit, %21, %98, %68, %_ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit ], [ false, %_ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48 ], [ false, %68 ], [ false, %98 ], [ false, %21 ], [ false, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit ], [ true, %.critedge.i ], [ true, %.critedge.i67 ], [ false, %121 ]
+_ZL18MightInstantiateToRN5clang4SemaENS_7CanQualINS_4TypeEEES4_.exit: ; preds = %.critedge.i67, %117, %.critedge.i, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit, %21, %96, %68, %_ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit ], [ false, %_ZNK5clang7CanQualINS_17FunctionProtoTypeEE13getQualifiersEv.exit48 ], [ false, %68 ], [ false, %96 ], [ false, %21 ], [ false, %_ZL18MightInstantiateToRN5clang4SemaEPNS_11DeclContextES3_.exit ], [ true, %.critedge.i ], [ true, %.critedge.i67 ], [ false, %117 ]
   ret i1 %.0
 }
 

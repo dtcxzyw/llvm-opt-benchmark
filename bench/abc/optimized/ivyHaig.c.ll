@@ -265,10 +265,10 @@ define void @Ivy_ManHaigCreateObj(ptr nocapture noundef readonly %0, ptr nocaptu
   %3 = getelementptr i8, ptr %1, i64 8
   %.val = load i32, ptr %3, align 8
   %4 = and i32 %.val, 15
-  switch i32 %4, label %127 [
+  switch i32 %4, label %124 [
     i32 7, label %5
     i32 4, label %17
-    i32 5, label %56
+    i32 5, label %55
   ]
 
 5:                                                ; preds = %2
@@ -324,205 +324,184 @@ Ivy_ObjChild0Equiv.exit29:                        ; preds = %17, %21
 37:                                               ; preds = %34
   %38 = ptrtoint ptr %32 to i64
   %.0.in12.i = and i64 %38, -2
-  %.013.i = inttoptr i64 %.0.in12.i to ptr
-  %.not14.i = icmp eq ptr %30, %.013.i
-  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  %.not14.i = icmp eq i64 %29, %.0.in12.i
+  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %37
-  %39 = getelementptr i8, ptr %.013.i, i64 12
-  %.0.val.i72 = load i32, ptr %39, align 4
-  %40 = icmp sgt i32 %.0.val.i72, 0
-  br i1 %40, label %._crit_edge.i, label %.lr.ph74
+.lr.ph.i:                                         ; preds = %37, %41
+  %.0.in15.i = phi i64 [ %.0.in.i, %41 ], [ %.0.in12.i, %37 ]
+  %.016.i = inttoptr i64 %.0.in15.i to ptr
+  %39 = getelementptr i8, ptr %.016.i, i64 12
+  %.0.val.i = load i32, ptr %39, align 4
+  %40 = icmp sgt i32 %.0.val.i, 0
+  br i1 %40, label %._crit_edge.i, label %41
 
-.lr.ph.i:                                         ; preds = %.lr.ph74
-  %41 = getelementptr i8, ptr %.0.i, i64 12
-  %.0.val.i = load i32, ptr %41, align 4
-  %42 = icmp sgt i32 %.0.val.i, 0
-  br i1 %42, label %._crit_edge.i, label %.lr.ph74, !llvm.loop !8
-
-.lr.ph74:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.016.i73 = phi ptr [ %.0.i, %.lr.ph.i ], [ %.013.i, %.lr.ph.i.preheader ]
-  %43 = getelementptr inbounds i8, ptr %.016.i73, i64 72
-  %44 = load ptr, ptr %43, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %.0.in.i = and i64 %45, -2
-  %.0.i = inttoptr i64 %.0.in.i to ptr
-  %.not.i30 = icmp eq ptr %30, %.0.i
+41:                                               ; preds = %.lr.ph.i
+  %42 = getelementptr inbounds i8, ptr %.016.i, i64 72
+  %43 = load ptr, ptr %42, align 8
+  %44 = ptrtoint ptr %43 to i64
+  %.0.in.i = and i64 %44, -2
+  %.not.i30 = icmp eq i64 %29, %.0.in.i
   br i1 %.not.i30, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph74, %.lr.ph.i.preheader, %37
-  %.0.in.lcssa.i = phi i64 [ %.0.in12.i, %37 ], [ %.0.in12.i, %.lr.ph.i.preheader ], [ %.0.in.i, %.lr.ph74 ], [ %.0.in.i, %.lr.ph.i ]
-  %46 = and i64 %38, 1
-  %47 = or disjoint i64 %.0.in.lcssa.i, %46
+._crit_edge.i:                                    ; preds = %41, %.lr.ph.i, %37
+  %.0.in.lcssa.i = phi i64 [ %29, %37 ], [ %29, %41 ], [ %.0.in15.i, %.lr.ph.i ]
+  %45 = and i64 %38, 1
+  %46 = or disjoint i64 %.0.in.lcssa.i, %45
   br label %Ivy_HaigObjRepr.exit
 
 Ivy_HaigObjRepr.exit:                             ; preds = %Ivy_ObjChild0Equiv.exit29, %34, %._crit_edge.i
-  %.011.i = phi i64 [ %47, %._crit_edge.i ], [ %29, %34 ], [ %29, %Ivy_ObjChild0Equiv.exit29 ]
-  %48 = and i64 %28, 1
-  %49 = xor i64 %.011.i, %48
-  %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds i8, ptr %0, i64 216
-  %52 = load ptr, ptr %51, align 8
-  %53 = lshr i32 %.val, 9
-  %54 = and i32 %53, 3
-  %55 = tail call ptr @Ivy_Latch(ptr noundef %52, ptr noundef %50, i32 noundef %54) #10
+  %.011.i = phi i64 [ %46, %._crit_edge.i ], [ %29, %34 ], [ %29, %Ivy_ObjChild0Equiv.exit29 ]
+  %47 = and i64 %28, 1
+  %48 = xor i64 %.011.i, %47
+  %49 = inttoptr i64 %48 to ptr
+  %50 = getelementptr inbounds i8, ptr %0, i64 216
+  %51 = load ptr, ptr %50, align 8
+  %52 = lshr i32 %.val, 9
+  %53 = and i32 %52, 3
+  %54 = tail call ptr @Ivy_Latch(ptr noundef %51, ptr noundef %49, i32 noundef %53) #10
   br label %.sink.split
 
-56:                                               ; preds = %2
-  %57 = getelementptr i8, ptr %1, i64 16
-  %.val26 = load ptr, ptr %57, align 8
-  %58 = ptrtoint ptr %.val26 to i64
-  %59 = and i64 %58, -2
-  %.not.i31 = icmp eq i64 %59, 0
-  br i1 %.not.i31, label %Ivy_ObjChild0Equiv.exit32, label %60
+55:                                               ; preds = %2
+  %56 = getelementptr i8, ptr %1, i64 16
+  %.val26 = load ptr, ptr %56, align 8
+  %57 = ptrtoint ptr %.val26 to i64
+  %58 = and i64 %57, -2
+  %.not.i31 = icmp eq i64 %58, 0
+  br i1 %.not.i31, label %Ivy_ObjChild0Equiv.exit32, label %59
 
-60:                                               ; preds = %56
-  %61 = inttoptr i64 %59 to ptr
-  %62 = getelementptr inbounds i8, ptr %61, i64 72
-  %63 = load ptr, ptr %62, align 8
-  %64 = and i64 %58, 1
-  %65 = ptrtoint ptr %63 to i64
-  %66 = xor i64 %64, %65
+59:                                               ; preds = %55
+  %60 = inttoptr i64 %58 to ptr
+  %61 = getelementptr inbounds i8, ptr %60, i64 72
+  %62 = load ptr, ptr %61, align 8
+  %63 = and i64 %57, 1
+  %64 = ptrtoint ptr %62 to i64
+  %65 = xor i64 %63, %64
   br label %Ivy_ObjChild0Equiv.exit32
 
-Ivy_ObjChild0Equiv.exit32:                        ; preds = %56, %60
-  %67 = phi i64 [ %66, %60 ], [ 0, %56 ]
-  %68 = and i64 %67, -2
-  %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds i8, ptr %69, i64 72
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %Ivy_HaigObjRepr.exit47, label %73
+Ivy_ObjChild0Equiv.exit32:                        ; preds = %55, %59
+  %66 = phi i64 [ %65, %59 ], [ 0, %55 ]
+  %67 = and i64 %66, -2
+  %68 = inttoptr i64 %67 to ptr
+  %69 = getelementptr inbounds i8, ptr %68, i64 72
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %Ivy_HaigObjRepr.exit47, label %72
 
-73:                                               ; preds = %Ivy_ObjChild0Equiv.exit32
-  %74 = getelementptr i8, ptr %69, i64 12
-  %.val.i33 = load i32, ptr %74, align 4
-  %75 = icmp sgt i32 %.val.i33, 0
-  br i1 %75, label %Ivy_HaigObjRepr.exit47, label %76
+72:                                               ; preds = %Ivy_ObjChild0Equiv.exit32
+  %73 = getelementptr i8, ptr %68, i64 12
+  %.val.i33 = load i32, ptr %73, align 4
+  %74 = icmp sgt i32 %.val.i33, 0
+  br i1 %74, label %Ivy_HaigObjRepr.exit47, label %75
 
-76:                                               ; preds = %73
-  %77 = ptrtoint ptr %71 to i64
-  %.0.in12.i34 = and i64 %77, -2
-  %.013.i35 = inttoptr i64 %.0.in12.i34 to ptr
-  %.not14.i36 = icmp eq ptr %69, %.013.i35
-  br i1 %.not14.i36, label %._crit_edge.i44, label %.lr.ph.i37.preheader
+75:                                               ; preds = %72
+  %76 = ptrtoint ptr %70 to i64
+  %.0.in12.i34 = and i64 %76, -2
+  %.not14.i36 = icmp eq i64 %67, %.0.in12.i34
+  br i1 %.not14.i36, label %._crit_edge.i44, label %.lr.ph.i37
 
-.lr.ph.i37.preheader:                             ; preds = %76
-  %78 = getelementptr i8, ptr %.013.i35, i64 12
-  %.0.val.i4064 = load i32, ptr %78, align 4
-  %79 = icmp sgt i32 %.0.val.i4064, 0
-  br i1 %79, label %._crit_edge.i44, label %.lr.ph
+.lr.ph.i37:                                       ; preds = %75, %79
+  %.0.in15.i39 = phi i64 [ %.0.in.i41, %79 ], [ %.0.in12.i34, %75 ]
+  %.016.i38 = inttoptr i64 %.0.in15.i39 to ptr
+  %77 = getelementptr i8, ptr %.016.i38, i64 12
+  %.0.val.i40 = load i32, ptr %77, align 4
+  %78 = icmp sgt i32 %.0.val.i40, 0
+  br i1 %78, label %._crit_edge.i44, label %79
 
-.lr.ph.i37:                                       ; preds = %.lr.ph
-  %80 = getelementptr i8, ptr %.0.i42, i64 12
-  %.0.val.i40 = load i32, ptr %80, align 4
-  %81 = icmp sgt i32 %.0.val.i40, 0
-  br i1 %81, label %._crit_edge.i44, label %.lr.ph, !llvm.loop !8
-
-.lr.ph:                                           ; preds = %.lr.ph.i37.preheader, %.lr.ph.i37
-  %.016.i3865 = phi ptr [ %.0.i42, %.lr.ph.i37 ], [ %.013.i35, %.lr.ph.i37.preheader ]
-  %82 = getelementptr inbounds i8, ptr %.016.i3865, i64 72
-  %83 = load ptr, ptr %82, align 8
-  %84 = ptrtoint ptr %83 to i64
-  %.0.in.i41 = and i64 %84, -2
-  %.0.i42 = inttoptr i64 %.0.in.i41 to ptr
-  %.not.i43 = icmp eq ptr %69, %.0.i42
+79:                                               ; preds = %.lr.ph.i37
+  %80 = getelementptr inbounds i8, ptr %.016.i38, i64 72
+  %81 = load ptr, ptr %80, align 8
+  %82 = ptrtoint ptr %81 to i64
+  %.0.in.i41 = and i64 %82, -2
+  %.not.i43 = icmp eq i64 %67, %.0.in.i41
   br i1 %.not.i43, label %._crit_edge.i44, label %.lr.ph.i37, !llvm.loop !8
 
-._crit_edge.i44:                                  ; preds = %.lr.ph.i37, %.lr.ph, %.lr.ph.i37.preheader, %76
-  %.0.in.lcssa.i45 = phi i64 [ %.0.in12.i34, %76 ], [ %.0.in12.i34, %.lr.ph.i37.preheader ], [ %.0.in.i41, %.lr.ph ], [ %.0.in.i41, %.lr.ph.i37 ]
-  %85 = and i64 %77, 1
-  %86 = or disjoint i64 %.0.in.lcssa.i45, %85
+._crit_edge.i44:                                  ; preds = %79, %.lr.ph.i37, %75
+  %.0.in.lcssa.i45 = phi i64 [ %67, %75 ], [ %67, %79 ], [ %.0.in15.i39, %.lr.ph.i37 ]
+  %83 = and i64 %76, 1
+  %84 = or disjoint i64 %.0.in.lcssa.i45, %83
   br label %Ivy_HaigObjRepr.exit47
 
-Ivy_HaigObjRepr.exit47:                           ; preds = %Ivy_ObjChild0Equiv.exit32, %73, %._crit_edge.i44
-  %.011.i46 = phi i64 [ %86, %._crit_edge.i44 ], [ %68, %73 ], [ %68, %Ivy_ObjChild0Equiv.exit32 ]
-  %87 = and i64 %67, 1
-  %88 = xor i64 %.011.i46, %87
-  %89 = inttoptr i64 %88 to ptr
-  %90 = getelementptr i8, ptr %1, i64 24
-  %.val27 = load ptr, ptr %90, align 8
-  %91 = ptrtoint ptr %.val27 to i64
-  %92 = and i64 %91, -2
-  %.not.i48 = icmp eq i64 %92, 0
-  br i1 %.not.i48, label %Ivy_ObjChild1Equiv.exit, label %93
+Ivy_HaigObjRepr.exit47:                           ; preds = %Ivy_ObjChild0Equiv.exit32, %72, %._crit_edge.i44
+  %.011.i46 = phi i64 [ %84, %._crit_edge.i44 ], [ %67, %72 ], [ %67, %Ivy_ObjChild0Equiv.exit32 ]
+  %85 = and i64 %66, 1
+  %86 = xor i64 %.011.i46, %85
+  %87 = inttoptr i64 %86 to ptr
+  %88 = getelementptr i8, ptr %1, i64 24
+  %.val27 = load ptr, ptr %88, align 8
+  %89 = ptrtoint ptr %.val27 to i64
+  %90 = and i64 %89, -2
+  %.not.i48 = icmp eq i64 %90, 0
+  br i1 %.not.i48, label %Ivy_ObjChild1Equiv.exit, label %91
 
-93:                                               ; preds = %Ivy_HaigObjRepr.exit47
-  %94 = inttoptr i64 %92 to ptr
-  %95 = getelementptr inbounds i8, ptr %94, i64 72
-  %96 = load ptr, ptr %95, align 8
-  %97 = and i64 %91, 1
-  %98 = ptrtoint ptr %96 to i64
-  %99 = xor i64 %97, %98
+91:                                               ; preds = %Ivy_HaigObjRepr.exit47
+  %92 = inttoptr i64 %90 to ptr
+  %93 = getelementptr inbounds i8, ptr %92, i64 72
+  %94 = load ptr, ptr %93, align 8
+  %95 = and i64 %89, 1
+  %96 = ptrtoint ptr %94 to i64
+  %97 = xor i64 %95, %96
   br label %Ivy_ObjChild1Equiv.exit
 
-Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_HaigObjRepr.exit47, %93
-  %100 = phi i64 [ %99, %93 ], [ 0, %Ivy_HaigObjRepr.exit47 ]
-  %101 = and i64 %100, -2
-  %102 = inttoptr i64 %101 to ptr
-  %103 = getelementptr inbounds i8, ptr %102, i64 72
-  %104 = load ptr, ptr %103, align 8
-  %105 = icmp eq ptr %104, null
-  br i1 %105, label %Ivy_HaigObjRepr.exit63, label %106
+Ivy_ObjChild1Equiv.exit:                          ; preds = %Ivy_HaigObjRepr.exit47, %91
+  %98 = phi i64 [ %97, %91 ], [ 0, %Ivy_HaigObjRepr.exit47 ]
+  %99 = and i64 %98, -2
+  %100 = inttoptr i64 %99 to ptr
+  %101 = getelementptr inbounds i8, ptr %100, i64 72
+  %102 = load ptr, ptr %101, align 8
+  %103 = icmp eq ptr %102, null
+  br i1 %103, label %Ivy_HaigObjRepr.exit63, label %104
 
-106:                                              ; preds = %Ivy_ObjChild1Equiv.exit
-  %107 = getelementptr i8, ptr %102, i64 12
-  %.val.i49 = load i32, ptr %107, align 4
-  %108 = icmp sgt i32 %.val.i49, 0
-  br i1 %108, label %Ivy_HaigObjRepr.exit63, label %109
+104:                                              ; preds = %Ivy_ObjChild1Equiv.exit
+  %105 = getelementptr i8, ptr %100, i64 12
+  %.val.i49 = load i32, ptr %105, align 4
+  %106 = icmp sgt i32 %.val.i49, 0
+  br i1 %106, label %Ivy_HaigObjRepr.exit63, label %107
 
-109:                                              ; preds = %106
-  %110 = ptrtoint ptr %104 to i64
-  %.0.in12.i50 = and i64 %110, -2
-  %.013.i51 = inttoptr i64 %.0.in12.i50 to ptr
-  %.not14.i52 = icmp eq ptr %102, %.013.i51
-  br i1 %.not14.i52, label %._crit_edge.i60, label %.lr.ph.i53.preheader
+107:                                              ; preds = %104
+  %108 = ptrtoint ptr %102 to i64
+  %.0.in12.i50 = and i64 %108, -2
+  %.not14.i52 = icmp eq i64 %99, %.0.in12.i50
+  br i1 %.not14.i52, label %._crit_edge.i60, label %.lr.ph.i53
 
-.lr.ph.i53.preheader:                             ; preds = %109
-  %111 = getelementptr i8, ptr %.013.i51, i64 12
-  %.0.val.i5667 = load i32, ptr %111, align 4
-  %112 = icmp sgt i32 %.0.val.i5667, 0
-  br i1 %112, label %._crit_edge.i60, label %.lr.ph69
+.lr.ph.i53:                                       ; preds = %107, %111
+  %.0.in15.i55 = phi i64 [ %.0.in.i57, %111 ], [ %.0.in12.i50, %107 ]
+  %.016.i54 = inttoptr i64 %.0.in15.i55 to ptr
+  %109 = getelementptr i8, ptr %.016.i54, i64 12
+  %.0.val.i56 = load i32, ptr %109, align 4
+  %110 = icmp sgt i32 %.0.val.i56, 0
+  br i1 %110, label %._crit_edge.i60, label %111
 
-.lr.ph.i53:                                       ; preds = %.lr.ph69
-  %113 = getelementptr i8, ptr %.0.i58, i64 12
-  %.0.val.i56 = load i32, ptr %113, align 4
-  %114 = icmp sgt i32 %.0.val.i56, 0
-  br i1 %114, label %._crit_edge.i60, label %.lr.ph69, !llvm.loop !8
-
-.lr.ph69:                                         ; preds = %.lr.ph.i53.preheader, %.lr.ph.i53
-  %.016.i5468 = phi ptr [ %.0.i58, %.lr.ph.i53 ], [ %.013.i51, %.lr.ph.i53.preheader ]
-  %115 = getelementptr inbounds i8, ptr %.016.i5468, i64 72
-  %116 = load ptr, ptr %115, align 8
-  %117 = ptrtoint ptr %116 to i64
-  %.0.in.i57 = and i64 %117, -2
-  %.0.i58 = inttoptr i64 %.0.in.i57 to ptr
-  %.not.i59 = icmp eq ptr %102, %.0.i58
+111:                                              ; preds = %.lr.ph.i53
+  %112 = getelementptr inbounds i8, ptr %.016.i54, i64 72
+  %113 = load ptr, ptr %112, align 8
+  %114 = ptrtoint ptr %113 to i64
+  %.0.in.i57 = and i64 %114, -2
+  %.not.i59 = icmp eq i64 %99, %.0.in.i57
   br i1 %.not.i59, label %._crit_edge.i60, label %.lr.ph.i53, !llvm.loop !8
 
-._crit_edge.i60:                                  ; preds = %.lr.ph.i53, %.lr.ph69, %.lr.ph.i53.preheader, %109
-  %.0.in.lcssa.i61 = phi i64 [ %.0.in12.i50, %109 ], [ %.0.in12.i50, %.lr.ph.i53.preheader ], [ %.0.in.i57, %.lr.ph69 ], [ %.0.in.i57, %.lr.ph.i53 ]
-  %118 = and i64 %110, 1
-  %119 = or disjoint i64 %.0.in.lcssa.i61, %118
+._crit_edge.i60:                                  ; preds = %111, %.lr.ph.i53, %107
+  %.0.in.lcssa.i61 = phi i64 [ %99, %107 ], [ %99, %111 ], [ %.0.in15.i55, %.lr.ph.i53 ]
+  %115 = and i64 %108, 1
+  %116 = or disjoint i64 %.0.in.lcssa.i61, %115
   br label %Ivy_HaigObjRepr.exit63
 
-Ivy_HaigObjRepr.exit63:                           ; preds = %Ivy_ObjChild1Equiv.exit, %106, %._crit_edge.i60
-  %.011.i62 = phi i64 [ %119, %._crit_edge.i60 ], [ %101, %106 ], [ %101, %Ivy_ObjChild1Equiv.exit ]
-  %120 = and i64 %100, 1
-  %121 = xor i64 %.011.i62, %120
-  %122 = inttoptr i64 %121 to ptr
-  %123 = getelementptr inbounds i8, ptr %0, i64 216
-  %124 = load ptr, ptr %123, align 8
-  %125 = tail call ptr @Ivy_And(ptr noundef %124, ptr noundef %89, ptr noundef %122) #10
+Ivy_HaigObjRepr.exit63:                           ; preds = %Ivy_ObjChild1Equiv.exit, %104, %._crit_edge.i60
+  %.011.i62 = phi i64 [ %116, %._crit_edge.i60 ], [ %99, %104 ], [ %99, %Ivy_ObjChild1Equiv.exit ]
+  %117 = and i64 %98, 1
+  %118 = xor i64 %.011.i62, %117
+  %119 = inttoptr i64 %118 to ptr
+  %120 = getelementptr inbounds i8, ptr %0, i64 216
+  %121 = load ptr, ptr %120, align 8
+  %122 = tail call ptr @Ivy_And(ptr noundef %121, ptr noundef %87, ptr noundef %119) #10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %5, %Ivy_HaigObjRepr.exit63, %Ivy_HaigObjRepr.exit
-  %.sink = phi ptr [ %55, %Ivy_HaigObjRepr.exit ], [ %125, %Ivy_HaigObjRepr.exit63 ], [ %16, %9 ], [ null, %5 ]
-  %126 = getelementptr inbounds i8, ptr %1, i64 72
-  store ptr %.sink, ptr %126, align 8
-  br label %127
+  %.sink = phi ptr [ %54, %Ivy_HaigObjRepr.exit ], [ %122, %Ivy_HaigObjRepr.exit63 ], [ %16, %9 ], [ null, %5 ]
+  %123 = getelementptr inbounds i8, ptr %1, i64 72
+  store ptr %.sink, ptr %123, align 8
+  br label %124
 
-127:                                              ; preds = %.sink.split, %2
+124:                                              ; preds = %.sink.split, %2
   ret void
 }
 
@@ -614,144 +593,130 @@ define void @Ivy_ManHaigCreateChoice(ptr nocapture noundef readonly %0, ptr noca
 21:                                               ; preds = %18
   %22 = ptrtoint ptr %16 to i64
   %.0.in12.i = and i64 %22, -2
-  %.013.i = inttoptr i64 %.0.in12.i to ptr
-  %.not14.i = icmp eq ptr %14, %.013.i
-  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i.preheader
+  %.not14.i = icmp eq i64 %13, %.0.in12.i
+  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i.preheader:                               ; preds = %21
-  %23 = getelementptr i8, ptr %.013.i, i64 12
-  %.0.val.i43 = load i32, ptr %23, align 4
-  %24 = icmp sgt i32 %.0.val.i43, 0
-  br i1 %24, label %._crit_edge.i, label %.lr.ph
+.lr.ph.i:                                         ; preds = %21, %25
+  %.0.in15.i = phi i64 [ %.0.in.i, %25 ], [ %.0.in12.i, %21 ]
+  %.016.i = inttoptr i64 %.0.in15.i to ptr
+  %23 = getelementptr i8, ptr %.016.i, i64 12
+  %.0.val.i = load i32, ptr %23, align 4
+  %24 = icmp sgt i32 %.0.val.i, 0
+  br i1 %24, label %._crit_edge.i, label %25
 
-.lr.ph.i:                                         ; preds = %.lr.ph
-  %25 = getelementptr i8, ptr %.0.i, i64 12
-  %.0.val.i = load i32, ptr %25, align 4
-  %26 = icmp sgt i32 %.0.val.i, 0
-  br i1 %26, label %._crit_edge.i, label %.lr.ph, !llvm.loop !8
-
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.016.i44 = phi ptr [ %.0.i, %.lr.ph.i ], [ %.013.i, %.lr.ph.i.preheader ]
-  %27 = getelementptr inbounds i8, ptr %.016.i44, i64 72
-  %28 = load ptr, ptr %27, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %.0.in.i = and i64 %29, -2
-  %.0.i = inttoptr i64 %.0.in.i to ptr
-  %.not.i = icmp eq ptr %14, %.0.i
+25:                                               ; preds = %.lr.ph.i
+  %26 = getelementptr inbounds i8, ptr %.016.i, i64 72
+  %27 = load ptr, ptr %26, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %.0.in.i = and i64 %28, -2
+  %.not.i = icmp eq i64 %13, %.0.in.i
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph, %.lr.ph.i.preheader, %21
-  %.0.in.lcssa.i = phi i64 [ %.0.in12.i, %21 ], [ %.0.in12.i, %.lr.ph.i.preheader ], [ %.0.in.i, %.lr.ph ], [ %.0.in.i, %.lr.ph.i ]
-  %30 = and i64 %22, 1
-  %31 = or disjoint i64 %.0.in.lcssa.i, %30
+._crit_edge.i:                                    ; preds = %25, %.lr.ph.i, %21
+  %.0.in.lcssa.i = phi i64 [ %13, %21 ], [ %13, %25 ], [ %.0.in15.i, %.lr.ph.i ]
+  %29 = and i64 %22, 1
+  %30 = or disjoint i64 %.0.in.lcssa.i, %29
   br label %Ivy_HaigObjRepr.exit
 
 Ivy_HaigObjRepr.exit:                             ; preds = %3, %18, %._crit_edge.i
-  %.011.i = phi i64 [ %31, %._crit_edge.i ], [ %13, %18 ], [ %13, %3 ]
-  %32 = and i64 %11, -2
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds i8, ptr %33, i64 72
-  %35 = load ptr, ptr %34, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %Ivy_HaigObjRepr.exit42, label %37
+  %.011.i = phi i64 [ %30, %._crit_edge.i ], [ %13, %18 ], [ %13, %3 ]
+  %31 = and i64 %11, -2
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds i8, ptr %32, i64 72
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %Ivy_HaigObjRepr.exit42, label %36
 
-37:                                               ; preds = %Ivy_HaigObjRepr.exit
-  %38 = getelementptr i8, ptr %33, i64 12
-  %.val.i28 = load i32, ptr %38, align 4
-  %39 = icmp sgt i32 %.val.i28, 0
-  br i1 %39, label %Ivy_HaigObjRepr.exit42, label %40
+36:                                               ; preds = %Ivy_HaigObjRepr.exit
+  %37 = getelementptr i8, ptr %32, i64 12
+  %.val.i28 = load i32, ptr %37, align 4
+  %38 = icmp sgt i32 %.val.i28, 0
+  br i1 %38, label %Ivy_HaigObjRepr.exit42, label %39
 
-40:                                               ; preds = %37
-  %41 = ptrtoint ptr %35 to i64
-  %.0.in12.i29 = and i64 %41, -2
-  %.013.i30 = inttoptr i64 %.0.in12.i29 to ptr
-  %.not14.i31 = icmp eq ptr %33, %.013.i30
-  br i1 %.not14.i31, label %._crit_edge.i39, label %.lr.ph.i32.preheader
+39:                                               ; preds = %36
+  %40 = ptrtoint ptr %34 to i64
+  %.0.in12.i29 = and i64 %40, -2
+  %.not14.i31 = icmp eq i64 %31, %.0.in12.i29
+  br i1 %.not14.i31, label %._crit_edge.i39, label %.lr.ph.i32
 
-.lr.ph.i32.preheader:                             ; preds = %40
-  %42 = getelementptr i8, ptr %.013.i30, i64 12
-  %.0.val.i3546 = load i32, ptr %42, align 4
-  %43 = icmp sgt i32 %.0.val.i3546, 0
-  br i1 %43, label %._crit_edge.i39, label %.lr.ph48
+.lr.ph.i32:                                       ; preds = %39, %43
+  %.0.in15.i34 = phi i64 [ %.0.in.i36, %43 ], [ %.0.in12.i29, %39 ]
+  %.016.i33 = inttoptr i64 %.0.in15.i34 to ptr
+  %41 = getelementptr i8, ptr %.016.i33, i64 12
+  %.0.val.i35 = load i32, ptr %41, align 4
+  %42 = icmp sgt i32 %.0.val.i35, 0
+  br i1 %42, label %._crit_edge.i39, label %43
 
-.lr.ph.i32:                                       ; preds = %.lr.ph48
-  %44 = getelementptr i8, ptr %.0.i37, i64 12
-  %.0.val.i35 = load i32, ptr %44, align 4
-  %45 = icmp sgt i32 %.0.val.i35, 0
-  br i1 %45, label %._crit_edge.i39, label %.lr.ph48, !llvm.loop !8
-
-.lr.ph48:                                         ; preds = %.lr.ph.i32.preheader, %.lr.ph.i32
-  %.016.i3347 = phi ptr [ %.0.i37, %.lr.ph.i32 ], [ %.013.i30, %.lr.ph.i32.preheader ]
-  %46 = getelementptr inbounds i8, ptr %.016.i3347, i64 72
-  %47 = load ptr, ptr %46, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %.0.in.i36 = and i64 %48, -2
-  %.0.i37 = inttoptr i64 %.0.in.i36 to ptr
-  %.not.i38 = icmp eq ptr %33, %.0.i37
+43:                                               ; preds = %.lr.ph.i32
+  %44 = getelementptr inbounds i8, ptr %.016.i33, i64 72
+  %45 = load ptr, ptr %44, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %.0.in.i36 = and i64 %46, -2
+  %.not.i38 = icmp eq i64 %31, %.0.in.i36
   br i1 %.not.i38, label %._crit_edge.i39, label %.lr.ph.i32, !llvm.loop !8
 
-._crit_edge.i39:                                  ; preds = %.lr.ph.i32, %.lr.ph48, %.lr.ph.i32.preheader, %40
-  %.0.in.lcssa.i40 = phi i64 [ %.0.in12.i29, %40 ], [ %.0.in12.i29, %.lr.ph.i32.preheader ], [ %.0.in.i36, %.lr.ph48 ], [ %.0.in.i36, %.lr.ph.i32 ]
-  %49 = and i64 %41, 1
-  %50 = or disjoint i64 %.0.in.lcssa.i40, %49
+._crit_edge.i39:                                  ; preds = %43, %.lr.ph.i32, %39
+  %.0.in.lcssa.i40 = phi i64 [ %31, %39 ], [ %31, %43 ], [ %.0.in15.i34, %.lr.ph.i32 ]
+  %47 = and i64 %40, 1
+  %48 = or disjoint i64 %.0.in.lcssa.i40, %47
   br label %Ivy_HaigObjRepr.exit42
 
-Ivy_HaigObjRepr.exit42:                           ; preds = %Ivy_HaigObjRepr.exit, %37, %._crit_edge.i39
-  %.011.i41 = phi i64 [ %50, %._crit_edge.i39 ], [ %32, %37 ], [ %32, %Ivy_HaigObjRepr.exit ]
-  %51 = and i64 %.011.i, -2
+Ivy_HaigObjRepr.exit42:                           ; preds = %Ivy_HaigObjRepr.exit, %36, %._crit_edge.i39
+  %.011.i41 = phi i64 [ %48, %._crit_edge.i39 ], [ %31, %36 ], [ %31, %Ivy_HaigObjRepr.exit ]
+  %49 = and i64 %.011.i, -2
+  %50 = inttoptr i64 %49 to ptr
+  %51 = and i64 %.011.i41, -2
   %52 = inttoptr i64 %51 to ptr
-  %53 = and i64 %.011.i41, -2
-  %54 = inttoptr i64 %53 to ptr
-  %55 = xor i64 %12, %6
-  %56 = xor i64 %55, %11
-  %57 = xor i64 %56, %.011.i41
-  %58 = xor i64 %57, %.011.i
-  %59 = icmp eq ptr %52, %54
-  br i1 %59, label %84, label %60
+  %53 = xor i64 %12, %6
+  %54 = xor i64 %53, %11
+  %55 = xor i64 %54, %.011.i41
+  %56 = xor i64 %55, %.011.i
+  %57 = icmp eq i64 %49, %51
+  br i1 %57, label %82, label %58
 
-60:                                               ; preds = %Ivy_HaigObjRepr.exit42
-  %61 = getelementptr i8, ptr %52, i64 12
-  %.val = load i32, ptr %61, align 4
-  %62 = icmp eq i32 %.val, 0
-  br i1 %62, label %69, label %63
+58:                                               ; preds = %Ivy_HaigObjRepr.exit42
+  %59 = getelementptr i8, ptr %50, i64 12
+  %.val = load i32, ptr %59, align 4
+  %60 = icmp eq i32 %.val, 0
+  br i1 %60, label %67, label %61
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds i8, ptr %54, i64 72
-  %65 = load ptr, ptr %64, align 8
-  %.not = icmp eq ptr %65, null
-  br i1 %.not, label %66, label %69
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %52, i64 72
+  %63 = load ptr, ptr %62, align 8
+  %.not = icmp eq ptr %63, null
+  br i1 %.not, label %64, label %67
 
-66:                                               ; preds = %63
-  %67 = getelementptr i8, ptr %54, i64 12
-  %.val27 = load i32, ptr %67, align 4
-  %68 = icmp sgt i32 %.val27, 0
-  br i1 %68, label %69, label %75
+64:                                               ; preds = %61
+  %65 = getelementptr i8, ptr %52, i64 12
+  %.val27 = load i32, ptr %65, align 4
+  %66 = icmp sgt i32 %.val27, 0
+  br i1 %66, label %67, label %73
 
-69:                                               ; preds = %66, %63, %60
-  %70 = getelementptr inbounds i8, ptr %0, i64 216
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 224
-  %73 = load i32, ptr %72, align 8
-  %74 = add nsw i32 %73, 1
-  store i32 %74, ptr %72, align 8
-  br label %84
+67:                                               ; preds = %64, %61, %58
+  %68 = getelementptr inbounds i8, ptr %0, i64 216
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %69, i64 224
+  %71 = load i32, ptr %70, align 8
+  %72 = add nsw i32 %71, 1
+  store i32 %72, ptr %70, align 8
+  br label %82
 
-75:                                               ; preds = %66
-  %76 = getelementptr inbounds i8, ptr %52, i64 72
-  %77 = load ptr, ptr %76, align 8
-  %78 = icmp eq ptr %77, null
-  %79 = ptrtoint ptr %77 to i64
-  %80 = and i64 %58, 1
-  %81 = xor i64 %80, %79
-  %82 = and i64 %57, 1
-  %83 = xor i64 %82, %.011.i
-  %storemerge.v = select i1 %78, i64 %83, i64 %81
+73:                                               ; preds = %64
+  %74 = getelementptr inbounds i8, ptr %50, i64 72
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  %77 = ptrtoint ptr %75 to i64
+  %78 = and i64 %56, 1
+  %79 = xor i64 %78, %77
+  %80 = and i64 %55, 1
+  %81 = xor i64 %80, %.011.i
+  %storemerge.v = select i1 %76, i64 %81, i64 %79
   %storemerge = inttoptr i64 %storemerge.v to ptr
-  store ptr %storemerge, ptr %64, align 8
-  store ptr %54, ptr %76, align 8
-  br label %84
+  store ptr %storemerge, ptr %62, align 8
+  store ptr %52, ptr %74, align 8
+  br label %82
 
-84:                                               ; preds = %Ivy_HaigObjRepr.exit42, %75, %69
+82:                                               ; preds = %Ivy_HaigObjRepr.exit42, %73, %67
   ret void
 }
 

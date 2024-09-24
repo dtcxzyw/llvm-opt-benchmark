@@ -1553,8 +1553,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDomeLightAdapter24
   %.not14 = icmp eq ptr %7, %9
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %6, %38
-  %.sroa.011.015 = phi ptr [ %39, %38 ], [ %7, %6 ]
+.lr.ph:                                           ; preds = %6, %35
+  %.sroa.011.015 = phi ptr [ %36, %35 ], [ %7, %6 ]
   %10 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12UsdLuxTokensE seq_cst, align 8
   %11 = inttoptr i64 %10 to ptr
   %.not.i.i = icmp eq i64 %10, 0
@@ -1562,7 +1562,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdImagingDomeLightAdapter24
 
 12:                                               ; preds = %.lr.ph
   %13 = invoke noalias noundef nonnull dereferenceable(688) ptr @_Znwm(i64 noundef 688) #17
-          to label %.noexc unwind label %36
+          to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %12
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdLuxTokensTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(688) %13)
@@ -1592,39 +1592,36 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16UsdLuxTokensTypeENS_27
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 432
   %24 = load ptr, ptr %.sroa.011.015, align 8
   %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, -8
-  %27 = inttoptr i64 %26 to ptr
-  %28 = load ptr, ptr %23, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = and i64 %29, -8
-  %31 = inttoptr i64 %30 to ptr
-  %32 = icmp eq ptr %27, %31
-  br i1 %32, label %33, label %38
+  %26 = load ptr, ptr %23, align 8
+  %27 = ptrtoint ptr %26 to i64
+  %28 = xor i64 %27, %25
+  %29 = icmp ult i64 %28, 8
+  br i1 %29, label %30, label %35
 
-33:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16UsdLuxTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  %34 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdLightSchema17GetDefaultLocatorEv()
-          to label %35 unwind label %36
+30:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16UsdLuxTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
+  %31 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdLightSchema17GetDefaultLocatorEv()
+          to label %32 unwind label %33
 
-35:                                               ; preds = %33
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6insertERKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(56) %34)
-          to label %38 unwind label %36
+32:                                               ; preds = %30
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6insertERKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(56) %31)
+          to label %35 unwind label %33
 
-36:                                               ; preds = %12, %35, %33
-  %37 = landingpad { ptr, i32 }
+33:                                               ; preds = %12, %32, %30
+  %34 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %14, %36
-  %eh.lpad-body = phi { ptr, i32 } [ %37, %36 ], [ %15, %14 ]
+.body:                                            ; preds = %14, %33
+  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %15, %14 ]
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %0) #18
   resume { ptr, i32 } %eh.lpad-body
 
-38:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16UsdLuxTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %35
-  %39 = getelementptr inbounds i8, ptr %.sroa.011.015, i64 8
-  %.not = icmp eq ptr %39, %9
+35:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_16UsdLuxTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %32
+  %36 = getelementptr inbounds i8, ptr %.sroa.011.015, i64 8
+  %.not = icmp eq ptr %36, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %38, %6
+._crit_edge:                                      ; preds = %35, %6
   ret void
 }
 

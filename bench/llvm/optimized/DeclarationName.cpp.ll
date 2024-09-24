@@ -223,7 +223,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit44: ; preds = %_ZNK5clang15Declar
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit48: ; preds = %33, %34
   %.0.i46 = phi i32 [ %38, %34 ], [ %7, %33 ]
-  switch i32 %.0.i46, label %191 [
+  switch i32 %.0.i46, label %188 [
     i32 0, label %39
     i32 1, label %60
     i32 2, label %60
@@ -232,7 +232,7 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit48: ; preds = %33, %34
     i32 4, label %109
     i32 5, label %109
     i32 8, label %_ZNK5clang15DeclarationName11getNameKindEv.exit.i
-    i32 6, label %145
+    i32 6, label %142
     i32 9, label %_ZNK5clang15DeclarationName11getNameKindEv.exit.i97
     i32 10, label %_ZNK4llvm9StringRef7compareES0_.exit
   ]
@@ -380,156 +380,153 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i72: ; preds = %_ZN4llvm9S
   %112 = inttoptr i64 %111 to ptr
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i64, ptr %113, align 8
-  %115 = inttoptr i64 %114 to ptr
   br label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit
 
 _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit: ; preds = %109, %110
-  %.sroa.0.0.i = phi ptr [ %115, %110 ], [ null, %109 ]
+  %.sroa.0.0.i = phi i64 [ %114, %110 ], [ 0, %109 ]
   %.off.i74 = add nsw i32 %14, -3
   %switch.i75 = icmp ult i32 %.off.i74, 3
   br i1 %switch.i75, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit77, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit81
 
 _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit77: ; preds = %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit
-  %116 = and i64 %.tr152, -8
-  %117 = inttoptr i64 %116 to ptr
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %119 = load i64, ptr %118, align 8
-  %120 = inttoptr i64 %119 to ptr
-  %121 = icmp ult ptr %.sroa.0.0.i, %120
-  br i1 %121, label %_ZNK4llvm9StringRef7compareES0_.exit, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit81
+  %115 = and i64 %.tr152, -8
+  %116 = inttoptr i64 %115 to ptr
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %118 = load i64, ptr %117, align 8
+  %119 = icmp ult i64 %.sroa.0.0.i, %118
+  br i1 %119, label %_ZNK4llvm9StringRef7compareES0_.exit, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit81
 
 _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit81: ; preds = %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit77, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit
-  %.sroa.0.0.i80 = phi ptr [ null, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit ], [ %120, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit77 ]
-  br i1 %switch.i, label %122, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit85
+  %.sroa.0.0.i80 = phi i64 [ 0, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit ], [ %118, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit77 ]
+  br i1 %switch.i, label %120, label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit85
 
-122:                                              ; preds = %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit81
-  %123 = and i64 %.tr, -8
-  %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %126 = load i64, ptr %125, align 8
-  %127 = inttoptr i64 %126 to ptr
+120:                                              ; preds = %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit81
+  %121 = and i64 %.tr, -8
+  %122 = inttoptr i64 %121 to ptr
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %124 = load i64, ptr %123, align 8
   br label %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit85
 
-_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit85: ; preds = %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit81, %122
-  %.sroa.0.0.i84 = phi ptr [ %127, %122 ], [ null, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit81 ]
-  %128 = icmp ult ptr %.sroa.0.0.i80, %.sroa.0.0.i84
-  %. = zext i1 %128 to i32
+_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit85: ; preds = %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit81, %120
+  %.sroa.0.0.i84 = phi i64 [ %124, %120 ], [ 0, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit81 ]
+  %125 = icmp ult i64 %.sroa.0.0.i80, %.sroa.0.0.i84
+  %. = zext i1 %125 to i32
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit.i: ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit48
-  %129 = and i64 %.tr, 7
-  %.not.i.i = icmp eq i64 %129, 7
+  %126 = and i64 %.tr, 7
+  %.not.i.i = icmp eq i64 %126, 7
   tail call void @llvm.assume(i1 %.not.i.i)
-  %130 = and i64 %.tr, -8
-  %131 = inttoptr i64 %130 to ptr
-  %132 = load i32, ptr %131, align 8
-  %133 = icmp eq i32 %132, 0
-  tail call void @llvm.assume(i1 %133)
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 16
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
-  %.sroa.0.0.copyload.i = load i64, ptr %136, align 8
-  %137 = and i64 %.tr152, 7
-  %.not.i.i87 = icmp eq i64 %137, 7
+  %127 = and i64 %.tr, -8
+  %128 = inttoptr i64 %127 to ptr
+  %129 = load i32, ptr %128, align 8
+  %130 = icmp eq i32 %129, 0
+  tail call void @llvm.assume(i1 %130)
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 40
+  %.sroa.0.0.copyload.i = load i64, ptr %133, align 8
+  %134 = and i64 %.tr152, 7
+  %.not.i.i87 = icmp eq i64 %134, 7
   tail call void @llvm.assume(i1 %.not.i.i87)
-  %138 = and i64 %.tr152, -8
-  %139 = inttoptr i64 %138 to ptr
-  %140 = load i32, ptr %139, align 8
-  %141 = icmp eq i32 %140, 0
-  tail call void @llvm.assume(i1 %141)
-  %142 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
-  %.sroa.0.0.copyload.i91 = load i64, ptr %144, align 8
+  %135 = and i64 %.tr152, -8
+  %136 = inttoptr i64 %135 to ptr
+  %137 = load i32, ptr %136, align 8
+  %138 = icmp eq i32 %137, 0
+  tail call void @llvm.assume(i1 %138)
+  %139 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 40
+  %.sroa.0.0.copyload.i91 = load i64, ptr %141, align 8
   br label %tailrecurse
 
-145:                                              ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit48
-  %146 = and i64 %.tr, 7
-  %147 = icmp eq i64 %146, 6
-  br i1 %147, label %148, label %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit
+142:                                              ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit48
+  %143 = and i64 %.tr, 7
+  %144 = icmp eq i64 %143, 6
+  br i1 %144, label %145, label %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit
 
-148:                                              ; preds = %145
-  %149 = and i64 %.tr, -8
-  %150 = inttoptr i64 %149 to ptr
-  %151 = load i32, ptr %150, align 8
+145:                                              ; preds = %142
+  %146 = and i64 %.tr, -8
+  %147 = inttoptr i64 %146 to ptr
+  %148 = load i32, ptr %147, align 8
   br label %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit
 
-_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit: ; preds = %145, %148
-  %.0.i92 = phi i32 [ %151, %148 ], [ 0, %145 ]
-  %152 = and i64 %.tr152, 7
-  %153 = icmp eq i64 %152, 6
-  br i1 %153, label %154, label %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit94
+_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit: ; preds = %142, %145
+  %.0.i92 = phi i32 [ %148, %145 ], [ 0, %142 ]
+  %149 = and i64 %.tr152, 7
+  %150 = icmp eq i64 %149, 6
+  br i1 %150, label %151, label %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit94
 
-154:                                              ; preds = %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit
-  %155 = and i64 %.tr152, -8
-  %156 = inttoptr i64 %155 to ptr
-  %157 = load i32, ptr %156, align 8
+151:                                              ; preds = %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit
+  %152 = and i64 %.tr152, -8
+  %153 = inttoptr i64 %152 to ptr
+  %154 = load i32, ptr %153, align 8
   br label %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit94
 
-_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit94: ; preds = %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit, %154
-  %.0.i93 = phi i32 [ %157, %154 ], [ 0, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit ]
-  %158 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.0.i92, i32 %.0.i93)
+_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit94: ; preds = %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit, %151
+  %.0.i93 = phi i32 [ %154, %151 ], [ 0, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit ]
+  %155 = tail call noundef range(i32 -1, 2) i32 @llvm.ucmp.i32.i32(i32 %.0.i92, i32 %.0.i93)
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit.i97: ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit48
-  %159 = and i64 %.tr, 7
-  %.not.i.i95 = icmp eq i64 %159, 7
+  %156 = and i64 %.tr, 7
+  %.not.i.i95 = icmp eq i64 %156, 7
   tail call void @llvm.assume(i1 %.not.i.i95)
-  %160 = and i64 %.tr, -8
-  %161 = inttoptr i64 %160 to ptr
-  %162 = load i32, ptr %161, align 8
-  %163 = icmp eq i32 %162, 1
-  tail call void @llvm.assume(i1 %163)
-  %164 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %167 = load ptr, ptr %166, align 8
-  %168 = load i64, ptr %167, align 8
-  %169 = and i64 %168, 4294967295
-  %170 = and i64 %.tr152, 7
-  %.not.i.i100 = icmp eq i64 %170, 7
+  %157 = and i64 %.tr, -8
+  %158 = inttoptr i64 %157 to ptr
+  %159 = load i32, ptr %158, align 8
+  %160 = icmp eq i32 %159, 1
+  tail call void @llvm.assume(i1 %160)
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 16
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  %164 = load ptr, ptr %163, align 8
+  %165 = load i64, ptr %164, align 8
+  %166 = and i64 %165, 4294967295
+  %167 = and i64 %.tr152, 7
+  %.not.i.i100 = icmp eq i64 %167, 7
   tail call void @llvm.assume(i1 %.not.i.i100)
-  %171 = and i64 %.tr152, -8
-  %172 = inttoptr i64 %171 to ptr
-  %173 = load i32, ptr %172, align 8
-  %174 = icmp eq i32 %173, 1
-  tail call void @llvm.assume(i1 %174)
-  %175 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 16
-  %178 = load ptr, ptr %177, align 8
-  %179 = load i64, ptr %178, align 8
-  %180 = and i64 %179, 4294967295
-  %.sroa.speculated.i106 = tail call i64 @llvm.umin.i64(i64 %180, i64 %169)
-  %181 = icmp eq i64 %.sroa.speculated.i106, 0
-  br i1 %181, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i107
+  %168 = and i64 %.tr152, -8
+  %169 = inttoptr i64 %168 to ptr
+  %170 = load i32, ptr %169, align 8
+  %171 = icmp eq i32 %170, 1
+  tail call void @llvm.assume(i1 %171)
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
+  %175 = load ptr, ptr %174, align 8
+  %176 = load i64, ptr %175, align 8
+  %177 = and i64 %176, 4294967295
+  %.sroa.speculated.i106 = tail call i64 @llvm.umin.i64(i64 %177, i64 %166)
+  %178 = icmp eq i64 %.sroa.speculated.i106, 0
+  br i1 %178, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i107
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i107: ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit.i97
-  %182 = getelementptr inbounds i8, ptr %178, i64 16
-  %183 = getelementptr inbounds i8, ptr %167, i64 16
-  %184 = tail call i32 @memcmp(ptr noundef nonnull %183, ptr noundef nonnull %182, i64 noundef %.sroa.speculated.i106) #15
-  %.not.i108 = icmp eq i32 %184, 0
-  br i1 %.not.i108, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111, label %185
+  %179 = getelementptr inbounds i8, ptr %175, i64 16
+  %180 = getelementptr inbounds i8, ptr %164, i64 16
+  %181 = tail call i32 @memcmp(ptr noundef nonnull %180, ptr noundef nonnull %179, i64 noundef %.sroa.speculated.i106) #15
+  %.not.i108 = icmp eq i32 %181, 0
+  br i1 %.not.i108, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111, label %182
 
-185:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i107
-  %.inv.i109 = icmp sgt i32 %184, -1
-  %186 = select i1 %.inv.i109, i32 1, i32 -1
+182:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i107
+  %.inv.i109 = icmp sgt i32 %181, -1
+  %183 = select i1 %.inv.i109, i32 1, i32 -1
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i107, %_ZNK5clang15DeclarationName11getNameKindEv.exit.i97
-  %187 = icmp eq i64 %169, %180
-  br i1 %187, label %_ZNK4llvm9StringRef7compareES0_.exit, label %188
+  %184 = icmp eq i64 %166, %177
+  br i1 %184, label %_ZNK4llvm9StringRef7compareES0_.exit, label %185
 
-188:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111
-  %189 = icmp ult i64 %169, %180
-  %190 = select i1 %189, i32 -1, i32 1
+185:                                              ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111
+  %186 = icmp ult i64 %166, %177
+  %187 = select i1 %186, i32 -1, i32 1
   br label %_ZNK4llvm9StringRef7compareES0_.exit
 
-191:                                              ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit48
+188:                                              ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit48
   unreachable
 
-_ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit48, %105, %102, %188, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111, %185, %87, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i, %84, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit85, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit77, %46, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit94, %._crit_edge, %47, %44, %_ZNK5clang15DeclarationName11getNameKindEv.exit44
-  %.0 = phi i32 [ %32, %_ZNK5clang15DeclarationName11getNameKindEv.exit44 ], [ %158, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit94 ], [ %108, %._crit_edge ], [ %59, %47 ], [ %45, %44 ], [ 1, %46 ], [ -1, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit77 ], [ %., %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit85 ], [ %85, %84 ], [ %89, %87 ], [ 0, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i ], [ %186, %185 ], [ %190, %188 ], [ 0, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111 ], [ %107, %105 ], [ %103, %102 ], [ 0, %_ZNK5clang15DeclarationName11getNameKindEv.exit48 ]
+_ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit48, %105, %102, %185, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111, %182, %87, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i, %84, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit85, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit77, %46, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit94, %._crit_edge, %47, %44, %_ZNK5clang15DeclarationName11getNameKindEv.exit44
+  %.0 = phi i32 [ %32, %_ZNK5clang15DeclarationName11getNameKindEv.exit44 ], [ %155, %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit94 ], [ %108, %._crit_edge ], [ %59, %47 ], [ %45, %44 ], [ 1, %46 ], [ -1, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit77 ], [ %., %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit85 ], [ %85, %84 ], [ %89, %87 ], [ 0, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i ], [ %183, %182 ], [ %187, %185 ], [ 0, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i111 ], [ %107, %105 ], [ %103, %102 ], [ 0, %_ZNK5clang15DeclarationName11getNameKindEv.exit48 ]
   ret i32 %.0
 }
 

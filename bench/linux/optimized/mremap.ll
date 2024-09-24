@@ -795,7 +795,7 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
   switch i32 %0, label %default.unreachable8 [
     i32 0, label %25
     i32 2, label %96
-    i32 1, label %141
+    i32 1, label %140
   ]
 
 25:                                               ; preds = %24
@@ -809,7 +809,7 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
   tail call void asm sideeffect "472: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 472b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 472) #7, !srcloc !14
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 268, i32 2307, i64 12) #7, !srcloc !15
   tail call void asm sideeffect "473: nop\0A\09.pushsection .discard.instr_end\0A\09.long 473b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 473) #7, !srcloc !16
-  br label %141
+  br label %140
 
 31:                                               ; preds = %25
   %32 = load i64, ptr @vmemmap_base, align 8
@@ -903,7 +903,7 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
 
 95:                                               ; preds = %94, %92
   tail call void @_raw_spin_unlock(ptr noundef %44) #7
-  br label %141
+  br label %140
 
 96:                                               ; preds = %24
   %97 = load i64, ptr %4, align 8
@@ -915,7 +915,7 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
   tail call void asm sideeffect "474: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 474b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 474) #7, !srcloc !17
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 317, i32 2307, i64 12) #7, !srcloc !18
   tail call void asm sideeffect "475: nop\0A\09.pushsection .discard.instr_end\0A\09.long 475b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 475) #7, !srcloc !19
-  br label %141
+  br label %140
 
 101:                                              ; preds = %96
   %102 = getelementptr inbounds i8, ptr %1, i64 16
@@ -934,77 +934,76 @@ define internal fastcc noundef zeroext i1 @move_pgt_entry(i32 noundef range(i32 
   %109 = and i64 %108, %105
   %110 = load i64, ptr @page_offset_base, align 8
   %111 = add i64 %110, %109
-  %112 = inttoptr i64 %111 to ptr
-  %113 = add i64 %111, 2147483648
-  %114 = icmp ugt ptr %112, inttoptr (i64 -2147483649 to ptr)
-  %115 = load i64, ptr @phys_base, align 8
-  %116 = sub i64 -2147483648, %110
-  %117 = select i1 %114, i64 %115, i64 %116
-  %118 = add i64 %113, %117
-  %119 = or i64 %118, 103
+  %112 = add i64 %111, 2147483648
+  %113 = icmp ugt i64 %111, -2147483649
+  %114 = load i64, ptr @phys_base, align 8
+  %115 = sub i64 -2147483648, %110
+  %116 = select i1 %113, i64 %114, i64 %115
+  %117 = add i64 %112, %116
+  %118 = or i64 %117, 103
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store i64 %119, ptr %6, align 8
+  store i64 %118, ptr %6, align 8
   %.0..0..0..0.3 = load volatile i64, ptr %6, align 8
   store volatile i64 %.0..0..0..0.3, ptr %4, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %120 = load ptr, ptr %102, align 8
-  %121 = add i64 %2, 1073741824
-  %122 = getelementptr inbounds i8, ptr %1, i64 32
-  %123 = load i64, ptr %122, align 8
-  %124 = and i64 %123, 4194304
-  %125 = icmp eq i64 %124, 0
-  br i1 %125, label %139, label %126
+  %119 = load ptr, ptr %102, align 8
+  %120 = add i64 %2, 1073741824
+  %121 = getelementptr inbounds i8, ptr %1, i64 32
+  %122 = load i64, ptr %121, align 8
+  %123 = and i64 %122, 4194304
+  %124 = icmp eq i64 %123, 0
+  br i1 %124, label %138, label %125
 
-126:                                              ; preds = %101
-  %127 = load ptr, ptr %10, align 8
-  %128 = getelementptr inbounds i8, ptr %127, i64 168
-  %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 40
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 872
-  %133 = load ptr, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 24
-  %135 = load ptr, ptr %134, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 40
-  %137 = load i32, ptr %136, align 8
-  %138 = add i32 %137, 12
-  br label %139
+125:                                              ; preds = %101
+  %126 = load ptr, ptr %10, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 168
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 40
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 872
+  %132 = load ptr, ptr %131, align 8
+  %133 = getelementptr inbounds i8, ptr %132, i64 24
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %134, i64 40
+  %136 = load i32, ptr %135, align 8
+  %137 = add i32 %136, 12
+  br label %138
 
-139:                                              ; preds = %126, %101
-  %140 = phi i32 [ %138, %126 ], [ 12, %101 ]
-  tail call void @flush_tlb_mm_range(ptr noundef %120, i64 noundef %2, i64 noundef %121, i32 noundef %140, i1 noundef zeroext false) #7
+138:                                              ; preds = %125, %101
+  %139 = phi i32 [ %137, %125 ], [ 12, %101 ]
+  tail call void @flush_tlb_mm_range(ptr noundef %119, i64 noundef %2, i64 noundef %120, i32 noundef %139, i1 noundef zeroext false) #7
   tail call void @_raw_spin_unlock(ptr noundef %104) #7
-  br label %141
+  br label %140
 
 default.unreachable8:                             ; preds = %24
   unreachable
 
-141:                                              ; preds = %139, %100, %95, %30, %24
-  %142 = phi i1 [ false, %24 ], [ false, %30 ], [ true, %95 ], [ false, %100 ], [ true, %139 ]
-  %143 = load ptr, ptr %18, align 8
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %148, label %145
+140:                                              ; preds = %138, %100, %95, %30, %24
+  %141 = phi i1 [ false, %24 ], [ false, %30 ], [ true, %95 ], [ false, %100 ], [ true, %138 ]
+  %142 = load ptr, ptr %18, align 8
+  %143 = icmp eq ptr %142, null
+  br i1 %143, label %147, label %144
 
-145:                                              ; preds = %141
-  %146 = load ptr, ptr %143, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 8
-  tail call void @up_write(ptr noundef %147) #7
-  br label %148
+144:                                              ; preds = %140
+  %145 = load ptr, ptr %142, align 8
+  %146 = getelementptr inbounds i8, ptr %145, i64 8
+  tail call void @up_write(ptr noundef %146) #7
+  br label %147
 
-148:                                              ; preds = %145, %141
-  %149 = load ptr, ptr %10, align 8
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %155, label %151
+147:                                              ; preds = %144, %140
+  %148 = load ptr, ptr %10, align 8
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %154, label %150
 
-151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %149, i64 216
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %153, i64 120
-  tail call void @up_write(ptr noundef %154) #7
-  br label %155
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds i8, ptr %148, i64 216
+  %152 = load ptr, ptr %151, align 8
+  %153 = getelementptr inbounds i8, ptr %152, i64 120
+  tail call void @up_write(ptr noundef %153) #7
+  br label %154
 
-155:                                              ; preds = %151, %148
-  ret i1 %142
+154:                                              ; preds = %150, %147
+  ret i1 %141
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -10489,38 +10489,34 @@ declare void @ruby_xfree(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 1, 4) i32 @hash_foreach_iter(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) #0 {
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %5, label %21
+  br i1 %.not, label %5, label %17
 
 5:                                                ; preds = %4
   %6 = inttoptr i64 %2 to ptr
   %7 = load i64, ptr %6, align 8
-  %8 = add i64 %7, 24
-  %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
-  %13 = load i64, ptr %12, align 8
-  %14 = tail call i32 %11(i64 noundef %0, i64 noundef %1, i64 noundef %13) #24
-  %15 = load i64, ptr %6, align 8
-  %16 = add i64 %15, 24
-  %17 = inttoptr i64 %16 to ptr
-  %.not10 = icmp eq ptr %17, %9
-  br i1 %.not10, label %20, label %18
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %11 = load i64, ptr %10, align 8
+  %12 = tail call i32 %9(i64 noundef %0, i64 noundef %1, i64 noundef %11) #24
+  %13 = load i64, ptr %6, align 8
+  %.not10 = icmp eq i64 %13, %7
+  br i1 %.not10, label %16, label %14
 
-18:                                               ; preds = %5
-  %19 = load i64, ptr @rb_eRuntimeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %19, ptr noundef nonnull @.str.97) #26
+14:                                               ; preds = %5
+  %15 = load i64, ptr @rb_eRuntimeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.97) #26
   unreachable
 
-20:                                               ; preds = %5
-  %switch.selectcmp.i = icmp eq i32 %14, 1
+16:                                               ; preds = %5
+  %switch.selectcmp.i = icmp eq i32 %12, 1
   %switch.select.i = select i1 %switch.selectcmp.i, i32 1, i32 3
-  %switch.selectcmp2.i = icmp eq i32 %14, 2
+  %switch.selectcmp2.i = icmp eq i32 %12, 2
   %switch.select3.i = select i1 %switch.selectcmp2.i, i32 2, i32 %switch.select.i
-  br label %21
+  br label %17
 
-21:                                               ; preds = %4, %20
-  %.0 = phi i32 [ %switch.select3.i, %20 ], [ 1, %4 ]
+17:                                               ; preds = %4, %16
+  %.0 = phi i32 [ %switch.select3.i, %16 ], [ 1, %4 ]
   ret i32 %.0
 }
 

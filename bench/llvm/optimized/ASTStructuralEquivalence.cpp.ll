@@ -342,15 +342,15 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %1, %9
   %23 = and i64 %3, 7
   br label %24
 
-24:                                               ; preds = %.lr.ph, %83
-  %.sroa.048.063 = phi ptr [ %19, %.lr.ph ], [ %86, %83 ]
-  %.062 = phi i32 [ 0, %.lr.ph ], [ %.1, %83 ]
+24:                                               ; preds = %.lr.ph, %79
+  %.sroa.048.063 = phi ptr [ %19, %.lr.ph ], [ %82, %79 ]
+  %.062 = phi i32 [ 0, %.lr.ph ], [ %.1, %79 ]
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.048.063, i64 28
   %26 = load i32, ptr %25, align 4
   %27 = and i32 %26, 127
   %28 = add nsw i32 %27, -49
   %29 = icmp ult i32 %28, -3
-  br i1 %29, label %83, label %30
+  br i1 %29, label %79, label %30
 
 30:                                               ; preds = %24
   %31 = tail call noundef zeroext i1 @_ZNK5clang9FieldDecl24isAnonymousStructOrUnionEv(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.048.063) #17
@@ -367,94 +367,90 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %1, %9
   %39 = or i64 %37, %38
   %40 = load i64, ptr %22, align 8
   %41 = or i64 %40, %23
-  %42 = inttoptr i64 %39 to ptr
-  %43 = inttoptr i64 %41 to ptr
-  %44 = icmp eq ptr %42, %43
-  br i1 %44, label %.loopexit.loopexit, label %45
+  %42 = icmp eq i64 %39, %41
+  br i1 %42, label %.loopexit.loopexit, label %43
 
-45:                                               ; preds = %33
-  %46 = add i32 %.062, 1
-  br label %83
+43:                                               ; preds = %33
+  %44 = add i32 %.062, 1
+  br label %79
 
 .preheader:                                       ; preds = %30, %.preheader
-  %storemerge.in = phi ptr [ %53, %.preheader ], [ %32, %30 ]
+  %storemerge.in = phi ptr [ %51, %.preheader ], [ %32, %30 ]
   %storemerge = load i64, ptr %storemerge.in, align 8
-  %47 = and i64 %storemerge, -16
-  %48 = inttoptr i64 %47 to ptr
-  %49 = load ptr, ptr %48, align 16
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i8, ptr %50, align 16
-  %52 = icmp ne i8 %51, 24
-  %.not3556 = icmp eq ptr %49, null
-  %.not35 = or i1 %.not3556, %52
-  %53 = getelementptr inbounds nuw i8, ptr %49, i64 40
-  br i1 %.not35, label %54, label %.preheader, !llvm.loop !12
+  %45 = and i64 %storemerge, -16
+  %46 = inttoptr i64 %45 to ptr
+  %47 = load ptr, ptr %46, align 16
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load i8, ptr %48, align 16
+  %50 = icmp ne i8 %49, 24
+  %.not3556 = icmp eq ptr %47, null
+  %.not35 = or i1 %.not3556, %50
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  br i1 %.not35, label %52, label %.preheader, !llvm.loop !12
 
-54:                                               ; preds = %.preheader
-  %55 = icmp ne i8 %51, 47
-  %.not36 = or i1 %.not3556, %55
-  br i1 %.not36, label %83, label %56
+52:                                               ; preds = %.preheader
+  %53 = icmp ne i8 %49, 47
+  %.not36 = or i1 %.not3556, %53
+  br i1 %.not36, label %79, label %54
 
-56:                                               ; preds = %54
-  %57 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %49) #17
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %58, align 8
-  %59 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
-  %60 = icmp eq i64 %59, 0
-  %61 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
-  %62 = inttoptr i64 %61 to ptr
-  br i1 %60, label %_ZNK5clang4Decl14getDeclContextEv.exit, label %63
+54:                                               ; preds = %52
+  %55 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %47) #17
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %56, align 8
+  %57 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 4
+  %58 = icmp eq i64 %57, 0
+  %59 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -8
+  %60 = inttoptr i64 %59 to ptr
+  br i1 %58, label %_ZNK5clang4Decl14getDeclContextEv.exit, label %61
 
-63:                                               ; preds = %56
-  %64 = load ptr, ptr %62, align 8
+61:                                               ; preds = %54
+  %62 = load ptr, ptr %60, align 8
   br label %_ZNK5clang4Decl14getDeclContextEv.exit
 
-_ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %56, %63
-  %.0.i.i = phi ptr [ %64, %63 ], [ %62, %56 ]
-  %65 = icmp eq ptr %.0.i.i, %.0.i
-  br i1 %65, label %66, label %83
+_ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %54, %61
+  %.0.i.i = phi ptr [ %62, %61 ], [ %60, %54 ]
+  %63 = icmp eq ptr %.0.i.i, %.0.i
+  br i1 %63, label %64, label %79
 
-66:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
-  %67 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %68 = load i64, ptr %67, align 8
-  %69 = and i64 %68, 7
-  %70 = icmp ne i64 %69, 0
-  %.not3758 = icmp ult i64 %68, 8
-  %.not37 = or i1 %.not3758, %70
-  br i1 %.not37, label %71, label %83
+64:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 40
+  %66 = load i64, ptr %65, align 8
+  %67 = and i64 %66, 7
+  %68 = icmp ne i64 %67, 0
+  %.not3758 = icmp ult i64 %66, 8
+  %.not37 = or i1 %.not3758, %68
+  br i1 %.not37, label %69, label %79
 
-71:                                               ; preds = %66
-  %72 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %73 = load i64, ptr %72, align 8
-  %74 = and i64 %storemerge, 7
-  %75 = or i64 %73, %74
-  %76 = load i64, ptr %22, align 8
-  %77 = or i64 %76, %23
-  %78 = inttoptr i64 %75 to ptr
-  %79 = inttoptr i64 %77 to ptr
-  %80 = icmp eq ptr %78, %79
-  br i1 %80, label %.loopexit.loopexit, label %81
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %71 = load i64, ptr %70, align 8
+  %72 = and i64 %storemerge, 7
+  %73 = or i64 %71, %72
+  %74 = load i64, ptr %22, align 8
+  %75 = or i64 %74, %23
+  %76 = icmp eq i64 %73, %75
+  br i1 %76, label %.loopexit.loopexit, label %77
 
-81:                                               ; preds = %71
-  %82 = add i32 %.062, 1
-  br label %83
+77:                                               ; preds = %69
+  %78 = add i32 %.062, 1
+  br label %79
 
-83:                                               ; preds = %54, %66, %_ZNK5clang4Decl14getDeclContextEv.exit, %24, %81, %45
-  %.1 = phi i32 [ %.062, %24 ], [ %46, %45 ], [ %.062, %54 ], [ %82, %81 ], [ %.062, %66 ], [ %.062, %_ZNK5clang4Decl14getDeclContextEv.exit ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.048.063, i64 8
-  %.0.copyload.i.i.i.i.i = load i64, ptr %84, align 8
-  %85 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %86 = inttoptr i64 %85 to ptr
-  %.not = icmp eq i64 %85, 0
+79:                                               ; preds = %52, %64, %_ZNK5clang4Decl14getDeclContextEv.exit, %24, %77, %43
+  %.1 = phi i32 [ %.062, %24 ], [ %44, %43 ], [ %.062, %52 ], [ %78, %77 ], [ %.062, %64 ], [ %.062, %_ZNK5clang4Decl14getDeclContextEv.exit ]
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.048.063, i64 8
+  %.0.copyload.i.i.i.i.i = load i64, ptr %80, align 8
+  %81 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %82 = inttoptr i64 %81 to ptr
+  %.not = icmp eq i64 %81, 0
   br i1 %.not, label %.loopexit.loopexit, label %24
 
-.loopexit.loopexit:                               ; preds = %83, %33, %71
-  %.sroa.053.0.ph = phi i32 [ %.1, %83 ], [ %.062, %33 ], [ %.062, %71 ]
-  %87 = zext i32 %.sroa.053.0.ph to i64
+.loopexit.loopexit:                               ; preds = %79, %33, %69
+  %.sroa.053.0.ph = phi i32 [ %.1, %79 ], [ %.062, %33 ], [ %.062, %69 ]
+  %83 = zext i32 %.sroa.053.0.ph to i64
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %17, %_ZN5clang4Decl14getDeclContextEv.exit
-  %.sroa.053.0 = phi i64 [ 0, %_ZN5clang4Decl14getDeclContextEv.exit ], [ 0, %17 ], [ %87, %.loopexit.loopexit ]
+  %.sroa.053.0 = phi i64 [ 0, %_ZN5clang4Decl14getDeclContextEv.exit ], [ 0, %17 ], [ %83, %.loopexit.loopexit ]
   %.sroa.254.0 = phi i64 [ 0, %_ZN5clang4Decl14getDeclContextEv.exit ], [ 4294967296, %17 ], [ 4294967296, %.loopexit.loopexit ]
   %.sroa.053.0.insert.insert = or disjoint i64 %.sroa.254.0, %.sroa.053.0
   ret i64 %.sroa.053.0.insert.insert

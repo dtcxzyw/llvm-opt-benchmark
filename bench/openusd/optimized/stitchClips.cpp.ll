@@ -18610,14 +18610,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_28SdfField
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 408
   %23 = load ptr, ptr %1, align 8
   %24 = ptrtoint ptr %23 to i64
-  %25 = and i64 %24, -8
-  %26 = inttoptr i64 %25 to ptr
-  %27 = load ptr, ptr %22, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %29 = and i64 %28, -8
-  %30 = inttoptr i64 %29 to ptr
-  %31 = icmp ne ptr %26, %30
-  %..i.i.i.i.i.i.i = zext i1 %31 to i32
+  %25 = load ptr, ptr %22, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %27 = xor i64 %26, %24
+  %28 = icmp ugt i64 %27, 7
+  %..i.i.i.i.i.i.i = zext i1 %28 to i32
   ret i32 %..i.i.i.i.i.i.i
 }
 

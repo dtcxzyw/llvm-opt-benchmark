@@ -6136,7 +6136,7 @@ _Z12qobject_castIP7QWidgetET_P7QObject.exit:      ; preds = %98
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %114, ptr %2, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE, ptr %3, align 8
-  %115 = icmp eq ptr %114, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE
+  %115 = icmp eq i64 %113, ptrtoint (ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE to i64)
   br i1 %115, label %_Zeq9QMetaTypeS_.exit.thread.i, label %116
 
 _Zeq9QMetaTypeS_.exit.thread.i:                   ; preds = %111

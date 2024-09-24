@@ -670,181 +670,180 @@ define dso_local i32 @fixup_pi_owner(ptr noundef %0, ptr nocapture noundef reado
   br i1 %6, label %15, label %14
 
 14:                                               ; preds = %3
-  br i1 %13, label %99, label %24
+  br i1 %13, label %98, label %23
 
 15:                                               ; preds = %3
-  br i1 %13, label %24, label %16
+  br i1 %13, label %23, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %8, i64 40
   %18 = load volatile ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, -2
-  %21 = inttoptr i64 %20 to ptr
-  %22 = icmp eq ptr %21, %12
-  br i1 %22, label %23, label %99, !prof !7
+  %21 = icmp eq i64 %20, %11
+  br i1 %21, label %22, label %98, !prof !7
 
-23:                                               ; preds = %16
+22:                                               ; preds = %16
   tail call void asm sideeffect "322: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 322b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 322) #13, !srcloc !34
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 903, i32 2307, i64 12) #13, !srcloc !35
   tail call void asm sideeffect "323: nop\0A\09.pushsection .discard.instr_end\0A\09.long 323b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 323) #13, !srcloc !36
   %.pre = load ptr, ptr %7, align 8
-  br label %24
+  br label %23
 
-24:                                               ; preds = %23, %15, %14
-  %25 = phi ptr [ %.pre, %23 ], [ %8, %14 ], [ %8, %15 ]
-  %26 = phi ptr [ %12, %23 ], [ %12, %14 ], [ null, %15 ]
-  %27 = getelementptr inbounds i8, ptr %25, i64 16
-  tail call void @_raw_spin_lock_irq(ptr noundef %27) #13
-  %28 = load ptr, ptr %7, align 8
+23:                                               ; preds = %22, %15, %14
+  %24 = phi ptr [ %.pre, %22 ], [ %8, %14 ], [ %8, %15 ]
+  %25 = phi ptr [ %12, %22 ], [ %12, %14 ], [ null, %15 ]
+  %26 = getelementptr inbounds i8, ptr %24, i64 16
+  tail call void @_raw_spin_lock_irq(ptr noundef %26) #13
+  %27 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 0, ptr %4, align 4, !annotation !24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   store i32 0, ptr %5, align 4, !annotation !24
-  %29 = getelementptr inbounds i8, ptr %28, i64 48
-  %30 = load ptr, ptr %29, align 8
-  %31 = icmp eq ptr %26, null
-  %32 = getelementptr inbounds i8, ptr %28, i64 16
-  %33 = getelementptr inbounds i8, ptr %28, i64 40
-  %34 = getelementptr inbounds i8, ptr %1, i64 48
-  %35 = icmp eq ptr %26, %12
-  %36 = icmp eq ptr %30, %12
-  br label %37
+  %28 = getelementptr inbounds i8, ptr %27, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %30 = icmp eq ptr %25, null
+  %31 = getelementptr inbounds i8, ptr %27, i64 16
+  %32 = getelementptr inbounds i8, ptr %27, i64 40
+  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = icmp eq ptr %25, %12
+  %35 = icmp eq ptr %29, %12
+  br label %36
 
-37:                                               ; preds = %91, %24
-  br i1 %31, label %38, label %49
+36:                                               ; preds = %90, %23
+  br i1 %30, label %37, label %48
+
+37:                                               ; preds = %36
+  br i1 %35, label %38, label %fixup_pi_state_owner.exit
 
 38:                                               ; preds = %37
-  br i1 %36, label %39, label %fixup_pi_state_owner.exit
+  %39 = call i32 @__rt_mutex_futex_trylock(ptr noundef %31) #13
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %fixup_pi_state_owner.exit
 
-39:                                               ; preds = %38
-  %40 = call i32 @__rt_mutex_futex_trylock(ptr noundef %32) #13
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %fixup_pi_state_owner.exit
+41:                                               ; preds = %38
+  %42 = load volatile ptr, ptr %32, align 8
+  %43 = ptrtoint ptr %42 to i64
+  %44 = and i64 %43, -2
+  %45 = inttoptr i64 %44 to ptr
+  %46 = icmp eq i64 %44, 0
+  br i1 %46, label %.thread.i, label %51, !prof !7
 
-42:                                               ; preds = %39
-  %43 = load volatile ptr, ptr %33, align 8
-  %44 = ptrtoint ptr %43 to i64
-  %45 = and i64 %44, -2
-  %46 = inttoptr i64 %45 to ptr
-  %47 = icmp eq i64 %45, 0
-  br i1 %47, label %.thread.i, label %52, !prof !7
+.thread.i:                                        ; preds = %41
+  call void @_raw_spin_unlock_irq(ptr noundef %31) #13
+  %47 = load ptr, ptr %33, align 8
+  call void @_raw_spin_unlock(ptr noundef %47) #13
+  br label %80
 
-.thread.i:                                        ; preds = %42
-  call void @_raw_spin_unlock_irq(ptr noundef %32) #13
-  %48 = load ptr, ptr %34, align 8
-  call void @_raw_spin_unlock(ptr noundef %48) #13
-  br label %81
+48:                                               ; preds = %36
+  br i1 %34, label %50, label %49, !prof !12
 
-49:                                               ; preds = %37
-  br i1 %35, label %51, label %50, !prof !12
-
-50:                                               ; preds = %49
+49:                                               ; preds = %48
   call void asm sideeffect "318: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 318b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 318) #13, !srcloc !37
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 737, i32 2307, i64 12) #13, !srcloc !38
   call void asm sideeffect "319: nop\0A\09.pushsection .discard.instr_end\0A\09.long 319b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 319) #13, !srcloc !39
-  br label %51
+  br label %50
 
-51:                                               ; preds = %50, %49
-  br i1 %36, label %fixup_pi_state_owner.exit, label %52
+50:                                               ; preds = %49, %48
+  br i1 %35, label %fixup_pi_state_owner.exit, label %51
 
-52:                                               ; preds = %51, %42
-  %53 = phi ptr [ %46, %42 ], [ %26, %51 ]
-  %54 = call i32 @__task_pid_nr_ns(ptr noundef %53, i32 noundef 0, ptr noundef null) #13
-  %55 = load ptr, ptr %29, align 8
-  %56 = icmp eq ptr %55, null
-  %57 = select i1 %56, i32 -1073741824, i32 -2147483648
-  %58 = or i32 %57, %54
-  %59 = call i32 @futex_get_value_locked(ptr noundef nonnull %4, ptr noundef %0) #13
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %.loopexit.i
+51:                                               ; preds = %50, %41
+  %52 = phi ptr [ %45, %41 ], [ %25, %50 ]
+  %53 = call i32 @__task_pid_nr_ns(ptr noundef %52, i32 noundef 0, ptr noundef null) #13
+  %54 = load ptr, ptr %28, align 8
+  %55 = icmp eq ptr %54, null
+  %56 = select i1 %55, i32 -1073741824, i32 -2147483648
+  %57 = or i32 %56, %53
+  %58 = call i32 @futex_get_value_locked(ptr noundef nonnull %4, ptr noundef %0) #13
+  %59 = icmp eq i32 %58, 0
+  br i1 %59, label %60, label %.loopexit.i
 
-61:                                               ; preds = %52
-  %62 = load i32, ptr %4, align 4
-  %63 = and i32 %62, 1073741824
-  %64 = or i32 %63, %58
-  %65 = call i32 @futex_cmpxchg_value_locked(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %62, i32 noundef %64) #13
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %.preheader.i, label %.loopexit.i
+60:                                               ; preds = %51
+  %61 = load i32, ptr %4, align 4
+  %62 = and i32 %61, 1073741824
+  %63 = or i32 %62, %57
+  %64 = call i32 @futex_cmpxchg_value_locked(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %61, i32 noundef %63) #13
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %.preheader.i, label %.loopexit.i
 
-.preheader.i:                                     ; preds = %61, %70
-  %67 = load i32, ptr %5, align 4
-  %68 = load i32, ptr %4, align 4
-  %69 = icmp eq i32 %67, %68
-  br i1 %69, label %75, label %70
+.preheader.i:                                     ; preds = %60, %69
+  %66 = load i32, ptr %5, align 4
+  %67 = load i32, ptr %4, align 4
+  %68 = icmp eq i32 %66, %67
+  br i1 %68, label %74, label %69
 
-70:                                               ; preds = %.preheader.i
-  store i32 %67, ptr %4, align 4
-  %71 = and i32 %67, 1073741824
-  %72 = or i32 %71, %58
-  %73 = call i32 @futex_cmpxchg_value_locked(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %67, i32 noundef %72) #13
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.preheader.i, label %.loopexit.i, !llvm.loop !40
+69:                                               ; preds = %.preheader.i
+  store i32 %66, ptr %4, align 4
+  %70 = and i32 %66, 1073741824
+  %71 = or i32 %70, %57
+  %72 = call i32 @futex_cmpxchg_value_locked(ptr noundef nonnull %5, ptr noundef %0, i32 noundef %66, i32 noundef %71) #13
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %.preheader.i, label %.loopexit.i, !llvm.loop !40
 
-75:                                               ; preds = %.preheader.i
-  call fastcc void @pi_state_update_owner(ptr noundef %28, ptr noundef nonnull %53)
-  %76 = zext i1 %35 to i32
+74:                                               ; preds = %.preheader.i
+  call fastcc void @pi_state_update_owner(ptr noundef %27, ptr noundef nonnull %52)
+  %75 = zext i1 %34 to i32
   br label %fixup_pi_state_owner.exit
 
-.loopexit.i:                                      ; preds = %70, %61, %52
-  %77 = phi i32 [ %59, %52 ], [ %65, %61 ], [ %73, %70 ]
-  call void @_raw_spin_unlock_irq(ptr noundef %32) #13
-  %78 = load ptr, ptr %34, align 8
-  call void @_raw_spin_unlock(ptr noundef %78) #13
-  switch i32 %77, label %83 [
-    i32 -14, label %79
-    i32 -11, label %81
+.loopexit.i:                                      ; preds = %69, %60, %51
+  %76 = phi i32 [ %58, %51 ], [ %64, %60 ], [ %72, %69 ]
+  call void @_raw_spin_unlock_irq(ptr noundef %31) #13
+  %77 = load ptr, ptr %33, align 8
+  call void @_raw_spin_unlock(ptr noundef %77) #13
+  switch i32 %76, label %82 [
+    i32 -14, label %78
+    i32 -11, label %80
   ]
 
-79:                                               ; preds = %.loopexit.i
-  %80 = call i32 @fault_in_user_writeable(ptr noundef %0) #13
-  br label %84
+78:                                               ; preds = %.loopexit.i
+  %79 = call i32 @fault_in_user_writeable(ptr noundef %0) #13
+  br label %83
 
-81:                                               ; preds = %.loopexit.i, %.thread.i
-  %82 = call i32 @__SCT__cond_resched() #13
-  br label %84
+80:                                               ; preds = %.loopexit.i, %.thread.i
+  %81 = call i32 @__SCT__cond_resched() #13
+  br label %83
 
-83:                                               ; preds = %.loopexit.i
+82:                                               ; preds = %.loopexit.i
   call void asm sideeffect "320: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 320b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 320) #13, !srcloc !41
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 805, i32 2307, i64 12) #13, !srcloc !42
   call void asm sideeffect "321: nop\0A\09.pushsection .discard.instr_end\0A\09.long 321b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 321) #13, !srcloc !43
-  br label %84
+  br label %83
 
-84:                                               ; preds = %83, %81, %79
-  %85 = phi i32 [ %77, %83 ], [ 0, %81 ], [ %80, %79 ]
-  %86 = load ptr, ptr %34, align 8
-  call void @_raw_spin_lock(ptr noundef %86) #13
-  call void @_raw_spin_lock_irq(ptr noundef %32) #13
-  %87 = load ptr, ptr %29, align 8
-  %88 = icmp eq ptr %87, %30
-  br i1 %88, label %91, label %89
+83:                                               ; preds = %82, %80, %78
+  %84 = phi i32 [ %76, %82 ], [ 0, %80 ], [ %79, %78 ]
+  %85 = load ptr, ptr %33, align 8
+  call void @_raw_spin_lock(ptr noundef %85) #13
+  call void @_raw_spin_lock_irq(ptr noundef %31) #13
+  %86 = load ptr, ptr %28, align 8
+  %87 = icmp eq ptr %86, %29
+  br i1 %87, label %90, label %88
 
-89:                                               ; preds = %84
-  %90 = zext i1 %35 to i32
+88:                                               ; preds = %83
+  %89 = zext i1 %34 to i32
   br label %fixup_pi_state_owner.exit
 
-91:                                               ; preds = %84
-  %92 = icmp eq i32 %85, 0
-  br i1 %92, label %37, label %93
+90:                                               ; preds = %83
+  %91 = icmp eq i32 %84, 0
+  br i1 %91, label %36, label %92
 
-93:                                               ; preds = %91
-  %94 = load volatile ptr, ptr %33, align 8
-  %95 = ptrtoint ptr %94 to i64
-  %96 = and i64 %95, -2
-  %97 = inttoptr i64 %96 to ptr
-  call fastcc void @pi_state_update_owner(ptr noundef %28, ptr noundef %97)
+92:                                               ; preds = %90
+  %93 = load volatile ptr, ptr %32, align 8
+  %94 = ptrtoint ptr %93 to i64
+  %95 = and i64 %94, -2
+  %96 = inttoptr i64 %95 to ptr
+  call fastcc void @pi_state_update_owner(ptr noundef %27, ptr noundef %96)
   br label %fixup_pi_state_owner.exit
 
-fixup_pi_state_owner.exit:                        ; preds = %38, %39, %51, %75, %89, %93
-  %98 = phi i32 [ %90, %89 ], [ %85, %93 ], [ %76, %75 ], [ 0, %38 ], [ 1, %39 ], [ 1, %51 ]
+fixup_pi_state_owner.exit:                        ; preds = %37, %38, %50, %74, %88, %92
+  %97 = phi i32 [ %89, %88 ], [ %84, %92 ], [ %75, %74 ], [ 0, %37 ], [ 1, %38 ], [ 1, %50 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
-  call void @_raw_spin_unlock_irq(ptr noundef %27) #13
-  br label %99
+  call void @_raw_spin_unlock_irq(ptr noundef %26) #13
+  br label %98
 
-99:                                               ; preds = %fixup_pi_state_owner.exit, %16, %14
-  %100 = phi i32 [ 1, %14 ], [ 0, %16 ], [ %98, %fixup_pi_state_owner.exit ]
-  ret i32 %100
+98:                                               ; preds = %fixup_pi_state_owner.exit, %16, %14
+  %99 = phi i32 [ 1, %14 ], [ 0, %16 ], [ %97, %fixup_pi_state_owner.exit ]
+  ret i32 %99
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

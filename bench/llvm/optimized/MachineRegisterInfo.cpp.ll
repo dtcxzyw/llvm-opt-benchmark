@@ -506,7 +506,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit29: ; preds = %_ZNK4llv
   %34 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %32
   %.0.copyload.i.i.i.i = load i64, ptr %34, align 8
   %.not.i = icmp ult i64 %.0.copyload.i.i.i.i, 8
-  br i1 %.not.i, label %76, label %35
+  br i1 %.not.i, label %74, label %35
 
 35:                                               ; preds = %29
   %36 = and i32 %1, 2147483647
@@ -518,7 +518,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit29: ; preds = %_ZNK4llv
 
 39:                                               ; preds = %35
   store i64 %.0.copyload.i.i.i.i, ptr %38, align 8
-  br label %76
+  br label %74
 
 40:                                               ; preds = %35
   %41 = and i64 %.0.copyload.i.i.i.i31, 4
@@ -533,13 +533,13 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit29: ; preds = %_ZNK4llv
 
 47:                                               ; preds = %46
   %48 = and i64 %.0.copyload.i.i.i.i31, -8
-  %49 = inttoptr i64 %48 to ptr
-  %50 = and i64 %.0.copyload.i.i.i.i, -8
-  %51 = inttoptr i64 %50 to ptr
-  %52 = icmp eq ptr %49, %51
-  br i1 %52, label %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit, label %53
+  %49 = and i64 %.0.copyload.i.i.i.i, -8
+  %50 = inttoptr i64 %49 to ptr
+  %51 = icmp eq i64 %48, %49
+  br i1 %51, label %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit, label %52
 
-53:                                               ; preds = %47
+52:                                               ; preds = %47
+  %53 = inttoptr i64 %48 to ptr
   %54 = load ptr, ptr %0, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
@@ -547,13 +547,13 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit29: ; preds = %_ZNK4llv
   %58 = getelementptr inbounds i8, ptr %57, i64 200
   %59 = load ptr, ptr %58, align 8
   %60 = tail call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(288) %56) #19
-  %61 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_(ptr noundef nonnull align 8 dereferenceable(308) %60, ptr noundef %49, ptr noundef %51) #19
+  %61 = tail call noundef ptr @_ZNK4llvm18TargetRegisterInfo17getCommonSubClassEPKNS_19TargetRegisterClassES3_(ptr noundef nonnull align 8 dereferenceable(308) %60, ptr noundef %53, ptr noundef %50) #19
   %.not.i37 = icmp eq ptr %61, null
-  %62 = icmp eq ptr %61, %49
+  %62 = icmp eq ptr %61, %53
   %or.cond.i = or i1 %.not.i37, %62
   br i1 %or.cond.i, label %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit, label %63
 
-63:                                               ; preds = %53
+63:                                               ; preds = %52
   %64 = load ptr, ptr %61, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 20
   %66 = load i16, ptr %65, align 4
@@ -567,47 +567,45 @@ _ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetReg
   %71 = ptrtoint ptr %61 to i64
   %72 = and i64 %71, -5
   store i64 %72, ptr %70, align 8
-  br label %76
+  br label %74
 
-_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit: ; preds = %47, %53
-  %.0.i = phi ptr [ %49, %47 ], [ %61, %53 ]
+_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit: ; preds = %47, %52
+  %.0.i = phi ptr [ %50, %47 ], [ %61, %52 ]
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread, label %76
+  br i1 %.not, label %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread, label %74
 
 73:                                               ; preds = %46
-  %74 = inttoptr i64 %.0.copyload.i.i.i.i31 to ptr
-  %75 = inttoptr i64 %.0.copyload.i.i.i.i to ptr
-  %.not50 = icmp eq ptr %74, %75
-  br i1 %.not50, label %76, label %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread
+  %.not50 = icmp eq i64 %.0.copyload.i.i.i.i31, %.0.copyload.i.i.i.i
+  br i1 %.not50, label %74, label %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread
 
-76:                                               ; preds = %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread46, %39, %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit, %73, %29
+74:                                               ; preds = %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread46, %39, %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit, %73, %29
   %spec.select.i38.not = icmp eq i64 %28, 0
-  br i1 %spec.select.i38.not, label %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread, label %77
+  br i1 %spec.select.i38.not, label %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread, label %75
 
-77:                                               ; preds = %76
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %79 = and i32 %1, 2147483647
-  %80 = add nuw i32 %79, 1
-  %81 = zext i32 %80 to i64
-  %82 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %78) #19
-  %83 = icmp ult i64 %82, %81
-  br i1 %83, label %84, label %_ZN4llvm19MachineRegisterInfo7setTypeENS_8RegisterENS_3LLTE.exit
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %77 = and i32 %1, 2147483647
+  %78 = add nuw i32 %77, 1
+  %79 = zext i32 %78 to i64
+  %80 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %76) #19
+  %81 = icmp ult i64 %80, %79
+  br i1 %81, label %82, label %_ZN4llvm19MachineRegisterInfo7setTypeENS_8RegisterENS_3LLTE.exit
 
-84:                                               ; preds = %77
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 472
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %85, align 8
-  tail call void @_ZN4llvm15SmallVectorImplINS_3LLTEE6resizeEmS1_(ptr noundef nonnull align 8 dereferenceable(16) %78, i64 noundef %81, i64 %.sroa.0.0.copyload.i.i.i)
+82:                                               ; preds = %75
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 472
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %83, align 8
+  tail call void @_ZN4llvm15SmallVectorImplINS_3LLTEE6resizeEmS1_(ptr noundef nonnull align 8 dereferenceable(16) %76, i64 noundef %79, i64 %.sroa.0.0.copyload.i.i.i)
   br label %_ZN4llvm19MachineRegisterInfo7setTypeENS_8RegisterENS_3LLTE.exit
 
-_ZN4llvm19MachineRegisterInfo7setTypeENS_8RegisterENS_3LLTE.exit: ; preds = %77, %84
-  %86 = zext nneg i32 %79 to i64
-  %87 = load ptr, ptr %78, align 8
-  %88 = getelementptr inbounds %"class.llvm::LLT", ptr %87, i64 %86
-  store i64 %.sroa.04.0.i28, ptr %88, align 8
+_ZN4llvm19MachineRegisterInfo7setTypeENS_8RegisterENS_3LLTE.exit: ; preds = %75, %82
+  %84 = zext nneg i32 %77 to i64
+  %85 = load ptr, ptr %76, align 8
+  %86 = getelementptr inbounds %"class.llvm::LLT", ptr %85, i64 %84
+  store i64 %.sroa.04.0.i28, ptr %86, align 8
   br label %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread
 
-_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit29, %63, %76, %_ZN4llvm19MachineRegisterInfo7setTypeENS_8RegisterENS_3LLTE.exit, %73, %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit, %40
-  %.0 = phi i1 [ false, %40 ], [ false, %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit ], [ false, %73 ], [ true, %_ZN4llvm19MachineRegisterInfo7setTypeENS_8RegisterENS_3LLTE.exit ], [ true, %76 ], [ false, %63 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit29 ]
+_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit.thread: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit29, %63, %74, %_ZN4llvm19MachineRegisterInfo7setTypeENS_8RegisterENS_3LLTE.exit, %73, %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit, %40
+  %.0 = phi i1 [ false, %40 ], [ false, %_ZL17constrainRegClassRN4llvm19MachineRegisterInfoENS_8RegisterEPKNS_19TargetRegisterClassES5_j.exit ], [ false, %73 ], [ true, %_ZN4llvm19MachineRegisterInfo7setTypeENS_8RegisterENS_3LLTE.exit ], [ true, %74 ], [ false, %63 ], [ false, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit29 ]
   ret i1 %.0
 }
 

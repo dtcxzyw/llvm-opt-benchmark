@@ -2735,7 +2735,7 @@ define dso_local noundef zeroext i1 @__is_kernel_percpu_address(i64 noundef %0, 
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, ptrtoint (ptr @__per_cpu_start to i64)
   %22 = inttoptr i64 %21 to ptr
-  %23 = icmp uge ptr %4, %22
+  %23 = icmp uge i64 %0, %21
   %24 = getelementptr i8, ptr %22, i64 sub (i64 ptrtoint (ptr @__per_cpu_end to i64), i64 ptrtoint (ptr @__per_cpu_start to i64))
   %25 = icmp ugt ptr %24, %4
   %26 = and i1 %23, %25
@@ -2793,7 +2793,7 @@ define dso_local noundef zeroext i1 @is_kernel_percpu_address(i64 noundef %0) lo
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @__per_cpu_start to i64)
   %21 = inttoptr i64 %20 to ptr
-  %22 = icmp uge ptr %3, %21
+  %22 = icmp uge i64 %0, %20
   %23 = getelementptr i8, ptr %21, i64 sub (i64 ptrtoint (ptr @__per_cpu_end to i64), i64 ptrtoint (ptr @__per_cpu_start to i64))
   %24 = icmp ugt ptr %23, %3
   %25 = and i1 %22, %24

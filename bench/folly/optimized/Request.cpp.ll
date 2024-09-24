@@ -4209,31 +4209,30 @@ _ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit:   ; preds = %if.end.i.i, %if.end
 
 invoke.cont12:                                    ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit
   %and.i = and i64 %5, -4
-  %6 = inttoptr i64 %and.i to ptr
-  %7 = load i64, ptr %ref.tmp, align 8, !tbaa !93
-  %and.i48 = and i64 %7, -4
-  %8 = inttoptr i64 %and.i48 to ptr
-  %cmp16 = icmp eq ptr %6, %8
+  %6 = load i64, ptr %ref.tmp, align 8, !tbaa !93
+  %and.i48 = and i64 %6, -4
+  %7 = inttoptr i64 %and.i48 to ptr
+  %cmp16 = icmp eq i64 %and.i, %and.i48
   %tobool.not.i.i49 = icmp eq i64 %and.i48, 0
   br i1 %tobool.not.i.i49, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont12
   store i64 0, ptr %ref.tmp, align 8, !tbaa !93
-  %and.i.i50 = and i64 %7, 3
+  %and.i.i50 = and i64 %6, 3
   %tobool4.not.i.i = icmp eq i64 %and.i.i50, 0
   br i1 %tobool4.not.i.i, label %if.then5.i.i, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
 
 if.then5.i.i:                                     ; preds = %if.then.i.i
-  %vtable.i.i51 = load ptr, ptr %8, align 8, !tbaa !113
+  %vtable.i.i51 = load ptr, ptr %7, align 8, !tbaa !113
   %vfn.i.i52 = getelementptr inbounds i8, ptr %vtable.i.i51, i64 48
-  %9 = load ptr, ptr %vfn.i.i52, align 8
-  call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8) #27
+  %8 = load ptr, ptr %vfn.i.i52, align 8
+  call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
 
 _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit:       ; preds = %if.then5.i.i, %if.then.i.i, %invoke.cont12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #27
-  %10 = load i64, ptr %ex, align 8, !tbaa !160
-  %and.i.i53 = and i64 %10, -4
+  %9 = load i64, ptr %ex, align 8, !tbaa !160
+  %and.i.i53 = and i64 %9, -4
   br i1 %cmp16, label %if.then17, label %if.else
 
 if.then17:                                        ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
@@ -4241,11 +4240,11 @@ if.then17:                                        ; preds = %_ZN5folly8Executor9
   br i1 %tobool.not.i.i54, label %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit63, label %if.end.i.i55
 
 if.end.i.i55:                                     ; preds = %if.then17
-  %11 = inttoptr i64 %and.i.i53 to ptr
-  %vtable.i.i56 = load ptr, ptr %11, align 8, !tbaa !113, !noalias !165
+  %10 = inttoptr i64 %and.i.i53 to ptr
+  %vtable.i.i56 = load ptr, ptr %10, align 8, !tbaa !113, !noalias !165
   %vfn.i.i57 = getelementptr inbounds i8, ptr %vtable.i.i56, i64 40
-  %12 = load ptr, ptr %vfn.i.i57, align 8, !noalias !165
-  %call.i.i58 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(8) %11) #27, !noalias !165
+  %11 = load ptr, ptr %vfn.i.i57, align 8, !noalias !165
+  %call.i.i58 = call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %10) #27, !noalias !165
   %not.call.i.i59 = xor i1 %call.i.i58, true
   %or.i.i.i.i60 = zext i1 %not.call.i.i59 to i64
   %spec.select.i.i61 = or disjoint i64 %and.i.i53, %or.i.i.i.i60
@@ -4262,60 +4261,60 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2E
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.i
 
 _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit: ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit63
-  %13 = inttoptr i64 %and.i.i.i64 to ptr
-  %vtable.i.i.i = load ptr, ptr %13, align 8, !tbaa !113, !noalias !168
+  %12 = inttoptr i64 %and.i.i.i64 to ptr
+  %vtable.i.i.i = load ptr, ptr %12, align 8, !tbaa !113, !noalias !168
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 40
-  %14 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !168
-  %call.i.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %13) #27, !noalias !168
+  %13 = load ptr, ptr %vfn.i.i.i, align 8, !noalias !168
+  %call.i.i.i = call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(8) %12) #27, !noalias !168
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i)
-  %vtable.i.i.i.i = load ptr, ptr %13, align 8, !tbaa !113, !noalias !171
+  %vtable.i.i.i.i = load ptr, ptr %12, align 8, !tbaa !113, !noalias !171
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 40
-  %15 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !171
-  %call.i.i.i.i = call noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %13) #27, !noalias !171
+  %14 = load ptr, ptr %vfn.i.i.i.i, align 8, !noalias !171
+  %call.i.i.i.i = call noundef zeroext i1 %14(ptr noundef nonnull align 8 dereferenceable(8) %12) #27, !noalias !171
   %not.call.i.i.i.i = xor i1 %call.i.i.i.i, true
   %or.i.i.i.i.i.i = zext i1 %not.call.i.i.i.i to i64
   %spec.select.i.i.i.i = or disjoint i64 %and.i.i.i64, %or.i.i.i.i.i.i
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.i
 
 _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.i: ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.thread
-  %and.i.i.i.i196 = phi ptr [ %13, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit ], [ null, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.thread ]
+  %and.i.i.i.i196 = phi ptr [ %12, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit ], [ null, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.thread ]
   %.sink.i.i.i192 = phi i1 [ %call.i.i.i, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit ], [ true, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.thread ]
   %.sink.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit ], [ 0, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.thread ]
   %and.i.i.i65194 = and i64 %.sink.i.i62, -4
-  %16 = inttoptr i64 %and.i.i.i65194 to ptr
+  %15 = inttoptr i64 %and.i.i.i65194 to ptr
   %call_.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 48
   %exec_.i.i = getelementptr inbounds i8, ptr %agg.tmp.i, i64 56
   store ptr @_ZN5folly14default_domainE, ptr %agg.tmp.i, align 16
   %agg.tmp2.sroa.0.i.sroa.4.0.agg.tmp.i.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp.i, i64 8
   store i32 %rcount, ptr %agg.tmp2.sroa.0.i.sroa.4.0.agg.tmp.i.sroa_idx, align 8
-  %17 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
-  store i64 %.sink.i.i.i.i, ptr %17, align 16, !tbaa !160
+  %16 = getelementptr inbounds i8, ptr %agg.tmp.i, i64 16
+  store i64 %.sink.i.i.i.i, ptr %16, align 16, !tbaa !160
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_EEvRNS1_4DataE, ptr %call_.i.i, align 16, !tbaa !174
   store ptr @_ZN5folly6detail8function13DispatchSmall4execIZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_EEmNS1_2OpEPNS1_4DataESA_, ptr %exec_.i.i, align 8, !tbaa !176
-  %vtable.i = load ptr, ptr %16, align 8, !tbaa !113
+  %vtable.i = load ptr, ptr %15, align 8, !tbaa !113
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %18 = load ptr, ptr %vfn.i, align 8
-  invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %agg.tmp.i)
+  %17 = load ptr, ptr %vfn.i, align 8
+  invoke void %17(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.i
-  %19 = load ptr, ptr %exec_.i.i, align 8, !tbaa !176
-  %tobool.not.i.i.i66 = icmp eq ptr %19, null
+  %18 = load ptr, ptr %exec_.i.i, align 8, !tbaa !176
+  %tobool.not.i.i.i66 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i.i66, label %invoke.cont20, label %if.end.i.i.i67
 
 if.end.i.i.i67:                                   ; preds = %invoke.cont.i
-  %call.i.i.i68 = call noundef i64 %19(i32 noundef 1, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #27
+  %call.i.i.i68 = call noundef i64 %18(i32 noundef 1, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #27
   br label %invoke.cont20
 
 lpad.i:                                           ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit.i
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
-  %21 = load ptr, ptr %exec_.i.i, align 8, !tbaa !176
-  %tobool.not.i.i9.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr %exec_.i.i, align 8, !tbaa !176
+  %tobool.not.i.i9.i = icmp eq ptr %20, null
   br i1 %tobool.not.i.i9.i, label %lpad19.body, label %if.end.i.i10.i
 
 if.end.i.i10.i:                                   ; preds = %lpad.i
-  %call.i.i11.i = call noundef i64 %21(i32 noundef 1, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #27
+  %call.i.i11.i = call noundef i64 %20(i32 noundef 1, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #27
   %.sink.i.i.i192.not = xor i1 %.sink.i.i.i192, true
   %brmerge = or i1 %tobool.not.i.i.i, %.sink.i.i.i192.not
   br i1 %brmerge, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91, label %if.then5.i.i.i88
@@ -4329,8 +4328,8 @@ invoke.cont20:                                    ; preds = %if.end.i.i.i67, %in
 if.then5.i.i.i:                                   ; preds = %invoke.cont20
   %vtable.i.i.i72 = load ptr, ptr %and.i.i.i.i196, align 8, !tbaa !113
   %vfn.i.i.i73 = getelementptr inbounds i8, ptr %vtable.i.i.i72, i64 48
-  %22 = load ptr, ptr %vfn.i.i.i73, align 8
-  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %and.i.i.i.i196) #27
+  %21 = load ptr, ptr %vfn.i.i.i73, align 8
+  call void %21(ptr noundef nonnull align 8 dereferenceable(8) %and.i.i.i.i196) #27
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit
 
 _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit: ; preds = %if.then5.i.i.i, %invoke.cont20
@@ -4341,19 +4340,19 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2E
   br i1 %or.cond217, label %if.then5.i.i79, label %if.end31
 
 if.then5.i.i79:                                   ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit
-  %vtable.i.i80 = load ptr, ptr %16, align 8, !tbaa !113
+  %vtable.i.i80 = load ptr, ptr %15, align 8, !tbaa !113
   %vfn.i.i81 = getelementptr inbounds i8, ptr %vtable.i.i80, i64 48
-  %23 = load ptr, ptr %vfn.i.i81, align 8
-  call void %23(ptr noundef nonnull align 8 dereferenceable(8) %16) #27
+  %22 = load ptr, ptr %vfn.i.i81, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(8) %15) #27
   br label %if.end31
 
 lpad8:                                            ; preds = %if.then.i
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup36
 
 lpad11:                                           ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp) #27
   br label %ehcleanup36
@@ -4366,8 +4365,8 @@ lpad19.body:                                      ; preds = %lpad.i
 if.then5.i.i.i88:                                 ; preds = %lpad19.body, %if.end.i.i10.i
   %vtable.i.i.i89 = load ptr, ptr %and.i.i.i.i196, align 8, !tbaa !113
   %vfn.i.i.i90 = getelementptr inbounds i8, ptr %vtable.i.i.i89, i64 48
-  %26 = load ptr, ptr %vfn.i.i.i90, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %and.i.i.i.i196) #27
+  %25 = load ptr, ptr %vfn.i.i.i90, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %and.i.i.i.i196) #27
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91
 
 _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91: ; preds = %if.then5.i.i.i88, %lpad19.body, %if.end.i.i10.i
@@ -4378,24 +4377,24 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2E
   br i1 %or.cond218, label %if.then5.i.i97, label %ehcleanup36
 
 if.then5.i.i97:                                   ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91
-  %vtable.i.i98 = load ptr, ptr %16, align 8, !tbaa !113
+  %vtable.i.i98 = load ptr, ptr %15, align 8, !tbaa !113
   %vfn.i.i99 = getelementptr inbounds i8, ptr %vtable.i.i98, i64 48
-  %27 = load ptr, ptr %vfn.i.i99, align 8
-  call void %27(ptr noundef nonnull align 8 dereferenceable(8) %16) #27
+  %26 = load ptr, ptr %vfn.i.i99, align 8
+  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %15) #27
   br label %ehcleanup36
 
 if.else:                                          ; preds = %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
-  %28 = inttoptr i64 %and.i.i53 to ptr
+  %27 = inttoptr i64 %and.i.i53 to ptr
   %and.i.i.i102 = and i64 %.sink.i.i, -4
   %tobool.not.i.i.i103 = icmp eq i64 %and.i.i.i102, 0
   br i1 %tobool.not.i.i.i103, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit112, label %if.end.i.i.i104
 
 if.end.i.i.i104:                                  ; preds = %if.else
-  %29 = inttoptr i64 %and.i.i.i102 to ptr
-  %vtable.i.i.i105 = load ptr, ptr %29, align 8, !tbaa !113, !noalias !177
+  %28 = inttoptr i64 %and.i.i.i102 to ptr
+  %vtable.i.i.i105 = load ptr, ptr %28, align 8, !tbaa !113, !noalias !177
   %vfn.i.i.i106 = getelementptr inbounds i8, ptr %vtable.i.i.i105, i64 40
-  %30 = load ptr, ptr %vfn.i.i.i106, align 8, !noalias !177
-  %call.i.i.i107 = call noundef zeroext i1 %30(ptr noundef nonnull align 8 dereferenceable(8) %29) #27, !noalias !177
+  %29 = load ptr, ptr %vfn.i.i.i106, align 8, !noalias !177
+  %call.i.i.i107 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(8) %28) #27, !noalias !177
   %not.call.i.i.i108 = xor i1 %call.i.i.i107, true
   %or.i.i.i.i.i109 = zext i1 %not.call.i.i.i108 to i64
   %spec.select.i.i.i110 = or disjoint i64 %and.i.i.i102, %or.i.i.i.i.i109
@@ -4408,34 +4407,34 @@ _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2E
   store ptr @_ZN5folly14default_domainE, ptr %agg.tmp25, align 16
   %agg.tmp26.sroa.0.sroa.2.0.agg.tmp25.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp25, i64 8
   store i32 %rcount, ptr %agg.tmp26.sroa.0.sroa.2.0.agg.tmp25.sroa_idx, align 8
-  %31 = getelementptr inbounds i8, ptr %agg.tmp25, i64 16
-  store i64 %.sink.i.i.i111, ptr %31, align 16, !tbaa !160
+  %30 = getelementptr inbounds i8, ptr %agg.tmp25, i64 16
+  store i64 %.sink.i.i.i111, ptr %30, align 16, !tbaa !160
   store ptr @_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_EEvRNS1_4DataE, ptr %call_.i, align 16, !tbaa !174
   store ptr @_ZN5folly6detail8function13DispatchSmall4execIZNS_13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiEUlvE_EEmNS1_2OpEPNS1_4DataESA_, ptr %exec_.i, align 8, !tbaa !176
-  %vtable = load ptr, ptr %28, align 8, !tbaa !113
+  %vtable = load ptr, ptr %27, align 8, !tbaa !113
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
-  %32 = load ptr, ptr %vfn, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull %agg.tmp25)
+  %31 = load ptr, ptr %vfn, align 8
+  invoke void %31(ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull %agg.tmp25)
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit112
-  %33 = load ptr, ptr %exec_.i, align 8, !tbaa !176
-  %tobool.not.i.i114 = icmp eq ptr %33, null
+  %32 = load ptr, ptr %exec_.i, align 8, !tbaa !176
+  %tobool.not.i.i114 = icmp eq ptr %32, null
   br i1 %tobool.not.i.i114, label %if.end31, label %if.end.i.i115
 
 if.end.i.i115:                                    ; preds = %invoke.cont28
-  %call.i.i116 = call noundef i64 %33(i32 noundef 1, ptr noundef nonnull %agg.tmp25, ptr noundef null) #27
+  %call.i.i116 = call noundef i64 %32(i32 noundef 1, ptr noundef nonnull %agg.tmp25, ptr noundef null) #27
   br label %if.end31
 
 lpad27:                                           ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_C2ERKS3_.exit112
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %exec_.i, align 8, !tbaa !176
-  %tobool.not.i.i127 = icmp eq ptr %35, null
+  %34 = load ptr, ptr %exec_.i, align 8, !tbaa !176
+  %tobool.not.i.i127 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i127, label %ehcleanup36, label %if.end.i.i128
 
 if.end.i.i128:                                    ; preds = %lpad27
-  %call.i.i129 = call noundef i64 %35(i32 noundef 1, ptr noundef nonnull %agg.tmp25, ptr noundef null) #27
+  %call.i.i129 = call noundef i64 %34(i32 noundef 1, ptr noundef nonnull %agg.tmp25, ptr noundef null) #27
   br label %ehcleanup36
 
 if.end31:                                         ; preds = %if.end.i.i115, %invoke.cont28, %if.then5.i.i79, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit
@@ -4443,8 +4442,8 @@ if.end31:                                         ; preds = %if.end.i.i115, %inv
   br i1 %cmp32, label %if.then33, label %if.end35
 
 if.then33:                                        ; preds = %if.end31
-  %36 = atomicrmw add ptr @_ZZN5folly13hazptr_domainISt6atomicE31hazptr_warning_executor_backlogEiE13warning_count, i64 1 seq_cst, align 8
-  %rem.i = urem i64 %36, 10000
+  %35 = atomicrmw add ptr @_ZZN5folly13hazptr_domainISt6atomicE31hazptr_warning_executor_backlogEiE13warning_count, i64 1 seq_cst, align 8
+  %rem.i = urem i64 %35, 10000
   %cmp.i = icmp eq i64 %rem.i, 0
   br i1 %cmp.i, label %if.then.i, label %if.end35
 
@@ -4471,7 +4470,7 @@ invoke.cont5.i:                                   ; preds = %invoke.cont3.i
   br label %if.end35
 
 lpad.i7:                                          ; preds = %invoke.cont3.i, %invoke.cont.i8, %.noexc
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp.i) #27
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp.i) #27
@@ -4486,15 +4485,15 @@ if.end35:                                         ; preds = %invoke.cont5.i, %if
   br i1 %or.cond219, label %if.then5.i.i.i145, label %cleanup
 
 if.then5.i.i.i145:                                ; preds = %if.end35
-  %38 = inttoptr i64 %and.i.i.i.i140 to ptr
-  %vtable.i.i.i146 = load ptr, ptr %38, align 8, !tbaa !113
+  %37 = inttoptr i64 %and.i.i.i.i140 to ptr
+  %vtable.i.i.i146 = load ptr, ptr %37, align 8, !tbaa !113
   %vfn.i.i.i147 = getelementptr inbounds i8, ptr %vtable.i.i.i146, i64 48
-  %39 = load ptr, ptr %vfn.i.i.i147, align 8
-  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %38) #27
+  %38 = load ptr, ptr %vfn.i.i.i147, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %37) #27
   br label %cleanup
 
 ehcleanup36:                                      ; preds = %lpad8, %lpad.i7, %if.end.i.i128, %lpad27, %if.then5.i.i97, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91, %lpad11
-  %.pn = phi { ptr, i32 } [ %25, %lpad11 ], [ %20, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91 ], [ %20, %if.then5.i.i97 ], [ %34, %if.end.i.i128 ], [ %34, %lpad27 ], [ %24, %lpad8 ], [ %37, %lpad.i7 ]
+  %.pn = phi { ptr, i32 } [ %24, %lpad11 ], [ %19, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit91 ], [ %19, %if.then5.i.i97 ], [ %33, %if.end.i.i128 ], [ %33, %lpad27 ], [ %23, %lpad8 ], [ %36, %lpad.i7 ]
   %and.i.i.i.i149 = and i64 %.sink.i.i, -4
   %tobool.not.i.i.i150 = icmp ne i64 %and.i.i.i.i149, 0
   %and.i.i.i152 = and i64 %.sink.i.i, 3
@@ -4503,31 +4502,31 @@ ehcleanup36:                                      ; preds = %lpad8, %lpad.i7, %i
   br i1 %or.cond220, label %if.then5.i.i.i154, label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit157
 
 if.then5.i.i.i154:                                ; preds = %ehcleanup36
-  %40 = inttoptr i64 %and.i.i.i.i149 to ptr
-  %vtable.i.i.i155 = load ptr, ptr %40, align 8, !tbaa !113
+  %39 = inttoptr i64 %and.i.i.i.i149 to ptr
+  %vtable.i.i.i155 = load ptr, ptr %39, align 8, !tbaa !113
   %vfn.i.i.i156 = getelementptr inbounds i8, ptr %vtable.i.i.i155, i64 48
-  %41 = load ptr, ptr %vfn.i.i.i156, align 8
-  call void %41(ptr noundef nonnull align 8 dereferenceable(8) %40) #27
+  %40 = load ptr, ptr %vfn.i.i.i156, align 8
+  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %39) #27
   br label %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit157
 
 _ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit157: ; preds = %if.then5.i.i.i154, %ehcleanup36
-  %42 = load i64, ptr %ex, align 8, !tbaa !93
-  %and.i.i.i158 = and i64 %42, -4
-  %43 = inttoptr i64 %and.i.i.i158 to ptr
+  %41 = load i64, ptr %ex, align 8, !tbaa !93
+  %and.i.i.i158 = and i64 %41, -4
+  %42 = inttoptr i64 %and.i.i.i158 to ptr
   %tobool.not.i.i159 = icmp eq i64 %and.i.i.i158, 0
   br i1 %tobool.not.i.i159, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit166, label %if.then.i.i160
 
 if.then.i.i160:                                   ; preds = %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit157
   store i64 0, ptr %ex, align 8, !tbaa !93
-  %and.i.i161 = and i64 %42, 3
+  %and.i.i161 = and i64 %41, 3
   %tobool4.not.i.i162 = icmp eq i64 %and.i.i161, 0
   br i1 %tobool4.not.i.i162, label %if.then5.i.i163, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit166
 
 if.then5.i.i163:                                  ; preds = %if.then.i.i160
-  %vtable.i.i164 = load ptr, ptr %43, align 8, !tbaa !113
+  %vtable.i.i164 = load ptr, ptr %42, align 8, !tbaa !113
   %vfn.i.i165 = getelementptr inbounds i8, ptr %vtable.i.i164, i64 48
-  %44 = load ptr, ptr %vfn.i.i165, align 8
-  call void %44(ptr noundef nonnull align 8 dereferenceable(8) %43) #27
+  %43 = load ptr, ptr %vfn.i.i165, align 8
+  call void %43(ptr noundef nonnull align 8 dereferenceable(8) %42) #27
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit166
 
 _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit166:    ; preds = %if.then5.i.i163, %if.then.i.i160, %_ZZN5folly13hazptr_domainISt6atomicE30invoke_reclamation_in_executorEiENUlvE_D2Ev.exit157
@@ -4535,23 +4534,23 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit166:    ; preds = %if.then5.i.i163, %i
   resume { ptr, i32 } %.pn
 
 cleanup:                                          ; preds = %if.then5.i.i.i145, %if.end35, %cond.end
-  %45 = load i64, ptr %ex, align 8, !tbaa !93
-  %and.i.i.i167 = and i64 %45, -4
-  %46 = inttoptr i64 %and.i.i.i167 to ptr
+  %44 = load i64, ptr %ex, align 8, !tbaa !93
+  %and.i.i.i167 = and i64 %44, -4
+  %45 = inttoptr i64 %and.i.i.i167 to ptr
   %tobool.not.i.i168 = icmp eq i64 %and.i.i.i167, 0
   br i1 %tobool.not.i.i168, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit175, label %if.then.i.i169
 
 if.then.i.i169:                                   ; preds = %cleanup
   store i64 0, ptr %ex, align 8, !tbaa !93
-  %and.i.i170 = and i64 %45, 3
+  %and.i.i170 = and i64 %44, 3
   %tobool4.not.i.i171 = icmp eq i64 %and.i.i170, 0
   br i1 %tobool4.not.i.i171, label %if.then5.i.i172, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit175
 
 if.then5.i.i172:                                  ; preds = %if.then.i.i169
-  %vtable.i.i173 = load ptr, ptr %46, align 8, !tbaa !113
+  %vtable.i.i173 = load ptr, ptr %45, align 8, !tbaa !113
   %vfn.i.i174 = getelementptr inbounds i8, ptr %vtable.i.i173, i64 48
-  %47 = load ptr, ptr %vfn.i.i174, align 8
-  call void %47(ptr noundef nonnull align 8 dereferenceable(8) %46) #27
+  %46 = load ptr, ptr %vfn.i.i174, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(8) %45) #27
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit175
 
 _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit175:    ; preds = %if.then5.i.i172, %if.then.i.i169, %cleanup
@@ -11235,12 +11234,15 @@ if.end.i:                                         ; preds = %if.then.i, %_ZN5fol
   store atomic i64 %5, ptr %4 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !153
   %6 = load atomic i64, ptr %combined_.i acquire, align 8
-  %atomic-temp.0.i.i2646 = inttoptr i64 %6 to ptr
-  %cmp.not.i47 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i2646
-  br i1 %cmp.not.i47, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit, !prof !109
+  %cmp.not.i47 = icmp eq i64 %5, %6
+  br i1 %cmp.not.i47, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.preheader, !prof !109
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit: ; preds = %if.end.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit
-  %atomic-temp.0.i.i2648 = phi ptr [ %atomic-temp.0.i.i26, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit ], [ %atomic-temp.0.i.i2646, %if.end.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.preheader: ; preds = %if.end.i
+  %atomic-temp.0.i.i2646 = inttoptr i64 %6 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit
+  %atomic-temp.0.i.i2648 = phi ptr [ %atomic-temp.0.i.i26, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit ], [ %atomic-temp.0.i.i2646, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.preheader ]
   store atomic i64 0, ptr %4 release, align 8
   %7 = ptrtoint ptr %atomic-temp.0.i.i2648 to i64
   store atomic i64 %7, ptr %4 release, align 8
@@ -11251,7 +11253,7 @@ _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8Combi
   br i1 %cmp.not.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit, !prof !110
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit, %if.end.i
-  %.lcssa = phi i64 [ %6, %if.end.i ], [ %8, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit ]
+  %.lcssa = phi i64 [ %5, %if.end.i ], [ %8, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit ]
   %atomic-temp.0.i.i26.lcssa = phi ptr [ %atomic-temp.0.i.i, %if.end.i ], [ %atomic-temp.0.i.i2648, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit ]
   %tobool.not.i = icmp eq i64 %.lcssa, 0
   br i1 %tobool.not.i, label %_ZNK5folly14RequestContext5State14hasContextDataERKNS_12RequestTokenE.exit, label %cond.true.i
@@ -13075,12 +13077,15 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %_ZN5f
   store atomic i64 %5, ptr %4 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !153
   %6 = load atomic i64, ptr %combined_.i acquire, align 8
-  %atomic-temp.0.i.i244 = inttoptr i64 %6 to ptr
-  %cmp.not.i.i45 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i244
-  br i1 %cmp.not.i.i45, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, !prof !109
+  %cmp.not.i.i45 = icmp eq i64 %5, %6
+  br i1 %cmp.not.i.i45, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader, !prof !109
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i: ; preds = %if.end.i.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
-  %atomic-temp.0.i.i246 = phi ptr [ %atomic-temp.0.i.i2, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ], [ %atomic-temp.0.i.i244, %if.end.i.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader: ; preds = %if.end.i.i
+  %atomic-temp.0.i.i244 = inttoptr i64 %6 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
+  %atomic-temp.0.i.i246 = phi ptr [ %atomic-temp.0.i.i2, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ], [ %atomic-temp.0.i.i244, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader ]
   store atomic i64 0, ptr %4 release, align 8
   %7 = ptrtoint ptr %atomic-temp.0.i.i246 to i64
   store atomic i64 %7, ptr %4 release, align 8
@@ -13091,7 +13096,7 @@ _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8Combi
   br i1 %cmp.not.i.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, !prof !110
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, %if.end.i.i
-  %.lcssa = phi i64 [ %6, %if.end.i.i ], [ %8, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
+  %.lcssa = phi i64 [ %5, %if.end.i.i ], [ %8, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
   %atomic-temp.0.i.i2.lcssa = phi ptr [ %atomic-temp.0.i.i, %if.end.i.i ], [ %atomic-temp.0.i.i246, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
   %tobool.not.i = icmp eq i64 %.lcssa, 0
   br i1 %tobool.not.i, label %cleanup.i, label %if.end.i
@@ -13227,12 +13232,15 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %_ZN5f
   store atomic i64 %5, ptr %4 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !153
   %6 = load atomic i64, ptr %combined_.i acquire, align 8
-  %atomic-temp.0.i.i244 = inttoptr i64 %6 to ptr
-  %cmp.not.i.i45 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i244
-  br i1 %cmp.not.i.i45, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, !prof !109
+  %cmp.not.i.i45 = icmp eq i64 %5, %6
+  br i1 %cmp.not.i.i45, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader, !prof !109
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i: ; preds = %if.end.i.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
-  %atomic-temp.0.i.i246 = phi ptr [ %atomic-temp.0.i.i2, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ], [ %atomic-temp.0.i.i244, %if.end.i.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader: ; preds = %if.end.i.i
+  %atomic-temp.0.i.i244 = inttoptr i64 %6 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
+  %atomic-temp.0.i.i246 = phi ptr [ %atomic-temp.0.i.i2, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ], [ %atomic-temp.0.i.i244, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader ]
   store atomic i64 0, ptr %4 release, align 8
   %7 = ptrtoint ptr %atomic-temp.0.i.i246 to i64
   store atomic i64 %7, ptr %4 release, align 8
@@ -13243,7 +13251,7 @@ _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8Combi
   br i1 %cmp.not.i.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, !prof !110
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, %if.end.i.i
-  %.lcssa = phi i64 [ %6, %if.end.i.i ], [ %8, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
+  %.lcssa = phi i64 [ %5, %if.end.i.i ], [ %8, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
   %atomic-temp.0.i.i2.lcssa = phi ptr [ %atomic-temp.0.i.i, %if.end.i.i ], [ %atomic-temp.0.i.i246, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
   %tobool.not.i = icmp eq i64 %.lcssa, 0
   br i1 %tobool.not.i, label %cleanup.i, label %if.end.i
@@ -13380,12 +13388,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %5, ptr %h.i.sroa.0.1 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !153
   %6 = load atomic i64, ptr %combined_.i acquire, align 8
-  %atomic-temp.0.i.i55128 = inttoptr i64 %6 to ptr
-  %cmp.not.i.i129 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i55128
-  br i1 %cmp.not.i.i129, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, !prof !109
+  %cmp.not.i.i129 = icmp eq i64 %5, %6
+  br i1 %cmp.not.i.i129, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader, !prof !109
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
-  %atomic-temp.0.i.i55130 = phi ptr [ %atomic-temp.0.i.i55, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ], [ %atomic-temp.0.i.i55128, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit
+  %atomic-temp.0.i.i55128 = inttoptr i64 %6 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
+  %atomic-temp.0.i.i55130 = phi ptr [ %atomic-temp.0.i.i55, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ], [ %atomic-temp.0.i.i55128, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader ]
   store atomic i64 0, ptr %h.i.sroa.0.1 release, align 8
   %7 = ptrtoint ptr %atomic-temp.0.i.i55130 to i64
   store atomic i64 %7, ptr %h.i.sroa.0.1 release, align 8
@@ -13396,7 +13407,7 @@ _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8Combi
   br i1 %cmp.not.i.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, !prof !110
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit
-  %.lcssa = phi i64 [ %6, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit ], [ %8, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
+  %.lcssa = phi i64 [ %5, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit ], [ %8, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
   %atomic-temp.0.i.i55.lcssa = phi ptr [ %atomic-temp.0.i.i, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit ], [ %atomic-temp.0.i.i55130, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
   %tobool.not.i = icmp eq i64 %.lcssa, 0
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
@@ -13649,12 +13660,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %5, ptr %h.i.sroa.0.1 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !153
   %6 = load atomic i64, ptr %combined_.i acquire, align 8
-  %atomic-temp.0.i.i278 = inttoptr i64 %6 to ptr
-  %cmp.not.i.i79 = icmp eq ptr %atomic-temp.0.i.i, %atomic-temp.0.i.i278
-  br i1 %cmp.not.i.i79, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, !prof !109
+  %cmp.not.i.i79 = icmp eq i64 %5, %6
+  br i1 %cmp.not.i.i79, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader, !prof !109
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
-  %atomic-temp.0.i.i280 = phi ptr [ %atomic-temp.0.i.i2, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ], [ %atomic-temp.0.i.i278, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
+  %atomic-temp.0.i.i278 = inttoptr i64 %6 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
+  %atomic-temp.0.i.i280 = phi ptr [ %atomic-temp.0.i.i2, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ], [ %atomic-temp.0.i.i278, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader ]
   store atomic i64 0, ptr %h.i.sroa.0.1 release, align 8
   %7 = ptrtoint ptr %atomic-temp.0.i.i280 to i64
   store atomic i64 %7, ptr %h.i.sroa.0.1 release, align 8
@@ -13665,7 +13679,7 @@ _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8Combi
   br i1 %cmp.not.i.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, !prof !110
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
-  %.lcssa = phi i64 [ %6, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %8, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
+  %.lcssa = phi i64 [ %5, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %8, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
   %atomic-temp.0.i.i2.lcssa = phi ptr [ %atomic-temp.0.i.i, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %atomic-temp.0.i.i280, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
   %tobool.not.i = icmp eq i64 %.lcssa, 0
   br i1 %tobool.not.i, label %if.then.i33.i, label %if.end.i
@@ -14118,9 +14132,12 @@ if.end.i441:                                      ; preds = %if.then.i450, %_ZN5
   store atomic i64 %24, ptr %h.sroa.0.0.copyload release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !153
   %25 = load atomic i64, ptr %combined_ acquire, align 8
+  %cmp.not.i2591032 = icmp eq i64 %24, %25
+  br i1 %cmp.not.i2591032, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261.preheader, !prof !109
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261.preheader: ; preds = %if.end.i441
   %atomic-temp.0.i.i6381031 = inttoptr i64 %25 to ptr
-  %cmp.not.i2591032 = icmp eq ptr %atomic-temp.0.i.i637, %atomic-temp.0.i.i6381031
-  br i1 %cmp.not.i2591032, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261, !prof !109
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261
 
 cond.true.i.i470:                                 ; preds = %lpad5.i
   %sub.ptr.i.i471 = getelementptr inbounds i8, ptr %20, i64 -80
@@ -14150,8 +14167,8 @@ terminate.lpad.i489:                              ; preds = %_ZN5folly20Singleto
   tail call void @__clang_call_terminate(ptr %28) #33
   unreachable
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261: ; preds = %if.end.i441, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261
-  %atomic-temp.0.i.i6381033 = phi ptr [ %atomic-temp.0.i.i638, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261 ], [ %atomic-temp.0.i.i6381031, %if.end.i441 ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261
+  %atomic-temp.0.i.i6381033 = phi ptr [ %atomic-temp.0.i.i638, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261 ], [ %atomic-temp.0.i.i6381031, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit261.preheader ]
   store atomic i64 0, ptr %h.sroa.0.0.copyload release, align 8
   %29 = ptrtoint ptr %atomic-temp.0.i.i6381033 to i64
   store atomic i64 %29, ptr %h.sroa.0.0.copyload release, align 8
@@ -14170,12 +14187,15 @@ _ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZ
   store atomic i64 %32, ptr %h.sroa.16.0.copyload release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !153
   %33 = load atomic i64, ptr %combined_42 acquire, align 8
-  %atomic-temp.0.i.i6401034 = inttoptr i64 %33 to ptr
-  %cmp.not.i1035 = icmp eq ptr %atomic-temp.0.i.i639, %atomic-temp.0.i.i6401034
-  br i1 %cmp.not.i1035, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit253, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit, !prof !109
+  %cmp.not.i1035 = icmp eq i64 %32, %33
+  br i1 %cmp.not.i1035, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit253, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.preheader, !prof !109
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit: ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit
-  %atomic-temp.0.i.i6401036 = phi ptr [ %atomic-temp.0.i.i640, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit ], [ %atomic-temp.0.i.i6401034, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.preheader: ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit
+  %atomic-temp.0.i.i6401034 = inttoptr i64 %33 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit
+  %atomic-temp.0.i.i6401036 = phi ptr [ %atomic-temp.0.i.i640, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit ], [ %atomic-temp.0.i.i6401034, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.preheader ]
   store atomic i64 0, ptr %h.sroa.16.0.copyload release, align 8
   %34 = ptrtoint ptr %atomic-temp.0.i.i6401036 to i64
   store atomic i64 %34, ptr %h.sroa.16.0.copyload release, align 8
@@ -14665,12 +14685,15 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %101, ptr %h.i398.sroa.0.1 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !153
   %102 = load atomic i64, ptr %combined_.i401 acquire, align 8
-  %atomic-temp.0.i.i7461052 = inttoptr i64 %102 to ptr
-  %cmp.not.i.i4061053 = icmp eq ptr %atomic-temp.0.i.i745, %atomic-temp.0.i.i7461052
-  br i1 %cmp.not.i.i4061053, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i409, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408, !prof !109
+  %cmp.not.i.i4061053 = icmp eq i64 %101, %102
+  br i1 %cmp.not.i.i4061053, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i409, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408.preheader, !prof !109
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408
-  %atomic-temp.0.i.i7461054 = phi ptr [ %atomic-temp.0.i.i746, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408 ], [ %atomic-temp.0.i.i7461052, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408.preheader: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
+  %atomic-temp.0.i.i7461052 = inttoptr i64 %102 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408
+  %atomic-temp.0.i.i7461054 = phi ptr [ %atomic-temp.0.i.i746, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408 ], [ %atomic-temp.0.i.i7461052, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408.preheader ]
   store atomic i64 0, ptr %h.i398.sroa.0.1 release, align 8
   %103 = ptrtoint ptr %atomic-temp.0.i.i7461054 to i64
   store atomic i64 %103, ptr %h.i398.sroa.0.1 release, align 8
@@ -14681,7 +14704,7 @@ _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8Combi
   br i1 %cmp.not.i.i406, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i409, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408, !prof !110
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i409: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
-  %.lcssa1025 = phi i64 [ %102, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %104, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408 ]
+  %.lcssa1025 = phi i64 [ %101, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %104, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408 ]
   %atomic-temp.0.i.i746.lcssa = phi ptr [ %atomic-temp.0.i.i745, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %atomic-temp.0.i.i7461054, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i408 ]
   %tobool.not.i410 = icmp eq i64 %.lcssa1025, 0
   br i1 %tobool.not.i410, label %if.then.i33.i, label %if.end.i411
@@ -15051,12 +15074,15 @@ if.end8.i:                                        ; preds = %_ZN5folly9hazptr_tc
   store atomic i64 %161, ptr %h.i.sroa.0.1 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !153
   %162 = load atomic i64, ptr %combined_.i262 acquire, align 8
-  %atomic-temp.0.i.i8461059 = inttoptr i64 %162 to ptr
-  %cmp.not.i.i1060 = icmp eq ptr %atomic-temp.0.i.i845, %atomic-temp.0.i.i8461059
-  br i1 %cmp.not.i.i1060, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, !prof !109
+  %cmp.not.i.i1060 = icmp eq i64 %161, %162
+  br i1 %cmp.not.i.i1060, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader, !prof !109
 
-_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i: ; preds = %.noexc, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
-  %atomic-temp.0.i.i8461061 = phi ptr [ %atomic-temp.0.i.i846, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ], [ %atomic-temp.0.i.i8461059, %.noexc ]
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader: ; preds = %.noexc
+  %atomic-temp.0.i.i8461059 = inttoptr i64 %162 to ptr
+  br label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
+
+_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i
+  %atomic-temp.0.i.i8461061 = phi ptr [ %atomic-temp.0.i.i846, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ], [ %atomic-temp.0.i.i8461059, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i.preheader ]
   store atomic i64 0, ptr %h.i.sroa.0.1 release, align 8
   %163 = ptrtoint ptr %atomic-temp.0.i.i8461061 to i64
   store atomic i64 %163, ptr %h.i.sroa.0.1 release, align 8
@@ -15067,7 +15093,7 @@ _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8Combi
   br i1 %cmp.not.i.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, !prof !110
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EES9_SC_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i, %.noexc
-  %.lcssa = phi i64 [ %162, %.noexc ], [ %164, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
+  %.lcssa = phi i64 [ %161, %.noexc ], [ %164, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
   %atomic-temp.0.i.i846.lcssa = phi ptr [ %atomic-temp.0.i.i845, %.noexc ], [ %atomic-temp.0.i.i8461061, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14RequestContext5State8CombinedEZNS2_7protectIS6_EEPT_RKS1_IS9_EEUlPS6_E_EEbRS9_SC_T0_.exit.i ]
   %tobool.not.i = icmp eq i64 %.lcssa, 0
   br i1 %tobool.not.i, label %if.then.i317, label %if.end.i

@@ -5303,7 +5303,7 @@ define internal fastcc i64 @enc_strlen(ptr noundef %0, ptr noundef %1, ptr nound
 
 .preheader:                                       ; preds = %.lr.ph164, %28
   %.181.lcssa = phi i64 [ 0, %28 ], [ %spec.select, %.lr.ph164 ]
-  %36 = icmp ult ptr %31, %33
+  %36 = icmp ult i64 %30, %32
   br i1 %36, label %.lr.ph168, label %.loopexit131
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164

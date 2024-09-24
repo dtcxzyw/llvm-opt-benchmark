@@ -8307,7 +8307,7 @@ define internal fastcc void @deactivate_slab(ptr nocapture noundef readonly %0, 
   %53 = phi ptr [ %52, %.split.split.us ], [ null, %.split.split.us.preheader ]
   %54 = phi i32 [ %71, %.split.split.us ], [ 0, %.split.split.us.preheader ]
   %55 = inttoptr i64 %51 to ptr
-  %56 = icmp ult ptr %55, %31
+  %56 = icmp ult i64 %51, %30
   br i1 %56, label %.split13.us, label %57
 
 57:                                               ; preds = %.lr.ph88

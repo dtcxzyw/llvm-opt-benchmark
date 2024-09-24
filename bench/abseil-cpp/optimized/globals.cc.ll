@@ -97,13 +97,13 @@ define dso_local void @_ZN4absl14SetMinLogLevelENS_18LogSeverityAtLeastE(i32 nou
 entry:
   store atomic i32 %severity, ptr @_ZN4absl12_GLOBAL__N_113min_log_levelE.0 release, align 4
   %0 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE acquire, align 8
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i, @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv
+  %cmp.i.i = icmp eq i64 %0, ptrtoint (ptr @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv to i64)
   %cmp.not2.i = icmp eq i64 %0, 0
-  %cmp.not.i = or i1 %cmp.not2.i, %cmp.i.i
+  %cmp.not.i = or i1 %cmp.i.i, %cmp.not2.i
   br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_129TriggerLoggingGlobalsListenerEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
+  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %0 to ptr
   tail call void %atomic-temp.i.0.i.i.i.i()
   br label %_ZN4absl12_GLOBAL__N_129TriggerLoggingGlobalsListenerEv.exit
 
@@ -118,13 +118,13 @@ entry:
   store i32 %0, ptr %this, align 4
   store atomic i32 %severity, ptr @_ZN4absl12_GLOBAL__N_113min_log_levelE.0 release, align 4
   %1 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE acquire, align 8
-  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %1 to ptr
-  %cmp.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i.i, @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv
+  %cmp.i.i.i = icmp eq i64 %1, ptrtoint (ptr @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv to i64)
   %cmp.not2.i.i = icmp eq i64 %1, 0
-  %cmp.not.i.i = or i1 %cmp.not2.i.i, %cmp.i.i.i
+  %cmp.not.i.i = or i1 %cmp.i.i.i, %cmp.not2.i.i
   br i1 %cmp.not.i.i, label %_ZN4absl14SetMinLogLevelENS_18LogSeverityAtLeastE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
+  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %1 to ptr
   tail call void %atomic-temp.i.0.i.i.i.i.i()
   br label %_ZN4absl14SetMinLogLevelENS_18LogSeverityAtLeastE.exit
 
@@ -138,13 +138,13 @@ entry:
   %0 = load i32, ptr %this, align 4
   store atomic i32 %0, ptr @_ZN4absl12_GLOBAL__N_113min_log_levelE.0 release, align 4
   %1 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE acquire, align 8
-  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %1 to ptr
-  %cmp.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i.i, @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv
+  %cmp.i.i.i = icmp eq i64 %1, ptrtoint (ptr @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv to i64)
   %cmp.not2.i.i = icmp eq i64 %1, 0
-  %cmp.not.i.i = or i1 %cmp.not2.i.i, %cmp.i.i.i
+  %cmp.not.i.i = or i1 %cmp.i.i.i, %cmp.not2.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
+  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %1 to ptr
   invoke void %atomic-temp.i.0.i.i.i.i.i()
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -185,13 +185,13 @@ define dso_local void @_ZN4absl18SetStderrThresholdENS_18LogSeverityAtLeastE(i32
 entry:
   store atomic i32 %severity, ptr @_ZN4absl12_GLOBAL__N_115stderrthresholdE.0 release, align 4
   %0 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE acquire, align 8
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i, @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv
+  %cmp.i.i = icmp eq i64 %0, ptrtoint (ptr @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv to i64)
   %cmp.not2.i = icmp eq i64 %0, 0
-  %cmp.not.i = or i1 %cmp.not2.i, %cmp.i.i
+  %cmp.not.i = or i1 %cmp.i.i, %cmp.not2.i
   br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_129TriggerLoggingGlobalsListenerEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
+  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %0 to ptr
   tail call void %atomic-temp.i.0.i.i.i.i()
   br label %_ZN4absl12_GLOBAL__N_129TriggerLoggingGlobalsListenerEv.exit
 
@@ -206,13 +206,13 @@ entry:
   store i32 %0, ptr %this, align 4
   store atomic i32 %severity, ptr @_ZN4absl12_GLOBAL__N_115stderrthresholdE.0 release, align 4
   %1 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE acquire, align 8
-  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %1 to ptr
-  %cmp.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i.i, @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv
+  %cmp.i.i.i = icmp eq i64 %1, ptrtoint (ptr @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv to i64)
   %cmp.not2.i.i = icmp eq i64 %1, 0
-  %cmp.not.i.i = or i1 %cmp.not2.i.i, %cmp.i.i.i
+  %cmp.not.i.i = or i1 %cmp.i.i.i, %cmp.not2.i.i
   br i1 %cmp.not.i.i, label %_ZN4absl18SetStderrThresholdENS_18LogSeverityAtLeastE.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
+  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %1 to ptr
   tail call void %atomic-temp.i.0.i.i.i.i.i()
   br label %_ZN4absl18SetStderrThresholdENS_18LogSeverityAtLeastE.exit
 
@@ -226,13 +226,13 @@ entry:
   %0 = load i32, ptr %this, align 4
   store atomic i32 %0, ptr @_ZN4absl12_GLOBAL__N_115stderrthresholdE.0 release, align 4
   %1 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE acquire, align 8
-  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %1 to ptr
-  %cmp.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i.i, @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv
+  %cmp.i.i.i = icmp eq i64 %1, ptrtoint (ptr @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv to i64)
   %cmp.not2.i.i = icmp eq i64 %1, 0
-  %cmp.not.i.i = or i1 %cmp.not2.i.i, %cmp.i.i.i
+  %cmp.not.i.i = or i1 %cmp.i.i.i, %cmp.not2.i.i
   br i1 %cmp.not.i.i, label %invoke.cont, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %entry
+  %atomic-temp.i.0.i.i.i.i.i = inttoptr i64 %1 to ptr
   invoke void %atomic-temp.i.0.i.i.i.i.i()
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -355,8 +355,7 @@ invoke.cont21:                                    ; preds = %if.end.i
   %call25 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %call18) #13
   %6 = ptrtoint ptr %call25 to i64
   %7 = atomicrmw xchg ptr @_ZN4absl12_GLOBAL__N_115android_log_tagE, i64 %6 acq_rel, align 8
-  %atomic-temp.i.0.i = inttoptr i64 %7 to ptr
-  %cmp.not = icmp eq ptr %atomic-temp.i.0.i, @_ZN4absl12_GLOBAL__N_118kDefaultAndroidTagE
+  %cmp.not = icmp eq i64 %7, ptrtoint (ptr @_ZN4absl12_GLOBAL__N_118kDefaultAndroidTagE to i64)
   br i1 %cmp.not, label %do.end57, label %if.then28
 
 if.then28:                                        ; preds = %invoke.cont21
@@ -561,13 +560,13 @@ entry:
   %frombool.i.i = zext i1 %on_off to i8
   store atomic i8 %frombool.i.i, ptr @_ZN4absl12_GLOBAL__N_118prepend_log_prefixE.0 release, align 1
   %0 = load atomic i64, ptr @_ZN4absl12_GLOBAL__N_124logging_globals_listenerE acquire, align 8
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i, @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv
+  %cmp.i.i = icmp eq i64 %0, ptrtoint (ptr @_ZN4absl13base_internal10AtomicHookIPFvvEE13DummyFunctionEv to i64)
   %cmp.not2.i = icmp eq i64 %0, 0
-  %cmp.not.i = or i1 %cmp.not2.i, %cmp.i.i
+  %cmp.not.i = or i1 %cmp.i.i, %cmp.not2.i
   br i1 %cmp.not.i, label %_ZN4absl12_GLOBAL__N_129TriggerLoggingGlobalsListenerEv.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
+  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %0 to ptr
   tail call void %atomic-temp.i.0.i.i.i.i()
   br label %_ZN4absl12_GLOBAL__N_129TriggerLoggingGlobalsListenerEv.exit
 

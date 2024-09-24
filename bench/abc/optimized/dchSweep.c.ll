@@ -38,32 +38,32 @@ Aig_ObjRepr.exit:                                 ; preds = %2
 18:                                               ; preds = %15
   %19 = ptrtoint ptr %.val35 to i64
   %20 = and i64 %19, -2
-  %21 = inttoptr i64 %20 to ptr
-  %22 = ptrtoint ptr %.val36 to i64
-  %23 = and i64 %22, -2
-  %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq ptr %21, %24
-  br i1 %25, label %26, label %30
+  %21 = ptrtoint ptr %.val36 to i64
+  %22 = and i64 %21, -2
+  %23 = icmp eq i64 %20, %22
+  br i1 %23, label %24, label %28
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %8
-  store ptr %10, ptr %29, align 8
+24:                                               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %0, i64 32
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds ptr, ptr %26, i64 %8
+  store ptr %10, ptr %27, align 8
   br label %Aig_ObjRepr.exit.thread
 
-30:                                               ; preds = %18
-  %31 = tail call i32 @Dch_NodesAreEquiv(ptr noundef nonnull %0, ptr noundef %24, ptr noundef %21) #3
+28:                                               ; preds = %18
+  %29 = inttoptr i64 %22 to ptr
+  %30 = inttoptr i64 %20 to ptr
+  %31 = tail call i32 @Dch_NodesAreEquiv(ptr noundef nonnull %0, ptr noundef %29, ptr noundef %30) #3
   switch i32 %31, label %48 [
     i32 -1, label %32
     i32 1, label %33
   ]
 
-32:                                               ; preds = %30
+32:                                               ; preds = %28
   store ptr null, ptr %13, align 8
   br label %Aig_ObjRepr.exit.thread
 
-33:                                               ; preds = %30
+33:                                               ; preds = %28
   %34 = getelementptr inbounds i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %10, i64 24
@@ -71,7 +71,7 @@ Aig_ObjRepr.exit:                                 ; preds = %2
   %38 = xor i64 %37, %35
   %39 = lshr i64 %38, 3
   %40 = and i64 %39, 1
-  %41 = xor i64 %40, %22
+  %41 = xor i64 %40, %21
   %42 = inttoptr i64 %41 to ptr
   store ptr %42, ptr %13, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 32
@@ -82,7 +82,7 @@ Aig_ObjRepr.exit:                                 ; preds = %2
   store ptr %10, ptr %47, align 8
   br label %Aig_ObjRepr.exit.thread
 
-48:                                               ; preds = %30
+48:                                               ; preds = %28
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %49, i64 20
   %51 = load i32, ptr %50, align 4
@@ -97,7 +97,7 @@ Aig_ObjRepr.exit:                                 ; preds = %2
   tail call void @Dch_ManResimulateCex2(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %10) #3
   br label %Aig_ObjRepr.exit.thread
 
-Aig_ObjRepr.exit.thread:                          ; preds = %2, %15, %12, %Aig_ObjRepr.exit, %53, %52, %33, %32, %26
+Aig_ObjRepr.exit.thread:                          ; preds = %2, %15, %12, %Aig_ObjRepr.exit, %53, %52, %33, %32, %24
   ret void
 }
 

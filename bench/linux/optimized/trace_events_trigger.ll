@@ -2704,34 +2704,33 @@ define internal void @traceon_count_trigger(ptr nocapture noundef %0, ptr nocapt
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @traceon_trigger_print(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
-  %6 = load ptr, ptr %5, align 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = load ptr, ptr %4, align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.16) #15
-  %7 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %7, label %8, label %9
+  %6 = icmp eq i64 %3, -1
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %2
+  tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.9) #15
+  br label %9
 
 8:                                                ; preds = %2
-  tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.9) #15
-  br label %10
-
-9:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef %3) #15
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %8
-  %11 = icmp eq ptr %6, null
-  br i1 %11, label %13, label %12
+9:                                                ; preds = %8, %7
+  %10 = icmp eq ptr %5, null
+  br i1 %10, label %12, label %11
 
-12:                                               ; preds = %10
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #15
-  br label %14
+11:                                               ; preds = %9
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %5) #15
+  br label %13
 
-13:                                               ; preds = %10
+12:                                               ; preds = %9
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #15
-  br label %14
+  br label %13
 
-14:                                               ; preds = %13, %12
+13:                                               ; preds = %12, %11
   ret i32 0
 }
 
@@ -2828,34 +2827,33 @@ define internal void @traceoff_count_trigger(ptr nocapture noundef %0, ptr nocap
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @traceoff_trigger_print(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
-  %6 = load ptr, ptr %5, align 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = load ptr, ptr %4, align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.17) #15
-  %7 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %7, label %8, label %9
+  %6 = icmp eq i64 %3, -1
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %2
+  tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.9) #15
+  br label %9
 
 8:                                                ; preds = %2
-  tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.9) #15
-  br label %10
-
-9:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef %3) #15
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %8
-  %11 = icmp eq ptr %6, null
-  br i1 %11, label %13, label %12
+9:                                                ; preds = %8, %7
+  %10 = icmp eq ptr %5, null
+  br i1 %10, label %12, label %11
 
-12:                                               ; preds = %10
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #15
-  br label %14
+11:                                               ; preds = %9
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %5) #15
+  br label %13
 
-13:                                               ; preds = %10
+12:                                               ; preds = %9
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #15
-  br label %14
+  br label %13
 
-14:                                               ; preds = %13, %12
+13:                                               ; preds = %12, %11
   ret i32 0
 }
 
@@ -2949,34 +2947,33 @@ define internal void @stacktrace_count_trigger(ptr nocapture noundef %0, ptr noc
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @stacktrace_trigger_print(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %5 = getelementptr inbounds i8, ptr %1, i64 40
-  %6 = load ptr, ptr %5, align 8
+  %4 = getelementptr inbounds i8, ptr %1, i64 40
+  %5 = load ptr, ptr %4, align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.18) #15
-  %7 = icmp eq ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %7, label %8, label %9
+  %6 = icmp eq i64 %3, -1
+  br i1 %6, label %7, label %8
+
+7:                                                ; preds = %2
+  tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.9) #15
+  br label %9
 
 8:                                                ; preds = %2
-  tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.9) #15
-  br label %10
-
-9:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef %3) #15
-  br label %10
+  br label %9
 
-10:                                               ; preds = %9, %8
-  %11 = icmp eq ptr %6, null
-  br i1 %11, label %13, label %12
+9:                                                ; preds = %8, %7
+  %10 = icmp eq ptr %5, null
+  br i1 %10, label %12, label %11
 
-12:                                               ; preds = %10
-  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #15
-  br label %14
+11:                                               ; preds = %9
+  tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %5) #15
+  br label %13
 
-13:                                               ; preds = %10
+12:                                               ; preds = %9
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #15
-  br label %14
+  br label %13
 
-14:                                               ; preds = %13, %12
+13:                                               ; preds = %12, %11
   ret i32 0
 }
 

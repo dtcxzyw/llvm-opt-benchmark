@@ -234,19 +234,19 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %35 = load ptr, ptr %34, align 8
   %36 = ptrtoint ptr %35 to i64
   %37 = and i64 %36, -2
-  %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %33, i64 40
-  %40 = load ptr, ptr %39, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = and i64 %41, -2
-  %43 = inttoptr i64 %42 to ptr
-  %44 = icmp eq ptr %38, %43
-  br i1 %44, label %155, label %45
+  %38 = getelementptr inbounds i8, ptr %33, i64 40
+  %39 = load ptr, ptr %38, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = and i64 %40, -2
+  %42 = icmp eq i64 %37, %41
+  br i1 %42, label %155, label %43
 
-45:                                               ; preds = %Aig_ManObj.exit
-  %46 = getelementptr inbounds i8, ptr %38, i64 36
+43:                                               ; preds = %Aig_ManObj.exit
+  %44 = inttoptr i64 %41 to ptr
+  %45 = inttoptr i64 %37 to ptr
+  %46 = getelementptr inbounds i8, ptr %45, i64 36
   %47 = load i32, ptr %46, align 4
-  %48 = getelementptr inbounds i8, ptr %43, i64 36
+  %48 = getelementptr inbounds i8, ptr %44, i64 36
   %49 = load i32, ptr %48, align 4
   %50 = icmp slt i32 %47, %49
   %51 = load i32, ptr %10, align 4
@@ -254,7 +254,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %53 = icmp eq i32 %51, %52
   br i1 %50, label %54, label %103
 
-54:                                               ; preds = %45
+54:                                               ; preds = %43
   br i1 %53, label %55, label %.Vec_IntGrow.exit10_crit_edge.i
 
 .Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %54
@@ -368,7 +368,7 @@ Vec_IntGrow.exit.i42:                             ; preds = %89, %87
   store i32 %93, ptr %8, align 8
   br label %.sink.split
 
-103:                                              ; preds = %45
+103:                                              ; preds = %43
   br i1 %53, label %104, label %.Vec_IntGrow.exit10_crit_edge.i44
 
 .Vec_IntGrow.exit10_crit_edge.i44:                ; preds = %103

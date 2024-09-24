@@ -231,13 +231,11 @@ _ZN6hermes2vm10JSFunction6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit
 define weak_odr hidden ptr @_ZN6hermes2vm17NativeConstructor15creatorFunctionINS0_7JSArrayEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEERNS0_7RuntimeENS0_6HandleIS6_EEPv(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %prototype.coerce, ptr noundef %0) local_unnamed_addr #0 comdat align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %prototype.coerce, align 8
-  %and.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i, 281474976710655
-  %1 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   %arrayPrototype.i.i = getelementptr inbounds i8, ptr %runtime, i64 264
-  %2 = load i64, ptr %arrayPrototype.i.i, align 8
-  %and.i.i.i.i = and i64 %2, 281474976710655
-  %3 = inttoptr i64 %and.i.i.i.i to ptr
-  %cmp.i.i = icmp eq ptr %1, %3
+  %1 = load i64, ptr %arrayPrototype.i.i, align 8
+  %2 = xor i64 %1, %retval.sroa.0.0.copyload.i.i.i.i.i
+  %3 = and i64 %2, 281474976710655
+  %cmp.i.i = icmp eq i64 %3, 0
   br i1 %cmp.i.i, label %cond.true.i.i, label %cond.false.i.i
 
 cond.true.i.i:                                    ; preds = %entry
@@ -256,8 +254,8 @@ _ZN6hermes2vm7JSArray6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit: ; 
 
 if.end.i:                                         ; preds = %_ZN6hermes2vm7JSArray6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit
   %retval.sroa.0.0.copyload.i.i.i.i.i1 = load i64, ptr %call17.i.i, align 8
-  %and.i.i.i.i.i.i.i2 = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i1, 281474976710655
-  %4 = inttoptr i64 %and.i.i.i.i.i.i.i2 to ptr
+  %and.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i.i.i.i1, 281474976710655
+  %4 = inttoptr i64 %and.i.i.i.i.i.i.i to ptr
   br label %_ZN6hermes2vmL32toCallResultPseudoHandleJSObjectINS0_7JSArrayEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEENS3_INS0_6HandleIT_EEXsr6detail23GetCallResultSpecializeISC_EE5valueEEE.exit
 
 _ZN6hermes2vmL32toCallResultPseudoHandleJSObjectINS0_7JSArrayEEENS0_10CallResultINS0_12PseudoHandleINS0_8JSObjectEEELNS0_6detail20CallResultSpecializeE6EEENS3_INS0_6HandleIT_EEXsr6detail23GetCallResultSpecializeISC_EE5valueEEE.exit: ; preds = %_ZN6hermes2vm7JSArray6createERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEE.exit, %if.end.i

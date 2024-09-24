@@ -32,7 +32,7 @@ define internal fastcc ptr @cuddBddAndRecurTime(ptr noundef %0, ptr noundef %1, 
   %11 = ptrtoint ptr %2 to i64
   %12 = and i64 %11, -2
   %13 = inttoptr i64 %12 to ptr
-  %14 = icmp eq ptr %10, %13
+  %14 = icmp eq i64 %9, %12
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %4

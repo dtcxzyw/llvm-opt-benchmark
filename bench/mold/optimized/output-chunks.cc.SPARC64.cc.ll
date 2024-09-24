@@ -12913,16 +12913,18 @@ entry:
   br i1 %cmp.i2.i.i, label %while.cond.outer.split.us, label %while.cond.outer.split
 
 while.cond.outer.split.us:                        ; preds = %entry, %if.end24.us
-  %idx.0.ph25.us = phi i64 [ %or.us, %if.end24.us ], [ %and, %entry ]
-  %retry.0.ph24.us = phi i64 [ %inc.us, %if.end24.us ], [ 0, %entry ]
+  %idx.0.ph24.us = phi i64 [ %or.us, %if.end24.us ], [ %and, %entry ]
+  %retry.0.ph23.us = phi i64 [ %inc.us, %if.end24.us ], [ 0, %entry ]
   br label %while.cond.us
 
 if.end.us:                                        ; preds = %while.cond.us
   %1 = extractvalue { i64, i1 } %6, 0
-  %cmp8.us = icmp eq i64 %1, 0
-  br i1 %cmp8.us, label %while.cond.us, label %while.cond11.preheader.us, !llvm.loop !146
+  switch i64 %1, label %while.end.us [
+    i64 0, label %while.cond.us
+    i64 -1, label %while.body13.us
+  ]
 
-while.end.us:                                     ; preds = %while.body13.us, %while.cond11.preheader.us
+while.end.us:                                     ; preds = %if.end.us, %while.body13.us
   %keylen17.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 24
   %2 = load i32, ptr %keylen17.us, align 8
   %cmp.i.us = icmp eq i32 %2, 0
@@ -12933,86 +12935,76 @@ if.end24.us:                                      ; preds = %while.end.us
   %div.us = sdiv i64 %3, 16
   %sub26.us = add nsw i64 %div.us, -1
   %not.us = sub nsw i64 0, %div.us
-  %and27.us = and i64 %idx.0.ph25.us, %not.us
-  %add.us = add nsw i64 %idx.0.ph25.us, 1
+  %and27.us = and i64 %idx.0.ph24.us, %not.us
+  %add.us = add nsw i64 %idx.0.ph24.us, 1
   %and28.us = and i64 %sub26.us, %add.us
   %or.us = or i64 %and28.us, %and27.us
-  %inc.us = add nuw nsw i64 %retry.0.ph24.us, 1
-  %exitcond37.not = icmp eq i64 %inc.us, 128
-  br i1 %exitcond37.not, label %return, label %while.cond.outer.split.us, !llvm.loop !146
+  %inc.us = add nuw nsw i64 %retry.0.ph23.us, 1
+  %exitcond36.not = icmp eq i64 %inc.us, 128
+  br i1 %exitcond36.not, label %return, label %while.cond.outer.split.us, !llvm.loop !146
 
-while.body13.us:                                  ; preds = %while.cond11.preheader.us, %while.body13.us
+while.body13.us:                                  ; preds = %if.end.us, %while.body13.us
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !147
   %4 = load atomic i64, ptr %arrayidx.us acquire, align 8
-  %ptr.0.us = inttoptr i64 %4 to ptr
-  %cmp12.us = icmp eq ptr %ptr.0.us, inttoptr (i64 -1 to ptr)
+  %cmp12.us = icmp eq i64 %4, -1
   br i1 %cmp12.us, label %while.body13.us, label %while.end.us, !llvm.loop !148
-
-while.cond11.preheader.us:                        ; preds = %if.end.us
-  %ptr.022.us = inttoptr i64 %1 to ptr
-  %cmp1223.us = icmp eq ptr %ptr.022.us, inttoptr (i64 -1 to ptr)
-  br i1 %cmp1223.us, label %while.body13.us, label %while.end.us
 
 while.cond.us:                                    ; preds = %if.end.us, %while.cond.outer.split.us
   %5 = load ptr, ptr %entries, align 8
-  %arrayidx.us = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %5, i64 %idx.0.ph25.us
+  %arrayidx.us = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %5, i64 %idx.0.ph24.us
   %6 = cmpxchg weak ptr %arrayidx.us, i64 0, i64 -1 acquire acquire, align 8
   %7 = extractvalue { i64, i1 } %6, 1
   br i1 %7, label %if.then, label %if.end.us
 
 while.cond.outer.split:                           ; preds = %entry, %if.end24
-  %idx.0.ph25 = phi i64 [ %or, %if.end24 ], [ %and, %entry ]
-  %retry.0.ph24 = phi i64 [ %inc, %if.end24 ], [ 0, %entry ]
+  %idx.0.ph24 = phi i64 [ %or, %if.end24 ], [ %and, %entry ]
+  %retry.0.ph23 = phi i64 [ %inc, %if.end24 ], [ 0, %entry ]
   br label %while.cond
 
-while.cond:                                       ; preds = %while.cond.outer.split, %if.end
+while.cond:                                       ; preds = %if.end, %while.cond.outer.split
   %8 = load ptr, ptr %entries, align 8
-  %arrayidx = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %8, i64 %idx.0.ph25
+  %arrayidx = getelementptr inbounds %"struct.mold::ConcurrentMap<mold::elf::SectionFragment<mold::elf::SPARC64>>::Entry", ptr %8, i64 %idx.0.ph24
   %9 = cmpxchg weak ptr %arrayidx, i64 0, i64 -1 acquire acquire, align 8
   %10 = extractvalue { i64, i1 } %9, 1
   br i1 %10, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.cond, %while.cond.us
-  %.us-phi26 = phi ptr [ %arrayidx.us, %while.cond.us ], [ %arrayidx, %while.cond ]
-  %value = getelementptr inbounds i8, ptr %.us-phi26, i64 8
+  %.us-phi25 = phi ptr [ %arrayidx.us, %while.cond.us ], [ %arrayidx, %while.cond ]
+  %value = getelementptr inbounds i8, ptr %.us-phi25, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %value, ptr noundef nonnull align 8 dereferenceable(12) %val, i64 12, i1 false)
-  %p2align.i = getelementptr inbounds i8, ptr %.us-phi26, i64 20
+  %p2align.i = getelementptr inbounds i8, ptr %.us-phi25, i64 20
   %p2align3.i = getelementptr inbounds i8, ptr %val, i64 12
   store i8 0, ptr %p2align.i, align 1
   %11 = load atomic i8, ptr %p2align3.i monotonic, align 4
   store atomic i8 %11, ptr %p2align.i monotonic, align 1
-  %is_alive.i = getelementptr inbounds i8, ptr %.us-phi26, i64 21
+  %is_alive.i = getelementptr inbounds i8, ptr %.us-phi25, i64 21
   %is_alive4.i = getelementptr inbounds i8, ptr %val, i64 13
   store i8 0, ptr %is_alive.i, align 1
   %12 = load atomic i8, ptr %is_alive4.i monotonic, align 1
   %frombool.i.i.i.i = and i8 %12, 1
   store atomic i8 %frombool.i.i.i.i, ptr %is_alive.i monotonic, align 1
   %conv = trunc i64 %key.coerce0.fr to i32
-  %keylen = getelementptr inbounds i8, ptr %.us-phi26, i64 24
+  %keylen = getelementptr inbounds i8, ptr %.us-phi25, i64 24
   store i32 %conv, ptr %keylen, align 8
   %13 = ptrtoint ptr %key.coerce1 to i64
-  store atomic i64 %13, ptr %.us-phi26 release, align 8
+  store atomic i64 %13, ptr %.us-phi25 release, align 8
   br label %return
 
 if.end:                                           ; preds = %while.cond
   %14 = extractvalue { i64, i1 } %9, 0
-  %cmp8 = icmp eq i64 %14, 0
-  br i1 %cmp8, label %while.cond, label %while.cond11.preheader, !llvm.loop !146
+  switch i64 %14, label %while.end [
+    i64 0, label %while.cond
+    i64 -1, label %while.body13
+  ]
 
-while.cond11.preheader:                           ; preds = %if.end
-  %ptr.022 = inttoptr i64 %14 to ptr
-  %cmp1223 = icmp eq ptr %ptr.022, inttoptr (i64 -1 to ptr)
-  br i1 %cmp1223, label %while.body13, label %while.end
-
-while.body13:                                     ; preds = %while.cond11.preheader, %while.body13
+while.body13:                                     ; preds = %if.end, %while.body13
   tail call void asm sideeffect "pause", "~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !147
   %15 = load atomic i64, ptr %arrayidx acquire, align 8
-  %ptr.0 = inttoptr i64 %15 to ptr
-  %cmp12 = icmp eq ptr %ptr.0, inttoptr (i64 -1 to ptr)
+  %cmp12 = icmp eq i64 %15, -1
   br i1 %cmp12, label %while.body13, label %while.end, !llvm.loop !148
 
-while.end:                                        ; preds = %while.body13, %while.cond11.preheader
-  %ptr.0.lcssa = phi ptr [ %ptr.022, %while.cond11.preheader ], [ %ptr.0, %while.body13 ]
+while.end:                                        ; preds = %if.end, %while.body13
+  %ptr.0.in.lcssa = phi i64 [ %15, %while.body13 ], [ %14, %if.end ]
   %keylen17 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %16 = load i32, ptr %keylen17, align 8
   %conv18 = zext i32 %16 to i64
@@ -13020,7 +13012,8 @@ while.end:                                        ; preds = %while.body13, %whil
   br i1 %cmp.i, label %land.rhs.i, label %if.end24
 
 land.rhs.i:                                       ; preds = %while.end
-  %bcmp.i = tail call i32 @bcmp(ptr %key.coerce1, ptr %ptr.0.lcssa, i64 %key.coerce0.fr)
+  %ptr.0.le = inttoptr i64 %ptr.0.in.lcssa to ptr
+  %bcmp.i = tail call i32 @bcmp(ptr %key.coerce1, ptr %ptr.0.le, i64 %key.coerce0.fr)
   %cmp.i.i = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i, label %if.then20, label %if.end24
 
@@ -13034,11 +13027,11 @@ if.end24:                                         ; preds = %while.end, %land.rh
   %div = sdiv i64 %17, 16
   %sub26 = add nsw i64 %div, -1
   %not = sub nsw i64 0, %div
-  %and27 = and i64 %idx.0.ph25, %not
-  %add = add nsw i64 %idx.0.ph25, 1
+  %and27 = and i64 %idx.0.ph24, %not
+  %add = add nsw i64 %idx.0.ph24, 1
   %and28 = and i64 %sub26, %add
   %or = or i64 %and28, %and27
-  %inc = add nuw nsw i64 %retry.0.ph24, 1
+  %inc = add nuw nsw i64 %retry.0.ph23, 1
   %exitcond.not = icmp eq i64 %inc, 128
   br i1 %exitcond.not, label %return, label %while.cond.outer.split, !llvm.loop !146
 

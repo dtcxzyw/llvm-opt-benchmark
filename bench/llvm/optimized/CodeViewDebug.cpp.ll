@@ -37093,21 +37093,24 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplINS_8codeview9TypeInde
   %7 = load i8, ptr %6, align 8
   %8 = load i64, ptr %1, align 8
   %9 = load i64, ptr %2, align 8
-  %10 = inttoptr i64 %8 to ptr
-  %11 = inttoptr i64 %9 to ptr
-  %12 = xor i8 %7, %5
-  %.fr = freeze i8 %12
-  %13 = and i8 %.fr, 1
-  %.not.i.i2.i.i = icmp ne i8 %13, 0
-  %14 = icmp ne ptr %10, %11
-  %.0.i.not.i3.i.i = select i1 %.not.i.i2.i.i, i1 true, i1 %14
+  %10 = inttoptr i64 %9 to ptr
+  %11 = xor i8 %7, %5
+  %.fr = freeze i8 %11
+  %12 = and i8 %.fr, 1
+  %.not.i.i2.i.i = icmp ne i8 %12, 0
+  %13 = icmp ne i64 %8, %9
+  %.0.i.not.i3.i.i = select i1 %.not.i.i2.i.i, i1 true, i1 %13
   br i1 %.0.i.not.i3.i.i, label %.lr.ph.i.i, label %_ZSt8distanceIN4llvm16SmallSetIteratorINS0_8codeview9TypeIndexELj1ESt4lessIS3_EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit
 
 .lr.ph.i.i:                                       ; preds = %3
-  %15 = trunc i8 %5 to i1
-  %16 = xor i1 %.not.i.i2.i.i, true
-  tail call void @llvm.assume(i1 %16)
-  br i1 %15, label %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.us.i.preheader12.i, label %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i
+  %14 = trunc i8 %5 to i1
+  %15 = xor i1 %.not.i.i2.i.i, true
+  tail call void @llvm.assume(i1 %15)
+  br i1 %14, label %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.us.i.preheader12.i, label %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i.preheader
+
+_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i.preheader: ; preds = %.lr.ph.i.i
+  %16 = inttoptr i64 %8 to ptr
+  br label %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i
 
 _ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.us.i.preheader12.i: ; preds = %.lr.ph.i.i
   %reass.sub = sub i64 %9, %8
@@ -37116,12 +37119,12 @@ _ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.us.
   %19 = add nuw nsw i64 %18, 1
   br label %_ZSt8distanceIN4llvm16SmallSetIteratorINS0_8codeview9TypeIndexELj1ESt4lessIS3_EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit
 
-_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i: ; preds = %.lr.ph.i.i, %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i
-  %20 = phi ptr [ %21, %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i ], [ %10, %.lr.ph.i.i ]
-  %.04.i.i = phi i64 [ %22, %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i ], [ 0, %.lr.ph.i.i ]
+_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i: ; preds = %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i.preheader, %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i
+  %20 = phi ptr [ %21, %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i ], [ %16, %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i.preheader ]
+  %.04.i.i = phi i64 [ %22, %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i ], [ 0, %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i.preheader ]
   %21 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %20) #24
   %22 = add nuw nsw i64 %.04.i.i, 1
-  %.not.i = icmp eq ptr %21, %11
+  %.not.i = icmp eq ptr %21, %10
   br i1 %.not.i, label %_ZSt8distanceIN4llvm16SmallSetIteratorINS0_8codeview9TypeIndexELj1ESt4lessIS3_EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit, label %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i, !llvm.loop !501
 
 _ZSt8distanceIN4llvm16SmallSetIteratorINS0_8codeview9TypeIndexELj1ESt4lessIS3_EEEENSt15iterator_traitsIT_E15difference_typeES8_S8_.exit: ; preds = %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.i.i, %3, %_ZN4llvm16SmallSetIteratorINS_8codeview9TypeIndexELj1ESt4lessIS2_EEppEv.exit.us.i.preheader12.i
@@ -37151,7 +37154,7 @@ _ZN4llvm15SmallVectorImplINS_8codeview9TypeIndexEE7reserveEm.exit: ; preds = %_Z
   %.fr11 = freeze i8 %38
   %39 = and i8 %.fr11, 1
   %.not.i.i4.i.i.i.i = icmp ne i8 %39, 0
-  %40 = icmp ne ptr %36, %37
+  %40 = icmp ne i64 %30, %32
   %.0.i.not.i5.i.i.i.i = select i1 %.not.i.i4.i.i.i.i, i1 true, i1 %40
   br i1 %.0.i.not.i5.i.i.i.i, label %.lr.ph.i.preheader.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_8codeview9TypeIndexELb1EE18uninitialized_copyINS_16SmallSetIteratorIS2_Lj1ESt4lessIS2_EEEPS2_EEvT_SA_T0_.exit
 

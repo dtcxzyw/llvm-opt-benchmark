@@ -682,21 +682,20 @@ if.then186:                                       ; preds = %if.then174
   br label %do.body193
 
 do.body193:                                       ; preds = %if.end212, %if.then186
-  %n191.0 = phi ptr [ %arrayidx.i, %if.then186 ], [ %58, %if.end212 ]
+  %n191.0 = phi ptr [ %arrayidx.i, %if.then186 ], [ %57, %if.end212 ]
   %key194 = getelementptr inbounds i8, ptr %n191.0, i64 8
   %52 = load i64, ptr %key194, align 8
   %shr195.mask = and i64 %52, -140737488355328
   %cmp197 = icmp eq i64 %shr195.mask, -703687441776640
   %and202 = and i64 %52, 140737488355327
-  %53 = inttoptr i64 %and202 to ptr
-  %cmp203 = icmp eq ptr %53, %47
+  %cmp203 = icmp eq i64 %and202, %and190
   %or.cond = and i1 %cmp197, %cmp203
   br i1 %or.cond, label %if.then205, label %if.end212
 
 if.then205:                                       ; preds = %do.body193
-  %54 = load i32, ptr %n191.0, align 8
-  %55 = load ptr, ptr %e.i429, align 8
-  %sub.ptr.lhs.cast.i415 = ptrtoint ptr %55 to i64
+  %53 = load i32, ptr %n191.0, align 8
+  %54 = load ptr, ptr %e.i429, align 8
+  %sub.ptr.lhs.cast.i415 = ptrtoint ptr %54 to i64
   %sub.ptr.rhs.cast.i416 = ptrtoint ptr %w.addr.7 to i64
   %sub.ptr.sub.i417 = sub i64 %sub.ptr.lhs.cast.i415, %sub.ptr.rhs.cast.i416
   %conv.i418 = trunc i64 %sub.ptr.sub.i417 to i32
@@ -712,24 +711,24 @@ serialize_more.exit425:                           ; preds = %if.then.i423, %if.t
   %w.addr.i411.0 = phi ptr [ %call.i424, %if.then.i423 ], [ %w.addr.7, %if.then205 ]
   %incdec.ptr210 = getelementptr inbounds i8, ptr %w.addr.i411.0, i64 1
   store i8 15, ptr %w.addr.i411.0, align 1
-  %cmp.i511 = icmp ult i32 %54, 224
+  %cmp.i511 = icmp ult i32 %53, 224
   br i1 %cmp.i511, label %if.then.i517, label %if.else.i515
 
 if.then.i517:                                     ; preds = %serialize_more.exit425
-  %conv2.i518 = trunc nuw i32 %54 to i8
+  %conv2.i518 = trunc nuw i32 %53 to i8
   %incdec.ptr.i519 = getelementptr inbounds i8, ptr %w.addr.i411.0, i64 2
   store i8 %conv2.i518, ptr %incdec.ptr210, align 1
   br label %if.end231
 
 if.else.i515:                                     ; preds = %serialize_more.exit425
-  %cmp.i311 = icmp ult i32 %54, 8160
+  %cmp.i311 = icmp ult i32 %53, 8160
   br i1 %cmp.i311, label %if.then.i318, label %if.else.i312
 
 if.then.i318:                                     ; preds = %if.else.i515
-  %sub.i319 = add nsw i32 %54, -224
+  %sub.i319 = add nsw i32 %53, -224
   %shr.i320 = lshr i32 %sub.i319, 8
-  %56 = trunc i32 %shr.i320 to i8
-  %conv.i321 = or i8 %56, -32
+  %55 = trunc i32 %shr.i320 to i8
+  %conv.i321 = or i8 %55, -32
   %incdec.ptr.i322 = getelementptr inbounds i8, ptr %w.addr.i411.0, i64 2
   %conv1.i323 = trunc i32 %sub.i319 to i8
   %incdec.ptr2.i324 = getelementptr inbounds i8, ptr %w.addr.i411.0, i64 3
@@ -738,7 +737,7 @@ if.then.i318:                                     ; preds = %if.else.i515
 
 if.else.i312:                                     ; preds = %if.else.i515
   %incdec.ptr3.i313 = getelementptr inbounds i8, ptr %w.addr.i411.0, i64 2
-  store i32 %54, ptr %incdec.ptr3.i313, align 1
+  store i32 %53, ptr %incdec.ptr3.i313, align 1
   %add.ptr.i314 = getelementptr inbounds i8, ptr %w.addr.i411.0, i64 6
   br label %serialize_wu124_.exit325
 
@@ -750,17 +749,17 @@ serialize_wu124_.exit325:                         ; preds = %if.then.i318, %if.e
 
 if.end212:                                        ; preds = %do.body193
   %next213 = getelementptr inbounds i8, ptr %n191.0, i64 16
-  %57 = load i64, ptr %next213, align 8
-  %58 = inttoptr i64 %57 to ptr
-  %tobool215.not = icmp eq i64 %57, 0
+  %56 = load i64, ptr %next213, align 8
+  %57 = inttoptr i64 %56 to ptr
+  %tobool215.not = icmp eq i64 %56, 0
   br i1 %tobool215.not, label %if.then216, label %do.body193
 
 if.then216:                                       ; preds = %if.end212
   %len218 = getelementptr inbounds i8, ptr %47, i64 20
-  %59 = load i32, ptr %len218, align 4
-  %add219 = add i32 %59, 5
-  %60 = load ptr, ptr %e.i429, align 8
-  %sub.ptr.lhs.cast.i400 = ptrtoint ptr %60 to i64
+  %58 = load i32, ptr %len218, align 4
+  %add219 = add i32 %58, 5
+  %59 = load ptr, ptr %e.i429, align 8
+  %sub.ptr.lhs.cast.i400 = ptrtoint ptr %59 to i64
   %sub.ptr.rhs.cast.i401 = ptrtoint ptr %w.addr.7 to i64
   %sub.ptr.sub.i402 = sub i64 %sub.ptr.lhs.cast.i400, %sub.ptr.rhs.cast.i401
   %conv.i403 = trunc i64 %sub.ptr.sub.i402 to i32
@@ -774,7 +773,7 @@ if.then.i408:                                     ; preds = %if.then216
 
 serialize_more.exit410:                           ; preds = %if.then.i408, %if.then216
   %w.addr.i396.0 = phi ptr [ %call.i409, %if.then.i408 ], [ %w.addr.7, %if.then216 ]
-  %add221 = add i32 %59, 32
+  %add221 = add i32 %58, 32
   %cmp.i502 = icmp ult i32 %add221, 224
   br i1 %cmp.i502, label %if.then.i507, label %if.else.i
 
@@ -788,10 +787,10 @@ if.else.i:                                        ; preds = %serialize_more.exit
   br i1 %cmp.i326, label %if.then.i333, label %if.else.i327
 
 if.then.i333:                                     ; preds = %if.else.i
-  %sub.i334 = add nsw i32 %59, -192
+  %sub.i334 = add nsw i32 %58, -192
   %shr.i335 = lshr i32 %sub.i334, 8
-  %61 = trunc i32 %shr.i335 to i8
-  %conv.i336 = or i8 %61, -32
+  %60 = trunc i32 %shr.i335 to i8
+  %conv.i336 = or i8 %60, -32
   %incdec.ptr.i337 = getelementptr inbounds i8, ptr %w.addr.i396.0, i64 1
   %conv1.i338 = trunc i32 %sub.i334 to i8
   %incdec.ptr2.i339 = getelementptr inbounds i8, ptr %w.addr.i396.0, i64 2
@@ -809,7 +808,7 @@ serialize_wu124.exit:                             ; preds = %if.else.i327, %if.t
   %retval.i.0 = phi ptr [ %incdec.ptr.i, %if.then.i507 ], [ %incdec.ptr2.i339, %if.then.i333 ], [ %add.ptr.i329, %if.else.i327 ]
   store i8 %storemerge, ptr %w.addr.i396.0, align 1
   %add.ptr223 = getelementptr inbounds i8, ptr %47, i64 24
-  %conv.i573 = zext i32 %59 to i64
+  %conv.i573 = zext i32 %58 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.i.0, ptr nonnull align 1 %add.ptr223, i64 %conv.i573, i1 false)
   %add.ptr.i = getelementptr inbounds i8, ptr %retval.i.0, i64 %conv.i573
   br label %if.end231
@@ -835,8 +834,8 @@ for.cond244:                                      ; preds = %if.then153, %for.in
   %w.addr.10 = phi ptr [ %w.addr.11, %for.inc259 ], [ %w.addr.4, %if.then153 ]
   %nhash.4 = phi i32 [ %nhash.5, %for.inc259 ], [ %nhash.0, %if.then153 ]
   %node154.1 = phi ptr [ %incdec.ptr260, %for.inc259 ], [ %add.ptr159, %if.then153 ]
-  %62 = load i64, ptr %node154.1, align 8
-  %cmp246 = icmp eq i64 %62, -1
+  %61 = load i64, ptr %node154.1, align 8
+  %cmp246 = icmp eq i64 %61, -1
   br i1 %cmp246, label %for.inc259, label %if.then248
 
 if.then248:                                       ; preds = %for.cond244
@@ -855,58 +854,58 @@ for.inc259:                                       ; preds = %for.cond244, %if.th
 
 if.end263:                                        ; preds = %if.end231, %if.then248, %if.end151
   %w.addr.6 = phi ptr [ %w.addr.4, %if.end151 ], [ %call252, %if.then248 ], [ %call233, %if.end231 ]
-  %63 = load i32, ptr %depth, align 8
-  %inc265 = add nsw i32 %63, 1
+  %62 = load i32, ptr %depth, align 8
+  %inc265 = add nsw i32 %62, 1
   store i32 %inc265, ptr %depth, align 8
   br label %if.end365
 
 if.then271:                                       ; preds = %if.else27
   %L272 = getelementptr inbounds i8, ptr %sbx, i64 24
-  %64 = load i64, ptr %L272, align 8
-  %and274 = and i64 %64, -8
-  %65 = inttoptr i64 %and274 to ptr
-  %glref.i = getelementptr inbounds i8, ptr %65, i64 16
-  %66 = load i64, ptr %glref.i, align 8
-  %67 = inttoptr i64 %66 to ptr
-  %ctype_state.i = getelementptr inbounds i8, ptr %67, i64 384
-  %68 = load i64, ptr %ctype_state.i, align 8
-  %69 = inttoptr i64 %68 to ptr
-  %L2.i = getelementptr inbounds i8, ptr %69, i64 16
-  store ptr %65, ptr %L2.i, align 8
-  %70 = load i64, ptr %o, align 8
-  %and277 = and i64 %70, 140737488355327
-  %71 = inttoptr i64 %and277 to ptr
-  %ctypeid = getelementptr inbounds i8, ptr %71, i64 10
-  %72 = load i16, ptr %ctypeid, align 2
-  %73 = load ptr, ptr %69, align 8
-  %idxprom.i616 = zext i16 %72 to i64
+  %63 = load i64, ptr %L272, align 8
+  %and274 = and i64 %63, -8
+  %64 = inttoptr i64 %and274 to ptr
+  %glref.i = getelementptr inbounds i8, ptr %64, i64 16
+  %65 = load i64, ptr %glref.i, align 8
+  %66 = inttoptr i64 %65 to ptr
+  %ctype_state.i = getelementptr inbounds i8, ptr %66, i64 384
+  %67 = load i64, ptr %ctype_state.i, align 8
+  %68 = inttoptr i64 %67 to ptr
+  %L2.i = getelementptr inbounds i8, ptr %68, i64 16
+  store ptr %64, ptr %L2.i, align 8
+  %69 = load i64, ptr %o, align 8
+  %and277 = and i64 %69, 140737488355327
+  %70 = inttoptr i64 %and277 to ptr
+  %ctypeid = getelementptr inbounds i8, ptr %70, i64 10
+  %71 = load i16, ptr %ctypeid, align 2
+  %72 = load ptr, ptr %68, align 8
+  %idxprom.i616 = zext i16 %71 to i64
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %if.then271
   %idxprom.i616.pn = phi i64 [ %idxprom.i616, %if.then271 ], [ %idxprom.i.i, %while.cond.i ]
-  %ct.i.0 = getelementptr inbounds %struct.CType, ptr %73, i64 %idxprom.i616.pn
-  %74 = load i32, ptr %ct.i.0, align 8
-  %shr.i591.mask = and i32 %74, -268435456
+  %ct.i.0 = getelementptr inbounds %struct.CType, ptr %72, i64 %idxprom.i616.pn
+  %73 = load i32, ptr %ct.i.0, align 8
+  %shr.i591.mask = and i32 %73, -268435456
   %cmp.i592 = icmp eq i32 %shr.i591.mask, -2147483648
-  %and.i619 = and i32 %74, 65535
+  %and.i619 = and i32 %73, 65535
   %idxprom.i.i = zext nneg i32 %and.i619 to i64
   br i1 %cmp.i592, label %while.cond.i, label %ctype_raw.exit, !llvm.loop !10
 
 ctype_raw.exit:                                   ; preds = %while.cond.i
-  %add.ptr282 = getelementptr inbounds i8, ptr %71, i64 16
-  %cmp284 = icmp ult i32 %74, 67108864
+  %add.ptr282 = getelementptr inbounds i8, ptr %70, i64 16
+  %cmp284 = icmp ult i32 %73, 67108864
   br i1 %cmp284, label %land.lhs.true286, label %if.else298
 
 land.lhs.true286:                                 ; preds = %ctype_raw.exit
   %size = getelementptr inbounds i8, ptr %ct.i.0, i64 4
-  %75 = load i32, ptr %size, align 4
-  %cmp287 = icmp eq i32 %75, 8
+  %74 = load i32, ptr %size, align 4
+  %cmp287 = icmp eq i32 %74, 8
   br i1 %cmp287, label %if.then289, label %if.else298
 
 if.then289:                                       ; preds = %land.lhs.true286
   %e.i384 = getelementptr inbounds i8, ptr %sbx, i64 8
-  %76 = load ptr, ptr %e.i384, align 8
-  %sub.ptr.lhs.cast.i385 = ptrtoint ptr %76 to i64
+  %75 = load ptr, ptr %e.i384, align 8
+  %sub.ptr.lhs.cast.i385 = ptrtoint ptr %75 to i64
   %sub.ptr.rhs.cast.i386 = ptrtoint ptr %w to i64
   %sub.ptr.sub.i387 = sub i64 %sub.ptr.lhs.cast.i385, %sub.ptr.rhs.cast.i386
   %conv.i388 = trunc i64 %sub.ptr.sub.i387 to i32
@@ -920,33 +919,33 @@ if.then.i393:                                     ; preds = %if.then289
   br label %serialize_more.exit395
 
 serialize_more.exit395:                           ; preds = %if.then.i393, %if.then289
-  %77 = phi i32 [ %.pre, %if.then.i393 ], [ %74, %if.then289 ]
+  %76 = phi i32 [ %.pre, %if.then.i393 ], [ %73, %if.then289 ]
   %w.addr.i381.0 = phi ptr [ %call.i394, %if.then.i393 ], [ %w, %if.then289 ]
-  %and292 = and i32 %77, 8388608
+  %and292 = and i32 %76, 8388608
   %tobool293.not = icmp eq i32 %and292, 0
   %conv295 = select i1 %tobool293.not, i8 16, i8 17
   %incdec.ptr296 = getelementptr inbounds i8, ptr %w.addr.i381.0, i64 1
   store i8 %conv295, ptr %w.addr.i381.0, align 1
-  %78 = load i64, ptr %add.ptr282, align 1
-  store i64 %78, ptr %incdec.ptr296, align 1
+  %77 = load i64, ptr %add.ptr282, align 1
+  store i64 %77, ptr %incdec.ptr296, align 1
   %add.ptr297 = getelementptr inbounds i8, ptr %w.addr.i381.0, i64 9
   br label %if.end365
 
 if.else298:                                       ; preds = %land.lhs.true286, %ctype_raw.exit
-  %and300 = and i32 %74, -201326592
+  %and300 = and i32 %73, -201326592
   %cmp301 = icmp eq i32 %and300, 872415232
   br i1 %cmp301, label %land.lhs.true303, label %badenc
 
 land.lhs.true303:                                 ; preds = %if.else298
   %size304 = getelementptr inbounds i8, ptr %ct.i.0, i64 4
-  %79 = load i32, ptr %size304, align 4
-  %cmp305 = icmp eq i32 %79, 16
+  %78 = load i32, ptr %size304, align 4
+  %cmp305 = icmp eq i32 %78, 16
   br i1 %cmp305, label %if.then307, label %badenc
 
 if.then307:                                       ; preds = %land.lhs.true303
   %e.i369 = getelementptr inbounds i8, ptr %sbx, i64 8
-  %80 = load ptr, ptr %e.i369, align 8
-  %sub.ptr.lhs.cast.i370 = ptrtoint ptr %80 to i64
+  %79 = load ptr, ptr %e.i369, align 8
+  %sub.ptr.lhs.cast.i370 = ptrtoint ptr %79 to i64
   %sub.ptr.rhs.cast.i371 = ptrtoint ptr %w to i64
   %sub.ptr.sub.i372 = sub i64 %sub.ptr.lhs.cast.i370, %sub.ptr.rhs.cast.i371
   %conv.i373 = trunc i64 %sub.ptr.sub.i372 to i32
@@ -974,18 +973,18 @@ if.then319:                                       ; preds = %if.else27
 
 if.end.i:                                         ; preds = %if.then319
   %L320 = getelementptr inbounds i8, ptr %sbx, i64 24
-  %81 = load i64, ptr %L320, align 8
-  %and322 = and i64 %81, -8
-  %82 = inttoptr i64 %and322 to ptr
-  %glref = getelementptr inbounds i8, ptr %82, i64 16
-  %83 = load i64, ptr %glref, align 8
-  %84 = inttoptr i64 %83 to ptr
-  %lightudseg.i = getelementptr inbounds i8, ptr %84, i64 112
-  %85 = load i64, ptr %lightudseg.i, align 8
-  %86 = inttoptr i64 %85 to ptr
-  %arrayidx.i598 = getelementptr inbounds i32, ptr %86, i64 %and.i596
-  %87 = load i32, ptr %arrayidx.i598, align 4
-  %conv.i599 = zext i32 %87 to i64
+  %80 = load i64, ptr %L320, align 8
+  %and322 = and i64 %80, -8
+  %81 = inttoptr i64 %and322 to ptr
+  %glref = getelementptr inbounds i8, ptr %81, i64 16
+  %82 = load i64, ptr %glref, align 8
+  %83 = inttoptr i64 %82 to ptr
+  %lightudseg.i = getelementptr inbounds i8, ptr %83, i64 112
+  %84 = load i64, ptr %lightudseg.i, align 8
+  %85 = inttoptr i64 %84 to ptr
+  %arrayidx.i598 = getelementptr inbounds i32, ptr %85, i64 %and.i596
+  %86 = load i32, ptr %arrayidx.i598, align 4
+  %conv.i599 = zext i32 %86 to i64
   %shl.i600 = shl nuw i64 %conv.i599, 32
   %and1.i = and i64 %0, 549755813887
   %or.i601 = or i64 %shl.i600, %and1.i
@@ -994,8 +993,8 @@ if.end.i:                                         ; preds = %if.then319
 lightudV.exit:                                    ; preds = %if.then319, %if.end.i
   %retval.i593.0 = phi i64 [ %or.i601, %if.end.i ], [ 0, %if.then319 ]
   %e.i = getelementptr inbounds i8, ptr %sbx, i64 8
-  %88 = load ptr, ptr %e.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %88 to i64
+  %87 = load ptr, ptr %e.i, align 8
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %87 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %w to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %conv.i = trunc i64 %sub.ptr.sub.i to i32
@@ -1037,18 +1036,18 @@ if.else338:                                       ; preds = %if.else330
   br label %if.end365
 
 badenc:                                           ; preds = %if.else27, %if.else298, %land.lhs.true303
-  %89 = phi i64 [ %0, %if.else27 ], [ %70, %if.else298 ], [ %70, %land.lhs.true303 ]
+  %88 = phi i64 [ %0, %if.else27 ], [ %69, %if.else298 ], [ %69, %land.lhs.true303 ]
   %L344 = getelementptr inbounds i8, ptr %sbx, i64 24
-  %90 = load i64, ptr %L344, align 8
-  %shr347 = ashr i64 %89, 47
+  %89 = load i64, ptr %L344, align 8
+  %shr347 = ashr i64 %88, 47
   %cmp349 = icmp ult i64 %shr347, -13
   %not355 = xor i64 %shr347, -1
   %spec.select257 = select i1 %cmp349, i64 13, i64 %not355
-  %and346 = and i64 %90, -8
-  %91 = inttoptr i64 %and346 to ptr
+  %and346 = and i64 %89, -8
+  %90 = inttoptr i64 %and346 to ptr
   %arrayidx359 = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select257
-  %92 = load ptr, ptr %arrayidx359, align 8
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %91, i32 noundef 3790, ptr noundef %92) #9
+  %91 = load ptr, ptr %arrayidx359, align 8
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %90, i32 noundef 3790, ptr noundef %91) #9
   unreachable
 
 if.end365:                                        ; preds = %serialize_more.exit485, %if.end263, %if.then335, %if.else338, %if.then328, %serialize_more.exit395, %serialize_more.exit380, %serialize_more.exit470, %serialize_wu124.exit572

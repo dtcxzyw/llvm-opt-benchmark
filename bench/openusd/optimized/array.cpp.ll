@@ -132221,26 +132221,23 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit: ; preds = %_Z
   br i1 %.not9.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %81, %.lr.ph.i.i.i.i
-  %.011.i.i.i.i = phi ptr [ %93, %.lr.ph.i.i.i.i ], [ %6, %81 ]
-  %.0810.i.i.i.i = phi ptr [ %92, %.lr.ph.i.i.i.i ], [ %4, %81 ]
+  %.011.i.i.i.i = phi ptr [ %90, %.lr.ph.i.i.i.i ], [ %6, %81 ]
+  %.0810.i.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i.i ], [ %4, %81 ]
   %83 = load ptr, ptr %.0810.i.i.i.i, align 8
   %84 = ptrtoint ptr %83 to i64
-  %85 = and i64 %84, -8
-  %86 = inttoptr i64 %85 to ptr
-  %87 = load ptr, ptr %.011.i.i.i.i, align 8
-  %88 = ptrtoint ptr %87 to i64
-  %89 = and i64 %88, -8
-  %90 = inttoptr i64 %89 to ptr
-  %91 = icmp eq ptr %86, %90
-  %92 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 8
-  %93 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp ne ptr %92, %82
-  %or.cond7.not = select i1 %91, i1 %.not.i.i.i.i, i1 false
+  %85 = load ptr, ptr %.011.i.i.i.i, align 8
+  %86 = ptrtoint ptr %85 to i64
+  %87 = xor i64 %86, %84
+  %88 = icmp ult i64 %87, 8
+  %89 = getelementptr inbounds i8, ptr %.0810.i.i.i.i, i64 8
+  %90 = getelementptr inbounds i8, ptr %.011.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp ne ptr %89, %82
+  %or.cond7.not = select i1 %88, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond7.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit, !llvm.loop !870
 
 _ZSt5equalIPKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_EbT_S4_T0_.exit: ; preds = %.lr.ph.i.i.i.i, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread, %81, %73, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit
-  %94 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %73 ], [ true, %81 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread ], [ %91, %.lr.ph.i.i.i.i ]
-  ret i1 %94
+  %91 = phi i1 [ true, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__12Vt_ShapeDataeqERKS0_.exit ], [ false, %73 ], [ true, %81 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE11IsIdenticalERKS2_.exit.thread ], [ %88, %.lr.ph.i.i.i.i ]
+  ret i1 %91
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -2214,129 +2214,232 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollec
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %3, align 8
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, -8
-  %8 = inttoptr i64 %7 to ptr
-  %9 = load ptr, ptr %4, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = and i64 %10, -8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = icmp eq ptr %8, %12
-  br i1 %13, label %14, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
+  %7 = load ptr, ptr %4, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = xor i64 %8, %6
+  %10 = icmp ult i64 %9, 8
+  br i1 %10, label %11, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %17 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
-  br i1 %17, label %18, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  br i1 %14, label %15, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
-18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %20 = load i8, ptr %19, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %22 = load i8, ptr %21, align 8
-  %23 = xor i8 %22, %20
-  %24 = and i8 %23, 1
-  %25 = icmp eq i8 %24, 0
-  br i1 %25, label %26, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = load i8, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %19 = load i8, ptr %18, align 8
+  %20 = xor i8 %19, %17
+  %21 = and i8 %20, 1
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
-26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %30 = load ptr, ptr %29, align 8
-  %31 = load ptr, ptr %27, align 8
-  %32 = ptrtoint ptr %30 to i64
-  %33 = ptrtoint ptr %31 to i64
-  %34 = sub i64 %32, %33
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %28, align 8
-  %38 = ptrtoint ptr %36 to i64
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %41 = icmp eq i64 %34, %40
-  br i1 %41, label %42, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
+23:                                               ; preds = %15
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %24, align 8
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = sub i64 %29, %30
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %25, align 8
+  %35 = ptrtoint ptr %33 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = sub i64 %35, %36
+  %38 = icmp eq i64 %31, %37
+  br i1 %38, label %39, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
-42:                                               ; preds = %26
-  %.not9.i.i.i.i.i = icmp eq ptr %31, %30
+39:                                               ; preds = %23
+  %.not9.i.i.i.i.i = icmp eq ptr %28, %27
   br i1 %.not9.i.i.i.i.i, label %.loopexit16, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %42, %44
-  %.011.i.i.i.i.i = phi ptr [ %46, %44 ], [ %37, %42 ]
-  %.0810.i.i.i.i.i = phi ptr [ %45, %44 ], [ %31, %42 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %39, %41
+  %.011.i.i.i.i.i = phi ptr [ %43, %41 ], [ %34, %39 ]
+  %.0810.i.i.i.i.i = phi ptr [ %42, %41 ], [ %28, %39 ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.0810.i.i.i.i.i, align 4
   %.0.copyload.i2.i.i.i.i.i.i = load i64, ptr %.011.i.i.i.i.i, align 4
-  %43 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i.i
-  br i1 %43, label %44, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
+  %40 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i.i
+  br i1 %40, label %41, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
-44:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %45 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 8
-  %46 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %45, %30
+41:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %42 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i, i64 8
+  %43 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %42, %27
   br i1 %.not.i.i.i.i.i, label %.loopexit16, label %.lr.ph.i.i.i.i.i, !llvm.loop !15
 
-.loopexit16:                                      ; preds = %44, %42
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %47, align 8
-  %52 = ptrtoint ptr %50 to i64
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %48, align 8
-  %58 = ptrtoint ptr %56 to i64
-  %59 = ptrtoint ptr %57 to i64
-  %60 = sub i64 %58, %59
-  %61 = icmp eq i64 %54, %60
-  br i1 %61, label %62, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
+.loopexit16:                                      ; preds = %41, %39
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %44, align 8
+  %49 = ptrtoint ptr %47 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %45, align 8
+  %55 = ptrtoint ptr %53 to i64
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = icmp eq i64 %51, %57
+  br i1 %58, label %59, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
-62:                                               ; preds = %.loopexit16
-  %.not9.i.i.i.i.i7 = icmp eq ptr %51, %50
+59:                                               ; preds = %.loopexit16
+  %.not9.i.i.i.i.i7 = icmp eq ptr %48, %47
   br i1 %.not9.i.i.i.i.i7, label %.loopexit, label %.lr.ph.i.i.i.i.i8
 
-.lr.ph.i.i.i.i.i8:                                ; preds = %62, %64
-  %.011.i.i.i.i.i9 = phi ptr [ %66, %64 ], [ %57, %62 ]
-  %.0810.i.i.i.i.i10 = phi ptr [ %65, %64 ], [ %51, %62 ]
+.lr.ph.i.i.i.i.i8:                                ; preds = %59, %61
+  %.011.i.i.i.i.i9 = phi ptr [ %63, %61 ], [ %54, %59 ]
+  %.0810.i.i.i.i.i10 = phi ptr [ %62, %61 ], [ %48, %59 ]
   %.0.copyload.i.i.i.i.i.i.i11 = load i64, ptr %.0810.i.i.i.i.i10, align 4
   %.0.copyload.i2.i.i.i.i.i.i12 = load i64, ptr %.011.i.i.i.i.i9, align 4
-  %63 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i11, %.0.copyload.i2.i.i.i.i.i.i12
-  br i1 %63, label %64, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
+  %60 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i11, %.0.copyload.i2.i.i.i.i.i.i12
+  br i1 %60, label %61, label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
-64:                                               ; preds = %.lr.ph.i.i.i.i.i8
-  %65 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i10, i64 8
-  %66 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i9, i64 8
-  %.not.i.i.i.i.i13 = icmp eq ptr %65, %50
+61:                                               ; preds = %.lr.ph.i.i.i.i.i8
+  %62 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i10, i64 8
+  %63 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i9, i64 8
+  %.not.i.i.i.i.i13 = icmp eq ptr %62, %47
   br i1 %.not.i.i.i.i.i13, label %.loopexit, label %.lr.ph.i.i.i.i.i8, !llvm.loop !15
 
-.loopexit:                                        ; preds = %64, %62
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %69 = load ptr, ptr %67, align 8
-  %70 = ptrtoint ptr %69 to i64
-  %71 = and i64 %70, -8
-  %72 = inttoptr i64 %71 to ptr
-  %73 = load ptr, ptr %68, align 8
-  %74 = ptrtoint ptr %73 to i64
-  %75 = and i64 %74, -8
-  %76 = inttoptr i64 %75 to ptr
-  %77 = icmp eq ptr %72, %76
+.loopexit:                                        ; preds = %61, %59
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %66 = load ptr, ptr %64, align 8
+  %67 = ptrtoint ptr %66 to i64
+  %68 = load ptr, ptr %65, align 8
+  %69 = ptrtoint ptr %68 to i64
+  %70 = xor i64 %69, %67
+  %71 = icmp ult i64 %70, 8
   br label %_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit
 
-_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i8, %.loopexit16, %26, %.loopexit, %18, %14, %2
-  %78 = phi i1 [ false, %18 ], [ false, %14 ], [ false, %2 ], [ %77, %.loopexit ], [ false, %26 ], [ false, %.loopexit16 ], [ false, %.lr.ph.i.i.i.i.i8 ], [ false, %.lr.ph.i.i.i.i.i ]
-  ret i1 %78
+_ZSteqIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EEbRKSt6vectorIT_T0_ES8_.exit: ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.i.i.i8, %.loopexit16, %23, %.loopexit, %15, %11, %2
+  %72 = phi i1 [ false, %15 ], [ false, %11 ], [ false, %2 ], [ %71, %.loopexit ], [ false, %23 ], [ false, %.loopexit16 ], [ false, %.lr.ph.i.i.i.i.i8 ], [ false, %.lr.ph.i.i.i.i.i ]
+  ret i1 %72
 }
 
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectionneERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 {
-  %3 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1)
-  %4 = xor i1 %3, true
-  ret i1 %4
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectionneERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %7 = load ptr, ptr %4, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = xor i64 %8, %6
+  %10 = icmp ult i64 %9, 8
+  br i1 %10, label %11, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectioneqERKS0_.exit
+
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = tail call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13)
+  br i1 %14, label %15, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectioneqERKS0_.exit
+
+15:                                               ; preds = %11
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %17 = load i8, ptr %16, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %19 = load i8, ptr %18, align 8
+  %20 = xor i8 %19, %17
+  %21 = and i8 %20, 1
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %23, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectioneqERKS0_.exit
+
+23:                                               ; preds = %15
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %27 = load ptr, ptr %26, align 8
+  %28 = load ptr, ptr %24, align 8
+  %29 = ptrtoint ptr %27 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = sub i64 %29, %30
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %33 = load ptr, ptr %32, align 8
+  %34 = load ptr, ptr %25, align 8
+  %35 = ptrtoint ptr %33 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = sub i64 %35, %36
+  %38 = icmp eq i64 %31, %37
+  br i1 %38, label %39, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectioneqERKS0_.exit
+
+39:                                               ; preds = %23
+  %.not9.i.i.i.i.i.i = icmp eq ptr %28, %27
+  br i1 %.not9.i.i.i.i.i.i, label %.loopexit16.i, label %.lr.ph.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i.i:                               ; preds = %39, %41
+  %.011.i.i.i.i.i.i = phi ptr [ %43, %41 ], [ %34, %39 ]
+  %.0810.i.i.i.i.i.i = phi ptr [ %42, %41 ], [ %28, %39 ]
+  %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %.0810.i.i.i.i.i.i, align 4
+  %.0.copyload.i2.i.i.i.i.i.i.i = load i64, ptr %.011.i.i.i.i.i.i, align 4
+  %40 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i, %.0.copyload.i2.i.i.i.i.i.i.i
+  br i1 %40, label %41, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectioneqERKS0_.exit
+
+41:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %42 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i.i, i64 8
+  %43 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %42, %27
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit16.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !15
+
+.loopexit16.i:                                    ; preds = %41, %39
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %44, align 8
+  %49 = ptrtoint ptr %47 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %45, align 8
+  %55 = ptrtoint ptr %53 to i64
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = icmp eq i64 %51, %57
+  br i1 %58, label %59, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectioneqERKS0_.exit
+
+59:                                               ; preds = %.loopexit16.i
+  %.not9.i.i.i.i.i7.i = icmp eq ptr %48, %47
+  br i1 %.not9.i.i.i.i.i7.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i8.i
+
+.lr.ph.i.i.i.i.i8.i:                              ; preds = %59, %61
+  %.011.i.i.i.i.i9.i = phi ptr [ %63, %61 ], [ %54, %59 ]
+  %.0810.i.i.i.i.i10.i = phi ptr [ %62, %61 ], [ %48, %59 ]
+  %.0.copyload.i.i.i.i.i.i.i11.i = load i64, ptr %.0810.i.i.i.i.i10.i, align 4
+  %.0.copyload.i2.i.i.i.i.i.i12.i = load i64, ptr %.011.i.i.i.i.i9.i, align 4
+  %60 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i11.i, %.0.copyload.i2.i.i.i.i.i.i12.i
+  br i1 %60, label %61, label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectioneqERKS0_.exit
+
+61:                                               ; preds = %.lr.ph.i.i.i.i.i8.i
+  %62 = getelementptr inbounds i8, ptr %.0810.i.i.i.i.i10.i, i64 8
+  %63 = getelementptr inbounds i8, ptr %.011.i.i.i.i.i9.i, i64 8
+  %.not.i.i.i.i.i13.i = icmp eq ptr %62, %47
+  br i1 %.not.i.i.i.i.i13.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i8.i, !llvm.loop !15
+
+.loopexit.i:                                      ; preds = %61, %59
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %66 = load ptr, ptr %64, align 8
+  %67 = ptrtoint ptr %66 to i64
+  %68 = load ptr, ptr %65, align 8
+  %69 = ptrtoint ptr %68 to i64
+  %70 = xor i64 %69, %67
+  %71 = icmp ugt i64 %70, 7
+  br label %_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectioneqERKS0_.exit
+
+_ZNK32pxrInternal_v0_24__pxrReserved__17HdRprimCollectioneqERKS0_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i8.i, %2, %11, %15, %23, %.loopexit16.i, %.loopexit.i
+  %72 = phi i1 [ true, %15 ], [ true, %11 ], [ true, %2 ], [ %71, %.loopexit.i ], [ true, %23 ], [ true, %.loopexit16.i ], [ true, %.lr.ph.i.i.i.i.i8.i ], [ true, %.lr.ph.i.i.i.i.i.i ]
+  ret i1 %72
 }
 
 ; Function Attrs: mustprogress uwtable

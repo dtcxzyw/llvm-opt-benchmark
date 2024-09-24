@@ -182,7 +182,7 @@ define dso_local void @arch_stack_walk_user(ptr nocapture noundef readonly %0, p
 11:                                               ; preds = %48, %9
   %.in = phi i64 [ %23, %48 ], [ %5, %9 ]
   %12 = inttoptr i64 %.in to ptr
-  %13 = icmp sgt ptr %12, inttoptr (i64 -1 to ptr)
+  %13 = icmp sgt i64 %.in, -1
   br i1 %13, label %14, label %.thread2
 
 14:                                               ; preds = %11

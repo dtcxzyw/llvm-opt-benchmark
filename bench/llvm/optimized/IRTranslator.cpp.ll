@@ -7093,7 +7093,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8SwitchCG11CaseCluster
 ._crit_edge:                                      ; preds = %.lr.ph82, %.loopexit
   %.sroa.058.0.lcssa = phi i32 [ %.sroa.023.0.copyload, %.loopexit ], [ %spec.select.i, %.lr.ph82 ]
   %136 = inttoptr i64 %124 to ptr
-  %.not7483 = icmp ugt ptr %128, %136
+  %.not7483 = icmp ugt i64 %126, %124
   br i1 %.not7483, label %._crit_edge89, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %._crit_edge

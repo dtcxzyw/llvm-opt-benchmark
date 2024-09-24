@@ -34781,18 +34781,21 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %40 = load i64, ptr %6, align 8, !noalias !573
   store i64 %40, ptr %9, align 8, !alias.scope !573
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %41 = inttoptr i64 %40 to ptr
-  %42 = load i64, ptr %39, align 8, !noalias !574
-  %43 = inttoptr i64 %42 to ptr
-  %.not4850 = icmp eq ptr %41, %43
-  br i1 %.not4850, label %.preheader, label %.lr.ph
+  %41 = load i64, ptr %39, align 8, !noalias !574
+  %42 = inttoptr i64 %41 to ptr
+  %.not4850 = icmp eq i64 %40, %41
+  br i1 %.not4850, label %.preheader, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %37
+  %43 = inttoptr i64 %40 to ptr
+  br label %.lr.ph
 
 .preheader:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit, %37
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %56
 
-.lr.ph:                                           ; preds = %37, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit
-  %.sroa.041.051 = phi ptr [ %45, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit ], [ %41, %37 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit
+  %.sroa.041.051 = phi ptr [ %45, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit ], [ %43, %.lr.ph.preheader ]
   %45 = getelementptr inbounds i8, ptr %.sroa.041.051, i64 -8
   %46 = load ptr, ptr %45, align 8
   %47 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #19
@@ -34815,7 +34818,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit
   %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #19
   %55 = add i64 %54, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %55) #19
-  %.not48 = icmp eq ptr %45, %43
+  %.not48 = icmp eq ptr %45, %42
   br i1 %.not48, label %.preheader, label %.lr.ph
 
 56:                                               ; preds = %.preheader, %._crit_edge
@@ -34875,14 +34878,17 @@ _ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.ex
   %81 = load i64, ptr %5, align 8, !noalias !583
   store i64 %81, ptr %10, align 8, !alias.scope !583
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %82 = inttoptr i64 %81 to ptr
-  %83 = load i64, ptr %44, align 8, !noalias !584
-  %84 = inttoptr i64 %83 to ptr
-  %.not4952 = icmp eq ptr %82, %84
-  br i1 %.not4952, label %._crit_edge, label %.lr.ph54
+  %82 = load i64, ptr %44, align 8, !noalias !584
+  %83 = inttoptr i64 %82 to ptr
+  %.not4952 = icmp eq i64 %81, %82
+  br i1 %.not4952, label %._crit_edge, label %.lr.ph54.preheader
 
-.lr.ph54:                                         ; preds = %_ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.exit23, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit28
-  %.sroa.030.053 = phi ptr [ %85, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit28 ], [ %82, %_ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.exit23 ]
+.lr.ph54.preheader:                               ; preds = %_ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.exit23
+  %84 = inttoptr i64 %81 to ptr
+  br label %.lr.ph54
+
+.lr.ph54:                                         ; preds = %.lr.ph54.preheader, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit28
+  %.sroa.030.053 = phi ptr [ %85, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit28 ], [ %84, %.lr.ph54.preheader ]
   %85 = getelementptr inbounds i8, ptr %.sroa.030.053, i64 -8
   %86 = load ptr, ptr %85, align 8
   %87 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #19
@@ -34905,7 +34911,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit
   %94 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #19
   %95 = add i64 %94, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %95) #19
-  %.not49 = icmp eq ptr %85, %84
+  %.not49 = icmp eq ptr %85, %83
   br i1 %.not49, label %._crit_edge, label %.lr.ph54
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_4LoopES3_ELb1EE9push_backES4_.exit28, %_ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE12AllocateLoopIJEEEPS2_DpOT_.exit23

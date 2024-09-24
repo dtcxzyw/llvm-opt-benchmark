@@ -11080,8 +11080,7 @@ entry:
   %my_embedded_segment.i = getelementptr inbounds i8, ptr %this, i64 104
   %node_list.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load atomic i64, ptr %node_list.i monotonic, align 8, !noalias !197
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i = icmp ugt i64 %0, 63
   br i1 %cmp.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i.preheader
 
 while.cond.i.i.i.preheader:                       ; preds = %entry
@@ -11124,23 +11123,23 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %arrayidx5.i.i.i.i, %if.else.i.i.i ]
   %node_list.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 8
   %5 = load atomic i64, ptr %node_list.i.i.i monotonic, align 8, !noalias !197
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %5 to ptr
-  %cmp.i.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i = icmp ugt i64 %5, 63
   br i1 %cmp.i.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i, !llvm.loop !200
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i, %entry
   %it.sroa.4.1 = phi i64 [ 0, %entry ], [ %k.0.i.i.i, %if.end.i.i.i ]
-  %it.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i, %entry ], [ %atomic-temp.i.0.i.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3.in = phi i64 [ %0, %entry ], [ %5, %if.end.i.i.i ]
   %it.sroa.8.3 = phi ptr [ %my_embedded_segment.i, %entry ], [ %storemerge.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3 = inttoptr i64 %it.sroa.14.3.in to ptr
   %my_mask.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   br label %for.body
 
-for.body:                                         ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, %for.body.lr.ph
-  %it.sroa.8.099 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %it.sroa.14.098 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %it.sroa.4.097 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %6 = getelementptr inbounds i8, ptr %it.sroa.14.098, i64 16
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
+  %it.sroa.8.0108 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %it.sroa.14.0107 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %it.sroa.4.0106 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %6 = getelementptr inbounds i8, ptr %it.sroa.14.0107, i64 16
   %7 = load ptr, ptr %6, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -11153,13 +11152,13 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %9 = load ptr, ptr %it.sroa.14.098, align 8
+  %9 = load ptr, ptr %it.sroa.14.0107, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
 
 while.cond.i.i:                                   ; preds = %for.inc, %if.end.i.i
-  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.099, %for.inc ]
-  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.097, %for.inc ]
+  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.0108, %for.inc ]
+  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.0106, %for.inc ]
   %k.0.i.i = add i64 %k.0.in.i.i, 1
   %10 = load atomic i64, ptr %my_mask.i.i monotonic, align 8
   %cmp.not.i.i = icmp ugt i64 %k.0.i.i, %10
@@ -11192,22 +11191,25 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %arrayidx5.i.i.i, %if.else.i.i ]
   %node_list.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 8
   %13 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %13 to ptr
-  %cmp.i.i.i7 = icmp ugt ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, label %while.cond.i.i, !llvm.loop !200
+  %cmp.i.i.i7 = icmp ugt i64 %13, 63
+  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100, label %while.cond.i.i, !llvm.loop !200
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit: ; preds = %if.end.i.i, %for.inc
-  %it.sroa.4.2 = phi i64 [ %it.sroa.4.097, %for.inc ], [ %k.0.i.i, %if.end.i.i ]
-  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ]
-  %it.sroa.8.6 = phi ptr [ %it.sroa.8.099, %for.inc ], [ %storemerge.i.i, %if.end.i.i ]
-  br label %for.body, !llvm.loop !201
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100: ; preds = %if.end.i.i
+  %atomic-temp.i.0.i.i.i.le = inttoptr i64 %13 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
 
-for.end:                                          ; preds = %while.cond.i.i.i, %while.cond.i.i
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100, %for.inc
+  %it.sroa.4.2 = phi i64 [ %it.sroa.4.0106, %for.inc ], [ %k.0.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.8.6 = phi ptr [ %it.sroa.8.0108, %for.inc ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %cmp.not.i.not = icmp eq ptr %it.sroa.14.6, null
+  br i1 %cmp.not.i.not, label %for.end, label %for.body, !llvm.loop !201
+
+for.end:                                          ; preds = %while.cond.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, %while.cond.i.i
   %my_embedded_segment.i10 = getelementptr inbounds i8, ptr %this, i64 680
   %node_list.i11 = getelementptr inbounds i8, ptr %this, i64 688
   %14 = load atomic i64, ptr %node_list.i11 monotonic, align 8, !noalias !202
-  %atomic-temp.i.0.i.i12 = inttoptr i64 %14 to ptr
-  %cmp.i.i.i16 = icmp ugt ptr %atomic-temp.i.0.i.i12, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i16 = icmp ugt i64 %14, 63
   br i1 %cmp.i.i.i16, label %for.body12.lr.ph, label %while.cond.i.i.i17.preheader
 
 while.cond.i.i.i17.preheader:                     ; preds = %for.end
@@ -11250,23 +11252,23 @@ if.end.i.i.i28:                                   ; preds = %if.else.i.i.i33, %i
   %storemerge.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i27, %if.then.i.i.i26 ], [ %arrayidx5.i.i.i.i42, %if.else.i.i.i33 ]
   %node_list.i.i.i30 = getelementptr inbounds i8, ptr %storemerge.i.i.i29, i64 8
   %19 = load atomic i64, ptr %node_list.i.i.i30 monotonic, align 8, !noalias !202
-  %atomic-temp.i.0.i.i.i.i31 = inttoptr i64 %19 to ptr
-  %cmp.i.i.i.i32 = icmp ugt ptr %atomic-temp.i.0.i.i.i.i31, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i32 = icmp ugt i64 %19, 63
   br i1 %cmp.i.i.i.i32, label %for.body12.lr.ph, label %while.cond.i.i.i17, !llvm.loop !205
 
 for.body12.lr.ph:                                 ; preds = %if.end.i.i.i28, %for.end
   %it7.sroa.8.3 = phi ptr [ %my_embedded_segment.i10, %for.end ], [ %storemerge.i.i.i29, %if.end.i.i.i28 ]
-  %it7.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i12, %for.end ], [ %atomic-temp.i.0.i.i.i.i31, %if.end.i.i.i28 ]
+  %it7.sroa.14.3.in = phi i64 [ %14, %for.end ], [ %19, %if.end.i.i.i28 ]
   %it7.sroa.4.1 = phi i64 [ 0, %for.end ], [ %k.0.i.i.i19, %if.end.i.i.i28 ]
+  %it7.sroa.14.3 = inttoptr i64 %it7.sroa.14.3.in to ptr
   %my_mask.i.i60 = getelementptr inbounds i8, ptr %this, i64 664
   %my_table.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 712
   br label %for.body12
 
-for.body12:                                       ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, %for.body12.lr.ph
-  %it7.sroa.4.0103 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %it7.sroa.14.0102 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %it7.sroa.8.0101 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0102, i64 16
+for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
+  %it7.sroa.4.0122 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %it7.sroa.14.0121 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %it7.sroa.8.0120 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0121, i64 16
   %21 = load ptr, ptr %20, align 8
   %tobool15.not = icmp eq ptr %21, null
   br i1 %tobool15.not, label %for.inc22, label %if.then16
@@ -11279,13 +11281,13 @@ if.then16:                                        ; preds = %for.body12
   br label %for.inc22
 
 for.inc22:                                        ; preds = %for.body12, %if.then16
-  %23 = load ptr, ptr %it7.sroa.14.0102, align 8
+  %23 = load ptr, ptr %it7.sroa.14.0121, align 8
   %tobool.not.i53 = icmp eq ptr %23, null
   br i1 %tobool.not.i53, label %while.cond.i.i57, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
 
 while.cond.i.i57:                                 ; preds = %for.inc22, %if.end.i.i68
-  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0101, %for.inc22 ]
-  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0103, %for.inc22 ]
+  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0120, %for.inc22 ]
+  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0122, %for.inc22 ]
   %k.0.i.i59 = add i64 %k.0.in.i.i58, 1
   %24 = load atomic i64, ptr %my_mask.i.i60 monotonic, align 8
   %cmp.not.i.i61 = icmp ugt i64 %k.0.i.i59, %24
@@ -11318,17 +11320,21 @@ if.end.i.i68:                                     ; preds = %if.else.i.i73, %if.
   %storemerge.i.i69 = phi ptr [ %incdec.ptr.i.i67, %if.then.i.i66 ], [ %arrayidx5.i.i.i82, %if.else.i.i73 ]
   %node_list.i.i70 = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 8
   %27 = load atomic i64, ptr %node_list.i.i70 monotonic, align 8
-  %atomic-temp.i.0.i.i.i71 = inttoptr i64 %27 to ptr
-  %cmp.i.i.i72 = icmp ugt ptr %atomic-temp.i.0.i.i.i71, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, label %while.cond.i.i57, !llvm.loop !205
+  %cmp.i.i.i72 = icmp ugt i64 %27, 63
+  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114, label %while.cond.i.i57, !llvm.loop !205
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit: ; preds = %if.end.i.i68, %for.inc22
-  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0101, %for.inc22 ], [ %storemerge.i.i69, %if.end.i.i68 ]
-  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71, %if.end.i.i68 ]
-  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0103, %for.inc22 ], [ %k.0.i.i59, %if.end.i.i68 ]
-  br label %for.body12, !llvm.loop !206
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114: ; preds = %if.end.i.i68
+  %atomic-temp.i.0.i.i.i71.le = inttoptr i64 %27 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
 
-for.end24:                                        ; preds = %while.cond.i.i.i17, %while.cond.i.i57
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114, %for.inc22
+  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0120, %for.inc22 ], [ %storemerge.i.i69, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0122, %for.inc22 ], [ %k.0.i.i59, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %cmp.not.i48.not = icmp eq ptr %it7.sroa.14.6, null
+  br i1 %cmp.not.i48.not, label %for.end24, label %for.body12, !llvm.loop !206
+
+for.end24:                                        ; preds = %while.cond.i.i.i17, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIbLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, %while.cond.i.i57
   ret void
 }
 
@@ -17209,8 +17215,7 @@ entry:
   %my_embedded_segment.i = getelementptr inbounds i8, ptr %this, i64 104
   %node_list.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load atomic i64, ptr %node_list.i monotonic, align 8, !noalias !274
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i = icmp ugt i64 %0, 63
   br i1 %cmp.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i.preheader
 
 while.cond.i.i.i.preheader:                       ; preds = %entry
@@ -17253,23 +17258,23 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %arrayidx5.i.i.i.i, %if.else.i.i.i ]
   %node_list.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 8
   %5 = load atomic i64, ptr %node_list.i.i.i monotonic, align 8, !noalias !274
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %5 to ptr
-  %cmp.i.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i = icmp ugt i64 %5, 63
   br i1 %cmp.i.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i, !llvm.loop !277
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i, %entry
   %it.sroa.4.1 = phi i64 [ 0, %entry ], [ %k.0.i.i.i, %if.end.i.i.i ]
-  %it.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i, %entry ], [ %atomic-temp.i.0.i.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3.in = phi i64 [ %0, %entry ], [ %5, %if.end.i.i.i ]
   %it.sroa.8.3 = phi ptr [ %my_embedded_segment.i, %entry ], [ %storemerge.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3 = inttoptr i64 %it.sroa.14.3.in to ptr
   %my_mask.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   br label %for.body
 
-for.body:                                         ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, %for.body.lr.ph
-  %it.sroa.8.099 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %it.sroa.14.098 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %it.sroa.4.097 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %6 = getelementptr inbounds i8, ptr %it.sroa.14.098, i64 16
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
+  %it.sroa.8.0108 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %it.sroa.14.0107 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %it.sroa.4.0106 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %6 = getelementptr inbounds i8, ptr %it.sroa.14.0107, i64 16
   %7 = load ptr, ptr %6, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -17282,13 +17287,13 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %9 = load ptr, ptr %it.sroa.14.098, align 8
+  %9 = load ptr, ptr %it.sroa.14.0107, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
 
 while.cond.i.i:                                   ; preds = %for.inc, %if.end.i.i
-  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.099, %for.inc ]
-  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.097, %for.inc ]
+  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.0108, %for.inc ]
+  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.0106, %for.inc ]
   %k.0.i.i = add i64 %k.0.in.i.i, 1
   %10 = load atomic i64, ptr %my_mask.i.i monotonic, align 8
   %cmp.not.i.i = icmp ugt i64 %k.0.i.i, %10
@@ -17321,22 +17326,25 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %arrayidx5.i.i.i, %if.else.i.i ]
   %node_list.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 8
   %13 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %13 to ptr
-  %cmp.i.i.i7 = icmp ugt ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, label %while.cond.i.i, !llvm.loop !277
+  %cmp.i.i.i7 = icmp ugt i64 %13, 63
+  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100, label %while.cond.i.i, !llvm.loop !277
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit: ; preds = %if.end.i.i, %for.inc
-  %it.sroa.4.2 = phi i64 [ %it.sroa.4.097, %for.inc ], [ %k.0.i.i, %if.end.i.i ]
-  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ]
-  %it.sroa.8.6 = phi ptr [ %it.sroa.8.099, %for.inc ], [ %storemerge.i.i, %if.end.i.i ]
-  br label %for.body, !llvm.loop !278
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100: ; preds = %if.end.i.i
+  %atomic-temp.i.0.i.i.i.le = inttoptr i64 %13 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
 
-for.end:                                          ; preds = %while.cond.i.i.i, %while.cond.i.i
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100, %for.inc
+  %it.sroa.4.2 = phi i64 [ %it.sroa.4.0106, %for.inc ], [ %k.0.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.8.6 = phi ptr [ %it.sroa.8.0108, %for.inc ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %cmp.not.i.not = icmp eq ptr %it.sroa.14.6, null
+  br i1 %cmp.not.i.not, label %for.end, label %for.body, !llvm.loop !278
+
+for.end:                                          ; preds = %while.cond.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, %while.cond.i.i
   %my_embedded_segment.i10 = getelementptr inbounds i8, ptr %this, i64 680
   %node_list.i11 = getelementptr inbounds i8, ptr %this, i64 688
   %14 = load atomic i64, ptr %node_list.i11 monotonic, align 8, !noalias !279
-  %atomic-temp.i.0.i.i12 = inttoptr i64 %14 to ptr
-  %cmp.i.i.i16 = icmp ugt ptr %atomic-temp.i.0.i.i12, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i16 = icmp ugt i64 %14, 63
   br i1 %cmp.i.i.i16, label %for.body12.lr.ph, label %while.cond.i.i.i17.preheader
 
 while.cond.i.i.i17.preheader:                     ; preds = %for.end
@@ -17379,23 +17387,23 @@ if.end.i.i.i28:                                   ; preds = %if.else.i.i.i33, %i
   %storemerge.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i27, %if.then.i.i.i26 ], [ %arrayidx5.i.i.i.i42, %if.else.i.i.i33 ]
   %node_list.i.i.i30 = getelementptr inbounds i8, ptr %storemerge.i.i.i29, i64 8
   %19 = load atomic i64, ptr %node_list.i.i.i30 monotonic, align 8, !noalias !279
-  %atomic-temp.i.0.i.i.i.i31 = inttoptr i64 %19 to ptr
-  %cmp.i.i.i.i32 = icmp ugt ptr %atomic-temp.i.0.i.i.i.i31, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i32 = icmp ugt i64 %19, 63
   br i1 %cmp.i.i.i.i32, label %for.body12.lr.ph, label %while.cond.i.i.i17, !llvm.loop !282
 
 for.body12.lr.ph:                                 ; preds = %if.end.i.i.i28, %for.end
   %it7.sroa.8.3 = phi ptr [ %my_embedded_segment.i10, %for.end ], [ %storemerge.i.i.i29, %if.end.i.i.i28 ]
-  %it7.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i12, %for.end ], [ %atomic-temp.i.0.i.i.i.i31, %if.end.i.i.i28 ]
+  %it7.sroa.14.3.in = phi i64 [ %14, %for.end ], [ %19, %if.end.i.i.i28 ]
   %it7.sroa.4.1 = phi i64 [ 0, %for.end ], [ %k.0.i.i.i19, %if.end.i.i.i28 ]
+  %it7.sroa.14.3 = inttoptr i64 %it7.sroa.14.3.in to ptr
   %my_mask.i.i60 = getelementptr inbounds i8, ptr %this, i64 664
   %my_table.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 712
   br label %for.body12
 
-for.body12:                                       ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, %for.body12.lr.ph
-  %it7.sroa.4.0103 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %it7.sroa.14.0102 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %it7.sroa.8.0101 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0102, i64 16
+for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
+  %it7.sroa.4.0122 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %it7.sroa.14.0121 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %it7.sroa.8.0120 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0121, i64 16
   %21 = load ptr, ptr %20, align 8
   %tobool15.not = icmp eq ptr %21, null
   br i1 %tobool15.not, label %for.inc22, label %if.then16
@@ -17408,13 +17416,13 @@ if.then16:                                        ; preds = %for.body12
   br label %for.inc22
 
 for.inc22:                                        ; preds = %for.body12, %if.then16
-  %23 = load ptr, ptr %it7.sroa.14.0102, align 8
+  %23 = load ptr, ptr %it7.sroa.14.0121, align 8
   %tobool.not.i53 = icmp eq ptr %23, null
   br i1 %tobool.not.i53, label %while.cond.i.i57, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
 
 while.cond.i.i57:                                 ; preds = %for.inc22, %if.end.i.i68
-  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0101, %for.inc22 ]
-  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0103, %for.inc22 ]
+  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0120, %for.inc22 ]
+  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0122, %for.inc22 ]
   %k.0.i.i59 = add i64 %k.0.in.i.i58, 1
   %24 = load atomic i64, ptr %my_mask.i.i60 monotonic, align 8
   %cmp.not.i.i61 = icmp ugt i64 %k.0.i.i59, %24
@@ -17447,17 +17455,21 @@ if.end.i.i68:                                     ; preds = %if.else.i.i73, %if.
   %storemerge.i.i69 = phi ptr [ %incdec.ptr.i.i67, %if.then.i.i66 ], [ %arrayidx5.i.i.i82, %if.else.i.i73 ]
   %node_list.i.i70 = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 8
   %27 = load atomic i64, ptr %node_list.i.i70 monotonic, align 8
-  %atomic-temp.i.0.i.i.i71 = inttoptr i64 %27 to ptr
-  %cmp.i.i.i72 = icmp ugt ptr %atomic-temp.i.0.i.i.i71, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, label %while.cond.i.i57, !llvm.loop !282
+  %cmp.i.i.i72 = icmp ugt i64 %27, 63
+  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114, label %while.cond.i.i57, !llvm.loop !282
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit: ; preds = %if.end.i.i68, %for.inc22
-  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0101, %for.inc22 ], [ %storemerge.i.i69, %if.end.i.i68 ]
-  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71, %if.end.i.i68 ]
-  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0103, %for.inc22 ], [ %k.0.i.i59, %if.end.i.i68 ]
-  br label %for.body12, !llvm.loop !283
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114: ; preds = %if.end.i.i68
+  %atomic-temp.i.0.i.i.i71.le = inttoptr i64 %27 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
 
-for.end24:                                        ; preds = %while.cond.i.i.i17, %while.cond.i.i57
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114, %for.inc22
+  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0120, %for.inc22 ], [ %storemerge.i.i69, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0122, %for.inc22 ], [ %k.0.i.i59, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %cmp.not.i48.not = icmp eq ptr %it7.sroa.14.6, null
+  br i1 %cmp.not.i48.not, label %for.end24, label %for.body12, !llvm.loop !283
+
+for.end24:                                        ; preds = %while.cond.i.i.i17, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIiLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, %while.cond.i.i57
   ret void
 }
 
@@ -26827,8 +26839,7 @@ entry:
   %my_embedded_segment.i = getelementptr inbounds i8, ptr %this, i64 104
   %node_list.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load atomic i64, ptr %node_list.i monotonic, align 8, !noalias !381
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i = icmp ugt i64 %0, 63
   br i1 %cmp.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i.preheader
 
 while.cond.i.i.i.preheader:                       ; preds = %entry
@@ -26871,23 +26882,23 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %arrayidx5.i.i.i.i, %if.else.i.i.i ]
   %node_list.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 8
   %5 = load atomic i64, ptr %node_list.i.i.i monotonic, align 8, !noalias !381
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %5 to ptr
-  %cmp.i.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i = icmp ugt i64 %5, 63
   br i1 %cmp.i.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i, !llvm.loop !384
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i, %entry
   %it.sroa.4.1 = phi i64 [ 0, %entry ], [ %k.0.i.i.i, %if.end.i.i.i ]
-  %it.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i, %entry ], [ %atomic-temp.i.0.i.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3.in = phi i64 [ %0, %entry ], [ %5, %if.end.i.i.i ]
   %it.sroa.8.3 = phi ptr [ %my_embedded_segment.i, %entry ], [ %storemerge.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3 = inttoptr i64 %it.sroa.14.3.in to ptr
   %my_mask.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   br label %for.body
 
-for.body:                                         ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, %for.body.lr.ph
-  %it.sroa.8.099 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %it.sroa.14.098 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %it.sroa.4.097 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %6 = getelementptr inbounds i8, ptr %it.sroa.14.098, i64 16
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
+  %it.sroa.8.0108 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %it.sroa.14.0107 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %it.sroa.4.0106 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %6 = getelementptr inbounds i8, ptr %it.sroa.14.0107, i64 16
   %7 = load ptr, ptr %6, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -26900,13 +26911,13 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %9 = load ptr, ptr %it.sroa.14.098, align 8
+  %9 = load ptr, ptr %it.sroa.14.0107, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
 
 while.cond.i.i:                                   ; preds = %for.inc, %if.end.i.i
-  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.099, %for.inc ]
-  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.097, %for.inc ]
+  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.0108, %for.inc ]
+  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.0106, %for.inc ]
   %k.0.i.i = add i64 %k.0.in.i.i, 1
   %10 = load atomic i64, ptr %my_mask.i.i monotonic, align 8
   %cmp.not.i.i = icmp ugt i64 %k.0.i.i, %10
@@ -26939,22 +26950,25 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %arrayidx5.i.i.i, %if.else.i.i ]
   %node_list.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 8
   %13 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %13 to ptr
-  %cmp.i.i.i7 = icmp ugt ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, label %while.cond.i.i, !llvm.loop !384
+  %cmp.i.i.i7 = icmp ugt i64 %13, 63
+  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100, label %while.cond.i.i, !llvm.loop !384
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit: ; preds = %if.end.i.i, %for.inc
-  %it.sroa.4.2 = phi i64 [ %it.sroa.4.097, %for.inc ], [ %k.0.i.i, %if.end.i.i ]
-  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ]
-  %it.sroa.8.6 = phi ptr [ %it.sroa.8.099, %for.inc ], [ %storemerge.i.i, %if.end.i.i ]
-  br label %for.body, !llvm.loop !385
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100: ; preds = %if.end.i.i
+  %atomic-temp.i.0.i.i.i.le = inttoptr i64 %13 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
 
-for.end:                                          ; preds = %while.cond.i.i.i, %while.cond.i.i
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100, %for.inc
+  %it.sroa.4.2 = phi i64 [ %it.sroa.4.0106, %for.inc ], [ %k.0.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.8.6 = phi ptr [ %it.sroa.8.0108, %for.inc ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %cmp.not.i.not = icmp eq ptr %it.sroa.14.6, null
+  br i1 %cmp.not.i.not, label %for.end, label %for.body, !llvm.loop !385
+
+for.end:                                          ; preds = %while.cond.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, %while.cond.i.i
   %my_embedded_segment.i10 = getelementptr inbounds i8, ptr %this, i64 680
   %node_list.i11 = getelementptr inbounds i8, ptr %this, i64 688
   %14 = load atomic i64, ptr %node_list.i11 monotonic, align 8, !noalias !386
-  %atomic-temp.i.0.i.i12 = inttoptr i64 %14 to ptr
-  %cmp.i.i.i16 = icmp ugt ptr %atomic-temp.i.0.i.i12, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i16 = icmp ugt i64 %14, 63
   br i1 %cmp.i.i.i16, label %for.body12.lr.ph, label %while.cond.i.i.i17.preheader
 
 while.cond.i.i.i17.preheader:                     ; preds = %for.end
@@ -26997,23 +27011,23 @@ if.end.i.i.i28:                                   ; preds = %if.else.i.i.i33, %i
   %storemerge.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i27, %if.then.i.i.i26 ], [ %arrayidx5.i.i.i.i42, %if.else.i.i.i33 ]
   %node_list.i.i.i30 = getelementptr inbounds i8, ptr %storemerge.i.i.i29, i64 8
   %19 = load atomic i64, ptr %node_list.i.i.i30 monotonic, align 8, !noalias !386
-  %atomic-temp.i.0.i.i.i.i31 = inttoptr i64 %19 to ptr
-  %cmp.i.i.i.i32 = icmp ugt ptr %atomic-temp.i.0.i.i.i.i31, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i32 = icmp ugt i64 %19, 63
   br i1 %cmp.i.i.i.i32, label %for.body12.lr.ph, label %while.cond.i.i.i17, !llvm.loop !389
 
 for.body12.lr.ph:                                 ; preds = %if.end.i.i.i28, %for.end
   %it7.sroa.8.3 = phi ptr [ %my_embedded_segment.i10, %for.end ], [ %storemerge.i.i.i29, %if.end.i.i.i28 ]
-  %it7.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i12, %for.end ], [ %atomic-temp.i.0.i.i.i.i31, %if.end.i.i.i28 ]
+  %it7.sroa.14.3.in = phi i64 [ %14, %for.end ], [ %19, %if.end.i.i.i28 ]
   %it7.sroa.4.1 = phi i64 [ 0, %for.end ], [ %k.0.i.i.i19, %if.end.i.i.i28 ]
+  %it7.sroa.14.3 = inttoptr i64 %it7.sroa.14.3.in to ptr
   %my_mask.i.i60 = getelementptr inbounds i8, ptr %this, i64 664
   %my_table.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 712
   br label %for.body12
 
-for.body12:                                       ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, %for.body12.lr.ph
-  %it7.sroa.4.0103 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %it7.sroa.14.0102 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %it7.sroa.8.0101 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0102, i64 16
+for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
+  %it7.sroa.4.0122 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %it7.sroa.14.0121 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %it7.sroa.8.0120 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0121, i64 16
   %21 = load ptr, ptr %20, align 8
   %tobool15.not = icmp eq ptr %21, null
   br i1 %tobool15.not, label %for.inc22, label %if.then16
@@ -27026,13 +27040,13 @@ if.then16:                                        ; preds = %for.body12
   br label %for.inc22
 
 for.inc22:                                        ; preds = %for.body12, %if.then16
-  %23 = load ptr, ptr %it7.sroa.14.0102, align 8
+  %23 = load ptr, ptr %it7.sroa.14.0121, align 8
   %tobool.not.i53 = icmp eq ptr %23, null
   br i1 %tobool.not.i53, label %while.cond.i.i57, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
 
 while.cond.i.i57:                                 ; preds = %for.inc22, %if.end.i.i68
-  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0101, %for.inc22 ]
-  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0103, %for.inc22 ]
+  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0120, %for.inc22 ]
+  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0122, %for.inc22 ]
   %k.0.i.i59 = add i64 %k.0.in.i.i58, 1
   %24 = load atomic i64, ptr %my_mask.i.i60 monotonic, align 8
   %cmp.not.i.i61 = icmp ugt i64 %k.0.i.i59, %24
@@ -27065,17 +27079,21 @@ if.end.i.i68:                                     ; preds = %if.else.i.i73, %if.
   %storemerge.i.i69 = phi ptr [ %incdec.ptr.i.i67, %if.then.i.i66 ], [ %arrayidx5.i.i.i82, %if.else.i.i73 ]
   %node_list.i.i70 = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 8
   %27 = load atomic i64, ptr %node_list.i.i70 monotonic, align 8
-  %atomic-temp.i.0.i.i.i71 = inttoptr i64 %27 to ptr
-  %cmp.i.i.i72 = icmp ugt ptr %atomic-temp.i.0.i.i.i71, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, label %while.cond.i.i57, !llvm.loop !389
+  %cmp.i.i.i72 = icmp ugt i64 %27, 63
+  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114, label %while.cond.i.i57, !llvm.loop !389
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit: ; preds = %if.end.i.i68, %for.inc22
-  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0101, %for.inc22 ], [ %storemerge.i.i69, %if.end.i.i68 ]
-  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71, %if.end.i.i68 ]
-  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0103, %for.inc22 ], [ %k.0.i.i59, %if.end.i.i68 ]
-  br label %for.body12, !llvm.loop !390
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114: ; preds = %if.end.i.i68
+  %atomic-temp.i.0.i.i.i71.le = inttoptr i64 %27 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
 
-for.end24:                                        ; preds = %while.cond.i.i.i17, %while.cond.i.i57
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114, %for.inc22
+  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0120, %for.inc22 ], [ %storemerge.i.i69, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0122, %for.inc22 ], [ %k.0.i.i59, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %cmp.not.i48.not = icmp eq ptr %it7.sroa.14.6, null
+  br i1 %cmp.not.i48.not, label %for.end24, label %for.body12, !llvm.loop !390
+
+for.end24:                                        ; preds = %while.cond.i.i.i17, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIlLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, %while.cond.i.i57
   ret void
 }
 
@@ -35904,8 +35922,7 @@ entry:
   %my_embedded_segment.i = getelementptr inbounds i8, ptr %this, i64 104
   %node_list.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load atomic i64, ptr %node_list.i monotonic, align 8, !noalias !477
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i = icmp ugt i64 %0, 63
   br i1 %cmp.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i.preheader
 
 while.cond.i.i.i.preheader:                       ; preds = %entry
@@ -35948,23 +35965,23 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %arrayidx5.i.i.i.i, %if.else.i.i.i ]
   %node_list.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 8
   %5 = load atomic i64, ptr %node_list.i.i.i monotonic, align 8, !noalias !477
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %5 to ptr
-  %cmp.i.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i = icmp ugt i64 %5, 63
   br i1 %cmp.i.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i, !llvm.loop !480
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i, %entry
   %it.sroa.4.1 = phi i64 [ 0, %entry ], [ %k.0.i.i.i, %if.end.i.i.i ]
-  %it.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i, %entry ], [ %atomic-temp.i.0.i.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3.in = phi i64 [ %0, %entry ], [ %5, %if.end.i.i.i ]
   %it.sroa.8.3 = phi ptr [ %my_embedded_segment.i, %entry ], [ %storemerge.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3 = inttoptr i64 %it.sroa.14.3.in to ptr
   %my_mask.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   br label %for.body
 
-for.body:                                         ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, %for.body.lr.ph
-  %it.sroa.8.099 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %it.sroa.14.098 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %it.sroa.4.097 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %6 = getelementptr inbounds i8, ptr %it.sroa.14.098, i64 16
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
+  %it.sroa.8.0108 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %it.sroa.14.0107 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %it.sroa.4.0106 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %6 = getelementptr inbounds i8, ptr %it.sroa.14.0107, i64 16
   %7 = load ptr, ptr %6, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -35977,13 +35994,13 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %9 = load ptr, ptr %it.sroa.14.098, align 8
+  %9 = load ptr, ptr %it.sroa.14.0107, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
 
 while.cond.i.i:                                   ; preds = %for.inc, %if.end.i.i
-  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.099, %for.inc ]
-  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.097, %for.inc ]
+  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.0108, %for.inc ]
+  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.0106, %for.inc ]
   %k.0.i.i = add i64 %k.0.in.i.i, 1
   %10 = load atomic i64, ptr %my_mask.i.i monotonic, align 8
   %cmp.not.i.i = icmp ugt i64 %k.0.i.i, %10
@@ -36016,22 +36033,25 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %arrayidx5.i.i.i, %if.else.i.i ]
   %node_list.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 8
   %13 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %13 to ptr
-  %cmp.i.i.i7 = icmp ugt ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, label %while.cond.i.i, !llvm.loop !480
+  %cmp.i.i.i7 = icmp ugt i64 %13, 63
+  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100, label %while.cond.i.i, !llvm.loop !480
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit: ; preds = %if.end.i.i, %for.inc
-  %it.sroa.4.2 = phi i64 [ %it.sroa.4.097, %for.inc ], [ %k.0.i.i, %if.end.i.i ]
-  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ]
-  %it.sroa.8.6 = phi ptr [ %it.sroa.8.099, %for.inc ], [ %storemerge.i.i, %if.end.i.i ]
-  br label %for.body, !llvm.loop !481
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100: ; preds = %if.end.i.i
+  %atomic-temp.i.0.i.i.i.le = inttoptr i64 %13 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
 
-for.end:                                          ; preds = %while.cond.i.i.i, %while.cond.i.i
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100, %for.inc
+  %it.sroa.4.2 = phi i64 [ %it.sroa.4.0106, %for.inc ], [ %k.0.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.8.6 = phi ptr [ %it.sroa.8.0108, %for.inc ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %cmp.not.i.not = icmp eq ptr %it.sroa.14.6, null
+  br i1 %cmp.not.i.not, label %for.end, label %for.body, !llvm.loop !481
+
+for.end:                                          ; preds = %while.cond.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, %while.cond.i.i
   %my_embedded_segment.i10 = getelementptr inbounds i8, ptr %this, i64 680
   %node_list.i11 = getelementptr inbounds i8, ptr %this, i64 688
   %14 = load atomic i64, ptr %node_list.i11 monotonic, align 8, !noalias !482
-  %atomic-temp.i.0.i.i12 = inttoptr i64 %14 to ptr
-  %cmp.i.i.i16 = icmp ugt ptr %atomic-temp.i.0.i.i12, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i16 = icmp ugt i64 %14, 63
   br i1 %cmp.i.i.i16, label %for.body12.lr.ph, label %while.cond.i.i.i17.preheader
 
 while.cond.i.i.i17.preheader:                     ; preds = %for.end
@@ -36074,23 +36094,23 @@ if.end.i.i.i28:                                   ; preds = %if.else.i.i.i33, %i
   %storemerge.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i27, %if.then.i.i.i26 ], [ %arrayidx5.i.i.i.i42, %if.else.i.i.i33 ]
   %node_list.i.i.i30 = getelementptr inbounds i8, ptr %storemerge.i.i.i29, i64 8
   %19 = load atomic i64, ptr %node_list.i.i.i30 monotonic, align 8, !noalias !482
-  %atomic-temp.i.0.i.i.i.i31 = inttoptr i64 %19 to ptr
-  %cmp.i.i.i.i32 = icmp ugt ptr %atomic-temp.i.0.i.i.i.i31, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i32 = icmp ugt i64 %19, 63
   br i1 %cmp.i.i.i.i32, label %for.body12.lr.ph, label %while.cond.i.i.i17, !llvm.loop !485
 
 for.body12.lr.ph:                                 ; preds = %if.end.i.i.i28, %for.end
   %it7.sroa.8.3 = phi ptr [ %my_embedded_segment.i10, %for.end ], [ %storemerge.i.i.i29, %if.end.i.i.i28 ]
-  %it7.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i12, %for.end ], [ %atomic-temp.i.0.i.i.i.i31, %if.end.i.i.i28 ]
+  %it7.sroa.14.3.in = phi i64 [ %14, %for.end ], [ %19, %if.end.i.i.i28 ]
   %it7.sroa.4.1 = phi i64 [ 0, %for.end ], [ %k.0.i.i.i19, %if.end.i.i.i28 ]
+  %it7.sroa.14.3 = inttoptr i64 %it7.sroa.14.3.in to ptr
   %my_mask.i.i60 = getelementptr inbounds i8, ptr %this, i64 664
   %my_table.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 712
   br label %for.body12
 
-for.body12:                                       ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, %for.body12.lr.ph
-  %it7.sroa.4.0103 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %it7.sroa.14.0102 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %it7.sroa.8.0101 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0102, i64 16
+for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
+  %it7.sroa.4.0122 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %it7.sroa.14.0121 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %it7.sroa.8.0120 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0121, i64 16
   %21 = load ptr, ptr %20, align 8
   %tobool15.not = icmp eq ptr %21, null
   br i1 %tobool15.not, label %for.inc22, label %if.then16
@@ -36103,13 +36123,13 @@ if.then16:                                        ; preds = %for.body12
   br label %for.inc22
 
 for.inc22:                                        ; preds = %for.body12, %if.then16
-  %23 = load ptr, ptr %it7.sroa.14.0102, align 8
+  %23 = load ptr, ptr %it7.sroa.14.0121, align 8
   %tobool.not.i53 = icmp eq ptr %23, null
   br i1 %tobool.not.i53, label %while.cond.i.i57, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
 
 while.cond.i.i57:                                 ; preds = %for.inc22, %if.end.i.i68
-  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0101, %for.inc22 ]
-  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0103, %for.inc22 ]
+  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0120, %for.inc22 ]
+  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0122, %for.inc22 ]
   %k.0.i.i59 = add i64 %k.0.in.i.i58, 1
   %24 = load atomic i64, ptr %my_mask.i.i60 monotonic, align 8
   %cmp.not.i.i61 = icmp ugt i64 %k.0.i.i59, %24
@@ -36142,17 +36162,21 @@ if.end.i.i68:                                     ; preds = %if.else.i.i73, %if.
   %storemerge.i.i69 = phi ptr [ %incdec.ptr.i.i67, %if.then.i.i66 ], [ %arrayidx5.i.i.i82, %if.else.i.i73 ]
   %node_list.i.i70 = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 8
   %27 = load atomic i64, ptr %node_list.i.i70 monotonic, align 8
-  %atomic-temp.i.0.i.i.i71 = inttoptr i64 %27 to ptr
-  %cmp.i.i.i72 = icmp ugt ptr %atomic-temp.i.0.i.i.i71, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, label %while.cond.i.i57, !llvm.loop !485
+  %cmp.i.i.i72 = icmp ugt i64 %27, 63
+  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114, label %while.cond.i.i57, !llvm.loop !485
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit: ; preds = %if.end.i.i68, %for.inc22
-  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0101, %for.inc22 ], [ %storemerge.i.i69, %if.end.i.i68 ]
-  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71, %if.end.i.i68 ]
-  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0103, %for.inc22 ], [ %k.0.i.i59, %if.end.i.i68 ]
-  br label %for.body12, !llvm.loop !486
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114: ; preds = %if.end.i.i68
+  %atomic-temp.i.0.i.i.i71.le = inttoptr i64 %27 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
 
-for.end24:                                        ; preds = %while.cond.i.i.i17, %while.cond.i.i57
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114, %for.inc22
+  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0120, %for.inc22 ], [ %storemerge.i.i69, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0122, %for.inc22 ], [ %k.0.i.i59, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %cmp.not.i48.not = icmp eq ptr %it7.sroa.14.6, null
+  br i1 %cmp.not.i48.not, label %for.end24, label %for.body12, !llvm.loop !486
+
+for.end24:                                        ; preds = %while.cond.i.i.i17, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, %while.cond.i.i57
   ret void
 }
 
@@ -45243,8 +45267,7 @@ entry:
   %my_embedded_segment.i = getelementptr inbounds i8, ptr %this, i64 104
   %node_list.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load atomic i64, ptr %node_list.i monotonic, align 8, !noalias !574
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i = icmp ugt i64 %0, 63
   br i1 %cmp.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i.preheader
 
 while.cond.i.i.i.preheader:                       ; preds = %entry
@@ -45287,23 +45310,23 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %arrayidx5.i.i.i.i, %if.else.i.i.i ]
   %node_list.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 8
   %5 = load atomic i64, ptr %node_list.i.i.i monotonic, align 8, !noalias !574
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %5 to ptr
-  %cmp.i.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i = icmp ugt i64 %5, 63
   br i1 %cmp.i.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i, !llvm.loop !577
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i, %entry
   %it.sroa.4.1 = phi i64 [ 0, %entry ], [ %k.0.i.i.i, %if.end.i.i.i ]
-  %it.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i, %entry ], [ %atomic-temp.i.0.i.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3.in = phi i64 [ %0, %entry ], [ %5, %if.end.i.i.i ]
   %it.sroa.8.3 = phi ptr [ %my_embedded_segment.i, %entry ], [ %storemerge.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3 = inttoptr i64 %it.sroa.14.3.in to ptr
   %my_mask.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   br label %for.body
 
-for.body:                                         ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, %for.body.lr.ph
-  %it.sroa.8.099 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %it.sroa.14.098 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %it.sroa.4.097 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
-  %6 = getelementptr inbounds i8, ptr %it.sroa.14.098, i64 16
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
+  %it.sroa.8.0108 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %it.sroa.14.0107 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %it.sroa.4.0106 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit ]
+  %6 = getelementptr inbounds i8, ptr %it.sroa.14.0107, i64 16
   %7 = load ptr, ptr %6, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -45316,13 +45339,13 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %9 = load ptr, ptr %it.sroa.14.098, align 8
+  %9 = load ptr, ptr %it.sroa.14.0107, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
 
 while.cond.i.i:                                   ; preds = %for.inc, %if.end.i.i
-  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.099, %for.inc ]
-  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.097, %for.inc ]
+  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.0108, %for.inc ]
+  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.0106, %for.inc ]
   %k.0.i.i = add i64 %k.0.in.i.i, 1
   %10 = load atomic i64, ptr %my_mask.i.i monotonic, align 8
   %cmp.not.i.i = icmp ugt i64 %k.0.i.i, %10
@@ -45355,22 +45378,25 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %arrayidx5.i.i.i, %if.else.i.i ]
   %node_list.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 8
   %13 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %13 to ptr
-  %cmp.i.i.i7 = icmp ugt ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, label %while.cond.i.i, !llvm.loop !577
+  %cmp.i.i.i7 = icmp ugt i64 %13, 63
+  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100, label %while.cond.i.i, !llvm.loop !577
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit: ; preds = %if.end.i.i, %for.inc
-  %it.sroa.4.2 = phi i64 [ %it.sroa.4.097, %for.inc ], [ %k.0.i.i, %if.end.i.i ]
-  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ]
-  %it.sroa.8.6 = phi ptr [ %it.sroa.8.099, %for.inc ], [ %storemerge.i.i, %if.end.i.i ]
-  br label %for.body, !llvm.loop !578
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100: ; preds = %if.end.i.i
+  %atomic-temp.i.0.i.i.i.le = inttoptr i64 %13 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit
 
-for.end:                                          ; preds = %while.cond.i.i.i, %while.cond.i.i
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100, %for.inc
+  %it.sroa.4.2 = phi i64 [ %it.sroa.4.0106, %for.inc ], [ %k.0.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.8.6 = phi ptr [ %it.sroa.8.0108, %for.inc ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit.loopexit.split.loop.exit100 ]
+  %cmp.not.i.not = icmp eq ptr %it.sroa.14.6, null
+  br i1 %cmp.not.i.not, label %for.end, label %for.body, !llvm.loop !578
+
+for.end:                                          ; preds = %while.cond.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISI_EENSJ_13tbb_allocatorISt4pairIKSI_bEEEEESP_EppEv.exit, %while.cond.i.i
   %my_embedded_segment.i10 = getelementptr inbounds i8, ptr %this, i64 680
   %node_list.i11 = getelementptr inbounds i8, ptr %this, i64 688
   %14 = load atomic i64, ptr %node_list.i11 monotonic, align 8, !noalias !579
-  %atomic-temp.i.0.i.i12 = inttoptr i64 %14 to ptr
-  %cmp.i.i.i16 = icmp ugt ptr %atomic-temp.i.0.i.i12, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i16 = icmp ugt i64 %14, 63
   br i1 %cmp.i.i.i16, label %for.body12.lr.ph, label %while.cond.i.i.i17.preheader
 
 while.cond.i.i.i17.preheader:                     ; preds = %for.end
@@ -45413,23 +45439,23 @@ if.end.i.i.i28:                                   ; preds = %if.else.i.i.i33, %i
   %storemerge.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i27, %if.then.i.i.i26 ], [ %arrayidx5.i.i.i.i42, %if.else.i.i.i33 ]
   %node_list.i.i.i30 = getelementptr inbounds i8, ptr %storemerge.i.i.i29, i64 8
   %19 = load atomic i64, ptr %node_list.i.i.i30 monotonic, align 8, !noalias !579
-  %atomic-temp.i.0.i.i.i.i31 = inttoptr i64 %19 to ptr
-  %cmp.i.i.i.i32 = icmp ugt ptr %atomic-temp.i.0.i.i.i.i31, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i32 = icmp ugt i64 %19, 63
   br i1 %cmp.i.i.i.i32, label %for.body12.lr.ph, label %while.cond.i.i.i17, !llvm.loop !582
 
 for.body12.lr.ph:                                 ; preds = %if.end.i.i.i28, %for.end
   %it7.sroa.8.3 = phi ptr [ %my_embedded_segment.i10, %for.end ], [ %storemerge.i.i.i29, %if.end.i.i.i28 ]
-  %it7.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i12, %for.end ], [ %atomic-temp.i.0.i.i.i.i31, %if.end.i.i.i28 ]
+  %it7.sroa.14.3.in = phi i64 [ %14, %for.end ], [ %19, %if.end.i.i.i28 ]
   %it7.sroa.4.1 = phi i64 [ 0, %for.end ], [ %k.0.i.i.i19, %if.end.i.i.i28 ]
+  %it7.sroa.14.3 = inttoptr i64 %it7.sroa.14.3.in to ptr
   %my_mask.i.i60 = getelementptr inbounds i8, ptr %this, i64 664
   %my_table.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 712
   br label %for.body12
 
-for.body12:                                       ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, %for.body12.lr.ph
-  %it7.sroa.4.0103 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %it7.sroa.14.0102 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %it7.sroa.8.0101 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
-  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0102, i64 16
+for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
+  %it7.sroa.4.0122 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %it7.sroa.14.0121 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %it7.sroa.8.0120 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit ]
+  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0121, i64 16
   %21 = load ptr, ptr %20, align 8
   %tobool15.not = icmp eq ptr %21, null
   br i1 %tobool15.not, label %for.inc22, label %if.then16
@@ -45442,13 +45468,13 @@ if.then16:                                        ; preds = %for.body12
   br label %for.inc22
 
 for.inc22:                                        ; preds = %for.body12, %if.then16
-  %23 = load ptr, ptr %it7.sroa.14.0102, align 8
+  %23 = load ptr, ptr %it7.sroa.14.0121, align 8
   %tobool.not.i53 = icmp eq ptr %23, null
   br i1 %tobool.not.i53, label %while.cond.i.i57, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
 
 while.cond.i.i57:                                 ; preds = %for.inc22, %if.end.i.i68
-  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0101, %for.inc22 ]
-  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0103, %for.inc22 ]
+  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0120, %for.inc22 ]
+  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0122, %for.inc22 ]
   %k.0.i.i59 = add i64 %k.0.in.i.i58, 1
   %24 = load atomic i64, ptr %my_mask.i.i60 monotonic, align 8
   %cmp.not.i.i61 = icmp ugt i64 %k.0.i.i59, %24
@@ -45481,17 +45507,21 @@ if.end.i.i68:                                     ; preds = %if.else.i.i73, %if.
   %storemerge.i.i69 = phi ptr [ %incdec.ptr.i.i67, %if.then.i.i66 ], [ %arrayidx5.i.i.i82, %if.else.i.i73 ]
   %node_list.i.i70 = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 8
   %27 = load atomic i64, ptr %node_list.i.i70 monotonic, align 8
-  %atomic-temp.i.0.i.i.i71 = inttoptr i64 %27 to ptr
-  %cmp.i.i.i72 = icmp ugt ptr %atomic-temp.i.0.i.i.i71, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, label %while.cond.i.i57, !llvm.loop !582
+  %cmp.i.i.i72 = icmp ugt i64 %27, 63
+  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114, label %while.cond.i.i57, !llvm.loop !582
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit: ; preds = %if.end.i.i68, %for.inc22
-  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0101, %for.inc22 ], [ %storemerge.i.i69, %if.end.i.i68 ]
-  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71, %if.end.i.i68 ]
-  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0103, %for.inc22 ], [ %k.0.i.i59, %if.end.i.i68 ]
-  br label %for.body12, !llvm.loop !583
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114: ; preds = %if.end.i.i68
+  %atomic-temp.i.0.i.i.i71.le = inttoptr i64 %27 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit
 
-for.end24:                                        ; preds = %while.cond.i.i.i17, %while.cond.i.i57
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114, %for.inc22
+  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0120, %for.inc22 ], [ %storemerge.i.i69, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0122, %for.inc22 ], [ %k.0.i.i59, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit.loopexit.split.loop.exit114 ]
+  %cmp.not.i48.not = icmp eq ptr %it7.sroa.14.6, null
+  br i1 %cmp.not.i48.not, label %for.end24, label %for.body12, !llvm.loop !583
+
+for.end24:                                        ; preds = %while.cond.i.i.i17, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeIdLj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISJ_EENSK_13tbb_allocatorISt4pairIKSJ_bEEEEESQ_EppEv.exit, %while.cond.i.i57
   ret void
 }
 
@@ -54516,8 +54546,7 @@ entry:
   %my_embedded_segment.i = getelementptr inbounds i8, ptr %this, i64 112
   %node_list.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load atomic i64, ptr %node_list.i monotonic, align 8, !noalias !671
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i = icmp ugt i64 %0, 63
   br i1 %cmp.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i.preheader
 
 while.cond.i.i.i.preheader:                       ; preds = %entry
@@ -54560,23 +54589,23 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %arrayidx5.i.i.i.i, %if.else.i.i.i ]
   %node_list.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 8
   %5 = load atomic i64, ptr %node_list.i.i.i monotonic, align 8, !noalias !671
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %5 to ptr
-  %cmp.i.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i = icmp ugt i64 %5, 63
   br i1 %cmp.i.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i, !llvm.loop !674
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i, %entry
   %it.sroa.4.1 = phi i64 [ 0, %entry ], [ %k.0.i.i.i, %if.end.i.i.i ]
-  %it.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i, %entry ], [ %atomic-temp.i.0.i.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3.in = phi i64 [ %0, %entry ], [ %5, %if.end.i.i.i ]
   %it.sroa.8.3 = phi ptr [ %my_embedded_segment.i, %entry ], [ %storemerge.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3 = inttoptr i64 %it.sroa.14.3.in to ptr
   %my_mask.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   br label %for.body
 
-for.body:                                         ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit, %for.body.lr.ph
-  %it.sroa.8.099 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
-  %it.sroa.14.098 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
-  %it.sroa.4.097 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
-  %6 = getelementptr inbounds i8, ptr %it.sroa.14.098, i64 16
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit
+  %it.sroa.8.0108 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
+  %it.sroa.14.0107 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
+  %it.sroa.4.0106 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
+  %6 = getelementptr inbounds i8, ptr %it.sroa.14.0107, i64 16
   %7 = load ptr, ptr %6, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -54589,13 +54618,13 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %9 = load ptr, ptr %it.sroa.14.098, align 8
+  %9 = load ptr, ptr %it.sroa.14.0107, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit
 
 while.cond.i.i:                                   ; preds = %for.inc, %if.end.i.i
-  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.099, %for.inc ]
-  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.097, %for.inc ]
+  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.0108, %for.inc ]
+  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.0106, %for.inc ]
   %k.0.i.i = add i64 %k.0.in.i.i, 1
   %10 = load atomic i64, ptr %my_mask.i.i monotonic, align 8
   %cmp.not.i.i = icmp ugt i64 %k.0.i.i, %10
@@ -54628,22 +54657,25 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %arrayidx5.i.i.i, %if.else.i.i ]
   %node_list.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 8
   %13 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %13 to ptr
-  %cmp.i.i.i7 = icmp ugt ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit, label %while.cond.i.i, !llvm.loop !674
+  %cmp.i.i.i7 = icmp ugt i64 %13, 63
+  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100, label %while.cond.i.i, !llvm.loop !674
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit: ; preds = %if.end.i.i, %for.inc
-  %it.sroa.4.2 = phi i64 [ %it.sroa.4.097, %for.inc ], [ %k.0.i.i, %if.end.i.i ]
-  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ]
-  %it.sroa.8.6 = phi ptr [ %it.sroa.8.099, %for.inc ], [ %storemerge.i.i, %if.end.i.i ]
-  br label %for.body, !llvm.loop !675
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100: ; preds = %if.end.i.i
+  %atomic-temp.i.0.i.i.i.le = inttoptr i64 %13 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit
 
-for.end:                                          ; preds = %while.cond.i.i.i, %while.cond.i.i
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100, %for.inc
+  %it.sroa.4.2 = phi i64 [ %it.sroa.4.0106, %for.inc ], [ %k.0.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.8.6 = phi ptr [ %it.sroa.8.0108, %for.inc ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100 ]
+  %cmp.not.i.not = icmp eq ptr %it.sroa.14.6, null
+  br i1 %cmp.not.i.not, label %for.end, label %for.body, !llvm.loop !675
+
+for.end:                                          ; preds = %while.cond.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit, %while.cond.i.i
   %my_embedded_segment.i10 = getelementptr inbounds i8, ptr %this, i64 688
   %node_list.i11 = getelementptr inbounds i8, ptr %this, i64 696
   %14 = load atomic i64, ptr %node_list.i11 monotonic, align 8, !noalias !676
-  %atomic-temp.i.0.i.i12 = inttoptr i64 %14 to ptr
-  %cmp.i.i.i16 = icmp ugt ptr %atomic-temp.i.0.i.i12, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i16 = icmp ugt i64 %14, 63
   br i1 %cmp.i.i.i16, label %for.body12.lr.ph, label %while.cond.i.i.i17.preheader
 
 while.cond.i.i.i17.preheader:                     ; preds = %for.end
@@ -54686,23 +54718,23 @@ if.end.i.i.i28:                                   ; preds = %if.else.i.i.i33, %i
   %storemerge.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i27, %if.then.i.i.i26 ], [ %arrayidx5.i.i.i.i42, %if.else.i.i.i33 ]
   %node_list.i.i.i30 = getelementptr inbounds i8, ptr %storemerge.i.i.i29, i64 8
   %19 = load atomic i64, ptr %node_list.i.i.i30 monotonic, align 8, !noalias !676
-  %atomic-temp.i.0.i.i.i.i31 = inttoptr i64 %19 to ptr
-  %cmp.i.i.i.i32 = icmp ugt ptr %atomic-temp.i.0.i.i.i.i31, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i32 = icmp ugt i64 %19, 63
   br i1 %cmp.i.i.i.i32, label %for.body12.lr.ph, label %while.cond.i.i.i17, !llvm.loop !679
 
 for.body12.lr.ph:                                 ; preds = %if.end.i.i.i28, %for.end
   %it7.sroa.8.3 = phi ptr [ %my_embedded_segment.i10, %for.end ], [ %storemerge.i.i.i29, %if.end.i.i.i28 ]
-  %it7.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i12, %for.end ], [ %atomic-temp.i.0.i.i.i.i31, %if.end.i.i.i28 ]
+  %it7.sroa.14.3.in = phi i64 [ %14, %for.end ], [ %19, %if.end.i.i.i28 ]
   %it7.sroa.4.1 = phi i64 [ 0, %for.end ], [ %k.0.i.i.i19, %if.end.i.i.i28 ]
+  %it7.sroa.14.3 = inttoptr i64 %it7.sroa.14.3.in to ptr
   %my_mask.i.i60 = getelementptr inbounds i8, ptr %this, i64 672
   %my_table.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 720
   br label %for.body12
 
-for.body12:                                       ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit, %for.body12.lr.ph
-  %it7.sroa.4.0103 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
-  %it7.sroa.14.0102 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
-  %it7.sroa.8.0101 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
-  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0102, i64 16
+for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit
+  %it7.sroa.4.0122 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
+  %it7.sroa.14.0121 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
+  %it7.sroa.8.0120 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
+  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0121, i64 16
   %21 = load ptr, ptr %20, align 8
   %tobool15.not = icmp eq ptr %21, null
   br i1 %tobool15.not, label %for.inc22, label %if.then16
@@ -54715,13 +54747,13 @@ if.then16:                                        ; preds = %for.body12
   br label %for.inc22
 
 for.inc22:                                        ; preds = %for.body12, %if.then16
-  %23 = load ptr, ptr %it7.sroa.14.0102, align 8
+  %23 = load ptr, ptr %it7.sroa.14.0121, align 8
   %tobool.not.i53 = icmp eq ptr %23, null
   br i1 %tobool.not.i53, label %while.cond.i.i57, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit
 
 while.cond.i.i57:                                 ; preds = %for.inc22, %if.end.i.i68
-  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0101, %for.inc22 ]
-  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0103, %for.inc22 ]
+  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0120, %for.inc22 ]
+  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0122, %for.inc22 ]
   %k.0.i.i59 = add i64 %k.0.in.i.i58, 1
   %24 = load atomic i64, ptr %my_mask.i.i60 monotonic, align 8
   %cmp.not.i.i61 = icmp ugt i64 %k.0.i.i59, %24
@@ -54754,17 +54786,21 @@ if.end.i.i68:                                     ; preds = %if.else.i.i73, %if.
   %storemerge.i.i69 = phi ptr [ %incdec.ptr.i.i67, %if.then.i.i66 ], [ %arrayidx5.i.i.i82, %if.else.i.i73 ]
   %node_list.i.i70 = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 8
   %27 = load atomic i64, ptr %node_list.i.i70 monotonic, align 8
-  %atomic-temp.i.0.i.i.i71 = inttoptr i64 %27 to ptr
-  %cmp.i.i.i72 = icmp ugt ptr %atomic-temp.i.0.i.i.i71, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit, label %while.cond.i.i57, !llvm.loop !679
+  %cmp.i.i.i72 = icmp ugt i64 %27, 63
+  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114, label %while.cond.i.i57, !llvm.loop !679
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit: ; preds = %if.end.i.i68, %for.inc22
-  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0101, %for.inc22 ], [ %storemerge.i.i69, %if.end.i.i68 ]
-  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71, %if.end.i.i68 ]
-  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0103, %for.inc22 ], [ %k.0.i.i59, %if.end.i.i68 ]
-  br label %for.body12, !llvm.loop !680
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114: ; preds = %if.end.i.i68
+  %atomic-temp.i.0.i.i.i71.le = inttoptr i64 %27 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit
 
-for.end24:                                        ; preds = %while.cond.i.i.i17, %while.cond.i.i57
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114, %for.inc22
+  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0120, %for.inc22 ], [ %storemerge.i.i69, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0122, %for.inc22 ], [ %k.0.i.i59, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114 ]
+  %cmp.not.i48.not = icmp eq ptr %it7.sroa.14.6, null
+  br i1 %cmp.not.i48.not, label %for.end24, label %for.body12, !llvm.loop !680
+
+for.end24:                                        ; preds = %while.cond.i.i.i17, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit, %while.cond.i.i57
   ret void
 }
 
@@ -65307,8 +65343,7 @@ entry:
   %my_embedded_segment.i = getelementptr inbounds i8, ptr %this, i64 120
   %node_list.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load atomic i64, ptr %node_list.i monotonic, align 8, !noalias !772
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i = icmp ugt i64 %0, 63
   br i1 %cmp.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i.preheader
 
 while.cond.i.i.i.preheader:                       ; preds = %entry
@@ -65351,23 +65386,23 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %arrayidx5.i.i.i.i, %if.else.i.i.i ]
   %node_list.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 8
   %5 = load atomic i64, ptr %node_list.i.i.i monotonic, align 8, !noalias !772
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %5 to ptr
-  %cmp.i.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i = icmp ugt i64 %5, 63
   br i1 %cmp.i.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i, !llvm.loop !775
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i, %entry
   %it.sroa.4.1 = phi i64 [ 0, %entry ], [ %k.0.i.i.i, %if.end.i.i.i ]
-  %it.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i, %entry ], [ %atomic-temp.i.0.i.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3.in = phi i64 [ %0, %entry ], [ %5, %if.end.i.i.i ]
   %it.sroa.8.3 = phi ptr [ %my_embedded_segment.i, %entry ], [ %storemerge.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3 = inttoptr i64 %it.sroa.14.3.in to ptr
   %my_mask.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   br label %for.body
 
-for.body:                                         ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit, %for.body.lr.ph
-  %it.sroa.8.099 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
-  %it.sroa.14.098 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
-  %it.sroa.4.097 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
-  %6 = getelementptr inbounds i8, ptr %it.sroa.14.098, i64 16
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit
+  %it.sroa.8.0108 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
+  %it.sroa.14.0107 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
+  %it.sroa.4.0106 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
+  %6 = getelementptr inbounds i8, ptr %it.sroa.14.0107, i64 16
   %7 = load ptr, ptr %6, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -65380,13 +65415,13 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %9 = load ptr, ptr %it.sroa.14.098, align 8
+  %9 = load ptr, ptr %it.sroa.14.0107, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit
 
 while.cond.i.i:                                   ; preds = %for.inc, %if.end.i.i
-  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.099, %for.inc ]
-  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.097, %for.inc ]
+  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.0108, %for.inc ]
+  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.0106, %for.inc ]
   %k.0.i.i = add i64 %k.0.in.i.i, 1
   %10 = load atomic i64, ptr %my_mask.i.i monotonic, align 8
   %cmp.not.i.i = icmp ugt i64 %k.0.i.i, %10
@@ -65419,22 +65454,25 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %arrayidx5.i.i.i, %if.else.i.i ]
   %node_list.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 8
   %13 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %13 to ptr
-  %cmp.i.i.i7 = icmp ugt ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit, label %while.cond.i.i, !llvm.loop !775
+  %cmp.i.i.i7 = icmp ugt i64 %13, 63
+  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100, label %while.cond.i.i, !llvm.loop !775
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit: ; preds = %if.end.i.i, %for.inc
-  %it.sroa.4.2 = phi i64 [ %it.sroa.4.097, %for.inc ], [ %k.0.i.i, %if.end.i.i ]
-  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ]
-  %it.sroa.8.6 = phi ptr [ %it.sroa.8.099, %for.inc ], [ %storemerge.i.i, %if.end.i.i ]
-  br label %for.body, !llvm.loop !776
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100: ; preds = %if.end.i.i
+  %atomic-temp.i.0.i.i.i.le = inttoptr i64 %13 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit
 
-for.end:                                          ; preds = %while.cond.i.i.i, %while.cond.i.i
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100, %for.inc
+  %it.sroa.4.2 = phi i64 [ %it.sroa.4.0106, %for.inc ], [ %k.0.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.8.6 = phi ptr [ %it.sroa.8.0108, %for.inc ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100 ]
+  %cmp.not.i.not = icmp eq ptr %it.sroa.14.6, null
+  br i1 %cmp.not.i.not, label %for.end, label %for.body, !llvm.loop !776
+
+for.end:                                          ; preds = %while.cond.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit, %while.cond.i.i
   %my_embedded_segment.i10 = getelementptr inbounds i8, ptr %this, i64 696
   %node_list.i11 = getelementptr inbounds i8, ptr %this, i64 704
   %14 = load atomic i64, ptr %node_list.i11 monotonic, align 8, !noalias !777
-  %atomic-temp.i.0.i.i12 = inttoptr i64 %14 to ptr
-  %cmp.i.i.i16 = icmp ugt ptr %atomic-temp.i.0.i.i12, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i16 = icmp ugt i64 %14, 63
   br i1 %cmp.i.i.i16, label %for.body12.lr.ph, label %while.cond.i.i.i17.preheader
 
 while.cond.i.i.i17.preheader:                     ; preds = %for.end
@@ -65477,23 +65515,23 @@ if.end.i.i.i28:                                   ; preds = %if.else.i.i.i33, %i
   %storemerge.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i27, %if.then.i.i.i26 ], [ %arrayidx5.i.i.i.i42, %if.else.i.i.i33 ]
   %node_list.i.i.i30 = getelementptr inbounds i8, ptr %storemerge.i.i.i29, i64 8
   %19 = load atomic i64, ptr %node_list.i.i.i30 monotonic, align 8, !noalias !777
-  %atomic-temp.i.0.i.i.i.i31 = inttoptr i64 %19 to ptr
-  %cmp.i.i.i.i32 = icmp ugt ptr %atomic-temp.i.0.i.i.i.i31, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i32 = icmp ugt i64 %19, 63
   br i1 %cmp.i.i.i.i32, label %for.body12.lr.ph, label %while.cond.i.i.i17, !llvm.loop !780
 
 for.body12.lr.ph:                                 ; preds = %if.end.i.i.i28, %for.end
   %it7.sroa.8.3 = phi ptr [ %my_embedded_segment.i10, %for.end ], [ %storemerge.i.i.i29, %if.end.i.i.i28 ]
-  %it7.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i12, %for.end ], [ %atomic-temp.i.0.i.i.i.i31, %if.end.i.i.i28 ]
+  %it7.sroa.14.3.in = phi i64 [ %14, %for.end ], [ %19, %if.end.i.i.i28 ]
   %it7.sroa.4.1 = phi i64 [ 0, %for.end ], [ %k.0.i.i.i19, %if.end.i.i.i28 ]
+  %it7.sroa.14.3 = inttoptr i64 %it7.sroa.14.3.in to ptr
   %my_mask.i.i60 = getelementptr inbounds i8, ptr %this, i64 680
   %my_table.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 728
   br label %for.body12
 
-for.body12:                                       ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit, %for.body12.lr.ph
-  %it7.sroa.4.0103 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
-  %it7.sroa.14.0102 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
-  %it7.sroa.8.0101 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
-  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0102, i64 16
+for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit
+  %it7.sroa.4.0122 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
+  %it7.sroa.14.0121 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
+  %it7.sroa.8.0120 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
+  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0121, i64 16
   %21 = load ptr, ptr %20, align 8
   %tobool15.not = icmp eq ptr %21, null
   br i1 %tobool15.not, label %for.inc22, label %if.then16
@@ -65506,13 +65544,13 @@ if.then16:                                        ; preds = %for.body12
   br label %for.inc22
 
 for.inc22:                                        ; preds = %for.body12, %if.then16
-  %23 = load ptr, ptr %it7.sroa.14.0102, align 8
+  %23 = load ptr, ptr %it7.sroa.14.0121, align 8
   %tobool.not.i53 = icmp eq ptr %23, null
   br i1 %tobool.not.i53, label %while.cond.i.i57, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit
 
 while.cond.i.i57:                                 ; preds = %for.inc22, %if.end.i.i68
-  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0101, %for.inc22 ]
-  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0103, %for.inc22 ]
+  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0120, %for.inc22 ]
+  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0122, %for.inc22 ]
   %k.0.i.i59 = add i64 %k.0.in.i.i58, 1
   %24 = load atomic i64, ptr %my_mask.i.i60 monotonic, align 8
   %cmp.not.i.i61 = icmp ugt i64 %k.0.i.i59, %24
@@ -65545,17 +65583,21 @@ if.end.i.i68:                                     ; preds = %if.else.i.i73, %if.
   %storemerge.i.i69 = phi ptr [ %incdec.ptr.i.i67, %if.then.i.i66 ], [ %arrayidx5.i.i.i82, %if.else.i.i73 ]
   %node_list.i.i70 = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 8
   %27 = load atomic i64, ptr %node_list.i.i70 monotonic, align 8
-  %atomic-temp.i.0.i.i.i71 = inttoptr i64 %27 to ptr
-  %cmp.i.i.i72 = icmp ugt ptr %atomic-temp.i.0.i.i.i71, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit, label %while.cond.i.i57, !llvm.loop !780
+  %cmp.i.i.i72 = icmp ugt i64 %27, 63
+  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114, label %while.cond.i.i57, !llvm.loop !780
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit: ; preds = %if.end.i.i68, %for.inc22
-  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0101, %for.inc22 ], [ %storemerge.i.i69, %if.end.i.i68 ]
-  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71, %if.end.i.i68 ]
-  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0103, %for.inc22 ], [ %k.0.i.i59, %if.end.i.i68 ]
-  br label %for.body12, !llvm.loop !781
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114: ; preds = %if.end.i.i68
+  %atomic-temp.i.0.i.i.i71.le = inttoptr i64 %27 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit
 
-for.end24:                                        ; preds = %while.cond.i.i.i17, %while.cond.i.i57
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114, %for.inc22
+  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0120, %for.inc22 ], [ %storemerge.i.i69, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0122, %for.inc22 ], [ %k.0.i.i59, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114 ]
+  %cmp.not.i48.not = icmp eq ptr %it7.sroa.14.6, null
+  br i1 %cmp.not.i48.not, label %for.end24, label %for.body12, !llvm.loop !781
+
+for.end24:                                        ; preds = %while.cond.i.i.i17, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit, %while.cond.i.i57
   ret void
 }
 
@@ -75705,8 +75747,7 @@ entry:
   %my_embedded_segment.i = getelementptr inbounds i8, ptr %this, i64 112
   %node_list.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load atomic i64, ptr %node_list.i monotonic, align 8, !noalias !909
-  %atomic-temp.i.0.i.i = inttoptr i64 %0 to ptr
-  %cmp.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i = icmp ugt i64 %0, 63
   br i1 %cmp.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i.preheader
 
 while.cond.i.i.i.preheader:                       ; preds = %entry
@@ -75749,23 +75790,23 @@ if.end.i.i.i:                                     ; preds = %if.else.i.i.i, %if.
   %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.then.i.i.i ], [ %arrayidx5.i.i.i.i, %if.else.i.i.i ]
   %node_list.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 8
   %5 = load atomic i64, ptr %node_list.i.i.i monotonic, align 8, !noalias !909
-  %atomic-temp.i.0.i.i.i.i = inttoptr i64 %5 to ptr
-  %cmp.i.i.i.i = icmp ugt ptr %atomic-temp.i.0.i.i.i.i, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i = icmp ugt i64 %5, 63
   br i1 %cmp.i.i.i.i, label %for.body.lr.ph, label %while.cond.i.i.i, !llvm.loop !912
 
 for.body.lr.ph:                                   ; preds = %if.end.i.i.i, %entry
   %it.sroa.4.1 = phi i64 [ 0, %entry ], [ %k.0.i.i.i, %if.end.i.i.i ]
-  %it.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i, %entry ], [ %atomic-temp.i.0.i.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3.in = phi i64 [ %0, %entry ], [ %5, %if.end.i.i.i ]
   %it.sroa.8.3 = phi ptr [ %my_embedded_segment.i, %entry ], [ %storemerge.i.i.i, %if.end.i.i.i ]
+  %it.sroa.14.3 = inttoptr i64 %it.sroa.14.3.in to ptr
   %my_mask.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %my_table.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
   br label %for.body
 
-for.body:                                         ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit, %for.body.lr.ph
-  %it.sroa.8.099 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
-  %it.sroa.14.098 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
-  %it.sroa.4.097 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
-  %6 = getelementptr inbounds i8, ptr %it.sroa.14.098, i64 16
+for.body:                                         ; preds = %for.body.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit
+  %it.sroa.8.0108 = phi ptr [ %it.sroa.8.3, %for.body.lr.ph ], [ %it.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
+  %it.sroa.14.0107 = phi ptr [ %it.sroa.14.3, %for.body.lr.ph ], [ %it.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
+  %it.sroa.4.0106 = phi i64 [ %it.sroa.4.1, %for.body.lr.ph ], [ %it.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit ]
+  %6 = getelementptr inbounds i8, ptr %it.sroa.14.0107, i64 16
   %7 = load ptr, ptr %6, align 8
   %tobool.not = icmp eq ptr %7, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -75778,13 +75819,13 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %9 = load ptr, ptr %it.sroa.14.098, align 8
+  %9 = load ptr, ptr %it.sroa.14.0107, align 8
   %tobool.not.i = icmp eq ptr %9, null
   br i1 %tobool.not.i, label %while.cond.i.i, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit
 
 while.cond.i.i:                                   ; preds = %for.inc, %if.end.i.i
-  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.099, %for.inc ]
-  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.097, %for.inc ]
+  %it.sroa.8.4 = phi ptr [ %storemerge.i.i, %if.end.i.i ], [ %it.sroa.8.0108, %for.inc ]
+  %k.0.in.i.i = phi i64 [ %k.0.i.i, %if.end.i.i ], [ %it.sroa.4.0106, %for.inc ]
   %k.0.i.i = add i64 %k.0.in.i.i, 1
   %10 = load atomic i64, ptr %my_mask.i.i monotonic, align 8
   %cmp.not.i.i = icmp ugt i64 %k.0.i.i, %10
@@ -75817,22 +75858,25 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
   %storemerge.i.i = phi ptr [ %incdec.ptr.i.i, %if.then.i.i ], [ %arrayidx5.i.i.i, %if.else.i.i ]
   %node_list.i.i = getelementptr inbounds i8, ptr %storemerge.i.i, i64 8
   %13 = load atomic i64, ptr %node_list.i.i monotonic, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %13 to ptr
-  %cmp.i.i.i7 = icmp ugt ptr %atomic-temp.i.0.i.i.i, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit, label %while.cond.i.i, !llvm.loop !912
+  %cmp.i.i.i7 = icmp ugt i64 %13, 63
+  br i1 %cmp.i.i.i7, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100, label %while.cond.i.i, !llvm.loop !912
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit: ; preds = %if.end.i.i, %for.inc
-  %it.sroa.4.2 = phi i64 [ %it.sroa.4.097, %for.inc ], [ %k.0.i.i, %if.end.i.i ]
-  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ]
-  %it.sroa.8.6 = phi ptr [ %it.sroa.8.099, %for.inc ], [ %storemerge.i.i, %if.end.i.i ]
-  br label %for.body, !llvm.loop !913
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100: ; preds = %if.end.i.i
+  %atomic-temp.i.0.i.i.i.le = inttoptr i64 %13 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit
 
-for.end:                                          ; preds = %while.cond.i.i.i, %while.cond.i.i
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100, %for.inc
+  %it.sroa.4.2 = phi i64 [ %it.sroa.4.0106, %for.inc ], [ %k.0.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.14.6 = phi ptr [ %9, %for.inc ], [ %atomic-temp.i.0.i.i.i.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100 ]
+  %it.sroa.8.6 = phi ptr [ %it.sroa.8.0108, %for.inc ], [ %storemerge.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit.loopexit.split.loop.exit100 ]
+  %cmp.not.i.not = icmp eq ptr %it.sroa.14.6, null
+  br i1 %cmp.not.i.not, label %for.end, label %for.body, !llvm.loop !913
+
+for.end:                                          ; preds = %while.cond.i.i.i, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseINS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISL_EENSM_13tbb_allocatorISt4pairIKSL_bEEEEESS_EppEv.exit, %while.cond.i.i
   %my_embedded_segment.i10 = getelementptr inbounds i8, ptr %this, i64 688
   %node_list.i11 = getelementptr inbounds i8, ptr %this, i64 696
   %14 = load atomic i64, ptr %node_list.i11 monotonic, align 8, !noalias !914
-  %atomic-temp.i.0.i.i12 = inttoptr i64 %14 to ptr
-  %cmp.i.i.i16 = icmp ugt ptr %atomic-temp.i.0.i.i12, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i16 = icmp ugt i64 %14, 63
   br i1 %cmp.i.i.i16, label %for.body12.lr.ph, label %while.cond.i.i.i17.preheader
 
 while.cond.i.i.i17.preheader:                     ; preds = %for.end
@@ -75875,23 +75919,23 @@ if.end.i.i.i28:                                   ; preds = %if.else.i.i.i33, %i
   %storemerge.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i27, %if.then.i.i.i26 ], [ %arrayidx5.i.i.i.i42, %if.else.i.i.i33 ]
   %node_list.i.i.i30 = getelementptr inbounds i8, ptr %storemerge.i.i.i29, i64 8
   %19 = load atomic i64, ptr %node_list.i.i.i30 monotonic, align 8, !noalias !914
-  %atomic-temp.i.0.i.i.i.i31 = inttoptr i64 %19 to ptr
-  %cmp.i.i.i.i32 = icmp ugt ptr %atomic-temp.i.0.i.i.i.i31, inttoptr (i64 63 to ptr)
+  %cmp.i.i.i.i32 = icmp ugt i64 %19, 63
   br i1 %cmp.i.i.i.i32, label %for.body12.lr.ph, label %while.cond.i.i.i17, !llvm.loop !917
 
 for.body12.lr.ph:                                 ; preds = %if.end.i.i.i28, %for.end
   %it7.sroa.8.3 = phi ptr [ %my_embedded_segment.i10, %for.end ], [ %storemerge.i.i.i29, %if.end.i.i.i28 ]
-  %it7.sroa.14.3 = phi ptr [ %atomic-temp.i.0.i.i12, %for.end ], [ %atomic-temp.i.0.i.i.i.i31, %if.end.i.i.i28 ]
+  %it7.sroa.14.3.in = phi i64 [ %14, %for.end ], [ %19, %if.end.i.i.i28 ]
   %it7.sroa.4.1 = phi i64 [ 0, %for.end ], [ %k.0.i.i.i19, %if.end.i.i.i28 ]
+  %it7.sroa.14.3 = inttoptr i64 %it7.sroa.14.3.in to ptr
   %my_mask.i.i60 = getelementptr inbounds i8, ptr %this, i64 672
   %my_table.i.i.i79 = getelementptr inbounds i8, ptr %this, i64 720
   br label %for.body12
 
-for.body12:                                       ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit, %for.body12.lr.ph
-  %it7.sroa.4.0103 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
-  %it7.sroa.14.0102 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
-  %it7.sroa.8.0101 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
-  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0102, i64 16
+for.body12:                                       ; preds = %for.body12.lr.ph, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit
+  %it7.sroa.4.0122 = phi i64 [ %it7.sroa.4.1, %for.body12.lr.ph ], [ %it7.sroa.4.2, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
+  %it7.sroa.14.0121 = phi ptr [ %it7.sroa.14.3, %for.body12.lr.ph ], [ %it7.sroa.14.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
+  %it7.sroa.8.0120 = phi ptr [ %it7.sroa.8.3, %for.body12.lr.ph ], [ %it7.sroa.8.6, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit ]
+  %20 = getelementptr inbounds i8, ptr %it7.sroa.14.0121, i64 16
   %21 = load ptr, ptr %20, align 8
   %tobool15.not = icmp eq ptr %21, null
   br i1 %tobool15.not, label %for.inc22, label %if.then16
@@ -75904,13 +75948,13 @@ if.then16:                                        ; preds = %for.body12
   br label %for.inc22
 
 for.inc22:                                        ; preds = %for.body12, %if.then16
-  %23 = load ptr, ptr %it7.sroa.14.0102, align 8
+  %23 = load ptr, ptr %it7.sroa.14.0121, align 8
   %tobool.not.i53 = icmp eq ptr %23, null
   br i1 %tobool.not.i53, label %while.cond.i.i57, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit
 
 while.cond.i.i57:                                 ; preds = %for.inc22, %if.end.i.i68
-  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0101, %for.inc22 ]
-  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0103, %for.inc22 ]
+  %it7.sroa.8.4 = phi ptr [ %storemerge.i.i69, %if.end.i.i68 ], [ %it7.sroa.8.0120, %for.inc22 ]
+  %k.0.in.i.i58 = phi i64 [ %k.0.i.i59, %if.end.i.i68 ], [ %it7.sroa.4.0122, %for.inc22 ]
   %k.0.i.i59 = add i64 %k.0.in.i.i58, 1
   %24 = load atomic i64, ptr %my_mask.i.i60 monotonic, align 8
   %cmp.not.i.i61 = icmp ugt i64 %k.0.i.i59, %24
@@ -75943,17 +75987,21 @@ if.end.i.i68:                                     ; preds = %if.else.i.i73, %if.
   %storemerge.i.i69 = phi ptr [ %incdec.ptr.i.i67, %if.then.i.i66 ], [ %arrayidx5.i.i.i82, %if.else.i.i73 ]
   %node_list.i.i70 = getelementptr inbounds i8, ptr %storemerge.i.i69, i64 8
   %27 = load atomic i64, ptr %node_list.i.i70 monotonic, align 8
-  %atomic-temp.i.0.i.i.i71 = inttoptr i64 %27 to ptr
-  %cmp.i.i.i72 = icmp ugt ptr %atomic-temp.i.0.i.i.i71, inttoptr (i64 63 to ptr)
-  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit, label %while.cond.i.i57, !llvm.loop !917
+  %cmp.i.i.i72 = icmp ugt i64 %27, 63
+  br i1 %cmp.i.i.i72, label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114, label %while.cond.i.i57, !llvm.loop !917
 
-_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit: ; preds = %if.end.i.i68, %for.inc22
-  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0101, %for.inc22 ], [ %storemerge.i.i69, %if.end.i.i68 ]
-  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71, %if.end.i.i68 ]
-  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0103, %for.inc22 ], [ %k.0.i.i59, %if.end.i.i68 ]
-  br label %for.body12, !llvm.loop !918
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114: ; preds = %if.end.i.i68
+  %atomic-temp.i.0.i.i.i71.le = inttoptr i64 %27 to ptr
+  br label %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit
 
-for.end24:                                        ; preds = %while.cond.i.i.i17, %while.cond.i.i57
+_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit: ; preds = %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114, %for.inc22
+  %it7.sroa.8.6 = phi ptr [ %it7.sroa.8.0120, %for.inc22 ], [ %storemerge.i.i69, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.14.6 = phi ptr [ %23, %for.inc22 ], [ %atomic-temp.i.0.i.i.i71.le, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114 ]
+  %it7.sroa.4.2 = phi i64 [ %it7.sroa.4.0122, %for.inc22 ], [ %k.0.i.i59, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit.loopexit.split.loop.exit114 ]
+  %cmp.not.i48.not = icmp eq ptr %it7.sroa.14.6, null
+  br i1 %cmp.not.i48.not, label %for.end24, label %for.body12, !llvm.loop !918
+
+for.end24:                                        ; preds = %while.cond.i.i.i17, %_ZN3tbb6detail2d217hash_map_iteratorINS1_19concurrent_hash_mapIPN7openvdb5v11_04tree17ValueAccessorBaseIKNS6_4TreeINS6_8RootNodeINS6_12InternalNodeINSA_INS6_8LeafNodeINS5_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEELb1EEEbNS0_2d116tbb_hash_compareISM_EENSN_13tbb_allocatorISt4pairIKSM_bEEEEEST_EppEv.exit, %while.cond.i.i57
   ret void
 }
 

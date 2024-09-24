@@ -344,7 +344,7 @@ entry:
   %memptr.offset.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 88
   %3 = ptrtoint ptr %1 to i64
   %oldHead.016.i.i.i = inttoptr i64 %2 to ptr
-  %cmp17.i.i.i = icmp eq ptr %oldHead.016.i.i.i, inttoptr (i64 1 to ptr)
+  %cmp17.i.i.i = icmp eq i64 %2, 1
   %cond18.i.i.i = select i1 %cmp17.i.i.i, ptr null, ptr %oldHead.016.i.i.i
   store ptr %cond18.i.i.i, ptr %memptr.offset.i.i.i.i, align 8, !tbaa !12
   %4 = cmpxchg weak ptr %remoteTaskQueue_.i, i64 %2, i64 %3 release monotonic, align 8
@@ -355,7 +355,7 @@ _ZNSt6atomicIPN5folly6fibers12FiberManager10RemoteTaskEE21compare_exchange_weakE
   %6 = phi { i64, i1 } [ %8, %_ZNSt6atomicIPN5folly6fibers12FiberManager10RemoteTaskEE21compare_exchange_weakERS4_S4_St12memory_orderS7_.exit.i.i.i ], [ %4, %entry ]
   %7 = extractvalue { i64, i1 } %6, 0
   %oldHead.0.i.i.i = inttoptr i64 %7 to ptr
-  %cmp.i.i.i = icmp eq ptr %oldHead.0.i.i.i, inttoptr (i64 1 to ptr)
+  %cmp.i.i.i = icmp eq i64 %7, 1
   %cond.i.i.i = select i1 %cmp.i.i.i, ptr null, ptr %oldHead.0.i.i.i
   store ptr %cond.i.i.i, ptr %memptr.offset.i.i.i.i, align 8, !tbaa !12
   %8 = cmpxchg weak ptr %remoteTaskQueue_.i, i64 %7, i64 %3 release monotonic, align 8
@@ -3077,19 +3077,13 @@ entry:
 lor.lhs.false:                                    ; preds = %entry
   %remoteReadyQueue_ = getelementptr inbounds i8, ptr %this, i64 448
   %1 = load atomic i64, ptr %remoteReadyQueue_ acquire, align 16
-  %atomic-temp.0.i.i.i.i = inttoptr i64 %1 to ptr
-  %cmp.i.i = icmp eq ptr %atomic-temp.0.i.i.i.i, inttoptr (i64 1 to ptr)
-  %cmp2.i = icmp eq i64 %1, 0
-  %cmp.i = or i1 %cmp2.i, %cmp.i.i
+  %cmp.i = icmp ult i64 %1, 2
   br i1 %cmp.i, label %lor.lhs.false3, label %lor.end
 
 lor.lhs.false3:                                   ; preds = %lor.lhs.false
   %remoteTaskQueue_ = getelementptr inbounds i8, ptr %this, i64 456
   %2 = load atomic i64, ptr %remoteTaskQueue_ acquire, align 8
-  %atomic-temp.0.i.i.i.i6 = inttoptr i64 %2 to ptr
-  %cmp.i.i7 = icmp eq ptr %atomic-temp.0.i.i.i.i6, inttoptr (i64 1 to ptr)
-  %cmp2.i8 = icmp eq i64 %2, 0
-  %cmp.i9 = or i1 %cmp2.i8, %cmp.i.i7
+  %cmp.i9 = icmp ult i64 %2, 2
   br i1 %cmp.i9, label %lor.rhs, label %lor.end
 
 lor.rhs:                                          ; preds = %lor.lhs.false3
@@ -3287,7 +3281,7 @@ entry:
   %memptr.offset.i.i.i = getelementptr inbounds i8, ptr %fiber, i64 256
   %1 = ptrtoint ptr %fiber to i64
   %oldHead.016.i.i = inttoptr i64 %0 to ptr
-  %cmp17.i.i = icmp eq ptr %oldHead.016.i.i, inttoptr (i64 1 to ptr)
+  %cmp17.i.i = icmp eq i64 %0, 1
   %cond18.i.i = select i1 %cmp17.i.i, ptr null, ptr %oldHead.016.i.i
   store ptr %cond18.i.i, ptr %memptr.offset.i.i.i, align 8, !tbaa !12
   %2 = cmpxchg weak ptr %remoteReadyQueue_, i64 %0, i64 %1 release monotonic, align 8
@@ -3298,7 +3292,7 @@ _ZNSt6atomicIPN5folly6fibers5FiberEE21compare_exchange_weakERS3_S3_St12memory_or
   %4 = phi { i64, i1 } [ %6, %_ZNSt6atomicIPN5folly6fibers5FiberEE21compare_exchange_weakERS3_S3_St12memory_orderS6_.exit.i.i ], [ %2, %entry ]
   %5 = extractvalue { i64, i1 } %4, 0
   %oldHead.0.i.i = inttoptr i64 %5 to ptr
-  %cmp.i.i = icmp eq ptr %oldHead.0.i.i, inttoptr (i64 1 to ptr)
+  %cmp.i.i = icmp eq i64 %5, 1
   %cond.i.i = select i1 %cmp.i.i, ptr null, ptr %oldHead.0.i.i
   store ptr %cond.i.i, ptr %memptr.offset.i.i.i, align 8, !tbaa !12
   %6 = cmpxchg weak ptr %remoteReadyQueue_, i64 %5, i64 %1 release monotonic, align 8

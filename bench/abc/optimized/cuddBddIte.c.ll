@@ -977,7 +977,7 @@ define ptr @cuddBddAndRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %10 = ptrtoint ptr %2 to i64
   %11 = and i64 %10, -2
   %12 = inttoptr i64 %11 to ptr
-  %13 = icmp eq ptr %9, %12
+  %13 = icmp eq i64 %8, %11
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %3

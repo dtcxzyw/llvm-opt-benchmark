@@ -74,7 +74,7 @@ _ZN16hb_lazy_loader_tIN2OT4maxpE22hb_table_lazy_loader_tIS1_Lj2ELb1EE9hb_face_tL
   %15 = load atomic i64, ptr %14 acquire, align 8
   %16 = inttoptr i64 %15 to ptr
   %.not.i.i3 = icmp eq i64 %15, 0
-  %.not3.i.i4 = icmp eq ptr %16, @_hb_NullPool
+  %.not3.i.i4 = icmp eq i64 %15, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i = or i1 %.not.i.i3, %.not3.i.i4
   br i1 %or.cond.i.i, label %_ZN16hb_lazy_loader_tIN2OT18cmap_accelerator_tE21hb_face_lazy_loader_tIS1_Lj3EE9hb_face_tLj3ES1_E4finiEv.exit, label %17
 
@@ -118,7 +118,7 @@ _ZN16hb_lazy_loader_tIN2OT4hheaE22hb_table_lazy_loader_tIS1_Lj4ELb1EE9hb_face_tL
   %30 = load atomic i64, ptr %29 acquire, align 8
   %31 = inttoptr i64 %30 to ptr
   %.not.i.i7 = icmp eq i64 %30, 0
-  %.not3.i.i8 = icmp eq ptr %31, @_hb_NullPool
+  %.not3.i.i8 = icmp eq i64 %30, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i9 = or i1 %.not.i.i7, %.not3.i.i8
   br i1 %or.cond.i.i9, label %_ZN16hb_lazy_loader_tIN2OT18hmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj5EE9hb_face_tLj5ES1_E4finiEv.exit, label %32
 
@@ -169,7 +169,7 @@ _ZN16hb_lazy_loader_tIN2OT3OS2E22hb_table_lazy_loader_tIS1_Lj6ELb1EE9hb_face_tLj
   %48 = load atomic i64, ptr %47 acquire, align 8
   %49 = inttoptr i64 %48 to ptr
   %.not.i.i12 = icmp eq i64 %48, 0
-  %.not3.i.i13 = icmp eq ptr %49, @_hb_NullPool
+  %.not3.i.i13 = icmp eq i64 %48, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i14 = or i1 %.not.i.i12, %.not3.i.i13
   br i1 %or.cond.i.i14, label %_ZN16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9hb_face_tLj7ES1_E4finiEv.exit, label %50
 
@@ -214,7 +214,7 @@ _ZN16hb_lazy_loader_tIN2OT18post_accelerator_tE21hb_face_lazy_loader_tIS1_Lj7EE9
   %66 = load atomic i64, ptr %65 acquire, align 8
   %67 = inttoptr i64 %66 to ptr
   %.not.i.i15 = icmp eq i64 %66, 0
-  %.not3.i.i16 = icmp eq ptr %67, @_hb_NullPool
+  %.not3.i.i16 = icmp eq i64 %66, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i17 = or i1 %.not.i.i15, %.not3.i.i16
   br i1 %or.cond.i.i17, label %_ZN16hb_lazy_loader_tIN2OT18name_accelerator_tE21hb_face_lazy_loader_tIS1_Lj8EE9hb_face_tLj8ES1_E4finiEv.exit, label %68
 
@@ -273,7 +273,7 @@ _ZN16hb_lazy_loader_tIN2OT4STATE22hb_table_lazy_loader_tIS1_Lj9ELb1EE9hb_face_tL
   %88 = load atomic i64, ptr %87 acquire, align 8
   %89 = inttoptr i64 %88 to ptr
   %.not.i.i21 = icmp eq i64 %88, 0
-  %.not3.i.i22 = icmp eq ptr %89, @_hb_NullPool
+  %.not3.i.i22 = icmp eq i64 %88, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i23 = or i1 %.not.i.i21, %.not3.i.i22
   br i1 %or.cond.i.i23, label %_ZN16hb_lazy_loader_tIN2OT18meta_accelerator_tE21hb_face_lazy_loader_tIS1_Lj10EE9hb_face_tLj10ES1_E4finiEv.exit, label %90
 
@@ -316,7 +316,7 @@ _ZN16hb_lazy_loader_tIN2OT4vheaE22hb_table_lazy_loader_tIS1_Lj11ELb1EE9hb_face_t
   %102 = load atomic i64, ptr %101 acquire, align 8
   %103 = inttoptr i64 %102 to ptr
   %.not.i.i26 = icmp eq i64 %102, 0
-  %.not3.i.i27 = icmp eq ptr %103, @_hb_NullPool
+  %.not3.i.i27 = icmp eq i64 %102, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i28 = or i1 %.not.i.i26, %.not3.i.i27
   br i1 %or.cond.i.i28, label %_ZN16hb_lazy_loader_tIN2OT18vmtx_accelerator_tE21hb_face_lazy_loader_tIS1_Lj12EE9hb_face_tLj12ES1_E4finiEv.exit, label %104
 
@@ -384,7 +384,7 @@ _ZN16hb_lazy_loader_tIN2OT4locaE22hb_table_lazy_loader_tIS1_Lj14ELb1EE9hb_face_t
   %126 = load atomic i64, ptr %125 acquire, align 8
   %127 = inttoptr i64 %126 to ptr
   %.not.i.i33 = icmp eq i64 %126, 0
-  %.not3.i.i34 = icmp eq ptr %127, @_hb_NullPool
+  %.not3.i.i34 = icmp eq i64 %126, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i35 = or i1 %.not.i.i33, %.not3.i.i34
   br i1 %or.cond.i.i35, label %_ZN16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE9hb_face_tLj15ES1_E4finiEv.exit, label %128
 
@@ -411,7 +411,7 @@ _ZN16hb_lazy_loader_tIN2OT18glyf_accelerator_tE21hb_face_lazy_loader_tIS1_Lj15EE
   %135 = load atomic i64, ptr %134 acquire, align 8
   %136 = inttoptr i64 %135 to ptr
   %.not.i.i36 = icmp eq i64 %135, 0
-  %.not3.i.i37 = icmp eq ptr %136, @_hb_NullPool
+  %.not3.i.i37 = icmp eq i64 %135, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i38 = or i1 %.not.i.i36, %.not3.i.i37
   br i1 %or.cond.i.i38, label %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E4finiEv.exit, label %137
 
@@ -448,18 +448,18 @@ _ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE
   store atomic i64 0, ptr %134 monotonic, align 8
   %148 = getelementptr inbounds i8, ptr %0, i64 136
   %149 = load atomic i64, ptr %148 acquire, align 8
-  %150 = inttoptr i64 %149 to ptr
   %.not.i.i39 = icmp eq i64 %149, 0
-  %.not3.i.i40 = icmp eq ptr %150, @_hb_NullPool
+  %.not3.i.i40 = icmp eq i64 %149, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i41 = or i1 %.not.i.i39, %.not3.i.i40
-  br i1 %or.cond.i.i41, label %_ZN16hb_lazy_loader_tIN2OT18cff2_accelerator_tE21hb_face_lazy_loader_tIS1_Lj17EE9hb_face_tLj17ES1_E4finiEv.exit, label %151
+  br i1 %or.cond.i.i41, label %_ZN16hb_lazy_loader_tIN2OT18cff2_accelerator_tE21hb_face_lazy_loader_tIS1_Lj17EE9hb_face_tLj17ES1_E4finiEv.exit, label %150
 
-151:                                              ; preds = %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E4finiEv.exit
-  tail call void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %150) #9
-  tail call void @free(ptr noundef nonnull %150) #9
+150:                                              ; preds = %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E4finiEv.exit
+  %151 = inttoptr i64 %149 to ptr
+  tail call void @_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_private_dict_values_base_tINS2_10dict_val_tEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(196) %151) #9
+  tail call void @free(ptr noundef nonnull %151) #9
   br label %_ZN16hb_lazy_loader_tIN2OT18cff2_accelerator_tE21hb_face_lazy_loader_tIS1_Lj17EE9hb_face_tLj17ES1_E4finiEv.exit
 
-_ZN16hb_lazy_loader_tIN2OT18cff2_accelerator_tE21hb_face_lazy_loader_tIS1_Lj17EE9hb_face_tLj17ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E4finiEv.exit, %151
+_ZN16hb_lazy_loader_tIN2OT18cff2_accelerator_tE21hb_face_lazy_loader_tIS1_Lj17EE9hb_face_tLj17ES1_E4finiEv.exit: ; preds = %_ZN16hb_lazy_loader_tIN2OT18cff1_accelerator_tE21hb_face_lazy_loader_tIS1_Lj16EE9hb_face_tLj16ES1_E4finiEv.exit, %150
   store atomic i64 0, ptr %148 monotonic, align 8
   %152 = getelementptr inbounds i8, ptr %0, i64 144
   %153 = load atomic i64, ptr %152 acquire, align 8
@@ -516,7 +516,7 @@ _ZN16hb_lazy_loader_tIN2OT4cvarE22hb_table_lazy_loader_tIS1_Lj20ELb1EE9hb_face_t
   %171 = load atomic i64, ptr %170 acquire, align 8
   %172 = inttoptr i64 %171 to ptr
   %.not.i.i48 = icmp eq i64 %171, 0
-  %.not3.i.i49 = icmp eq ptr %172, @_hb_NullPool
+  %.not3.i.i49 = icmp eq i64 %171, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i50 = or i1 %.not.i.i48, %.not3.i.i49
   br i1 %or.cond.i.i50, label %_ZN16hb_lazy_loader_tIN2OT18gvar_accelerator_tE21hb_face_lazy_loader_tIS1_Lj21EE9hb_face_tLj21ES1_E4finiEv.exit, label %173
 
@@ -591,7 +591,7 @@ _ZN16hb_lazy_loader_tIN2OT4kernE22hb_table_lazy_loader_tIS1_Lj23ELb1EE9hb_face_t
   %198 = load atomic i64, ptr %197 acquire, align 8
   %199 = inttoptr i64 %198 to ptr
   %.not.i.i56 = icmp eq i64 %198, 0
-  %.not3.i.i57 = icmp eq ptr %199, @_hb_NullPool
+  %.not3.i.i57 = icmp eq i64 %198, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i58 = or i1 %.not.i.i56, %.not3.i.i57
   br i1 %or.cond.i.i58, label %_ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE9hb_face_tLj24ES1_E4finiEv.exit, label %200
 
@@ -632,7 +632,7 @@ _ZN16hb_lazy_loader_tIN2OT18GDEF_accelerator_tE21hb_face_lazy_loader_tIS1_Lj24EE
   %213 = load atomic i64, ptr %212 acquire, align 8
   %214 = inttoptr i64 %213 to ptr
   %.not.i.i60 = icmp eq i64 %213, 0
-  %.not3.i.i61 = icmp eq ptr %214, @_hb_NullPool
+  %.not3.i.i61 = icmp eq i64 %213, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i62 = or i1 %.not.i.i60, %.not3.i.i61
   br i1 %or.cond.i.i62, label %_ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE9hb_face_tLj25ES1_E4finiEv.exit, label %215
 
@@ -684,7 +684,7 @@ _ZN16hb_lazy_loader_tIN2OT18GSUB_accelerator_tE21hb_face_lazy_loader_tIS1_Lj25EE
   %234 = load atomic i64, ptr %233 acquire, align 8
   %235 = inttoptr i64 %234 to ptr
   %.not.i.i64 = icmp eq i64 %234, 0
-  %.not3.i.i65 = icmp eq ptr %235, @_hb_NullPool
+  %.not3.i.i65 = icmp eq i64 %234, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i66 = or i1 %.not.i.i64, %.not3.i.i65
   br i1 %or.cond.i.i66, label %_ZN16hb_lazy_loader_tIN2OT18GPOS_accelerator_tE21hb_face_lazy_loader_tIS1_Lj26EE9hb_face_tLj26ES1_E4finiEv.exit, label %236
 
@@ -906,7 +906,7 @@ _ZN16hb_lazy_loader_tIN2OT4CPALE22hb_table_lazy_loader_tIS1_Lj36ELb1EE9hb_face_t
   %315 = load atomic i64, ptr %314 acquire, align 8
   %316 = inttoptr i64 %315 to ptr
   %.not.i.i92 = icmp eq i64 %315, 0
-  %.not3.i.i93 = icmp eq ptr %316, @_hb_NullPool
+  %.not3.i.i93 = icmp eq i64 %315, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i94 = or i1 %.not.i.i92, %.not3.i.i93
   br i1 %or.cond.i.i94, label %_ZN16hb_lazy_loader_tIN2OT18CBDT_accelerator_tE21hb_face_lazy_loader_tIS1_Lj37EE9hb_face_tLj37ES1_E4finiEv.exit, label %317
 
@@ -939,7 +939,7 @@ _ZN16hb_lazy_loader_tIN2OT18CBDT_accelerator_tE21hb_face_lazy_loader_tIS1_Lj37EE
   %326 = load atomic i64, ptr %325 acquire, align 8
   %327 = inttoptr i64 %326 to ptr
   %.not.i.i95 = icmp eq i64 %326, 0
-  %.not3.i.i96 = icmp eq ptr %327, @_hb_NullPool
+  %.not3.i.i96 = icmp eq i64 %326, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i97 = or i1 %.not.i.i95, %.not3.i.i96
   br i1 %or.cond.i.i97, label %_ZN16hb_lazy_loader_tIN2OT18sbix_accelerator_tE21hb_face_lazy_loader_tIS1_Lj38EE9hb_face_tLj38ES1_E4finiEv.exit, label %328
 
@@ -965,7 +965,7 @@ _ZN16hb_lazy_loader_tIN2OT18sbix_accelerator_tE21hb_face_lazy_loader_tIS1_Lj38EE
   %334 = load atomic i64, ptr %333 acquire, align 8
   %335 = inttoptr i64 %334 to ptr
   %.not.i.i98 = icmp eq i64 %334, 0
-  %.not3.i.i99 = icmp eq ptr %335, @_hb_NullPool
+  %.not3.i.i99 = icmp eq i64 %334, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i100 = or i1 %.not.i.i98, %.not3.i.i99
   br i1 %or.cond.i.i100, label %_ZN16hb_lazy_loader_tIN2OT17SVG_accelerator_tE21hb_face_lazy_loader_tIS1_Lj39EE9hb_face_tLj39ES1_E4finiEv.exit, label %336
 

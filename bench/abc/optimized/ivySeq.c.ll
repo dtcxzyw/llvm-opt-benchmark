@@ -827,7 +827,7 @@ Ivy_GraphPrepare.exit.i:                          ; preds = %.critedge.i179.i, %
   %451 = inttoptr i64 %450 to ptr
   %452 = and i64 %.071119.i.i.i, -2
   %453 = inttoptr i64 %452 to ptr
-  %454 = icmp eq ptr %451, %453
+  %454 = icmp eq i64 %450, %452
   br i1 %454, label %457, label %455
 
 455:                                              ; preds = %439

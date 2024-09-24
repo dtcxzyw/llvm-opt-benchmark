@@ -5128,8 +5128,7 @@ _ZN3tbb6detail2d015spin_wait_whileIPPN4mold3elf12InputSectionINS4_5ARM64EEEZNS1_
 
 for.end.i.i.i.i.i.i.i.i:                          ; preds = %_ZN3tbb6detail2d015spin_wait_whileIPPN4mold3elf12InputSectionINS4_5ARM64EEEZNS1_18spin_wait_while_eqIS9_S9_EET_RKSt6atomicISB_ET0_St12memory_orderEUlS9_E_EESB_SF_SG_SH_.exit.i.i.i.i.i.i.i.i
   %25 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8, !noalias !85
-  %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i = inttoptr i64 %25 to ptr
-  %cmp4.not.i.i.i.i.i.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i.i.i.i.i.i.i.i.i
+  %cmp4.not.i.i.i.i.i.i.i.i = icmp eq i64 %21, %25
   br i1 %cmp4.not.i.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i.i, label %if.else.i7.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %for.end.i.i.i.i.i.i.i.i
@@ -5195,12 +5194,15 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %if.end.i6.i.i.i.i.i
 _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i.i: ; preds = %if.else.i.i.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i.i
   %backoff.sroa.0.1.i.i.i.i.i.i = phi i32 [ %mul.i.i.i.i.i.i.i, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i.i.i.i ], [ %backoff.sroa.0.0.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ]
   %30 = load atomic i64, ptr %my_segment_table.i.i.i.i.i.i acquire, align 8, !noalias !85
-  %atomic-temp.i.0.i.i7.i.i.i.i.i = inttoptr i64 %30 to ptr
-  %cmp10.i.i.i.i.i.i = icmp eq ptr %atomic-temp.i.0.i.i.i.i.i.i.i, %atomic-temp.i.0.i.i7.i.i.i.i.i
-  br i1 %cmp10.i.i.i.i.i.i, label %do.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS8_Emm.exit.i.i.i.i.i, !llvm.loop !66
+  %cmp10.i.i.i.i.i.i = icmp eq i64 %21, %30
+  br i1 %cmp10.i.i.i.i.i.i, label %do.body.i.i.i.i.i.i, label %_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS8_Emm.exit.loopexit.i.i.i.i.i, !llvm.loop !66
 
-_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS8_Emm.exit.i.i.i.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i.i, %if.else.i7.i.i.i.i.i.i, %if.then.i6.i.i.i.i.i.i, %_ZN3tbb6detail2d117concurrent_vectorIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EEE9push_backERKS8_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %table.i.0.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i, %if.then.i6.i.i.i.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i.i.i.i, %if.else.i7.i.i.i.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i.i.i, %_ZN3tbb6detail2d117concurrent_vectorIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EEE9push_backERKS8_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %atomic-temp.i.0.i.i7.i.i.i.i.i, %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i.i ]
+_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS8_Emm.exit.loopexit.i.i.i.i.i: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i.i.i.i
+  %atomic-temp.i.0.i.i7.le.i.i.i.i.i = inttoptr i64 %30 to ptr
+  br label %_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS8_Emm.exit.i.i.i.i.i
+
+_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS8_Emm.exit.i.i.i.i.i: ; preds = %_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS8_Emm.exit.loopexit.i.i.i.i.i, %if.else.i7.i.i.i.i.i.i, %if.then.i6.i.i.i.i.i.i, %_ZN3tbb6detail2d117concurrent_vectorIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EEE9push_backERKS8_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %table.i.0.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i, %if.then.i6.i.i.i.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i.i.i.i, %if.else.i7.i.i.i.i.i.i ], [ %atomic-temp.i.0.i.i.i.i.i.i.i, %_ZN3tbb6detail2d117concurrent_vectorIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EEE9push_backERKS8_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %atomic-temp.i.0.i.i7.le.i.i.i.i.i, %_ZN3tbb6detail2d113segment_tableIPN4mold3elf12InputSectionINS4_5ARM64EEENS1_23cache_aligned_allocatorIS8_EENS1_17concurrent_vectorIS8_SA_EELm3EE25extend_table_if_necessaryERPSt6atomicIPS8_Emm.exit.loopexit.i.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds %"struct.std::atomic.244", ptr %table.i.0.i.i.i.i.i, i64 %xor.i.i.i.i.i.i.i.i.i
   %31 = load atomic i64, ptr %arrayidx.i.i.i.i.i.i acquire, align 8, !noalias !85
   %cmp.i.i.i.i.i.i = icmp eq i64 %31, 0

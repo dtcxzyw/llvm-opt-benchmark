@@ -1418,7 +1418,7 @@ tailrecurse:                                      ; preds = %10
   %13 = and i64 %11, -2
   %14 = inttoptr i64 %13 to ptr
   %15 = xor i64 %accumulator.tr22, -1
-  %16 = icmp eq ptr %14, %7
+  %16 = icmp eq i64 %13, %6
   br i1 %16, label %._crit_edge.loopexit, label %.lr.ph
 
 common.ret37:                                     ; preds = %._crit_edge.loopexit, %2, %17

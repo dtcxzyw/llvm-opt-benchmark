@@ -424,17 +424,16 @@ define dso_local i64 @gin_extract_tsquery(ptr nocapture noundef readonly %0) loc
 .loopexit:                                        ; preds = %66, %._crit_edge, %1
   %.0 = phi ptr [ null, %1 ], [ %31, %._crit_edge ], [ %31, %66 ]
   %70 = load i64, ptr %2, align 8
-  %71 = inttoptr i64 %70 to ptr
-  %.not = icmp eq ptr %4, %71
-  br i1 %.not, label %73, label %72
+  %.not = icmp eq i64 %3, %70
+  br i1 %.not, label %72, label %71
 
-72:                                               ; preds = %.loopexit
+71:                                               ; preds = %.loopexit
   tail call void @pfree(ptr noundef nonnull %4) #6
-  br label %73
+  br label %72
 
-73:                                               ; preds = %.loopexit, %72
-  %74 = ptrtoint ptr %.0 to i64
-  ret i64 %74
+72:                                               ; preds = %.loopexit, %71
+  %73 = ptrtoint ptr %.0 to i64
+  ret i64 %73
 }
 
 declare zeroext i1 @tsquery_requires_match(ptr noundef) local_unnamed_addr #1

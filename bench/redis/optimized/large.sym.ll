@@ -1451,7 +1451,7 @@ entry:
   %1 = inttoptr i64 %0 to ptr
   %alloc_tctx1 = getelementptr inbounds i8, ptr %prof_info, i64 8
   store ptr %1, ptr %alloc_tctx1, align 8
-  %cmp = icmp ugt ptr %1, inttoptr (i64 1 to ptr)
+  %cmp = icmp ugt i64 %0, 1
   br i1 %cmp, label %if.then, label %if.end5
 
 if.then:                                          ; preds = %entry

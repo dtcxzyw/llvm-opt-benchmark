@@ -2605,7 +2605,7 @@ _ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKN
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %177, align 8
   %178 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
   %179 = inttoptr i64 %178 to ptr
-  %180 = icmp eq ptr %174, %179
+  %180 = icmp eq i64 %173, %178
   br i1 %180, label %_ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit.thread, label %183
 
 _ZL11isCrossCopyRKN4llvm19MachineRegisterInfoERKNS_12MachineInstrEPKNS_19TargetRegisterClassERKNS_14MachineOperandE.exit.thread: ; preds = %_ZNK12_GLOBAL__N_115DetectDeadLanes12isUndefInputERKN4llvm16DeadLaneDetectorERKNS1_14MachineOperandEPb.exit.i

@@ -47,7 +47,7 @@ define dso_local noundef ptr @_ZN4absl15status_internal23GetStatusPayloadPrinter
 entry:
   %0 = load atomic i64, ptr @_ZN4absl15status_internalL7storageB5cxx11E acquire, align 8
   %atomic-temp.i.0.i.i.i = inttoptr i64 %0 to ptr
-  %cmp.i = icmp eq ptr %atomic-temp.i.0.i.i.i, @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE13DummyFunctionESB_SE_
+  %cmp.i = icmp eq i64 %0, ptrtoint (ptr @_ZN4absl13base_internal10AtomicHookIPFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt17basic_string_viewIcS6_ERKNS_4CordEEE13DummyFunctionESB_SE_ to i64)
   %cond.i = select i1 %cmp.i, ptr null, ptr %atomic-temp.i.0.i.i.i
   ret ptr %cond.i
 }

@@ -6456,7 +6456,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i44:     ; preds = %73, %_ZN5clang17Dia
   %108 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %107) #23
   %109 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %107) #23
   %110 = icmp eq i64 %109, 0
-  br i1 %110, label %212, label %111
+  br i1 %110, label %210, label %111
 
 111:                                              ; preds = %100
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6649,74 +6649,73 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit: ; preds = %184
   %189 = inttoptr i64 %188 to ptr
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load i64, ptr %190, align 8
-  %192 = inttoptr i64 %191 to ptr
   %.not.i.i = icmp eq i64 %191, 0
   br i1 %.not.i.i, label %_ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit, %.preheader
-  %.0.i.i.i.i.i = phi ptr [ %196, %.preheader ], [ %134, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ]
-  %193 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %193, align 8
-  %194 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 4
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %194, 0
-  %195 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %196 = inttoptr i64 %195 to ptr
-  %.not6.i.i.i.i.i = icmp eq i64 %195, 0
+  %.0.i.i.i.i.i = phi ptr [ %195, %.preheader ], [ %134, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ]
+  %192 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %192, align 8
+  %193 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, 4
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %193, 0
+  %194 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %195 = inttoptr i64 %194 to ptr
+  %.not6.i.i.i.i.i = icmp eq i64 %194, 0
   %.not.i.i.i.i.i69 = or i1 %.not.i.i.i.i.i.i.i.i.i, %.not6.i.i.i.i.i
   br i1 %.not.i.i.i.i.i69, label %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i.i, label %.preheader, !llvm.loop !56
 
 _ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i.i: ; preds = %.preheader, %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i.i
-  %.0.i.i2.i.i.i = phi ptr [ %200, %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i.i ], [ %192, %.preheader ]
-  %197 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i.i.i, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i3.i.i.i = load i64, ptr %197, align 8
-  %198 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i3.i.i.i, 4
-  %.not.i.i.i.i.i.i4.i.i.i = icmp eq i64 %198, 0
-  %199 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i3.i.i.i, -8
-  %200 = inttoptr i64 %199 to ptr
-  %.not6.i.i5.i.i.i = icmp eq i64 %199, 0
+  %.0.i.i2.i.i.i.in = phi i64 [ %198, %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i.i ], [ %191, %.preheader ]
+  %.0.i.i2.i.i.i = inttoptr i64 %.0.i.i2.i.i.i.in to ptr
+  %196 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i.i.i, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i3.i.i.i = load i64, ptr %196, align 8
+  %197 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i3.i.i.i, 4
+  %.not.i.i.i.i.i.i4.i.i.i = icmp eq i64 %197, 0
+  %198 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i3.i.i.i, -8
+  %.not6.i.i5.i.i.i = icmp eq i64 %198, 0
   %.not.i.i6.i.i.i = or i1 %.not.i.i.i.i.i.i4.i.i.i, %.not6.i.i5.i.i.i
   br i1 %.not.i.i6.i.i.i, label %_ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit, label %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i.i, !llvm.loop !56
 
 _ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit: ; preds = %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i.i
-  %.not90 = icmp eq ptr %196, %200
-  br i1 %.not90, label %212, label %_ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit.thread
+  %.not90 = icmp eq i64 %194, %198
+  br i1 %.not90, label %210, label %_ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit.thread
 
 _ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit.thread: ; preds = %184, %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread.i.i.i, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit, %_ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit
-  %201 = getelementptr inbounds nuw i8, ptr %44, i64 1520
-  %202 = load i16, ptr %201, align 8
-  %203 = or i16 %202, 256
-  store i16 %203, ptr %201, align 8
-  %204 = and i16 %202, 64
-  %.not37 = icmp eq i16 %204, 0
-  %205 = select i1 %.not37, i32 3, i32 4
-  %206 = load ptr, ptr %177, align 8
-  %207 = call i32 @_ZN5clang13SourceManager17getOrCreateFileIDENS_12FileEntryRefENS_6SrcMgr18CharacteristicKindE(ptr noundef nonnull align 8 dereferenceable(696) %206, ptr nonnull %134, i32 noundef %205) #23
-  %208 = load ptr, ptr %35, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %208, i64 104
-  %210 = load ptr, ptr %209, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 640
-  call void @_ZN5clang9ModuleMap26setInferredModuleAllowedByEPNS_6ModuleENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(1344) %211, ptr noundef nonnull %44, i32 %207) #23
-  br label %212
+  %199 = getelementptr inbounds nuw i8, ptr %44, i64 1520
+  %200 = load i16, ptr %199, align 8
+  %201 = or i16 %200, 256
+  store i16 %201, ptr %199, align 8
+  %202 = and i16 %200, 64
+  %.not37 = icmp eq i16 %202, 0
+  %203 = select i1 %.not37, i32 3, i32 4
+  %204 = load ptr, ptr %177, align 8
+  %205 = call i32 @_ZN5clang13SourceManager17getOrCreateFileIDENS_12FileEntryRefENS_6SrcMgr18CharacteristicKindE(ptr noundef nonnull align 8 dereferenceable(696) %204, ptr nonnull %134, i32 noundef %203) #23
+  %206 = load ptr, ptr %35, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %206, i64 104
+  %208 = load ptr, ptr %207, align 8
+  %209 = getelementptr inbounds nuw i8, ptr %208, i64 640
+  call void @_ZN5clang9ModuleMap26setInferredModuleAllowedByEPNS_6ModuleENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(1344) %209, ptr noundef nonnull %44, i32 %205) #23
+  br label %210
 
-212:                                              ; preds = %_ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit, %_ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit.thread, %100
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %214 = load ptr, ptr %213, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %214, i64 584
-  %216 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %215) #23
-  %217 = icmp eq i64 %216, 0
-  br i1 %217, label %218, label %_ZN5clang17DiagnosticBuilderD2Ev.exit49
+210:                                              ; preds = %_ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit, %_ZN5clangneINS_12FileEntryRefEEEbRKT_RKNS_20CustomizableOptionalIS2_EE.exit.thread, %100
+  %211 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %212 = load ptr, ptr %211, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 584
+  %214 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %213) #23
+  %215 = icmp eq i64 %214, 0
+  br i1 %215, label %216, label %_ZN5clang17DiagnosticBuilderD2Ev.exit49
 
-218:                                              ; preds = %212
-  %219 = load ptr, ptr %11, align 8
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 472
-  %222 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %221) #23
-  %223 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %221) #23
-  call void @_ZN5clang13SourceManager20pushModuleBuildStackEN4llvm9StringRefENS_13FullSourceLocE(ptr noundef nonnull align 8 dereferenceable(696) %214, ptr %222, i64 %223, i32 0, ptr nonnull %214)
+216:                                              ; preds = %210
+  %217 = load ptr, ptr %11, align 8
+  %218 = load ptr, ptr %217, align 8
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 472
+  %220 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %219) #23
+  %221 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %219) #23
+  call void @_ZN5clang13SourceManager20pushModuleBuildStackEN4llvm9StringRefENS_13FullSourceLocE(ptr noundef nonnull align 8 dereferenceable(696) %212, ptr %220, i64 %221, i32 0, ptr nonnull %212)
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit49
 
-_ZN5clang17DiagnosticBuilderD2Ev.exit49:          ; preds = %169, %175, %85, %91, %163, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i61, %79, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i44, %212, %218, %92, %_ZN5clang17DiagnosticBuilderD2Ev.exit
-  %.0 = phi ptr [ null, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ null, %92 ], [ %44, %218 ], [ %44, %212 ], [ null, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i44 ], [ null, %79 ], [ null, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i61 ], [ null, %163 ], [ null, %91 ], [ null, %85 ], [ null, %175 ], [ null, %169 ]
+_ZN5clang17DiagnosticBuilderD2Ev.exit49:          ; preds = %169, %175, %85, %91, %163, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i61, %79, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i44, %210, %216, %92, %_ZN5clang17DiagnosticBuilderD2Ev.exit
+  %.0 = phi ptr [ null, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ null, %92 ], [ %44, %216 ], [ %44, %210 ], [ null, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i44 ], [ null, %79 ], [ null, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i61 ], [ null, %163 ], [ null, %91 ], [ null, %85 ], [ null, %175 ], [ null, %169 ]
   ret ptr %.0
 }
 

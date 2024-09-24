@@ -19172,19 +19172,19 @@ define linkonce_odr hidden void @_ZN4llvm21SequenceToOffsetTableINSt7__cxx1112ba
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %15) #18
   %19 = load i64, ptr %6, align 8
   %20 = load i64, ptr %7, align 8
-  %21 = inttoptr i64 %19 to ptr
-  %22 = inttoptr i64 %20 to ptr
-  %.not1.i.i.i.i.i = icmp eq ptr %21, %22
+  %21 = inttoptr i64 %20 to ptr
+  %.not1.i.i.i.i.i = icmp eq i64 %19, %20
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE8isSuffixERKS6_SB_.exit.thread, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %18
-  %23 = load i64, ptr %8, align 8
-  %24 = inttoptr i64 %23 to ptr
+  %22 = load i64, ptr %8, align 8
+  %23 = inttoptr i64 %22 to ptr
+  %24 = inttoptr i64 %19 to ptr
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %31, %.lr.ph.i.i.preheader.i.i.i
-  %.sroa.0.0.i.i.i.i = phi ptr [ %28, %31 ], [ %24, %.lr.ph.i.i.preheader.i.i.i ]
-  %25 = phi ptr [ %26, %31 ], [ %21, %.lr.ph.i.i.preheader.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %28, %31 ], [ %23, %.lr.ph.i.i.preheader.i.i.i ]
+  %25 = phi ptr [ %26, %31 ], [ %24, %.lr.ph.i.i.preheader.i.i.i ]
   %26 = getelementptr inbounds i8, ptr %25, i64 -1
   %27 = load i8, ptr %26, align 1
   %28 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 -1
@@ -19193,7 +19193,7 @@ define linkonce_odr hidden void @_ZN4llvm21SequenceToOffsetTableINSt7__cxx1112ba
   br i1 %30, label %31, label %_ZN4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE8isSuffixERKS6_SB_.exit
 
 31:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq ptr %26, %22
+  %.not.i.i.i.i.i = icmp eq ptr %26, %21
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE8isSuffixERKS6_SB_.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !118
 
 _ZN4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE8isSuffixERKS6_SB_.exit.thread: ; preds = %31, %18
@@ -19258,19 +19258,19 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjN4llvm21SequenceT
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   %50 = load i64, ptr %3, align 8
   %51 = load i64, ptr %4, align 8
-  %52 = inttoptr i64 %50 to ptr
-  %53 = inttoptr i64 %51 to ptr
-  %.not1.i.i.i.i.i10 = icmp eq ptr %52, %53
+  %52 = inttoptr i64 %51 to ptr
+  %.not1.i.i.i.i.i10 = icmp eq i64 %50, %51
   br i1 %.not1.i.i.i.i.i10, label %.loopexit, label %.lr.ph.i.i.preheader.i.i.i11
 
 .lr.ph.i.i.preheader.i.i.i11:                     ; preds = %49
-  %54 = load i64, ptr %5, align 8
-  %55 = inttoptr i64 %54 to ptr
+  %53 = load i64, ptr %5, align 8
+  %54 = inttoptr i64 %53 to ptr
+  %55 = inttoptr i64 %50 to ptr
   br label %.lr.ph.i.i.i.i.i12
 
 .lr.ph.i.i.i.i.i12:                               ; preds = %62, %.lr.ph.i.i.preheader.i.i.i11
-  %.sroa.0.0.i.i.i.i13 = phi ptr [ %59, %62 ], [ %55, %.lr.ph.i.i.preheader.i.i.i11 ]
-  %56 = phi ptr [ %57, %62 ], [ %52, %.lr.ph.i.i.preheader.i.i.i11 ]
+  %.sroa.0.0.i.i.i.i13 = phi ptr [ %59, %62 ], [ %54, %.lr.ph.i.i.preheader.i.i.i11 ]
+  %56 = phi ptr [ %57, %62 ], [ %55, %.lr.ph.i.i.preheader.i.i.i11 ]
   %57 = getelementptr inbounds i8, ptr %56, i64 -1
   %58 = load i8, ptr %57, align 1
   %59 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i13, i64 -1
@@ -19279,7 +19279,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjN4llvm21SequenceT
   br i1 %61, label %62, label %_ZN4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE8isSuffixERKS6_SB_.exit15
 
 62:                                               ; preds = %.lr.ph.i.i.i.i.i12
-  %.not.i.i.i.i.i14 = icmp eq ptr %57, %53
+  %.not.i.i.i.i.i14 = icmp eq ptr %57, %52
   br i1 %.not.i.i.i.i.i14, label %.loopexit, label %.lr.ph.i.i.i.i.i12, !llvm.loop !118
 
 _ZN4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE8isSuffixERKS6_SB_.exit15: ; preds = %.lr.ph.i.i.i.i.i12, %44
@@ -22922,29 +22922,29 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %10 = load i64, ptr %5, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %12 = load i64, ptr %6, align 8
-  %13 = load i64, ptr %7, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %15 = load i64, ptr %8, align 8
-  %16 = inttoptr i64 %15 to ptr
-  %17 = sub i64 %10, %12
-  %18 = sub i64 %13, %15
-  %19 = icmp slt i64 %18, %17
-  %20 = sub i64 %10, %18
-  %storemerge.i.i.i.i = select i1 %19, i64 %20, i64 %12
-  %21 = inttoptr i64 %storemerge.i.i.i.i to ptr
-  %.not17.i.i.i = icmp eq ptr %11, %21
+  %11 = load i64, ptr %6, align 8
+  %12 = load i64, ptr %7, align 8
+  %13 = inttoptr i64 %12 to ptr
+  %14 = load i64, ptr %8, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %16 = sub i64 %10, %11
+  %17 = sub i64 %12, %14
+  %18 = icmp slt i64 %17, %16
+  %19 = sub i64 %10, %17
+  %storemerge.i.i.i.i = select i1 %18, i64 %19, i64 %11
+  %20 = inttoptr i64 %storemerge.i.i.i.i to ptr
+  %.not17.i.i.i = icmp eq i64 %10, %storemerge.i.i.i.i
   br i1 %.not17.i.i.i, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.lr.ph
+  %21 = inttoptr i64 %10 to ptr
   %22 = sub i64 %storemerge.i.i.i.i, %10
-  %scevgep.i.i = getelementptr i8, ptr %14, i64 %22
+  %scevgep.i.i = getelementptr i8, ptr %13, i64 %22
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %31, %.lr.ph.i.preheader.i.i
-  %.sroa.01.0.i.i = phi ptr [ %25, %31 ], [ %14, %.lr.ph.i.preheader.i.i ]
-  %23 = phi ptr [ %24, %31 ], [ %11, %.lr.ph.i.preheader.i.i ]
+  %.sroa.01.0.i.i = phi ptr [ %25, %31 ], [ %13, %.lr.ph.i.preheader.i.i ]
+  %23 = phi ptr [ %24, %31 ], [ %21, %.lr.ph.i.preheader.i.i ]
   %24 = getelementptr inbounds i8, ptr %23, i64 -1
   %25 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i, i64 -1
   %26 = load i8, ptr %24, align 1
@@ -22971,12 +22971,12 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %33
 
 31:                                               ; preds = %29
-  %.not.i.i.i = icmp eq ptr %24, %21
+  %.not.i.i.i = icmp eq ptr %24, %20
   br i1 %.not.i.i.i, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit, label %.lr.ph.i.i.i, !llvm.loop !191
 
 _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit: ; preds = %31, %.lr.ph
-  %.sroa.0.0.copyload.i.i.i3.i.i.i = phi ptr [ %14, %.lr.ph ], [ %scevgep.i.i, %31 ]
-  %.not13 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i, %16
+  %.sroa.0.0.copyload.i.i.i3.i.i.i = phi ptr [ %13, %.lr.ph ], [ %scevgep.i.i, %31 ]
+  %.not13 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i, %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -23053,29 +23053,29 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %23, ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %33 = load i64, ptr %20, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = load i64, ptr %21, align 8
-  %36 = load i64, ptr %22, align 8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = load i64, ptr %23, align 8
-  %39 = inttoptr i64 %38 to ptr
-  %40 = sub i64 %33, %35
-  %41 = sub i64 %36, %38
-  %42 = icmp slt i64 %41, %40
-  %43 = sub i64 %33, %41
-  %storemerge.i.i.i.i = select i1 %42, i64 %43, i64 %35
-  %44 = inttoptr i64 %storemerge.i.i.i.i to ptr
-  %.not17.i.i.i = icmp eq ptr %34, %44
+  %34 = load i64, ptr %21, align 8
+  %35 = load i64, ptr %22, align 8
+  %36 = inttoptr i64 %35 to ptr
+  %37 = load i64, ptr %23, align 8
+  %38 = inttoptr i64 %37 to ptr
+  %39 = sub i64 %33, %34
+  %40 = sub i64 %35, %37
+  %41 = icmp slt i64 %40, %39
+  %42 = sub i64 %33, %40
+  %storemerge.i.i.i.i = select i1 %41, i64 %42, i64 %34
+  %43 = inttoptr i64 %storemerge.i.i.i.i to ptr
+  %.not17.i.i.i = icmp eq i64 %33, %storemerge.i.i.i.i
   br i1 %.not17.i.i.i, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %29
+  %44 = inttoptr i64 %33 to ptr
   %45 = sub i64 %storemerge.i.i.i.i, %33
-  %scevgep.i.i = getelementptr i8, ptr %37, i64 %45
+  %scevgep.i.i = getelementptr i8, ptr %36, i64 %45
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %54, %.lr.ph.i.preheader.i.i
-  %.sroa.01.0.i.i = phi ptr [ %48, %54 ], [ %37, %.lr.ph.i.preheader.i.i ]
-  %46 = phi ptr [ %47, %54 ], [ %34, %.lr.ph.i.preheader.i.i ]
+  %.sroa.01.0.i.i = phi ptr [ %48, %54 ], [ %36, %.lr.ph.i.preheader.i.i ]
+  %46 = phi ptr [ %47, %54 ], [ %44, %.lr.ph.i.preheader.i.i ]
   %47 = getelementptr inbounds i8, ptr %46, i64 -1
   %48 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i, i64 -1
   %49 = load i8, ptr %47, align 1
@@ -23102,12 +23102,12 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %57
 
 54:                                               ; preds = %52
-  %.not.i.i.i = icmp eq ptr %47, %44
+  %.not.i.i.i = icmp eq ptr %47, %43
   br i1 %.not.i.i.i, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit, label %.lr.ph.i.i.i, !llvm.loop !191
 
 _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit: ; preds = %54, %29
-  %.sroa.0.0.copyload.i.i.i3.i.i.i = phi ptr [ %37, %29 ], [ %scevgep.i.i, %54 ]
-  %.not97 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i, %39
+  %.sroa.0.0.copyload.i.i.i3.i.i.i = phi ptr [ %36, %29 ], [ %scevgep.i.i, %54 ]
+  %.not97 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i, %38
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
@@ -23135,29 +23135,29 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %18, ptr noundef nonnull align 8 dereferenceable(32) %62) #18
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %19, ptr noundef nonnull align 8 dereferenceable(32) %62) #18
   %63 = load i64, ptr %16, align 8
-  %64 = inttoptr i64 %63 to ptr
-  %65 = load i64, ptr %17, align 8
-  %66 = load i64, ptr %18, align 8
-  %67 = inttoptr i64 %66 to ptr
-  %68 = load i64, ptr %19, align 8
-  %69 = inttoptr i64 %68 to ptr
-  %70 = sub i64 %63, %65
-  %71 = sub i64 %66, %68
-  %72 = icmp slt i64 %71, %70
-  %73 = sub i64 %63, %71
-  %storemerge.i.i.i.i10 = select i1 %72, i64 %73, i64 %65
-  %74 = inttoptr i64 %storemerge.i.i.i.i10 to ptr
-  %.not17.i.i.i11 = icmp eq ptr %64, %74
+  %64 = load i64, ptr %17, align 8
+  %65 = load i64, ptr %18, align 8
+  %66 = inttoptr i64 %65 to ptr
+  %67 = load i64, ptr %19, align 8
+  %68 = inttoptr i64 %67 to ptr
+  %69 = sub i64 %63, %64
+  %70 = sub i64 %65, %67
+  %71 = icmp slt i64 %70, %69
+  %72 = sub i64 %63, %70
+  %storemerge.i.i.i.i10 = select i1 %71, i64 %72, i64 %64
+  %73 = inttoptr i64 %storemerge.i.i.i.i10 to ptr
+  %.not17.i.i.i11 = icmp eq i64 %63, %storemerge.i.i.i.i10
   br i1 %.not17.i.i.i11, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit20, label %.lr.ph.i.preheader.i.i12
 
 .lr.ph.i.preheader.i.i12:                         ; preds = %61
+  %74 = inttoptr i64 %63 to ptr
   %75 = sub i64 %storemerge.i.i.i.i10, %63
-  %scevgep.i.i13 = getelementptr i8, ptr %67, i64 %75
+  %scevgep.i.i13 = getelementptr i8, ptr %66, i64 %75
   br label %.lr.ph.i.i.i14
 
 .lr.ph.i.i.i14:                                   ; preds = %84, %.lr.ph.i.preheader.i.i12
-  %.sroa.01.0.i.i15 = phi ptr [ %78, %84 ], [ %67, %.lr.ph.i.preheader.i.i12 ]
-  %76 = phi ptr [ %77, %84 ], [ %64, %.lr.ph.i.preheader.i.i12 ]
+  %.sroa.01.0.i.i15 = phi ptr [ %78, %84 ], [ %66, %.lr.ph.i.preheader.i.i12 ]
+  %76 = phi ptr [ %77, %84 ], [ %74, %.lr.ph.i.preheader.i.i12 ]
   %77 = getelementptr inbounds i8, ptr %76, i64 -1
   %78 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i15, i64 -1
   %79 = load i8, ptr %77, align 1
@@ -23184,12 +23184,12 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %122
 
 84:                                               ; preds = %82
-  %.not.i.i.i16 = icmp eq ptr %77, %74
+  %.not.i.i.i16 = icmp eq ptr %77, %73
   br i1 %.not.i.i.i16, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit20, label %.lr.ph.i.i.i14, !llvm.loop !191
 
 _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit20: ; preds = %84, %61
-  %.sroa.0.0.copyload.i.i.i3.i.i.i18 = phi ptr [ %67, %61 ], [ %scevgep.i.i13, %84 ]
-  %.not93 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i18, %69
+  %.sroa.0.0.copyload.i.i.i3.i.i.i18 = phi ptr [ %66, %61 ], [ %scevgep.i.i13, %84 ]
+  %.not93 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i18, %68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
@@ -23214,29 +23214,29 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %14, ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %15, ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %92 = load i64, ptr %12, align 8
-  %93 = inttoptr i64 %92 to ptr
-  %94 = load i64, ptr %13, align 8
-  %95 = load i64, ptr %14, align 8
-  %96 = inttoptr i64 %95 to ptr
-  %97 = load i64, ptr %15, align 8
-  %98 = inttoptr i64 %97 to ptr
-  %99 = sub i64 %92, %94
-  %100 = sub i64 %95, %97
-  %101 = icmp slt i64 %100, %99
-  %102 = sub i64 %92, %100
-  %storemerge.i.i.i.i21 = select i1 %101, i64 %102, i64 %94
-  %103 = inttoptr i64 %storemerge.i.i.i.i21 to ptr
-  %.not17.i.i.i22 = icmp eq ptr %93, %103
+  %93 = load i64, ptr %13, align 8
+  %94 = load i64, ptr %14, align 8
+  %95 = inttoptr i64 %94 to ptr
+  %96 = load i64, ptr %15, align 8
+  %97 = inttoptr i64 %96 to ptr
+  %98 = sub i64 %92, %93
+  %99 = sub i64 %94, %96
+  %100 = icmp slt i64 %99, %98
+  %101 = sub i64 %92, %99
+  %storemerge.i.i.i.i21 = select i1 %100, i64 %101, i64 %93
+  %102 = inttoptr i64 %storemerge.i.i.i.i21 to ptr
+  %.not17.i.i.i22 = icmp eq i64 %92, %storemerge.i.i.i.i21
   br i1 %.not17.i.i.i22, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit31, label %.lr.ph.i.preheader.i.i23
 
 .lr.ph.i.preheader.i.i23:                         ; preds = %89
+  %103 = inttoptr i64 %92 to ptr
   %104 = sub i64 %storemerge.i.i.i.i21, %92
-  %scevgep.i.i24 = getelementptr i8, ptr %96, i64 %104
+  %scevgep.i.i24 = getelementptr i8, ptr %95, i64 %104
   br label %.lr.ph.i.i.i25
 
 .lr.ph.i.i.i25:                                   ; preds = %113, %.lr.ph.i.preheader.i.i23
-  %.sroa.01.0.i.i26 = phi ptr [ %107, %113 ], [ %96, %.lr.ph.i.preheader.i.i23 ]
-  %105 = phi ptr [ %106, %113 ], [ %93, %.lr.ph.i.preheader.i.i23 ]
+  %.sroa.01.0.i.i26 = phi ptr [ %107, %113 ], [ %95, %.lr.ph.i.preheader.i.i23 ]
+  %105 = phi ptr [ %106, %113 ], [ %103, %.lr.ph.i.preheader.i.i23 ]
   %106 = getelementptr inbounds i8, ptr %105, i64 -1
   %107 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i26, i64 -1
   %108 = load i8, ptr %106, align 1
@@ -23263,12 +23263,12 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %118
 
 113:                                              ; preds = %111
-  %.not.i.i.i27 = icmp eq ptr %106, %103
+  %.not.i.i.i27 = icmp eq ptr %106, %102
   br i1 %.not.i.i.i27, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit31, label %.lr.ph.i.i.i25, !llvm.loop !191
 
 _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit31: ; preds = %113, %89
-  %.sroa.0.0.copyload.i.i.i3.i.i.i29 = phi ptr [ %96, %89 ], [ %scevgep.i.i24, %113 ]
-  %.not96 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i29, %98
+  %.sroa.0.0.copyload.i.i.i3.i.i.i29 = phi ptr [ %95, %89 ], [ %scevgep.i.i24, %113 ]
+  %.not96 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i29, %97
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
@@ -23299,29 +23299,29 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   %123 = load i64, ptr %8, align 8
-  %124 = inttoptr i64 %123 to ptr
-  %125 = load i64, ptr %9, align 8
-  %126 = load i64, ptr %10, align 8
-  %127 = inttoptr i64 %126 to ptr
-  %128 = load i64, ptr %11, align 8
-  %129 = inttoptr i64 %128 to ptr
-  %130 = sub i64 %123, %125
-  %131 = sub i64 %126, %128
-  %132 = icmp slt i64 %131, %130
-  %133 = sub i64 %123, %131
-  %storemerge.i.i.i.i32 = select i1 %132, i64 %133, i64 %125
-  %134 = inttoptr i64 %storemerge.i.i.i.i32 to ptr
-  %.not17.i.i.i33 = icmp eq ptr %124, %134
+  %124 = load i64, ptr %9, align 8
+  %125 = load i64, ptr %10, align 8
+  %126 = inttoptr i64 %125 to ptr
+  %127 = load i64, ptr %11, align 8
+  %128 = inttoptr i64 %127 to ptr
+  %129 = sub i64 %123, %124
+  %130 = sub i64 %125, %127
+  %131 = icmp slt i64 %130, %129
+  %132 = sub i64 %123, %130
+  %storemerge.i.i.i.i32 = select i1 %131, i64 %132, i64 %124
+  %133 = inttoptr i64 %storemerge.i.i.i.i32 to ptr
+  %.not17.i.i.i33 = icmp eq i64 %123, %storemerge.i.i.i.i32
   br i1 %.not17.i.i.i33, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit42, label %.lr.ph.i.preheader.i.i34
 
 .lr.ph.i.preheader.i.i34:                         ; preds = %122
+  %134 = inttoptr i64 %123 to ptr
   %135 = sub i64 %storemerge.i.i.i.i32, %123
-  %scevgep.i.i35 = getelementptr i8, ptr %127, i64 %135
+  %scevgep.i.i35 = getelementptr i8, ptr %126, i64 %135
   br label %.lr.ph.i.i.i36
 
 .lr.ph.i.i.i36:                                   ; preds = %144, %.lr.ph.i.preheader.i.i34
-  %.sroa.01.0.i.i37 = phi ptr [ %138, %144 ], [ %127, %.lr.ph.i.preheader.i.i34 ]
-  %136 = phi ptr [ %137, %144 ], [ %124, %.lr.ph.i.preheader.i.i34 ]
+  %.sroa.01.0.i.i37 = phi ptr [ %138, %144 ], [ %126, %.lr.ph.i.preheader.i.i34 ]
+  %136 = phi ptr [ %137, %144 ], [ %134, %.lr.ph.i.preheader.i.i34 ]
   %137 = getelementptr inbounds i8, ptr %136, i64 -1
   %138 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i37, i64 -1
   %139 = load i8, ptr %137, align 1
@@ -23348,12 +23348,12 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %182
 
 144:                                              ; preds = %142
-  %.not.i.i.i38 = icmp eq ptr %137, %134
+  %.not.i.i.i38 = icmp eq ptr %137, %133
   br i1 %.not.i.i.i38, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit42, label %.lr.ph.i.i.i36, !llvm.loop !191
 
 _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit42: ; preds = %144, %122
-  %.sroa.0.0.copyload.i.i.i3.i.i.i40 = phi ptr [ %127, %122 ], [ %scevgep.i.i35, %144 ]
-  %.not94 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i40, %129
+  %.sroa.0.0.copyload.i.i.i3.i.i.i40 = phi ptr [ %126, %122 ], [ %scevgep.i.i35, %144 ]
+  %.not94 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i40, %128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -23378,29 +23378,29 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %151) #18
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %151) #18
   %152 = load i64, ptr %4, align 8
-  %153 = inttoptr i64 %152 to ptr
-  %154 = load i64, ptr %5, align 8
-  %155 = load i64, ptr %6, align 8
-  %156 = inttoptr i64 %155 to ptr
-  %157 = load i64, ptr %7, align 8
-  %158 = inttoptr i64 %157 to ptr
-  %159 = sub i64 %152, %154
-  %160 = sub i64 %155, %157
-  %161 = icmp slt i64 %160, %159
-  %162 = sub i64 %152, %160
-  %storemerge.i.i.i.i43 = select i1 %161, i64 %162, i64 %154
-  %163 = inttoptr i64 %storemerge.i.i.i.i43 to ptr
-  %.not17.i.i.i44 = icmp eq ptr %153, %163
+  %153 = load i64, ptr %5, align 8
+  %154 = load i64, ptr %6, align 8
+  %155 = inttoptr i64 %154 to ptr
+  %156 = load i64, ptr %7, align 8
+  %157 = inttoptr i64 %156 to ptr
+  %158 = sub i64 %152, %153
+  %159 = sub i64 %154, %156
+  %160 = icmp slt i64 %159, %158
+  %161 = sub i64 %152, %159
+  %storemerge.i.i.i.i43 = select i1 %160, i64 %161, i64 %153
+  %162 = inttoptr i64 %storemerge.i.i.i.i43 to ptr
+  %.not17.i.i.i44 = icmp eq i64 %152, %storemerge.i.i.i.i43
   br i1 %.not17.i.i.i44, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit53, label %.lr.ph.i.preheader.i.i45
 
 .lr.ph.i.preheader.i.i45:                         ; preds = %149
+  %163 = inttoptr i64 %152 to ptr
   %164 = sub i64 %storemerge.i.i.i.i43, %152
-  %scevgep.i.i46 = getelementptr i8, ptr %156, i64 %164
+  %scevgep.i.i46 = getelementptr i8, ptr %155, i64 %164
   br label %.lr.ph.i.i.i47
 
 .lr.ph.i.i.i47:                                   ; preds = %173, %.lr.ph.i.preheader.i.i45
-  %.sroa.01.0.i.i48 = phi ptr [ %167, %173 ], [ %156, %.lr.ph.i.preheader.i.i45 ]
-  %165 = phi ptr [ %166, %173 ], [ %153, %.lr.ph.i.preheader.i.i45 ]
+  %.sroa.01.0.i.i48 = phi ptr [ %167, %173 ], [ %155, %.lr.ph.i.preheader.i.i45 ]
+  %165 = phi ptr [ %166, %173 ], [ %163, %.lr.ph.i.preheader.i.i45 ]
   %166 = getelementptr inbounds i8, ptr %165, i64 -1
   %167 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i48, i64 -1
   %168 = load i8, ptr %166, align 1
@@ -23427,12 +23427,12 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %178
 
 173:                                              ; preds = %171
-  %.not.i.i.i49 = icmp eq ptr %166, %163
+  %.not.i.i.i49 = icmp eq ptr %166, %162
   br i1 %.not.i.i.i49, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit53, label %.lr.ph.i.i.i47, !llvm.loop !191
 
 _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit53: ; preds = %173, %149
-  %.sroa.0.0.copyload.i.i.i3.i.i.i51 = phi ptr [ %156, %149 ], [ %scevgep.i.i46, %173 ]
-  %.not95 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i51, %158
+  %.sroa.0.0.copyload.i.i.i3.i.i.i51 = phi ptr [ %155, %149 ], [ %scevgep.i.i46, %173 ]
+  %.not95 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i51, %157
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
@@ -23489,29 +23489,29 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %10, ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   %14 = load i64, ptr %7, align 8
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load i64, ptr %8, align 8
-  %17 = load i64, ptr %9, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load i64, ptr %10, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = sub i64 %14, %16
-  %22 = sub i64 %17, %19
-  %23 = icmp slt i64 %22, %21
-  %24 = sub i64 %14, %22
-  %storemerge.i.i.i.i = select i1 %23, i64 %24, i64 %16
-  %25 = inttoptr i64 %storemerge.i.i.i.i to ptr
-  %.not17.i.i.i = icmp eq ptr %15, %25
+  %15 = load i64, ptr %8, align 8
+  %16 = load i64, ptr %9, align 8
+  %17 = inttoptr i64 %16 to ptr
+  %18 = load i64, ptr %10, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %20 = sub i64 %14, %15
+  %21 = sub i64 %16, %18
+  %22 = icmp slt i64 %21, %20
+  %23 = sub i64 %14, %21
+  %storemerge.i.i.i.i = select i1 %22, i64 %23, i64 %15
+  %24 = inttoptr i64 %storemerge.i.i.i.i to ptr
+  %.not17.i.i.i = icmp eq i64 %14, %storemerge.i.i.i.i
   br i1 %.not17.i.i.i, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.lr.ph
+  %25 = inttoptr i64 %14 to ptr
   %26 = sub i64 %storemerge.i.i.i.i, %14
-  %scevgep.i.i = getelementptr i8, ptr %18, i64 %26
+  %scevgep.i.i = getelementptr i8, ptr %17, i64 %26
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %35, %.lr.ph.i.preheader.i.i
-  %.sroa.01.0.i.i = phi ptr [ %29, %35 ], [ %18, %.lr.ph.i.preheader.i.i ]
-  %27 = phi ptr [ %28, %35 ], [ %15, %.lr.ph.i.preheader.i.i ]
+  %.sroa.01.0.i.i = phi ptr [ %29, %35 ], [ %17, %.lr.ph.i.preheader.i.i ]
+  %27 = phi ptr [ %28, %35 ], [ %25, %.lr.ph.i.preheader.i.i ]
   %28 = getelementptr inbounds i8, ptr %27, i64 -1
   %29 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i, i64 -1
   %30 = load i8, ptr %28, align 1
@@ -23538,12 +23538,12 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %36
 
 35:                                               ; preds = %33
-  %.not.i.i.i = icmp eq ptr %28, %25
+  %.not.i.i.i = icmp eq ptr %28, %24
   br i1 %.not.i.i.i, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit, label %.lr.ph.i.i.i, !llvm.loop !191
 
 _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit: ; preds = %35, %.lr.ph
-  %.sroa.0.0.copyload.i.i.i3.i.i.i = phi ptr [ %18, %.lr.ph ], [ %scevgep.i.i, %35 ]
-  %.not41 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i, %20
+  %.sroa.0.0.copyload.i.i.i3.i.i.i = phi ptr [ %17, %.lr.ph ], [ %scevgep.i.i, %35 ]
+  %.not41 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
@@ -23588,29 +23588,29 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   %46 = load i64, ptr %3, align 8
-  %47 = inttoptr i64 %46 to ptr
-  %48 = load i64, ptr %4, align 8
-  %49 = load i64, ptr %5, align 8
-  %50 = inttoptr i64 %49 to ptr
-  %51 = load i64, ptr %6, align 8
-  %52 = inttoptr i64 %51 to ptr
-  %53 = sub i64 %46, %48
-  %54 = sub i64 %49, %51
-  %55 = icmp slt i64 %54, %53
-  %56 = sub i64 %46, %54
-  %storemerge.i.i.i.i5 = select i1 %55, i64 %56, i64 %48
-  %57 = inttoptr i64 %storemerge.i.i.i.i5 to ptr
-  %.not17.i.i.i6 = icmp eq ptr %47, %57
+  %47 = load i64, ptr %4, align 8
+  %48 = load i64, ptr %5, align 8
+  %49 = inttoptr i64 %48 to ptr
+  %50 = load i64, ptr %6, align 8
+  %51 = inttoptr i64 %50 to ptr
+  %52 = sub i64 %46, %47
+  %53 = sub i64 %48, %50
+  %54 = icmp slt i64 %53, %52
+  %55 = sub i64 %46, %53
+  %storemerge.i.i.i.i5 = select i1 %54, i64 %55, i64 %47
+  %56 = inttoptr i64 %storemerge.i.i.i.i5 to ptr
+  %.not17.i.i.i6 = icmp eq i64 %46, %storemerge.i.i.i.i5
   br i1 %.not17.i.i.i6, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit15, label %.lr.ph.i.preheader.i.i7
 
 .lr.ph.i.preheader.i.i7:                          ; preds = %44
+  %57 = inttoptr i64 %46 to ptr
   %58 = sub i64 %storemerge.i.i.i.i5, %46
-  %scevgep.i.i8 = getelementptr i8, ptr %50, i64 %58
+  %scevgep.i.i8 = getelementptr i8, ptr %49, i64 %58
   br label %.lr.ph.i.i.i9
 
 .lr.ph.i.i.i9:                                    ; preds = %67, %.lr.ph.i.preheader.i.i7
-  %.sroa.01.0.i.i10 = phi ptr [ %61, %67 ], [ %50, %.lr.ph.i.preheader.i.i7 ]
-  %59 = phi ptr [ %60, %67 ], [ %47, %.lr.ph.i.preheader.i.i7 ]
+  %.sroa.01.0.i.i10 = phi ptr [ %61, %67 ], [ %49, %.lr.ph.i.preheader.i.i7 ]
+  %59 = phi ptr [ %60, %67 ], [ %57, %.lr.ph.i.preheader.i.i7 ]
   %60 = getelementptr inbounds i8, ptr %59, i64 -1
   %61 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i10, i64 -1
   %62 = load i8, ptr %60, align 1
@@ -23637,12 +23637,12 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %68
 
 67:                                               ; preds = %65
-  %.not.i.i.i11 = icmp eq ptr %60, %57
+  %.not.i.i.i11 = icmp eq ptr %60, %56
   br i1 %.not.i.i.i11, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit15, label %.lr.ph.i.i.i9, !llvm.loop !191
 
 _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit15: ; preds = %67, %44
-  %.sroa.0.0.copyload.i.i.i3.i.i.i13 = phi ptr [ %50, %44 ], [ %scevgep.i.i8, %67 ]
-  %.not42 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i13, %52
+  %.sroa.0.0.copyload.i.i.i3.i.i.i13 = phi ptr [ %49, %44 ], [ %scevgep.i.i8, %67 ]
+  %.not42 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i13, %51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -23687,29 +23687,29 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %13) #18
   %14 = load i64, ptr %5, align 8
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load i64, ptr %6, align 8
-  %17 = load i64, ptr %7, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load i64, ptr %8, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = sub i64 %14, %16
-  %22 = sub i64 %17, %19
-  %23 = icmp slt i64 %22, %21
-  %24 = sub i64 %14, %22
-  %storemerge.i.i.i.i = select i1 %23, i64 %24, i64 %16
-  %25 = inttoptr i64 %storemerge.i.i.i.i to ptr
-  %.not17.i.i.i = icmp eq ptr %15, %25
+  %15 = load i64, ptr %6, align 8
+  %16 = load i64, ptr %7, align 8
+  %17 = inttoptr i64 %16 to ptr
+  %18 = load i64, ptr %8, align 8
+  %19 = inttoptr i64 %18 to ptr
+  %20 = sub i64 %14, %15
+  %21 = sub i64 %16, %18
+  %22 = icmp slt i64 %21, %20
+  %23 = sub i64 %14, %21
+  %storemerge.i.i.i.i = select i1 %22, i64 %23, i64 %15
+  %24 = inttoptr i64 %storemerge.i.i.i.i to ptr
+  %.not17.i.i.i = icmp eq i64 %14, %storemerge.i.i.i.i
   br i1 %.not17.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %11
+  %25 = inttoptr i64 %14 to ptr
   %26 = sub i64 %storemerge.i.i.i.i, %14
-  %scevgep.i.i = getelementptr i8, ptr %18, i64 %26
+  %scevgep.i.i = getelementptr i8, ptr %17, i64 %26
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %32, %.lr.ph.i.preheader.i.i
-  %.sroa.01.0.i.i = phi ptr [ %29, %32 ], [ %18, %.lr.ph.i.preheader.i.i ]
-  %27 = phi ptr [ %28, %32 ], [ %15, %.lr.ph.i.preheader.i.i ]
+  %.sroa.01.0.i.i = phi ptr [ %29, %32 ], [ %17, %.lr.ph.i.preheader.i.i ]
+  %27 = phi ptr [ %28, %32 ], [ %25, %.lr.ph.i.preheader.i.i ]
   %28 = getelementptr inbounds i8, ptr %27, i64 -1
   %29 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i, i64 -1
   %30 = load i8, ptr %28, align 1
@@ -23718,12 +23718,12 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_trai
   br i1 %or.cond9.not, label %32, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit.loopexit
 
 32:                                               ; preds = %.lr.ph.i.i.i
-  %.not.i.i.i = icmp eq ptr %28, %25
+  %.not.i.i.i = icmp eq ptr %28, %24
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !191
 
 ._crit_edge.i.i.i:                                ; preds = %32, %11
-  %.sroa.0.0.copyload.i.i.i3.i.i.i = phi ptr [ %18, %11 ], [ %scevgep.i.i, %32 ]
-  %33 = icmp ne ptr %.sroa.0.0.copyload.i.i.i3.i.i.i, %20
+  %.sroa.0.0.copyload.i.i.i3.i.i.i = phi ptr [ %17, %11 ], [ %scevgep.i.i, %32 ]
+  %33 = icmp ne ptr %.sroa.0.0.copyload.i.i.i3.i.i.i, %19
   br label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit
 
 _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit.loopexit: ; preds = %.lr.ph.i.i.i
@@ -24589,29 +24589,29 @@ define linkonce_odr ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4rendEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.294") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %3) #18
   %10 = load i64, ptr %5, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %12 = load i64, ptr %6, align 8
-  %13 = load i64, ptr %7, align 8
-  %14 = inttoptr i64 %13 to ptr
-  %15 = load i64, ptr %8, align 8
-  %16 = inttoptr i64 %15 to ptr
-  %17 = sub i64 %10, %12
-  %18 = sub i64 %13, %15
-  %19 = icmp slt i64 %18, %17
-  %20 = sub i64 %10, %18
-  %storemerge.i.i.i.i = select i1 %19, i64 %20, i64 %12
-  %21 = inttoptr i64 %storemerge.i.i.i.i to ptr
-  %.not17.i.i.i = icmp eq ptr %11, %21
+  %11 = load i64, ptr %6, align 8
+  %12 = load i64, ptr %7, align 8
+  %13 = inttoptr i64 %12 to ptr
+  %14 = load i64, ptr %8, align 8
+  %15 = inttoptr i64 %14 to ptr
+  %16 = sub i64 %10, %11
+  %17 = sub i64 %12, %14
+  %18 = icmp slt i64 %17, %16
+  %19 = sub i64 %10, %17
+  %storemerge.i.i.i.i = select i1 %18, i64 %19, i64 %11
+  %20 = inttoptr i64 %storemerge.i.i.i.i to ptr
+  %.not17.i.i.i = icmp eq i64 %10, %storemerge.i.i.i.i
   br i1 %.not17.i.i.i, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %.lr.ph
+  %21 = inttoptr i64 %10 to ptr
   %22 = sub i64 %storemerge.i.i.i.i, %10
-  %scevgep.i.i = getelementptr i8, ptr %14, i64 %22
+  %scevgep.i.i = getelementptr i8, ptr %13, i64 %22
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %31, %.lr.ph.i.preheader.i.i
-  %.sroa.01.0.i.i = phi ptr [ %25, %31 ], [ %14, %.lr.ph.i.preheader.i.i ]
-  %23 = phi ptr [ %24, %31 ], [ %11, %.lr.ph.i.preheader.i.i ]
+  %.sroa.01.0.i.i = phi ptr [ %25, %31 ], [ %13, %.lr.ph.i.preheader.i.i ]
+  %23 = phi ptr [ %24, %31 ], [ %21, %.lr.ph.i.preheader.i.i ]
   %24 = getelementptr inbounds i8, ptr %23, i64 -1
   %25 = getelementptr inbounds i8, ptr %.sroa.01.0.i.i, i64 -1
   %26 = load i8, ptr %24, align 1
@@ -24638,12 +24638,12 @@ _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   br label %33
 
 31:                                               ; preds = %29
-  %.not.i.i.i = icmp eq ptr %24, %21
+  %.not.i.i.i = icmp eq ptr %24, %20
   br i1 %.not.i.i.i, label %_ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit, label %.lr.ph.i.i.i, !llvm.loop !191
 
 _ZNK4llvm21SequenceToOffsetTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIcEE7SeqLessclERKS6_SC_.exit: ; preds = %31, %.lr.ph
-  %.sroa.0.0.copyload.i.i.i3.i.i.i = phi ptr [ %14, %.lr.ph ], [ %scevgep.i.i, %31 ]
-  %.not13 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i, %16
+  %.sroa.0.0.copyload.i.i.i3.i.i.i = phi ptr [ %13, %.lr.ph ], [ %scevgep.i.i, %31 ]
+  %.not13 = icmp eq ptr %.sroa.0.0.copyload.i.i.i3.i.i.i, %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)

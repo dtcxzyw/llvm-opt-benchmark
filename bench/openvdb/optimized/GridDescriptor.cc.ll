@@ -341,19 +341,19 @@ if.end.i:                                         ; preds = %invoke.cont
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr nonnull sret(%"class.std::reverse_iterator.15") align 8 %agg.tmp3.i, ptr noundef nonnull align 8 dereferenceable(32) %mGridType) #13
   %1 = load i64, ptr %agg.tmp.i, align 8
   %2 = load i64, ptr %agg.tmp2.i, align 8
-  %3 = inttoptr i64 %1 to ptr
-  %4 = inttoptr i64 %2 to ptr
-  %cmp.i.i.not4.i.i.i.i.i = icmp eq ptr %3, %4
+  %3 = inttoptr i64 %2 to ptr
+  %cmp.i.i.not4.i.i.i.i.i = icmp eq i64 %1, %2
   br i1 %cmp.i.i.not4.i.i.i.i.i, label %invoke.cont11, label %for.body.i.i.preheader.i.i.i
 
 for.body.i.i.preheader.i.i.i:                     ; preds = %if.end.i
-  %5 = load i64, ptr %agg.tmp3.i, align 8
-  %6 = inttoptr i64 %5 to ptr
+  %4 = load i64, ptr %agg.tmp3.i, align 8
+  %5 = inttoptr i64 %4 to ptr
+  %6 = inttoptr i64 %1 to ptr
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, %for.body.i.i.preheader.i.i.i
-  %agg.tmp2.sroa.0.0.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %6, %for.body.i.i.preheader.i.i.i ]
-  %7 = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %3, %for.body.i.i.preheader.i.i.i ]
+  %agg.tmp2.sroa.0.0.i.i.i.i = phi ptr [ %incdec.ptr.i1.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %5, %for.body.i.i.preheader.i.i.i ]
+  %7 = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %6, %for.body.i.i.preheader.i.i.i ]
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 -1
   %8 = load i8, ptr %incdec.ptr.i.i.i.i.i.i, align 1
   %incdec.ptr.i1.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp2.sroa.0.0.i.i.i.i, i64 -1
@@ -362,7 +362,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.inc.i.i.i.i.i, 
   br i1 %cmp.i.i.i.i.i, label %for.inc.i.i.i.i.i, label %if.end.critedge
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %4
+  %cmp.i.i.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i, %3
   br i1 %cmp.i.i.not.i.i.i.i.i, label %invoke.cont11, label %for.body.i.i.i.i.i, !llvm.loop !10
 
 invoke.cont11:                                    ; preds = %for.inc.i.i.i.i.i, %if.end.i

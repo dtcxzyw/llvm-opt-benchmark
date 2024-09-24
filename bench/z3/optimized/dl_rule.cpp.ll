@@ -18040,23 +18040,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_tail.i, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = ptrtoint ptr %4 to i64
-  %and.i = and i64 %5, -8
-  %6 = inttoptr i64 %and.i to ptr
   %arrayidx.i17 = getelementptr inbounds [0 x ptr], ptr %m_tail.i15, i64 0, i64 %indvars.iv
-  %7 = load ptr, ptr %arrayidx.i17, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %and.i18 = and i64 %8, -8
-  %9 = inttoptr i64 %and.i18 to ptr
-  %cmp11.not = icmp eq ptr %6, %9
+  %6 = load ptr, ptr %arrayidx.i17, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = xor i64 %7, %5
+  %cmp11.not = icmp ult i64 %8, 8
   br i1 %cmp11.not, label %if.end13, label %return
 
 if.end13:                                         ; preds = %for.body
   %and.i22 = and i64 %5, 7
   %cmp.i = icmp eq i64 %and.i22, 1
-  %and.i26 = and i64 %8, 7
+  %and.i26 = and i64 %7, 7
   %cmp.i27 = icmp eq i64 %and.i26, 1
-  %10 = xor i1 %cmp.i, %cmp.i27
-  br i1 %10, label %return, label %for.cond
+  %9 = xor i1 %cmp.i, %cmp.i27
+  br i1 %9, label %return, label %for.cond
 
 return:                                           ; preds = %for.body, %if.end13, %for.cond, %for.cond.preheader, %if.end, %entry
   %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ true, %for.cond.preheader ], [ false, %for.body ], [ false, %if.end13 ], [ true, %for.cond ]

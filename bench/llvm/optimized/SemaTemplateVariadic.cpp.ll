@@ -1690,7 +1690,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   %.sroa.0.0.copyload.i6 = load i64, ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   %18 = inttoptr i64 %.sroa.0.0.copyload.i6 to ptr
-  %.not.i.i.i = icmp ult ptr %18, inttoptr (i64 16 to ptr)
+  %.not.i.i.i = icmp ult i64 %.sroa.0.0.copyload.i6, 16
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE.exit, label %19
 
 19:                                               ; preds = %13
@@ -1704,7 +1704,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31DiagnoseUnexpandedParameter
   br i1 %.not.i, label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %19
-  %26 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr %18, ptr nonnull %17)
+  %26 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr nonnull %18, ptr nonnull %17)
   br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE.exit
 
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor15TraverseTypeLocEN5clang7TypeLocE.exit: ; preds = %13, %19, %.critedge.i

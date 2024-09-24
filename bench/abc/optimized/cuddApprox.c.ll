@@ -2144,7 +2144,7 @@ define internal fastcc ptr @UAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
 67:                                               ; preds = %59
   %68 = xor i64 %60, 1
   %69 = inttoptr i64 %68 to ptr
-  %70 = icmp eq ptr %52, %69
+  %70 = icmp eq i64 %51, %68
   br i1 %70, label %.thread, label %71
 
 71:                                               ; preds = %67
@@ -2313,21 +2313,21 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
 64:                                               ; preds = %56
   %65 = ptrtoint ptr %53 to i64
   %66 = xor i64 %65, 1
-  %67 = inttoptr i64 %66 to ptr
-  %68 = icmp eq ptr %59, %67
-  br i1 %68, label %.thread, label %69
+  %67 = icmp eq i64 %58, %66
+  br i1 %67, label %.thread, label %68
 
-69:                                               ; preds = %64
-  %70 = call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %51, ptr noundef nonnull %59, ptr noundef %67) #10
+68:                                               ; preds = %64
+  %69 = inttoptr i64 %66 to ptr
+  %70 = call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %51, ptr noundef nonnull %59, ptr noundef %69) #10
   %71 = icmp eq ptr %70, null
   br i1 %71, label %72, label %.thread
 
-72:                                               ; preds = %69
+72:                                               ; preds = %68
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef nonnull %59) #10
   br label %179
 
-.thread:                                          ; preds = %64, %69
-  %73 = phi ptr [ %70, %69 ], [ %59, %64 ]
+.thread:                                          ; preds = %64, %68
+  %73 = phi ptr [ %70, %68 ], [ %59, %64 ]
   %74 = ptrtoint ptr %73 to i64
   %75 = xor i64 %74, 1
   %76 = inttoptr i64 %75 to ptr
@@ -2450,7 +2450,7 @@ define internal fastcc ptr @RAbuildSubset(ptr noundef %0, ptr noundef %1, ptr no
 148:                                              ; preds = %140
   %149 = xor i64 %141, 1
   %150 = inttoptr i64 %149 to ptr
-  %151 = icmp eq ptr %133, %150
+  %151 = icmp eq i64 %132, %149
   br i1 %151, label %.thread158, label %152
 
 152:                                              ; preds = %148

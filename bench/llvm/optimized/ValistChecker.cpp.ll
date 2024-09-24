@@ -2770,19 +2770,19 @@ _ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118InitializedVAListsEEEbNS
   %.sroa.1.0..sroa_idx.i24.i = getelementptr inbounds i8, ptr %.014.i, i64 24
   %.sroa.1.0.copyload.i25.i = load i64, ptr %.sroa.1.0..sroa_idx.i24.i, align 8
   %76 = and i64 %.sroa.1.0.copyload.i25.i, -8
-  %77 = inttoptr i64 %76 to ptr
-  %78 = icmp eq ptr %77, %57
-  br i1 %78, label %81, label %79
+  %77 = icmp eq i64 %76, %56
+  br i1 %77, label %81, label %78
 
-79:                                               ; preds = %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118InitializedVAListsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i
-  %80 = call noundef zeroext i1 @_ZNK5clang15LocationContext10isParentOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %77, ptr noundef %57) #19
+78:                                               ; preds = %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118InitializedVAListsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i
+  %79 = inttoptr i64 %76 to ptr
+  %80 = call noundef zeroext i1 @_ZNK5clang15LocationContext10isParentOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %79, ptr noundef %57) #19
   br i1 %80, label %81, label %82
 
-81:                                               ; preds = %79, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118InitializedVAListsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i
+81:                                               ; preds = %78, %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_118InitializedVAListsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit.i
   br label %82
 
-82:                                               ; preds = %81, %79
-  %.3.i = phi ptr [ %.014.i, %81 ], [ %.01812.i, %79 ]
+82:                                               ; preds = %81, %78
+  %.3.i = phi ptr [ %.014.i, %81 ], [ %.01812.i, %78 ]
   %83 = getelementptr inbounds nuw i8, ptr %.014.i, i64 64
   %84 = load i64, ptr %83, align 8
   %85 = icmp eq i64 %84, 0

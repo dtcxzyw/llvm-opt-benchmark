@@ -33,8 +33,7 @@ define dso_local noundef i64 @_ZN4absl18debugging_internal11VDSOSupport13InitAnd
 entry:
   %call = tail call noundef ptr @_ZN4absl18debugging_internal11VDSOSupport4InitEv()
   %0 = load atomic i64, ptr @_ZN4absl18debugging_internal11VDSOSupport10getcpu_fn_E monotonic, align 8
-  %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
-  %cmp.not = icmp eq ptr %atomic-temp.i.0.i, @_ZN4absl18debugging_internal11VDSOSupport13InitAndGetCPUEPjPvS3_
+  %cmp.not = icmp eq i64 %0, ptrtoint (ptr @_ZN4absl18debugging_internal11VDSOSupport13InitAndGetCPUEPjPvS3_ to i64)
   br i1 %cmp.not, label %do.body2, label %do.end5
 
 do.body2:                                         ; preds = %entry
@@ -42,6 +41,7 @@ do.body2:                                         ; preds = %entry
   unreachable
 
 do.end5:                                          ; preds = %entry
+  %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
   %call6 = tail call noundef i64 %atomic-temp.i.0.i(ptr noundef %cpu, ptr noundef %x, ptr noundef %y)
   ret i64 %call6
 }
@@ -50,8 +50,7 @@ do.end5:                                          ; preds = %entry
 define dso_local void @_ZN4absl18debugging_internal11VDSOSupportC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i64, ptr @_ZN4absl18debugging_internal11VDSOSupport10vdso_base_E monotonic, align 8
-  %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
-  %cmp = icmp eq ptr %atomic-temp.i.0.i, @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE
+  %cmp = icmp eq i64 %0, ptrtoint (ptr @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE to i64)
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
@@ -76,8 +75,7 @@ entry:
   %vdso = alloca %"class.absl::debugging_internal::VDSOSupport", align 8
   %info = alloca %"struct.absl::debugging_internal::ElfMemImage::SymbolInfo", align 8
   %0 = load atomic i64, ptr @_ZN4absl18debugging_internal11VDSOSupport10vdso_base_E monotonic, align 8
-  %atomic-temp.i.0.i = inttoptr i64 %0 to ptr
-  %cmp = icmp eq ptr %atomic-temp.i.0.i, @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE
+  %cmp = icmp eq i64 %0, ptrtoint (ptr @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE to i64)
   br i1 %cmp, label %if.then, label %if.end6
 
 if.then:                                          ; preds = %entry
@@ -94,8 +92,7 @@ if.then5:                                         ; preds = %if.then
 
 if.end6:                                          ; preds = %if.then, %if.then5, %entry
   %2 = load atomic i64, ptr @_ZN4absl18debugging_internal11VDSOSupport10vdso_base_E monotonic, align 8
-  %atomic-temp.i.0.i3 = inttoptr i64 %2 to ptr
-  %cmp8 = icmp eq ptr %atomic-temp.i.0.i3, @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE
+  %cmp8 = icmp eq i64 %2, ptrtoint (ptr @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE to i64)
   br i1 %cmp8, label %if.then9, label %if.end24
 
 if.then9:                                         ; preds = %if.end6
@@ -127,8 +124,7 @@ if.then17:                                        ; preds = %while.body
 while.end:                                        ; preds = %while.cond, %if.then17
   %call19 = tail call i32 @close(i32 noundef %call10)
   %5 = load atomic i64, ptr @_ZN4absl18debugging_internal11VDSOSupport10vdso_base_E monotonic, align 8
-  %atomic-temp.i.0.i4 = inttoptr i64 %5 to ptr
-  %cmp21 = icmp eq ptr %atomic-temp.i.0.i4, @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE
+  %cmp21 = icmp eq i64 %5, ptrtoint (ptr @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE to i64)
   br i1 %cmp21, label %if.then22, label %if.end24
 
 if.then22:                                        ; preds = %while.end
@@ -142,8 +138,7 @@ if.end24:                                         ; preds = %while.end, %if.then
 
 if.then26:                                        ; preds = %if.end24
   %7 = load atomic i64, ptr @_ZN4absl18debugging_internal11VDSOSupport10vdso_base_E monotonic, align 8
-  %atomic-temp.i.0.i9 = inttoptr i64 %7 to ptr
-  %cmp.i = icmp eq ptr %atomic-temp.i.0.i9, @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE
+  %cmp.i = icmp eq i64 %7, ptrtoint (ptr @_ZN4absl18debugging_internal11ElfMemImage20kInvalidBaseSentinelE to i64)
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then26

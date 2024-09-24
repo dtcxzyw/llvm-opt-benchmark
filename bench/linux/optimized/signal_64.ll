@@ -375,7 +375,7 @@ define dso_local i64 @__x64_sys_rt_sigreturn(ptr nocapture readnone %0) #0 align
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, -8
   %15 = inttoptr i64 %14 to ptr
-  %16 = icmp sgt ptr %15, inttoptr (i64 -1 to ptr)
+  %16 = icmp sgt i64 %14, -1
   br i1 %16, label %17, label %130, !prof !7
 
 17:                                               ; preds = %1

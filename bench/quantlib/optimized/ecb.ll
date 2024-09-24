@@ -3164,7 +3164,7 @@ while.body:                                       ; preds = %land.rhs.preheader,
   %11 = phi ptr [ %8, %land.rhs ], [ %5, %land.rhs.preheader ]
   %and.i.i186 = phi i64 [ %and.i.i, %land.rhs ], [ %and.i.i182, %land.rhs.preheader ]
   %x.addr.0172185 = phi ptr [ %x.addr.3, %land.rhs ], [ %x, %land.rhs.preheader ]
-  %12 = phi ptr [ %112, %land.rhs ], [ %1, %land.rhs.preheader ]
+  %12 = phi ptr [ %108, %land.rhs ], [ %1, %land.rhs.preheader ]
   %13 = inttoptr i64 %10 to ptr
   %left_.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load ptr, ptr %left_.i, align 8, !tbaa !18
@@ -3236,25 +3236,24 @@ if.end.i:                                         ; preds = %if.then.i, %if.then
   store i64 %or.i.i.i, ptr %27, align 8, !tbaa !8
   %32 = load i64, ptr %12, align 8, !tbaa !8
   %and.i24.i = and i64 %32, -2
-  %33 = inttoptr i64 %and.i24.i to ptr
-  %cmp10.i = icmp eq ptr %11, %33
+  %cmp10.i = icmp eq i64 %and.i.i186, %and.i24.i
   br i1 %cmp10.i, label %if.then11.i, label %if.else.i
 
 if.then11.i:                                      ; preds = %if.end.i
-  %34 = ptrtoint ptr %x.addr.0172185 to i64
+  %33 = ptrtoint ptr %x.addr.0172185 to i64
   %and.i25.i = and i64 %32, 1
-  %or.i26.i = or i64 %and.i25.i, %34
+  %or.i26.i = or i64 %and.i25.i, %33
   store i64 %or.i26.i, ptr %12, align 8, !tbaa !8
   %.pre.i = load i64, ptr %11, align 8, !tbaa !8
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %35 = load i64, ptr %11, align 8, !tbaa !8
-  %and.i.i27.i = and i64 %35, -2
-  %36 = inttoptr i64 %and.i.i27.i to ptr
-  %left_.i28.i = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %37 = load ptr, ptr %left_.i28.i, align 8, !tbaa !18
-  %cmp16.i = icmp eq ptr %37, %11
+  %34 = load i64, ptr %11, align 8, !tbaa !8
+  %and.i.i27.i = and i64 %34, -2
+  %35 = inttoptr i64 %and.i.i27.i to ptr
+  %left_.i28.i = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %36 = load ptr, ptr %left_.i28.i, align 8, !tbaa !18
+  %cmp16.i = icmp eq ptr %36, %11
   br i1 %cmp16.i, label %if.then17.i, label %if.else21.i
 
 if.then17.i:                                      ; preds = %if.else.i
@@ -3262,105 +3261,104 @@ if.then17.i:                                      ; preds = %if.else.i
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 if.else21.i:                                      ; preds = %if.else.i
-  %right_.i32.i = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %right_.i32.i = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %27, ptr %right_.i32.i, align 8, !tbaa !18
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit: ; preds = %if.then11.i, %if.then17.i, %if.else21.i
-  %38 = phi i64 [ %35, %if.then17.i ], [ %35, %if.else21.i ], [ %.pre.i, %if.then11.i ]
+  %37 = phi i64 [ %34, %if.then17.i ], [ %34, %if.else21.i ], [ %.pre.i, %if.then11.i ]
   store ptr %11, ptr %left_.i.i, align 8, !tbaa !18
-  %39 = ptrtoint ptr %x.addr.0172185 to i64
-  %and.i34.i = and i64 %38, 1
-  %or.i35.i = or i64 %and.i34.i, %39
+  %38 = ptrtoint ptr %x.addr.0172185 to i64
+  %and.i34.i = and i64 %37, 1
+  %or.i35.i = or i64 %and.i34.i, %38
   store i64 %or.i35.i, ptr %11, align 8, !tbaa !8
   %.pre176 = load ptr, ptr %root, align 8, !tbaa !67
-  %.pre177 = and i64 %39, -2
+  %.pre177 = and i64 %38, -2
   %.pre178 = inttoptr i64 %.pre177 to ptr
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit, %if.else
   %.pre-phi = phi ptr [ %.pre178, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %11, %if.else ]
-  %40 = phi ptr [ %.pre176, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %12, %if.else ]
+  %39 = phi ptr [ %.pre176, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %12, %if.else ]
   %x.addr.2 = phi ptr [ %11, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %x.addr.0172185, %if.else ]
-  %41 = load i64, ptr %.pre-phi, align 8, !tbaa !8
-  %or.i55 = or i64 %41, 1
+  %40 = load i64, ptr %.pre-phi, align 8, !tbaa !8
+  %or.i55 = or i64 %40, 1
   store i64 %or.i55, ptr %.pre-phi, align 8, !tbaa !8
-  %42 = load i64, ptr %x.addr.2, align 8, !tbaa !8
-  %and.i.i56 = and i64 %42, -2
-  %43 = inttoptr i64 %and.i.i56 to ptr
-  %44 = load i64, ptr %43, align 8, !tbaa !8
-  %and.i.i57 = and i64 %44, -2
-  %45 = inttoptr i64 %and.i.i57 to ptr
-  %46 = load i64, ptr %45, align 8, !tbaa !8
-  %and.i58 = and i64 %46, -2
-  store i64 %and.i58, ptr %45, align 8, !tbaa !8
-  %47 = load i64, ptr %x.addr.2, align 8, !tbaa !8
-  %and.i.i60 = and i64 %47, -2
-  %48 = inttoptr i64 %and.i.i60 to ptr
-  %49 = load i64, ptr %48, align 8, !tbaa !8
-  %and.i61 = and i64 %49, -2
-  %50 = inttoptr i64 %and.i61 to ptr
-  %left_.i.i62 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %51 = load ptr, ptr %left_.i.i62, align 8, !tbaa !18
-  %right_.i.i63 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  %52 = load ptr, ptr %right_.i.i63, align 8, !tbaa !18
-  store ptr %52, ptr %left_.i.i62, align 8, !tbaa !18
-  %cmp.not.i64 = icmp eq ptr %52, null
+  %41 = load i64, ptr %x.addr.2, align 8, !tbaa !8
+  %and.i.i56 = and i64 %41, -2
+  %42 = inttoptr i64 %and.i.i56 to ptr
+  %43 = load i64, ptr %42, align 8, !tbaa !8
+  %and.i.i57 = and i64 %43, -2
+  %44 = inttoptr i64 %and.i.i57 to ptr
+  %45 = load i64, ptr %44, align 8, !tbaa !8
+  %and.i58 = and i64 %45, -2
+  store i64 %and.i58, ptr %44, align 8, !tbaa !8
+  %46 = load i64, ptr %x.addr.2, align 8, !tbaa !8
+  %and.i.i60 = and i64 %46, -2
+  %47 = inttoptr i64 %and.i.i60 to ptr
+  %48 = load i64, ptr %47, align 8, !tbaa !8
+  %and.i61 = and i64 %48, -2
+  %49 = inttoptr i64 %and.i61 to ptr
+  %left_.i.i62 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %50 = load ptr, ptr %left_.i.i62, align 8, !tbaa !18
+  %right_.i.i63 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %51 = load ptr, ptr %right_.i.i63, align 8, !tbaa !18
+  store ptr %51, ptr %left_.i.i62, align 8, !tbaa !18
+  %cmp.not.i64 = icmp eq ptr %51, null
   br i1 %cmp.not.i64, label %if.end.i68, label %if.then.i65
 
 if.then.i65:                                      ; preds = %if.end
-  %53 = load i64, ptr %52, align 8, !tbaa !8
-  %and.i.i66 = and i64 %53, 1
+  %52 = load i64, ptr %51, align 8, !tbaa !8
+  %and.i.i66 = and i64 %52, 1
   %or.i.i67 = or disjoint i64 %and.i.i66, %and.i61
-  store i64 %or.i.i67, ptr %52, align 8, !tbaa !8
+  store i64 %or.i.i67, ptr %51, align 8, !tbaa !8
   br label %if.end.i68
 
 if.end.i68:                                       ; preds = %if.then.i65, %if.end
+  %53 = load i64, ptr %49, align 8, !tbaa !8
+  %and.i.i.i69 = and i64 %53, -2
   %54 = load i64, ptr %50, align 8, !tbaa !8
-  %and.i.i.i69 = and i64 %54, -2
-  %55 = load i64, ptr %51, align 8, !tbaa !8
-  %and.i1.i.i70 = and i64 %55, 1
+  %and.i1.i.i70 = and i64 %54, 1
   %or.i.i.i71 = or disjoint i64 %and.i1.i.i70, %and.i.i.i69
-  store i64 %or.i.i.i71, ptr %51, align 8, !tbaa !8
-  %56 = load i64, ptr %40, align 8, !tbaa !8
-  %and.i24.i72 = and i64 %56, -2
-  %57 = inttoptr i64 %and.i24.i72 to ptr
-  %cmp10.i73 = icmp eq ptr %50, %57
+  store i64 %or.i.i.i71, ptr %50, align 8, !tbaa !8
+  %55 = load i64, ptr %39, align 8, !tbaa !8
+  %and.i24.i72 = and i64 %55, -2
+  %cmp10.i73 = icmp eq i64 %and.i61, %and.i24.i72
   br i1 %cmp10.i73, label %if.then11.i81, label %if.else.i74
 
 if.then11.i81:                                    ; preds = %if.end.i68
-  %58 = ptrtoint ptr %51 to i64
-  %and.i25.i82 = and i64 %56, 1
-  %or.i26.i83 = or i64 %and.i25.i82, %58
-  store i64 %or.i26.i83, ptr %40, align 8, !tbaa !8
-  %.pre.i84 = load i64, ptr %50, align 8, !tbaa !8
+  %56 = ptrtoint ptr %50 to i64
+  %and.i25.i82 = and i64 %55, 1
+  %or.i26.i83 = or i64 %and.i25.i82, %56
+  store i64 %or.i26.i83, ptr %39, align 8, !tbaa !8
+  %.pre.i84 = load i64, ptr %49, align 8, !tbaa !8
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 if.else.i74:                                      ; preds = %if.end.i68
-  %59 = load i64, ptr %50, align 8, !tbaa !8
-  %and.i.i27.i75 = and i64 %59, -2
-  %60 = inttoptr i64 %and.i.i27.i75 to ptr
-  %right_.i28.i = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %61 = load ptr, ptr %right_.i28.i, align 8, !tbaa !18
-  %cmp16.i76 = icmp eq ptr %61, %50
+  %57 = load i64, ptr %49, align 8, !tbaa !8
+  %and.i.i27.i75 = and i64 %57, -2
+  %58 = inttoptr i64 %and.i.i27.i75 to ptr
+  %right_.i28.i = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %59 = load ptr, ptr %right_.i28.i, align 8, !tbaa !18
+  %cmp16.i76 = icmp eq ptr %59, %49
   br i1 %cmp16.i76, label %if.then17.i80, label %if.else21.i77
 
 if.then17.i80:                                    ; preds = %if.else.i74
-  store ptr %51, ptr %right_.i28.i, align 8, !tbaa !18
+  store ptr %50, ptr %right_.i28.i, align 8, !tbaa !18
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 if.else21.i77:                                    ; preds = %if.else.i74
-  %left_.i32.i = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %51, ptr %left_.i32.i, align 8, !tbaa !18
+  %left_.i32.i = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store ptr %50, ptr %left_.i32.i, align 8, !tbaa !18
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
 
 _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit: ; preds = %if.then11.i81, %if.then17.i80, %if.else21.i77
-  %62 = phi i64 [ %59, %if.then17.i80 ], [ %59, %if.else21.i77 ], [ %.pre.i84, %if.then11.i81 ]
-  store ptr %50, ptr %right_.i.i63, align 8, !tbaa !18
-  %63 = ptrtoint ptr %51 to i64
-  %and.i34.i78 = and i64 %62, 1
-  %or.i35.i79 = or i64 %and.i34.i78, %63
-  store i64 %or.i35.i79, ptr %50, align 8, !tbaa !8
+  %60 = phi i64 [ %57, %if.then17.i80 ], [ %57, %if.else21.i77 ], [ %.pre.i84, %if.then11.i81 ]
+  store ptr %49, ptr %right_.i.i63, align 8, !tbaa !18
+  %61 = ptrtoint ptr %50 to i64
+  %and.i34.i78 = and i64 %60, 1
+  %or.i35.i79 = or i64 %and.i34.i78, %61
+  store i64 %or.i35.i79, ptr %49, align 8, !tbaa !8
   br label %if.end122
 
 if.else66:                                        ; preds = %while.body
@@ -3368,204 +3366,202 @@ if.else66:                                        ; preds = %while.body
   br i1 %cmp73.not, label %if.else96, label %land.rhs74
 
 land.rhs74:                                       ; preds = %if.else66
-  %64 = load i64, ptr %14, align 8, !tbaa !8
-  %conv.i88168 = and i64 %64, 1
+  %62 = load i64, ptr %14, align 8, !tbaa !8
+  %conv.i88168 = and i64 %62, 1
   %cmp77 = icmp eq i64 %conv.i88168, 0
   br i1 %cmp77, label %if.then79, label %if.else96
 
 if.then79:                                        ; preds = %land.rhs74
   %or.i91 = or disjoint i64 %10, 1
   store i64 %or.i91, ptr %11, align 8, !tbaa !8
-  %65 = load i64, ptr %14, align 8, !tbaa !8
-  %or.i93 = or i64 %65, 1
+  %63 = load i64, ptr %14, align 8, !tbaa !8
+  %or.i93 = or i64 %63, 1
   store i64 %or.i93, ptr %14, align 8, !tbaa !8
-  %66 = load i64, ptr %x.addr.0172185, align 8, !tbaa !8
-  %and.i.i94 = and i64 %66, -2
-  %67 = inttoptr i64 %and.i.i94 to ptr
+  %64 = load i64, ptr %x.addr.0172185, align 8, !tbaa !8
+  %and.i.i94 = and i64 %64, -2
+  %65 = inttoptr i64 %and.i.i94 to ptr
+  %66 = load i64, ptr %65, align 8, !tbaa !8
+  %and.i.i95 = and i64 %66, -2
+  %67 = inttoptr i64 %and.i.i95 to ptr
   %68 = load i64, ptr %67, align 8, !tbaa !8
-  %and.i.i95 = and i64 %68, -2
-  %69 = inttoptr i64 %and.i.i95 to ptr
-  %70 = load i64, ptr %69, align 8, !tbaa !8
-  %and.i96 = and i64 %70, -2
-  store i64 %and.i96, ptr %69, align 8, !tbaa !8
-  %71 = load i64, ptr %x.addr.0172185, align 8, !tbaa !8
-  %and.i.i98 = and i64 %71, -2
-  %72 = inttoptr i64 %and.i.i98 to ptr
-  %73 = load i64, ptr %72, align 8, !tbaa !8
-  %and.i99 = and i64 %73, -2
-  %74 = inttoptr i64 %and.i99 to ptr
+  %and.i96 = and i64 %68, -2
+  store i64 %and.i96, ptr %67, align 8, !tbaa !8
+  %69 = load i64, ptr %x.addr.0172185, align 8, !tbaa !8
+  %and.i.i98 = and i64 %69, -2
+  %70 = inttoptr i64 %and.i.i98 to ptr
+  %71 = load i64, ptr %70, align 8, !tbaa !8
+  %and.i99 = and i64 %71, -2
+  %72 = inttoptr i64 %and.i99 to ptr
   br label %if.end122
 
 if.else96:                                        ; preds = %if.else66, %land.rhs74
   %left_.i101 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %75 = load ptr, ptr %left_.i101, align 8, !tbaa !18
-  %cmp100 = icmp eq ptr %x.addr.0172185, %75
+  %73 = load ptr, ptr %left_.i101, align 8, !tbaa !18
+  %cmp100 = icmp eq ptr %x.addr.0172185, %73
   br i1 %cmp100, label %if.then101, label %if.end105
 
 if.then101:                                       ; preds = %if.else96
-  %right_.i.i104 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %76 = load ptr, ptr %right_.i.i104, align 8, !tbaa !18
-  store ptr %76, ptr %left_.i101, align 8, !tbaa !18
-  %cmp.not.i105 = icmp eq ptr %76, null
+  %right_.i.i104 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %74 = load ptr, ptr %right_.i.i104, align 8, !tbaa !18
+  store ptr %74, ptr %left_.i101, align 8, !tbaa !18
+  %cmp.not.i105 = icmp eq ptr %74, null
   br i1 %cmp.not.i105, label %if.end.i109, label %if.then.i106
 
 if.then.i106:                                     ; preds = %if.then101
-  %77 = load i64, ptr %76, align 8, !tbaa !8
-  %and.i.i107 = and i64 %77, 1
+  %75 = load i64, ptr %74, align 8, !tbaa !8
+  %and.i.i107 = and i64 %75, 1
   %or.i.i108 = or disjoint i64 %and.i.i107, %and.i.i186
-  store i64 %or.i.i108, ptr %76, align 8, !tbaa !8
+  store i64 %or.i.i108, ptr %74, align 8, !tbaa !8
   %.pre = load i64, ptr %11, align 8, !tbaa !8
   br label %if.end.i109
 
 if.end.i109:                                      ; preds = %if.then.i106, %if.then101
-  %78 = phi i64 [ %.pre, %if.then.i106 ], [ %10, %if.then101 ]
-  %and.i.i.i110 = and i64 %78, -2
-  %79 = load i64, ptr %75, align 8, !tbaa !8
-  %and.i1.i.i111 = and i64 %79, 1
+  %76 = phi i64 [ %.pre, %if.then.i106 ], [ %10, %if.then101 ]
+  %and.i.i.i110 = and i64 %76, -2
+  %77 = load i64, ptr %73, align 8, !tbaa !8
+  %and.i1.i.i111 = and i64 %77, 1
   %or.i.i.i112 = or disjoint i64 %and.i1.i.i111, %and.i.i.i110
-  store i64 %or.i.i.i112, ptr %75, align 8, !tbaa !8
-  %80 = load i64, ptr %12, align 8, !tbaa !8
-  %and.i24.i113 = and i64 %80, -2
-  %81 = inttoptr i64 %and.i24.i113 to ptr
-  %cmp10.i114 = icmp eq ptr %11, %81
+  store i64 %or.i.i.i112, ptr %73, align 8, !tbaa !8
+  %78 = load i64, ptr %12, align 8, !tbaa !8
+  %and.i24.i113 = and i64 %78, -2
+  %cmp10.i114 = icmp eq i64 %and.i.i186, %and.i24.i113
   br i1 %cmp10.i114, label %if.then11.i124, label %if.else.i115
 
 if.then11.i124:                                   ; preds = %if.end.i109
-  %82 = ptrtoint ptr %x.addr.0172185 to i64
-  %and.i25.i125 = and i64 %80, 1
-  %or.i26.i126 = or i64 %and.i25.i125, %82
+  %79 = ptrtoint ptr %x.addr.0172185 to i64
+  %and.i25.i125 = and i64 %78, 1
+  %or.i26.i126 = or i64 %and.i25.i125, %79
   store i64 %or.i26.i126, ptr %12, align 8, !tbaa !8
   %.pre.i127 = load i64, ptr %11, align 8, !tbaa !8
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit128
 
 if.else.i115:                                     ; preds = %if.end.i109
-  %83 = load i64, ptr %11, align 8, !tbaa !8
-  %and.i.i27.i116 = and i64 %83, -2
-  %84 = inttoptr i64 %and.i.i27.i116 to ptr
-  %right_.i28.i117 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %85 = load ptr, ptr %right_.i28.i117, align 8, !tbaa !18
-  %cmp16.i118 = icmp eq ptr %85, %11
+  %80 = load i64, ptr %11, align 8, !tbaa !8
+  %and.i.i27.i116 = and i64 %80, -2
+  %81 = inttoptr i64 %and.i.i27.i116 to ptr
+  %right_.i28.i117 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %82 = load ptr, ptr %right_.i28.i117, align 8, !tbaa !18
+  %cmp16.i118 = icmp eq ptr %82, %11
   br i1 %cmp16.i118, label %if.then17.i123, label %if.else21.i119
 
 if.then17.i123:                                   ; preds = %if.else.i115
-  store ptr %75, ptr %right_.i28.i117, align 8, !tbaa !18
+  store ptr %73, ptr %right_.i28.i117, align 8, !tbaa !18
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit128
 
 if.else21.i119:                                   ; preds = %if.else.i115
-  %left_.i32.i120 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store ptr %75, ptr %left_.i32.i120, align 8, !tbaa !18
+  %left_.i32.i120 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store ptr %73, ptr %left_.i32.i120, align 8, !tbaa !18
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit128
 
 _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit128: ; preds = %if.then11.i124, %if.then17.i123, %if.else21.i119
-  %86 = phi i64 [ %83, %if.then17.i123 ], [ %83, %if.else21.i119 ], [ %.pre.i127, %if.then11.i124 ]
+  %83 = phi i64 [ %80, %if.then17.i123 ], [ %80, %if.else21.i119 ], [ %.pre.i127, %if.then11.i124 ]
   store ptr %11, ptr %right_.i.i104, align 8, !tbaa !18
-  %87 = ptrtoint ptr %x.addr.0172185 to i64
-  %and.i34.i121 = and i64 %86, 1
-  %or.i35.i122 = or i64 %and.i34.i121, %87
+  %84 = ptrtoint ptr %x.addr.0172185 to i64
+  %and.i34.i121 = and i64 %83, 1
+  %or.i35.i122 = or i64 %and.i34.i121, %84
   store i64 %or.i35.i122, ptr %11, align 8, !tbaa !8
   %.pre174 = load ptr, ptr %root, align 8, !tbaa !67
-  %.pre179 = and i64 %87, -2
+  %.pre179 = and i64 %84, -2
   %.pre180 = inttoptr i64 %.pre179 to ptr
   br label %if.end105
 
 if.end105:                                        ; preds = %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit128, %if.else96
   %.pre-phi181 = phi ptr [ %.pre180, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit128 ], [ %11, %if.else96 ]
-  %88 = phi ptr [ %.pre174, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit128 ], [ %12, %if.else96 ]
+  %85 = phi ptr [ %.pre174, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit128 ], [ %12, %if.else96 ]
   %x.addr.5 = phi ptr [ %11, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit128 ], [ %x.addr.0172185, %if.else96 ]
-  %89 = load i64, ptr %.pre-phi181, align 8, !tbaa !8
-  %or.i131 = or i64 %89, 1
+  %86 = load i64, ptr %.pre-phi181, align 8, !tbaa !8
+  %or.i131 = or i64 %86, 1
   store i64 %or.i131, ptr %.pre-phi181, align 8, !tbaa !8
-  %90 = load i64, ptr %x.addr.5, align 8, !tbaa !8
-  %and.i.i132 = and i64 %90, -2
-  %91 = inttoptr i64 %and.i.i132 to ptr
-  %92 = load i64, ptr %91, align 8, !tbaa !8
-  %and.i.i133 = and i64 %92, -2
-  %93 = inttoptr i64 %and.i.i133 to ptr
+  %87 = load i64, ptr %x.addr.5, align 8, !tbaa !8
+  %and.i.i132 = and i64 %87, -2
+  %88 = inttoptr i64 %and.i.i132 to ptr
+  %89 = load i64, ptr %88, align 8, !tbaa !8
+  %and.i.i133 = and i64 %89, -2
+  %90 = inttoptr i64 %and.i.i133 to ptr
+  %91 = load i64, ptr %90, align 8, !tbaa !8
+  %and.i134 = and i64 %91, -2
+  store i64 %and.i134, ptr %90, align 8, !tbaa !8
+  %92 = load i64, ptr %x.addr.5, align 8, !tbaa !8
+  %and.i.i136 = and i64 %92, -2
+  %93 = inttoptr i64 %and.i.i136 to ptr
   %94 = load i64, ptr %93, align 8, !tbaa !8
-  %and.i134 = and i64 %94, -2
-  store i64 %and.i134, ptr %93, align 8, !tbaa !8
-  %95 = load i64, ptr %x.addr.5, align 8, !tbaa !8
-  %and.i.i136 = and i64 %95, -2
-  %96 = inttoptr i64 %and.i.i136 to ptr
-  %97 = load i64, ptr %96, align 8, !tbaa !8
-  %and.i137 = and i64 %97, -2
-  %98 = inttoptr i64 %and.i137 to ptr
-  %right_.i.i138 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %99 = load ptr, ptr %right_.i.i138, align 8, !tbaa !18
-  %left_.i.i139 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %100 = load ptr, ptr %left_.i.i139, align 8, !tbaa !18
-  store ptr %100, ptr %right_.i.i138, align 8, !tbaa !18
-  %cmp.not.i140 = icmp eq ptr %100, null
+  %and.i137 = and i64 %94, -2
+  %95 = inttoptr i64 %and.i137 to ptr
+  %right_.i.i138 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  %96 = load ptr, ptr %right_.i.i138, align 8, !tbaa !18
+  %left_.i.i139 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %97 = load ptr, ptr %left_.i.i139, align 8, !tbaa !18
+  store ptr %97, ptr %right_.i.i138, align 8, !tbaa !18
+  %cmp.not.i140 = icmp eq ptr %97, null
   br i1 %cmp.not.i140, label %if.end.i144, label %if.then.i141
 
 if.then.i141:                                     ; preds = %if.end105
-  %101 = load i64, ptr %100, align 8, !tbaa !8
-  %and.i.i142 = and i64 %101, 1
+  %98 = load i64, ptr %97, align 8, !tbaa !8
+  %and.i.i142 = and i64 %98, 1
   %or.i.i143 = or disjoint i64 %and.i.i142, %and.i137
-  store i64 %or.i.i143, ptr %100, align 8, !tbaa !8
+  store i64 %or.i.i143, ptr %97, align 8, !tbaa !8
   br label %if.end.i144
 
 if.end.i144:                                      ; preds = %if.then.i141, %if.end105
-  %102 = load i64, ptr %98, align 8, !tbaa !8
-  %and.i.i.i145 = and i64 %102, -2
-  %103 = load i64, ptr %99, align 8, !tbaa !8
-  %and.i1.i.i146 = and i64 %103, 1
+  %99 = load i64, ptr %95, align 8, !tbaa !8
+  %and.i.i.i145 = and i64 %99, -2
+  %100 = load i64, ptr %96, align 8, !tbaa !8
+  %and.i1.i.i146 = and i64 %100, 1
   %or.i.i.i147 = or disjoint i64 %and.i1.i.i146, %and.i.i.i145
-  store i64 %or.i.i.i147, ptr %99, align 8, !tbaa !8
-  %104 = load i64, ptr %88, align 8, !tbaa !8
-  %and.i24.i148 = and i64 %104, -2
-  %105 = inttoptr i64 %and.i24.i148 to ptr
-  %cmp10.i149 = icmp eq ptr %98, %105
+  store i64 %or.i.i.i147, ptr %96, align 8, !tbaa !8
+  %101 = load i64, ptr %85, align 8, !tbaa !8
+  %and.i24.i148 = and i64 %101, -2
+  %cmp10.i149 = icmp eq i64 %and.i137, %and.i24.i148
   br i1 %cmp10.i149, label %if.then11.i159, label %if.else.i150
 
 if.then11.i159:                                   ; preds = %if.end.i144
-  %106 = ptrtoint ptr %99 to i64
-  %and.i25.i160 = and i64 %104, 1
-  %or.i26.i161 = or i64 %and.i25.i160, %106
-  store i64 %or.i26.i161, ptr %88, align 8, !tbaa !8
-  %.pre.i162 = load i64, ptr %98, align 8, !tbaa !8
+  %102 = ptrtoint ptr %96 to i64
+  %and.i25.i160 = and i64 %101, 1
+  %or.i26.i161 = or i64 %and.i25.i160, %102
+  store i64 %or.i26.i161, ptr %85, align 8, !tbaa !8
+  %.pre.i162 = load i64, ptr %95, align 8, !tbaa !8
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit163
 
 if.else.i150:                                     ; preds = %if.end.i144
-  %107 = load i64, ptr %98, align 8, !tbaa !8
-  %and.i.i27.i151 = and i64 %107, -2
-  %108 = inttoptr i64 %and.i.i27.i151 to ptr
-  %left_.i28.i152 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %109 = load ptr, ptr %left_.i28.i152, align 8, !tbaa !18
-  %cmp16.i153 = icmp eq ptr %109, %98
+  %103 = load i64, ptr %95, align 8, !tbaa !8
+  %and.i.i27.i151 = and i64 %103, -2
+  %104 = inttoptr i64 %and.i.i27.i151 to ptr
+  %left_.i28.i152 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %105 = load ptr, ptr %left_.i28.i152, align 8, !tbaa !18
+  %cmp16.i153 = icmp eq ptr %105, %95
   br i1 %cmp16.i153, label %if.then17.i158, label %if.else21.i154
 
 if.then17.i158:                                   ; preds = %if.else.i150
-  store ptr %99, ptr %left_.i28.i152, align 8, !tbaa !18
+  store ptr %96, ptr %left_.i28.i152, align 8, !tbaa !18
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit163
 
 if.else21.i154:                                   ; preds = %if.else.i150
-  %right_.i32.i155 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  store ptr %99, ptr %right_.i32.i155, align 8, !tbaa !18
+  %right_.i32.i155 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  store ptr %96, ptr %right_.i32.i155, align 8, !tbaa !18
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit163
 
 _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit163: ; preds = %if.then11.i159, %if.then17.i158, %if.else21.i154
-  %110 = phi i64 [ %107, %if.then17.i158 ], [ %107, %if.else21.i154 ], [ %.pre.i162, %if.then11.i159 ]
-  store ptr %98, ptr %left_.i.i139, align 8, !tbaa !18
-  %111 = ptrtoint ptr %99 to i64
-  %and.i34.i156 = and i64 %110, 1
-  %or.i35.i157 = or i64 %and.i34.i156, %111
-  store i64 %or.i35.i157, ptr %98, align 8, !tbaa !8
+  %106 = phi i64 [ %103, %if.then17.i158 ], [ %103, %if.else21.i154 ], [ %.pre.i162, %if.then11.i159 ]
+  store ptr %95, ptr %left_.i.i139, align 8, !tbaa !18
+  %107 = ptrtoint ptr %96 to i64
+  %and.i34.i156 = and i64 %106, 1
+  %or.i35.i157 = or i64 %and.i34.i156, %107
+  store i64 %or.i35.i157, ptr %95, align 8, !tbaa !8
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then79, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit163, %if.then26, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
-  %x.addr.3 = phi ptr [ %26, %if.then26 ], [ %x.addr.2, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %74, %if.then79 ], [ %x.addr.5, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit163 ]
-  %112 = load ptr, ptr %root, align 8, !tbaa !67
-  %113 = load i64, ptr %112, align 8, !tbaa !8
-  %and.i32 = and i64 %113, -2
-  %114 = inttoptr i64 %and.i32 to ptr
-  %cmp.not = icmp eq ptr %x.addr.3, %114
+  %x.addr.3 = phi ptr [ %26, %if.then26 ], [ %x.addr.2, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %72, %if.then79 ], [ %x.addr.5, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit163 ]
+  %108 = load ptr, ptr %root, align 8, !tbaa !67
+  %109 = load i64, ptr %108, align 8, !tbaa !8
+  %and.i32 = and i64 %109, -2
+  %110 = inttoptr i64 %and.i32 to ptr
+  %cmp.not = icmp eq ptr %x.addr.3, %110
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !92
 
 while.end:                                        ; preds = %if.end122, %land.rhs, %land.rhs.preheader, %entry
-  %.lcssa = phi ptr [ %3, %entry ], [ %3, %land.rhs.preheader ], [ %114, %land.rhs ], [ %114, %if.end122 ]
-  %115 = load i64, ptr %.lcssa, align 8, !tbaa !8
-  %or.i166 = or i64 %115, 1
+  %.lcssa = phi ptr [ %3, %entry ], [ %3, %land.rhs.preheader ], [ %110, %land.rhs ], [ %110, %if.end122 ]
+  %111 = load i64, ptr %.lcssa, align 8, !tbaa !8
+  %or.i166 = or i64 %111, 1
   store i64 %or.i166, ptr %.lcssa, align 8, !tbaa !8
   ret void
 }

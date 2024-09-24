@@ -21687,20 +21687,23 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE1
 
 20:                                               ; preds = %18
   %21 = load i64, ptr %1, align 8
-  %22 = inttoptr i64 %21 to ptr
-  %23 = load i64, ptr %2, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %.not4.i = icmp eq ptr %22, %24
-  br i1 %.not4.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcS4_EEEEEvS9_T_SC_.exit, label %.lr.ph.i
+  %22 = load i64, ptr %2, align 8
+  %23 = inttoptr i64 %22 to ptr
+  %.not4.i = icmp eq i64 %21, %22
+  br i1 %.not4.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcS4_EEEEEvS9_T_SC_.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i:                                         ; preds = %20, %.lr.ph.i
-  %.sroa.04.0 = phi ptr [ %25, %.lr.ph.i ], [ %22, %20 ]
-  %.05.i = phi ptr [ %27, %.lr.ph.i ], [ %19, %20 ]
+.lr.ph.i.preheader:                               ; preds = %20
+  %24 = inttoptr i64 %21 to ptr
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.sroa.04.0 = phi ptr [ %25, %.lr.ph.i ], [ %24, %.lr.ph.i.preheader ]
+  %.05.i = phi ptr [ %27, %.lr.ph.i ], [ %19, %.lr.ph.i.preheader ]
   %25 = getelementptr inbounds i8, ptr %.sroa.04.0, i64 -1
   %26 = load i8, ptr %25, align 1
   store i8 %26, ptr %.05.i, align 1
   %27 = getelementptr inbounds i8, ptr %.05.i, i64 1
-  %.not.i = icmp eq ptr %25, %24
+  %.not.i = icmp eq ptr %25, %23
   br i1 %.not.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcS4_EEEEEvS9_T_SC_.exit, label %.lr.ph.i, !llvm.loop !277
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPcS4_EEEEEvS9_T_SC_.exit: ; preds = %.lr.ph.i, %20

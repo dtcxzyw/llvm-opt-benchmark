@@ -2823,21 +2823,21 @@ _ZNK5clang4ento12ExplodedNode12getFirstPredEv.exit: ; preds = %5, %16
   %.sroa.1.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %62, i64 24
   %.sroa.1.0.copyload.i41 = load i64, ptr %.sroa.1.0..sroa_idx.i40, align 8
   %63 = and i64 %.sroa.1.0.copyload.i41, -8
-  %64 = inttoptr i64 %63 to ptr
-  %.not = icmp eq ptr %60, %64
-  br i1 %.not, label %70, label %65
+  %.not = icmp eq i64 %59, %63
+  br i1 %.not, label %70, label %64
 
-65:                                               ; preds = %58
-  %66 = tail call noundef zeroext i1 @_ZNK5clang15LocationContext10isParentOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef %64) #22
+64:                                               ; preds = %58
+  %65 = inttoptr i64 %63 to ptr
+  %66 = tail call noundef zeroext i1 @_ZNK5clang15LocationContext10isParentOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %60, ptr noundef %65) #22
   br i1 %66, label %._crit_edge95, label %67
 
-._crit_edge95:                                    ; preds = %65
+._crit_edge95:                                    ; preds = %64
   %.pre96 = load ptr, ptr %61, align 8
   %.sroa.371.0..sroa_idx.phi.trans.insert = getelementptr inbounds i8, ptr %.pre96, i64 24
   %.sroa.371.0.copyload.pre = load i64, ptr %.sroa.371.0..sroa_idx.phi.trans.insert, align 8
   br label %70
 
-67:                                               ; preds = %65
+67:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 704

@@ -9643,7 +9643,7 @@ if.end81:                                         ; preds = %_ZN3re23DFA10ResetC
 land.lhs.true:                                    ; preds = %if.end81
   %25 = load i8, ptr %anchored, align 8
   %tobool87 = trunc i8 %25 to i1
-  %cmp90 = icmp ule ptr %atomic-temp.i.0.i, inttoptr (i64 2 to ptr)
+  %cmp90 = icmp ult i64 %22, 3
   %or.cond.not = select i1 %tobool87, i1 true, i1 %cmp90
   br i1 %or.cond.not, label %return, label %land.lhs.true91
 

@@ -464,7 +464,7 @@ define hidden noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignabl
   br i1 %15, label %_ZNK16VerificationType8is_arrayEv.exit32.thread, label %17
 
 17:                                               ; preds = %13
-  %18 = icmp eq ptr %16, %12
+  %18 = icmp eq i64 %14, %10
   br i1 %18, label %_ZNK16VerificationType8is_arrayEv.exit32.thread, label %19
 
 19:                                               ; preds = %17
@@ -703,39 +703,26 @@ _ZN15SignatureStream17skip_array_prefixEi.exit:   ; preds = %15, %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK16VerificationType28is_component_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 comdat align 2 {
-  %6 = load i64, ptr %0, align 8
-  %7 = load i64, ptr %1, align 8
-  %8 = icmp eq i64 %6, %7
-  br i1 %8, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %_ZNK16VerificationType6equalsERKS_.exit
+_ZNK16VerificationType6equalsERKS_.exit:
+  %5 = load i64, ptr %0, align 8
+  %6 = load i64, ptr %1, align 8
+  %7 = icmp eq i64 %5, %6
+  %8 = icmp eq i64 %5, 4294901761
+  %or.cond = or i1 %8, %7
+  br i1 %or.cond, label %14, label %9
 
-_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %5
-  %9 = inttoptr i64 %7 to ptr
-  %10 = inttoptr i64 %6 to ptr
-  %11 = or i64 %7, %6
-  %12 = and i64 %11, 3
-  %or.cond.i = icmp eq i64 %12, 0
-  %13 = icmp ne i64 %6, 0
-  %or.cond6.not8.i = and i1 %13, %or.cond.i
-  %14 = icmp ne i64 %7, 0
-  %or.cond7.not.i = and i1 %14, %or.cond6.not8.i
-  %15 = icmp eq ptr %10, %9
-  %spec.select.i = and i1 %15, %or.cond7.not.i
-  %16 = icmp eq i64 %6, 4294901761
-  %or.cond = or i1 %16, %spec.select.i
-  br i1 %or.cond, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %17
+9:                                                ; preds = %_ZNK16VerificationType6equalsERKS_.exit
+  %10 = add i64 %5, -590081
+  %11 = tail call i64 @llvm.fshl.i64(i64 %10, i64 %10, i64 48)
+  %switch = icmp ult i64 %11, 4
+  br i1 %switch, label %14, label %12
 
-17:                                               ; preds = %_ZNK16VerificationType6equalsERKS_.exit
-  %18 = add i64 %6, -590081
-  %19 = tail call i64 @llvm.fshl.i64(i64 %18, i64 %18, i64 48)
-  %switch = icmp ult i64 %19, 4
-  br i1 %switch, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %20
+12:                                               ; preds = %9
+  %13 = tail call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4)
+  br label %14
 
-20:                                               ; preds = %17
-  %21 = tail call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4)
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
-
-_ZNK16VerificationType6equalsERKS_.exit.thread:   ; preds = %5, %17, %_ZNK16VerificationType6equalsERKS_.exit, %20
-  %.0 = phi i1 [ %21, %20 ], [ true, %_ZNK16VerificationType6equalsERKS_.exit ], [ false, %17 ], [ true, %5 ]
+14:                                               ; preds = %9, %_ZNK16VerificationType6equalsERKS_.exit, %12
+  %.0 = phi i1 [ %13, %12 ], [ true, %_ZNK16VerificationType6equalsERKS_.exit ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -1561,77 +1548,67 @@ declare noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 comdat align 2 {
-  %6 = load i64, ptr %0, align 8
-  %7 = load i64, ptr %1, align 8
-  %8 = icmp eq i64 %6, %7
-  br i1 %8, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %_ZNK16VerificationType6equalsERKS_.exit
+_ZNK16VerificationType6equalsERKS_.exit:
+  %5 = load i64, ptr %0, align 8
+  %6 = load i64, ptr %1, align 8
+  %7 = icmp eq i64 %5, %6
+  %8 = icmp eq i64 %5, 4294901761
+  %or.cond = or i1 %8, %7
+  br i1 %or.cond, label %32, label %9
 
-_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %5
-  %9 = inttoptr i64 %7 to ptr
-  %10 = inttoptr i64 %6 to ptr
-  %11 = or i64 %7, %6
-  %12 = and i64 %11, 3
-  %or.cond.i = icmp eq i64 %12, 0
-  %13 = icmp ne i64 %6, 0
-  %14 = icmp ne i64 %7, 0
-  %15 = and i1 %13, %14
-  %16 = icmp eq ptr %10, %9
-  %17 = and i1 %15, %16
-  %spec.select.i = and i1 %17, %or.cond.i
-  %18 = icmp eq i64 %6, 4294901761
-  %or.cond = or i1 %18, %spec.select.i
-  br i1 %or.cond, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %19
-
-19:                                               ; preds = %_ZNK16VerificationType6equalsERKS_.exit
-  switch i64 %6, label %37 [
-    i64 259, label %20
-    i64 515, label %23
-    i64 1027, label %26
-    i64 3, label %29
-    i64 590081, label %35
-    i64 655617, label %35
-    i64 786689, label %35
-    i64 721153, label %35
+9:                                                ; preds = %_ZNK16VerificationType6equalsERKS_.exit
+  switch i64 %5, label %27 [
+    i64 259, label %10
+    i64 515, label %13
+    i64 1027, label %16
+    i64 3, label %19
+    i64 590081, label %25
+    i64 655617, label %25
+    i64 786689, label %25
+    i64 721153, label %25
   ]
 
-20:                                               ; preds = %19
-  %21 = and i64 %7, 257
-  %22 = icmp ne i64 %21, 1
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+10:                                               ; preds = %9
+  %11 = and i64 %6, 257
+  %12 = icmp ne i64 %11, 1
+  br label %32
 
-23:                                               ; preds = %19
-  %24 = and i64 %7, 513
-  %25 = icmp eq i64 %24, 513
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+13:                                               ; preds = %9
+  %14 = and i64 %6, 513
+  %15 = icmp eq i64 %14, 513
+  br label %32
 
-26:                                               ; preds = %19
-  %27 = and i64 %7, 1025
-  %28 = icmp eq i64 %27, 1025
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+16:                                               ; preds = %9
+  %17 = and i64 %6, 1025
+  %18 = icmp eq i64 %17, 1025
+  br label %32
 
-29:                                               ; preds = %19
-  %30 = and i64 %7, 3
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %32
+19:                                               ; preds = %9
+  %20 = and i64 %6, 3
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %32, label %22
 
-32:                                               ; preds = %29
-  %33 = and i64 %7, 2
-  %34 = icmp ne i64 %33, 0
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+22:                                               ; preds = %19
+  %23 = and i64 %6, 2
+  %24 = icmp ne i64 %23, 0
+  br label %32
 
-35:                                               ; preds = %19, %19, %19, %19
-  %36 = icmp eq i64 %7, 65793
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+25:                                               ; preds = %9, %9, %9, %9
+  %26 = icmp eq i64 %6, 65793
+  br label %32
 
-37:                                               ; preds = %19
-  br i1 %or.cond.i, label %38, label %_ZNK16VerificationType6equalsERKS_.exit.thread
+27:                                               ; preds = %9
+  %28 = or i64 %6, %5
+  %29 = and i64 %28, 3
+  %or.cond14 = icmp eq i64 %29, 0
+  br i1 %or.cond14, label %30, label %32
 
-38:                                               ; preds = %37
-  %39 = tail call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4)
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+30:                                               ; preds = %27
+  %31 = tail call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4)
+  br label %32
 
-_ZNK16VerificationType6equalsERKS_.exit.thread:   ; preds = %5, %37, %29, %32, %_ZNK16VerificationType6equalsERKS_.exit, %38, %35, %26, %23, %20
-  %.0 = phi i1 [ %39, %38 ], [ %36, %35 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ true, %_ZNK16VerificationType6equalsERKS_.exit ], [ true, %29 ], [ %34, %32 ], [ false, %37 ], [ true, %5 ]
+32:                                               ; preds = %27, %19, %22, %_ZNK16VerificationType6equalsERKS_.exit, %30, %25, %16, %13, %10
+  %.0 = phi i1 [ %31, %30 ], [ %26, %25 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ], [ true, %_ZNK16VerificationType6equalsERKS_.exit ], [ true, %19 ], [ %24, %22 ], [ false, %27 ]
   ret i1 %.0
 }
 

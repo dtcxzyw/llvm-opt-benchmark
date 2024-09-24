@@ -37,7 +37,7 @@ define dso_local i64 @__ia32_compat_sys_sigreturn(ptr nocapture noundef readnone
   %14 = inttoptr i64 %13 to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   store i64 0, ptr %2, align 8, !annotation !7
-  %15 = icmp sgt ptr %14, inttoptr (i64 -1 to ptr)
+  %15 = icmp sgt i64 %13, -1
   br i1 %15, label %16, label %44, !prof !8
 
 16:                                               ; preds = %1
@@ -108,7 +108,7 @@ define dso_local i64 @__ia32_compat_sys_rt_sigreturn(ptr nocapture noundef readn
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, -4
   %14 = inttoptr i64 %13 to ptr
-  %15 = icmp sgt ptr %14, inttoptr (i64 -1 to ptr)
+  %15 = icmp sgt i64 %13, -1
   br i1 %15, label %16, label %36, !prof !8
 
 16:                                               ; preds = %1

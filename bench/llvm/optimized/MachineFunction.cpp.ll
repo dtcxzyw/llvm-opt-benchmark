@@ -1943,16 +1943,16 @@ _ZN4llvm20MachineJumpTableInfoD2Ev.exit:          ; preds = %94, %_ZSt8_DestroyI
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm11SmallPtrSetINS_12PointerUnionIJPKNS_10BasicBlockEPNS_17MachineBasicBlockEEEELj4EED2Ev.exit.i.i.i, %.lr.ph.preheader.i.i.i
-  %.013.i.i.i = phi ptr [ %120, %_ZN4llvm11SmallPtrSetINS_12PointerUnionIJPKNS_10BasicBlockEPNS_17MachineBasicBlockEEEELj4EED2Ev.exit.i.i.i ], [ %.pre1.i.i, %.lr.ph.preheader.i.i.i ]
-  %.sroa.01.0.copyload.i11.i.i.i = load i64, ptr %.013.i.i.i, align 8
-  switch i64 %.sroa.01.0.copyload.i11.i.i.i, label %113 [
+  %.012.i.i.i = phi ptr [ %120, %_ZN4llvm11SmallPtrSetINS_12PointerUnionIJPKNS_10BasicBlockEPNS_17MachineBasicBlockEEEELj4EED2Ev.exit.i.i.i ], [ %.pre1.i.i, %.lr.ph.preheader.i.i.i ]
+  %.sroa.01.0.copyload.i.i.i.i = load i64, ptr %.012.i.i.i, align 8
+  switch i64 %.sroa.01.0.copyload.i.i.i.i, label %113 [
     i64 -4096, label %_ZN4llvm11SmallPtrSetINS_12PointerUnionIJPKNS_10BasicBlockEPNS_17MachineBasicBlockEEEELj4EED2Ev.exit.i.i.i
     i64 -8192, label %_ZN4llvm11SmallPtrSetINS_12PointerUnionIJPKNS_10BasicBlockEPNS_17MachineBasicBlockEEEELj4EED2Ev.exit.i.i.i
   ]
 
 113:                                              ; preds = %.lr.ph.i.i.i
-  %114 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
-  %115 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 16
   %116 = load ptr, ptr %115, align 8
   %117 = load ptr, ptr %114, align 8
   %118 = icmp eq ptr %116, %117
@@ -1963,7 +1963,7 @@ _ZN4llvm20MachineJumpTableInfoD2Ev.exit:          ; preds = %94, %_ZSt8_DestroyI
   br label %_ZN4llvm11SmallPtrSetINS_12PointerUnionIJPKNS_10BasicBlockEPNS_17MachineBasicBlockEEEELj4EED2Ev.exit.i.i.i
 
 _ZN4llvm11SmallPtrSetINS_12PointerUnionIJPKNS_10BasicBlockEPNS_17MachineBasicBlockEEEELj4EED2Ev.exit.i.i.i: ; preds = %119, %113, %.lr.ph.i.i.i, %.lr.ph.i.i.i
-  %120 = getelementptr inbounds i8, ptr %.013.i.i.i, i64 72
+  %120 = getelementptr inbounds i8, ptr %.012.i.i.i, i64 72
   %.not.i.i.i12 = icmp eq ptr %120, %112
   br i1 %.not.i.i.i12, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKNS_10BasicBlockEPNS_17MachineBasicBlockEEEENS_11SmallPtrSetIS8_Lj4EEENS_12DenseMapInfoIS8_vEENS_6detail12DenseMapPairIS8_SA_EEEES8_SA_SC_SF_E10destroyAllEv.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !16
 

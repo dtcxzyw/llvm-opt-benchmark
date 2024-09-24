@@ -9818,66 +9818,64 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit18: ; preds = %_ZNK5clang8QualType
   %38 = inttoptr i64 %.sroa.03.0.i17 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load i64, ptr %39, align 8
-  %41 = inttoptr i64 %37 to ptr
-  %42 = inttoptr i64 %40 to ptr
-  %43 = icmp eq ptr %41, %42
-  br i1 %43, label %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit19, label %44
+  %41 = icmp eq i64 %37, %40
+  br i1 %41, label %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit19, label %42
 
-44:                                               ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit18
-  %45 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %45, i64 noundef 16) #25
+42:                                               ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit18
+  %43 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %43, i64 noundef 16) #25
   call fastcc void @_ZL22BuildFlattenedTypeListN5clang8QualTypeERN4llvm15SmallVectorImplIS0_EE(i64 %.sroa.03.0.i, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  %46 = getelementptr inbounds i8, ptr %5, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %46, i64 noundef 16) #25
+  %44 = getelementptr inbounds i8, ptr %5, i64 16
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %44, i64 noundef 16) #25
   call fastcc void @_ZL22BuildFlattenedTypeListN5clang8QualTypeERN4llvm15SmallVectorImplIS0_EE(i64 %.sroa.03.0.i17, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %47 = load ptr, ptr %4, align 8
-  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
-  %49 = getelementptr inbounds %"class.clang::QualType", ptr %47, i64 %48
-  %50 = load ptr, ptr %5, align 8
-  %51 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
-  %.not.i.i.i = icmp eq i64 %48, %51
-  br i1 %.not.i.i.i, label %52, label %"_ZN4llvm5equalIRNS_11SmallVectorIN5clang8QualTypeELj16EEES5_ZNKS2_8SemaHLSL28IsScalarizedLayoutCompatibleES3_S3_E3$_0EEbOT_OT0_T1_.exit"
+  %45 = load ptr, ptr %4, align 8
+  %46 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
+  %47 = getelementptr inbounds %"class.clang::QualType", ptr %45, i64 %46
+  %48 = load ptr, ptr %5, align 8
+  %49 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
+  %.not.i.i.i = icmp eq i64 %46, %49
+  br i1 %.not.i.i.i, label %50, label %"_ZN4llvm5equalIRNS_11SmallVectorIN5clang8QualTypeELj16EEES5_ZNKS2_8SemaHLSL28IsScalarizedLayoutCompatibleES3_S3_E3$_0EEbOT_OT0_T1_.exit"
 
-52:                                               ; preds = %44
-  %.not10.i.i.i.i = icmp eq i64 %48, 0
+50:                                               ; preds = %42
+  %.not10.i.i.i.i = icmp eq i64 %46, 0
   br i1 %.not10.i.i.i.i, label %"_ZN4llvm5equalIRNS_11SmallVectorIN5clang8QualTypeELj16EEES5_ZNKS2_8SemaHLSL28IsScalarizedLayoutCompatibleES3_S3_E3$_0EEbOT_OT0_T1_.exit", label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %52, %.lr.ph.i.i.i.i
-  %.0812.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %47, %52 ]
-  %.0911.i.i.i.i = phi ptr [ %55, %.lr.ph.i.i.i.i ], [ %50, %52 ]
+.lr.ph.i.i.i.i:                                   ; preds = %50, %.lr.ph.i.i.i.i
+  %.0812.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i ], [ %45, %50 ]
+  %.0911.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %48, %50 ]
   %.sroa.01.0.copyload.i.i.i.i = load i64, ptr %.0812.i.i.i.i, align 8
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %.0911.i.i.i.i, align 8
   %.val.val.i.i.i.i = load ptr, ptr %0, align 8
-  %53 = call noundef zeroext i1 @_ZNK5clang4Sema18IsLayoutCompatibleENS_8QualTypeES1_(ptr noundef nonnull align 8 dereferenceable(17560) %.val.val.i.i.i.i, i64 %.sroa.01.0.copyload.i.i.i.i, i64 %.sroa.0.0.copyload.i.i.i.i) #25
-  %54 = getelementptr inbounds i8, ptr %.0812.i.i.i.i, i64 8
-  %55 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp ne ptr %54, %49
-  %or.cond30.not = select i1 %53, i1 %.not.i.i.i.i, i1 false
+  %51 = call noundef zeroext i1 @_ZNK5clang4Sema18IsLayoutCompatibleENS_8QualTypeES1_(ptr noundef nonnull align 8 dereferenceable(17560) %.val.val.i.i.i.i, i64 %.sroa.01.0.copyload.i.i.i.i, i64 %.sroa.0.0.copyload.i.i.i.i) #25
+  %52 = getelementptr inbounds i8, ptr %.0812.i.i.i.i, i64 8
+  %53 = getelementptr inbounds i8, ptr %.0911.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp ne ptr %52, %47
+  %or.cond30.not = select i1 %51, i1 %.not.i.i.i.i, i1 false
   br i1 %or.cond30.not, label %.lr.ph.i.i.i.i, label %"_ZN4llvm5equalIRNS_11SmallVectorIN5clang8QualTypeELj16EEES5_ZNKS2_8SemaHLSL28IsScalarizedLayoutCompatibleES3_S3_E3$_0EEbOT_OT0_T1_.exit", !llvm.loop !47
 
-"_ZN4llvm5equalIRNS_11SmallVectorIN5clang8QualTypeELj16EEES5_ZNKS2_8SemaHLSL28IsScalarizedLayoutCompatibleES3_S3_E3$_0EEbOT_OT0_T1_.exit": ; preds = %.lr.ph.i.i.i.i, %44, %52
-  %.0.i.i.i = phi i1 [ false, %44 ], [ true, %52 ], [ %53, %.lr.ph.i.i.i.i ]
-  %56 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
-  %57 = load ptr, ptr %5, align 8
-  %58 = icmp eq ptr %57, %46
-  br i1 %58, label %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit, label %59
+"_ZN4llvm5equalIRNS_11SmallVectorIN5clang8QualTypeELj16EEES5_ZNKS2_8SemaHLSL28IsScalarizedLayoutCompatibleES3_S3_E3$_0EEbOT_OT0_T1_.exit": ; preds = %.lr.ph.i.i.i.i, %42, %50
+  %.0.i.i.i = phi i1 [ false, %42 ], [ true, %50 ], [ %51, %.lr.ph.i.i.i.i ]
+  %54 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
+  %55 = load ptr, ptr %5, align 8
+  %56 = icmp eq ptr %55, %44
+  br i1 %56, label %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit, label %57
 
-59:                                               ; preds = %"_ZN4llvm5equalIRNS_11SmallVectorIN5clang8QualTypeELj16EEES5_ZNKS2_8SemaHLSL28IsScalarizedLayoutCompatibleES3_S3_E3$_0EEbOT_OT0_T1_.exit"
-  call void @free(ptr noundef %57) #25
+57:                                               ; preds = %"_ZN4llvm5equalIRNS_11SmallVectorIN5clang8QualTypeELj16EEES5_ZNKS2_8SemaHLSL28IsScalarizedLayoutCompatibleES3_S3_E3$_0EEbOT_OT0_T1_.exit"
+  call void @free(ptr noundef %55) #25
   br label %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit: ; preds = %"_ZN4llvm5equalIRNS_11SmallVectorIN5clang8QualTypeELj16EEES5_ZNKS2_8SemaHLSL28IsScalarizedLayoutCompatibleES3_S3_E3$_0EEbOT_OT0_T1_.exit", %59
-  %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
-  %61 = load ptr, ptr %4, align 8
-  %62 = icmp eq ptr %61, %45
-  br i1 %62, label %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit19, label %63
+_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit: ; preds = %"_ZN4llvm5equalIRNS_11SmallVectorIN5clang8QualTypeELj16EEES5_ZNKS2_8SemaHLSL28IsScalarizedLayoutCompatibleES3_S3_E3$_0EEbOT_OT0_T1_.exit", %57
+  %58 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #25
+  %59 = load ptr, ptr %4, align 8
+  %60 = icmp eq ptr %59, %43
+  br i1 %60, label %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit19, label %61
 
-63:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit
-  call void @free(ptr noundef %61) #25
+61:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit
+  call void @free(ptr noundef %59) #25
   br label %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit19
 
-_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit19: ; preds = %63, %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit18, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit18 ], [ %.0.i.i.i, %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit ], [ %.0.i.i.i, %63 ]
+_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit19: ; preds = %61, %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit18, %3
+  %.0 = phi i1 [ false, %3 ], [ true, %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit18 ], [ %.0.i.i.i, %_ZN4llvm11SmallVectorIN5clang8QualTypeELj16EED2Ev.exit ], [ %.0.i.i.i, %61 ]
   ret i1 %.0
 }
 

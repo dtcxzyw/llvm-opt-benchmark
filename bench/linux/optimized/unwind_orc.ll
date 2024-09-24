@@ -1704,7 +1704,7 @@ define dso_local void @__unwind_start(ptr noundef %0, ptr noundef %1, ptr nounde
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %5, align 8
   %6 = load i1, ptr @orc_init, align 1
-  br i1 %6, label %7, label %106
+  br i1 %6, label %7, label %105
 
 7:                                                ; preds = %4
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !20
@@ -1716,7 +1716,7 @@ define dso_local void @__unwind_start(ptr noundef %0, ptr noundef %1, ptr nounde
   %12 = getelementptr inbounds i8, ptr %1, i64 52
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.thread, label %106
+  br i1 %14, label %.thread, label %105
 
 15:                                               ; preds = %7
   %16 = icmp eq ptr %2, null
@@ -1731,7 +1731,7 @@ define dso_local void @__unwind_start(ptr noundef %0, ptr noundef %1, ptr nounde
   %20 = load i64, ptr %19, align 8
   %21 = and i64 %20, 3
   %22 = icmp eq i64 %21, 0
-  br i1 %22, label %23, label %108
+  br i1 %22, label %23, label %107
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds i8, ptr %2, i64 128
@@ -1752,7 +1752,7 @@ define dso_local void @__unwind_start(ptr noundef %0, ptr noundef %1, ptr nounde
   store i8 1, ptr %34, align 2
   %35 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 1, ptr %35, align 1
-  br label %60
+  br label %59
 
 36:                                               ; preds = %15
   %37 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1766,7 +1766,7 @@ define dso_local void @__unwind_start(ptr noundef %0, ptr noundef %1, ptr nounde
   store i64 %42, ptr %38, align 8
   store i64 %43, ptr %39, align 8
   %.pre = load ptr, ptr %5, align 8
-  br label %60
+  br label %59
 
 44:                                               ; preds = %.thread
   %45 = getelementptr inbounds i8, ptr %1, i64 2840
@@ -1783,90 +1783,89 @@ define dso_local void @__unwind_start(ptr noundef %0, ptr noundef %1, ptr nounde
   %54 = load volatile i64, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %54, ptr %55, align 8
-  %56 = inttoptr i64 %54 to ptr
-  %57 = icmp eq ptr %56, @ret_from_fork
-  %58 = getelementptr inbounds i8, ptr %0, i64 65
-  %59 = zext i1 %57 to i8
-  store i8 %59, ptr %58, align 1
-  br label %60
+  %56 = icmp eq i64 %54, ptrtoint (ptr @ret_from_fork to i64)
+  %57 = getelementptr inbounds i8, ptr %0, i64 65
+  %58 = zext i1 %56 to i8
+  store i8 %58, ptr %57, align 1
+  br label %59
 
-60:                                               ; preds = %44, %36, %23
-  %61 = phi ptr [ %1, %44 ], [ %.pre, %36 ], [ %1, %23 ]
-  %62 = phi i64 [ %48, %44 ], [ %42, %36 ], [ %28, %23 ]
-  %63 = phi i1 [ true, %44 ], [ true, %36 ], [ false, %23 ]
-  %64 = getelementptr inbounds i8, ptr %0, i64 72
-  %65 = inttoptr i64 %62 to ptr
-  %66 = getelementptr inbounds i8, ptr %0, i64 32
-  %67 = tail call i32 @get_stack_info(ptr noundef %65, ptr noundef %61, ptr noundef %0, ptr noundef %66) #15
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %78, label %69
+59:                                               ; preds = %44, %36, %23
+  %60 = phi ptr [ %1, %44 ], [ %.pre, %36 ], [ %1, %23 ]
+  %61 = phi i64 [ %48, %44 ], [ %42, %36 ], [ %28, %23 ]
+  %62 = phi i1 [ true, %44 ], [ true, %36 ], [ false, %23 ]
+  %63 = getelementptr inbounds i8, ptr %0, i64 72
+  %64 = inttoptr i64 %61 to ptr
+  %65 = getelementptr inbounds i8, ptr %0, i64 32
+  %66 = tail call i32 @get_stack_info(ptr noundef %64, ptr noundef %60, ptr noundef %0, ptr noundef %65) #15
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %77, label %68
 
-69:                                               ; preds = %60
-  %70 = load i64, ptr %64, align 8
-  %71 = add i64 %70, 4095
-  %72 = and i64 %71, -4096
-  %73 = inttoptr i64 %72 to ptr
-  %74 = getelementptr inbounds i8, ptr %0, i64 64
-  store i8 1, ptr %74, align 8
-  %75 = load ptr, ptr %5, align 8
-  %76 = tail call i32 @get_stack_info(ptr noundef %73, ptr noundef %75, ptr noundef %0, ptr noundef %66) #15
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %.loopexit
+68:                                               ; preds = %59
+  %69 = load i64, ptr %63, align 8
+  %70 = add i64 %69, 4095
+  %71 = and i64 %70, -4096
+  %72 = inttoptr i64 %71 to ptr
+  %73 = getelementptr inbounds i8, ptr %0, i64 64
+  store i8 1, ptr %73, align 8
+  %74 = load ptr, ptr %5, align 8
+  %75 = tail call i32 @get_stack_info(ptr noundef %72, ptr noundef %74, ptr noundef %0, ptr noundef %65) #15
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %.loopexit
 
-78:                                               ; preds = %69, %60
-  br i1 %63, label %79, label %87
+77:                                               ; preds = %68, %59
+  br i1 %62, label %78, label %86
 
-79:                                               ; preds = %78
-  %80 = load i32, ptr %0, align 8
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %.loopexit, label %82
+78:                                               ; preds = %77
+  %79 = load i32, ptr %0, align 8
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %.loopexit, label %81
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds i8, ptr %0, i64 8
-  %84 = getelementptr inbounds i8, ptr %0, i64 16
-  %85 = getelementptr i8, ptr %3, i64 8
-  %86 = ptrtoint ptr %3 to i64
-  br label %89
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds i8, ptr %0, i64 8
+  %83 = getelementptr inbounds i8, ptr %0, i64 16
+  %84 = getelementptr i8, ptr %3, i64 8
+  %85 = ptrtoint ptr %3 to i64
+  br label %88
 
-87:                                               ; preds = %78
-  %88 = tail call zeroext i1 @unwind_next_frame(ptr noundef %0)
+86:                                               ; preds = %77
+  %87 = tail call zeroext i1 @unwind_next_frame(ptr noundef %0)
   br label %.loopexit
 
-89:                                               ; preds = %102, %82
+88:                                               ; preds = %101, %81
+  %89 = load ptr, ptr %82, align 8
   %90 = load ptr, ptr %83, align 8
-  %91 = load ptr, ptr %84, align 8
-  %92 = icmp ule ptr %90, %3
-  %93 = icmp ugt ptr %91, %3
-  %94 = select i1 %92, i1 %93, i1 false
-  br i1 %94, label %95, label %102
+  %91 = icmp ule ptr %89, %3
+  %92 = icmp ugt ptr %90, %3
+  %93 = select i1 %91, i1 %92, i1 false
+  br i1 %93, label %94, label %101
 
-95:                                               ; preds = %89
-  %96 = icmp ugt ptr %85, %90
-  %97 = icmp ule ptr %85, %91
-  %98 = select i1 %96, i1 %97, i1 false
-  br i1 %98, label %99, label %102
+94:                                               ; preds = %88
+  %95 = icmp ugt ptr %84, %89
+  %96 = icmp ule ptr %84, %90
+  %97 = select i1 %95, i1 %96, i1 false
+  br i1 %97, label %98, label %101
 
-99:                                               ; preds = %95
-  %100 = load i64, ptr %64, align 8
-  %101 = icmp ugt i64 %100, %86
-  br i1 %101, label %.loopexit, label %102
+98:                                               ; preds = %94
+  %99 = load i64, ptr %63, align 8
+  %100 = icmp ugt i64 %99, %85
+  br i1 %100, label %.loopexit, label %101
 
-102:                                              ; preds = %99, %95, %89
-  %103 = tail call zeroext i1 @unwind_next_frame(ptr noundef %0)
-  %104 = load i32, ptr %0, align 8
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.loopexit, label %89, !llvm.loop !29
+101:                                              ; preds = %98, %94, %88
+  %102 = tail call zeroext i1 @unwind_next_frame(ptr noundef %0)
+  %103 = load i32, ptr %0, align 8
+  %104 = icmp eq i32 %103, 0
+  br i1 %104, label %.loopexit, label %88, !llvm.loop !29
 
-106:                                              ; preds = %11, %4
-  %107 = getelementptr inbounds i8, ptr %0, i64 64
-  store i8 1, ptr %107, align 8
-  br label %108
+105:                                              ; preds = %11, %4
+  %106 = getelementptr inbounds i8, ptr %0, i64 64
+  store i8 1, ptr %106, align 8
+  br label %107
 
-108:                                              ; preds = %106, %18
+107:                                              ; preds = %105, %18
   store i32 0, ptr %0, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %102, %99, %108, %87, %79, %69
+.loopexit:                                        ; preds = %101, %98, %107, %86, %78, %68
   ret void
 }
 

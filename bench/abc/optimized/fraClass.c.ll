@@ -2980,15 +2980,15 @@ Abc_UtilStrsav.exit159:                           ; preds = %Abc_UtilStrsav.exit
   %117 = load ptr, ptr %116, align 8
   %118 = ptrtoint ptr %113 to i64
   %119 = and i64 %118, -2
-  %120 = inttoptr i64 %119 to ptr
-  %121 = ptrtoint ptr %117 to i64
-  %122 = and i64 %121, -2
-  %123 = inttoptr i64 %122 to ptr
-  %124 = icmp eq ptr %120, %123
-  br i1 %124, label %Fra_ClassesDeriveNode.exit, label %125
+  %120 = ptrtoint ptr %117 to i64
+  %121 = and i64 %120, -2
+  %122 = icmp eq i64 %119, %121
+  br i1 %122, label %Fra_ClassesDeriveNode.exit, label %123
 
-125:                                              ; preds = %111
-  %126 = tail call ptr @Aig_Exor(ptr noundef nonnull %8, ptr noundef %120, ptr noundef %123) #18
+123:                                              ; preds = %111
+  %124 = inttoptr i64 %121 to ptr
+  %125 = inttoptr i64 %119 to ptr
+  %126 = tail call ptr @Aig_Exor(ptr noundef nonnull %8, ptr noundef %125, ptr noundef %124) #18
   %127 = ptrtoint ptr %126 to i64
   %128 = and i64 %127, -2
   %129 = inttoptr i64 %128 to ptr
@@ -3007,9 +3007,9 @@ Abc_UtilStrsav.exit159:                           ; preds = %Abc_UtilStrsav.exit
   %.pre = load ptr, ptr %0, align 8
   br label %Fra_ClassesDeriveNode.exit
 
-Fra_ClassesDeriveNode.exit:                       ; preds = %.lr.ph174, %111, %125
-  %142 = phi ptr [ %97, %.lr.ph174 ], [ %97, %111 ], [ %.pre, %125 ]
-  %143 = phi ptr [ %98, %.lr.ph174 ], [ %98, %111 ], [ %.pre, %125 ]
+Fra_ClassesDeriveNode.exit:                       ; preds = %.lr.ph174, %111, %123
+  %142 = phi ptr [ %97, %.lr.ph174 ], [ %97, %111 ], [ %.pre, %123 ]
+  %143 = phi ptr [ %98, %.lr.ph174 ], [ %98, %111 ], [ %.pre, %123 ]
   %indvars.iv.next193 = add nsw i64 %indvars.iv192, 1
   %144 = getelementptr inbounds i8, ptr %143, i64 16
   %145 = load ptr, ptr %144, align 8
@@ -3092,15 +3092,15 @@ Fra_ClassesDeriveNode.exit:                       ; preds = %.lr.ph174, %111, %1
   %198 = load ptr, ptr %197, align 8
   %199 = ptrtoint ptr %184 to i64
   %200 = and i64 %199, -2
-  %201 = inttoptr i64 %200 to ptr
-  %202 = ptrtoint ptr %198 to i64
-  %203 = and i64 %202, -2
-  %204 = inttoptr i64 %203 to ptr
-  %205 = icmp eq ptr %201, %204
-  br i1 %205, label %Fra_ClassesDeriveNode.exit162, label %206
+  %201 = ptrtoint ptr %198 to i64
+  %202 = and i64 %201, -2
+  %203 = icmp eq i64 %200, %202
+  br i1 %203, label %Fra_ClassesDeriveNode.exit162, label %204
 
-206:                                              ; preds = %194
-  %207 = tail call ptr @Aig_Exor(ptr noundef nonnull %8, ptr noundef %201, ptr noundef %204) #18
+204:                                              ; preds = %194
+  %205 = inttoptr i64 %202 to ptr
+  %206 = inttoptr i64 %200 to ptr
+  %207 = tail call ptr @Aig_Exor(ptr noundef nonnull %8, ptr noundef %206, ptr noundef %205) #18
   %208 = ptrtoint ptr %207 to i64
   %209 = and i64 %208, -2
   %210 = inttoptr i64 %209 to ptr
@@ -3118,7 +3118,7 @@ Fra_ClassesDeriveNode.exit:                       ; preds = %.lr.ph174, %111, %1
   %222 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %8, ptr noundef %221) #18
   br label %Fra_ClassesDeriveNode.exit162
 
-Fra_ClassesDeriveNode.exit162:                    ; preds = %206, %194, %159, %154, %.lr.ph177
+Fra_ClassesDeriveNode.exit162:                    ; preds = %204, %194, %159, %154, %.lr.ph177
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
   %223 = load ptr, ptr %0, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 32

@@ -1029,7 +1029,7 @@ Aig_ObjRepr.exit:                                 ; preds = %3
   %30 = ptrtoint ptr %26 to i64
   %31 = and i64 %30, -2
   %32 = inttoptr i64 %31 to ptr
-  %33 = icmp eq ptr %29, %32
+  %33 = icmp eq i64 %28, %31
   br i1 %33, label %Aig_ObjRepr.exit.thread, label %34
 
 34:                                               ; preds = %13
@@ -1675,7 +1675,7 @@ Aig_ObjRepr.exit.i:                               ; preds = %Ssw_ObjChild1Fra.ex
   %222 = ptrtoint ptr %218 to i64
   %223 = and i64 %222, -2
   %224 = inttoptr i64 %223 to ptr
-  %225 = icmp eq ptr %221, %224
+  %225 = icmp eq i64 %220, %223
   br i1 %225, label %Ssw_ManSweepNodeFilter.exit.thread, label %226
 
 226:                                              ; preds = %207

@@ -9241,21 +9241,12 @@ tcg_gen_mov_i64.exit:                             ; preds = %entry
   %arrayidx2.i.i.i = getelementptr i8, ptr %call.i.i.i, i64 40
   store i64 %5, ptr %arrayidx2.i.i.i, align 8
   %6 = load ptr, ptr %0, align 8
-  %add.ptr.i.i.i = getelementptr i8, ptr %6, i64 %2
-  %add.ptr.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 56
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i
-  %7 = inttoptr i64 %sub.ptr.sub.i.i.i to ptr
   %add.ptr.i.i.i5 = getelementptr i8, ptr %6, i64 %4
+  %add.ptr.i.i.i = getelementptr i8, ptr %6, i64 %2
   %add.ptr.i6 = getelementptr i8, ptr %add.ptr.i.i.i5, i64 56
+  %add.ptr.i = getelementptr i8, ptr %add.ptr.i.i.i, i64 56
   %sub.ptr.lhs.cast.i.i.i.i7 = ptrtoint ptr %add.ptr.i6 to i64
-  %sub.ptr.sub.i.i.i9 = sub i64 %sub.ptr.lhs.cast.i.i.i.i7, %sub.ptr.rhs.cast.i.i.i
-  %8 = inttoptr i64 %sub.ptr.sub.i.i.i9 to ptr
-  %cmp.i10 = icmp eq ptr %7, %8
-  br i1 %cmp.i10, label %if.end, label %if.end.i11
-
-if.end.i11:                                       ; preds = %tcg_gen_mov_i64.exit
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %add.ptr.i to i64
   %call.i.i.i14 = tail call ptr @tcg_emit_op(i32 noundef 63, i32 noundef 2) #5
   %args.i.i.i15 = getelementptr inbounds i8, ptr %call.i.i.i14, i64 32
   store i64 %sub.ptr.lhs.cast.i.i.i.i, ptr %args.i.i.i15, align 8
@@ -9263,7 +9254,7 @@ if.end.i11:                                       ; preds = %tcg_gen_mov_i64.exi
   store i64 %sub.ptr.lhs.cast.i.i.i.i7, ptr %arrayidx2.i.i.i16, align 8
   br label %if.end
 
-if.end:                                           ; preds = %if.end.i11, %tcg_gen_mov_i64.exit, %entry
+if.end:                                           ; preds = %tcg_gen_mov_i64.exit, %entry
   ret void
 }
 

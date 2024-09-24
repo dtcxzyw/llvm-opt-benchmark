@@ -9120,84 +9120,78 @@ declare void @_ZN4llvm14DebugValueUser15trackDebugValueEm(ptr noundef nonnull al
 define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendINS_17DbgVariableRecord20location_op_iteratorEvEEvT_S7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
-  %6 = inttoptr i64 %4 to ptr
-  %7 = inttoptr i64 %5 to ptr
-  %.not4.i.i = icmp eq ptr %6, %7
+  %.not4.i.i = icmp eq i64 %4, %5
   br i1 %.not4.i.i, label %_ZSt8distanceIN4llvm17DbgVariableRecord20location_op_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
   %.sroa.01.0.copyload.i.i6.i.i = phi i64 [ %storemerge.i.i.i, %.lr.ph.i.i ], [ %4, %3 ]
-  %.05.i.i = phi i64 [ %14, %.lr.ph.i.i ], [ 0, %3 ]
-  %8 = and i64 %.sroa.01.0.copyload.i.i6.i.i, 4
-  %9 = icmp eq i64 %8, 0
-  %10 = and i64 %.sroa.01.0.copyload.i.i6.i.i, -4
-  %11 = add nuw i64 %10, 8
-  %12 = and i64 %.sroa.01.0.copyload.i.i6.i.i, -8
-  %13 = add nuw i64 %12, 136
-  %storemerge.i.i.i = select i1 %9, i64 %13, i64 %11
-  %14 = add nuw nsw i64 %.05.i.i, 1
-  %15 = inttoptr i64 %storemerge.i.i.i to ptr
-  %.not.i.i = icmp eq ptr %15, %7
+  %.05.i.i = phi i64 [ %12, %.lr.ph.i.i ], [ 0, %3 ]
+  %6 = and i64 %.sroa.01.0.copyload.i.i6.i.i, 4
+  %7 = icmp eq i64 %6, 0
+  %8 = and i64 %.sroa.01.0.copyload.i.i6.i.i, -4
+  %9 = add nuw i64 %8, 8
+  %10 = and i64 %.sroa.01.0.copyload.i.i6.i.i, -8
+  %11 = add nuw i64 %10, 136
+  %storemerge.i.i.i = select i1 %7, i64 %11, i64 %9
+  %12 = add nuw nsw i64 %.05.i.i, 1
+  %.not.i.i = icmp eq i64 %storemerge.i.i.i, %5
   br i1 %.not.i.i, label %_ZSt8distanceIN4llvm17DbgVariableRecord20location_op_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit, label %.lr.ph.i.i, !llvm.loop !101
 
 _ZSt8distanceIN4llvm17DbgVariableRecord20location_op_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit: ; preds = %.lr.ph.i.i, %3
-  %.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %14, %.lr.ph.i.i ]
-  %16 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  %17 = add i64 %16, %.0.lcssa.i.i
-  %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  %19 = icmp ult i64 %18, %17
-  br i1 %19, label %20, label %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit
+  %.0.lcssa.i.i = phi i64 [ 0, %3 ], [ %12, %.lr.ph.i.i ]
+  %13 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  %14 = add i64 %13, %.0.lcssa.i.i
+  %15 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  %16 = icmp ult i64 %15, %14
+  br i1 %16, label %17, label %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit
 
-20:                                               ; preds = %_ZSt8distanceIN4llvm17DbgVariableRecord20location_op_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %21, i64 noundef %17, i64 noundef 8) #16
+17:                                               ; preds = %_ZSt8distanceIN4llvm17DbgVariableRecord20location_op_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %18, i64 noundef %14, i64 noundef 8) #16
   br label %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit
 
-_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit: ; preds = %_ZSt8distanceIN4llvm17DbgVariableRecord20location_op_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit, %20
-  %22 = load i64, ptr %1, align 8
-  %23 = load i64, ptr %2, align 8
-  %24 = load ptr, ptr %0, align 8
-  %25 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  %26 = inttoptr i64 %22 to ptr
-  %27 = inttoptr i64 %23 to ptr
-  %.not6.i.i.i.i.i.i.i.i = icmp eq ptr %26, %27
+_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit: ; preds = %_ZSt8distanceIN4llvm17DbgVariableRecord20location_op_iteratorEENSt15iterator_traitsIT_E15difference_typeES4_S4_.exit, %17
+  %19 = load i64, ptr %1, align 8
+  %20 = load i64, ptr %2, align 8
+  %21 = load ptr, ptr %0, align 8
+  %22 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  %.not6.i.i.i.i.i.i.i.i = icmp eq i64 %19, %20
   br i1 %.not6.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE18uninitialized_copyINS_17DbgVariableRecord20location_op_iteratorEPS2_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit
-  %28 = getelementptr inbounds ptr, ptr %24, i64 %25
+  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   br label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.preheader, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i
-  %.sroa.02.0.i.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i.i.i, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i ], [ %22, %.lr.ph.i.i.i.i.i.i.i.i.preheader ]
-  %.07.i.i.i.i.i.i.i.i = phi ptr [ %38, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i ], [ %28, %.lr.ph.i.i.i.i.i.i.i.i.preheader ]
-  %29 = and i64 %.sroa.02.0.i.i.i.i.i.i.i, 4
-  %30 = icmp eq i64 %29, 0
-  %31 = and i64 %.sroa.02.0.i.i.i.i.i.i.i, -8
-  %32 = inttoptr i64 %31 to ptr
-  br i1 %30, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i, label %33
+  %.sroa.02.0.i.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i.i.i, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i ], [ %19, %.lr.ph.i.i.i.i.i.i.i.i.preheader ]
+  %.07.i.i.i.i.i.i.i.i = phi ptr [ %33, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i ], [ %23, %.lr.ph.i.i.i.i.i.i.i.i.preheader ]
+  %24 = and i64 %.sroa.02.0.i.i.i.i.i.i.i, 4
+  %25 = icmp eq i64 %24, 0
+  %26 = and i64 %.sroa.02.0.i.i.i.i.i.i.i, -8
+  %27 = inttoptr i64 %26 to ptr
+  br i1 %25, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i, label %28
 
-33:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
-  %34 = load ptr, ptr %32, align 8
+28:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i.i
+  %29 = load ptr, ptr %27, align 8
   br label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i
 
-_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i: ; preds = %33, %.lr.ph.i.i.i.i.i.i.i.i
-  %35 = phi ptr [ %34, %33 ], [ %32, %.lr.ph.i.i.i.i.i.i.i.i ]
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 128
-  %37 = load ptr, ptr %36, align 8
-  store ptr %37, ptr %.07.i.i.i.i.i.i.i.i, align 8
-  %38 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i.i, i64 8
-  %39 = and i64 %.sroa.02.0.i.i.i.i.i.i.i, -4
-  %40 = add nuw i64 %39, 8
-  %41 = add nuw i64 %31, 136
-  %storemerge.i.i.i.i.i.i.i.i.i = select i1 %30, i64 %41, i64 %40
-  %42 = inttoptr i64 %storemerge.i.i.i.i.i.i.i.i.i to ptr
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %42, %27
+_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i: ; preds = %28, %.lr.ph.i.i.i.i.i.i.i.i
+  %30 = phi ptr [ %29, %28 ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 128
+  %32 = load ptr, ptr %31, align 8
+  store ptr %32, ptr %.07.i.i.i.i.i.i.i.i, align 8
+  %33 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i.i.i.i, i64 8
+  %34 = and i64 %.sroa.02.0.i.i.i.i.i.i.i, -4
+  %35 = add nuw i64 %34, 8
+  %36 = add nuw i64 %26, 136
+  %storemerge.i.i.i.i.i.i.i.i.i = select i1 %25, i64 %36, i64 %35
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i.i, %20
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE18uninitialized_copyINS_17DbgVariableRecord20location_op_iteratorEPS2_EEvT_S8_T0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !102
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE18uninitialized_copyINS_17DbgVariableRecord20location_op_iteratorEPS2_EEvT_S8_T0_.exit: ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit
-  %43 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
-  %44 = add i64 %43, %.0.lcssa.i.i
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %44) #16
+  %37 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
+  %38 = add i64 %37, %.0.lcssa.i.i
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %38) #16
   ret void
 }
 

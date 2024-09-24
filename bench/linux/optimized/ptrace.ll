@@ -206,7 +206,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @arch_ptrace(ptr noundef
   br i1 %53, label %89, label %54
 
 54:                                               ; preds = %51
-  %55 = icmp sgt ptr %5, inttoptr (i64 -1 to ptr)
+  %55 = icmp sgt i64 %3, -1
   br i1 %55, label %56, label %89, !prof !12
 
 56:                                               ; preds = %54
@@ -225,7 +225,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @arch_ptrace(ptr noundef
   br i1 %64, label %89, label %65
 
 65:                                               ; preds = %62
-  %66 = icmp sgt ptr %5, inttoptr (i64 -1 to ptr)
+  %66 = icmp sgt i64 %3, -1
   br i1 %66, label %67, label %89, !prof !12
 
 67:                                               ; preds = %65

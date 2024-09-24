@@ -41,36 +41,31 @@ $_ZNSt15__tuple_compareISt5tupleIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenE
 define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelector8ContainsERKNS_7TfTokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, -8
-  %6 = inttoptr i64 %5 to ptr
-  %7 = load ptr, ptr %0, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %9 = and i64 %8, -8
-  %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %6, %10
-  br i1 %11, label %26, label %12
+  %5 = load ptr, ptr %0, align 8
+  %6 = ptrtoint ptr %5 to i64
+  %7 = xor i64 %6, %4
+  %8 = icmp ult i64 %7, 8
+  br i1 %8, label %21, label %9
 
-12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load ptr, ptr %13, align 8
-  %15 = ptrtoint ptr %14 to i64
-  %16 = and i64 %15, -8
-  %17 = inttoptr i64 %16 to ptr
-  %18 = icmp eq ptr %6, %17
-  br i1 %18, label %26, label %19
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %13 = xor i64 %12, %4
+  %14 = icmp ult i64 %13, 8
+  br i1 %14, label %21, label %15
 
-19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %23 = and i64 %22, -8
-  %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq ptr %6, %24
-  br label %26
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %17 = load ptr, ptr %16, align 8
+  %18 = ptrtoint ptr %17 to i64
+  %19 = xor i64 %18, %4
+  %20 = icmp ult i64 %19, 8
+  br label %21
 
-26:                                               ; preds = %19, %12, %2
-  %27 = phi i1 [ true, %12 ], [ true, %2 ], [ %25, %19 ]
-  ret i1 %27
+21:                                               ; preds = %15, %9, %2
+  %22 = phi i1 [ true, %9 ], [ true, %2 ], [ %20, %15 ]
+  ret i1 %22
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -110,7 +105,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectorixEm.exit: ; preds = %11, 
   %.0.i = phi ptr [ %15, %14 ], [ %13, %12 ], [ %0, %11 ]
   %16 = load ptr, ptr %.0.i, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %41, label %18
+  br i1 %17, label %38, label %18
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectorixEm.exit
   %19 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__12HdReprTokensE seq_cst, align 8
@@ -146,18 +141,15 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdReprTokens_StaticTok
   %31 = phi ptr [ %20, %18 ], [ %30, %28 ], [ %22, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_28HdReprTokens_StaticTokenTypeEE3NewEv.exit.i.i.i ]
   %32 = load ptr, ptr %.0.i, align 8
   %33 = ptrtoint ptr %32 to i64
-  %34 = and i64 %33, -8
-  %35 = inttoptr i64 %34 to ptr
-  %36 = load ptr, ptr %31, align 8
-  %37 = ptrtoint ptr %36 to i64
-  %38 = and i64 %37, -8
-  %39 = inttoptr i64 %38 to ptr
-  %40 = icmp ne ptr %35, %39
-  br label %41
+  %34 = load ptr, ptr %31, align 8
+  %35 = ptrtoint ptr %34 to i64
+  %36 = xor i64 %35, %33
+  %37 = icmp ugt i64 %36, 7
+  br label %38
 
-41:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdReprTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectorixEm.exit
-  %42 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectorixEm.exit ], [ %40, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdReprTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ]
-  ret i1 %42
+38:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdReprTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit, %_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectorixEm.exit
+  %39 = phi i1 [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelectorixEm.exit ], [ %37, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_28HdReprTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ]
+  ret i1 %39
 }
 
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21Tf_FailedVerifyHelperERKNS_13TfCallContextEPKcS4_(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -284,44 +276,35 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelecto
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, -8
-  %8 = inttoptr i64 %7 to ptr
-  %9 = load ptr, ptr %1, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = and i64 %10, -8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = icmp eq ptr %8, %12
-  br i1 %13, label %14, label %_ZSteqIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
+  %7 = load ptr, ptr %1, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = xor i64 %8, %6
+  %10 = icmp ult i64 %9, 8
+  br i1 %10, label %11, label %_ZSteqIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = and i64 %18, -8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = load ptr, ptr %15, align 8
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %16 = load ptr, ptr %12, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = xor i64 %17, %15
+  %19 = icmp ult i64 %18, 8
+  br i1 %19, label %20, label %_ZSteqIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
+
+20:                                               ; preds = %11
+  %21 = load ptr, ptr %3, align 8
   %22 = ptrtoint ptr %21 to i64
-  %23 = and i64 %22, -8
-  %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq ptr %20, %24
-  br i1 %25, label %26, label %_ZSteqIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
-
-26:                                               ; preds = %14
-  %27 = load ptr, ptr %3, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %29 = and i64 %28, -8
-  %30 = inttoptr i64 %29 to ptr
-  %31 = load ptr, ptr %4, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, -8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = icmp eq ptr %30, %34
+  %23 = load ptr, ptr %4, align 8
+  %24 = ptrtoint ptr %23 to i64
+  %25 = xor i64 %24, %22
+  %26 = icmp ult i64 %25, 8
   br label %_ZSteqIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
 
-_ZSteqIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit: ; preds = %2, %14, %26
-  %36 = phi i1 [ false, %2 ], [ false, %14 ], [ %35, %26 ]
-  ret i1 %36
+_ZSteqIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit: ; preds = %2, %11, %20
+  %27 = phi i1 [ false, %2 ], [ false, %11 ], [ %26, %20 ]
+  ret i1 %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -330,44 +313,35 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdReprSelecto
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %5 to i64
-  %7 = and i64 %6, -8
-  %8 = inttoptr i64 %7 to ptr
-  %9 = load ptr, ptr %1, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %11 = and i64 %10, -8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = icmp eq ptr %8, %12
-  br i1 %13, label %14, label %_ZStneIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
+  %7 = load ptr, ptr %1, align 8
+  %8 = ptrtoint ptr %7 to i64
+  %9 = xor i64 %8, %6
+  %10 = icmp ult i64 %9, 8
+  br i1 %10, label %11, label %_ZStneIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
 
-14:                                               ; preds = %2
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = and i64 %18, -8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = load ptr, ptr %15, align 8
+11:                                               ; preds = %2
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = ptrtoint ptr %14 to i64
+  %16 = load ptr, ptr %12, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = xor i64 %17, %15
+  %19 = icmp ult i64 %18, 8
+  br i1 %19, label %20, label %_ZStneIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
+
+20:                                               ; preds = %11
+  %21 = load ptr, ptr %3, align 8
   %22 = ptrtoint ptr %21 to i64
-  %23 = and i64 %22, -8
-  %24 = inttoptr i64 %23 to ptr
-  %25 = icmp eq ptr %20, %24
-  br i1 %25, label %26, label %_ZStneIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
-
-26:                                               ; preds = %14
-  %27 = load ptr, ptr %3, align 8
-  %28 = ptrtoint ptr %27 to i64
-  %29 = and i64 %28, -8
-  %30 = inttoptr i64 %29 to ptr
-  %31 = load ptr, ptr %4, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, -8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = icmp ne ptr %30, %34
+  %23 = load ptr, ptr %4, align 8
+  %24 = ptrtoint ptr %23 to i64
+  %25 = xor i64 %24, %22
+  %26 = icmp ugt i64 %25, 7
   br label %_ZStneIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
 
-_ZStneIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit: ; preds = %2, %14, %26
-  %36 = phi i1 [ true, %2 ], [ true, %14 ], [ %35, %26 ]
-  ret i1 %36
+_ZStneIJRKN32pxrInternal_v0_24__pxrReserved__7TfTokenES3_S3_EJS3_S3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit: ; preds = %2, %11, %20
+  %27 = phi i1 [ true, %2 ], [ true, %11 ], [ %26, %20 ]
+  ret i1 %27
 }
 
 ; Function Attrs: mustprogress uwtable

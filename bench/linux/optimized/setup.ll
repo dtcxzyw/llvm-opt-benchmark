@@ -184,20 +184,19 @@ define dso_local ptr @extend_brk(i64 noundef %0, i64 noundef %1) local_unnamed_a
   %15 = and i64 %13, %14
   store i64 %15, ptr @_brk_end, align 8
   %16 = add i64 %15, %0
-  %17 = inttoptr i64 %16 to ptr
-  %18 = icmp ugt ptr %17, @__brk_limit
-  br i1 %18, label %19, label %20, !prof !5
+  %17 = icmp ugt i64 %16, ptrtoint (ptr @__brk_limit to i64)
+  br i1 %17, label %18, label %19, !prof !5
 
-19:                                               ; preds = %11
+18:                                               ; preds = %11
   tail call void asm sideeffect "582: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 582b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 582) #11, !srcloc !12
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 202, i32 0, i64 12) #11, !srcloc !13
   unreachable
 
-20:                                               ; preds = %11
-  %21 = inttoptr i64 %15 to ptr
+19:                                               ; preds = %11
+  %20 = inttoptr i64 %15 to ptr
   store i64 %16, ptr @_brk_end, align 8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %21, i8 0, i64 %0, i1 false)
-  ret ptr %21
+  tail call void @llvm.memset.p0.i64(ptr align 1 %20, i8 0, i64 %0, i1 false)
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

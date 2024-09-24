@@ -7879,17 +7879,17 @@ define linkonce_odr hidden void @_ZSt14__partial_sortISt16reverse_iteratorIN9__g
   store i64 %15, ptr %9, align 8
   store i64 %16, ptr %10, align 8
   call void @_ZSt11__make_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc3BoxESt6vectorIS5_SaIS5_EEEEENS1_5__ops15_Iter_comp_iterIPFbRKS5_SF_EEEEvT_SJ_RT0_(ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %19 = inttoptr i64 %16 to ptr
-  %20 = icmp ult ptr %18, %19
-  br i1 %20, label %.lr.ph.i.preheader, label %_ZSt13__heap_selectISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc3BoxESt6vectorIS5_SaIS5_EEEEENS1_5__ops15_Iter_comp_iterIPFbRKS5_SF_EEEEvT_SJ_SJ_T0_.exit
+  %19 = icmp ult i64 %17, %16
+  br i1 %19, label %.lr.ph.i.preheader, label %_ZSt13__heap_selectISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN2cv8ximgproc3BoxESt6vectorIS5_SaIS5_EEEEENS1_5__ops15_Iter_comp_iterIPFbRKS5_SF_EEEEvT_SJ_SJ_T0_.exit
 
 .lr.ph.i.preheader:                               ; preds = %4
+  %20 = inttoptr i64 %16 to ptr
   %21 = inttoptr i64 %15 to ptr
   %22 = getelementptr inbounds i8, ptr %21, i64 -20
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %28
-  %.sroa.02.05.i = phi ptr [ %24, %28 ], [ %19, %.lr.ph.i.preheader ]
+  %.sroa.02.05.i = phi ptr [ %24, %28 ], [ %20, %.lr.ph.i.preheader ]
   %23 = load ptr, ptr %8, align 8
   %24 = getelementptr inbounds i8, ptr %.sroa.02.05.i, i64 -20
   %25 = call noundef zeroext i1 %23(ptr noundef nonnull align 4 dereferenceable(20) %24, ptr noundef nonnull align 4 dereferenceable(20) %22)

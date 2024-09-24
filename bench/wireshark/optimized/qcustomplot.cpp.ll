@@ -41389,7 +41389,7 @@ _ZNK8QVariant10isDetachedEv.exit.thread:          ; preds = %2, %_ZNK8QVariant10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %15, ptr %5, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE, ptr %6, align 8
-  %16 = icmp eq ptr %15, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE
+  %16 = icmp eq i64 %14, ptrtoint (ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE to i64)
   br i1 %16, label %_Zeq9QMetaTypeS_.exit.thread, label %17
 
 _Zeq9QMetaTypeS_.exit.thread:                     ; preds = %_ZNK8QVariant10isDetachedEv.exit.thread
@@ -91656,7 +91656,7 @@ _ZNK8QVariant10isDetachedEv.exit.thread:          ; preds = %2, %_ZNK8QVariant10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %15, ptr %5, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE, ptr %6, align 8
-  %16 = icmp eq ptr %15, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE
+  %16 = icmp eq i64 %14, ptrtoint (ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE to i64)
   br i1 %16, label %_Zeq9QMetaTypeS_.exit.thread, label %17
 
 _Zeq9QMetaTypeS_.exit.thread:                     ; preds = %_ZNK8QVariant10isDetachedEv.exit.thread
@@ -100661,7 +100661,7 @@ _ZNK8QVariant10isDetachedEv.exit.thread:          ; preds = %2, %_ZNK8QVariant10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %15, ptr %5, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, ptr %6, align 8
-  %16 = icmp eq ptr %15, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE
+  %16 = icmp eq i64 %14, ptrtoint (ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE to i64)
   br i1 %16, label %_Zeq9QMetaTypeS_.exit.thread, label %17
 
 _Zeq9QMetaTypeS_.exit.thread:                     ; preds = %_ZNK8QVariant10isDetachedEv.exit.thread
@@ -198972,7 +198972,7 @@ define linkonce_odr noundef i32 @_Z13qvariant_castIN7QCPAxis14SelectablePartEET_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %8, ptr %2, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE, ptr %3, align 8
-  %9 = icmp eq ptr %8, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE
+  %9 = icmp eq i64 %7, ptrtoint (ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN7QCPAxis14SelectablePartEE8metaTypeE to i64)
   br i1 %9, label %_Zeq9QMetaTypeS_.exit.thread, label %10
 
 _Zeq9QMetaTypeS_.exit.thread:                     ; preds = %1
@@ -200698,7 +200698,7 @@ define linkonce_odr void @_Z13qvariant_castI16QCPDataSelectionET_RK8QVariant(ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %8, ptr %3, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, ptr %4, align 8
-  %9 = icmp eq ptr %8, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE
+  %9 = icmp eq i64 %7, ptrtoint (ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE to i64)
   br i1 %9, label %_Zeq9QMetaTypeS_.exit.thread, label %10
 
 _Zeq9QMetaTypeS_.exit.thread:                     ; preds = %2
@@ -214485,7 +214485,7 @@ define linkonce_odr noundef i32 @_Z13qvariant_castIN9QCPLegend14SelectablePartEE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %8, ptr %2, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE, ptr %3, align 8
-  %9 = icmp eq ptr %8, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE
+  %9 = icmp eq i64 %7, ptrtoint (ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN9QCPLegend14SelectablePartEE8metaTypeE to i64)
   br i1 %9, label %_Zeq9QMetaTypeS_.exit.thread, label %10
 
 _Zeq9QMetaTypeS_.exit.thread:                     ; preds = %1
@@ -218024,7 +218024,7 @@ _ZNK8QVariant10isDetachedEv.exit.thread:          ; preds = %2, %_ZNK8QVariant10
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %15, ptr %5, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE, ptr %6, align 8
-  %16 = icmp eq ptr %15, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE
+  %16 = icmp eq i64 %14, ptrtoint (ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperI16QCPDataSelectionE8metaTypeE to i64)
   br i1 %16, label %_Zeq9QMetaTypeS_.exit.thread, label %17
 
 _Zeq9QMetaTypeS_.exit.thread:                     ; preds = %_ZNK8QVariant10isDetachedEv.exit.thread
@@ -245164,7 +245164,7 @@ define linkonce_odr noundef i32 @_Z13qvariant_castIN18QCPPolarAxisRadial14Select
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr %8, ptr %2, align 8
   store ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN18QCPPolarAxisRadial14SelectablePartEE8metaTypeE, ptr %3, align 8
-  %9 = icmp eq ptr %8, @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN18QCPPolarAxisRadial14SelectablePartEE8metaTypeE
+  %9 = icmp eq i64 %7, ptrtoint (ptr @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIN18QCPPolarAxisRadial14SelectablePartEE8metaTypeE to i64)
   br i1 %9, label %_Zeq9QMetaTypeS_.exit.thread, label %10
 
 _Zeq9QMetaTypeS_.exit.thread:                     ; preds = %1

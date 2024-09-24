@@ -1433,7 +1433,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @rt_mutex_slowlock_block(p
   %19 = getelementptr inbounds i8, ptr %6, i64 24
   br label %20
 
-20:                                               ; preds = %88, %9
+20:                                               ; preds = %86, %9
   br i1 %10, label %24, label %21
 
 21:                                               ; preds = %20
@@ -1491,7 +1491,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @rt_mutex_slowlock_block(p
 
 .thread:                                          ; preds = %47
   tail call void @_raw_spin_unlock_irq(ptr noundef %0) #11
-  br label %87
+  br label %85
 
 49:                                               ; preds = %47
   %50 = load volatile ptr, ptr %18, align 8
@@ -1500,7 +1500,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @rt_mutex_slowlock_block(p
   %53 = inttoptr i64 %52 to ptr
   tail call void @_raw_spin_unlock_irq(ptr noundef %0) #11
   %54 = icmp eq i64 %52, 0
-  br i1 %54, label %87, label %55
+  br i1 %54, label %85, label %55
 
 55:                                               ; preds = %49
   tail call void @__rcu_read_lock() #11
@@ -1508,79 +1508,77 @@ define internal fastcc noundef range(i32 -110, 1) i32 @rt_mutex_slowlock_block(p
   %57 = load volatile ptr, ptr %18, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, -2
-  %60 = inttoptr i64 %59 to ptr
-  %.not = icmp eq ptr %53, %60
-  br i1 %.not, label %61, label %.critedge8
+  %.not = icmp eq i64 %52, %59
+  br i1 %.not, label %60, label %.critedge8
 
-61:                                               ; preds = %55
-  %62 = getelementptr inbounds i8, ptr %53, i64 52
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds i8, ptr %53, i64 52
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !29
-  %63 = load volatile i32, ptr %62, align 4
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %86, label %65
+  %62 = load volatile i32, ptr %61, align 4
+  %63 = icmp eq i32 %62, 0
+  br i1 %63, label %84, label %64
 
-65:                                               ; preds = %61
-  %66 = load volatile i32, ptr %56, align 4
-  %67 = load volatile i64, ptr %6, align 8
-  %68 = and i64 %67, 8
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %.preheader, label %86
+64:                                               ; preds = %60
+  %65 = load volatile i32, ptr %56, align 4
+  %66 = load volatile i64, ptr %6, align 8
+  %67 = and i64 %66, 8
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %.preheader, label %84
 
-70:                                               ; preds = %80
+69:                                               ; preds = %79
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !29
-  %71 = load volatile i32, ptr %62, align 4
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %85, label %73, !llvm.loop !30
+  %70 = load volatile i32, ptr %61, align 4
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %83, label %72, !llvm.loop !30
 
-73:                                               ; preds = %70
-  %74 = load volatile i32, ptr %56, align 4
-  %75 = load volatile i64, ptr %6, align 8
-  %76 = and i64 %75, 8
-  %77 = icmp eq i64 %76, 0
-  br i1 %77, label %.preheader, label %85, !llvm.loop !30
+72:                                               ; preds = %69
+  %73 = load volatile i32, ptr %56, align 4
+  %74 = load volatile i64, ptr %6, align 8
+  %75 = and i64 %74, 8
+  %76 = icmp eq i64 %75, 0
+  br i1 %76, label %.preheader, label %83, !llvm.loop !30
 
-.preheader:                                       ; preds = %65, %73
-  %78 = load ptr, ptr %17, align 8
-  %79 = icmp eq ptr %78, %3
-  br i1 %79, label %80, label %85
+.preheader:                                       ; preds = %64, %72
+  %77 = load ptr, ptr %17, align 8
+  %78 = icmp eq ptr %77, %3
+  br i1 %78, label %79, label %83
 
-80:                                               ; preds = %.preheader
+79:                                               ; preds = %.preheader
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !31
-  %81 = load volatile ptr, ptr %18, align 8
-  %82 = ptrtoint ptr %81 to i64
-  %83 = and i64 %82, -2
-  %84 = inttoptr i64 %83 to ptr
-  %.not4 = icmp eq ptr %53, %84
-  br i1 %.not4, label %70, label %.critedge8, !llvm.loop !30
+  %80 = load volatile ptr, ptr %18, align 8
+  %81 = ptrtoint ptr %80 to i64
+  %82 = and i64 %81, -2
+  %.not4 = icmp eq i64 %52, %82
+  br i1 %.not4, label %69, label %.critedge8, !llvm.loop !30
 
-85:                                               ; preds = %.preheader, %73, %70
+83:                                               ; preds = %.preheader, %72, %69
   tail call void @__rcu_read_unlock() #11
-  br label %87
+  br label %85
 
-86:                                               ; preds = %65, %61
+84:                                               ; preds = %64, %60
   tail call void @__rcu_read_unlock() #11
-  br label %87
+  br label %85
 
-87:                                               ; preds = %.thread, %85, %86, %49
+85:                                               ; preds = %.thread, %83, %84, %49
   tail call void @rt_mutex_schedule() #11
-  br label %88
+  br label %86
 
-.critedge8:                                       ; preds = %80, %55
+.critedge8:                                       ; preds = %79, %55
   tail call void @__rcu_read_unlock() #11
-  br label %88
+  br label %86
 
-88:                                               ; preds = %.critedge8, %87
+86:                                               ; preds = %.critedge8, %85
   tail call void @_raw_spin_lock_irq(ptr noundef %0) #11
-  %89 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 %1, ptr elementtype(i32) %19) #11, !srcloc !32
-  %90 = tail call fastcc i32 @try_to_take_rt_mutex(ptr noundef %0, ptr noundef %6, ptr noundef %3), !range !9
-  %91 = icmp eq i32 %90, 0
-  br i1 %91, label %20, label %.critedge6, !llvm.loop !33
+  %87 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 %1, ptr elementtype(i32) %19) #11, !srcloc !32
+  %88 = tail call fastcc i32 @try_to_take_rt_mutex(ptr noundef %0, ptr noundef %6, ptr noundef %3), !range !9
+  %89 = icmp eq i32 %88, 0
+  br i1 %89, label %20, label %.critedge6, !llvm.loop !33
 
-.critedge6:                                       ; preds = %35, %34, %88, %39, %21, %4
-  %92 = phi i32 [ 0, %4 ], [ -4, %35 ], [ -4, %34 ], [ -4, %39 ], [ -110, %21 ], [ 0, %88 ]
-  %93 = getelementptr inbounds i8, ptr %6, i64 24
-  store volatile i32 0, ptr %93, align 8
-  ret i32 %92
+.critedge6:                                       ; preds = %35, %34, %86, %39, %21, %4
+  %90 = phi i32 [ 0, %4 ], [ -4, %35 ], [ -4, %34 ], [ -4, %39 ], [ -110, %21 ], [ 0, %86 ]
+  %91 = getelementptr inbounds i8, ptr %6, i64 24
+  store volatile i32 0, ptr %91, align 8
+  ret i32 %90
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1593,34 +1591,33 @@ define dso_local noundef zeroext i1 @rt_mutex_cleanup_proxy_lock(ptr noundef %0,
   %7 = load volatile ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, -2
-  %10 = inttoptr i64 %9 to ptr
-  %11 = icmp ne ptr %10, %4
-  br i1 %11, label %12, label %13
+  %10 = icmp ne i64 %9, %3
+  br i1 %10, label %11, label %12
 
-12:                                               ; preds = %2
+11:                                               ; preds = %2
   tail call fastcc void @remove_waiter(ptr noundef %0, ptr noundef %1)
-  br label %13
+  br label %12
 
-13:                                               ; preds = %12, %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  %15 = load volatile ptr, ptr %14, align 8
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %23
+12:                                               ; preds = %11, %2
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = load volatile ptr, ptr %13, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %22
 
-17:                                               ; preds = %13
-  %18 = load volatile i64, ptr %6, align 8
-  %19 = and i64 %18, 1
-  %20 = icmp eq i64 %19, 0
-  br i1 %20, label %23, label %21
+16:                                               ; preds = %12
+  %17 = load volatile i64, ptr %6, align 8
+  %18 = and i64 %17, 1
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %22, label %20
 
-21:                                               ; preds = %17
-  %22 = and i64 %18, -2
-  store volatile i64 %22, ptr %6, align 8
-  br label %23
+20:                                               ; preds = %16
+  %21 = and i64 %17, -2
+  store volatile i64 %21, ptr %6, align 8
+  br label %22
 
-23:                                               ; preds = %21, %17, %13
+22:                                               ; preds = %20, %16, %12
   tail call void @_raw_spin_unlock_irq(ptr noundef %0) #11
-  ret i1 %11
+  ret i1 %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

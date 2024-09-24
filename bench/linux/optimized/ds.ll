@@ -716,7 +716,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #14, !srcloc !18
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !32
   %72 = add i64 %58, 2147483648
-  %73 = icmp ugt ptr %63, inttoptr (i64 -2147483649 to ptr)
+  %73 = icmp ugt i64 %58, -2147483649
   %74 = sub i64 -2147483648, %71
   %75 = select i1 %73, i64 %70, i64 %74
   %76 = add i64 %72, %75
@@ -853,7 +853,7 @@ define dso_local void @reserve_ds_buffers() local_unnamed_addr #4 align 16 {
 
 164:                                              ; preds = %153
   %165 = add i64 %135, 2147483648
-  %166 = icmp ugt ptr %136, inttoptr (i64 -2147483649 to ptr)
+  %166 = icmp ugt i64 %135, -2147483649
   %167 = sub i64 -2147483648, %162
   %168 = select i1 %166, i64 %161, i64 %167
   %169 = add i64 %165, %168
@@ -1184,7 +1184,7 @@ define dso_local noundef range(i32 0, 2) i32 @intel_pmu_drain_bts_buffer() local
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   %20 = load i64, ptr %19, align 8
   %21 = inttoptr i64 %20 to ptr
-  %22 = icmp ugt ptr %21, %18
+  %22 = icmp ugt i64 %20, %17
   br i1 %22, label %23, label %81
 
 23:                                               ; preds = %16
@@ -2470,7 +2470,7 @@ define internal void @intel_pmu_drain_pebs_core(ptr noundef %0, ptr noundef %1) 
 
 50:                                               ; preds = %44
   %51 = icmp ne i64 %16, 0
-  %52 = icmp ult ptr %17, %20
+  %52 = icmp ult i64 %16, %19
   %53 = and i1 %51, %52
   br i1 %53, label %54, label %.loopexit15
 
@@ -2738,7 +2738,7 @@ define internal void @intel_pmu_drain_pebs_nhm(ptr noundef %0, ptr noundef %1) #
 
 39:                                               ; preds = %31, %17
   %40 = phi i32 [ %38, %31 ], [ %24, %17 ]
-  %.not = icmp ult ptr %20, %23
+  %.not = icmp ult i64 %19, %22
   br i1 %.not, label %41, label %44, !prof !23
 
 41:                                               ; preds = %39
@@ -3203,7 +3203,7 @@ define internal void @intel_pmu_drain_pebs_icl(ptr noundef %0, ptr noundef %1) #
   %46 = or i64 %45, %41
   store i64 %46, ptr %7, align 8
   %47 = add i32 %26, 32
-  %.not = icmp ult ptr %35, %38
+  %.not = icmp ult i64 %34, %37
   br i1 %.not, label %48, label %52, !prof !23
 
 48:                                               ; preds = %32

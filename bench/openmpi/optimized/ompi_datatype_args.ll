@@ -1176,29 +1176,26 @@ define i64 @ompi_datatype_pack_description_length(ptr noundef %0) local_unnamed_
   %.val = load i16, ptr %5, align 8
   %6 = and i16 %.val, 512
   %.not = icmp eq i16 %6, 0
-  br i1 %.not, label %7, label %18
+  br i1 %.not, label %7, label %15
 
 7:                                                ; preds = %1
-  %8 = inttoptr i64 %4 to ptr
-  %9 = icmp eq i64 %4, 0
-  %10 = icmp eq ptr %8, inttoptr (i64 1 to ptr)
-  %or.cond = or i1 %9, %10
-  br i1 %or.cond, label %11, label %13
+  %or.cond = icmp ult i64 %4, 2
+  br i1 %or.cond, label %8, label %10
 
-11:                                               ; preds = %7
-  %12 = call i32 @ompi_datatype_get_pack_description(ptr noundef nonnull %0, ptr noundef nonnull %2)
-  %.not9 = icmp eq i32 %12, 0
-  br i1 %.not9, label %13, label %18
+8:                                                ; preds = %7
+  %9 = call i32 @ompi_datatype_get_pack_description(ptr noundef nonnull %0, ptr noundef nonnull %2)
+  %.not9 = icmp eq i32 %9, 0
+  br i1 %.not9, label %10, label %15
 
-13:                                               ; preds = %11, %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 216
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
-  %17 = load i64, ptr %16, align 8
-  br label %18
+10:                                               ; preds = %8, %7
+  %11 = getelementptr inbounds i8, ptr %0, i64 216
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load i64, ptr %13, align 8
+  br label %15
 
-18:                                               ; preds = %11, %1, %13
-  %.0 = phi i64 [ %17, %13 ], [ 8, %1 ], [ 0, %11 ]
+15:                                               ; preds = %8, %1, %10
+  %.0 = phi i64 [ %14, %10 ], [ 8, %1 ], [ 0, %8 ]
   ret i64 %.0
 }
 

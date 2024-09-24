@@ -48447,64 +48447,57 @@ define internal fastcc void @"_ZN4llvm8for_eachINS_14iterator_rangeINS_2at11DbgA
   br label %5
 
 5:                                                ; preds = %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_18DbgAssignIntrinsicEEEDaPT_.exit.i", %.lr.ph.i
-  %.sroa.03.08.i = phi ptr [ %.0.val, %.lr.ph.i ], [ %29, %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_18DbgAssignIntrinsicEEEDaPT_.exit.i" ]
+  %.sroa.03.08.i = phi ptr [ %.0.val, %.lr.ph.i ], [ %26, %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_18DbgAssignIntrinsicEEEDaPT_.exit.i" ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i, i64 24
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @_ZNK4llvm20DbgVariableIntrinsic12location_opsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.805") align 8 %3, ptr noundef nonnull align 8 dereferenceable(88) %7) #23
   %8 = load i64, ptr %3, align 8, !noalias !610
   %9 = load i64, ptr %4, align 8, !noalias !112
-  %10 = inttoptr i64 %8 to ptr
-  %11 = inttoptr i64 %9 to ptr
-  %.not4.i.i.i.i.i.i = icmp eq ptr %10, %11
+  %.not4.i.i.i.i.i.i = icmp eq i64 %8, %9
   br i1 %.not4.i.i.i.i.i.i, label %_ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %5, %22
-  %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i, %22 ], [ %8, %5 ]
-  %12 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, 4
-  %13 = icmp eq i64 %12, 0
-  %14 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, -8
-  %15 = inttoptr i64 %14 to ptr
-  br i1 %13, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i, label %16
+.lr.ph.i.i.i.i.i.i:                               ; preds = %5, %20
+  %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i, %20 ], [ %8, %5 ]
+  %10 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, 4
+  %11 = icmp eq i64 %10, 0
+  %12 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, -8
+  %13 = inttoptr i64 %12 to ptr
+  br i1 %11, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i, label %14
 
-16:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %17 = load ptr, ptr %15, align 8, !noalias !619
+14:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %15 = load ptr, ptr %13, align 8, !noalias !619
   br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i: ; preds = %16, %.lr.ph.i.i.i.i.i.i
-  %18 = phi ptr [ %17, %16 ], [ %15, %.lr.ph.i.i.i.i.i.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 128
-  %20 = load ptr, ptr %19, align 8, !noalias !619
-  %21 = icmp eq ptr %20, %0
-  br i1 %21, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i._ZSt4findIN4llvm20location_op_iteratorEPNS0_5ValueEET_S4_S4_RKT0_.exit.loopexit_crit_edge.i.i.i, label %22
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i: ; preds = %14, %.lr.ph.i.i.i.i.i.i
+  %16 = phi ptr [ %15, %14 ], [ %13, %.lr.ph.i.i.i.i.i.i ]
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
+  %18 = load ptr, ptr %17, align 8, !noalias !619
+  %19 = icmp eq ptr %18, %0
+  br i1 %19, label %_ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i, label %20
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i._ZSt4findIN4llvm20location_op_iteratorEPNS0_5ValueEET_S4_S4_RKT0_.exit.loopexit_crit_edge.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i
-  %.pre7.i.i.i = inttoptr i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i to ptr
-  br label %_ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i
-
-22:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i
-  %23 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, -4
-  %24 = add nuw i64 %23, 8
-  %25 = add nuw i64 %14, 136
-  %storemerge.i.i.i.i.i.i.i = select i1 %13, i64 %25, i64 %24
-  %26 = inttoptr i64 %storemerge.i.i.i.i.i.i.i to ptr
-  %.not.i.i.i.i.i.i = icmp eq ptr %26, %11
+20:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i
+  %21 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, -4
+  %22 = add nuw i64 %21, 8
+  %23 = add nuw i64 %12, 136
+  %storemerge.i.i.i.i.i.i.i = select i1 %11, i64 %23, i64 %22
+  %.not.i.i.i.i.i.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i, %9
   br i1 %.not.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_18DbgAssignIntrinsicEEEDaPT_.exit.i", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !626
 
-_ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i._ZSt4findIN4llvm20location_op_iteratorEPNS0_5ValueEET_S4_S4_RKT0_.exit.loopexit_crit_edge.i.i.i, %5
-  %.pre-phi.i.i.i = phi ptr [ %10, %5 ], [ %.pre7.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i._ZSt4findIN4llvm20location_op_iteratorEPNS0_5ValueEET_S4_S4_RKT0_.exit.loopexit_crit_edge.i.i.i ]
-  %.not.i.i = icmp eq ptr %.pre-phi.i.i.i, %11
-  br i1 %.not.i.i, label %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_18DbgAssignIntrinsicEEEDaPT_.exit.i", label %27
+_ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i, %5
+  %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i = phi i64 [ %8, %5 ], [ %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i ]
+  %.not.i.i = icmp eq i64 %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i, %9
+  br i1 %.not.i.i, label %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_18DbgAssignIntrinsicEEEDaPT_.exit.i", label %24
 
-27:                                               ; preds = %_ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i
+24:                                               ; preds = %_ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i
   call void @_ZN4llvm20DbgVariableIntrinsic25replaceVariableLocationOpEPNS_5ValueES2_b(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %0, ptr noundef %1, i1 noundef zeroext false) #23
   br label %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_18DbgAssignIntrinsicEEEDaPT_.exit.i"
 
-"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_18DbgAssignIntrinsicEEEDaPT_.exit.i": ; preds = %22, %27, %_ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i
+"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_18DbgAssignIntrinsicEEEDaPT_.exit.i": ; preds = %20, %24, %_ZN4llvm12is_containedINS_14iterator_rangeINS_20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %.not.i = icmp eq ptr %29, %.8.val
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.03.08.i, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %.not.i = icmp eq ptr %26, %.8.val
   br i1 %.not.i, label %"_ZSt8for_eachIN4llvm2at11DbgAssignItEZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPNS0_10BranchInstEPNS0_10BasicBlockEE3$_0ET0_T_SB_SA_.exit", label %5, !llvm.loop !627
 
 "_ZSt8for_eachIN4llvm2at11DbgAssignItEZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPNS0_10BranchInstEPNS0_10BasicBlockEE3$_0ET0_T_SB_SA_.exit": ; preds = %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_18DbgAssignIntrinsicEEEDaPT_.exit.i", %2
@@ -48552,62 +48545,55 @@ define internal fastcc void @"_ZN4llvm8for_eachINS_11SmallVectorIPNS_17DbgVariab
   br label %9
 
 9:                                                ; preds = %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_17DbgVariableRecordEEEDaPT_.exit.i", %.lr.ph.i
-  %.07.i = phi ptr [ %5, %.lr.ph.i ], [ %31, %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_17DbgVariableRecordEEEDaPT_.exit.i" ]
+  %.07.i = phi ptr [ %5, %.lr.ph.i ], [ %28, %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_17DbgVariableRecordEEEDaPT_.exit.i" ]
   %10 = load ptr, ptr %.07.i, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @_ZNK4llvm17DbgVariableRecord12location_opsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.816") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %10) #23
   %11 = load i64, ptr %4, align 8, !noalias !628
   %12 = load i64, ptr %8, align 8, !noalias !112
-  %13 = inttoptr i64 %11 to ptr
-  %14 = inttoptr i64 %12 to ptr
-  %.not4.i.i.i.i.i.i = icmp eq ptr %13, %14
+  %.not4.i.i.i.i.i.i = icmp eq i64 %11, %12
   br i1 %.not4.i.i.i.i.i.i, label %_ZN4llvm12is_containedINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %9, %25
-  %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i, %25 ], [ %11, %9 ]
-  %15 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, 4
-  %16 = icmp eq i64 %15, 0
-  %17 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, -8
-  %18 = inttoptr i64 %17 to ptr
-  br i1 %16, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i, label %19
+.lr.ph.i.i.i.i.i.i:                               ; preds = %9, %23
+  %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i.i, %23 ], [ %11, %9 ]
+  %13 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, 4
+  %14 = icmp eq i64 %13, 0
+  %15 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, -8
+  %16 = inttoptr i64 %15 to ptr
+  br i1 %14, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i, label %17
 
-19:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %20 = load ptr, ptr %18, align 8, !noalias !637
+17:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %18 = load ptr, ptr %16, align 8, !noalias !637
   br label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i: ; preds = %19, %.lr.ph.i.i.i.i.i.i
-  %21 = phi ptr [ %20, %19 ], [ %18, %.lr.ph.i.i.i.i.i.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 128
-  %23 = load ptr, ptr %22, align 8, !noalias !637
-  %24 = icmp eq ptr %23, %1
-  br i1 %24, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i._ZSt4findIN4llvm17DbgVariableRecord20location_op_iteratorEPNS0_5ValueEET_S5_S5_RKT0_.exit.loopexit_crit_edge.i.i.i, label %25
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i: ; preds = %17, %.lr.ph.i.i.i.i.i.i
+  %19 = phi ptr [ %18, %17 ], [ %16, %.lr.ph.i.i.i.i.i.i ]
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
+  %21 = load ptr, ptr %20, align 8, !noalias !637
+  %22 = icmp eq ptr %21, %1
+  br i1 %22, label %_ZN4llvm12is_containedINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i, label %23
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i._ZSt4findIN4llvm17DbgVariableRecord20location_op_iteratorEPNS0_5ValueEET_S5_S5_RKT0_.exit.loopexit_crit_edge.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i
-  %.pre7.i.i.i = inttoptr i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i to ptr
-  br label %_ZN4llvm12is_containedINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i
-
-25:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i
-  %26 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, -4
-  %27 = add nuw i64 %26, 8
-  %28 = add nuw i64 %17, 136
-  %storemerge.i.i.i.i.i.i.i = select i1 %16, i64 %28, i64 %27
-  %29 = inttoptr i64 %storemerge.i.i.i.i.i.i.i to ptr
-  %.not.i.i.i.i.i.i = icmp eq ptr %29, %14
+23:                                               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i
+  %24 = and i64 %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, -4
+  %25 = add nuw i64 %24, 8
+  %26 = add nuw i64 %15, 136
+  %storemerge.i.i.i.i.i.i.i = select i1 %14, i64 %26, i64 %25
+  %.not.i.i.i.i.i.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i, %12
   br i1 %.not.i.i.i.i.i.i, label %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_17DbgVariableRecordEEEDaPT_.exit.i", label %.lr.ph.i.i.i.i.i.i, !llvm.loop !644
 
-_ZN4llvm12is_containedINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i._ZSt4findIN4llvm17DbgVariableRecord20location_op_iteratorEPNS0_5ValueEET_S5_S5_RKT0_.exit.loopexit_crit_edge.i.i.i, %9
-  %.pre-phi.i.i.i = phi ptr [ %13, %9 ], [ %.pre7.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i._ZSt4findIN4llvm17DbgVariableRecord20location_op_iteratorEPNS0_5ValueEET_S5_S5_RKT0_.exit.loopexit_crit_edge.i.i.i ]
-  %.not.i.i = icmp eq ptr %.pre-phi.i.i.i, %14
-  br i1 %.not.i.i, label %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_17DbgVariableRecordEEEDaPT_.exit.i", label %30
+_ZN4llvm12is_containedINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i, %9
+  %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i = phi i64 [ %11, %9 ], [ %.sroa.01.0.copyload.i.i5.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKPN4llvm5ValueEEclINS2_17DbgVariableRecord20location_op_iteratorEEEbT_.exit.i.i.i.i.i.i ]
+  %.not.i.i = icmp eq i64 %.sroa.01.0.copyload.i.i.lcssa.i.i.i.i.i.i, %12
+  br i1 %.not.i.i, label %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_17DbgVariableRecordEEEDaPT_.exit.i", label %27
 
-30:                                               ; preds = %_ZN4llvm12is_containedINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i
+27:                                               ; preds = %_ZN4llvm12is_containedINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i
   call void @_ZN4llvm17DbgVariableRecord25replaceVariableLocationOpEPNS_5ValueES2_b(ptr noundef nonnull align 8 dereferenceable(96) %10, ptr noundef %1, ptr noundef %2, i1 noundef zeroext false) #23
   br label %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_17DbgVariableRecordEEEDaPT_.exit.i"
 
-"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_17DbgVariableRecordEEEDaPT_.exit.i": ; preds = %25, %30, %_ZN4llvm12is_containedINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i
+"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_17DbgVariableRecordEEEDaPT_.exit.i": ; preds = %23, %27, %_ZN4llvm12is_containedINS_14iterator_rangeINS_17DbgVariableRecord20location_op_iteratorEEEPNS_5ValueEEEbOT_RKT0_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %31 = getelementptr inbounds i8, ptr %.07.i, i64 8
-  %.not.i = icmp eq ptr %31, %7
+  %28 = getelementptr inbounds i8, ptr %.07.i, i64 8
+  %.not.i = icmp eq ptr %28, %7
   br i1 %.not.i, label %"_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPNS0_10BranchInstEPNS0_10BasicBlockEE3$_0ET0_T_SC_SB_.exit", label %9, !llvm.loop !645
 
 "_ZSt8for_eachIPPN4llvm17DbgVariableRecordEZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPNS0_10BranchInstEPNS0_10BasicBlockEE3$_0ET0_T_SC_SB_.exit": ; preds = %"_ZZN12_GLOBAL__N_114SimplifyCFGOpt22speculativelyExecuteBBEPN4llvm10BranchInstEPNS1_10BasicBlockEENK3$_0clINS1_17DbgVariableRecordEEEDaPT_.exit.i", %3

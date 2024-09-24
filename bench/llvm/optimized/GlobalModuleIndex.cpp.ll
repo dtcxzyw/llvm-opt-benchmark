@@ -3734,7 +3734,7 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i.i.i.i.i: ; preds = %332
   br i1 %.not.i.i.i6.i.i.i.i.i, label %_ZNKSt4lessIN5clang12FileEntryRefEEclERKS1_S4_.exit.i.i.i.i, label %339, !llvm.loop !138
 
 _ZNKSt4lessIN5clang12FileEntryRefEEclERKS1_S4_.exit.i.i.i.i: ; preds = %339
-  %344 = icmp ult ptr %336, %343
+  %344 = icmp ult i64 %335, %342
   %.in.v.i.i.i.i = select i1 %344, i64 16, i64 24
   %.in.i.i.i.i = getelementptr i8, ptr %.059.i.i.i.i, i64 %.in.v.i.i.i.i
   %.05.i.i.i.i = load ptr, ptr %.in.i.i.i.i, align 8
@@ -3770,7 +3770,7 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i.i.i.i.i.i: ; preds = %.prehe
   br i1 %.not.i.i.i6.i.i.i.i.i.i, label %_ZNKSt4lessIN5clang12FileEntryRefEEclERKS1_S4_.exit.i.i.i.i.i, label %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i.i.i.i.i.i, !llvm.loop !138
 
 _ZNKSt4lessIN5clang12FileEntryRefEEclERKS1_S4_.exit.i.i.i.i.i: ; preds = %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit.i.i.i.i.i.i
-  %354 = icmp ult ptr %349, %353
+  %354 = icmp ult i64 %348, %352
   br label %_ZNSt8multimapIN5clang12FileEntryRefEN12_GLOBAL__N_122ImportedModuleFileInfoESt4lessIS1_ESaISt4pairIKS1_S3_EEE6insertIS6_IS1_S3_EEENSt9enable_ifIXsr16is_constructibleIS8_T_EE5valueESt17_Rb_tree_iteratorIS8_EE4typeEOSE_.exit.i
 
 _ZNSt8multimapIN5clang12FileEntryRefEN12_GLOBAL__N_122ImportedModuleFileInfoESt4lessIS1_ESaISt4pairIKS1_S3_EEE6insertIS6_IS1_S3_EEENSt9enable_ifIXsr16is_constructibleIS8_T_EE5valueESt17_Rb_tree_iteratorIS8_EE4typeEOSE_.exit.i: ; preds = %_ZNKSt4lessIN5clang12FileEntryRefEEclERKS1_S4_.exit.i.i.i.i.i, %_ZNSt8_Rb_treeIN5clang12FileEntryRefESt4pairIKS1_N12_GLOBAL__N_122ImportedModuleFileInfoEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE23_M_get_insert_equal_posERS3_.exit.i.i.i, %328
@@ -8468,7 +8468,7 @@ _ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i: ; preds = %.preheader.i, %_ZN
   br i1 %.not.i.i6.i.i, label %_ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit, label %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i, !llvm.loop !138
 
 _ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit: ; preds = %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i
-  %45 = icmp eq ptr %40, %44
+  %45 = icmp eq i64 %39, %43
   br i1 %45, label %_ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit.thread25, label %_ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit.thread
 
 _ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit.thread: ; preds = %_ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit
@@ -8613,7 +8613,7 @@ _ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i: ; preds = %.preheader.i, %_ZN
   br i1 %.not.i.i6.i.i, label %_ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit, label %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i, !llvm.loop !138
 
 _ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit: ; preds = %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i
-  %48 = icmp eq ptr %43, %47
+  %48 = icmp eq i64 %42, %46
   br i1 %48, label %_ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit.thread43, label %_ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit.thread
 
 _ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit.thread: ; preds = %_ZN4llvm12DenseMapInfoIN5clang12FileEntryRefEvE7isEqualES2_S2_.exit

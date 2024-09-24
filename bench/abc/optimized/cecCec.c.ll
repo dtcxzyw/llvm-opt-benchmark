@@ -795,12 +795,12 @@ Abc_Clock.exit:                                   ; preds = %2, %11
   %wide.trip.count = zext nneg i32 %22 to i64
   br label %32
 
-32:                                               ; preds = %.lr.ph, %141
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %141 ]
-  %.06097 = phi i32 [ 0, %.lr.ph ], [ %.1, %141 ]
-  %.06196 = phi i32 [ 0, %.lr.ph ], [ %.162, %141 ]
-  %.06494 = phi i32 [ 0, %.lr.ph ], [ %.165, %141 ]
-  %.06693 = phi i32 [ 0, %.lr.ph ], [ %.2, %141 ]
+32:                                               ; preds = %.lr.ph, %139
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %139 ]
+  %.06097 = phi i32 [ 0, %.lr.ph ], [ %.1, %139 ]
+  %.06196 = phi i32 [ 0, %.lr.ph ], [ %.162, %139 ]
+  %.06494 = phi i32 [ 0, %.lr.ph ], [ %.165, %139 ]
+  %.06693 = phi i32 [ 0, %.lr.ph ], [ %.2, %139 ]
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = and i32 %33, 255
   %35 = icmp eq i32 %34, 0
@@ -842,177 +842,175 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %41, %37, %32
   %58 = and i64 %57, 1
   %59 = ptrtoint ptr %56 to i64
   %60 = xor i64 %58, %59
-  %61 = inttoptr i64 %60 to ptr
-  %62 = load i64, ptr %52, align 4
-  %63 = and i64 %62, 536870911
-  %64 = sub nsw i64 0, %63
-  %65 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %52, i64 %64
-  %66 = lshr i64 %62, 29
-  %67 = and i64 %66, 1
-  %68 = ptrtoint ptr %65 to i64
-  %69 = xor i64 %67, %68
-  %70 = inttoptr i64 %69 to ptr
-  %71 = icmp eq ptr %61, %70
-  br i1 %71, label %72, label %75
+  %61 = load i64, ptr %52, align 4
+  %62 = and i64 %61, 536870911
+  %63 = sub nsw i64 0, %62
+  %64 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %52, i64 %63
+  %65 = lshr i64 %61, 29
+  %66 = and i64 %65, 1
+  %67 = ptrtoint ptr %64 to i64
+  %68 = xor i64 %66, %67
+  %69 = icmp eq i64 %60, %68
+  br i1 %69, label %70, label %73
 
-72:                                               ; preds = %Extra_ProgressBarUpdate.exit
-  %73 = add nsw i32 %.06097, 1
-  %74 = add nsw i32 %.06494, 1
-  br label %141
+70:                                               ; preds = %Extra_ProgressBarUpdate.exit
+  %71 = add nsw i32 %.06097, 1
+  %72 = add nsw i32 %.06494, 1
+  br label %139
 
-75:                                               ; preds = %Extra_ProgressBarUpdate.exit
-  %76 = load i32, ptr %27, align 4
-  %.not = icmp eq i32 %76, 0
-  br i1 %.not, label %94, label %77
+73:                                               ; preds = %Extra_ProgressBarUpdate.exit
+  %74 = load i32, ptr %27, align 4
+  %.not = icmp eq i32 %74, 0
+  br i1 %.not, label %92, label %75
 
-77:                                               ; preds = %75
+75:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %78 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
-  %79 = icmp slt i32 %78, 0
-  br i1 %79, label %Abc_Clock.exit82, label %80
+  %76 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %Abc_Clock.exit82, label %78
 
-80:                                               ; preds = %77
-  %81 = load i64, ptr %4, align 8
-  %82 = mul nsw i64 %81, 1000000
-  %83 = load i64, ptr %28, align 8
-  %84 = sdiv i64 %83, 1000
-  %85 = add nsw i64 %84, %82
+78:                                               ; preds = %75
+  %79 = load i64, ptr %4, align 8
+  %80 = mul nsw i64 %79, 1000000
+  %81 = load i64, ptr %28, align 8
+  %82 = sdiv i64 %81, 1000
+  %83 = add nsw i64 %82, %80
   br label %Abc_Clock.exit82
 
-Abc_Clock.exit82:                                 ; preds = %77, %80
-  %.0.i81 = phi i64 [ %85, %80 ], [ -1, %77 ]
+Abc_Clock.exit82:                                 ; preds = %75, %78
+  %.0.i81 = phi i64 [ %83, %78 ], [ -1, %75 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %86 = sub nsw i64 %.0.i81, %.0.i
-  %87 = sdiv i64 %86, 1000000
-  %88 = load i32, ptr %27, align 4
-  %89 = sext i32 %88 to i64
-  %.not71 = icmp slt i64 %87, %89
-  br i1 %.not71, label %Abc_Clock.exit82._crit_edge, label %90
+  %84 = sub nsw i64 %.0.i81, %.0.i
+  %85 = sdiv i64 %84, 1000000
+  %86 = load i32, ptr %27, align 4
+  %87 = sext i32 %86 to i64
+  %.not71 = icmp slt i64 %85, %87
+  br i1 %.not71, label %Abc_Clock.exit82._crit_edge, label %88
 
 Abc_Clock.exit82._crit_edge:                      ; preds = %Abc_Clock.exit82
   %.val79.pre = load ptr, ptr %26, align 8
-  br label %94
+  br label %92
 
-90:                                               ; preds = %Abc_Clock.exit82
-  %91 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %88)
-  %92 = add i32 %.06196, %.06097
-  %93 = sub i32 %22, %92
+88:                                               ; preds = %Abc_Clock.exit82
+  %89 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %86)
+  %90 = add i32 %.06196, %.06097
+  %91 = sub i32 %22, %90
   br label %.loopexit
 
-94:                                               ; preds = %Abc_Clock.exit82._crit_edge, %75
-  %.val79 = phi ptr [ %.val79.pre, %Abc_Clock.exit82._crit_edge ], [ %.val77, %75 ]
-  %95 = load ptr, ptr %29, align 8
-  %96 = ptrtoint ptr %47 to i64
-  %97 = ptrtoint ptr %.val79 to i64
-  %98 = sub i64 %96, %97
-  %99 = sdiv exact i64 %98, 12
-  %sext = shl i64 %99, 32
-  %100 = ashr exact i64 %sext, 30
-  %101 = getelementptr inbounds i8, ptr %95, i64 %100
-  %102 = load i32, ptr %101, align 4
-  %103 = ptrtoint ptr %52 to i64
-  %104 = sub i64 %103, %97
-  %105 = sdiv exact i64 %104, 12
-  %sext85 = shl i64 %105, 32
-  %106 = ashr exact i64 %sext85, 30
-  %107 = getelementptr inbounds i8, ptr %95, i64 %106
-  %108 = load i32, ptr %107, align 4
-  %109 = shl nsw i32 %102, 1
-  %110 = shl nsw i32 %108, 1
-  store i32 %110, ptr %30, align 4
-  %111 = or disjoint i32 %109, 1
-  store i32 %111, ptr %6, align 4
-  %112 = load i32, ptr %1, align 4
-  %113 = sext i32 %112 to i64
-  %114 = call i32 @sat_solver_solve(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %31, i64 noundef %113, i64 noundef 0, i64 noundef 0, i64 noundef 0) #10
-  switch i32 %114, label %127 [
-    i32 -1, label %115
-    i32 1, label %124
+92:                                               ; preds = %Abc_Clock.exit82._crit_edge, %73
+  %.val79 = phi ptr [ %.val79.pre, %Abc_Clock.exit82._crit_edge ], [ %.val77, %73 ]
+  %93 = load ptr, ptr %29, align 8
+  %94 = ptrtoint ptr %47 to i64
+  %95 = ptrtoint ptr %.val79 to i64
+  %96 = sub i64 %94, %95
+  %97 = sdiv exact i64 %96, 12
+  %sext = shl i64 %97, 32
+  %98 = ashr exact i64 %sext, 30
+  %99 = getelementptr inbounds i8, ptr %93, i64 %98
+  %100 = load i32, ptr %99, align 4
+  %101 = ptrtoint ptr %52 to i64
+  %102 = sub i64 %101, %95
+  %103 = sdiv exact i64 %102, 12
+  %sext85 = shl i64 %103, 32
+  %104 = ashr exact i64 %sext85, 30
+  %105 = getelementptr inbounds i8, ptr %93, i64 %104
+  %106 = load i32, ptr %105, align 4
+  %107 = shl nsw i32 %100, 1
+  %108 = shl nsw i32 %106, 1
+  store i32 %108, ptr %30, align 4
+  %109 = or disjoint i32 %107, 1
+  store i32 %109, ptr %6, align 4
+  %110 = load i32, ptr %1, align 4
+  %111 = sext i32 %110 to i64
+  %112 = call i32 @sat_solver_solve(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %31, i64 noundef %111, i64 noundef 0, i64 noundef 0, i64 noundef 0) #10
+  switch i32 %112, label %125 [
+    i32 -1, label %113
+    i32 1, label %122
   ]
 
-115:                                              ; preds = %94
-  %116 = load i32, ptr %6, align 4
+113:                                              ; preds = %92
+  %114 = load i32, ptr %6, align 4
+  %115 = xor i32 %114, 1
+  store i32 %115, ptr %6, align 4
+  %116 = load i32, ptr %30, align 4
   %117 = xor i32 %116, 1
-  store i32 %117, ptr %6, align 4
-  %118 = load i32, ptr %30, align 4
-  %119 = xor i32 %118, 1
-  store i32 %119, ptr %30, align 4
-  %120 = call i32 @sat_solver_addclause(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %31) #10
-  %121 = load i32, ptr %1, align 4
-  %122 = sext i32 %121 to i64
-  %123 = call i32 @sat_solver_solve(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %31, i64 noundef %122, i64 noundef 0, i64 noundef 0, i64 noundef 0) #10
-  switch i32 %123, label %139 [
-    i32 -1, label %129
-    i32 1, label %136
+  store i32 %117, ptr %30, align 4
+  %118 = call i32 @sat_solver_addclause(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %31) #10
+  %119 = load i32, ptr %1, align 4
+  %120 = sext i32 %119 to i64
+  %121 = call i32 @sat_solver_solve(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %31, i64 noundef %120, i64 noundef 0, i64 noundef 0, i64 noundef 0) #10
+  switch i32 %121, label %137 [
+    i32 -1, label %127
+    i32 1, label %134
   ]
 
-124:                                              ; preds = %94
-  %125 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %33)
-  %126 = add nsw i32 %.06196, 1
-  br label %141
+122:                                              ; preds = %92
+  %123 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %33)
+  %124 = add nsw i32 %.06196, 1
+  br label %139
 
-127:                                              ; preds = %94
-  %128 = add nsw i32 %.06693, 1
-  br label %141
+125:                                              ; preds = %92
+  %126 = add nsw i32 %.06693, 1
+  br label %139
 
-129:                                              ; preds = %115
-  %130 = load i32, ptr %6, align 4
+127:                                              ; preds = %113
+  %128 = load i32, ptr %6, align 4
+  %129 = xor i32 %128, 1
+  store i32 %129, ptr %6, align 4
+  %130 = load i32, ptr %30, align 4
   %131 = xor i32 %130, 1
-  store i32 %131, ptr %6, align 4
-  %132 = load i32, ptr %30, align 4
-  %133 = xor i32 %132, 1
-  store i32 %133, ptr %30, align 4
-  %134 = call i32 @sat_solver_addclause(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %31) #10
-  %135 = add nsw i32 %.06097, 1
-  br label %141
+  store i32 %131, ptr %30, align 4
+  %132 = call i32 @sat_solver_addclause(ptr noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %31) #10
+  %133 = add nsw i32 %.06097, 1
+  br label %139
 
-136:                                              ; preds = %115
-  %137 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %33)
-  %138 = add nsw i32 %.06196, 1
-  br label %141
+134:                                              ; preds = %113
+  %135 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %33)
+  %136 = add nsw i32 %.06196, 1
+  br label %139
 
-139:                                              ; preds = %115
-  %140 = add nsw i32 %.06693, 1
-  br label %141
+137:                                              ; preds = %113
+  %138 = add nsw i32 %.06693, 1
+  br label %139
 
-141:                                              ; preds = %129, %139, %136, %127, %124, %72
-  %.2 = phi i32 [ %.06693, %72 ], [ %.06693, %129 ], [ %.06693, %136 ], [ %140, %139 ], [ %.06693, %124 ], [ %128, %127 ]
-  %.165 = phi i32 [ %74, %72 ], [ %.06494, %129 ], [ %.06494, %136 ], [ %.06494, %139 ], [ %.06494, %124 ], [ %.06494, %127 ]
-  %.162 = phi i32 [ %.06196, %72 ], [ %.06196, %129 ], [ %138, %136 ], [ %.06196, %139 ], [ %126, %124 ], [ %.06196, %127 ]
-  %.1 = phi i32 [ %73, %72 ], [ %135, %129 ], [ %.06097, %136 ], [ %.06097, %139 ], [ %.06097, %124 ], [ %.06097, %127 ]
+139:                                              ; preds = %127, %137, %134, %125, %122, %70
+  %.2 = phi i32 [ %.06693, %70 ], [ %.06693, %127 ], [ %.06693, %134 ], [ %138, %137 ], [ %.06693, %122 ], [ %126, %125 ]
+  %.165 = phi i32 [ %72, %70 ], [ %.06494, %127 ], [ %.06494, %134 ], [ %.06494, %137 ], [ %.06494, %122 ], [ %.06494, %125 ]
+  %.162 = phi i32 [ %.06196, %70 ], [ %.06196, %127 ], [ %136, %134 ], [ %.06196, %137 ], [ %124, %122 ], [ %.06196, %125 ]
+  %.1 = phi i32 [ %71, %70 ], [ %133, %127 ], [ %.06097, %134 ], [ %.06097, %137 ], [ %.06097, %122 ], [ %.06097, %125 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !7
 
-.loopexit:                                        ; preds = %141, %Abc_Clock.exit, %90
-  %.06491 = phi i32 [ %.06494, %90 ], [ 0, %Abc_Clock.exit ], [ %.165, %141 ]
-  %.06189 = phi i32 [ %.06196, %90 ], [ 0, %Abc_Clock.exit ], [ %.162, %141 ]
-  %.06087 = phi i32 [ %.06097, %90 ], [ 0, %Abc_Clock.exit ], [ %.1, %141 ]
-  %.167 = phi i32 [ %93, %90 ], [ 0, %Abc_Clock.exit ], [ %.2, %141 ]
+.loopexit:                                        ; preds = %139, %Abc_Clock.exit, %88
+  %.06491 = phi i32 [ %.06494, %88 ], [ 0, %Abc_Clock.exit ], [ %.165, %139 ]
+  %.06189 = phi i32 [ %.06196, %88 ], [ 0, %Abc_Clock.exit ], [ %.162, %139 ]
+  %.06087 = phi i32 [ %.06097, %88 ], [ 0, %Abc_Clock.exit ], [ %.1, %139 ]
+  %.167 = phi i32 [ %91, %88 ], [ 0, %Abc_Clock.exit ], [ %.2, %139 ]
   call void @Extra_ProgressBarStop(ptr noundef %24) #10
-  %142 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.06087, i32 noundef %.06189, i32 noundef %.167, i32 noundef %.06491)
+  %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %.06087, i32 noundef %.06189, i32 noundef %.167, i32 noundef %.06491)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %143 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #10
-  %144 = icmp slt i32 %143, 0
-  br i1 %144, label %Abc_Clock.exit84, label %145
+  %141 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #10
+  %142 = icmp slt i32 %141, 0
+  br i1 %142, label %Abc_Clock.exit84, label %143
 
-145:                                              ; preds = %.loopexit
-  %146 = load i64, ptr %3, align 8
-  %147 = mul nsw i64 %146, 1000000
-  %148 = getelementptr inbounds i8, ptr %3, i64 8
-  %149 = load i64, ptr %148, align 8
-  %150 = sdiv i64 %149, 1000
-  %151 = add nsw i64 %150, %147
+143:                                              ; preds = %.loopexit
+  %144 = load i64, ptr %3, align 8
+  %145 = mul nsw i64 %144, 1000000
+  %146 = getelementptr inbounds i8, ptr %3, i64 8
+  %147 = load i64, ptr %146, align 8
+  %148 = sdiv i64 %147, 1000
+  %149 = add nsw i64 %148, %145
   br label %Abc_Clock.exit84
 
-Abc_Clock.exit84:                                 ; preds = %.loopexit, %145
-  %.0.i83 = phi i64 [ %151, %145 ], [ -1, %.loopexit ]
+Abc_Clock.exit84:                                 ; preds = %.loopexit, %143
+  %.0.i83 = phi i64 [ %149, %143 ], [ -1, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %152 = sub nsw i64 %.0.i83, %.0.i
+  %150 = sub nsw i64 %.0.i83, %.0.i
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1)
-  %153 = sitofp i64 %152 to double
-  %154 = fdiv double %153, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %154)
+  %151 = sitofp i64 %150 to double
+  %152 = fdiv double %151, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %152)
   call void @Cnf_DataFree(ptr noundef %7) #10
   call void @sat_solver_delete(ptr noundef %8) #10
   %.not72 = icmp eq i32 %.06189, 0

@@ -1334,7 +1334,7 @@ define dso_local i64 @tsqueryout(ptr nocapture noundef readonly %0) local_unname
 9:                                                ; preds = %1
   %10 = tail call ptr @palloc(i64 noundef 1) #12
   store i8 0, ptr %10, align 1
-  br label %27
+  br label %26
 
 11:                                               ; preds = %1
   %12 = getelementptr i8, ptr %5, i64 8
@@ -1355,20 +1355,19 @@ define dso_local i64 @tsqueryout(ptr nocapture noundef readonly %0) local_unname
   store ptr %20, ptr %21, align 8
   call fastcc void @infix(ptr noundef %2, i32 noundef -1, i1 noundef zeroext false)
   %22 = load i64, ptr %3, align 8
-  %23 = inttoptr i64 %22 to ptr
-  %.not = icmp eq ptr %5, %23
-  br i1 %.not, label %25, label %24
+  %.not = icmp eq i64 %4, %22
+  br i1 %.not, label %24, label %23
 
-24:                                               ; preds = %11
+23:                                               ; preds = %11
   call void @pfree(ptr noundef nonnull %5) #12
-  br label %25
+  br label %24
 
-25:                                               ; preds = %11, %24
-  %26 = load ptr, ptr %15, align 8
-  br label %27
+24:                                               ; preds = %11, %23
+  %25 = load ptr, ptr %15, align 8
+  br label %26
 
-27:                                               ; preds = %25, %9
-  %.0.in = phi ptr [ %10, %9 ], [ %26, %25 ]
+26:                                               ; preds = %24, %9
+  %.0.in = phi ptr [ %10, %9 ], [ %25, %24 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }
@@ -2101,18 +2100,17 @@ define dso_local i64 @tsquerysend(ptr nocapture noundef readonly %0) local_unnam
 
 ._crit_edge:                                      ; preds = %74, %1
   %79 = load i64, ptr %3, align 8
-  %80 = inttoptr i64 %79 to ptr
-  %.not = icmp eq ptr %5, %80
-  br i1 %.not, label %82, label %81
+  %.not = icmp eq i64 %4, %79
+  br i1 %.not, label %81, label %80
 
-81:                                               ; preds = %._crit_edge
+80:                                               ; preds = %._crit_edge
   call void @pfree(ptr noundef nonnull %5) #12
-  br label %82
+  br label %81
 
-82:                                               ; preds = %._crit_edge, %81
-  %83 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #12
-  %84 = ptrtoint ptr %83 to i64
-  ret i64 %84
+81:                                               ; preds = %._crit_edge, %80
+  %82 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #12
+  %83 = ptrtoint ptr %82 to i64
+  ret i64 %83
 }
 
 declare void @pq_begintypsend(ptr noundef) local_unnamed_addr #1
@@ -2414,7 +2412,7 @@ define dso_local i64 @tsquerytree(ptr nocapture noundef readonly %0) local_unnam
 10:                                               ; preds = %1
   %11 = tail call ptr @palloc(i64 noundef 4) #12
   store i32 16, ptr %11, align 4
-  br label %38
+  br label %37
 
 12:                                               ; preds = %1
   %13 = getelementptr i8, ptr %6, i64 8
@@ -2456,16 +2454,15 @@ define dso_local i64 @tsquerytree(ptr nocapture noundef readonly %0) local_unnam
 34:                                               ; preds = %15, %17
   %.014 = phi ptr [ %33, %17 ], [ %16, %15 ]
   %35 = load i64, ptr %4, align 8
-  %36 = inttoptr i64 %35 to ptr
-  %.not17 = icmp eq ptr %6, %36
-  br i1 %.not17, label %38, label %37
+  %.not17 = icmp eq i64 %5, %35
+  br i1 %.not17, label %37, label %36
 
-37:                                               ; preds = %34
+36:                                               ; preds = %34
   call void @pfree(ptr noundef nonnull %6) #12
-  br label %38
+  br label %37
 
-38:                                               ; preds = %37, %34, %10
-  %.0.in = phi ptr [ %11, %10 ], [ %.014, %34 ], [ %.014, %37 ]
+37:                                               ; preds = %36, %34, %10
+  %.0.in = phi ptr [ %11, %10 ], [ %.014, %34 ], [ %.014, %36 ]
   %.0 = ptrtoint ptr %.0.in to i64
   ret i64 %.0
 }

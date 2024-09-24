@@ -57,25 +57,25 @@ define range(i32 0, 2) i32 @Fra_BmcNodesAreEqual(ptr nocapture noundef readonly 
   %invariant.gep31 = getelementptr ptr, ptr %.val20.val.val22, i64 %21
   br label %23
 
-23:                                               ; preds = %.lr.ph, %54
-  %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %54 ]
+23:                                               ; preds = %.lr.ph, %51
+  %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %24 = load ptr, ptr %gep, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = and i64 %25, -2
-  %27 = inttoptr i64 %26 to ptr
   %gep32 = getelementptr ptr, ptr %invariant.gep31, i64 %indvars.iv
-  %28 = load ptr, ptr %gep32, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = and i64 %29, -2
-  %31 = inttoptr i64 %30 to ptr
-  %32 = icmp eq ptr %27, %31
-  br i1 %32, label %54, label %33
+  %27 = load ptr, ptr %gep32, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = and i64 %28, -2
+  %30 = icmp eq i64 %26, %29
+  br i1 %30, label %51, label %31
 
-33:                                               ; preds = %23
-  %34 = getelementptr i8, ptr %27, i64 36
+31:                                               ; preds = %23
+  %32 = inttoptr i64 %29 to ptr
+  %33 = inttoptr i64 %26 to ptr
+  %34 = getelementptr i8, ptr %33, i64 36
   %.val23 = load i32, ptr %34, align 4
-  %35 = getelementptr i8, ptr %27, i64 40
+  %35 = getelementptr i8, ptr %33, i64 40
   %.val24 = load ptr, ptr %35, align 8
   %36 = getelementptr i8, ptr %.val24, i64 64
   %.val24.val = load ptr, ptr %36, align 8
@@ -85,33 +85,30 @@ define range(i32 0, 2) i32 @Fra_BmcNodesAreEqual(ptr nocapture noundef readonly 
   %39 = getelementptr inbounds ptr, ptr %.val24.val.val, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64
-  %42 = and i64 %41, -2
-  %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr i8, ptr %31, i64 36
-  %.val25 = load i32, ptr %44, align 4
-  %45 = getelementptr i8, ptr %31, i64 40
-  %.val26 = load ptr, ptr %45, align 8
-  %46 = getelementptr i8, ptr %.val26, i64 64
-  %.val26.val = load ptr, ptr %46, align 8
-  %47 = getelementptr i8, ptr %.val26.val, i64 56
-  %.val26.val.val = load ptr, ptr %47, align 8
-  %48 = sext i32 %.val25 to i64
-  %49 = getelementptr inbounds ptr, ptr %.val26.val.val, i64 %48
-  %50 = load ptr, ptr %49, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %52 = and i64 %51, -2
-  %53 = inttoptr i64 %52 to ptr
-  %.not = icmp eq ptr %43, %53
-  br i1 %.not, label %54, label %._crit_edge
+  %42 = getelementptr i8, ptr %32, i64 36
+  %.val25 = load i32, ptr %42, align 4
+  %43 = getelementptr i8, ptr %32, i64 40
+  %.val26 = load ptr, ptr %43, align 8
+  %44 = getelementptr i8, ptr %.val26, i64 64
+  %.val26.val = load ptr, ptr %44, align 8
+  %45 = getelementptr i8, ptr %.val26.val, i64 56
+  %.val26.val.val = load ptr, ptr %45, align 8
+  %46 = sext i32 %.val25 to i64
+  %47 = getelementptr inbounds ptr, ptr %.val26.val.val, i64 %46
+  %48 = load ptr, ptr %47, align 8
+  %49 = ptrtoint ptr %48 to i64
+  %50 = xor i64 %49, %41
+  %.not = icmp ult i64 %50, 2
+  br i1 %.not, label %51, label %._crit_edge
 
-54:                                               ; preds = %33, %23
+51:                                               ; preds = %31, %23
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %9, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %23, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %33, %54, %2
-  %.015 = phi i32 [ 1, %2 ], [ 1, %54 ], [ 0, %33 ]
+._crit_edge:                                      ; preds = %31, %51, %2
+  %.015 = phi i32 [ 1, %2 ], [ 1, %51 ], [ 0, %31 ]
   ret i32 %.015
 }
 
@@ -155,25 +152,25 @@ define range(i32 0, 2) i32 @Fra_BmcNodeIsConst(ptr nocapture noundef readonly %0
   %invariant.gep31.i = getelementptr ptr, ptr %.val20.val.val22.i, i64 %23
   br label %25
 
-25:                                               ; preds = %56, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %22, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
+25:                                               ; preds = %53, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %22, %.lr.ph.i ], [ %indvars.iv.next.i, %53 ]
   %gep.i = getelementptr ptr, ptr %invariant.gep.i, i64 %indvars.iv.i
   %26 = load ptr, ptr %gep.i, align 8
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, -2
-  %29 = inttoptr i64 %28 to ptr
   %gep32.i = getelementptr ptr, ptr %invariant.gep31.i, i64 %indvars.iv.i
-  %30 = load ptr, ptr %gep32.i, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = and i64 %31, -2
-  %33 = inttoptr i64 %32 to ptr
-  %34 = icmp eq ptr %29, %33
-  br i1 %34, label %56, label %35
+  %29 = load ptr, ptr %gep32.i, align 8
+  %30 = ptrtoint ptr %29 to i64
+  %31 = and i64 %30, -2
+  %32 = icmp eq i64 %28, %31
+  br i1 %32, label %53, label %33
 
-35:                                               ; preds = %25
-  %36 = getelementptr i8, ptr %29, i64 36
+33:                                               ; preds = %25
+  %34 = inttoptr i64 %31 to ptr
+  %35 = inttoptr i64 %28 to ptr
+  %36 = getelementptr i8, ptr %35, i64 36
   %.val23.i = load i32, ptr %36, align 4
-  %37 = getelementptr i8, ptr %29, i64 40
+  %37 = getelementptr i8, ptr %35, i64 40
   %.val24.i = load ptr, ptr %37, align 8
   %38 = getelementptr i8, ptr %.val24.i, i64 64
   %.val24.val.i = load ptr, ptr %38, align 8
@@ -183,33 +180,30 @@ define range(i32 0, 2) i32 @Fra_BmcNodeIsConst(ptr nocapture noundef readonly %0
   %41 = getelementptr inbounds ptr, ptr %.val24.val.val.i, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = ptrtoint ptr %42 to i64
-  %44 = and i64 %43, -2
-  %45 = inttoptr i64 %44 to ptr
-  %46 = getelementptr i8, ptr %33, i64 36
-  %.val25.i = load i32, ptr %46, align 4
-  %47 = getelementptr i8, ptr %33, i64 40
-  %.val26.i = load ptr, ptr %47, align 8
-  %48 = getelementptr i8, ptr %.val26.i, i64 64
-  %.val26.val.i = load ptr, ptr %48, align 8
-  %49 = getelementptr i8, ptr %.val26.val.i, i64 56
-  %.val26.val.val.i = load ptr, ptr %49, align 8
-  %50 = sext i32 %.val25.i to i64
-  %51 = getelementptr inbounds ptr, ptr %.val26.val.val.i, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  %53 = ptrtoint ptr %52 to i64
-  %54 = and i64 %53, -2
-  %55 = inttoptr i64 %54 to ptr
-  %.not.i = icmp eq ptr %45, %55
-  br i1 %.not.i, label %56, label %Fra_BmcNodesAreEqual.exit
+  %44 = getelementptr i8, ptr %34, i64 36
+  %.val25.i = load i32, ptr %44, align 4
+  %45 = getelementptr i8, ptr %34, i64 40
+  %.val26.i = load ptr, ptr %45, align 8
+  %46 = getelementptr i8, ptr %.val26.i, i64 64
+  %.val26.val.i = load ptr, ptr %46, align 8
+  %47 = getelementptr i8, ptr %.val26.val.i, i64 56
+  %.val26.val.val.i = load ptr, ptr %47, align 8
+  %48 = sext i32 %.val25.i to i64
+  %49 = getelementptr inbounds ptr, ptr %.val26.val.val.i, i64 %48
+  %50 = load ptr, ptr %49, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = xor i64 %51, %43
+  %.not.i = icmp ult i64 %52, 2
+  br i1 %.not.i, label %53, label %Fra_BmcNodesAreEqual.exit
 
-56:                                               ; preds = %35, %25
+53:                                               ; preds = %33, %25
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next.i to i32
   %exitcond.not.i = icmp eq i32 %8, %lftr.wideiv.i
   br i1 %exitcond.not.i, label %Fra_BmcNodesAreEqual.exit, label %25, !llvm.loop !4
 
-Fra_BmcNodesAreEqual.exit:                        ; preds = %35, %56, %1
-  %.015.i = phi i32 [ 1, %1 ], [ 0, %35 ], [ 1, %56 ]
+Fra_BmcNodesAreEqual.exit:                        ; preds = %33, %53, %1
+  %.015.i = phi i32 [ 1, %1 ], [ 0, %33 ], [ 1, %53 ]
   ret i32 %.015.i
 }
 
@@ -354,39 +348,39 @@ Aig_ManObj.exit67:                                ; preds = %15, %18
   %97 = and i64 %82, -2
   %98 = inttoptr i64 %97 to ptr
   %99 = and i64 %92, -2
-  %100 = inttoptr i64 %99 to ptr
-  %101 = icmp eq ptr %98, %100
-  br i1 %101, label %102, label %109
+  %100 = icmp eq i64 %97, %99
+  br i1 %100, label %101, label %108
 
-102:                                              ; preds = %39
-  %103 = icmp eq i32 %88, %96
-  br i1 %103, label %111, label %104
+101:                                              ; preds = %39
+  %102 = icmp eq i32 %88, %96
+  br i1 %102, label %111, label %103
 
-104:                                              ; preds = %102
-  %105 = getelementptr i8, ptr %98, i64 24
-  %.val62 = load i64, ptr %105, align 8
-  %106 = and i64 %.val62, 7
-  %107 = icmp eq i64 %106, 1
-  %108 = icmp ne i32 %85, %87
-  %or.cond = select i1 %107, i1 %108, i1 false
+103:                                              ; preds = %101
+  %104 = getelementptr i8, ptr %98, i64 24
+  %.val62 = load i64, ptr %104, align 8
+  %105 = and i64 %.val62, 7
+  %106 = icmp eq i64 %105, 1
+  %107 = icmp ne i32 %85, %87
+  %or.cond = select i1 %106, i1 %107, i1 false
   br i1 %or.cond, label %111, label %.loopexit.sink.split
 
-109:                                              ; preds = %39
-  %110 = tail call i32 @Fra_NodesAreImp(ptr noundef %0, ptr noundef %98, ptr noundef %100, i32 noundef %88, i32 noundef %96) #15
+108:                                              ; preds = %39
+  %109 = inttoptr i64 %99 to ptr
+  %110 = tail call i32 @Fra_NodesAreImp(ptr noundef %0, ptr noundef %98, ptr noundef %109, i32 noundef %88, i32 noundef %96) #15
   %.not = icmp eq i32 %110, 1
   br i1 %.not, label %._crit_edge, label %.loopexit.sink.split
 
-._crit_edge:                                      ; preds = %109
+._crit_edge:                                      ; preds = %108
   %.pre = load i32, ptr %8, align 8
   br label %111
 
-111:                                              ; preds = %._crit_edge, %104, %102
-  %112 = phi i32 [ %.pre, %._crit_edge ], [ %40, %104 ], [ %40, %102 ]
+111:                                              ; preds = %._crit_edge, %103, %101
+  %112 = phi i32 [ %.pre, %._crit_edge ], [ %40, %103 ], [ %40, %101 ]
   %113 = add nsw i32 %.04468, 1
   %114 = icmp slt i32 %113, %112
   br i1 %114, label %39, label %.loopexit, !llvm.loop !6
 
-.loopexit.sink.split:                             ; preds = %109, %104
+.loopexit.sink.split:                             ; preds = %108, %103
   %115 = load ptr, ptr %3, align 8
   %116 = getelementptr i8, ptr %115, i64 8
   %.val63 = load ptr, ptr %116, align 8

@@ -2937,7 +2937,7 @@ define dso_local void @add_timer_on(ptr noundef %0, i32 noundef %1) #1 align 16 
   br i1 %41, label %73, label %42
 
 42:                                               ; preds = %36
-  %43 = icmp eq ptr %30, %38
+  %43 = icmp eq i64 %29, %37
   br i1 %43, label %49, label %44
 
 44:                                               ; preds = %42

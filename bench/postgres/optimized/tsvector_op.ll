@@ -3760,8 +3760,7 @@ define dso_local range(i64 0, 2) i64 @ts_match_vq(ptr nocapture noundef readonly
 15:                                               ; preds = %12
   tail call void @pfree(ptr noundef %6) #14
   %.pre = load i64, ptr %7, align 8
-  %.pre30 = inttoptr i64 %.pre to ptr
-  %.not27 = icmp eq ptr %.pre30, %9
+  %.not27 = icmp eq i64 %8, %.pre
   br i1 %.not27, label %.thread, label %16
 
 16:                                               ; preds = %15
@@ -3798,20 +3797,19 @@ define dso_local range(i64 0, 2) i64 @ts_match_vq(ptr nocapture noundef readonly
 
 35:                                               ; preds = %34, %17
   %36 = load i64, ptr %7, align 8
-  %37 = inttoptr i64 %36 to ptr
-  %.not29 = icmp eq ptr %9, %37
-  br i1 %.not29, label %39, label %38
+  %.not29 = icmp eq i64 %8, %36
+  br i1 %.not29, label %38, label %37
 
-38:                                               ; preds = %35
+37:                                               ; preds = %35
   call void @pfree(ptr noundef nonnull %9) #14
-  br label %39
+  br label %38
 
-39:                                               ; preds = %35, %38
-  %40 = zext i1 %31 to i64
+38:                                               ; preds = %35, %37
+  %39 = zext i1 %31 to i64
   br label %.thread
 
-.thread:                                          ; preds = %12, %16, %15, %39
-  %.0 = phi i64 [ %40, %39 ], [ 0, %15 ], [ 0, %16 ], [ 0, %12 ]
+.thread:                                          ; preds = %12, %16, %15, %38
+  %.0 = phi i64 [ %39, %38 ], [ 0, %15 ], [ 0, %16 ], [ 0, %12 ]
   ret i64 %.0
 }
 
@@ -4174,27 +4172,26 @@ define dso_local range(i64 0, 2) i64 @ts_match_tq(ptr nocapture noundef readonly
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
-  %5 = inttoptr i64 %4 to ptr
-  %6 = load i64, ptr %2, align 8
-  %7 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @to_tsvector, i32 noundef 0, i64 noundef %6) #14
-  %8 = inttoptr i64 %7 to ptr
-  %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #14
-  %10 = ptrtoint ptr %9 to i64
-  %11 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @ts_match_vq, i32 noundef 0, i64 noundef %10, i64 noundef %4) #14
-  tail call void @pfree(ptr noundef %9) #14
-  %12 = load i64, ptr %3, align 8
-  %13 = inttoptr i64 %12 to ptr
-  %.not = icmp eq ptr %5, %13
-  br i1 %.not, label %15, label %14
+  %5 = load i64, ptr %2, align 8
+  %6 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @to_tsvector, i32 noundef 0, i64 noundef %5) #14
+  %7 = inttoptr i64 %6 to ptr
+  %8 = tail call ptr @pg_detoast_datum(ptr noundef %7) #14
+  %9 = ptrtoint ptr %8 to i64
+  %10 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @ts_match_vq, i32 noundef 0, i64 noundef %9, i64 noundef %4) #14
+  tail call void @pfree(ptr noundef %8) #14
+  %11 = load i64, ptr %3, align 8
+  %.not = icmp eq i64 %4, %11
+  br i1 %.not, label %14, label %12
 
-14:                                               ; preds = %1
-  tail call void @pfree(ptr noundef %5) #14
-  br label %15
+12:                                               ; preds = %1
+  %13 = inttoptr i64 %4 to ptr
+  tail call void @pfree(ptr noundef %13) #14
+  br label %14
 
-15:                                               ; preds = %1, %14
-  %16 = icmp ne i64 %11, 0
-  %17 = zext i1 %16 to i64
-  ret i64 %17
+14:                                               ; preds = %1, %12
+  %15 = icmp ne i64 %10, 0
+  %16 = zext i1 %15 to i64
+  ret i64 %16
 }
 
 ; Function Attrs: nounwind uwtable

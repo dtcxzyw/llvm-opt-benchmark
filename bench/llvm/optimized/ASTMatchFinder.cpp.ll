@@ -59645,102 +59645,100 @@ _ZStltIN5clang11ASTNodeKindEmEbRKSt4pairIT_T0_ES7_.exit9.i.i.i.i.i: ; preds = %_
 39:                                               ; preds = %36
   %40 = icmp slt i32 %37, %.sroa.03.0.copyload.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br i1 %40, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %77
+  br i1 %40, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %75
 
 41:                                               ; preds = %36
   %42 = icmp eq i32 %.sroa.03.0.copyload.i.i.i.i.i.i.i, 6
-  br i1 %42, label %43, label %49
+  br i1 %42, label %43, label %47
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %44, align 8
-  %45 = inttoptr i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i to ptr
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.0.copyload.i.i.i13.i.i.i.i.i.i.i = load i64, ptr %46, align 8
-  %47 = inttoptr i64 %.0.copyload.i.i.i13.i.i.i.i.i.i.i to ptr
-  %48 = icmp ult ptr %45, %47
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.0.copyload.i.i.i13.i.i.i.i.i.i.i = load i64, ptr %45, align 8
+  %46 = icmp ult i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.0.copyload.i.i.i13.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br i1 %48, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %.thread
+  br i1 %46, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %.thread
 
-49:                                               ; preds = %41
+47:                                               ; preds = %41
   store i32 73, ptr %4, align 4
-  %50 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 %.sroa.03.0.copyload.i.i.i.i.i.i.i) #23
-  br i1 %50, label %51, label %58
+  %48 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 %.sroa.03.0.copyload.i.i.i.i.i.i.i) #23
+  br i1 %48, label %49, label %56
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.046.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.044.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %53, align 8
-  %54 = icmp ult ptr %.sroa.046.0.copyload.i.i.i.i.i.i.i, %.sroa.044.0.copyload.i.i.i.i.i.i.i
-  br i1 %54, label %_ZNK5clang12DynTypedNodeltERKS0_.exit.thread.i.i.i.i.i.i, label %55
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.046.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.044.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %51, align 8
+  %52 = icmp ult ptr %.sroa.046.0.copyload.i.i.i.i.i.i.i, %.sroa.044.0.copyload.i.i.i.i.i.i.i
+  br i1 %52, label %_ZNK5clang12DynTypedNodeltERKS0_.exit.thread.i.i.i.i.i.i, label %53
 
-55:                                               ; preds = %51
+53:                                               ; preds = %49
   %.sroa.245.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.245.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.245.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %.sroa.247.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.247.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.247.0..sroa_idx.i.i.i.i.i.i.i, align 8
-  %56 = icmp uge ptr %.sroa.044.0.copyload.i.i.i.i.i.i.i, %.sroa.046.0.copyload.i.i.i.i.i.i.i
-  %57 = icmp ult ptr %.sroa.247.0.copyload.i.i.i.i.i.i.i, %.sroa.245.0.copyload.i.i.i.i.i.i.i
-  %spec.select.i.i.i.i.i.i.i = select i1 %56, i1 %57, i1 false
+  %54 = icmp uge ptr %.sroa.044.0.copyload.i.i.i.i.i.i.i, %.sroa.046.0.copyload.i.i.i.i.i.i.i
+  %55 = icmp ult ptr %.sroa.247.0.copyload.i.i.i.i.i.i.i, %.sroa.245.0.copyload.i.i.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i = select i1 %54, i1 %55, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br i1 %spec.select.i.i.i.i.i.i.i, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %55
+._crit_edge.i:                                    ; preds = %53
   %.sroa.03.0.copyload.i9.i.i.i.i.i.pre.i = load i32, ptr %7, align 8
   %.pre = load i32, ptr %11, align 8
-  br label %77
+  br label %75
 
-58:                                               ; preds = %49
+56:                                               ; preds = %47
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i32, ptr %7, align 8
-  %59 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 5
-  br i1 %59, label %60, label %64
+  %57 = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 5
+  br i1 %57, label %58, label %62
 
-60:                                               ; preds = %58
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.031.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.029.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %62, align 8
-  %63 = icmp ult ptr %.sroa.031.0.copyload.i.i.i.i.i.i.i, %.sroa.029.0.copyload.i.i.i.i.i.i.i
-  br i1 %63, label %_ZNK5clang12DynTypedNodeltERKS0_.exit.thread.i.i.i.i.i.i, label %_ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.031.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.029.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %60, align 8
+  %61 = icmp ult ptr %.sroa.031.0.copyload.i.i.i.i.i.i.i, %.sroa.029.0.copyload.i.i.i.i.i.i.i
+  br i1 %61, label %_ZNK5clang12DynTypedNodeltERKS0_.exit.thread.i.i.i.i.i.i, label %_ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i
 
-64:                                               ; preds = %58
-  %65 = icmp sgt i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 73
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %68 = select i1 %65, ptr %67, ptr null
-  %69 = load i32, ptr %11, align 8
-  %70 = icmp sgt i32 %69, 73
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp ugt ptr %72, %68
-  %74 = select i1 %70, i1 %73, i1 false
+62:                                               ; preds = %56
+  %63 = icmp sgt i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 73
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %65 = load ptr, ptr %64, align 8
+  %66 = select i1 %63, ptr %65, ptr null
+  %67 = load i32, ptr %11, align 8
+  %68 = icmp sgt i32 %67, 73
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp ugt ptr %70, %66
+  %72 = select i1 %68, i1 %71, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br i1 %74, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %77
+  br i1 %72, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %75
 
-_ZNK5clang12DynTypedNodeltERKS0_.exit.thread.i.i.i.i.i.i: ; preds = %60, %51
+_ZNK5clang12DynTypedNodeltERKS0_.exit.thread.i.i.i.i.i.i: ; preds = %58, %49
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit
 
-_ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i: ; preds = %60
+_ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i: ; preds = %58
   %.sroa.230.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.230.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.230.0..sroa_idx.i.i.i.i.i.i.i, align 8
   %.sroa.232.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.232.0.copyload.i.i.i.i.i.i.i = load ptr, ptr %.sroa.232.0..sroa_idx.i.i.i.i.i.i.i, align 8
-  %75 = icmp uge ptr %.sroa.029.0.copyload.i.i.i.i.i.i.i, %.sroa.031.0.copyload.i.i.i.i.i.i.i
-  %76 = icmp ult ptr %.sroa.232.0.copyload.i.i.i.i.i.i.i, %.sroa.230.0.copyload.i.i.i.i.i.i.i
-  %spec.select49.i.i.i.i.i.i.i = select i1 %75, i1 %76, i1 false
+  %73 = icmp uge ptr %.sroa.029.0.copyload.i.i.i.i.i.i.i, %.sroa.031.0.copyload.i.i.i.i.i.i.i
+  %74 = icmp ult ptr %.sroa.232.0.copyload.i.i.i.i.i.i.i, %.sroa.230.0.copyload.i.i.i.i.i.i.i
+  %spec.select49.i.i.i.i.i.i.i = select i1 %73, i1 %74, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br i1 %spec.select49.i.i.i.i.i.i.i, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %.thread.i
 
-77:                                               ; preds = %64, %._crit_edge.i, %39
-  %78 = phi i32 [ %.pre, %._crit_edge.i ], [ %69, %64 ], [ %.sroa.03.0.copyload.i.i.i.i.i.i.i, %39 ]
-  %.sroa.03.0.copyload.i9.i.i.i.i.i.i = phi i32 [ %.sroa.03.0.copyload.i9.i.i.i.i.i.pre.i, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i, %64 ], [ %37, %39 ]
+75:                                               ; preds = %62, %._crit_edge.i, %39
+  %76 = phi i32 [ %.pre, %._crit_edge.i ], [ %67, %62 ], [ %.sroa.03.0.copyload.i.i.i.i.i.i.i, %39 ]
+  %.sroa.03.0.copyload.i9.i.i.i.i.i.i = phi i32 [ %.sroa.03.0.copyload.i9.i.i.i.i.i.pre.i, %._crit_edge.i ], [ %.sroa.0.0.copyload.i.i.i.i.i.i.i, %62 ], [ %37, %39 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %.not.i.i10.i.i.i.i.i.i = icmp ne i32 %78, 0
-  %79 = icmp eq i32 %78, %.sroa.03.0.copyload.i9.i.i.i.i.i.i
-  %spec.select.i.i11.i.i.i.i.i.i = select i1 %.not.i.i10.i.i.i.i.i.i, i1 %79, i1 false
-  br i1 %spec.select.i.i11.i.i.i.i.i.i, label %85, label %82
+  %.not.i.i10.i.i.i.i.i.i = icmp ne i32 %76, 0
+  %77 = icmp eq i32 %76, %.sroa.03.0.copyload.i9.i.i.i.i.i.i
+  %spec.select.i.i11.i.i.i.i.i.i = select i1 %.not.i.i10.i.i.i.i.i.i, i1 %77, i1 false
+  br i1 %spec.select.i.i11.i.i.i.i.i.i, label %83, label %80
 
 .thread:                                          ; preds = %43
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -59748,127 +59746,125 @@ _ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i: ; preds = %60
 
 .thread.i:                                        ; preds = %_ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %80 = load i32, ptr %11, align 8
-  %81 = icmp eq i32 %80, 5
-  br i1 %81, label %.thread17.i, label %82
+  %78 = load i32, ptr %11, align 8
+  %79 = icmp eq i32 %78, 5
+  br i1 %79, label %.thread17.i, label %80
 
-82:                                               ; preds = %.thread.i, %77
-  %83 = phi i32 [ %80, %.thread.i ], [ %78, %77 ]
-  %.sroa.03.0.copyload.i9.i.i.i.i.i15.i = phi i32 [ 5, %.thread.i ], [ %.sroa.03.0.copyload.i9.i.i.i.i.i.i, %77 ]
-  %84 = icmp slt i32 %83, %.sroa.03.0.copyload.i9.i.i.i.i.i15.i
+80:                                               ; preds = %.thread.i, %75
+  %81 = phi i32 [ %78, %.thread.i ], [ %76, %75 ]
+  %.sroa.03.0.copyload.i9.i.i.i.i.i15.i = phi i32 [ 5, %.thread.i ], [ %.sroa.03.0.copyload.i9.i.i.i.i.i.i, %75 ]
+  %82 = icmp slt i32 %81, %.sroa.03.0.copyload.i9.i.i.i.i.i15.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br i1 %84, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %115
+  br i1 %82, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %113
 
-85:                                               ; preds = %77
-  %86 = icmp eq i32 %78, 6
-  br i1 %86, label %..thread5_crit_edge, label %.thread17.i
+83:                                               ; preds = %75
+  %84 = icmp eq i32 %76, 6
+  br i1 %84, label %..thread5_crit_edge, label %.thread17.i
 
-..thread5_crit_edge:                              ; preds = %85
+..thread5_crit_edge:                              ; preds = %83
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.0.copyload.i.i.i.i28.i.i.i.i.i.i.pre = load i64, ptr %.phi.trans.insert, align 8
   %.phi.trans.insert8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.0.copyload.i.i.i13.i29.i.i.i.i.i.i.pre = load i64, ptr %.phi.trans.insert8, align 8
-  %.pre10 = inttoptr i64 %.0.copyload.i.i.i.i28.i.i.i.i.i.i.pre to ptr
-  %.pre11 = inttoptr i64 %.0.copyload.i.i.i13.i29.i.i.i.i.i.i.pre to ptr
   br label %.thread5
 
 .thread5:                                         ; preds = %.thread, %..thread5_crit_edge
-  %.pre-phi12 = phi ptr [ %.pre11, %..thread5_crit_edge ], [ %45, %.thread ]
-  %.pre-phi = phi ptr [ %.pre10, %..thread5_crit_edge ], [ %47, %.thread ]
-  %87 = icmp ult ptr %.pre-phi, %.pre-phi12
+  %.0.copyload.i.i.i13.i29.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i13.i29.i.i.i.i.i.i.pre, %..thread5_crit_edge ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.thread ]
+  %.0.copyload.i.i.i.i28.i.i.i.i.i.i = phi i64 [ %.0.copyload.i.i.i.i28.i.i.i.i.i.i.pre, %..thread5_crit_edge ], [ %.0.copyload.i.i.i13.i.i.i.i.i.i.i, %.thread ]
+  %85 = icmp ult i64 %.0.copyload.i.i.i.i28.i.i.i.i.i.i, %.0.copyload.i.i.i13.i29.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br i1 %87, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %115
+  br i1 %85, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %113
 
-.thread17.i:                                      ; preds = %85, %.thread.i
-  %.sroa.03.0.copyload.i9.i.i.i.i.i1619.i = phi i32 [ %78, %85 ], [ 5, %.thread.i ]
+.thread17.i:                                      ; preds = %83, %.thread.i
+  %.sroa.03.0.copyload.i9.i.i.i.i.i1619.i = phi i32 [ %76, %83 ], [ 5, %.thread.i ]
   store i32 73, ptr %3, align 4
-  %88 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.03.0.copyload.i9.i.i.i.i.i1619.i) #23
-  br i1 %88, label %89, label %96
+  %86 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.03.0.copyload.i9.i.i.i.i.i1619.i) #23
+  br i1 %86, label %87, label %94
 
-89:                                               ; preds = %.thread17.i
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.046.0.copyload.i21.i.i.i.i.i.i = load ptr, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.044.0.copyload.i22.i.i.i.i.i.i = load ptr, ptr %91, align 8
-  %92 = icmp ult ptr %.sroa.046.0.copyload.i21.i.i.i.i.i.i, %.sroa.044.0.copyload.i22.i.i.i.i.i.i
-  br i1 %92, label %_ZNK5clang12DynTypedNodeltERKS0_.exit30.thread.i.i.i.i.i.i, label %93
+87:                                               ; preds = %.thread17.i
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.046.0.copyload.i21.i.i.i.i.i.i = load ptr, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.044.0.copyload.i22.i.i.i.i.i.i = load ptr, ptr %89, align 8
+  %90 = icmp ult ptr %.sroa.046.0.copyload.i21.i.i.i.i.i.i, %.sroa.044.0.copyload.i22.i.i.i.i.i.i
+  br i1 %90, label %_ZNK5clang12DynTypedNodeltERKS0_.exit30.thread.i.i.i.i.i.i, label %91
 
-93:                                               ; preds = %89
+91:                                               ; preds = %87
   %.sroa.245.0..sroa_idx.i23.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.245.0.copyload.i24.i.i.i.i.i.i = load ptr, ptr %.sroa.245.0..sroa_idx.i23.i.i.i.i.i.i, align 8
   %.sroa.247.0..sroa_idx.i25.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.247.0.copyload.i26.i.i.i.i.i.i = load ptr, ptr %.sroa.247.0..sroa_idx.i25.i.i.i.i.i.i, align 8
-  %94 = icmp uge ptr %.sroa.044.0.copyload.i22.i.i.i.i.i.i, %.sroa.046.0.copyload.i21.i.i.i.i.i.i
-  %95 = icmp ult ptr %.sroa.247.0.copyload.i26.i.i.i.i.i.i, %.sroa.245.0.copyload.i24.i.i.i.i.i.i
-  %spec.select.i27.i.i.i.i.i.i = select i1 %94, i1 %95, i1 false
+  %92 = icmp uge ptr %.sroa.044.0.copyload.i22.i.i.i.i.i.i, %.sroa.046.0.copyload.i21.i.i.i.i.i.i
+  %93 = icmp ult ptr %.sroa.247.0.copyload.i26.i.i.i.i.i.i, %.sroa.245.0.copyload.i24.i.i.i.i.i.i
+  %spec.select.i27.i.i.i.i.i.i = select i1 %92, i1 %93, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br i1 %spec.select.i27.i.i.i.i.i.i, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %115
+  br i1 %spec.select.i27.i.i.i.i.i.i, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %113
 
-96:                                               ; preds = %.thread17.i
+94:                                               ; preds = %.thread17.i
   %.sroa.0.0.copyload.i13.i.i.i.i.i.i = load i32, ptr %11, align 8
-  %97 = icmp eq i32 %.sroa.0.0.copyload.i13.i.i.i.i.i.i, 5
-  br i1 %97, label %98, label %102
+  %95 = icmp eq i32 %.sroa.0.0.copyload.i13.i.i.i.i.i.i, 5
+  br i1 %95, label %96, label %100
 
-98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.sroa.031.0.copyload.i14.i.i.i.i.i.i = load ptr, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.029.0.copyload.i15.i.i.i.i.i.i = load ptr, ptr %100, align 8
-  %101 = icmp ult ptr %.sroa.031.0.copyload.i14.i.i.i.i.i.i, %.sroa.029.0.copyload.i15.i.i.i.i.i.i
-  br i1 %101, label %_ZNK5clang12DynTypedNodeltERKS0_.exit30.thread.i.i.i.i.i.i, label %_ZNK5clang12DynTypedNodeltERKS0_.exit30.i.i.i.i.i.i
+96:                                               ; preds = %94
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.sroa.031.0.copyload.i14.i.i.i.i.i.i = load ptr, ptr %97, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.029.0.copyload.i15.i.i.i.i.i.i = load ptr, ptr %98, align 8
+  %99 = icmp ult ptr %.sroa.031.0.copyload.i14.i.i.i.i.i.i, %.sroa.029.0.copyload.i15.i.i.i.i.i.i
+  br i1 %99, label %_ZNK5clang12DynTypedNodeltERKS0_.exit30.thread.i.i.i.i.i.i, label %_ZNK5clang12DynTypedNodeltERKS0_.exit30.i.i.i.i.i.i
 
-102:                                              ; preds = %96
-  %103 = icmp sgt i32 %.sroa.0.0.copyload.i13.i.i.i.i.i.i, 73
-  %104 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %106 = select i1 %103, ptr %105, ptr null
-  %107 = load i32, ptr %7, align 8
-  %108 = icmp sgt i32 %107, 73
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %110 = load ptr, ptr %109, align 8
-  %111 = icmp ugt ptr %110, %106
-  %112 = select i1 %108, i1 %111, i1 false
+100:                                              ; preds = %94
+  %101 = icmp sgt i32 %.sroa.0.0.copyload.i13.i.i.i.i.i.i, 73
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %103 = load ptr, ptr %102, align 8
+  %104 = select i1 %101, ptr %103, ptr null
+  %105 = load i32, ptr %7, align 8
+  %106 = icmp sgt i32 %105, 73
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %108 = load ptr, ptr %107, align 8
+  %109 = icmp ugt ptr %108, %104
+  %110 = select i1 %106, i1 %109, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br i1 %112, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %115
+  br i1 %110, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %113
 
-_ZNK5clang12DynTypedNodeltERKS0_.exit30.thread.i.i.i.i.i.i: ; preds = %98, %89
+_ZNK5clang12DynTypedNodeltERKS0_.exit30.thread.i.i.i.i.i.i: ; preds = %96, %87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit
 
-_ZNK5clang12DynTypedNodeltERKS0_.exit30.i.i.i.i.i.i: ; preds = %98
+_ZNK5clang12DynTypedNodeltERKS0_.exit30.i.i.i.i.i.i: ; preds = %96
   %.sroa.230.0..sroa_idx.i16.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.230.0.copyload.i17.i.i.i.i.i.i = load ptr, ptr %.sroa.230.0..sroa_idx.i16.i.i.i.i.i.i, align 8
   %.sroa.232.0..sroa_idx.i18.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.232.0.copyload.i19.i.i.i.i.i.i = load ptr, ptr %.sroa.232.0..sroa_idx.i18.i.i.i.i.i.i, align 8
-  %113 = icmp uge ptr %.sroa.029.0.copyload.i15.i.i.i.i.i.i, %.sroa.031.0.copyload.i14.i.i.i.i.i.i
-  %114 = icmp ult ptr %.sroa.232.0.copyload.i19.i.i.i.i.i.i, %.sroa.230.0.copyload.i17.i.i.i.i.i.i
-  %spec.select49.i20.i.i.i.i.i.i = select i1 %113, i1 %114, i1 false
+  %111 = icmp uge ptr %.sroa.029.0.copyload.i15.i.i.i.i.i.i, %.sroa.031.0.copyload.i14.i.i.i.i.i.i
+  %112 = icmp ult ptr %.sroa.232.0.copyload.i19.i.i.i.i.i.i, %.sroa.230.0.copyload.i17.i.i.i.i.i.i
+  %spec.select49.i20.i.i.i.i.i.i = select i1 %111, i1 %112, i1 false
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br i1 %spec.select49.i20.i.i.i.i.i.i, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %115
+  br i1 %spec.select49.i20.i.i.i.i.i.i, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %113
 
-115:                                              ; preds = %_ZNK5clang12DynTypedNodeltERKS0_.exit30.i.i.i.i.i.i, %102, %93, %.thread5, %82
-  %116 = load ptr, ptr %8, align 8
-  %117 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
-  %118 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %116, i64 %117
-  %119 = load ptr, ptr %12, align 8
-  %120 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #23
-  %121 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %119, i64 %120
-  %122 = call noundef zeroext i1 @_ZSt30__lexicographical_compare_implIPKN5clang12ast_matchers8internal13BoundNodesMapES5_N9__gnu_cxx5__ops15_Iter_less_iterEEbT_S9_T0_SA_T1_(ptr noundef %116, ptr noundef %118, ptr noundef %119, ptr noundef %121)
-  br i1 %122, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %123
+113:                                              ; preds = %_ZNK5clang12DynTypedNodeltERKS0_.exit30.i.i.i.i.i.i, %100, %91, %.thread5, %80
+  %114 = load ptr, ptr %8, align 8
+  %115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
+  %116 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %114, i64 %115
+  %117 = load ptr, ptr %12, align 8
+  %118 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #23
+  %119 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %117, i64 %118
+  %120 = call noundef zeroext i1 @_ZSt30__lexicographical_compare_implIPKN5clang12ast_matchers8internal13BoundNodesMapES5_N9__gnu_cxx5__ops15_Iter_less_iterEEbT_S9_T0_SA_T1_(ptr noundef %114, ptr noundef %116, ptr noundef %117, ptr noundef %119)
+  br i1 %120, label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit, label %121
 
-123:                                              ; preds = %115
-  %124 = load ptr, ptr %12, align 8
-  %125 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #23
-  %126 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %124, i64 %125
-  %127 = load ptr, ptr %8, align 8
-  %128 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
-  %129 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %127, i64 %128
-  %130 = call noundef zeroext i1 @_ZSt30__lexicographical_compare_implIPKN5clang12ast_matchers8internal13BoundNodesMapES5_N9__gnu_cxx5__ops15_Iter_less_iterEEbT_S9_T0_SA_T1_(ptr noundef %124, ptr noundef %126, ptr noundef %127, ptr noundef %129)
+121:                                              ; preds = %113
+  %122 = load ptr, ptr %12, align 8
+  %123 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #23
+  %124 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %122, i64 %123
+  %125 = load ptr, ptr %8, align 8
+  %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %8) #23
+  %127 = getelementptr inbounds %"class.clang::ast_matchers::internal::BoundNodesMap", ptr %125, i64 %126
+  %128 = call noundef zeroext i1 @_ZSt30__lexicographical_compare_implIPKN5clang12ast_matchers8internal13BoundNodesMapES5_N9__gnu_cxx5__ops15_Iter_less_iterEEbT_S9_T0_SA_T1_(ptr noundef %122, ptr noundef %124, ptr noundef %125, ptr noundef %127)
   br label %_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit
 
-_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit: ; preds = %2, %16, %18, %22, %24, %28, %_ZStltIN5clang11ASTNodeKindEmEbRKSt4pairIT_T0_ES7_.exit.i.i.i.i.i, %_ZStltIN5clang11ASTNodeKindEmEbRKSt4pairIT_T0_ES7_.exit9.i.i.i.i.i, %39, %43, %55, %64, %_ZNK5clang12DynTypedNodeltERKS0_.exit.thread.i.i.i.i.i.i, %_ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i, %82, %.thread5, %93, %102, %_ZNK5clang12DynTypedNodeltERKS0_.exit30.thread.i.i.i.i.i.i, %_ZNK5clang12DynTypedNodeltERKS0_.exit30.i.i.i.i.i.i, %115, %123
-  %131 = phi i1 [ true, %2 ], [ false, %16 ], [ true, %18 ], [ false, %22 ], [ true, %_ZStltIN5clang11ASTNodeKindEmEbRKSt4pairIT_T0_ES7_.exit.i.i.i.i.i ], [ false, %_ZStltIN5clang11ASTNodeKindEmEbRKSt4pairIT_T0_ES7_.exit9.i.i.i.i.i ], [ true, %_ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i ], [ false, %_ZNK5clang12DynTypedNodeltERKS0_.exit30.i.i.i.i.i.i ], [ true, %_ZNK5clang12DynTypedNodeltERKS0_.exit.thread.i.i.i.i.i.i ], [ true, %43 ], [ true, %64 ], [ true, %39 ], [ true, %55 ], [ false, %_ZNK5clang12DynTypedNodeltERKS0_.exit30.thread.i.i.i.i.i.i ], [ false, %.thread5 ], [ false, %102 ], [ false, %82 ], [ false, %93 ], [ true, %115 ], [ false, %123 ], [ true, %24 ], [ false, %28 ]
-  ret i1 %131
+_ZNK5clang12ast_matchers8internal12_GLOBAL__N_18MatchKeyltERKS3_.exit: ; preds = %2, %16, %18, %22, %24, %28, %_ZStltIN5clang11ASTNodeKindEmEbRKSt4pairIT_T0_ES7_.exit.i.i.i.i.i, %_ZStltIN5clang11ASTNodeKindEmEbRKSt4pairIT_T0_ES7_.exit9.i.i.i.i.i, %39, %43, %53, %62, %_ZNK5clang12DynTypedNodeltERKS0_.exit.thread.i.i.i.i.i.i, %_ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i, %80, %.thread5, %91, %100, %_ZNK5clang12DynTypedNodeltERKS0_.exit30.thread.i.i.i.i.i.i, %_ZNK5clang12DynTypedNodeltERKS0_.exit30.i.i.i.i.i.i, %113, %121
+  %129 = phi i1 [ true, %2 ], [ false, %16 ], [ true, %18 ], [ false, %22 ], [ true, %_ZStltIN5clang11ASTNodeKindEmEbRKSt4pairIT_T0_ES7_.exit.i.i.i.i.i ], [ false, %_ZStltIN5clang11ASTNodeKindEmEbRKSt4pairIT_T0_ES7_.exit9.i.i.i.i.i ], [ true, %_ZNK5clang12DynTypedNodeltERKS0_.exit.i.i.i.i.i.i ], [ false, %_ZNK5clang12DynTypedNodeltERKS0_.exit30.i.i.i.i.i.i ], [ true, %_ZNK5clang12DynTypedNodeltERKS0_.exit.thread.i.i.i.i.i.i ], [ true, %43 ], [ true, %62 ], [ true, %39 ], [ true, %53 ], [ false, %_ZNK5clang12DynTypedNodeltERKS0_.exit30.thread.i.i.i.i.i.i ], [ false, %.thread5 ], [ false, %100 ], [ false, %80 ], [ false, %91 ], [ true, %113 ], [ false, %121 ], [ true, %24 ], [ false, %28 ]
+  ret i1 %129
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -59984,12 +59980,12 @@ define linkonce_odr noundef zeroext i1 @_ZStltIKNSt7__cxx1112basic_stringIcSt11c
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   %5 = icmp slt i32 %4, 0
-  br i1 %5, label %53, label %6
+  br i1 %5, label %51, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %53, label %9
+  br i1 %8, label %51, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -60008,85 +60004,83 @@ define linkonce_odr noundef zeroext i1 @_ZStltIKNSt7__cxx1112basic_stringIcSt11c
 
 16:                                               ; preds = %9
   %17 = icmp eq i32 %.sroa.03.0.copyload.i, 6
-  br i1 %17, label %18, label %24
+  br i1 %17, label %18, label %22
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.0.copyload.i.i.i.i = load i64, ptr %19, align 8
-  %20 = inttoptr i64 %.0.copyload.i.i.i.i to ptr
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.0.copyload.i.i.i13.i = load i64, ptr %21, align 8
-  %22 = inttoptr i64 %.0.copyload.i.i.i13.i to ptr
-  %23 = icmp ult ptr %20, %22
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.0.copyload.i.i.i13.i = load i64, ptr %20, align 8
+  %21 = icmp ult i64 %.0.copyload.i.i.i.i, %.0.copyload.i.i.i13.i
   br label %_ZNK5clang12DynTypedNodeltERKS0_.exit
 
-24:                                               ; preds = %16
+22:                                               ; preds = %16
   store i32 73, ptr %3, align 4
-  %25 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.03.0.copyload.i) #23
-  br i1 %25, label %26, label %33
+  %23 = call noundef zeroext i1 @_ZNK5clang11ASTNodeKind8isBaseOfES0_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 %.sroa.03.0.copyload.i) #23
+  br i1 %23, label %24, label %31
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.046.0.copyload.i = load ptr, ptr %27, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.044.0.copyload.i = load ptr, ptr %28, align 8
-  %29 = icmp ult ptr %.sroa.046.0.copyload.i, %.sroa.044.0.copyload.i
-  br i1 %29, label %_ZNK5clang12DynTypedNodeltERKS0_.exit, label %30
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.046.0.copyload.i = load ptr, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.044.0.copyload.i = load ptr, ptr %26, align 8
+  %27 = icmp ult ptr %.sroa.046.0.copyload.i, %.sroa.044.0.copyload.i
+  br i1 %27, label %_ZNK5clang12DynTypedNodeltERKS0_.exit, label %28
 
-30:                                               ; preds = %26
+28:                                               ; preds = %24
   %.sroa.245.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.245.0.copyload.i = load ptr, ptr %.sroa.245.0..sroa_idx.i, align 8
   %.sroa.247.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   %.sroa.247.0.copyload.i = load ptr, ptr %.sroa.247.0..sroa_idx.i, align 8
-  %31 = icmp uge ptr %.sroa.044.0.copyload.i, %.sroa.046.0.copyload.i
-  %32 = icmp ult ptr %.sroa.247.0.copyload.i, %.sroa.245.0.copyload.i
-  %spec.select.i = select i1 %31, i1 %32, i1 false
+  %29 = icmp uge ptr %.sroa.044.0.copyload.i, %.sroa.046.0.copyload.i
+  %30 = icmp ult ptr %.sroa.247.0.copyload.i, %.sroa.245.0.copyload.i
+  %spec.select.i = select i1 %29, i1 %30, i1 false
   br label %_ZNK5clang12DynTypedNodeltERKS0_.exit
 
-33:                                               ; preds = %24
+31:                                               ; preds = %22
   %.sroa.0.0.copyload.i = load i32, ptr %10, align 8
-  %34 = icmp eq i32 %.sroa.0.0.copyload.i, 5
-  br i1 %34, label %35, label %42
+  %32 = icmp eq i32 %.sroa.0.0.copyload.i, 5
+  br i1 %32, label %33, label %40
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.sroa.031.0.copyload.i = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.029.0.copyload.i = load ptr, ptr %37, align 8
-  %38 = icmp ult ptr %.sroa.031.0.copyload.i, %.sroa.029.0.copyload.i
-  br i1 %38, label %_ZNK5clang12DynTypedNodeltERKS0_.exit, label %39
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %.sroa.031.0.copyload.i = load ptr, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.029.0.copyload.i = load ptr, ptr %35, align 8
+  %36 = icmp ult ptr %.sroa.031.0.copyload.i, %.sroa.029.0.copyload.i
+  br i1 %36, label %_ZNK5clang12DynTypedNodeltERKS0_.exit, label %37
 
-39:                                               ; preds = %35
+37:                                               ; preds = %33
   %.sroa.230.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 48
   %.sroa.230.0.copyload.i = load ptr, ptr %.sroa.230.0..sroa_idx.i, align 8
   %.sroa.232.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   %.sroa.232.0.copyload.i = load ptr, ptr %.sroa.232.0..sroa_idx.i, align 8
-  %40 = icmp uge ptr %.sroa.029.0.copyload.i, %.sroa.031.0.copyload.i
-  %41 = icmp ult ptr %.sroa.232.0.copyload.i, %.sroa.230.0.copyload.i
-  %spec.select49.i = select i1 %40, i1 %41, i1 false
+  %38 = icmp uge ptr %.sroa.029.0.copyload.i, %.sroa.031.0.copyload.i
+  %39 = icmp ult ptr %.sroa.232.0.copyload.i, %.sroa.230.0.copyload.i
+  %spec.select49.i = select i1 %38, i1 %39, i1 false
   br label %_ZNK5clang12DynTypedNodeltERKS0_.exit
 
-42:                                               ; preds = %33
-  %43 = icmp sgt i32 %.sroa.0.0.copyload.i, 73
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = select i1 %43, ptr %45, ptr null
-  %47 = load i32, ptr %11, align 8
-  %48 = icmp sgt i32 %47, 73
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %50 = load ptr, ptr %49, align 8
-  %51 = icmp ugt ptr %50, %46
-  %52 = select i1 %48, i1 %51, i1 false
+40:                                               ; preds = %31
+  %41 = icmp sgt i32 %.sroa.0.0.copyload.i, 73
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %43 = load ptr, ptr %42, align 8
+  %44 = select i1 %41, ptr %43, ptr null
+  %45 = load i32, ptr %11, align 8
+  %46 = icmp sgt i32 %45, 73
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ugt ptr %48, %44
+  %50 = select i1 %46, i1 %49, i1 false
   br label %_ZNK5clang12DynTypedNodeltERKS0_.exit
 
-_ZNK5clang12DynTypedNodeltERKS0_.exit:            ; preds = %14, %18, %26, %30, %35, %39, %42
-  %.0.i = phi i1 [ %23, %18 ], [ %52, %42 ], [ %15, %14 ], [ true, %26 ], [ true, %35 ], [ %spec.select.i, %30 ], [ %spec.select49.i, %39 ]
+_ZNK5clang12DynTypedNodeltERKS0_.exit:            ; preds = %14, %18, %24, %28, %33, %37, %40
+  %.0.i = phi i1 [ %21, %18 ], [ %50, %40 ], [ %15, %14 ], [ true, %24 ], [ true, %33 ], [ %spec.select.i, %28 ], [ %spec.select49.i, %37 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br label %53
+  br label %51
 
-53:                                               ; preds = %6, %_ZNK5clang12DynTypedNodeltERKS0_.exit, %2
-  %54 = phi i1 [ true, %2 ], [ false, %6 ], [ %.0.i, %_ZNK5clang12DynTypedNodeltERKS0_.exit ]
-  ret i1 %54
+51:                                               ; preds = %6, %_ZNK5clang12DynTypedNodeltERKS0_.exit, %2
+  %52 = phi i1 [ true, %2 ], [ false, %6 ], [ %.0.i, %_ZNK5clang12DynTypedNodeltERKS0_.exit ]
+  ret i1 %52
 }
 
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0

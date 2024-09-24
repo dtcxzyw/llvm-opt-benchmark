@@ -540,11 +540,11 @@ define linkonce_odr void @_ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32
   %.08.i = phi i64 [ 0, %2 ], [ %11, %10 ]
   %6 = getelementptr inbounds [8 x %"class.tbb::detail::d2::micro_queue"], ptr %4, i64 0, i64 %.08.i, i32 2
   %7 = load atomic i64, ptr %6 monotonic, align 8
-  %.0.i.i.i = inttoptr i64 %7 to ptr
-  %8 = icmp ugt ptr %.0.i.i.i, inttoptr (i64 1 to ptr)
+  %8 = icmp ugt i64 %7, 1
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %5
+  %.0.i.i.i = inttoptr i64 %7 to ptr
   invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.0.i.i.i)
           to label %.noexc unwind label %.loopexit
 
@@ -1169,11 +1169,11 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDa
   %.08.i.i = phi i64 [ 0, %3 ], [ %12, %11 ]
   %7 = getelementptr inbounds [8 x %"class.tbb::detail::d2::micro_queue"], ptr %5, i64 0, i64 %.08.i.i, i32 2
   %8 = load atomic i64, ptr %7 monotonic, align 8
-  %.0.i.i.i.i = inttoptr i64 %8 to ptr
-  %9 = icmp ugt ptr %.0.i.i.i.i, inttoptr (i64 1 to ptr)
+  %9 = icmp ugt i64 %8, 1
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
+  %.0.i.i.i.i = inttoptr i64 %8 to ptr
   invoke void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef nonnull %.0.i.i.i.i)
           to label %.noexc.i unwind label %.loopexit.i
 
@@ -2505,7 +2505,7 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i: ; preds = %35, %_ZN3tbb6detail
 _ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i, %19, %15
   %39 = load ptr, ptr %3, align 8
   %.not19 = icmp eq ptr %39, null
-  br i1 %.not19, label %63, label %40
+  br i1 %.not19, label %64, label %40
 
 40:                                               ; preds = %_ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2546,36 +2546,37 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i: ; preds = %50, %_ZN3tbb6de
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.i.i.i, %40
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load atomic i64, ptr %54 monotonic, align 8
-  %.0.i = inttoptr i64 %55 to ptr
-  %56 = icmp ugt ptr %.0.i, inttoptr (i64 1 to ptr)
-  %57 = load ptr, ptr %3, align 8
-  br i1 %56, label %58, label %59
+  %56 = icmp ugt i64 %55, 1
+  br i1 %56, label %57, label %59
 
-58:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
-  store ptr %57, ptr %.0.i, align 8
+57:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
+  %.0.i = inttoptr i64 %55 to ptr
+  %58 = load ptr, ptr %3, align 8
+  store ptr %58, ptr %.0.i, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
 59:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit
-  %60 = ptrtoint ptr %57 to i64
-  store atomic i64 %60, ptr %0 monotonic, align 8
+  %60 = load ptr, ptr %3, align 8
+  %61 = ptrtoint ptr %60 to i64
+  store atomic i64 %61, ptr %0 monotonic, align 8
   %.pre27 = load ptr, ptr %3, align 8
   br label %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
 
-_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %59, %58
-  %61 = phi ptr [ %.pre27, %59 ], [ %57, %58 ]
-  %62 = ptrtoint ptr %61 to i64
-  store atomic i64 %62, ptr %54 release, align 8
+_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit: ; preds = %59, %57
+  %62 = phi ptr [ %.pre27, %59 ], [ %58, %57 ]
+  %63 = ptrtoint ptr %62 to i64
+  store atomic i64 %63, ptr %54 release, align 8
   store atomic i8 0, ptr %41 release, align 8
-  br label %66
+  br label %67
 
-63:                                               ; preds = %_ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = load atomic i64, ptr %64 acquire, align 8
-  %.0.i22 = inttoptr i64 %65 to ptr
+64:                                               ; preds = %_ZNK3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23spin_wait_until_my_turnERSt6atomicImEmRNS1_20concurrent_queue_repIS6_S9_EE.exit
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %66 = load atomic i64, ptr %65 acquire, align 8
+  %.0.i22 = inttoptr i64 %66 to ptr
   store ptr %.0.i22, ptr %3, align 8
-  br label %66
+  br label %67
 
-66:                                               ; preds = %63, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
+67:                                               ; preds = %64, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit
   ret i64 %9
 }
 
@@ -2636,11 +2637,11 @@ _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i: ; pred
   store atomic i64 %27, ptr %28 monotonic, align 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %30 = load atomic i64, ptr %29 monotonic, align 8
-  %.0.i.i.i = inttoptr i64 %30 to ptr
-  %31 = icmp ugt ptr %.0.i.i.i, inttoptr (i64 1 to ptr)
+  %31 = icmp ugt i64 %30, 1
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i.i
+  %.0.i.i.i = inttoptr i64 %30 to ptr
   store ptr inttoptr (i64 1 to ptr), ptr %.0.i.i.i, align 8
   br label %_ZZN3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS6_S9_EENS8_INSA_11padded_pageEEERPSE_ENKUlvE0_clEv.exit
 

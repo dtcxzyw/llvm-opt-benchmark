@@ -1074,12 +1074,12 @@ declare dso_local void @pci_dev_put(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef range(i32 -12, 1) i32 @i810_setup() #0 align 16 {
   %1 = tail call i64 @__get_free_pages(i32 noundef 3264, i32 noundef 4) #9
-  %2 = inttoptr i64 %1 to ptr
-  %3 = icmp eq i64 %1, 0
-  br i1 %3, label %30, label %4
+  %2 = icmp eq i64 %1, 0
+  br i1 %2, label %30, label %3
 
-4:                                                ; preds = %0
-  store ptr %2, ptr getelementptr inbounds (i8, ptr @intel_private, i64 72), align 8
+3:                                                ; preds = %0
+  %4 = inttoptr i64 %1 to ptr
+  store ptr %4, ptr getelementptr inbounds (i8, ptr @intel_private, i64 72), align 8
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @intel_private, i64 8), align 8
   %6 = getelementptr i8, ptr %5, i64 984
   %7 = load i64, ptr %6, align 8
@@ -1088,9 +1088,9 @@ define internal noundef range(i32 -12, 1) i32 @i810_setup() #0 align 16 {
   %9 = icmp eq ptr %8, null
   br i1 %9, label %30, label %10
 
-10:                                               ; preds = %4
+10:                                               ; preds = %3
   %11 = xor i64 %1, 2147483648
-  %12 = icmp ugt ptr %2, inttoptr (i64 -2147483649 to ptr)
+  %12 = icmp ugt i64 %1, -2147483649
   %13 = load i64, ptr @phys_base, align 8
   %14 = load i64, ptr @page_offset_base, align 8
   %15 = sub i64 2147483648, %14
@@ -1116,8 +1116,8 @@ define internal noundef range(i32 -12, 1) i32 @i810_setup() #0 align 16 {
   store i32 1024, ptr getelementptr inbounds (i8, ptr @intel_private, i64 60), align 4
   br label %30
 
-30:                                               ; preds = %27, %10, %4, %0
-  %31 = phi i32 [ -12, %0 ], [ -12, %4 ], [ 0, %27 ], [ 0, %10 ]
+30:                                               ; preds = %27, %10, %3, %0
+  %31 = phi i32 [ -12, %0 ], [ -12, %3 ], [ 0, %27 ], [ 0, %10 ]
   ret i32 %31
 }
 

@@ -3497,52 +3497,50 @@ _ZNK5clang17ClassTemplateDecl25getPartialSpecializationsEv.exit: ; preds = %16, 
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %1, 7
   %33 = or i64 %31, %32
-  %34 = inttoptr i64 %33 to ptr
-  br label %37
+  br label %36
 
-35:                                               ; preds = %37
-  %36 = getelementptr inbounds i8, ptr %.sroa.010.016, i64 8
-  %.not = icmp eq ptr %36, %27
-  br i1 %.not, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit, label %37
+34:                                               ; preds = %36
+  %35 = getelementptr inbounds i8, ptr %.sroa.010.016, i64 8
+  %.not = icmp eq ptr %35, %27
+  br i1 %.not, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit, label %36
 
-37:                                               ; preds = %.lr.ph, %35
-  %.sroa.010.016 = phi ptr [ %25, %.lr.ph ], [ %36, %35 ]
-  %38 = load ptr, ptr %.sroa.010.016, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %.sroa.0.0.copyload.i.i = load i64, ptr %41, align 16
-  %42 = and i64 %.sroa.0.0.copyload.i.i, -16
-  %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i64, ptr %44, align 8
-  %46 = and i64 %.sroa.0.0.copyload.i.i, 7
-  %47 = or i64 %45, %46
-  %48 = inttoptr i64 %47 to ptr
-  %49 = icmp eq ptr %48, %34
-  br i1 %49, label %50, label %35
+36:                                               ; preds = %.lr.ph, %34
+  %.sroa.010.016 = phi ptr [ %25, %.lr.ph ], [ %35, %34 ]
+  %37 = load ptr, ptr %.sroa.010.016, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %.sroa.0.0.copyload.i.i = load i64, ptr %40, align 16
+  %41 = and i64 %.sroa.0.0.copyload.i.i, -16
+  %42 = inttoptr i64 %41 to ptr
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = load i64, ptr %43, align 8
+  %45 = and i64 %.sroa.0.0.copyload.i.i, 7
+  %46 = or i64 %44, %45
+  %47 = icmp eq i64 %46, %33
+  br i1 %47, label %48, label %34
 
-50:                                               ; preds = %37
-  %51 = getelementptr inbounds i8, ptr %38, i64 104
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 96
-  %54 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull %52)
-  %55 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %54) #21
-  br i1 %55, label %.lr.ph.i.i.i9, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit
+48:                                               ; preds = %36
+  %49 = getelementptr inbounds i8, ptr %37, i64 104
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 96
+  %52 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull %50)
+  %53 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %52) #21
+  br i1 %53, label %.lr.ph.i.i.i9, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit
 
-.lr.ph.i.i.i9:                                    ; preds = %50, %.lr.ph.i.i.i9
-  %.04.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i9 ], [ %54, %50 ]
-  %56 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 96
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %56, align 8
-  %57 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
-  %.not.i.i.i.i.i.i = icmp eq i64 %57, 0
+.lr.ph.i.i.i9:                                    ; preds = %48, %.lr.ph.i.i.i9
+  %.04.i.i.i = phi ptr [ %56, %.lr.ph.i.i.i9 ], [ %52, %48 ]
+  %54 = getelementptr inbounds i8, ptr %.04.i.i.i, i64 96
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %54, align 8
+  %55 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 3
+  %.not.i.i.i.i.i.i = icmp eq i64 %55, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i)
-  %58 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %.04.i.i.i)
-  %59 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %58) #21
-  br i1 %59, label %.lr.ph.i.i.i9, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit, !llvm.loop !10
+  %56 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull %.04.i.i.i)
+  %57 = tail call noundef zeroext i1 @_ZNK5clang10RecordDecl19isInjectedClassNameEv(ptr noundef nonnull align 8 dereferenceable(128) %56) #21
+  br i1 %57, label %.lr.ph.i.i.i9, label %_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit, !llvm.loop !10
 
-_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit: ; preds = %35, %.lr.ph.i.i.i9, %_ZNK5clang17ClassTemplateDecl25getPartialSpecializationsEv.exit, %50
-  %.0 = phi ptr [ %54, %50 ], [ null, %_ZNK5clang17ClassTemplateDecl25getPartialSpecializationsEv.exit ], [ %58, %.lr.ph.i.i.i9 ], [ null, %35 ]
+_ZN5clang38ClassTemplatePartialSpecializationDecl17getMostRecentDeclEv.exit: ; preds = %34, %.lr.ph.i.i.i9, %_ZNK5clang17ClassTemplateDecl25getPartialSpecializationsEv.exit, %48
+  %.0 = phi ptr [ %52, %48 ], [ null, %_ZNK5clang17ClassTemplateDecl25getPartialSpecializationsEv.exit ], [ %56, %.lr.ph.i.i.i9 ], [ null, %34 ]
   ret ptr %.0
 }
 

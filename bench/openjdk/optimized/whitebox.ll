@@ -40153,18 +40153,18 @@ _ZN25WeakPreserveExceptionMarkC2EP6Thread.exit:   ; preds = %_ZN20ThreadInVMfrom
   br label %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
 
 _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveExceptionMarkC2EP6Thread.exit, %34
-  %35 = inttoptr i64 %2 to ptr
-  %36 = add nsw i64 %3, %2
-  %37 = inttoptr i64 %36 to ptr
-  %38 = icmp ugt ptr %35, %37
-  br i1 %38, label %39, label %41
+  %35 = add nsw i64 %3, %2
+  %36 = icmp ugt i64 %2, %35
+  br i1 %36, label %37, label %41
 
-39:                                               ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
+37:                                               ; preds = %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
+  %38 = inttoptr i64 %35 to ptr
+  %39 = inttoptr i64 %2 to ptr
   %40 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef nonnull %35, ptr noundef %37, i64 noundef %40) #15
+  call void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef nonnull %39, ptr noundef %38, i64 noundef %40) #15
   br label %41
 
-41:                                               ; preds = %39, %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
+41:                                               ; preds = %37, %_ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit
   %42 = getelementptr inbounds i8, ptr %8, i64 1312
   store ptr null, ptr %42, align 8
   %43 = load ptr, ptr %27, align 8

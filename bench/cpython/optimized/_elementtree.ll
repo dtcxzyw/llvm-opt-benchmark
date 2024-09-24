@@ -4106,7 +4106,7 @@ if.then:                                          ; preds = %entry
   %2 = ptrtoint ptr %1 to i64
   %and = and i64 %2, -2
   %3 = inttoptr i64 %and to ptr
-  %cmp = icmp eq ptr %3, @_Py_NoneStruct
+  %cmp = icmp eq i64 %and, ptrtoint (ptr @_Py_NoneStruct to i64)
   br i1 %cmp, label %if.then1, label %if.else
 
 if.then1:                                         ; preds = %if.then

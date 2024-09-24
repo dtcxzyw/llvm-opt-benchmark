@@ -236,60 +236,55 @@ define dso_local noundef zeroext i1 @_ZN5clang12ObjCNoReturn18isImplicitNoReturn
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 16580608
   %spec.select.i = icmp eq i32 %6, 65536
-  br i1 %spec.select.i, label %7, label %11
+  br i1 %spec.select.i, label %7, label %9
 
 7:                                                ; preds = %2
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
-  %8 = inttoptr i64 %3 to ptr
-  %9 = inttoptr i64 %.sroa.0.0.copyload to ptr
-  %10 = icmp eq ptr %8, %9
-  br label %32
+  %8 = icmp eq i64 %3, %.sroa.0.0.copyload
+  br label %28
 
-11:                                               ; preds = %2
-  %12 = tail call noundef ptr @_ZNK5clang15ObjCMessageExpr20getReceiverInterfaceEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
-  %.not = icmp eq ptr %12, null
-  br i1 %.not, label %_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit, label %13
+9:                                                ; preds = %2
+  %10 = tail call noundef ptr @_ZNK5clang15ObjCMessageExpr20getReceiverInterfaceEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #7
+  %.not = icmp eq ptr %10, null
+  br i1 %.not, label %_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit, label %11
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load ptr, ptr %12, align 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %13, %tailrecurse.i
-  %.tr10.i = phi ptr [ %23, %tailrecurse.i ], [ %12, %13 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.tr10.i, i64 40
-  %17 = load i64, ptr %16, align 8
-  %18 = and i64 %17, 7
-  %19 = icmp eq i64 %18, 0
-  %20 = and i64 %17, -8
-  %21 = inttoptr i64 %20 to ptr
-  %.0.i.i.i = select i1 %19, ptr %21, ptr null
-  %22 = icmp eq ptr %.0.i.i.i, %15
-  br i1 %22, label %24, label %tailrecurse.i
+.lr.ph.i:                                         ; preds = %11, %tailrecurse.i
+  %.tr10.i = phi ptr [ %21, %tailrecurse.i ], [ %10, %11 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.tr10.i, i64 40
+  %15 = load i64, ptr %14, align 8
+  %16 = and i64 %15, 7
+  %17 = icmp eq i64 %16, 0
+  %18 = and i64 %15, -8
+  %19 = inttoptr i64 %18 to ptr
+  %.0.i.i.i = select i1 %17, ptr %19, ptr null
+  %20 = icmp eq ptr %.0.i.i.i, %13
+  br i1 %20, label %22, label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %.lr.ph.i
-  %23 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %.tr10.i) #7
-  %.not.i = icmp eq ptr %23, null
+  %21 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %.tr10.i) #7
+  %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit, label %.lr.ph.i
 
-24:                                               ; preds = %.lr.ph.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre69.i.i.i.i = inttoptr i64 %3 to ptr
-  %.0.copyload.i.i.i.i39.i.i.i.i = load i64, ptr %25, align 8
-  %26 = inttoptr i64 %.0.copyload.i.i.i.i39.i.i.i.i to ptr
-  %27 = icmp eq ptr %.pre69.i.i.i.i, %26
-  %28 = getelementptr inbounds i8, ptr %0, i64 24
-  %.0.copyload.i.i.i.i41.i.i.i.i = load i64, ptr %28, align 8
-  %29 = inttoptr i64 %.0.copyload.i.i.i.i41.i.i.i.i to ptr
-  %30 = icmp eq ptr %.pre69.i.i.i.i, %29
-  %31 = select i1 %27, i1 true, i1 %30
-  br i1 %31, label %32, label %_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit
+22:                                               ; preds = %.lr.ph.i
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.0.copyload.i.i.i.i39.i.i.i.i = load i64, ptr %23, align 8
+  %24 = icmp eq i64 %.0.copyload.i.i.i.i39.i.i.i.i, %3
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
+  %.0.copyload.i.i.i.i41.i.i.i.i = load i64, ptr %25, align 8
+  %26 = icmp eq i64 %.0.copyload.i.i.i.i41.i.i.i.i, %3
+  %27 = select i1 %24, i1 true, i1 %26
+  br i1 %27, label %28, label %_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit
 
-_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit: ; preds = %tailrecurse.i, %24, %11
-  br label %32
+_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit: ; preds = %tailrecurse.i, %22, %9
+  br label %28
 
-32:                                               ; preds = %24, %_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit, %7
-  %.0 = phi i1 [ %10, %7 ], [ false, %_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit ], [ true, %24 ]
+28:                                               ; preds = %22, %_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit, %7
+  %.0 = phi i1 [ %8, %7 ], [ false, %_ZL10isSubclassPKN5clang17ObjCInterfaceDeclEPKNS_14IdentifierInfoE.exit ], [ true, %22 ]
   ret i1 %.0
 }
 

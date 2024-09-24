@@ -394,30 +394,30 @@ define hidden range(i32 -1, 1) i32 @phpdbg_watchpoint_segfault_handler(ptr nocap
   %19 = load i64, ptr @phpdbg_pagesize, align 8
   %20 = sub i64 0, %19
   %21 = and i64 %18, %20
-  %22 = inttoptr i64 %21 to ptr
-  %23 = icmp ult ptr %9, %22
-  br i1 %23, label %phpdbg_check_for_watchpoint.exit.thread, label %24
+  %22 = icmp ult i64 %8, %21
+  br i1 %22, label %phpdbg_check_for_watchpoint.exit.thread, label %23
 
-24:                                               ; preds = %14
+23:                                               ; preds = %14
+  %24 = inttoptr i64 %21 to ptr
   %25 = getelementptr inbounds i8, ptr %16, i64 8
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %18, -1
   %28 = add i64 %27, %26
   %29 = and i64 %28, %20
   %30 = sub i64 %29, %21
-  %31 = getelementptr i8, ptr %22, i64 %30
+  %31 = getelementptr i8, ptr %24, i64 %30
   %32 = getelementptr i8, ptr %31, i64 %19
   %33 = icmp ult ptr %32, %9
   br i1 %33, label %phpdbg_check_for_watchpoint.exit.thread, label %phpdbg_check_for_watchpoint.exit
 
-phpdbg_check_for_watchpoint.exit:                 ; preds = %24
+phpdbg_check_for_watchpoint.exit:                 ; preds = %23
   %34 = tail call i32 @mprotect(ptr noundef %9, i64 noundef %19, i32 noundef 3) #17
   %35 = load ptr, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1296), align 8
   %36 = tail call ptr @zend_hash_index_add_empty_element(ptr noundef %35, i64 noundef %8) #17
   br label %phpdbg_check_for_watchpoint.exit.thread
 
-phpdbg_check_for_watchpoint.exit.thread:          ; preds = %24, %14, %2, %phpdbg_check_for_watchpoint.exit
-  %.0 = phi i32 [ 0, %phpdbg_check_for_watchpoint.exit ], [ -1, %2 ], [ -1, %14 ], [ -1, %24 ]
+phpdbg_check_for_watchpoint.exit.thread:          ; preds = %23, %14, %2, %phpdbg_check_for_watchpoint.exit
+  %.0 = phi i32 [ 0, %phpdbg_check_for_watchpoint.exit ], [ -1, %2 ], [ -1, %14 ], [ -1, %23 ]
   ret i32 %.0
 }
 

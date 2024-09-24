@@ -1196,7 +1196,7 @@ define internal fastcc i32 @crypto_ccm_auth(ptr noundef %0, ptr noundef %1, i32 
 
 62:                                               ; preds = %._crit_edge
   %63 = add i64 %17, 2147483648
-  %64 = icmp ugt ptr %18, inttoptr (i64 -2147483649 to ptr)
+  %64 = icmp ugt i64 %17, -2147483649
   %65 = load i64, ptr @phys_base, align 8
   %66 = load i64, ptr @page_offset_base, align 8
   %67 = sub i64 -2147483648, %66

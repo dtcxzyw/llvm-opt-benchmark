@@ -23723,152 +23723,147 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit22: ; preds = %_ZNK5clang4T
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %.sroa.0.0.copyload.i24, 7
   %35 = or i64 %33, %34
-  %36 = inttoptr i64 %28 to ptr
-  %37 = inttoptr i64 %35 to ptr
-  %38 = icmp eq ptr %36, %37
-  br i1 %38, label %39, label %40
+  %36 = icmp eq i64 %28, %35
+  br i1 %36, label %37, label %38
 
-39:                                               ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit22
+37:                                               ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %125
+  br label %120
 
-40:                                               ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit22
-  %41 = and i64 %26, -16
-  %42 = inttoptr i64 %41 to ptr
-  %43 = load ptr, ptr %42, align 16
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load i8, ptr %44, align 16
-  %46 = and i8 %45, -2
-  %spec.select.i.i.i.i.i.i.i.i = icmp eq i8 %46, 42
+38:                                               ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit22
+  %39 = and i64 %26, -16
+  %40 = inttoptr i64 %39 to ptr
+  %41 = load ptr, ptr %40, align 16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load i8, ptr %42, align 16
+  %44 = and i8 %43, -2
+  %spec.select.i.i.i.i.i.i.i.i = icmp eq i8 %44, 42
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit, label %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_11PointerTypeEEENS_8CanProxyIT_EEv.exit
 
-_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit: ; preds = %40
-  %47 = load i24, ptr %44, align 16
-  %48 = and i24 %47, 1048576
-  %.not4.i.i = icmp eq i24 %48, 0
+_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit: ; preds = %38
+  %45 = load i24, ptr %42, align 16
+  %46 = and i24 %45, 1048576
+  %.not4.i.i = icmp eq i24 %46, 0
   br i1 %.not4.i.i, label %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
-  %.05.i.i = phi ptr [ %.0.i.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i ], [ %43, %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit ]
-  %49 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
-  %.0.copyload.i.i.i.i.i.i2.i = load i64, ptr %49, align 8
-  %50 = and i64 %.0.copyload.i.i.i.i.i.i2.i, -16
-  %51 = inttoptr i64 %50 to ptr
-  %52 = load ptr, ptr %51, align 16
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %54 = load i8, ptr %53, align 16
-  %55 = and i8 %54, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i = icmp eq i8 %55, 42
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i, label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i, label %56
+  %.05.i.i = phi ptr [ %.0.i.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i ], [ %41, %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit ]
+  %47 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
+  %.0.copyload.i.i.i.i.i.i2.i = load i64, ptr %47, align 8
+  %48 = and i64 %.0.copyload.i.i.i.i.i.i2.i, -16
+  %49 = inttoptr i64 %48 to ptr
+  %50 = load ptr, ptr %49, align 16
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load i8, ptr %51, align 16
+  %53 = and i8 %52, -2
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i = icmp eq i8 %53, 42
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i, label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i, label %54
 
-56:                                               ; preds = %.lr.ph.i.i
-  %57 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %52) #26
+54:                                               ; preds = %.lr.ph.i.i
+  %55 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %50) #26
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
-_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %56, %.lr.ph.i.i
-  %.0.i.i.i = phi ptr [ %57, %56 ], [ %52, %.lr.ph.i.i ]
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  %59 = load i24, ptr %58, align 16
-  %60 = and i24 %59, 1048576
-  %.not.i.i = icmp eq i24 %60, 0
+_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %54, %.lr.ph.i.i
+  %.0.i.i.i = phi ptr [ %55, %54 ], [ %50, %.lr.ph.i.i ]
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
+  %57 = load i24, ptr %56, align 16
+  %58 = and i24 %57, 1048576
+  %.not.i.i = icmp eq i24 %58, 0
   br i1 %.not.i.i, label %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit, label %.lr.ph.i.i, !llvm.loop !386
 
 _ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit: ; preds = %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i, %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit
-  %.0.lcssa.i.i = phi ptr [ %43, %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit ], [ %.0.i.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 32
-  %.sroa.0.0.copyload.i.i = load i64, ptr %61, align 16
+  %.0.lcssa.i.i = phi ptr [ %41, %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_13ReferenceTypeEEENS_8CanProxyIT_EEv.exit ], [ %.0.i.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i ]
+  %59 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 32
+  %.sroa.0.0.copyload.i.i = load i64, ptr %59, align 16
   %.not.i.i.i.i28 = icmp ugt i64 %33, 15
   tail call void @llvm.assume(i1 %.not.i.i.i.i28)
-  %62 = and i64 %33, -16
-  %63 = inttoptr i64 %62 to ptr
-  %64 = load ptr, ptr %63, align 16
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %66 = load i24, ptr %65, align 16
-  %67 = and i24 %66, 1048576
-  %.not4.i.i34 = icmp eq i24 %67, 0
+  %60 = and i64 %33, -16
+  %61 = inttoptr i64 %60 to ptr
+  %62 = load ptr, ptr %61, align 16
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %64 = load i24, ptr %63, align 16
+  %65 = and i24 %64, 1048576
+  %.not4.i.i34 = icmp eq i24 %65, 0
   br i1 %.not4.i.i34, label %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit44, label %.lr.ph.i.i35
 
 .lr.ph.i.i35:                                     ; preds = %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39
-  %.05.i.i36 = phi ptr [ %.0.i.i.i40, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39 ], [ %64, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit ]
-  %68 = getelementptr inbounds nuw i8, ptr %.05.i.i36, i64 32
-  %.0.copyload.i.i.i.i.i.i2.i37 = load i64, ptr %68, align 8
-  %69 = and i64 %.0.copyload.i.i.i.i.i.i2.i37, -16
-  %70 = inttoptr i64 %69 to ptr
-  %71 = load ptr, ptr %70, align 16
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %73 = load i8, ptr %72, align 16
-  %74 = and i8 %73, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i38 = icmp eq i8 %74, 42
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i38, label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39, label %75
+  %.05.i.i36 = phi ptr [ %.0.i.i.i40, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39 ], [ %62, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit ]
+  %66 = getelementptr inbounds nuw i8, ptr %.05.i.i36, i64 32
+  %.0.copyload.i.i.i.i.i.i2.i37 = load i64, ptr %66, align 8
+  %67 = and i64 %.0.copyload.i.i.i.i.i.i2.i37, -16
+  %68 = inttoptr i64 %67 to ptr
+  %69 = load ptr, ptr %68, align 16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  %71 = load i8, ptr %70, align 16
+  %72 = and i8 %71, -2
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i38 = icmp eq i8 %72, 42
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i38, label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39, label %73
 
-75:                                               ; preds = %.lr.ph.i.i35
-  %76 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %71) #26
+73:                                               ; preds = %.lr.ph.i.i35
+  %74 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %69) #26
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39
 
-_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39: ; preds = %75, %.lr.ph.i.i35
-  %.0.i.i.i40 = phi ptr [ %76, %75 ], [ %71, %.lr.ph.i.i35 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 16
-  %78 = load i24, ptr %77, align 16
-  %79 = and i24 %78, 1048576
-  %.not.i.i41 = icmp eq i24 %79, 0
+_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39: ; preds = %73, %.lr.ph.i.i35
+  %.0.i.i.i40 = phi ptr [ %74, %73 ], [ %69, %.lr.ph.i.i35 ]
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i40, i64 16
+  %76 = load i24, ptr %75, align 16
+  %77 = and i24 %76, 1048576
+  %.not.i.i41 = icmp eq i24 %77, 0
   br i1 %.not.i.i41, label %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit44, label %.lr.ph.i.i35, !llvm.loop !386
 
-_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_11PointerTypeEEENS_8CanProxyIT_EEv.exit: ; preds = %40
-  %80 = icmp eq i8 %45, 41
-  tail call void @llvm.assume(i1 %80)
-  %81 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %.sroa.0.0.copyload.i.i52 = load i64, ptr %81, align 16
+_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_11PointerTypeEEENS_8CanProxyIT_EEv.exit: ; preds = %38
+  %78 = icmp eq i8 %43, 41
+  tail call void @llvm.assume(i1 %78)
+  %79 = getelementptr inbounds nuw i8, ptr %41, i64 32
+  %.sroa.0.0.copyload.i.i52 = load i64, ptr %79, align 16
   %.not.i.i.i.i55 = icmp ugt i64 %33, 15
   tail call void @llvm.assume(i1 %.not.i.i.i.i55)
-  %82 = and i64 %33, -16
-  %83 = inttoptr i64 %82 to ptr
-  %84 = load ptr, ptr %83, align 16
+  %80 = and i64 %33, -16
+  %81 = inttoptr i64 %80 to ptr
+  %82 = load ptr, ptr %81, align 16
   br label %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit44
 
 _ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit44: ; preds = %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit, %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_11PointerTypeEEENS_8CanProxyIT_EEv.exit
   %.sroa.012.0 = phi i64 [ %.sroa.0.0.copyload.i.i52, %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_11PointerTypeEEENS_8CanProxyIT_EEv.exit ], [ %.sroa.0.0.copyload.i.i, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit ], [ %.sroa.0.0.copyload.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39 ]
-  %.pn = phi ptr [ %84, %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_11PointerTypeEEENS_8CanProxyIT_EEv.exit ], [ %64, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit ], [ %.0.i.i.i40, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39 ]
+  %.pn = phi ptr [ %82, %_ZNK5clang12CanProxyBaseINS_4TypeEE5getAsINS_11PointerTypeEEENS_8CanProxyIT_EEv.exit ], [ %62, %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit ], [ %.0.i.i.i40, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i39 ]
   %storemerge.in = getelementptr inbounds nuw i8, ptr %.pn, i64 32
   %storemerge = load i64, ptr %storemerge.in, align 16
-  %85 = and i64 %.sroa.012.0, -16
-  %86 = inttoptr i64 %85 to ptr
-  %87 = load ptr, ptr %86, align 16
-  %88 = ptrtoint ptr %87 to i64
-  %89 = and i64 %88, -16
-  %90 = and i64 %storemerge, -16
-  %91 = inttoptr i64 %90 to ptr
-  %92 = load ptr, ptr %91, align 16
-  %93 = ptrtoint ptr %92 to i64
-  %94 = and i64 %93, -16
-  %95 = inttoptr i64 %89 to ptr
-  %96 = inttoptr i64 %94 to ptr
-  %97 = icmp eq ptr %95, %96
-  br i1 %97, label %98, label %99
+  %83 = and i64 %.sroa.012.0, -16
+  %84 = inttoptr i64 %83 to ptr
+  %85 = load ptr, ptr %84, align 16
+  %86 = ptrtoint ptr %85 to i64
+  %87 = and i64 %storemerge, -16
+  %88 = inttoptr i64 %87 to ptr
+  %89 = load ptr, ptr %88, align 16
+  %90 = ptrtoint ptr %89 to i64
+  %91 = xor i64 %90, %86
+  %92 = icmp ult i64 %91, 16
+  br i1 %92, label %93, label %94
 
-98:                                               ; preds = %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit44
+93:                                               ; preds = %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %125
+  br label %120
 
-99:                                               ; preds = %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit44
-  %100 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %87) #26
-  %101 = load ptr, ptr %91, align 16
-  %102 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %101) #26
+94:                                               ; preds = %_ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit44
+  %95 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %85) #26
+  %96 = load ptr, ptr %88, align 16
+  %97 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %96) #26
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4)
   store ptr null, ptr %4, align 8, !noalias !387
-  %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %104 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %103, ptr %104, align 8, !noalias !387
-  store ptr %103, ptr %103, align 8, !noalias !387
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 0, ptr %105, align 8, !noalias !387
-  %106 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 1, ptr %106, align 8, !noalias !387
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 0, ptr %107, align 4, !noalias !387
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %98, ptr %99, align 8, !noalias !387
+  store ptr %98, ptr %98, align 8, !noalias !387
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 0, ptr %100, align 8, !noalias !387
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i32 1, ptr %101, align 8, !noalias !387
+  %102 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store i32 0, ptr %102, align 4, !noalias !387
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %99
-  %.06.i.i.i.idx.i.i = phi i64 [ %.06.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i ], [ 40, %99 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %94
+  %.06.i.i.i.idx.i.i = phi i64 [ %.06.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i ], [ 40, %94 ]
   %.06.i.i.i.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 %.06.i.i.i.idx.i.i
   store i64 0, ptr %.06.i.i.i.ptr.i.i, align 8, !noalias !387
   %.06.i.i.i.add.i.i = add nuw nsw i64 %.06.i.i.i.idx.i.i, 16
@@ -23876,42 +23871,42 @@ _ZNK5clang15CanProxyAdaptorINS_13ReferenceTypeEE14getPointeeTypeEv.exit44: ; pre
   br i1 %.not.i.i.i.i.i, label %_ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclES6_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !390
 
 _ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclES6_.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 200
-  store ptr %109, ptr %108, align 8, !noalias !387
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 176
-  store ptr %109, ptr %110, align 8, !noalias !387
-  %111 = getelementptr inbounds nuw i8, ptr %4, i64 184
-  store i32 4, ptr %111, align 8, !noalias !387
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 188
-  store i32 0, ptr %112, align 4, !noalias !387
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 192
-  store i32 0, ptr %113, align 8, !noalias !387
-  %114 = getelementptr inbounds nuw i8, ptr %4, i64 232
-  store ptr null, ptr %114, align 8, !noalias !387
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  %116 = getelementptr inbounds i8, ptr %4, i64 256
-  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %115, ptr noundef nonnull %116, i64 noundef 4) #26, !noalias !387
-  %117 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  store i32 0, ptr %117, align 8, !noalias !387
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 360
-  store i64 0, ptr %118, align 8, !noalias !387
-  %119 = getelementptr inbounds nuw i8, ptr %4, i64 368
-  store i8 0, ptr %119, align 8, !noalias !387
-  %120 = getelementptr inbounds nuw i8, ptr %4, i64 369
-  store i8 1, ptr %120, align 1, !noalias !387
-  %121 = getelementptr inbounds nuw i8, ptr %4, i64 370
-  store i8 0, ptr %121, align 2, !noalias !387
-  %122 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl13isDerivedFromEPKS0_RNS_12CXXBasePathsE(ptr noundef nonnull align 8 dereferenceable(144) %100, ptr noundef %102, ptr noundef nonnull align 8 dereferenceable(371) %4) #26, !noalias !387
-  call void @llvm.assume(i1 %122)
-  %123 = load ptr, ptr %103, align 8, !noalias !387
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  call fastcc void @_ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclERKNS0_11CXXBasePathE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull %100, ptr noundef nonnull align 8 dereferenceable(128) %124)
+  %103 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 200
+  store ptr %104, ptr %103, align 8, !noalias !387
+  %105 = getelementptr inbounds nuw i8, ptr %4, i64 176
+  store ptr %104, ptr %105, align 8, !noalias !387
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 184
+  store i32 4, ptr %106, align 8, !noalias !387
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 188
+  store i32 0, ptr %107, align 4, !noalias !387
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 192
+  store i32 0, ptr %108, align 8, !noalias !387
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 232
+  store ptr null, ptr %109, align 8, !noalias !387
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 240
+  %111 = getelementptr inbounds i8, ptr %4, i64 256
+  call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %110, ptr noundef nonnull %111, i64 noundef 4) #26, !noalias !387
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 352
+  store i32 0, ptr %112, align 8, !noalias !387
+  %113 = getelementptr inbounds nuw i8, ptr %4, i64 360
+  store i64 0, ptr %113, align 8, !noalias !387
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 368
+  store i8 0, ptr %114, align 8, !noalias !387
+  %115 = getelementptr inbounds nuw i8, ptr %4, i64 369
+  store i8 1, ptr %115, align 1, !noalias !387
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 370
+  store i8 0, ptr %116, align 2, !noalias !387
+  %117 = call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl13isDerivedFromEPKS0_RNS_12CXXBasePathsE(ptr noundef nonnull align 8 dereferenceable(144) %95, ptr noundef %97, ptr noundef nonnull align 8 dereferenceable(371) %4) #26, !noalias !387
+  call void @llvm.assume(i1 %117)
+  %118 = load ptr, ptr %98, align 8, !noalias !387
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  call fastcc void @_ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclERKNS0_11CXXBasePathE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull %95, ptr noundef nonnull align 8 dereferenceable(128) %119)
   call void @_ZN5clang12CXXBasePathsD2Ev(ptr noundef nonnull align 8 dereferenceable(371) %4) #26, !noalias !387
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4)
-  br label %125
+  br label %120
 
-125:                                              ; preds = %_ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclES6_.exit, %98, %39
+120:                                              ; preds = %_ZN12_GLOBAL__N_117ComputeBaseOffsetERKN5clang10ASTContextEPKNS0_13CXXRecordDeclES6_.exit, %93, %37
   ret void
 }
 

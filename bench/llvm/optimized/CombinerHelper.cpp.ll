@@ -11510,170 +11510,166 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit40: ; preds = %_ZNK4llv
   %61 = getelementptr inbounds %"struct.std::pair", ptr %60, i64 %59
   %.0.copyload.i.i.i.i.us = load i64, ptr %61, align 8
   %.not.i.us = icmp ult i64 %.0.copyload.i.i.i.i.us, 8
-  br i1 %.not.i.us, label %92, label %62
+  br i1 %.not.i.us, label %90, label %62
 
 62:                                               ; preds = %.lr.ph.split.us
   %63 = and i32 %.sroa.016.0.copyload.us, 2147483647
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds %"struct.std::pair", ptr %60, i64 %64
   %.sroa.011.0.copyload.us = load i64, ptr %65, align 8
-  %66 = inttoptr i64 %.0.copyload.i.i.i.i.us to ptr
-  %67 = inttoptr i64 %.sroa.011.0.copyload.us to ptr
-  %.not.us = icmp eq ptr %66, %67
-  br i1 %.not.us, label %92, label %68
+  %.not.us = icmp eq i64 %.0.copyload.i.i.i.i.us, %.sroa.011.0.copyload.us
+  br i1 %.not.us, label %90, label %66
 
-68:                                               ; preds = %62
-  %69 = load ptr, ptr %0, align 8
-  %70 = icmp slt i32 %.sroa.016.0.copyload.us, 0
-  br i1 %70, label %71, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %0, align 8
+  %68 = icmp slt i32 %.sroa.016.0.copyload.us, 0
+  br i1 %68, label %69, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us
 
-71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %56, i64 456
-  %73 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %72) #27
-  %74 = icmp ugt i64 %73, %64
-  br i1 %74, label %75, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %56, i64 456
+  %71 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #27
+  %72 = icmp ugt i64 %71, %64
+  br i1 %72, label %73, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us
 
-75:                                               ; preds = %71
-  %76 = load ptr, ptr %72, align 8
-  %77 = getelementptr inbounds %"class.llvm::LLT", ptr %76, i64 %64
-  %78 = load i64, ptr %77, align 8
+73:                                               ; preds = %69
+  %74 = load ptr, ptr %70, align 8
+  %75 = getelementptr inbounds %"class.llvm::LLT", ptr %74, i64 %64
+  %76 = load i64, ptr %75, align 8
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us: ; preds = %75, %71, %68
-  %.sroa.04.0.i41.us = phi i64 [ %78, %75 ], [ 0, %71 ], [ 0, %68 ]
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us: ; preds = %73, %69, %66
+  %.sroa.04.0.i41.us = phi i64 [ %76, %73 ], [ 0, %69 ], [ 0, %66 ]
   store i64 %.sroa.04.0.i41.us, ptr %6, align 8
   store i32 0, ptr %44, align 8
   store i32 %.sroa.016.0.copyload.us, ptr %7, align 8
   store i32 0, ptr %45, align 8
-  %79 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %69, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(20) %7) #27
-  %80 = extractvalue { ptr, ptr } %79, 1
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 4
-  %84 = load i32, ptr %83, align 4
-  %85 = load ptr, ptr %14, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  %87 = and i32 %84, 2147483647
-  %88 = zext nneg i32 %87 to i64
-  %89 = load ptr, ptr %86, align 8
-  %90 = getelementptr inbounds %"struct.std::pair", ptr %89, i64 %88
-  %91 = load i64, ptr %61, align 8
-  store i64 %91, ptr %90, align 8
+  %77 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %67, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(20) %7) #27
+  %78 = extractvalue { ptr, ptr } %77, 1
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %80, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = load ptr, ptr %14, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 56
+  %85 = and i32 %82, 2147483647
+  %86 = zext nneg i32 %85 to i64
+  %87 = load ptr, ptr %84, align 8
+  %88 = getelementptr inbounds %"struct.std::pair", ptr %87, i64 %86
+  %89 = load i64, ptr %61, align 8
+  store i64 %89, ptr %88, align 8
   %.pre = load ptr, ptr %14, align 8
-  br label %92
+  br label %90
 
-92:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us, %62, %.lr.ph.split.us
-  %93 = phi ptr [ %56, %.lr.ph.split.us ], [ %.pre, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us ], [ %56, %62 ]
-  %.sroa.016.0.us = phi i32 [ %.sroa.016.0.copyload.us, %.lr.ph.split.us ], [ %84, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us ], [ %.sroa.016.0.copyload.us, %62 ]
+90:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us, %62, %.lr.ph.split.us
+  %91 = phi ptr [ %56, %.lr.ph.split.us ], [ %.pre, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us ], [ %56, %62 ]
+  %.sroa.016.0.us = phi i32 [ %.sroa.016.0.copyload.us, %.lr.ph.split.us ], [ %82, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42.us ], [ %.sroa.016.0.copyload.us, %62 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %94 = load ptr, ptr %48, align 8
-  call void @_ZN4llvm19GISelChangeObserver20changingAllUsesOfRegERKNS_19MachineRegisterInfoENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(72) %94, ptr noundef nonnull align 8 dereferenceable(512) %93, i32 %53) #27
-  %95 = call noundef zeroext i1 @_ZN4llvm19MachineRegisterInfo17constrainRegAttrsENS_8RegisterES1_j(ptr noundef nonnull align 8 dereferenceable(512) %93, i32 %.sroa.016.0.us, i32 %53, i32 noundef 0) #27
-  br i1 %95, label %99, label %96
+  %92 = load ptr, ptr %48, align 8
+  call void @_ZN4llvm19GISelChangeObserver20changingAllUsesOfRegERKNS_19MachineRegisterInfoENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(72) %92, ptr noundef nonnull align 8 dereferenceable(512) %91, i32 %53) #27
+  %93 = call noundef zeroext i1 @_ZN4llvm19MachineRegisterInfo17constrainRegAttrsENS_8RegisterES1_j(ptr noundef nonnull align 8 dereferenceable(512) %91, i32 %.sroa.016.0.us, i32 %53, i32 noundef 0) #27
+  br i1 %93, label %97, label %94
 
-96:                                               ; preds = %92
-  %97 = load ptr, ptr %0, align 8
+94:                                               ; preds = %90
+  %95 = load ptr, ptr %0, align 8
   store i32 %.sroa.016.0.us, ptr %4, align 8
   store i32 1, ptr %49, align 8
   store i32 %53, ptr %5, align 8
   store i32 0, ptr %50, align 8
-  %98 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %97, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(20) %5) #27
+  %96 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %95, ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(20) %5) #27
   br label %_ZNK4llvm14CombinerHelper14replaceRegWithERNS_19MachineRegisterInfoENS_8RegisterES3_.exit.us
 
-99:                                               ; preds = %92
-  call void @_ZN4llvm19MachineRegisterInfo14replaceRegWithENS_8RegisterES1_(ptr noundef nonnull align 8 dereferenceable(512) %93, i32 %53, i32 %.sroa.016.0.us) #27
+97:                                               ; preds = %90
+  call void @_ZN4llvm19MachineRegisterInfo14replaceRegWithENS_8RegisterES1_(ptr noundef nonnull align 8 dereferenceable(512) %91, i32 %53, i32 %.sroa.016.0.us) #27
   br label %_ZNK4llvm14CombinerHelper14replaceRegWithERNS_19MachineRegisterInfoENS_8RegisterES3_.exit.us
 
-_ZNK4llvm14CombinerHelper14replaceRegWithERNS_19MachineRegisterInfoENS_8RegisterES3_.exit.us: ; preds = %99, %96
-  %100 = load ptr, ptr %48, align 8
-  call void @_ZN4llvm19GISelChangeObserver28finishedChangingAllUsesOfRegEv(ptr noundef nonnull align 8 dereferenceable(72) %100) #27
+_ZNK4llvm14CombinerHelper14replaceRegWithERNS_19MachineRegisterInfoENS_8RegisterES3_.exit.us: ; preds = %97, %94
+  %98 = load ptr, ptr %48, align 8
+  call void @_ZN4llvm19GISelChangeObserver28finishedChangingAllUsesOfRegEv(ptr noundef nonnull align 8 dereferenceable(72) %98) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count52
   br i1 %exitcond53.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !58
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %142
-  %indvars.iv = phi i64 [ %indvars.iv.next, %142 ], [ 0, %.lr.ph ]
-  %101 = load ptr, ptr %28, align 8
-  %102 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %101, i64 %indvars.iv, i32 1
-  %103 = load i32, ptr %102, align 4
-  %104 = load ptr, ptr %2, align 8
-  %105 = getelementptr inbounds %"class.llvm::Register", ptr %104, i64 %indvars.iv
-  %.sroa.016.0.copyload = load i32, ptr %105, align 4
-  %106 = load ptr, ptr %14, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 56
-  %108 = and i32 %103, 2147483647
-  %109 = zext nneg i32 %108 to i64
-  %110 = load ptr, ptr %107, align 8
-  %111 = getelementptr inbounds %"struct.std::pair", ptr %110, i64 %109
-  %.0.copyload.i.i.i.i = load i64, ptr %111, align 8
+.lr.ph.split:                                     ; preds = %.lr.ph, %138
+  %indvars.iv = phi i64 [ %indvars.iv.next, %138 ], [ 0, %.lr.ph ]
+  %99 = load ptr, ptr %28, align 8
+  %100 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %99, i64 %indvars.iv, i32 1
+  %101 = load i32, ptr %100, align 4
+  %102 = load ptr, ptr %2, align 8
+  %103 = getelementptr inbounds %"class.llvm::Register", ptr %102, i64 %indvars.iv
+  %.sroa.016.0.copyload = load i32, ptr %103, align 4
+  %104 = load ptr, ptr %14, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 56
+  %106 = and i32 %101, 2147483647
+  %107 = zext nneg i32 %106 to i64
+  %108 = load ptr, ptr %105, align 8
+  %109 = getelementptr inbounds %"struct.std::pair", ptr %108, i64 %107
+  %.0.copyload.i.i.i.i = load i64, ptr %109, align 8
   %.not.i = icmp ult i64 %.0.copyload.i.i.i.i, 8
-  br i1 %.not.i, label %142, label %112
+  br i1 %.not.i, label %138, label %110
 
-112:                                              ; preds = %.lr.ph.split
-  %113 = and i32 %.sroa.016.0.copyload, 2147483647
-  %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds %"struct.std::pair", ptr %110, i64 %114
-  %.sroa.011.0.copyload = load i64, ptr %115, align 8
-  %116 = inttoptr i64 %.0.copyload.i.i.i.i to ptr
-  %117 = inttoptr i64 %.sroa.011.0.copyload to ptr
-  %.not = icmp eq ptr %116, %117
-  br i1 %.not, label %142, label %118
+110:                                              ; preds = %.lr.ph.split
+  %111 = and i32 %.sroa.016.0.copyload, 2147483647
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr inbounds %"struct.std::pair", ptr %108, i64 %112
+  %.sroa.011.0.copyload = load i64, ptr %113, align 8
+  %.not = icmp eq i64 %.0.copyload.i.i.i.i, %.sroa.011.0.copyload
+  br i1 %.not, label %138, label %114
 
-118:                                              ; preds = %112
-  %119 = load ptr, ptr %0, align 8
-  %120 = icmp slt i32 %.sroa.016.0.copyload, 0
+114:                                              ; preds = %110
+  %115 = load ptr, ptr %0, align 8
+  %116 = icmp slt i32 %.sroa.016.0.copyload, 0
+  br i1 %116, label %117, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42
+
+117:                                              ; preds = %114
+  %118 = getelementptr inbounds nuw i8, ptr %104, i64 456
+  %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %118) #27
+  %120 = icmp ugt i64 %119, %112
   br i1 %120, label %121, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42
 
-121:                                              ; preds = %118
-  %122 = getelementptr inbounds nuw i8, ptr %106, i64 456
-  %123 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %122) #27
-  %124 = icmp ugt i64 %123, %114
-  br i1 %124, label %125, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42
-
-125:                                              ; preds = %121
-  %126 = load ptr, ptr %122, align 8
-  %127 = getelementptr inbounds %"class.llvm::LLT", ptr %126, i64 %114
-  %128 = load i64, ptr %127, align 8
+121:                                              ; preds = %117
+  %122 = load ptr, ptr %118, align 8
+  %123 = getelementptr inbounds %"class.llvm::LLT", ptr %122, i64 %112
+  %124 = load i64, ptr %123, align 8
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42: ; preds = %118, %121, %125
-  %.sroa.04.0.i41 = phi i64 [ %128, %125 ], [ 0, %121 ], [ 0, %118 ]
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42: ; preds = %114, %117, %121
+  %.sroa.04.0.i41 = phi i64 [ %124, %121 ], [ 0, %117 ], [ 0, %114 ]
   store i64 %.sroa.04.0.i41, ptr %6, align 8
   store i32 0, ptr %44, align 8
   store i32 %.sroa.016.0.copyload, ptr %7, align 8
   store i32 0, ptr %45, align 8
-  %129 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %119, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(20) %7) #27
-  %130 = extractvalue { ptr, ptr } %129, 1
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 4
-  %134 = load i32, ptr %133, align 4
-  %135 = load ptr, ptr %14, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 56
-  %137 = and i32 %134, 2147483647
-  %138 = zext nneg i32 %137 to i64
-  %139 = load ptr, ptr %136, align 8
-  %140 = getelementptr inbounds %"struct.std::pair", ptr %139, i64 %138
-  %141 = load i64, ptr %111, align 8
-  store i64 %141, ptr %140, align 8
-  br label %142
+  %125 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCopyERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %115, ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(20) %7) #27
+  %126 = extractvalue { ptr, ptr } %125, 1
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
+  %128 = load ptr, ptr %127, align 8
+  %129 = getelementptr inbounds i8, ptr %128, i64 4
+  %130 = load i32, ptr %129, align 4
+  %131 = load ptr, ptr %14, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 56
+  %133 = and i32 %130, 2147483647
+  %134 = zext nneg i32 %133 to i64
+  %135 = load ptr, ptr %132, align 8
+  %136 = getelementptr inbounds %"struct.std::pair", ptr %135, i64 %134
+  %137 = load i64, ptr %109, align 8
+  store i64 %137, ptr %136, align 8
+  br label %138
 
-142:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42, %112, %.lr.ph.split
-  %.sroa.016.0 = phi i32 [ %.sroa.016.0.copyload, %.lr.ph.split ], [ %134, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42 ], [ %.sroa.016.0.copyload, %112 ]
-  %143 = load ptr, ptr %0, align 8
-  store i32 %103, ptr %8, align 8
+138:                                              ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42, %110, %.lr.ph.split
+  %.sroa.016.0 = phi i32 [ %.sroa.016.0.copyload, %.lr.ph.split ], [ %130, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit42 ], [ %.sroa.016.0.copyload, %110 ]
+  %139 = load ptr, ptr %0, align 8
+  store i32 %101, ptr %8, align 8
   store i32 1, ptr %46, align 8
   store i32 %.sroa.016.0, ptr %9, align 8
   store i32 0, ptr %47, align 8
-  %144 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCastERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %143, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(20) %9) #27
+  %140 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder9buildCastERKNS_5DstOpERKNS_5SrcOpE(ptr noundef nonnull align 8 dereferenceable(88) %139, ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(20) %9) #27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count52
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !58
 
-._crit_edge:                                      ; preds = %142, %_ZNK4llvm14CombinerHelper14replaceRegWithERNS_19MachineRegisterInfoENS_8RegisterES3_.exit.us, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit40
+._crit_edge:                                      ; preds = %138, %_ZNK4llvm14CombinerHelper14replaceRegWithERNS_19MachineRegisterInfoENS_8RegisterES3_.exit.us, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit40
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #27
   ret void
 }

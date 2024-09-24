@@ -470,7 +470,7 @@ define dso_local range(i32 -40, 1) i32 @do_epoll_ctl(i32 noundef %0, i32 noundef
   br label %32
 
 32:                                               ; preds = %29, %27, %23, %21
-  %33 = icmp eq ptr %8, %13
+  %33 = icmp eq i64 %7, %12
   br i1 %33, label %.thread25, label %34
 
 34:                                               ; preds = %32

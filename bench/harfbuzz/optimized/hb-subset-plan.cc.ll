@@ -2043,7 +2043,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
   %2 = load atomic i64, ptr %cff1_accel acquire, align 8
   %3 = inttoptr i64 %2 to ptr
   %tobool.not.i.i = icmp eq i64 %2, 0
-  %cmp.not.i.i = icmp eq ptr %3, @_hb_NullPool
+  %cmp.not.i.i = icmp eq i64 %2, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E4finiEv.exit, label %if.then.i.i
 
@@ -2069,7 +2069,7 @@ _ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1
   %5 = load atomic i64, ptr %cff2_accel acquire, align 8
   %6 = inttoptr i64 %5 to ptr
   %tobool.not.i.i2 = icmp eq i64 %5, 0
-  %cmp.not.i.i3 = icmp eq ptr %6, @_hb_NullPool
+  %cmp.not.i.i3 = icmp eq i64 %5, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i4 = or i1 %tobool.not.i.i2, %cmp.not.i.i3
   br i1 %or.cond.i.i4, label %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E4finiEv.exit, label %if.then.i.i5
 
@@ -14368,7 +14368,7 @@ entry:
   %4 = load atomic i64, ptr %cff1_accel acquire, align 8
   %5 = inttoptr i64 %4 to ptr
   %tobool.not.i.i = icmp eq i64 %4, 0
-  %cmp.not.i.i = icmp eq ptr %5, @_hb_NullPool
+  %cmp.not.i.i = icmp eq i64 %4, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i = or i1 %tobool.not.i.i, %cmp.not.i.i
   br i1 %or.cond.i.i, label %_ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj1EE9hb_face_tLj1ES1_E4finiEv.exit, label %if.then.i.i
 
@@ -14394,7 +14394,7 @@ _ZN16hb_lazy_loader_tIN2OT25cff1_subset_accelerator_tE21hb_face_lazy_loader_tIS1
   %7 = load atomic i64, ptr %cff2_accel acquire, align 8
   %8 = inttoptr i64 %7 to ptr
   %tobool.not.i.i1 = icmp eq i64 %7, 0
-  %cmp.not.i.i2 = icmp eq ptr %8, @_hb_NullPool
+  %cmp.not.i.i2 = icmp eq i64 %7, ptrtoint (ptr @_hb_NullPool to i64)
   %or.cond.i.i3 = or i1 %tobool.not.i.i1, %cmp.not.i.i2
   br i1 %or.cond.i.i3, label %_ZN16hb_lazy_loader_tIN2OT25cff2_subset_accelerator_tE21hb_face_lazy_loader_tIS1_Lj2EE9hb_face_tLj2ES1_E4finiEv.exit, label %if.then.i.i4
 

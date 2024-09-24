@@ -4655,13 +4655,13 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit:          ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %97, label %36
+  br i1 %26, label %95, label %36
 
 27:                                               ; preds = %20
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load ptr, ptr %28, align 8
   %.not.i.i16 = icmp eq ptr %29, null
-  br i1 %.not.i.i16, label %97, label %36
+  br i1 %.not.i.i16, label %95, label %36
 
 _ZNK5clang6interp7Pointer6isZeroEv.exit18:        ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -4670,7 +4670,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit18:        ; preds = %20
   %33 = load i64, ptr %1, align 8
   %34 = icmp eq i64 %33, 0
   %35 = select i1 %32, i1 %34, i1 false
-  br i1 %35, label %97, label %36
+  br i1 %35, label %95, label %36
 
 36:                                               ; preds = %27, %23, %_ZNK5clang6interp7Pointer6isZeroEv.exit18, %_ZNK5clang6interp7Pointer6isZeroEv.exit
   %37 = icmp eq i32 %4, 1
@@ -4680,7 +4680,7 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit18:        ; preds = %20
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, 1
-  br i1 %41, label %97, label %.thread27
+  br i1 %41, label %95, label %.thread27
 
 .thread27:                                        ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4693,12 +4693,12 @@ _ZNK5clang6interp7Pointer6isZeroEv.exit18:        ; preds = %20
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, 2
   %or.cond = select i1 %44, i1 %47, i1 false
-  br i1 %or.cond, label %97, label %48
+  br i1 %or.cond, label %95, label %48
 
 48:                                               ; preds = %.thread.thread, %.thread
   %49 = phi i32 [ %10, %.thread.thread ], [ %46, %.thread ]
   %50 = icmp eq i32 %49, 1
-  br i1 %50, label %51, label %90
+  br i1 %50, label %51, label %88
 
 51:                                               ; preds = %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4784,25 +4784,23 @@ _ZNK5clang6interp7Pointer11getDeclDescEv.exit.i22: ; preds = %_ZNK5clang6interp7
 _ZNK5clang6interp7Pointer9getSourceEv.exit24:     ; preds = %_ZNK5clang6interp7Pointer11getDeclDescEv.exit.i22, %76, %77, %83, %85
   %.sroa.0.0.i32 = phi i64 [ %.sroa.0.0.i, %_ZNK5clang6interp7Pointer11getDeclDescEv.exit.i22 ], [ %.sroa.0.0.i, %77 ], [ %.sroa.0.0.i33, %85 ], [ %.sroa.0.0.i, %76 ], [ %.sroa.0.0.i33, %83 ]
   %.sroa.0.0.i21 = phi i64 [ %75, %_ZNK5clang6interp7Pointer11getDeclDescEv.exit.i22 ], [ %82, %77 ], [ %86, %85 ], [ 0, %76 ], [ 0, %83 ]
-  %87 = inttoptr i64 %.sroa.0.0.i32 to ptr
-  %88 = inttoptr i64 %.sroa.0.0.i21 to ptr
-  %89 = icmp eq ptr %87, %88
-  br label %97
+  %87 = icmp eq i64 %.sroa.0.0.i32, %.sroa.0.0.i21
+  br label %95
 
-90:                                               ; preds = %48
+88:                                               ; preds = %48
   %.not = icmp eq i32 %4, %49
-  br i1 %.not, label %91, label %97
+  br i1 %.not, label %89, label %95
 
-91:                                               ; preds = %90
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
+89:                                               ; preds = %88
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %95 = load ptr, ptr %94, align 8
-  %96 = icmp eq ptr %93, %95
-  br label %97
+  %94 = icmp eq ptr %91, %93
+  br label %95
 
-97:                                               ; preds = %.thread, %27, %23, %90, %38, %_ZNK5clang6interp7Pointer6isZeroEv.exit18, %91, %_ZNK5clang6interp7Pointer9getSourceEv.exit24
-  %.0 = phi i1 [ %89, %_ZNK5clang6interp7Pointer9getSourceEv.exit24 ], [ %96, %91 ], [ true, %_ZNK5clang6interp7Pointer6isZeroEv.exit18 ], [ true, %38 ], [ false, %90 ], [ true, %23 ], [ true, %27 ], [ true, %.thread ]
+95:                                               ; preds = %.thread, %27, %23, %88, %38, %_ZNK5clang6interp7Pointer6isZeroEv.exit18, %89, %_ZNK5clang6interp7Pointer9getSourceEv.exit24
+  %.0 = phi i1 [ %87, %_ZNK5clang6interp7Pointer9getSourceEv.exit24 ], [ %94, %89 ], [ true, %_ZNK5clang6interp7Pointer6isZeroEv.exit18 ], [ true, %38 ], [ false, %88 ], [ true, %23 ], [ true, %27 ], [ true, %.thread ]
   ret i1 %.0
 }
 

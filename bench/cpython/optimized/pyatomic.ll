@@ -3217,8 +3217,7 @@ cond.false29:                                     ; preds = %cond.end26
 
 cond.end30:                                       ; preds = %cond.end26
   %10 = extractvalue { i64, i1 } %7, 0
-  %11 = inttoptr i64 %10 to ptr
-  %cmp31 = icmp eq ptr %11, inttoptr (i64 2 to ptr)
+  %cmp31 = icmp eq i64 %10, 2
   br i1 %cmp31, label %cond.end34, label %cond.false33
 
 cond.false33:                                     ; preds = %cond.end30
@@ -4059,8 +4058,7 @@ cond.false3:                                      ; preds = %cond.end
 
 cond.end4:                                        ; preds = %cond.end
   %2 = atomicrmw xchg ptr %x, i64 2 seq_cst, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %cmp6 = icmp eq ptr %3, inttoptr (i64 1 to ptr)
+  %cmp6 = icmp eq i64 %2, 1
   br i1 %cmp6, label %cond.end9, label %cond.false8
 
 cond.false8:                                      ; preds = %cond.end4
@@ -4068,8 +4066,8 @@ cond.false8:                                      ; preds = %cond.end4
   unreachable
 
 cond.end9:                                        ; preds = %cond.end4
-  %4 = load ptr, ptr %x, align 8
-  %cmp10 = icmp eq ptr %4, inttoptr (i64 2 to ptr)
+  %3 = load ptr, ptr %x, align 8
+  %cmp10 = icmp eq ptr %3, inttoptr (i64 2 to ptr)
   br i1 %cmp10, label %cond.end13, label %cond.false12
 
 cond.false12:                                     ; preds = %cond.end9
@@ -4077,9 +4075,8 @@ cond.false12:                                     ; preds = %cond.end9
   unreachable
 
 cond.end13:                                       ; preds = %cond.end9
-  %5 = atomicrmw xchg ptr %x, i64 1 seq_cst, align 8
-  %6 = inttoptr i64 %5 to ptr
-  %cmp15 = icmp eq ptr %6, inttoptr (i64 2 to ptr)
+  %4 = atomicrmw xchg ptr %x, i64 1 seq_cst, align 8
+  %cmp15 = icmp eq i64 %4, 2
   br i1 %cmp15, label %cond.end18, label %cond.false17
 
 cond.false17:                                     ; preds = %cond.end13
@@ -4087,8 +4084,8 @@ cond.false17:                                     ; preds = %cond.end13
   unreachable
 
 cond.end18:                                       ; preds = %cond.end13
-  %7 = load ptr, ptr %x, align 8
-  %cmp19 = icmp eq ptr %7, inttoptr (i64 1 to ptr)
+  %5 = load ptr, ptr %x, align 8
+  %cmp19 = icmp eq ptr %5, inttoptr (i64 1 to ptr)
   br i1 %cmp19, label %cond.end22, label %cond.false21
 
 cond.false21:                                     ; preds = %cond.end18

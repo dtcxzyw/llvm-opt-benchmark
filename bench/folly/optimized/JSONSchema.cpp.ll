@@ -71944,7 +71944,7 @@ _ZNK5boost13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_s
   %second25 = getelementptr inbounds i8, ptr %retval.0.i101, i64 8
   %34 = load i64, ptr %second25, align 8, !tbaa !22
   %35 = inttoptr i64 %34 to ptr
-  %cmp.i137.not162 = icmp eq ptr %32, %35
+  %cmp.i137.not162 = icmp eq i64 %31, %34
   br i1 %cmp.i137.not162, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZNK5boost13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISB_EEEEixEi.exit136

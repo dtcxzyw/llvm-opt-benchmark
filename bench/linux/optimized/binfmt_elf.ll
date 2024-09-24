@@ -2290,15 +2290,15 @@ define internal fastcc i64 @elf_load(ptr noundef %0, i64 noundef %1, ptr nocaptu
   br i1 %97, label %.thread, label %98
 
 98:                                               ; preds = %90
-  %99 = inttoptr i64 %94 to ptr
-  %100 = icmp sgt ptr %99, inttoptr (i64 -1 to ptr)
-  br i1 %100, label %101, label %110
+  %99 = icmp sgt i64 %94, -1
+  br i1 %99, label %100, label %110
 
-101:                                              ; preds = %98
+100:                                              ; preds = %98
+  %101 = inttoptr i64 %94 to ptr
   %102 = sub nuw nsw i64 4096, %96
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !46
   %103 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %104 = tail call { i64, ptr, i64 } asm sideeffect "1:\0A\09# ALT: oldnstr\0A661:\0A\09rep stosb\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 0) << 16) $| ((12*32+11)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call rep_stos_alternative\0A6651:\0A.popsection\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 3 \0A .popsection\0A", "={cx},={di},={rsp},{ax},0,1,{rsp},~{dirflag},~{fpsr},~{flags}"(i32 0, i64 %102, ptr %99, i64 %103) #15, !srcloc !47
+  %104 = tail call { i64, ptr, i64 } asm sideeffect "1:\0A\09# ALT: oldnstr\0A661:\0A\09rep stosb\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 0) << 16) $| ((12*32+11)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call rep_stos_alternative\0A6651:\0A.popsection\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 3 \0A .popsection\0A", "={cx},={di},={rsp},{ax},0,1,{rsp},~{dirflag},~{fpsr},~{flags}"(i32 0, i64 %102, ptr %101, i64 %103) #15, !srcloc !47
   %105 = extractvalue { i64, ptr, i64 } %104, 0
   %106 = extractvalue { i64, ptr, i64 } %104, 2
   tail call void @llvm.write_register.i64(metadata !0, i64 %106)
@@ -2309,7 +2309,7 @@ define internal fastcc i64 @elf_load(ptr noundef %0, i64 noundef %1, ptr nocaptu
   %or.cond = or i1 %109, %107
   br i1 %or.cond, label %..thread_crit_edge, label %138
 
-..thread_crit_edge:                               ; preds = %101
+..thread_crit_edge:                               ; preds = %100
   %.pre = load i64, ptr %86, align 8
   %.pre12 = load i64, ptr %7, align 8
   br label %.thread
@@ -2353,8 +2353,8 @@ define internal fastcc i64 @elf_load(ptr noundef %0, i64 noundef %1, ptr nocaptu
   %137 = select i1 %135, i64 %124, i64 %136
   br label %138
 
-138:                                              ; preds = %101, %126, %.thread, %110, %82
-  %139 = phi i64 [ %68, %82 ], [ -14, %110 ], [ %137, %126 ], [ %124, %.thread ], [ -14, %101 ]
+138:                                              ; preds = %100, %126, %.thread, %110, %82
+  %139 = phi i64 [ %68, %82 ], [ -14, %110 ], [ %137, %126 ], [ %124, %.thread ], [ -14, %100 ]
   ret i64 %139
 }
 

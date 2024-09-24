@@ -1247,28 +1247,28 @@ define range(i32 0, 2) i32 @Abc_NtkAppend(ptr noundef %0, ptr noundef %1, i32 no
   %160 = load ptr, ptr %93, align 8
   %161 = tail call ptr @Abc_AigOr(ptr noundef %160, ptr noundef %144, ptr noundef %159) #11
   %162 = and i64 %141, -2
-  %163 = inttoptr i64 %162 to ptr
-  %164 = ptrtoint ptr %161 to i64
-  %165 = and i64 %164, -2
-  %166 = inttoptr i64 %165 to ptr
-  %167 = icmp eq ptr %163, %166
-  br i1 %167, label %179, label %168
+  %163 = ptrtoint ptr %161 to i64
+  %164 = and i64 %163, -2
+  %165 = icmp eq i64 %162, %164
+  br i1 %165, label %179, label %166
 
-168:                                              ; preds = %121
-  %169 = getelementptr inbounds i8, ptr %163, i64 20
+166:                                              ; preds = %121
+  %167 = inttoptr i64 %164 to ptr
+  %168 = inttoptr i64 %162 to ptr
+  %169 = getelementptr inbounds i8, ptr %168, i64 20
   %170 = load i32, ptr %169, align 4
-  %171 = getelementptr inbounds i8, ptr %166, i64 20
+  %171 = getelementptr inbounds i8, ptr %167, i64 20
   %172 = load i32, ptr %171, align 4
   %173 = xor i32 %172, %170
   %174 = lshr i32 %173, 7
   %175 = and i32 %174, 1
   %176 = zext nneg i32 %175 to i64
-  %177 = or disjoint i64 %165, %176
+  %177 = or disjoint i64 %164, %176
   %178 = inttoptr i64 %177 to ptr
-  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %131, ptr noundef %163, ptr noundef %178) #11
+  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %131, ptr noundef %168, ptr noundef %178) #11
   br label %179
 
-179:                                              ; preds = %121, %168
+179:                                              ; preds = %121, %166
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %.val94 = load ptr, ptr %88, align 8
   %180 = getelementptr i8, ptr %.val94, i64 4

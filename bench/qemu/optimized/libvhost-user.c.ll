@@ -1332,11 +1332,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx = getelementptr [32 x %struct.VuDevRegion], ptr %regions, i64 0, i64 %indvars.iv
   %mmap_addr = getelementptr inbounds i8, ptr %arrayidx, i64 32
   %2 = load i64, ptr %mmap_addr, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %cmp1.not = icmp eq ptr %3, inttoptr (i64 -1 to ptr)
+  %cmp1.not = icmp eq i64 %2, -1
   br i1 %cmp1.not, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
+  %3 = inttoptr i64 %2 to ptr
   %size = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %4 = load i64, ptr %size, align 8
   %mmap_offset = getelementptr inbounds i8, ptr %arrayidx, i64 24

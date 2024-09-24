@@ -5863,112 +5863,110 @@ if.then:                                          ; preds = %entry
   %idxprom9 = zext nneg i16 %5 to i64
   %arrayidx10 = getelementptr inbounds [1 x %struct.GCRef], ptr %uvptr, i64 0, i64 %idxprom9
   %6 = load i64, ptr %arrayidx10, align 8
-  %7 = inttoptr i64 %6 to ptr
   %ref.0.in17 = load i16, ptr %arrayidx, align 2
   %cmp.not18 = icmp eq i16 %ref.0.in17, 0
   br i1 %cmp.not18, label %if.end39, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.then
   %ir13 = getelementptr inbounds i8, ptr %J, i64 32
-  %8 = load ptr, ptr %ir13, align 8
-  %invariant.gep = getelementptr inbounds i8, ptr %8, i64 8
+  %7 = load ptr, ptr %ir13, align 8
+  %invariant.gep = getelementptr inbounds i8, ptr %7, i64 8
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end37
   %ref.0.in19 = phi i16 [ %ref.0.in17, %while.body.lr.ph ], [ %ref.0.in, %if.end37 ]
   %idxprom14 = zext i16 %ref.0.in19 to i64
-  %arrayidx15 = getelementptr inbounds %union.IRIns, ptr %8, i64 %idxprom14
-  %9 = load i16, ptr %arrayidx15, align 8
-  %cmp17 = icmp sgt i16 %9, -1
+  %arrayidx15 = getelementptr inbounds %union.IRIns, ptr %7, i64 %idxprom14
+  %8 = load i16, ptr %arrayidx15, align 8
+  %cmp17 = icmp sgt i16 %8, -1
   br i1 %cmp17, label %if.then19, label %if.end37
 
 if.then19:                                        ; preds = %while.body
-  %idxprom23 = zext nneg i16 %9 to i64
+  %idxprom23 = zext nneg i16 %8 to i64
   %gep = getelementptr inbounds %union.IRIns, ptr %invariant.gep, i64 %idxprom23
-  %10 = load i64, ptr %gep, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %uvptr27 = getelementptr inbounds i8, ptr %11, i64 40
+  %9 = load i64, ptr %gep, align 8
+  %10 = inttoptr i64 %9 to ptr
+  %uvptr27 = getelementptr inbounds i8, ptr %10, i64 40
   %op228 = getelementptr inbounds i8, ptr %arrayidx15, i64 2
-  %12 = load i16, ptr %op228, align 2
-  %13 = lshr i16 %12, 8
-  %idxprom31 = zext nneg i16 %13 to i64
+  %11 = load i16, ptr %op228, align 2
+  %12 = lshr i16 %11, 8
+  %idxprom31 = zext nneg i16 %12 to i64
   %arrayidx32 = getelementptr inbounds [1 x %struct.GCRef], ptr %uvptr27, i64 0, i64 %idxprom31
-  %14 = load i64, ptr %arrayidx32, align 8
-  %15 = inttoptr i64 %14 to ptr
-  %cmp34 = icmp eq ptr %15, %7
+  %13 = load i64, ptr %arrayidx32, align 8
+  %cmp34 = icmp eq i64 %13, %6
   br i1 %cmp34, label %if.then36, label %if.end37
 
 if.then36:                                        ; preds = %if.then19
   %ref.0.le = zext i16 %ref.0.in19 to i32
   %o.i = getelementptr inbounds i8, ptr %arrayidx15, i64 5
-  %16 = load i8, ptr %o.i, align 1
-  %cmp.i = icmp eq i8 %16, 60
+  %14 = load i8, ptr %o.i, align 1
+  %cmp.i = icmp eq i8 %14, 60
   br i1 %cmp.i, label %land.lhs.true.i, label %return
 
 land.lhs.true.i:                                  ; preds = %if.then36
   %t.i = getelementptr inbounds i8, ptr %arrayidx15, i64 4
-  %17 = load i8, ptr %t.i, align 4
-  %tobool.not.i = icmp sgt i8 %17, -1
+  %15 = load i8, ptr %t.i, align 4
+  %tobool.not.i = icmp sgt i8 %15, -1
   br i1 %tobool.not.i, label %return, label %if.then.i
 
 if.then.i:                                        ; preds = %land.lhs.true.i
   %arrayidx.i = getelementptr inbounds i8, ptr %J, i64 436
-  %18 = load i16, ptr %arrayidx.i, align 2
-  %cmp4.i = icmp ult i16 %ref.0.in19, %18
+  %16 = load i16, ptr %arrayidx.i, align 2
+  %cmp4.i = icmp ult i16 %ref.0.in19, %16
   br i1 %cmp4.i, label %land.lhs.true6.i, label %if.end.i
 
 land.lhs.true6.i:                                 ; preds = %if.then.i
   %arrayidx8.i = getelementptr inbounds i8, ptr %J, i64 560
-  %19 = load i16, ptr %arrayidx8.i, align 2
-  %tobool10.not.i = icmp eq i16 %19, 0
+  %17 = load i16, ptr %arrayidx8.i, align 2
+  %tobool10.not.i = icmp eq i16 %17, 0
   br i1 %tobool10.not.i, label %lor.lhs.false.i, label %if.then50.i
 
 lor.lhs.false.i:                                  ; preds = %land.lhs.true6.i
   %arrayidx12.i = getelementptr inbounds i8, ptr %J, i64 562
-  %20 = load i16, ptr %arrayidx12.i, align 2
-  %tobool14.not.i = icmp eq i16 %20, 0
+  %18 = load i16, ptr %arrayidx12.i, align 2
+  %tobool14.not.i = icmp eq i16 %18, 0
   br i1 %tobool14.not.i, label %lor.lhs.false15.i, label %if.then50.i
 
 lor.lhs.false15.i:                                ; preds = %lor.lhs.false.i
   %arrayidx17.i = getelementptr inbounds i8, ptr %J, i64 564
-  %21 = load i16, ptr %arrayidx17.i, align 2
-  %tobool19.not.i = icmp eq i16 %21, 0
+  %19 = load i16, ptr %arrayidx17.i, align 2
+  %tobool19.not.i = icmp eq i16 %19, 0
   br i1 %tobool19.not.i, label %lor.lhs.false20.i, label %if.then50.i
 
 lor.lhs.false20.i:                                ; preds = %lor.lhs.false15.i
   %arrayidx22.i = getelementptr inbounds i8, ptr %J, i64 566
-  %22 = load i16, ptr %arrayidx22.i, align 2
-  %tobool24.not.i = icmp eq i16 %22, 0
+  %20 = load i16, ptr %arrayidx22.i, align 2
+  %tobool24.not.i = icmp eq i16 %20, 0
   br i1 %tobool24.not.i, label %lor.lhs.false25.i, label %if.then50.i
 
 lor.lhs.false25.i:                                ; preds = %lor.lhs.false20.i
   %arrayidx27.i = getelementptr inbounds i8, ptr %J, i64 568
-  %23 = load i16, ptr %arrayidx27.i, align 2
-  %tobool29.not.i = icmp eq i16 %23, 0
+  %21 = load i16, ptr %arrayidx27.i, align 2
+  %tobool29.not.i = icmp eq i16 %21, 0
   br i1 %tobool29.not.i, label %lor.lhs.false30.i, label %if.then50.i
 
 lor.lhs.false30.i:                                ; preds = %lor.lhs.false25.i
   %arrayidx32.i = getelementptr inbounds i8, ptr %J, i64 570
-  %24 = load i16, ptr %arrayidx32.i, align 2
-  %tobool34.not.i = icmp eq i16 %24, 0
+  %22 = load i16, ptr %arrayidx32.i, align 2
+  %tobool34.not.i = icmp eq i16 %22, 0
   br i1 %tobool34.not.i, label %lor.lhs.false35.i, label %if.then50.i
 
 lor.lhs.false35.i:                                ; preds = %lor.lhs.false30.i
   %arrayidx37.i = getelementptr inbounds i8, ptr %J, i64 576
-  %25 = load i16, ptr %arrayidx37.i, align 2
-  %tobool39.not.i = icmp eq i16 %25, 0
+  %23 = load i16, ptr %arrayidx37.i, align 2
+  %tobool39.not.i = icmp eq i16 %23, 0
   br i1 %tobool39.not.i, label %lor.lhs.false40.i, label %if.then50.i
 
 lor.lhs.false40.i:                                ; preds = %lor.lhs.false35.i
   %arrayidx42.i = getelementptr inbounds i8, ptr %J, i64 588
-  %26 = load i16, ptr %arrayidx42.i, align 2
-  %tobool44.not.i = icmp eq i16 %26, 0
+  %24 = load i16, ptr %arrayidx42.i, align 2
+  %tobool44.not.i = icmp eq i16 %24, 0
   br i1 %tobool44.not.i, label %lor.lhs.false45.i, label %if.then50.i
 
 lor.lhs.false45.i:                                ; preds = %lor.lhs.false40.i
   %arrayidx47.i = getelementptr inbounds i8, ptr %J, i64 594
-  %27 = load i16, ptr %arrayidx47.i, align 2
-  %tobool49.not.i = icmp eq i16 %27, 0
+  %25 = load i16, ptr %arrayidx47.i, align 2
+  %tobool49.not.i = icmp eq i16 %25, 0
   br i1 %tobool49.not.i, label %if.end.i, label %if.then50.i
 
 if.then50.i:                                      ; preds = %lor.lhs.false45.i, %lor.lhs.false40.i, %lor.lhs.false35.i, %lor.lhs.false30.i, %lor.lhs.false25.i, %lor.lhs.false20.i, %lor.lhs.false15.i, %lor.lhs.false.i, %land.lhs.true6.i
@@ -5977,16 +5975,16 @@ if.then50.i:                                      ; preds = %lor.lhs.false45.i, 
 
 if.end.i:                                         ; preds = %lor.lhs.false45.i, %if.then.i
   %t51.i = getelementptr inbounds i8, ptr %J, i64 188
-  %28 = load i8, ptr %t51.i, align 4
-  %29 = and i8 %28, -97
-  %cmp55.i = icmp eq i8 %29, -119
-  %30 = and i8 %17, 31
-  %cmp62.i = icmp eq i8 %30, 21
+  %26 = load i8, ptr %t51.i, align 4
+  %27 = and i8 %26, -97
+  %cmp55.i = icmp eq i8 %27, -119
+  %28 = and i8 %15, 31
+  %cmp62.i = icmp eq i8 %28, 21
   %or.cond.i = and i1 %cmp62.i, %cmp55.i
   br i1 %or.cond.i, label %if.then64.i, label %return
 
 if.then64.i:                                      ; preds = %if.end.i
-  %add.i = add nsw i8 %17, -12
+  %add.i = add nsw i8 %15, -12
   store i8 %add.i, ptr %t.i, align 4
   br label %return
 

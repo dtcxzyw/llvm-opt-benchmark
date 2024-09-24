@@ -9229,21 +9229,21 @@ define dso_local i64 @free_reserved_area(ptr noundef %0, ptr noundef %1, i32 nou
   %5 = ptrtoint ptr %0 to i64
   %6 = add i64 %5, 4095
   %7 = and i64 %6, -4096
-  %8 = inttoptr i64 %7 to ptr
-  %9 = ptrtoint ptr %1 to i64
-  %10 = and i64 %9, -4096
-  %11 = inttoptr i64 %10 to ptr
-  %12 = icmp ult ptr %8, %11
-  br i1 %12, label %13, label %.thread
+  %8 = ptrtoint ptr %1 to i64
+  %9 = and i64 %8, -4096
+  %10 = inttoptr i64 %9 to ptr
+  %11 = icmp ult i64 %7, %9
+  br i1 %11, label %12, label %.thread
 
-13:                                               ; preds = %4
+12:                                               ; preds = %4
+  %13 = inttoptr i64 %7 to ptr
   %14 = icmp ult i32 %2, 256
   %15 = trunc i32 %2 to i8
   br label %16
 
-16:                                               ; preds = %59, %13
-  %17 = phi i64 [ 0, %13 ], [ %68, %59 ]
-  %18 = phi ptr [ %8, %13 ], [ %67, %59 ]
+16:                                               ; preds = %59, %12
+  %17 = phi i64 [ 0, %12 ], [ %68, %59 ]
+  %18 = phi ptr [ %13, %12 ], [ %67, %59 ]
   %19 = load i64, ptr @vmemmap_base, align 8
   %20 = inttoptr i64 %19 to ptr
   %21 = ptrtoint ptr %18 to i64
@@ -9320,7 +9320,7 @@ define dso_local i64 @free_reserved_area(ptr noundef %0, ptr noundef %1, i32 nou
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; addq $1,$0", "=*m,er,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @_totalram_pages, i64 1, ptr nonnull elementtype(i64) @_totalram_pages) #22, !srcloc !28
   %67 = getelementptr i8, ptr %18, i64 4096
   %68 = add nuw nsw i64 %17, 1
-  %69 = icmp ult ptr %67, %11
+  %69 = icmp ult ptr %67, %10
   br i1 %69, label %16, label %70, !llvm.loop !203
 
 70:                                               ; preds = %59

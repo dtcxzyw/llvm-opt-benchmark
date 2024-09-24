@@ -315,7 +315,7 @@ define dso_local ptr @pgd_alloc(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %24 = load i64, ptr @vmemmap_base, align 8
   %25 = inttoptr i64 %24 to ptr
   %26 = add i64 %2, 2147483648
-  %27 = icmp ugt ptr %3, inttoptr (i64 -2147483649 to ptr)
+  %27 = icmp ugt i64 %2, -2147483649
   %28 = load i64, ptr @phys_base, align 8
   %29 = load i64, ptr @page_offset_base, align 8
   %30 = sub i64 -2147483648, %29
@@ -773,7 +773,7 @@ define dso_local noundef range(i32 0, 2) i32 @pud_free_pmd_page(ptr noundef %0, 
   %45 = load i64, ptr @vmemmap_base, align 8
   %46 = inttoptr i64 %45 to ptr
   %47 = add i64 %11, 2147483648
-  %48 = icmp ugt ptr %12, inttoptr (i64 -2147483649 to ptr)
+  %48 = icmp ugt i64 %11, -2147483649
   %49 = load i64, ptr @phys_base, align 8
   %50 = load i64, ptr @page_offset_base, align 8
   %51 = sub i64 -2147483648, %50

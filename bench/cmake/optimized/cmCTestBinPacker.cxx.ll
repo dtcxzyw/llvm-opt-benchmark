@@ -2373,7 +2373,7 @@ _ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26c
 ._crit_edge.i:                                    ; preds = %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_.exit.i, %3
   %41 = phi i64 [ %4, %3 ], [ %38, %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_28RoundRobinAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_.exit.i ]
   %42 = inttoptr i64 %41 to ptr
-  %43 = icmp eq ptr %.sroa.0.0.copyload.i2.i, %42
+  %43 = icmp eq i64 %41, %5
   %44 = getelementptr inbounds i8, ptr %42, i64 -8
   %.not14.i8.i = icmp eq ptr %44, %.sroa.0.0.copyload.i2.i
   %or.cond.i9.i = select i1 %43, i1 true, i1 %.not14.i8.i
@@ -2975,7 +2975,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPack
   %69 = inttoptr i64 %68 to ptr
   %70 = inttoptr i64 %67 to ptr
   %71 = inttoptr i64 %66 to ptr
-  %72 = icmp eq ptr %69, %70
+  %72 = icmp eq i64 %68, %67
   br i1 %72, label %73, label %84
 
 73:                                               ; preds = %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit56
@@ -5041,7 +5041,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basi
   %81 = inttoptr i64 %76 to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %23, ptr %11, align 8
-  %82 = icmp eq ptr %79, %80
+  %82 = icmp eq i64 %78, %77
   br i1 %82, label %83, label %94
 
 83:                                               ; preds = %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_ET0_T_SG_SF_.exit53
@@ -7436,7 +7436,7 @@ _ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26c
 ._crit_edge.i:                                    ; preds = %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_.exit.i, %3
   %41 = phi i64 [ %4, %3 ], [ %38, %_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZN12_GLOBAL__N_122AllocateCTestResourcesINSD_23BlockAllocationStrategyEEEbRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmCTestResourceAllocator8ResourceESt4lessISM_ESaISt4pairIKSM_SO_EEERS6_IS3_SaIS3_EEEUlS4_S4_E_EEEvT_S13_T0_.exit.i ]
   %42 = inttoptr i64 %41 to ptr
-  %43 = icmp eq ptr %.sroa.0.0.copyload.i2.i, %42
+  %43 = icmp eq i64 %41, %5
   %44 = getelementptr inbounds i8, ptr %42, i64 -8
   %.not14.i8.i = icmp eq ptr %44, %.sroa.0.0.copyload.i2.i
   %or.cond.i9.i = select i1 %43, i1 true, i1 %.not14.i8.i
@@ -8038,7 +8038,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPack
   %69 = inttoptr i64 %68 to ptr
   %70 = inttoptr i64 %67 to ptr
   %71 = inttoptr i64 %66 to ptr
-  %72 = icmp eq ptr %69, %70
+  %72 = icmp eq i64 %68, %67
   br i1 %72, label %73, label %84
 
 73:                                               ; preds = %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP26cmCTestBinPackerAllocationSt6vectorIS4_SaIS4_EEEEES5_ET0_T_SC_SB_.exit56
@@ -9562,7 +9562,7 @@ _ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basi
   %81 = inttoptr i64 %76 to ptr
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %23, ptr %11, align 8
-  %82 = icmp eq ptr %79, %80
+  %82 = icmp eq i64 %78, %77
   br i1 %82, label %83, label %94
 
 83:                                               ; preds = %_ZSt4moveISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEEES9_ET0_T_SG_SF_.exit53

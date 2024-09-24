@@ -461,7 +461,7 @@ land.lhs.true:                                    ; preds = %if.else11
   br i1 %cmp19, label %if.then21, label %if.else34
 
 if.then21:                                        ; preds = %land.lhs.true
-  %cmp24 = icmp eq ptr %14, %3
+  %cmp24 = icmp eq i64 %and17, %and.i51
   br i1 %cmp24, label %if.then26, label %if.end
 
 if.then26:                                        ; preds = %if.then21

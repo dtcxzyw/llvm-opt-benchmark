@@ -62,18 +62,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_wttf(ptr nocapt
 
 25:                                               ; preds = %24, %21
   %26 = load i64, ptr %10, align 8
-  %27 = inttoptr i64 %26 to ptr
-  %.not20 = icmp eq ptr %12, %27
-  br i1 %.not20, label %29, label %28
+  %.not20 = icmp eq i64 %11, %26
+  br i1 %.not20, label %28, label %27
 
-28:                                               ; preds = %25
+27:                                               ; preds = %25
   tail call void @pfree(ptr noundef %12) #11
-  br label %29
+  br label %28
 
-29:                                               ; preds = %25, %28
-  %30 = bitcast float %17 to i32
-  %31 = sext i32 %30 to i64
-  ret i64 %31
+28:                                               ; preds = %25, %27
+  %29 = bitcast float %17 to i32
+  %30 = sext i32 %29 to i64
+  ret i64 %30
 }
 
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
@@ -671,18 +670,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_wtt(ptr nocaptu
 
 22:                                               ; preds = %21, %18
   %23 = load i64, ptr %10, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %.not19 = icmp eq ptr %12, %24
-  br i1 %.not19, label %26, label %25
+  %.not19 = icmp eq i64 %11, %23
+  br i1 %.not19, label %25, label %24
 
-25:                                               ; preds = %22
+24:                                               ; preds = %22
   tail call void @pfree(ptr noundef %12) #11
-  br label %26
+  br label %25
 
-26:                                               ; preds = %22, %25
-  %27 = bitcast float %14 to i32
-  %28 = sext i32 %27 to i64
-  ret i64 %28
+25:                                               ; preds = %22, %24
+  %26 = bitcast float %14 to i32
+  %27 = sext i32 %26 to i64
+  ret i64 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -709,18 +707,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_ttf(ptr nocaptu
 
 16:                                               ; preds = %15, %1
   %17 = load i64, ptr %6, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %.not13 = icmp eq ptr %8, %18
-  br i1 %.not13, label %20, label %19
+  %.not13 = icmp eq i64 %7, %17
+  br i1 %.not13, label %19, label %18
 
-19:                                               ; preds = %16
+18:                                               ; preds = %16
   tail call void @pfree(ptr noundef %8) #11
-  br label %20
+  br label %19
 
-20:                                               ; preds = %16, %19
-  %21 = bitcast float %12 to i32
-  %22 = sext i32 %21 to i64
-  ret i64 %22
+19:                                               ; preds = %16, %18
+  %20 = bitcast float %12 to i32
+  %21 = sext i32 %20 to i64
+  ret i64 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -744,18 +741,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rank_tt(ptr nocaptur
 
 13:                                               ; preds = %12, %1
   %14 = load i64, ptr %6, align 8
-  %15 = inttoptr i64 %14 to ptr
-  %.not12 = icmp eq ptr %8, %15
-  br i1 %.not12, label %17, label %16
+  %.not12 = icmp eq i64 %7, %14
+  br i1 %.not12, label %16, label %15
 
-16:                                               ; preds = %13
+15:                                               ; preds = %13
   tail call void @pfree(ptr noundef %8) #11
-  br label %17
+  br label %16
 
-17:                                               ; preds = %13, %16
-  %18 = bitcast float %9 to i32
-  %19 = sext i32 %18 to i64
-  ret i64 %19
+16:                                               ; preds = %13, %15
+  %17 = bitcast float %9 to i32
+  %18 = sext i32 %17 to i64
+  ret i64 %18
 }
 
 ; Function Attrs: nounwind uwtable
@@ -797,18 +793,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_wttf(ptr noca
 
 25:                                               ; preds = %24, %21
   %26 = load i64, ptr %10, align 8
-  %27 = inttoptr i64 %26 to ptr
-  %.not20 = icmp eq ptr %12, %27
-  br i1 %.not20, label %29, label %28
+  %.not20 = icmp eq i64 %11, %26
+  br i1 %.not20, label %28, label %27
 
-28:                                               ; preds = %25
+27:                                               ; preds = %25
   tail call void @pfree(ptr noundef %12) #11
-  br label %29
+  br label %28
 
-29:                                               ; preds = %25, %28
-  %30 = bitcast float %17 to i32
-  %31 = sext i32 %30 to i64
-  ret i64 %31
+28:                                               ; preds = %25, %27
+  %29 = bitcast float %17 to i32
+  %30 = sext i32 %29 to i64
+  ret i64 %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1719,18 +1714,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_wtt(ptr nocap
 
 22:                                               ; preds = %21, %18
   %23 = load i64, ptr %10, align 8
-  %24 = inttoptr i64 %23 to ptr
-  %.not19 = icmp eq ptr %12, %24
-  br i1 %.not19, label %26, label %25
+  %.not19 = icmp eq i64 %11, %23
+  br i1 %.not19, label %25, label %24
 
-25:                                               ; preds = %22
+24:                                               ; preds = %22
   tail call void @pfree(ptr noundef %12) #11
-  br label %26
+  br label %25
 
-26:                                               ; preds = %22, %25
-  %27 = bitcast float %14 to i32
-  %28 = sext i32 %27 to i64
-  ret i64 %28
+25:                                               ; preds = %22, %24
+  %26 = bitcast float %14 to i32
+  %27 = sext i32 %26 to i64
+  ret i64 %27
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1757,18 +1751,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_ttf(ptr nocap
 
 16:                                               ; preds = %15, %1
   %17 = load i64, ptr %6, align 8
-  %18 = inttoptr i64 %17 to ptr
-  %.not13 = icmp eq ptr %8, %18
-  br i1 %.not13, label %20, label %19
+  %.not13 = icmp eq i64 %7, %17
+  br i1 %.not13, label %19, label %18
 
-19:                                               ; preds = %16
+18:                                               ; preds = %16
   tail call void @pfree(ptr noundef %8) #11
-  br label %20
+  br label %19
 
-20:                                               ; preds = %16, %19
-  %21 = bitcast float %12 to i32
-  %22 = sext i32 %21 to i64
-  ret i64 %22
+19:                                               ; preds = %16, %18
+  %20 = bitcast float %12 to i32
+  %21 = sext i32 %20 to i64
+  ret i64 %21
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1792,18 +1785,17 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ts_rankcd_tt(ptr nocapt
 
 13:                                               ; preds = %12, %1
   %14 = load i64, ptr %6, align 8
-  %15 = inttoptr i64 %14 to ptr
-  %.not12 = icmp eq ptr %8, %15
-  br i1 %.not12, label %17, label %16
+  %.not12 = icmp eq i64 %7, %14
+  br i1 %.not12, label %16, label %15
 
-16:                                               ; preds = %13
+15:                                               ; preds = %13
   tail call void @pfree(ptr noundef %8) #11
-  br label %17
+  br label %16
 
-17:                                               ; preds = %13, %16
-  %18 = bitcast float %9 to i32
-  %19 = sext i32 %18 to i64
-  ret i64 %19
+16:                                               ; preds = %13, %15
+  %17 = bitcast float %9 to i32
+  %18 = sext i32 %17 to i64
+  ret i64 %18
 }
 
 ; Function Attrs: nounwind uwtable

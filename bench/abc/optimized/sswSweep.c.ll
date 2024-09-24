@@ -608,7 +608,7 @@ Aig_ObjRepr.exit:                                 ; preds = %5
   %34 = ptrtoint ptr %30 to i64
   %35 = and i64 %34, -2
   %36 = inttoptr i64 %35 to ptr
-  %37 = icmp eq ptr %33, %36
+  %37 = icmp eq i64 %32, %35
   br i1 %37, label %Aig_ObjRepr.exit.thread, label %38
 
 38:                                               ; preds = %17

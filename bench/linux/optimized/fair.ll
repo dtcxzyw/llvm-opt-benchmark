@@ -13321,7 +13321,7 @@ can_migrate_task.exit:                            ; preds = %78
   store i32 0, ptr %24, align 32
   tail call void @raw_spin_rq_unlock(ptr noundef %0) #27
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %117, label %106
+  br i1 %105, label %115, label %106
 
 106:                                              ; preds = %.loopexit30
   tail call void @raw_spin_rq_lock_nested(ptr noundef %10, i32 noundef 0) #27
@@ -13331,28 +13331,26 @@ can_migrate_task.exit:                            ; preds = %78
   %109 = zext i32 %108 to i64
   %110 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %109
   %111 = load i64, ptr %110, align 8
-  %112 = add i64 %111, ptrtoint (ptr @runqueues to i64)
-  %113 = inttoptr i64 %112 to ptr
-  %114 = icmp eq ptr %113, %10
-  br i1 %114, label %116, label %115, !prof !15
+  %112 = icmp eq i64 %111, %8
+  br i1 %112, label %114, label %113, !prof !15
 
-115:                                              ; preds = %106
+113:                                              ; preds = %106
   tail call void asm sideeffect "1593: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1593b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1593) #27, !srcloc !148
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 9184, i32 2307, i64 12) #27, !srcloc !149
   tail call void asm sideeffect "1594: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1594b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1594) #27, !srcloc !150
-  br label %116
+  br label %114
 
-116:                                              ; preds = %115, %106
+114:                                              ; preds = %113, %106
   tail call void @activate_task(ptr noundef %10, ptr noundef nonnull %104, i32 noundef 8) #27
   tail call void @wakeup_preempt(ptr noundef %10, ptr noundef nonnull %104, i32 noundef 0) #27
   br label %.sink.split
 
-.sink.split:                                      ; preds = %116, %.thread27
-  %.sink = phi ptr [ %0, %.thread27 ], [ %10, %116 ]
+.sink.split:                                      ; preds = %114, %.thread27
+  %.sink = phi ptr [ %0, %.thread27 ], [ %10, %114 ]
   tail call void @raw_spin_rq_unlock(ptr noundef %.sink) #27
-  br label %117
+  br label %115
 
-117:                                              ; preds = %.sink.split, %.loopexit30
+115:                                              ; preds = %.sink.split, %.loopexit30
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !58
   ret i32 0
 }

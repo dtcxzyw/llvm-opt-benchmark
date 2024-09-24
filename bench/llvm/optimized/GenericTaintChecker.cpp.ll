@@ -34431,164 +34431,161 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEneERKS3_.exit16
   %44 = getelementptr inbounds i64, ptr %42, i64 %43
   %45 = getelementptr inbounds i8, ptr %44, i64 -8
   %46 = load i64, ptr %45, align 8
-  %47 = and i64 %46, -4
-  %48 = inttoptr i64 %47 to ptr
-  %49 = load ptr, ptr %5, align 8
-  %50 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  %51 = getelementptr inbounds i64, ptr %49, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -8
-  %53 = load i64, ptr %52, align 8
-  %54 = and i64 %53, -4
-  %55 = inttoptr i64 %54 to ptr
-  %56 = icmp eq ptr %48, %55
-  br i1 %56, label %57, label %58
+  %47 = load ptr, ptr %5, align 8
+  %48 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  %49 = getelementptr inbounds i64, ptr %47, i64 %48
+  %50 = getelementptr inbounds i8, ptr %49, i64 -8
+  %51 = load i64, ptr %50, align 8
+  %52 = xor i64 %51, %46
+  %53 = icmp ult i64 %52, 4
+  br i1 %53, label %54, label %55
 
-57:                                               ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEneERKS3_.exit16.thread
+54:                                               ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEneERKS3_.exit16.thread
   call void @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEE11skipSubTreeEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
   call void @_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEE11skipSubTreeEv(ptr noundef nonnull align 8 dereferenceable(176) %5)
   br label %.backedge
 
-.backedge:                                        ; preds = %89, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit, %57
+.backedge:                                        ; preds = %86, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit, %54
   br label %29, !llvm.loop !146
 
-58:                                               ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEneERKS3_.exit16.thread
-  %59 = load ptr, ptr %3, align 8
-  %60 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  %61 = getelementptr inbounds i64, ptr %59, i64 %60
-  %62 = getelementptr inbounds i8, ptr %61, i64 -8
-  %63 = load i64, ptr %62, align 8
-  %64 = and i64 %63, -4
-  %65 = inttoptr i64 %64 to ptr
-  %66 = load ptr, ptr %5, align 8
-  %67 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  %68 = getelementptr inbounds i64, ptr %66, i64 %67
-  %69 = getelementptr inbounds i8, ptr %68, i64 -8
-  %70 = load i64, ptr %69, align 8
-  %71 = and i64 %70, -4
-  %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 44
-  %74 = getelementptr inbounds nuw i8, ptr %65, i64 44
-  %75 = load i32, ptr %74, align 4
-  %76 = load i32, ptr %73, align 4
-  %77 = icmp eq i32 %75, %76
-  br i1 %77, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26
+55:                                               ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEneERKS3_.exit16.thread
+  %56 = load ptr, ptr %3, align 8
+  %57 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
+  %58 = getelementptr inbounds i64, ptr %56, i64 %57
+  %59 = getelementptr inbounds i8, ptr %58, i64 -8
+  %60 = load i64, ptr %59, align 8
+  %61 = and i64 %60, -4
+  %62 = inttoptr i64 %61 to ptr
+  %63 = load ptr, ptr %5, align 8
+  %64 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  %65 = getelementptr inbounds i64, ptr %63, i64 %64
+  %66 = getelementptr inbounds i8, ptr %65, i64 -8
+  %67 = load i64, ptr %66, align 8
+  %68 = and i64 %67, -4
+  %69 = inttoptr i64 %68 to ptr
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 44
+  %71 = getelementptr inbounds nuw i8, ptr %62, i64 44
+  %72 = load i32, ptr %71, align 4
+  %73 = load i32, ptr %70, align 4
+  %74 = icmp eq i32 %72, %73
+  br i1 %74, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26
 
-.preheader:                                       ; preds = %58, %80
-  %78 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIiEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
-  %79 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  br i1 %79, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit.preheader, label %80
+.preheader:                                       ; preds = %55, %77
+  %75 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIiEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %3)
+  %76 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
+  br i1 %76, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit.preheader, label %77
 
-80:                                               ; preds = %.preheader
-  %81 = load ptr, ptr %3, align 8
-  %82 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  %83 = getelementptr inbounds i64, ptr %81, i64 %82
-  %84 = getelementptr inbounds i8, ptr %83, i64 -8
-  %85 = load i64, ptr %84, align 8
-  %86 = and i64 %85, 3
-  %.not.i = icmp eq i64 %86, 1
+77:                                               ; preds = %.preheader
+  %78 = load ptr, ptr %3, align 8
+  %79 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
+  %80 = getelementptr inbounds i64, ptr %78, i64 %79
+  %81 = getelementptr inbounds i8, ptr %80, i64 -8
+  %82 = load i64, ptr %81, align 8
+  %83 = and i64 %82, 3
+  %.not.i = icmp eq i64 %83, 1
   br i1 %.not.i, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit.preheader, label %.preheader, !llvm.loop !97
 
-_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit.preheader: ; preds = %.preheader, %80
+_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit.preheader: ; preds = %.preheader, %77
   br label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit
 
-_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit: ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit.preheader, %89
-  %87 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIiEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %5)
-  %88 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  br i1 %88, label %.backedge, label %89
+_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit: ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit.preheader, %86
+  %84 = call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llvm26ImutAVLTreeGenericIteratorINS_17ImutContainerInfoIiEEEppEv(ptr noundef nonnull align 8 dereferenceable(176) %5)
+  %85 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  br i1 %85, label %.backedge, label %86
 
-89:                                               ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit
-  %90 = load ptr, ptr %5, align 8
-  %91 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  %92 = getelementptr inbounds i64, ptr %90, i64 %91
-  %93 = getelementptr inbounds i8, ptr %92, i64 -8
-  %94 = load i64, ptr %93, align 8
-  %95 = and i64 %94, 3
-  %.not.i17 = icmp eq i64 %95, 1
+86:                                               ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit
+  %87 = load ptr, ptr %5, align 8
+  %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  %89 = getelementptr inbounds i64, ptr %87, i64 %88
+  %90 = getelementptr inbounds i8, ptr %89, i64 -8
+  %91 = load i64, ptr %90, align 8
+  %92 = and i64 %91, 3
+  %.not.i17 = icmp eq i64 %92, 1
   br i1 %.not.i17, label %.backedge, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEppEv.exit, !llvm.loop !97
 
 .critedge:                                        ; preds = %38, %32, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEneERKS3_.exit, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEneERKS3_.exit16
-  %96 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  %97 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
-  %.not.i.i.i19 = icmp eq i64 %96, %97
-  br i1 %.not.i.i.i19, label %98, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26
+  %93 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
+  %94 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
+  %.not.i.i.i19 = icmp eq i64 %93, %94
+  br i1 %.not.i.i.i19, label %95, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26
 
-98:                                               ; preds = %.critedge
-  %99 = load ptr, ptr %3, align 8
-  %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %100, 0
+95:                                               ; preds = %.critedge
+  %96 = load ptr, ptr %3, align 8
+  %97 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %97, 0
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit
 
-_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit: ; preds = %98
-  %101 = load ptr, ptr %4, align 8
-  %.idx.i.i.i = shl nsw i64 %100, 3
-  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr %99, ptr %101, i64 %.idx.i.i.i)
+_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit: ; preds = %95
+  %98 = load ptr, ptr %4, align 8
+  %.idx.i.i.i = shl nsw i64 %97, 3
+  %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr %96, ptr %98, i64 %.idx.i.i.i)
   %.not7.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26
 
-_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread: ; preds = %98, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit
-  %102 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  %103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
-  %.not.i.i.i20 = icmp eq i64 %102, %103
-  br i1 %.not.i.i.i20, label %104, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26
+_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread: ; preds = %95, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit
+  %99 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  %100 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
+  %.not.i.i.i20 = icmp eq i64 %99, %100
+  br i1 %.not.i.i.i20, label %101, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26
 
-104:                                              ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread
-  %105 = load ptr, ptr %5, align 8
-  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  %.not.i.i.i.i.i.i.i22 = icmp eq i64 %106, 0
-  br i1 %.not.i.i.i.i.i.i.i22, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26, label %107
+101:                                              ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread
+  %102 = load ptr, ptr %5, align 8
+  %103 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  %.not.i.i.i.i.i.i.i22 = icmp eq i64 %103, 0
+  br i1 %.not.i.i.i.i.i.i.i22, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26, label %104
 
-107:                                              ; preds = %104
-  %108 = load ptr, ptr %6, align 8
-  %.idx.i.i.i23 = shl nsw i64 %106, 3
-  %bcmp.i.i.i.i.i.i.i24 = call i32 @bcmp(ptr %105, ptr %108, i64 %.idx.i.i.i23)
+104:                                              ; preds = %101
+  %105 = load ptr, ptr %6, align 8
+  %.idx.i.i.i23 = shl nsw i64 %103, 3
+  %bcmp.i.i.i.i.i.i.i24 = call i32 @bcmp(ptr %102, ptr %105, i64 %.idx.i.i.i23)
   %.not7.i.i.i.i.i.i.i25 = icmp eq i32 %bcmp.i.i.i.i.i.i.i24, 0
   br label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26
 
-_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26: ; preds = %58, %.critedge, %107, %104, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit
-  %.1 = phi i1 [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread ], [ %.not7.i.i.i.i.i.i.i25, %107 ], [ true, %104 ], [ false, %.critedge ], [ false, %58 ]
-  %109 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
-  %110 = load ptr, ptr %6, align 8
-  %111 = icmp eq ptr %110, %28
-  br i1 %111, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit, label %112
+_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26: ; preds = %55, %.critedge, %104, %101, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit
+  %.1 = phi i1 [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit.thread ], [ %.not7.i.i.i.i.i.i.i25, %104 ], [ true, %101 ], [ false, %.critedge ], [ false, %55 ]
+  %106 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
+  %107 = load ptr, ptr %6, align 8
+  %108 = icmp eq ptr %107, %28
+  br i1 %108, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit, label %109
 
-112:                                              ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26
-  call void @free(ptr noundef %110) #21
+109:                                              ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26
+  call void @free(ptr noundef %107) #21
   br label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit
 
-_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26, %112
-  %113 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  %114 = load ptr, ptr %5, align 8
-  %115 = getelementptr inbounds i8, ptr %5, i64 16
-  %116 = icmp eq ptr %114, %115
-  br i1 %116, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit27, label %117
+_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEEeqERKS3_.exit26, %109
+  %110 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
+  %111 = load ptr, ptr %5, align 8
+  %112 = getelementptr inbounds i8, ptr %5, i64 16
+  %113 = icmp eq ptr %111, %112
+  br i1 %113, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit27, label %114
 
-117:                                              ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit
-  call void @free(ptr noundef %114) #21
+114:                                              ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit
+  call void @free(ptr noundef %111) #21
   br label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit27
 
-_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit27: ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit, %117
-  %118 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
-  %119 = load ptr, ptr %4, align 8
-  %120 = icmp eq ptr %119, %18
-  br i1 %120, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28, label %121
+_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit27: ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit, %114
+  %115 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
+  %116 = load ptr, ptr %4, align 8
+  %117 = icmp eq ptr %116, %18
+  br i1 %117, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28, label %118
 
-121:                                              ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit27
-  call void @free(ptr noundef %119) #21
+118:                                              ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit27
+  call void @free(ptr noundef %116) #21
   br label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28
 
-_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28: ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit27, %121
-  %122 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  %123 = load ptr, ptr %3, align 8
-  %124 = getelementptr inbounds i8, ptr %3, i64 16
-  %125 = icmp eq ptr %123, %124
-  br i1 %125, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit29, label %126
+_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28: ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit27, %118
+  %119 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
+  %120 = load ptr, ptr %3, align 8
+  %121 = getelementptr inbounds i8, ptr %3, i64 16
+  %122 = icmp eq ptr %120, %121
+  br i1 %122, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit29, label %123
 
-126:                                              ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28
-  call void @free(ptr noundef %123) #21
+123:                                              ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28
+  call void @free(ptr noundef %120) #21
   br label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit29
 
-_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit29: ; preds = %126, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28, %2
-  %.0 = phi i1 [ true, %2 ], [ %.1, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28 ], [ %.1, %126 ]
+_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit29: ; preds = %123, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28, %2
+  %.0 = phi i1 [ true, %2 ], [ %.1, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_17ImutContainerInfoIiEEED2Ev.exit28 ], [ %.1, %123 ]
   ret i1 %.0
 }
 

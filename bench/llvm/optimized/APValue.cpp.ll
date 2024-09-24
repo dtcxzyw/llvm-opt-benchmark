@@ -600,32 +600,30 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit6:   ; preds = %_ZN4llvm16FoldingSe
 define dso_local noundef zeroext i1 @_ZN5clangeqERKNS_7APValue10LValueBaseES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #6 {
   %.sroa.01.0.copyload = load i64, ptr %0, align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
-  %3 = inttoptr i64 %.sroa.01.0.copyload to ptr
-  %4 = inttoptr i64 %.sroa.0.0.copyload to ptr
-  %.not = icmp eq ptr %3, %4
-  br i1 %.not, label %5, label %19
+  %.not = icmp eq i64 %.sroa.01.0.copyload, %.sroa.0.0.copyload
+  br i1 %.not, label %3, label %17
 
-5:                                                ; preds = %2
-  %6 = and i64 %.sroa.01.0.copyload, 2
-  %switch.not = icmp eq i64 %6, 0
-  br i1 %switch.not, label %7, label %19
+3:                                                ; preds = %2
+  %4 = and i64 %.sroa.01.0.copyload, 2
+  %switch.not = icmp eq i64 %4, 0
+  br i1 %switch.not, label %5, label %17
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %9, %11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %10 = icmp eq i32 %7, %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %14, %16
-  %18 = select i1 %12, i1 %17, i1 false
-  br label %19
+  %15 = icmp eq i32 %12, %14
+  %16 = select i1 %10, i1 %15, i1 false
+  br label %17
 
-19:                                               ; preds = %5, %2, %7
-  %.0 = phi i1 [ %18, %7 ], [ false, %2 ], [ true, %5 ]
+17:                                               ; preds = %3, %2, %5
+  %.0 = phi i1 [ %16, %5 ], [ false, %2 ], [ true, %3 ]
   ret i1 %.0
 }
 
@@ -819,32 +817,30 @@ _ZN5clang10hash_valueERKNS_7APValue10LValueBaseE.exit: ; preds = %4, %17
 define dso_local noundef zeroext i1 @_ZN4llvm12DenseMapInfoIN5clang7APValue10LValueBaseEvE7isEqualERKS3_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #6 align 2 {
   %.sroa.01.0.copyload.i = load i64, ptr %0, align 8
   %.sroa.0.0.copyload.i = load i64, ptr %1, align 8
-  %3 = inttoptr i64 %.sroa.01.0.copyload.i to ptr
-  %4 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
-  %.not.i = icmp eq ptr %3, %4
-  br i1 %.not.i, label %5, label %_ZN5clangeqERKNS_7APValue10LValueBaseES3_.exit
+  %.not.i = icmp eq i64 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i
+  br i1 %.not.i, label %3, label %_ZN5clangeqERKNS_7APValue10LValueBaseES3_.exit
 
-5:                                                ; preds = %2
-  %6 = and i64 %.sroa.01.0.copyload.i, 2
-  %switch.not.i = icmp eq i64 %6, 0
-  br i1 %switch.not.i, label %7, label %_ZN5clangeqERKNS_7APValue10LValueBaseES3_.exit
+3:                                                ; preds = %2
+  %4 = and i64 %.sroa.01.0.copyload.i, 2
+  %switch.not.i = icmp eq i64 %4, 0
+  br i1 %switch.not.i, label %5, label %_ZN5clangeqERKNS_7APValue10LValueBaseES3_.exit
 
-7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+5:                                                ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %7 = load i32, ptr %6, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i32, ptr %10, align 8
-  %12 = icmp eq i32 %9, %11
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %10 = icmp eq i32 %7, %9
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %16 = load i32, ptr %15, align 4
-  %17 = icmp eq i32 %14, %16
-  %18 = select i1 %12, i1 %17, i1 false
+  %15 = icmp eq i32 %12, %14
+  %16 = select i1 %10, i1 %15, i1 false
   br label %_ZN5clangeqERKNS_7APValue10LValueBaseES3_.exit
 
-_ZN5clangeqERKNS_7APValue10LValueBaseES3_.exit:   ; preds = %2, %5, %7
-  %.0.i = phi i1 [ %18, %7 ], [ false, %2 ], [ true, %5 ]
+_ZN5clangeqERKNS_7APValue10LValueBaseES3_.exit:   ; preds = %2, %3, %5
+  %.0.i = phi i1 [ %16, %5 ], [ false, %2 ], [ true, %3 ]
   ret i1 %.0.i
 }
 

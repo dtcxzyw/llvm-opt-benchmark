@@ -1468,7 +1468,7 @@ _ZNK5clang12FileEntryRef12getFileEntryEv.exit.i.i.i: ; preds = %.preheader.i.i
   br i1 %.not.i.i6.i.i.i, label %_ZN5clangeqINS_12FileEntryRefEEEbRKNS_20CustomizableOptionalIT_EERKS3_.exit.i, label %119, !llvm.loop !32
 
 _ZN5clangeqINS_12FileEntryRefEEEbRKNS_20CustomizableOptionalIT_EERKS3_.exit.i: ; preds = %119
-  %124 = icmp eq ptr %117, %123
+  %124 = icmp eq i64 %116, %122
   br i1 %124, label %125, label %.critedge.i
 
 125:                                              ; preds = %_ZN5clangeqINS_12FileEntryRefEEEbRKNS_20CustomizableOptionalIT_EERKS3_.exit.i

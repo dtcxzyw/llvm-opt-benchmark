@@ -623,21 +623,21 @@ _ZN12_GLOBAL__N_112DeadCodeScan7enqueueEPKN5clang8CFGBlockE.exit: ; preds = %66,
 
 157:                                              ; preds = %.lr.ph.i.i.i.i
   %158 = and i64 %.0.copyload.i.i.i3.i.i.i.i.i.i.i, -4
-  %159 = inttoptr i64 %158 to ptr
-  %160 = icmp eq ptr %138, %159
-  %spec.select.i.i12.i.i = select i1 %160, i1 true, i1 %.017.i.i.i.i
-  br i1 %spec.select.i.i12.i.i, label %161, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i.i.i
+  %159 = icmp eq i64 %137, %158
+  %spec.select.i.i12.i.i = select i1 %159, i1 true, i1 %.017.i.i.i.i
+  br i1 %spec.select.i.i12.i.i, label %160, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i.i.i
 
-161:                                              ; preds = %157
-  %162 = load i8, ptr %159, align 8
+160:                                              ; preds = %157
+  %161 = inttoptr i64 %158 to ptr
+  %162 = load i8, ptr %161, align 8
   switch i8 %162, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i.i.i [
     i8 -23, label %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i.i
     i8 73, label %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i.i
     i8 72, label %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i.i
   ]
 
-_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i.i.i: ; preds = %161, %157, %.lr.ph.i.i.i.i
-  %.2.i.i.i.i = phi i1 [ false, %157 ], [ %.017.i.i.i.i, %.lr.ph.i.i.i.i ], [ true, %161 ]
+_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i.i.i: ; preds = %160, %157, %.lr.ph.i.i.i.i
+  %.2.i.i.i.i = phi i1 [ false, %157 ], [ %.017.i.i.i.i, %.lr.ph.i.i.i.i ], [ true, %160 ]
   %.not.i.i.i.i = icmp eq ptr %148, %.val.i.i.i
   br i1 %.not.i.i.i.i, label %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.thread13.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !42
 
@@ -645,10 +645,10 @@ _ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.thread13.i.i: ; preds = 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i
 
-_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i.i: ; preds = %161, %161, %161
+_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit.i.i: ; preds = %160, %160, %160
   store ptr %138, ptr %5, align 8
   store i8 0, ptr %51, align 8
-  %163 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseStmtEPS1_PN4llvm15SmallVectorImplINSA_14PointerIntPairIS9_Lj1EbNSA_21PointerLikeTypeTraitsIS9_EENSA_18PointerIntPairInfoIS9_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %159, ptr noundef null)
+  %163 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseStmtEPS1_PN4llvm15SmallVectorImplINSA_14PointerIntPairIS9_Lj1EbNSA_21PointerLikeTypeTraitsIS9_EENSA_18PointerIntPairInfoIS9_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull %161, ptr noundef null)
   %164 = load i8, ptr %51, align 8
   %165 = trunc i8 %164 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -714,21 +714,21 @@ _ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i: ; preds = 
 
 191:                                              ; preds = %.lr.ph.i.i18.i.i
   %192 = and i64 %.0.copyload.i.i.i3.i.i.i.i.i22.i.i, -4
-  %193 = inttoptr i64 %192 to ptr
-  %194 = icmp eq ptr %171, %193
-  %spec.select.i.i30.i.i = select i1 %194, i1 true, i1 %.017.i.i19.i.i
-  br i1 %spec.select.i.i30.i.i, label %195, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i24.i.i
+  %193 = icmp eq i64 %170, %192
+  %spec.select.i.i30.i.i = select i1 %193, i1 true, i1 %.017.i.i19.i.i
+  br i1 %spec.select.i.i30.i.i, label %194, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i24.i.i
 
-195:                                              ; preds = %191
-  %196 = load i8, ptr %193, align 8
+194:                                              ; preds = %191
+  %195 = inttoptr i64 %192 to ptr
+  %196 = load i8, ptr %195, align 8
   switch i8 %196, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i24.i.i [
     i8 -23, label %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit31.i.i
     i8 73, label %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit31.i.i
     i8 72, label %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit31.i.i
   ]
 
-_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i24.i.i: ; preds = %195, %191, %.lr.ph.i.i18.i.i
-  %.2.i.i25.i.i = phi i1 [ false, %191 ], [ %.017.i.i19.i.i, %.lr.ph.i.i18.i.i ], [ true, %195 ]
+_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i24.i.i: ; preds = %194, %191, %.lr.ph.i.i18.i.i
+  %.2.i.i25.i.i = phi i1 [ false, %191 ], [ %.017.i.i19.i.i, %.lr.ph.i.i18.i.i ], [ true, %194 ]
   %.not.i.i26.i.i = icmp eq ptr %182, %.val.i15.i.i
   br i1 %.not.i.i26.i.i, label %_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit31.thread16.i.i, label %.lr.ph.i.i18.i.i, !llvm.loop !42
 
@@ -736,10 +736,10 @@ _ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit31.thread16.i.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZN12_GLOBAL__N_112DeadCodeScan12findDeadCodeEPKN5clang8CFGBlockE.exit.thread.i
 
-_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit31.i.i: ; preds = %195, %195, %195
+_ZL15isValidDeadStmtPKN5clang4StmtEPKNS_8CFGBlockE.exit31.i.i: ; preds = %194, %194, %194
   store ptr %171, ptr %4, align 8
   store i8 0, ptr %52, align 8
-  %197 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseStmtEPS1_PN4llvm15SmallVectorImplINSA_14PointerIntPairIS9_Lj1EbNSA_21PointerLikeTypeTraitsIS9_EENSA_18PointerIntPairInfoIS9_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %193, ptr noundef null)
+  %197 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIZL17isInCoroutineStmtPKNS_4StmtEPKNS_8CFGBlockEE7CheckerE12TraverseStmtEPS1_PN4llvm15SmallVectorImplINSA_14PointerIntPairIS9_Lj1EbNSA_21PointerLikeTypeTraitsIS9_EENSA_18PointerIntPairInfoIS9_Lj1ESE_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull %195, ptr noundef null)
   %198 = load i8, ptr %52, align 8
   %199 = trunc i8 %198 to i1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)

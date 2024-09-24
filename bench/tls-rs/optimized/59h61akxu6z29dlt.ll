@@ -2628,8 +2628,7 @@ define hidden void @"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h59e13ea
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %2, ptr %4, align 8
   %5 = load atomic i64, ptr %1 acquire, align 8, !noalias !383
-  %.0.i.i.i = inttoptr i64 %5 to ptr
-  %.not.i = icmp eq ptr %.0.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i = icmp eq i64 %5, 2
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h681c59ac07acbadbE.llvm.3875224068774112026.exit", label %7
 
@@ -2685,8 +2684,7 @@ define hidden void @"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h59e13ea
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h681c59ac07acbadbE.llvm.3875224068774112026"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
-  %.0.i.i = inttoptr i64 %3 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %3, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %.not, label %8, label %5
 
@@ -2704,8 +2702,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9once_cell4syn
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17h9496673713647e41E"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #13 {
   %2 = load atomic i64, ptr %0 acquire, align 8
-  %.0.i = inttoptr i64 %2 to ptr
-  %3 = icmp eq ptr %.0.i, inttoptr (i64 2 to ptr)
+  %3 = icmp eq i64 %2, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %spec.select = select i1 %3, ptr %4, ptr null
   ret ptr %spec.select
@@ -2717,8 +2714,7 @@ define hidden noundef ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3set17hfccae3fd
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !394
   store ptr %1, ptr %3, align 8, !noalias !394
   %4 = load atomic i64, ptr %0 acquire, align 8, !noalias !397
-  %.0.i.i.i.i = inttoptr i64 %4 to ptr
-  %.not.i.i = icmp eq ptr %.0.i.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i.i = icmp eq i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   br i1 %.not.i.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$10try_insert17h59e13eae664ee598E.llvm.3875224068774112026.exit", label %6
 

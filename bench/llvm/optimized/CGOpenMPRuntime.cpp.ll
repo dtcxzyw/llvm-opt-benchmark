@@ -4125,7 +4125,7 @@ define dso_local void @_ZN5clang7CodeGen16ReductionCodeGen20adjustPrivateAddress
   store ptr %33, ptr %20, align 8
   %.not = icmp eq ptr %33, null
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 2432
-  br i1 %.not, label %334, label %35
+  br i1 %.not, label %328, label %35
 
 35:                                               ; preds = %5
   %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE12emplace_backIJRS4_EEES7_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(8) %20)
@@ -4245,12 +4245,12 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit.i: ; preds = %_ZNK5clang13Refere
   %.sroa.953.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 128
   br label %87
 
-87:                                               ; preds = %123, %.lr.ph.i
-  %.in.i = phi i8 [ %81, %.lr.ph.i ], [ %134, %123 ]
-  %88 = phi ptr [ %75, %.lr.ph.i ], [ %128, %123 ]
-  %89 = phi ptr [ %.pre-phi88.i, %.lr.ph.i ], [ %127, %123 ]
-  %storemerge85.i = phi i64 [ %.sroa.0.0.in.i.sroa.speculated.i, %.lr.ph.i ], [ %125, %123 ]
-  %.sroa.550.084.i = phi i8 [ undef, %.lr.ph.i ], [ %.sroa.550.1.i, %123 ]
+87:                                               ; preds = %121, %.lr.ph.i
+  %.in.i = phi i8 [ %81, %.lr.ph.i ], [ %132, %121 ]
+  %88 = phi ptr [ %75, %.lr.ph.i ], [ %126, %121 ]
+  %89 = phi ptr [ %.pre-phi88.i, %.lr.ph.i ], [ %125, %121 ]
+  %storemerge85.i = phi i64 [ %.sroa.0.0.in.i.sroa.speculated.i, %.lr.ph.i ], [ %123, %121 ]
+  %.sroa.550.084.i = phi i8 [ undef, %.lr.ph.i ], [ %.sroa.550.1.i, %121 ]
   %90 = icmp eq i8 %.in.i, 41
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load i64, ptr %91, align 8, !noalias !74
@@ -4258,65 +4258,63 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit.i: ; preds = %_ZNK5clang13Refere
   %94 = or i64 %92, %93
   %95 = load i64, ptr %84, align 8, !noalias !74
   %96 = or i64 %95, %85
-  %97 = inttoptr i64 %94 to ptr
-  %98 = inttoptr i64 %96 to ptr
-  %99 = icmp eq ptr %97, %98
-  br i1 %99, label %.critedge.i, label %100
+  %97 = icmp eq i64 %94, %96
+  br i1 %97, label %.critedge.i, label %98
 
-100:                                              ; preds = %87
-  %101 = getelementptr inbounds nuw i8, ptr %88, i64 16
-  %102 = load i8, ptr %101, align 16, !noalias !74
-  %.not.i22.i = icmp eq i8 %102, 41
-  br i1 %.not.i22.i, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread77.i, label %103
+98:                                               ; preds = %87
+  %99 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %100 = load i8, ptr %99, align 16, !noalias !74
+  %.not.i22.i = icmp eq i8 %100, 41
+  br i1 %.not.i22.i, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread77.i, label %101
 
-103:                                              ; preds = %100
+101:                                              ; preds = %98
   br i1 %90, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i
 
-_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i: ; preds = %103
-  %104 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %88) #28, !noalias !74
-  %.not.i = icmp eq ptr %104, null
+_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i: ; preds = %101
+  %102 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %88) #28, !noalias !74
+  %.not.i = icmp eq ptr %102, null
   br i1 %.not.i, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread77.i
 
-_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread77.i: ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %100
-  %.0.i80.i = phi ptr [ %104, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i ], [ %88, %100 ]
+_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread77.i: ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %98
+  %.0.i80.i = phi ptr [ %102, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i ], [ %88, %98 ]
   call void @_ZN5clang7CodeGen15CodeGenFunction23EmitLoadOfPointerLValueENS0_7AddressEPKNS_11PointerTypeE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %14, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %86, ptr noundef nonnull %.0.i80.i) #28, !noalias !74
-  br label %123
+  br label %121
 
-_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %103
+_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i: ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %101
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %86, i64 48, i1 false), !noalias !74
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12), !noalias !74
-  %105 = load ptr, ptr %74, align 8, !noalias !77
-  call void @_ZN5clang7CodeGen13CodeGenModule17getTBAAAccessInfoENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %12, ptr noundef nonnull align 8 dereferenceable(3600) %105, i64 %storemerge85.i) #28, !noalias !77
+  %103 = load ptr, ptr %74, align 8, !noalias !77
+  call void @_ZN5clang7CodeGen13CodeGenModule17getTBAAAccessInfoENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %12, ptr noundef nonnull align 8 dereferenceable(3600) %103, i64 %storemerge85.i) #28, !noalias !77
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !noalias !77
-  %106 = load ptr, ptr %74, align 8, !noalias !80
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 144
-  %108 = load ptr, ptr %107, align 8, !noalias !80
+  %104 = load ptr, ptr %74, align 8, !noalias !80
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 144
+  %106 = load ptr, ptr %105, align 8, !noalias !80
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %91, align 8, !noalias !83
-  %109 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 8
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %109, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit.i, label %110
+  %107 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, 8
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %107, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit.i, label %108
 
-110:                                              ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i
-  %111 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -16
-  %112 = inttoptr i64 %111 to ptr
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %113, align 8, !noalias !83
-  %114 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, -49
+108:                                              ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i
+  %109 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, -16
+  %110 = inttoptr i64 %109 to ptr
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %111, align 8, !noalias !83
+  %112 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, -49
   br label %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit.i
 
-_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit.i: ; preds = %110, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i
-  %.sroa.0.0.i.i.i.i.i.i.i = phi i64 [ %114, %110 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i ]
-  %115 = or i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %storemerge85.i
-  %116 = and i64 %115, 7
-  %117 = call noundef i32 @_ZNK5clang10ASTContext17getObjCGCAttrKindENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %108, i64 %storemerge85.i) #28, !noalias !83
-  %118 = or i64 %.sroa.0.0.i.i.i.i.i.i.i, %116
-  %119 = shl i32 %117, 4
-  %120 = sext i32 %119 to i64
-  %121 = or i64 %118, %120
+_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit.i: ; preds = %108, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i
+  %.sroa.0.0.i.i.i.i.i.i.i = phi i64 [ %112, %108 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread.i ]
+  %113 = or i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i, %storemerge85.i
+  %114 = and i64 %113, 7
+  %115 = call noundef i32 @_ZNK5clang10ASTContext17getObjCGCAttrKindENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %106, i64 %storemerge85.i) #28, !noalias !83
+  %116 = or i64 %.sroa.0.0.i.i.i.i.i.i.i, %114
+  %117 = shl i32 %115, 4
+  %118 = sext i32 %117 to i64
+  %119 = or i64 %116, %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.8.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false), !noalias !74
-  %122 = and i8 %.sroa.550.084.i, -128
+  %120 = and i8 %.sroa.550.084.i, -128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %.sroa.2.8..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %13, i64 48, i1 false), !noalias !74
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
@@ -4324,36 +4322,36 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   store i32 0, ptr %16, align 8, !noalias !74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.2.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.2.i, i64 52, i1 false), !noalias !74
   store i64 %storemerge85.i, ptr %.sroa.348.0..sroa_idx.i, align 8, !noalias !74
-  store i64 %121, ptr %.sroa.449.0..sroa_idx.i, align 8, !noalias !74
-  store i8 %122, ptr %.sroa.550.0..sroa_idx.i, align 8, !noalias !74
+  store i64 %119, ptr %.sroa.449.0..sroa_idx.i, align 8, !noalias !74
+  store i8 %120, ptr %.sroa.550.0..sroa_idx.i, align 8, !noalias !74
   store i32 2, ptr %.sroa.752.0..sroa_idx.i, align 4, !noalias !74
   store ptr null, ptr %.sroa.953.0..sroa_idx.i, align 8, !noalias !74
   call void @_ZN5clang7CodeGen15CodeGenFunction25EmitLoadOfReferenceLValueENS0_6LValueE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %15, ptr noundef nonnull align 8 dereferenceable(6488) %2, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %16) #28, !noalias !74
-  br label %123
+  br label %121
 
-123:                                              ; preds = %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit.i, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread77.i
+121:                                              ; preds = %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit.i, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread77.i
   %.sink.i = phi ptr [ %15, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit.i ], [ %14, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread77.i ]
-  %.sroa.550.1.i = phi i8 [ %122, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit.i ], [ %.sroa.550.084.i, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread77.i ]
+  %.sroa.550.1.i = phi i8 [ %120, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit.i ], [ %.sroa.550.084.i, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread77.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %18, ptr noundef nonnull align 8 dereferenceable(136) %.sink.i, i64 136, i1 false), !noalias !74
-  %124 = load ptr, ptr %89, align 8, !noalias !74
-  %125 = call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %124) #28, !noalias !74
-  %126 = and i64 %125, -16
-  %127 = inttoptr i64 %126 to ptr
-  %128 = load ptr, ptr %127, align 16, !noalias !74
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %129, align 8, !noalias !74
-  %130 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
-  %131 = inttoptr i64 %130 to ptr
-  %132 = load ptr, ptr %131, align 16, !noalias !74
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
-  %134 = load i8, ptr %133, align 16, !noalias !74
-  %.off.i = add i8 %134, -41
+  %122 = load ptr, ptr %89, align 8, !noalias !74
+  %123 = call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %122) #28, !noalias !74
+  %124 = and i64 %123, -16
+  %125 = inttoptr i64 %124 to ptr
+  %126 = load ptr, ptr %125, align 16, !noalias !74
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %127, align 8, !noalias !74
+  %128 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -16
+  %129 = inttoptr i64 %128 to ptr
+  %130 = load ptr, ptr %129, align 16, !noalias !74
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
+  %132 = load i8, ptr %131, align 16, !noalias !74
+  %.off.i = add i8 %132, -41
   %switch.i = icmp ult i8 %.off.i, 3
   br i1 %switch.i, label %87, label %.critedge.i, !llvm.loop !86
 
-.critedge.i:                                      ; preds = %123, %87, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i
-  %135 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %.sroa.0.0.copyload.i21 = load i64, ptr %135, align 8, !noalias !74
+.critedge.i:                                      ; preds = %121, %87, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i
+  %133 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %.sroa.0.0.copyload.i21 = load i64, ptr %133, align 8, !noalias !74
   %.sroa.334.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 24
   %.sroa.334.0.copyload.i = load i64, ptr %.sroa.334.0..sroa_idx.i, align 8, !noalias !74
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 32
@@ -4362,80 +4360,80 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !74
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 48
   %.sroa.6.0.copyload.i = load ptr, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !74
-  %136 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %2, i64 %.sroa.0.0.copyload.i20) #28, !noalias !74
-  %137 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %.sroa.0.0.copyload.i27.i = load i64, ptr %137, align 8, !noalias !74
-  %138 = getelementptr inbounds nuw i8, ptr %18, i64 84
-  %.sroa.0.0.copyload.i28.i = load i32, ptr %138, align 4, !noalias !74
+  %134 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %2, i64 %.sroa.0.0.copyload.i20) #28, !noalias !74
+  %135 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %.sroa.0.0.copyload.i27.i = load i64, ptr %135, align 8, !noalias !74
+  %136 = getelementptr inbounds nuw i8, ptr %18, i64 84
+  %.sroa.0.0.copyload.i28.i = load i32, ptr %136, align 4, !noalias !74
   %.sroa.267.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 88
   %.sroa.267.0.copyload.i = load i32, ptr %.sroa.267.0..sroa_idx.i, align 8, !noalias !74
-  %139 = icmp eq i32 %.sroa.267.0.copyload.i, 1
-  br i1 %139, label %140, label %142
+  %137 = icmp eq i32 %.sroa.267.0.copyload.i, 1
+  br i1 %137, label %138, label %140
+
+138:                                              ; preds = %.critedge.i
+  store i32 1, ptr %17, align 8, !alias.scope !87, !noalias !74
+  %139 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %139, i8 0, i64 32, i1 false), !alias.scope !87, !noalias !74
+  br label %_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i
 
 140:                                              ; preds = %.critedge.i
-  store i32 1, ptr %17, align 8, !alias.scope !87, !noalias !74
-  %141 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %141, i8 0, i64 32, i1 false), !alias.scope !87, !noalias !74
+  %141 = load ptr, ptr %74, align 8, !noalias !74
+  call void @_ZN5clang7CodeGen13CodeGenModule17getTBAAAccessInfoENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %17, ptr noundef nonnull align 8 dereferenceable(3600) %141, i64 %.sroa.0.0.copyload.i27.i) #28, !noalias !74
   br label %_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i
 
-142:                                              ; preds = %.critedge.i
-  %143 = load ptr, ptr %74, align 8, !noalias !74
-  call void @_ZN5clang7CodeGen13CodeGenModule17getTBAAAccessInfoENS_8QualTypeE(ptr dead_on_unwind nonnull writable sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %17, ptr noundef nonnull align 8 dereferenceable(3600) %143, i64 %.sroa.0.0.copyload.i27.i) #28, !noalias !74
-  br label %_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i
-
-_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i: ; preds = %142, %140
+_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i: ; preds = %140, %138
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !noalias !74
-  %144 = load ptr, ptr %74, align 8, !noalias !95
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 144
-  %146 = load ptr, ptr %145, align 8, !noalias !95
+  %142 = load ptr, ptr %74, align 8, !noalias !95
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 144
+  %144 = load ptr, ptr %143, align 8, !noalias !95
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
-  %147 = and i64 %.sroa.0.0.copyload.i27.i, -16
-  %148 = inttoptr i64 %147 to ptr
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %149, align 8, !noalias !99
-  %150 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 8
-  %.not.i.i.i.i.i.i = icmp eq i64 %150, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZL11loadToBeginRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_6LValueE.exit, label %151
+  %145 = and i64 %.sroa.0.0.copyload.i27.i, -16
+  %146 = inttoptr i64 %145 to ptr
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %147, align 8, !noalias !99
+  %148 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 8
+  %.not.i.i.i.i.i.i = icmp eq i64 %148, 0
+  br i1 %.not.i.i.i.i.i.i, label %_ZL11loadToBeginRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_6LValueE.exit, label %149
 
-151:                                              ; preds = %_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i
-  %152 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -16
-  %153 = inttoptr i64 %152 to ptr
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %154, align 8, !noalias !99
-  %155 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, -49
+149:                                              ; preds = %_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i
+  %150 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -16
+  %151 = inttoptr i64 %150 to ptr
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %152, align 8, !noalias !99
+  %153 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, -49
   br label %_ZL11loadToBeginRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_6LValueE.exit
 
-_ZL11loadToBeginRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_6LValueE.exit: ; preds = %_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i, %151
-  %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %155, %151 ], [ 0, %_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i ]
+_ZL11loadToBeginRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_6LValueE.exit: ; preds = %_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i, %149
+  %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %153, %149 ], [ 0, %_ZN5clang7CodeGen13CodeGenModule23getTBAAInfoForSubobjectENS0_6LValueENS_8QualTypeE.exit.i ]
   %.not.i25.i = icmp eq ptr %.sroa.6.0.copyload.i, null
-  %156 = and i64 %.sroa.0.0.copyload.i21, -4
-  %spec.select.i = select i1 %.not.i25.i, i64 %156, i64 %.sroa.0.0.copyload.i21
-  %157 = getelementptr inbounds nuw i8, ptr %22, i64 88
-  %158 = getelementptr inbounds nuw i8, ptr %22, i64 84
-  %159 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  %160 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %161 = or i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i27.i
-  %162 = and i64 %161, 7
-  %163 = call noundef i32 @_ZNK5clang10ASTContext17getObjCGCAttrKindENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %146, i64 %.sroa.0.0.copyload.i27.i) #28, !noalias !99
-  %164 = or i64 %.sroa.0.0.i.i.i.i.i.i, %162
-  %165 = shl i32 %163, 4
-  %166 = sext i32 %165 to i64
-  %167 = or i64 %164, %166
+  %154 = and i64 %.sroa.0.0.copyload.i21, -4
+  %spec.select.i = select i1 %.not.i25.i, i64 %154, i64 %.sroa.0.0.copyload.i21
+  %155 = getelementptr inbounds nuw i8, ptr %22, i64 88
+  %156 = getelementptr inbounds nuw i8, ptr %22, i64 84
+  %157 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  %158 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %159 = or i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.copyload.i27.i
+  %160 = and i64 %159, 7
+  %161 = call noundef i32 @_ZNK5clang10ASTContext17getObjCGCAttrKindENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %144, i64 %.sroa.0.0.copyload.i27.i) #28, !noalias !99
+  %162 = or i64 %.sroa.0.0.i.i.i.i.i.i, %160
+  %163 = shl i32 %161, 4
+  %164 = sext i32 %163 to i64
+  %165 = or i64 %162, %164
   store i32 0, ptr %22, align 8, !alias.scope !99
-  store i64 %.sroa.0.0.copyload.i27.i, ptr %159, align 8, !alias.scope !99
-  %168 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  store i64 %167, ptr %168, align 8, !alias.scope !99
-  store i32 %.sroa.0.0.copyload.i28.i, ptr %158, align 4, !alias.scope !99
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %157, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
-  %169 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  store i8 0, ptr %169, align 8, !alias.scope !99
-  %170 = getelementptr inbounds nuw i8, ptr %22, i64 128
-  store ptr null, ptr %170, align 8, !alias.scope !99
-  store i64 %spec.select.i, ptr %160, align 8, !alias.scope !74
+  store i64 %.sroa.0.0.copyload.i27.i, ptr %157, align 8, !alias.scope !99
+  %166 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  store i64 %165, ptr %166, align 8, !alias.scope !99
+  store i32 %.sroa.0.0.copyload.i28.i, ptr %156, align 4, !alias.scope !99
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %155, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
+  %167 = getelementptr inbounds nuw i8, ptr %22, i64 80
+  store i8 0, ptr %167, align 8, !alias.scope !99
+  %168 = getelementptr inbounds nuw i8, ptr %22, i64 128
+  store ptr null, ptr %168, align 8, !alias.scope !99
+  store i64 %spec.select.i, ptr %158, align 8, !alias.scope !74
   %.sroa.470.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr %136, ptr %.sroa.470.0..sroa_idx.i, align 8, !alias.scope !74
+  store ptr %134, ptr %.sroa.470.0..sroa_idx.i, align 8, !alias.scope !74
   %.sroa.571.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 24
   store i64 %.sroa.334.0.copyload.i, ptr %.sroa.571.0..sroa_idx.i, align 8, !alias.scope !74
   %.sroa.672.0..sroa_idx.i = getelementptr inbounds i8, ptr %22, i64 32
@@ -4451,78 +4449,78 @@ _ZL11loadToBeginRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_6LValueE.e
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17)
-  %171 = load ptr, ptr %40, align 8
-  %172 = getelementptr inbounds %"struct.std::pair", ptr %171, i64 %29, i32 0, i32 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %172, i64 48, i1 false)
-  %173 = getelementptr inbounds nuw i8, ptr %2, i64 280
-  %174 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %175 = load ptr, ptr %174, align 8
-  %176 = call noundef ptr @_ZNK5clang7CodeGen6LValue10getPointerERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull align 8 dereferenceable(6488) %2) #28
-  %177 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %178 = load i8, ptr %177, align 8
-  %179 = and i8 %178, 3
-  %.not.i22 = icmp eq i8 %179, 0
-  br i1 %.not.i22, label %180, label %183
+  %169 = load ptr, ptr %40, align 8
+  %170 = getelementptr inbounds %"struct.std::pair", ptr %169, i64 %29, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %170, i64 48, i1 false)
+  %171 = getelementptr inbounds nuw i8, ptr %2, i64 280
+  %172 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = call noundef ptr @_ZNK5clang7CodeGen6LValue10getPointerERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull align 8 dereferenceable(6488) %2) #28
+  %175 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %176 = load i8, ptr %175, align 8
+  %177 = and i8 %176, 3
+  %.not.i22 = icmp eq i8 %177, 0
+  br i1 %.not.i22, label %178, label %181
 
-180:                                              ; preds = %_ZL11loadToBeginRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_6LValueE.exit
+178:                                              ; preds = %_ZL11loadToBeginRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_6LValueE.exit
   %.0.copyload.i.i.i.i.i = load i64, ptr %23, align 8
-  %181 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %182 = inttoptr i64 %181 to ptr
+  %179 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %180 = inttoptr i64 %179 to ptr
   br label %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit
 
-183:                                              ; preds = %_ZL11loadToBeginRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_6LValueE.exit
-  %184 = call noundef ptr @_ZNK5clang7CodeGen7Address18emitRawPointerSlowERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(6488) %2) #28
+181:                                              ; preds = %_ZL11loadToBeginRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_6LValueE.exit
+  %182 = call noundef ptr @_ZNK5clang7CodeGen7Address18emitRawPointerSlowERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(6488) %2) #28
   br label %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit
 
-_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds = %180, %183
-  %.0.i = phi ptr [ %184, %183 ], [ %182, %180 ]
-  %185 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i16 257, ptr %185, align 8
-  %186 = call noundef ptr @_ZN4llvm13IRBuilderBase13CreatePtrDiffEPNS_4TypeEPNS_5ValueES4_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %173, ptr noundef %175, ptr noundef %176, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(34) %25) #28
-  store ptr %186, ptr %24, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %188 = load i8, ptr %187, align 8
-  %189 = and i8 %188, 3
-  %.not.i23 = icmp eq i8 %189, 0
-  br i1 %.not.i23, label %190, label %193
+_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds = %178, %181
+  %.0.i = phi ptr [ %182, %181 ], [ %180, %178 ]
+  %183 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store i16 257, ptr %183, align 8
+  %184 = call noundef ptr @_ZN4llvm13IRBuilderBase13CreatePtrDiffEPNS_4TypeEPNS_5ValueES4_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %171, ptr noundef %173, ptr noundef %174, ptr noundef %.0.i, ptr noundef nonnull align 8 dereferenceable(34) %25) #28
+  store ptr %184, ptr %24, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %186 = load i8, ptr %185, align 8
+  %187 = and i8 %186, 3
+  %.not.i23 = icmp eq i8 %187, 0
+  br i1 %.not.i23, label %188, label %191
 
-190:                                              ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit
+188:                                              ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit
   %.0.copyload.i.i.i.i.i25 = load i64, ptr %4, align 8
-  %191 = and i64 %.0.copyload.i.i.i.i.i25, -8
-  %192 = inttoptr i64 %191 to ptr
+  %189 = and i64 %.0.copyload.i.i.i.i.i25, -8
+  %190 = inttoptr i64 %189 to ptr
   br label %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit26
 
-193:                                              ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit
-  %194 = call noundef ptr @_ZNK5clang7CodeGen7Address18emitRawPointerSlowERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(6488) %2) #28
+191:                                              ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit
+  %192 = call noundef ptr @_ZNK5clang7CodeGen7Address18emitRawPointerSlowERNS0_15CodeGenFunctionE(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(6488) %2) #28
   br label %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit26
 
-_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit26: ; preds = %190, %193
-  %.0.i24 = phi ptr [ %194, %193 ], [ %192, %190 ]
-  %195 = load ptr, ptr %174, align 8
+_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit26: ; preds = %188, %191
+  %.0.i24 = phi ptr [ %192, %191 ], [ %190, %188 ]
+  %193 = load ptr, ptr %172, align 8
   %.0.copyload.i.i.i.i = load i64, ptr %23, align 8
-  %196 = and i64 %.0.copyload.i.i.i.i, -8
-  %197 = inttoptr i64 %196 to ptr
+  %194 = and i64 %.0.copyload.i.i.i.i, -8
+  %195 = inttoptr i64 %194 to ptr
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %201 = load i32, ptr %200, align 8
-  %202 = lshr i32 %201, 8
-  %203 = call noundef ptr @_ZN4llvm11PointerType3getEPNS_4TypeEj(ptr noundef %195, i32 noundef %202) #28
-  %204 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store i16 257, ptr %204, align 8
-  %205 = call noundef ptr @_ZN4llvm13IRBuilderBase35CreatePointerBitCastOrAddrSpaceCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %173, ptr noundef %.0.i24, ptr noundef %203, ptr noundef nonnull align 8 dereferenceable(34) %26)
-  %206 = load ptr, ptr %174, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i16 257, ptr %207, align 8
-  %208 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(128) %173, ptr noundef %206, ptr noundef %205, ptr nonnull %24, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %27, i32 0)
-  %209 = load ptr, ptr %20, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 48
-  %.sroa.0.0.copyload.i27 = load i64, ptr %210, align 8
-  %211 = load ptr, ptr %40, align 8
-  %212 = getelementptr inbounds %"struct.std::pair", ptr %211, i64 %29, i32 0, i32 3
-  %.sroa.0.0.copyload.i28 = load i64, ptr %212, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %.sroa.058.0.copyload = load i64, ptr %213, align 8
+  %199 = load i32, ptr %198, align 8
+  %200 = lshr i32 %199, 8
+  %201 = call noundef ptr @_ZN4llvm11PointerType3getEPNS_4TypeEj(ptr noundef %193, i32 noundef %200) #28
+  %202 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store i16 257, ptr %202, align 8
+  %203 = call noundef ptr @_ZN4llvm13IRBuilderBase35CreatePointerBitCastOrAddrSpaceCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %171, ptr noundef %.0.i24, ptr noundef %201, ptr noundef nonnull align 8 dereferenceable(34) %26)
+  %204 = load ptr, ptr %172, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store i16 257, ptr %205, align 8
+  %206 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreateGEPEPNS_4TypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineENS_14GEPNoWrapFlagsE(ptr noundef nonnull align 8 dereferenceable(128) %171, ptr noundef %204, ptr noundef %203, ptr nonnull %24, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %27, i32 0)
+  %207 = load ptr, ptr %20, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 48
+  %.sroa.0.0.copyload.i27 = load i64, ptr %208, align 8
+  %209 = load ptr, ptr %40, align 8
+  %210 = getelementptr inbounds %"struct.std::pair", ptr %209, i64 %29, i32 0, i32 3
+  %.sroa.0.0.copyload.i28 = load i64, ptr %210, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %.sroa.058.0.copyload = load i64, ptr %211, align 8
   %.sroa.259.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 16
   %.sroa.259.0.copyload = load ptr, ptr %.sroa.259.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 24
@@ -4536,212 +4534,208 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit26: ; pre
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9)
   %.sroa.8.i.7.i.7.i.7..sroa_idx = getelementptr inbounds i8, ptr %.sroa.8.i, i64 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.8.i.7.i.7.i.7..sroa_idx, i8 0, i64 16, i1 false), !alias.scope !103, !noalias !100
-  %214 = and i64 %.sroa.0.0.copyload.i27, -16
-  %215 = inttoptr i64 %214 to ptr
-  %216 = load ptr, ptr %215, align 16, !noalias !100
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  %218 = load i8, ptr %217, align 16, !noalias !100
-  %219 = and i8 %218, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i29 = icmp eq i8 %219, 42
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i29, label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i43, label %220
+  %212 = and i64 %.sroa.0.0.copyload.i27, -16
+  %213 = inttoptr i64 %212 to ptr
+  %214 = load ptr, ptr %213, align 16, !noalias !100
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
+  %216 = load i8, ptr %215, align 16, !noalias !100
+  %217 = and i8 %216, -2
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i29 = icmp eq i8 %217, 42
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i29, label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i43, label %218
 
-220:                                              ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit26
-  %221 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i30 = load i64, ptr %221, align 8, !noalias !100
-  %222 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i30, -16
-  %223 = inttoptr i64 %222 to ptr
-  %224 = load ptr, ptr %223, align 16, !noalias !100
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
-  %226 = load i8, ptr %225, align 16, !noalias !100
-  %227 = and i8 %226, -2
-  %spec.select.i.i.i.i.i.i.i.i5.i.i.i31 = icmp eq i8 %227, 42
+218:                                              ; preds = %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit26
+  %219 = getelementptr inbounds nuw i8, ptr %214, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i30 = load i64, ptr %219, align 8, !noalias !100
+  %220 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i30, -16
+  %221 = inttoptr i64 %220 to ptr
+  %222 = load ptr, ptr %221, align 16, !noalias !100
+  %223 = getelementptr inbounds nuw i8, ptr %222, i64 16
+  %224 = load i8, ptr %223, align 16, !noalias !100
+  %225 = and i8 %224, -2
+  %spec.select.i.i.i.i.i.i.i.i5.i.i.i31 = icmp eq i8 %225, 42
   br i1 %spec.select.i.i.i.i.i.i.i.i5.i.i.i31, label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41, label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i32
 
-_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41: ; preds = %220
-  %228 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %216) #28, !noalias !100
-  %.not.i.i42 = icmp eq ptr %228, null
+_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41: ; preds = %218
+  %226 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %214) #28, !noalias !100
+  %.not.i.i42 = icmp eq ptr %226, null
   br i1 %.not.i.i42, label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i32, label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i43
 
 _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i43: ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41, %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit26
-  %.0.i8.i.i44 = phi ptr [ %228, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41 ], [ %216, %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit26 ]
-  %229 = getelementptr inbounds nuw i8, ptr %.0.i8.i.i44, i64 16
-  %230 = load i24, ptr %229, align 16, !noalias !100
-  %231 = and i24 %230, 1048576
-  %.not4.i.i.i45 = icmp eq i24 %231, 0
+  %.0.i8.i.i44 = phi ptr [ %226, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41 ], [ %214, %_ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit26 ]
+  %227 = getelementptr inbounds nuw i8, ptr %.0.i8.i.i44, i64 16
+  %228 = load i24, ptr %227, align 16, !noalias !100
+  %229 = and i24 %228, 1048576
+  %.not4.i.i.i45 = icmp eq i24 %229, 0
   br i1 %.not4.i.i.i45, label %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i53, label %.lr.ph.i.i.i46
 
 .lr.ph.i.i.i46:                                   ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i43, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i50
   %.05.i.i.i47 = phi ptr [ %.0.i.i.i.i51, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i50 ], [ %.0.i8.i.i44, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i43 ]
-  %232 = getelementptr inbounds nuw i8, ptr %.05.i.i.i47, i64 32
-  %.0.copyload.i.i.i.i.i.i.i.i48 = load i64, ptr %232, align 8, !noalias !100
-  %233 = and i64 %.0.copyload.i.i.i.i.i.i.i.i48, -16
-  %234 = inttoptr i64 %233 to ptr
-  %235 = load ptr, ptr %234, align 16, !noalias !100
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
-  %237 = load i8, ptr %236, align 16, !noalias !100
-  %238 = and i8 %237, -2
-  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i.i49 = icmp eq i8 %238, 42
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i.i49, label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i50, label %239
+  %230 = getelementptr inbounds nuw i8, ptr %.05.i.i.i47, i64 32
+  %.0.copyload.i.i.i.i.i.i.i.i48 = load i64, ptr %230, align 8, !noalias !100
+  %231 = and i64 %.0.copyload.i.i.i.i.i.i.i.i48, -16
+  %232 = inttoptr i64 %231 to ptr
+  %233 = load ptr, ptr %232, align 16, !noalias !100
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
+  %235 = load i8, ptr %234, align 16, !noalias !100
+  %236 = and i8 %235, -2
+  %spec.select.i.i.i.i.i.i.i.i.not.i.i.i.i49 = icmp eq i8 %236, 42
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not.i.i.i.i49, label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i50, label %237
 
-239:                                              ; preds = %.lr.ph.i.i.i46
-  %240 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %235) #28, !noalias !100
+237:                                              ; preds = %.lr.ph.i.i.i46
+  %238 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %233) #28, !noalias !100
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i50
 
-_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i50: ; preds = %239, %.lr.ph.i.i.i46
-  %.0.i.i.i.i51 = phi ptr [ %240, %239 ], [ %235, %.lr.ph.i.i.i46 ]
-  %241 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i51, i64 16
-  %242 = load i24, ptr %241, align 16, !noalias !100
-  %243 = and i24 %242, 1048576
-  %.not.i.i.i52 = icmp eq i24 %243, 0
+_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i50: ; preds = %237, %.lr.ph.i.i.i46
+  %.0.i.i.i.i51 = phi ptr [ %238, %237 ], [ %233, %.lr.ph.i.i.i46 ]
+  %239 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i51, i64 16
+  %240 = load i24, ptr %239, align 16, !noalias !100
+  %241 = and i24 %240, 1048576
+  %.not.i.i.i52 = icmp eq i24 %241, 0
   br i1 %.not.i.i.i52, label %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i53, label %.lr.ph.i.i.i46, !llvm.loop !15
 
 _ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i53: ; preds = %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i50, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i43
   %.0.lcssa.i.i.i54 = phi ptr [ %.0.i8.i.i44, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i43 ], [ %.0.i.i.i.i51, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i50 ]
-  %244 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i54, i64 32
-  %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i55 = load i64, ptr %244, align 8, !noalias !100
+  %242 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i54, i64 32
+  %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i55 = load i64, ptr %242, align 8, !noalias !100
   %.pre.i56 = and i64 %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i55, -16
   %.pre155.i = inttoptr i64 %.pre.i56 to ptr
   br label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i32
 
-_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i32: ; preds = %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i53, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41, %220
-  %.pre-phi156.i = phi ptr [ %215, %220 ], [ %215, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41 ], [ %.pre155.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i53 ]
-  %.sroa.0.0.in.i.sroa.speculated.i33 = phi i64 [ %.sroa.0.0.copyload.i27, %220 ], [ %.sroa.0.0.copyload.i27, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41 ], [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i55, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i53 ]
-  %245 = load ptr, ptr %.pre-phi156.i, align 8, !noalias !100
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 8
-  %.sroa.0.0.copyload.i.i.i.i126.i = load i64, ptr %246, align 8, !noalias !100
-  %247 = and i64 %.sroa.0.0.copyload.i.i.i.i126.i, -16
-  %248 = inttoptr i64 %247 to ptr
-  %249 = load ptr, ptr %248, align 16, !noalias !100
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
-  %251 = load i8, ptr %250, align 16, !noalias !100
-  %.off127.i = add i8 %251, -41
+_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i32: ; preds = %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i53, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41, %218
+  %.pre-phi156.i = phi ptr [ %213, %218 ], [ %213, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41 ], [ %.pre155.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i53 ]
+  %.sroa.0.0.in.i.sroa.speculated.i33 = phi i64 [ %.sroa.0.0.copyload.i27, %218 ], [ %.sroa.0.0.copyload.i27, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i41 ], [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i55, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i53 ]
+  %243 = load ptr, ptr %.pre-phi156.i, align 8, !noalias !100
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
+  %.sroa.0.0.copyload.i.i.i.i126.i = load i64, ptr %244, align 8, !noalias !100
+  %245 = and i64 %.sroa.0.0.copyload.i.i.i.i126.i, -16
+  %246 = inttoptr i64 %245 to ptr
+  %247 = load ptr, ptr %246, align 16, !noalias !100
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
+  %249 = load i8, ptr %248, align 16, !noalias !100
+  %.off127.i = add i8 %249, -41
   %switch128.i = icmp ult i8 %.off127.i, 3
   br i1 %switch128.i, label %.lr.ph.i34, label %.critedge.thread.i
 
 .lr.ph.i34:                                       ; preds = %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i32
-  %252 = and i64 %.sroa.0.0.copyload.i28, -16
-  %253 = inttoptr i64 %252 to ptr
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
-  %255 = and i64 %.sroa.0.0.copyload.i28, 7
-  %256 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %257 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  %250 = and i64 %.sroa.0.0.copyload.i28, -16
+  %251 = inttoptr i64 %250 to ptr
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
+  %253 = and i64 %.sroa.0.0.copyload.i28, 7
+  %254 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %255 = getelementptr inbounds nuw i8, ptr %7, i64 33
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.878.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
-  %258 = getelementptr inbounds nuw i8, ptr %.pre-phi156.i, i64 8
-  %259 = load i64, ptr %258, align 8, !noalias !100
-  %260 = and i64 %.sroa.0.0.in.i.sroa.speculated.i33, 7
-  %261 = or i64 %259, %260
-  %262 = load i64, ptr %254, align 8, !noalias !100
-  %263 = or i64 %262, %255
-  %264 = inttoptr i64 %261 to ptr
-  %265 = inttoptr i64 %263 to ptr
-  %266 = icmp eq ptr %264, %265
-  br i1 %266, label %.critedge.thread.i, label %.lr.ph
+  %256 = getelementptr inbounds nuw i8, ptr %.pre-phi156.i, i64 8
+  %257 = load i64, ptr %256, align 8, !noalias !100
+  %258 = and i64 %.sroa.0.0.in.i.sroa.speculated.i33, 7
+  %259 = or i64 %257, %258
+  %260 = load i64, ptr %252, align 8, !noalias !100
+  %261 = or i64 %260, %253
+  %262 = icmp eq i64 %259, %261
+  br i1 %262, label %.critedge.thread.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i34
   %.sroa.651.i.7.i.7.i.7..sroa_idx = getelementptr inbounds i8, ptr %.sroa.651.i, i64 7
-  br label %278
+  br label %272
 
-267:                                              ; preds = %294
-  %268 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i.i, 7
-  %storemerge.i25.i = select i1 %268, i64 %.sroa.878.0.copyload.i, i64 0
-  %.sink10.i23.i = select i1 %268, i64 %.pre-phi158.i, i64 0
-  %269 = getelementptr inbounds nuw i8, ptr %298, i64 8
-  %270 = load i64, ptr %269, align 8, !noalias !100
-  %271 = and i64 %296, 7
-  %272 = or i64 %270, %271
-  %273 = load i64, ptr %254, align 8, !noalias !100
-  %274 = or i64 %273, %255
-  %275 = inttoptr i64 %272 to ptr
-  %276 = inttoptr i64 %274 to ptr
-  %277 = icmp eq ptr %275, %276
-  br i1 %277, label %.critedge.i38, label %278, !llvm.loop !106
+263:                                              ; preds = %288
+  %264 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i.i, 7
+  %storemerge.i25.i = select i1 %264, i64 %.sroa.878.0.copyload.i, i64 0
+  %.sink10.i23.i = select i1 %264, i64 %.pre-phi158.i, i64 0
+  %265 = getelementptr inbounds nuw i8, ptr %292, i64 8
+  %266 = load i64, ptr %265, align 8, !noalias !100
+  %267 = and i64 %290, 7
+  %268 = or i64 %266, %267
+  %269 = load i64, ptr %252, align 8, !noalias !100
+  %270 = or i64 %269, %253
+  %271 = icmp eq i64 %268, %270
+  br i1 %271, label %.critedge.i38, label %272, !llvm.loop !106
 
-278:                                              ; preds = %.lr.ph, %267
-  %.sroa.353.0129.i68 = phi ptr [ null, %.lr.ph ], [ %.sroa.353.1.i, %267 ]
-  %.sroa.454.0130.i67 = phi i64 [ 0, %.lr.ph ], [ %.sroa.454.1.i, %267 ]
-  %.sroa.5.0131.i66 = phi i8 [ 0, %.lr.ph ], [ %.sroa.5.1.i, %267 ]
-  %.sroa.450.0132.i65 = phi i8 [ undef, %.lr.ph ], [ %.sroa.450.1.i, %267 ]
-  %.sroa.052.0133.i64 = phi i64 [ 0, %.lr.ph ], [ %.sroa.052.1.i, %267 ]
-  %.sroa.558.0134.i63 = phi i64 [ 0, %.lr.ph ], [ %storemerge.i25.i, %267 ]
-  %.sroa.056.0135.i62 = phi i64 [ 0, %.lr.ph ], [ %.sink10.i23.i, %267 ]
-  %storemerge139.i61 = phi i64 [ %.sroa.0.0.in.i.sroa.speculated.i33, %.lr.ph ], [ %296, %267 ]
-  %279 = phi ptr [ %.pre-phi156.i, %.lr.ph ], [ %298, %267 ]
-  store i8 1, ptr %257, align 1, !noalias !100
+272:                                              ; preds = %.lr.ph, %263
+  %.sroa.353.0129.i68 = phi ptr [ null, %.lr.ph ], [ %.sroa.353.1.i, %263 ]
+  %.sroa.454.0130.i67 = phi i64 [ 0, %.lr.ph ], [ %.sroa.454.1.i, %263 ]
+  %.sroa.5.0131.i66 = phi i8 [ 0, %.lr.ph ], [ %.sroa.5.1.i, %263 ]
+  %.sroa.450.0132.i65 = phi i8 [ undef, %.lr.ph ], [ %.sroa.450.1.i, %263 ]
+  %.sroa.052.0133.i64 = phi i64 [ 0, %.lr.ph ], [ %.sroa.052.1.i, %263 ]
+  %.sroa.558.0134.i63 = phi i64 [ 0, %.lr.ph ], [ %storemerge.i25.i, %263 ]
+  %.sroa.056.0135.i62 = phi i64 [ 0, %.lr.ph ], [ %.sink10.i23.i, %263 ]
+  %storemerge139.i61 = phi i64 [ %.sroa.0.0.in.i.sroa.speculated.i33, %.lr.ph ], [ %290, %263 ]
+  %273 = phi ptr [ %.pre-phi156.i, %.lr.ph ], [ %292, %263 ]
+  store i8 1, ptr %255, align 1, !noalias !100
   store ptr @.str.85, ptr %7, align 8, !noalias !100
-  store i8 3, ptr %256, align 8, !noalias !100
+  store i8 3, ptr %254, align 8, !noalias !100
   call void @_ZN5clang7CodeGen15CodeGenFunction13CreateMemTempENS_8QualTypeERKN4llvm5TwineEPNS0_10RawAddressE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::RawAddress") align 8 %6, ptr noundef nonnull align 8 dereferenceable(6488) %2, i64 %storemerge139.i61, ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef null) #28, !noalias !100
   %.sroa.068.0.copyload.i = load i64, ptr %6, align 8, !noalias !100
   %.0.copyload.i.i.i.i.fr.i.i = freeze i64 %.sroa.068.0.copyload.i
   %.sroa.7.0.copyload.i = load ptr, ptr %.sroa.7.0..sroa_idx.i, align 8, !noalias !100
   %.sroa.878.0.copyload.i = load i64, ptr %.sroa.878.0..sroa_idx.i, align 8, !noalias !100
-  %280 = icmp ugt i64 %.sroa.056.0135.i62, 7
-  br i1 %280, label %281, label %290
+  %274 = icmp ugt i64 %.sroa.056.0135.i62, 7
+  br i1 %274, label %275, label %284
 
-281:                                              ; preds = %278
-  %282 = and i64 %.0.copyload.i.i.i.i.fr.i.i, -8
-  %283 = inttoptr i64 %282 to ptr
-  %284 = and i64 %.sroa.056.0135.i62, -8
-  %285 = inttoptr i64 %284 to ptr
-  %286 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.558.0134.i63, i1 false)
-  %287 = trunc nuw nsw i64 %286 to i16
-  %288 = sub nsw i16 63, %287
-  %.sroa.02.0.insert.ext.i.i = and i16 %288, 255
+275:                                              ; preds = %272
+  %276 = and i64 %.0.copyload.i.i.i.i.fr.i.i, -8
+  %277 = inttoptr i64 %276 to ptr
+  %278 = and i64 %.sroa.056.0135.i62, -8
+  %279 = inttoptr i64 %278 to ptr
+  %280 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.558.0134.i63, i1 false)
+  %281 = trunc nuw nsw i64 %280 to i16
+  %282 = sub nsw i16 63, %281
+  %.sroa.02.0.insert.ext.i.i = and i16 %282, 255
   %.sroa.02.0.insert.insert.i.i = or disjoint i16 %.sroa.02.0.insert.ext.i.i, 256
-  %289 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(128) %173, ptr noundef %283, ptr noundef %285, i16 %.sroa.02.0.insert.insert.i.i, i1 noundef zeroext false), !noalias !100
+  %283 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(128) %171, ptr noundef %277, ptr noundef %279, i16 %.sroa.02.0.insert.insert.i.i, i1 noundef zeroext false), !noalias !100
   %.pre157.i = and i64 %.0.copyload.i.i.i.i.fr.i.i, -4
-  br label %294
+  br label %288
 
-290:                                              ; preds = %278
-  %291 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i.i, 7
-  %292 = and i64 %.0.copyload.i.i.i.i.fr.i.i, -4
-  %.sink10.i.i = select i1 %291, i64 %292, i64 0
-  %.sink.i.i = select i1 %291, ptr %.sroa.7.0.copyload.i, ptr null
-  %storemerge.i.i = select i1 %291, i64 %.sroa.878.0.copyload.i, i64 0
-  %293 = and i8 %.sroa.450.0132.i65, -64
+284:                                              ; preds = %272
+  %285 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i.i, 7
+  %286 = and i64 %.0.copyload.i.i.i.i.fr.i.i, -4
+  %.sink10.i.i = select i1 %285, i64 %286, i64 0
+  %.sink.i.i = select i1 %285, ptr %.sroa.7.0.copyload.i, ptr null
+  %storemerge.i.i = select i1 %285, i64 %.sroa.878.0.copyload.i, i64 0
+  %287 = and i8 %.sroa.450.0132.i65, -64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %.sroa.651.i.7.i.7.i.7..sroa_idx, i8 0, i64 16, i1 false), !noalias !100
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.8.i, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.651.i, i64 23, i1 false), !noalias !100
-  br label %294
+  br label %288
 
-294:                                              ; preds = %290, %281
-  %.pre-phi158.i = phi i64 [ %292, %290 ], [ %.pre157.i, %281 ]
-  %.sroa.353.1.i = phi ptr [ %.sink.i.i, %290 ], [ %.sroa.353.0129.i68, %281 ]
-  %.sroa.454.1.i = phi i64 [ %storemerge.i.i, %290 ], [ %.sroa.454.0130.i67, %281 ]
-  %.sroa.5.1.i = phi i8 [ %293, %290 ], [ %.sroa.5.0131.i66, %281 ]
-  %.sroa.450.1.i = phi i8 [ %293, %290 ], [ %.sroa.450.0132.i65, %281 ]
-  %.sroa.052.1.i = phi i64 [ %.sink10.i.i, %290 ], [ %.sroa.052.0133.i64, %281 ]
-  %295 = load ptr, ptr %279, align 8, !noalias !100
-  %296 = call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %295) #28, !noalias !100
-  %297 = and i64 %296, -16
-  %298 = inttoptr i64 %297 to ptr
-  %299 = load ptr, ptr %298, align 16, !noalias !100
-  %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i35 = load i64, ptr %300, align 8, !noalias !100
-  %301 = and i64 %.sroa.0.0.copyload.i.i.i.i.i35, -16
-  %302 = inttoptr i64 %301 to ptr
-  %303 = load ptr, ptr %302, align 16, !noalias !100
-  %304 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  %305 = load i8, ptr %304, align 16, !noalias !100
-  %.off.i36 = add i8 %305, -41
+288:                                              ; preds = %284, %275
+  %.pre-phi158.i = phi i64 [ %286, %284 ], [ %.pre157.i, %275 ]
+  %.sroa.353.1.i = phi ptr [ %.sink.i.i, %284 ], [ %.sroa.353.0129.i68, %275 ]
+  %.sroa.454.1.i = phi i64 [ %storemerge.i.i, %284 ], [ %.sroa.454.0130.i67, %275 ]
+  %.sroa.5.1.i = phi i8 [ %287, %284 ], [ %.sroa.5.0131.i66, %275 ]
+  %.sroa.450.1.i = phi i8 [ %287, %284 ], [ %.sroa.450.0132.i65, %275 ]
+  %.sroa.052.1.i = phi i64 [ %.sink10.i.i, %284 ], [ %.sroa.052.0133.i64, %275 ]
+  %289 = load ptr, ptr %273, align 8, !noalias !100
+  %290 = call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %289) #28, !noalias !100
+  %291 = and i64 %290, -16
+  %292 = inttoptr i64 %291 to ptr
+  %293 = load ptr, ptr %292, align 16, !noalias !100
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i35 = load i64, ptr %294, align 8, !noalias !100
+  %295 = and i64 %.sroa.0.0.copyload.i.i.i.i.i35, -16
+  %296 = inttoptr i64 %295 to ptr
+  %297 = load ptr, ptr %296, align 16, !noalias !100
+  %298 = getelementptr inbounds nuw i8, ptr %297, i64 16
+  %299 = load i8, ptr %298, align 16, !noalias !100
+  %.off.i36 = add i8 %299, -41
   %switch.i37 = icmp ult i8 %.off.i36, 3
-  br i1 %switch.i37, label %267, label %.critedge.i38, !llvm.loop !106
+  br i1 %switch.i37, label %263, label %.critedge.i38, !llvm.loop !106
 
-.critedge.i38:                                    ; preds = %267, %294
-  %306 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i.i, 7
-  br i1 %306, label %307, label %.critedge.thread.i
+.critedge.i38:                                    ; preds = %263, %288
+  %300 = icmp ugt i64 %.0.copyload.i.i.i.i.fr.i.i, 7
+  br i1 %300, label %301, label %.critedge.thread.i
 
-307:                                              ; preds = %.critedge.i38
-  %308 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i16 257, ptr %308, align 8, !noalias !100
-  %309 = call noundef ptr @_ZN4llvm13IRBuilderBase35CreatePointerBitCastOrAddrSpaceCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %173, ptr noundef %208, ptr noundef %.sroa.7.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %8), !noalias !100
-  %310 = and i64 %.0.copyload.i.i.i.i.fr.i.i, -8
-  %311 = inttoptr i64 %310 to ptr
-  %312 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.878.0.copyload.i, i1 false)
-  %313 = trunc nuw nsw i64 %312 to i16
-  %314 = sub nsw i16 63, %313
-  %.sroa.02.0.insert.ext.i37.i = and i16 %314, 255
+301:                                              ; preds = %.critedge.i38
+  %302 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i16 257, ptr %302, align 8, !noalias !100
+  %303 = call noundef ptr @_ZN4llvm13IRBuilderBase35CreatePointerBitCastOrAddrSpaceCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %171, ptr noundef %206, ptr noundef %.sroa.7.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(34) %8), !noalias !100
+  %304 = and i64 %.0.copyload.i.i.i.i.fr.i.i, -8
+  %305 = inttoptr i64 %304 to ptr
+  %306 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.878.0.copyload.i, i1 false)
+  %307 = trunc nuw nsw i64 %306 to i16
+  %308 = sub nsw i16 63, %307
+  %.sroa.02.0.insert.ext.i37.i = and i16 %308, 255
   %.sroa.02.0.insert.insert.i38.i = or disjoint i16 %.sroa.02.0.insert.ext.i37.i, 256
-  %315 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(128) %173, ptr noundef %309, ptr noundef %311, i16 %.sroa.02.0.insert.insert.i38.i, i1 noundef zeroext false), !noalias !100
+  %309 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateAlignedStoreEPNS_5ValueES2_NS_10MaybeAlignEb(ptr noundef nonnull align 8 dereferenceable(128) %171, ptr noundef %303, ptr noundef %305, i16 %.sroa.02.0.insert.insert.i38.i, i1 noundef zeroext false), !noalias !100
   store i64 %.sroa.052.1.i, ptr %0, align 8, !alias.scope !100
   %.sroa.353.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.353.1.i, ptr %.sroa.353.0..sroa_idx.i, align 8, !alias.scope !100
@@ -4754,53 +4748,53 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit.i32: ; preds = %_ZNK5clang13Refe
   br label %_ZL10castToBaseRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_7AddressEPN4llvm5ValueE.exit
 
 .critedge.thread.i:                               ; preds = %.lr.ph.i34, %.critedge.i38, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i32
-  %316 = and i64 %.sroa.058.0.copyload, -8
-  %317 = inttoptr i64 %316 to ptr
-  %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
-  %319 = load ptr, ptr %318, align 8, !noalias !100
-  %320 = getelementptr inbounds nuw i8, ptr %319, i64 8
-  %321 = load i32, ptr %320, align 8, !noalias !100
-  %322 = lshr i32 %321, 8
-  %323 = call noundef ptr @_ZN4llvm11PointerType3getEPNS_4TypeEj(ptr noundef %.sroa.259.0.copyload, i32 noundef %322) #28, !noalias !100
-  %324 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i16 257, ptr %324, align 8, !noalias !100
-  %325 = call noundef ptr @_ZN4llvm13IRBuilderBase35CreatePointerBitCastOrAddrSpaceCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %173, ptr noundef %208, ptr noundef %323, ptr noundef nonnull align 8 dereferenceable(34) %9), !noalias !100
-  %326 = ptrtoint ptr %325 to i64
-  %327 = and i64 %326, -5
-  store i64 %327, ptr %0, align 8, !alias.scope !107
-  %328 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.259.0.copyload, ptr %328, align 8, !alias.scope !107
-  %329 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.3.0.copyload, ptr %329, align 8, !alias.scope !107
-  %330 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %331 = load i8, ptr %330, align 8, !alias.scope !107
-  %332 = and i8 %331, -64
-  store i8 %332, ptr %330, align 8, !alias.scope !107
-  %333 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %333, i8 0, i64 16, i1 false), !alias.scope !107
+  %310 = and i64 %.sroa.058.0.copyload, -8
+  %311 = inttoptr i64 %310 to ptr
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
+  %313 = load ptr, ptr %312, align 8, !noalias !100
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  %315 = load i32, ptr %314, align 8, !noalias !100
+  %316 = lshr i32 %315, 8
+  %317 = call noundef ptr @_ZN4llvm11PointerType3getEPNS_4TypeEj(ptr noundef %.sroa.259.0.copyload, i32 noundef %316) #28, !noalias !100
+  %318 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i16 257, ptr %318, align 8, !noalias !100
+  %319 = call noundef ptr @_ZN4llvm13IRBuilderBase35CreatePointerBitCastOrAddrSpaceCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %171, ptr noundef %206, ptr noundef %317, ptr noundef nonnull align 8 dereferenceable(34) %9), !noalias !100
+  %320 = ptrtoint ptr %319 to i64
+  %321 = and i64 %320, -5
+  store i64 %321, ptr %0, align 8, !alias.scope !107
+  %322 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.259.0.copyload, ptr %322, align 8, !alias.scope !107
+  %323 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.3.0.copyload, ptr %323, align 8, !alias.scope !107
+  %324 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %325 = load i8, ptr %324, align 8, !alias.scope !107
+  %326 = and i8 %325, -64
+  store i8 %326, ptr %324, align 8, !alias.scope !107
+  %327 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %327, i8 0, i64 16, i1 false), !alias.scope !107
   br label %_ZL10castToBaseRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_7AddressEPN4llvm5ValueE.exit
 
-_ZL10castToBaseRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_7AddressEPN4llvm5ValueE.exit: ; preds = %307, %.critedge.thread.i
+_ZL10castToBaseRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_7AddressEPN4llvm5ValueE.exit: ; preds = %301, %.critedge.thread.i
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.8.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 23, ptr nonnull %.sroa.651.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
-  br label %341
+  br label %335
 
-334:                                              ; preds = %5
-  %335 = load ptr, ptr %1, align 8
-  %336 = getelementptr inbounds %"struct.clang::CodeGen::ReductionCodeGen::ReductionData", ptr %335, i64 %29, i32 1
-  %337 = load ptr, ptr %336, align 8
-  %338 = getelementptr inbounds nuw i8, ptr %337, i64 16
-  %339 = load ptr, ptr %338, align 8
-  store ptr %339, ptr %28, align 8
-  %340 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE12emplace_backIJS4_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(8) %28)
+328:                                              ; preds = %5
+  %329 = load ptr, ptr %1, align 8
+  %330 = getelementptr inbounds %"struct.clang::CodeGen::ReductionCodeGen::ReductionData", ptr %329, i64 %29, i32 1
+  %331 = load ptr, ptr %330, align 8
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 16
+  %333 = load ptr, ptr %332, align 8
+  store ptr %333, ptr %28, align 8
+  %334 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15SmallVectorImplIPKN5clang7VarDeclEE12emplace_backIJS4_EEERS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %34, ptr noundef nonnull align 8 dereferenceable(8) %28)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
-  br label %341
+  br label %335
 
-341:                                              ; preds = %334, %_ZL10castToBaseRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_7AddressEPN4llvm5ValueE.exit
+335:                                              ; preds = %328, %_ZL10castToBaseRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeES3_NS0_7AddressEPN4llvm5ValueE.exit
   ret void
 }
 

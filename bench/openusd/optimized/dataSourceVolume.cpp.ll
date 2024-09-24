@@ -1017,47 +1017,44 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__30UsdImagingDataSourceVolumePr
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__26HdVolumeFieldBindingSchema14GetSchemaTokenEv()
   %7 = load ptr, ptr %2, align 8
   %8 = ptrtoint ptr %7 to i64
-  %9 = and i64 %8, -8
-  %10 = inttoptr i64 %9 to ptr
-  %11 = load ptr, ptr %6, align 8
-  %12 = ptrtoint ptr %11 to i64
-  %13 = and i64 %12, -8
-  %14 = inttoptr i64 %13 to ptr
-  %15 = icmp eq ptr %10, %14
-  br i1 %15, label %16, label %26
+  %9 = load ptr, ptr %6, align 8
+  %10 = ptrtoint ptr %9 to i64
+  %11 = xor i64 %10, %8
+  %12 = icmp ult i64 %11, 8
+  br i1 %12, label %13, label %23
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %17)
+13:                                               ; preds = %3
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdSchemaBaseC2ERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(32) %14)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12UsdVolVolumeE, i64 16), ptr %5, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %19 = load ptr, ptr %18, align 8
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__39UsdImagingDataSourceVolumeFieldBindings3NewIJNS_12UsdVolVolumeERKNS_32UsdImagingDataSourceStageGlobalsEEEESt10shared_ptrIS0_EDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.7") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__39UsdImagingDataSourceVolumeFieldBindingsEED2Ev.exit unwind label %24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %16 = load ptr, ptr %15, align 8
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__39UsdImagingDataSourceVolumeFieldBindings3NewIJNS_12UsdVolVolumeERKNS_32UsdImagingDataSourceStageGlobalsEEEESt10shared_ptrIS0_EDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.7") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__39UsdImagingDataSourceVolumeFieldBindingsEED2Ev.exit unwind label %21
 
-_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__39UsdImagingDataSourceVolumeFieldBindingsEED2Ev.exit: ; preds = %16
-  %20 = load ptr, ptr %4, align 8
-  store ptr %20, ptr %0, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %23 = load ptr, ptr %22, align 8
-  store ptr null, ptr %22, align 8
-  store ptr %23, ptr %21, align 8
+_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__39UsdImagingDataSourceVolumeFieldBindingsEED2Ev.exit: ; preds = %13
+  %17 = load ptr, ptr %4, align 8
+  store ptr %17, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %20 = load ptr, ptr %19, align 8
+  store ptr null, ptr %19, align 8
+  store ptr %20, ptr %18, align 8
   store ptr null, ptr %4, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdVolVolumeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  br label %27
+  br label %24
 
-24:                                               ; preds = %16
-  %25 = landingpad { ptr, i32 }
+21:                                               ; preds = %13
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdVolVolumeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #17
-  resume { ptr, i32 } %25
+  resume { ptr, i32 } %22
 
-26:                                               ; preds = %3
+23:                                               ; preds = %3
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingDataSourceGprim3GetERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %27
+  br label %24
 
-27:                                               ; preds = %26, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__39UsdImagingDataSourceVolumeFieldBindingsEED2Ev.exit
+24:                                               ; preds = %23, %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__39UsdImagingDataSourceVolumeFieldBindingsEED2Ev.exit
   ret void
 }
 

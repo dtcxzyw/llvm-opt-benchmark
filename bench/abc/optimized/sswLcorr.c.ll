@@ -704,7 +704,7 @@ Abc_Clock.exit70:                                 ; preds = %Ssw_ObjChild0Fra.ex
   %117 = ptrtoint ptr %.0 to i64
   %118 = and i64 %117, -2
   %119 = inttoptr i64 %118 to ptr
-  %120 = icmp eq ptr %116, %119
+  %120 = icmp eq i64 %115, %118
   br i1 %120, label %181, label %121
 
 121:                                              ; preds = %Abc_Clock.exit70

@@ -1180,46 +1180,45 @@ define hidden void @_ZN9SplitInfo6recordEmmPP12HeapWordImpl(ptr nocapture nounde
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
   %9 = ptrtoint ptr %3 to i64
   %10 = and i64 %9, -524288
-  %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %8 to i64
-  %13 = and i64 %12, -524288
-  %14 = inttoptr i64 %13 to ptr
-  %15 = icmp eq ptr %11, %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  br i1 %15, label %17, label %23
+  %11 = ptrtoint ptr %8 to i64
+  %12 = and i64 %11, -524288
+  %13 = inttoptr i64 %12 to ptr
+  %14 = icmp eq i64 %10, %12
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  br i1 %14, label %16, label %22
 
-17:                                               ; preds = %4
-  store i32 1, ptr %16, align 8
-  %18 = icmp eq ptr %3, %11
-  br i1 %18, label %19, label %31
+16:                                               ; preds = %4
+  store i32 1, ptr %15, align 8
+  %17 = icmp eq ptr %3, %13
+  br i1 %17, label %18, label %30
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %14, ptr %20, align 8
-  %21 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
+18:                                               ; preds = %16
+  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %13, ptr %19, align 8
+  %20 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %.idx.i = shl i64 %1, 19
-  %22 = getelementptr inbounds i8, ptr %21, i64 %.idx.i
+  %21 = getelementptr inbounds i8, ptr %20, i64 %.idx.i
   br label %.sink.split
 
-23:                                               ; preds = %4
-  store i32 2, ptr %16, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %14, ptr %24, align 8
-  %25 = sub i64 %13, %9
-  %26 = lshr i64 %25, 3
-  %27 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
+22:                                               ; preds = %4
+  store i32 2, ptr %15, align 8
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %13, ptr %23, align 8
+  %24 = sub i64 %12, %9
+  %25 = lshr i64 %24, 3
+  %26 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %.idx.i22 = shl i64 %1, 19
-  %28 = getelementptr inbounds i8, ptr %27, i64 %.idx.i22
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %26
+  %27 = getelementptr inbounds i8, ptr %26, i64 %.idx.i22
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %25
   br label %.sink.split
 
-.sink.split:                                      ; preds = %23, %19
-  %.sink = phi ptr [ %22, %19 ], [ %29, %23 ]
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sink, ptr %30, align 8
-  br label %31
+.sink.split:                                      ; preds = %22, %18
+  %.sink = phi ptr [ %21, %18 ], [ %28, %22 ]
+  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %.sink, ptr %29, align 8
+  br label %30
 
-31:                                               ; preds = %.sink.split, %17
+30:                                               ; preds = %.sink.split, %16
   ret void
 }
 
@@ -1495,53 +1494,52 @@ define hidden noundef ptr @_ZN19ParallelCompactData21summarize_split_spaceEmR9Sp
   %47 = getelementptr inbounds i8, ptr %46, i64 -8
   %48 = ptrtoint ptr %.032 to i64
   %49 = and i64 %48, -524288
-  %50 = inttoptr i64 %49 to ptr
-  %51 = ptrtoint ptr %47 to i64
-  %52 = and i64 %51, -524288
-  %53 = inttoptr i64 %52 to ptr
-  %54 = icmp eq ptr %50, %53
-  %55 = getelementptr inbounds i8, ptr %2, i64 24
-  br i1 %54, label %56, label %62
+  %50 = ptrtoint ptr %47 to i64
+  %51 = and i64 %50, -524288
+  %52 = inttoptr i64 %51 to ptr
+  %53 = icmp eq i64 %49, %51
+  %54 = getelementptr inbounds i8, ptr %2, i64 24
+  br i1 %53, label %55, label %61
 
-56:                                               ; preds = %41
-  store i32 1, ptr %55, align 8
-  %57 = icmp eq ptr %.032, %50
-  br i1 %57, label %58, label %_ZN9SplitInfo6recordEmmPP12HeapWordImpl.exit
+55:                                               ; preds = %41
+  store i32 1, ptr %54, align 8
+  %56 = icmp eq ptr %.032, %52
+  br i1 %56, label %57, label %_ZN9SplitInfo6recordEmmPP12HeapWordImpl.exit
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr %53, ptr %59, align 8
-  %60 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %52, ptr %58, align 8
+  %59 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %.idx.i.i = shl i64 %.0, 19
-  %61 = getelementptr inbounds i8, ptr %60, i64 %.idx.i.i
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.idx.i.i
   br label %.sink.split.i
 
-62:                                               ; preds = %41
-  store i32 2, ptr %55, align 8
-  %63 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr %53, ptr %63, align 8
-  %64 = sub i64 %52, %48
-  %65 = lshr i64 %64, 3
-  %66 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
+61:                                               ; preds = %41
+  store i32 2, ptr %54, align 8
+  %62 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %52, ptr %62, align 8
+  %63 = sub i64 %51, %48
+  %64 = lshr i64 %63, 3
+  %65 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %.idx.i22.i = shl i64 %.0, 19
-  %67 = getelementptr inbounds i8, ptr %66, i64 %.idx.i22.i
-  %68 = getelementptr inbounds ptr, ptr %67, i64 %65
+  %66 = getelementptr inbounds i8, ptr %65, i64 %.idx.i22.i
+  %67 = getelementptr inbounds ptr, ptr %66, i64 %64
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %62, %58
-  %.sink.i = phi ptr [ %61, %58 ], [ %68, %62 ]
-  %69 = getelementptr inbounds i8, ptr %2, i64 40
-  store ptr %.sink.i, ptr %69, align 8
+.sink.split.i:                                    ; preds = %61, %57
+  %.sink.i = phi ptr [ %60, %57 ], [ %67, %61 ]
+  %68 = getelementptr inbounds i8, ptr %2, i64 40
+  store ptr %.sink.i, ptr %68, align 8
   br label %_ZN9SplitInfo6recordEmmPP12HeapWordImpl.exit
 
-_ZN9SplitInfo6recordEmmPP12HeapWordImpl.exit:     ; preds = %.sink.split.i, %56, %._crit_edge
-  %70 = getelementptr inbounds ptr, ptr %.032, i64 %.033
-  store ptr %70, ptr %5, align 8
-  %71 = load ptr, ptr %0, align 8
+_ZN9SplitInfo6recordEmmPP12HeapWordImpl.exit:     ; preds = %.sink.split.i, %55, %._crit_edge
+  %69 = getelementptr inbounds ptr, ptr %.032, i64 %.033
+  store ptr %69, ptr %5, align 8
+  %70 = load ptr, ptr %0, align 8
   %.idx.i = shl i64 %.0, 19
-  %72 = getelementptr inbounds i8, ptr %71, i64 %.idx.i
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %.033
-  ret ptr %73
+  %71 = getelementptr inbounds i8, ptr %70, i64 %.idx.i
+  %72 = getelementptr inbounds ptr, ptr %71, i64 %.033
+  ret ptr %72
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
@@ -1665,9 +1663,9 @@ define hidden noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfo
   %21 = getelementptr inbounds i8, ptr %1, i64 32
   br label %22
 
-22:                                               ; preds = %.lr.ph, %139
-  %.05070 = phi i64 [ %13, %.lr.ph ], [ %140, %139 ]
-  %.05169 = phi ptr [ %5, %.lr.ph ], [ %.1, %139 ]
+22:                                               ; preds = %.lr.ph, %138
+  %.05070 = phi i64 [ %13, %.lr.ph ], [ %139, %138 ]
+  %.05169 = phi ptr [ %5, %.lr.ph ], [ %.1, %138 ]
   %23 = load ptr, ptr %19, align 8
   %24 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %23, i64 %.05070
   store ptr %.05169, ptr %24, align 8
@@ -1682,12 +1680,12 @@ define hidden noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfo
   %33 = zext nneg i32 %32 to i64
   %34 = add nuw nsw i64 %33, %29
   %.not = icmp eq i64 %34, 0
-  br i1 %.not, label %139, label %35
+  br i1 %.not, label %138, label %35
 
 35:                                               ; preds = %22
   %36 = getelementptr inbounds ptr, ptr %.05169, i64 %34
   %37 = icmp ugt ptr %36, %6
-  br i1 %37, label %38, label %97
+  br i1 %37, label %38, label %96
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds ptr, ptr %.05169, i64 %29
@@ -1754,134 +1752,133 @@ define hidden noundef zeroext i1 @_ZN19ParallelCompactData9summarizeER9SplitInfo
   %73 = getelementptr inbounds i8, ptr %72, i64 -8
   %74 = ptrtoint ptr %.032.i to i64
   %75 = and i64 %74, -524288
-  %76 = inttoptr i64 %75 to ptr
-  %77 = ptrtoint ptr %73 to i64
-  %78 = and i64 %77, -524288
-  %79 = inttoptr i64 %78 to ptr
-  %80 = icmp eq ptr %76, %79
-  br i1 %80, label %81, label %86
+  %76 = ptrtoint ptr %73 to i64
+  %77 = and i64 %76, -524288
+  %78 = inttoptr i64 %77 to ptr
+  %79 = icmp eq i64 %75, %77
+  br i1 %79, label %80, label %85
 
-81:                                               ; preds = %67
+80:                                               ; preds = %67
   store i32 1, ptr %20, align 8
-  %82 = icmp eq ptr %.032.i, %76
-  br i1 %82, label %83, label %_ZN19ParallelCompactData21summarize_split_spaceEmR9SplitInfoPP12HeapWordImplS4_PS4_.exit
+  %81 = icmp eq ptr %.032.i, %78
+  br i1 %81, label %82, label %_ZN19ParallelCompactData21summarize_split_spaceEmR9SplitInfoPP12HeapWordImplS4_PS4_.exit
 
-83:                                               ; preds = %81
-  store ptr %79, ptr %21, align 8
-  %84 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
+82:                                               ; preds = %80
+  store ptr %78, ptr %21, align 8
+  %83 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %.idx.i.i.i = shl i64 %.0.i, 19
-  %85 = getelementptr inbounds i8, ptr %84, i64 %.idx.i.i.i
+  %84 = getelementptr inbounds i8, ptr %83, i64 %.idx.i.i.i
   br label %.sink.split.i.i
 
-86:                                               ; preds = %67
+85:                                               ; preds = %67
   store i32 2, ptr %20, align 8
-  store ptr %79, ptr %21, align 8
-  %87 = sub i64 %78, %74
-  %88 = lshr i64 %87, 3
-  %89 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
+  store ptr %78, ptr %21, align 8
+  %86 = sub i64 %77, %74
+  %87 = lshr i64 %86, 3
+  %88 = load ptr, ptr @_ZN17PSParallelCompact13_summary_dataE, align 8
   %.idx.i22.i.i = shl i64 %.0.i, 19
-  %90 = getelementptr inbounds i8, ptr %89, i64 %.idx.i22.i.i
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %88
+  %89 = getelementptr inbounds i8, ptr %88, i64 %.idx.i22.i.i
+  %90 = getelementptr inbounds ptr, ptr %89, i64 %87
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %86, %83
-  %.sink.i.i = phi ptr [ %85, %83 ], [ %91, %86 ]
-  %92 = getelementptr inbounds i8, ptr %1, i64 40
-  store ptr %.sink.i.i, ptr %92, align 8
+.sink.split.i.i:                                  ; preds = %85, %82
+  %.sink.i.i = phi ptr [ %84, %82 ], [ %90, %85 ]
+  %91 = getelementptr inbounds i8, ptr %1, i64 40
+  store ptr %.sink.i.i, ptr %91, align 8
   br label %_ZN19ParallelCompactData21summarize_split_spaceEmR9SplitInfoPP12HeapWordImplS4_PS4_.exit
 
-_ZN19ParallelCompactData21summarize_split_spaceEmR9SplitInfoPP12HeapWordImplS4_PS4_.exit: ; preds = %._crit_edge.i, %81, %.sink.split.i.i
-  %93 = getelementptr inbounds ptr, ptr %.032.i, i64 %.033.i
-  store ptr %93, ptr %7, align 8
-  %94 = load ptr, ptr %0, align 8
+_ZN19ParallelCompactData21summarize_split_spaceEmR9SplitInfoPP12HeapWordImplS4_PS4_.exit: ; preds = %._crit_edge.i, %80, %.sink.split.i.i
+  %92 = getelementptr inbounds ptr, ptr %.032.i, i64 %.033.i
+  store ptr %92, ptr %7, align 8
+  %93 = load ptr, ptr %0, align 8
   %.idx.i.i = shl i64 %.0.i, 19
-  %95 = getelementptr inbounds i8, ptr %94, i64 %.idx.i.i
-  %96 = getelementptr inbounds ptr, ptr %95, i64 %.033.i
-  store ptr %96, ptr %4, align 8
-  br label %141
+  %94 = getelementptr inbounds i8, ptr %93, i64 %.idx.i.i
+  %95 = getelementptr inbounds ptr, ptr %94, i64 %.033.i
+  store ptr %95, ptr %4, align 8
+  br label %140
 
-97:                                               ; preds = %35
-  %98 = load i64, ptr %1, align 8
-  %99 = icmp eq i64 %98, %.05070
-  %100 = icmp ne i64 %98, 0
-  %spec.select.i = and i1 %99, %100
-  br i1 %spec.select.i, label %101, label %112
+96:                                               ; preds = %35
+  %97 = load i64, ptr %1, align 8
+  %98 = icmp eq i64 %97, %.05070
+  %99 = icmp ne i64 %97, 0
+  %spec.select.i = and i1 %98, %99
+  br i1 %spec.select.i, label %100, label %111
 
-101:                                              ; preds = %97
-  %102 = load i32, ptr %20, align 8
-  %103 = icmp eq i32 %102, 2
-  br i1 %103, label %104, label %112
+100:                                              ; preds = %96
+  %101 = load i32, ptr %20, align 8
+  %102 = icmp eq i32 %101, 2
+  br i1 %102, label %103, label %111
 
-104:                                              ; preds = %101
-  %105 = load ptr, ptr %21, align 8
-  %106 = load ptr, ptr %0, align 8
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %21, align 8
+  %105 = load ptr, ptr %0, align 8
+  %106 = ptrtoint ptr %104 to i64
   %107 = ptrtoint ptr %105 to i64
-  %108 = ptrtoint ptr %106 to i64
-  %109 = sub i64 %107, %108
-  %110 = lshr i64 %109, 19
-  %111 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %25, i64 %110, i32 1
-  store i64 %.05070, ptr %111, align 8
-  br label %112
+  %108 = sub i64 %106, %107
+  %109 = lshr i64 %108, 19
+  %110 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %25, i64 %109, i32 1
+  store i64 %.05070, ptr %110, align 8
+  br label %111
 
-112:                                              ; preds = %101, %104, %97
-  %.052 = phi i32 [ 2, %104 ], [ %102, %101 ], [ 0, %97 ]
-  %113 = getelementptr inbounds i8, ptr %36, i64 -8
-  %114 = load ptr, ptr %0, align 8
-  %115 = ptrtoint ptr %.05169 to i64
-  %116 = ptrtoint ptr %114 to i64
-  %117 = sub i64 %115, %116
-  %118 = lshr i64 %117, 19
-  %119 = ptrtoint ptr %113 to i64
-  %120 = sub i64 %119, %116
-  %121 = lshr i64 %120, 19
-  %122 = icmp ne i64 %.05070, %121
-  %123 = zext i1 %122 to i32
-  %124 = add i32 %.052, %123
-  %.not61 = icmp eq i64 %118, %121
-  br i1 %.not61, label %127, label %125
+111:                                              ; preds = %100, %103, %96
+  %.052 = phi i32 [ 2, %103 ], [ %101, %100 ], [ 0, %96 ]
+  %112 = getelementptr inbounds i8, ptr %36, i64 -8
+  %113 = load ptr, ptr %0, align 8
+  %114 = ptrtoint ptr %.05169 to i64
+  %115 = ptrtoint ptr %113 to i64
+  %116 = sub i64 %114, %115
+  %117 = lshr i64 %116, 19
+  %118 = ptrtoint ptr %112 to i64
+  %119 = sub i64 %118, %115
+  %120 = lshr i64 %119, 19
+  %121 = icmp ne i64 %.05070, %120
+  %122 = zext i1 %121 to i32
+  %123 = add i32 %.052, %122
+  %.not61 = icmp eq i64 %117, %120
+  br i1 %.not61, label %126, label %124
 
-125:                                              ; preds = %112
-  %126 = add i32 %124, 1
+124:                                              ; preds = %111
+  %125 = add i32 %123, 1
   br label %.sink.split
 
-127:                                              ; preds = %112
-  %128 = and i64 %115, 524287
-  %129 = icmp eq i64 %128, 0
-  br i1 %129, label %.sink.split, label %132
+126:                                              ; preds = %111
+  %127 = and i64 %114, 524287
+  %128 = icmp eq i64 %127, 0
+  br i1 %128, label %.sink.split, label %131
 
-.sink.split:                                      ; preds = %127, %125
-  %.sink89 = phi i64 [ %121, %125 ], [ %118, %127 ]
-  %.153.ph = phi i32 [ %126, %125 ], [ %124, %127 ]
-  %130 = load ptr, ptr %19, align 8
-  %131 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %130, i64 %.sink89, i32 1
-  store i64 %.05070, ptr %131, align 8
-  br label %132
+.sink.split:                                      ; preds = %126, %124
+  %.sink89 = phi i64 [ %120, %124 ], [ %117, %126 ]
+  %.153.ph = phi i32 [ %125, %124 ], [ %123, %126 ]
+  %129 = load ptr, ptr %19, align 8
+  %130 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %129, i64 %.sink89, i32 1
+  store i64 %.05070, ptr %130, align 8
+  br label %131
 
-132:                                              ; preds = %.sink.split, %127
-  %.153 = phi i32 [ %124, %127 ], [ %.153.ph, %.sink.split ]
-  %133 = load ptr, ptr %19, align 8
-  %134 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %133, i64 %.05070, i32 4
-  %135 = load volatile i32, ptr %134, align 4
-  %136 = and i32 %135, 134217727
-  %137 = shl i32 %.153, 27
-  %138 = or disjoint i32 %136, %137
-  store volatile i32 %138, ptr %134, align 4
-  br label %139
+131:                                              ; preds = %.sink.split, %126
+  %.153 = phi i32 [ %123, %126 ], [ %.153.ph, %.sink.split ]
+  %132 = load ptr, ptr %19, align 8
+  %133 = getelementptr inbounds %"class.ParallelCompactData::RegionData", ptr %132, i64 %.05070, i32 4
+  %134 = load volatile i32, ptr %133, align 4
+  %135 = and i32 %134, 134217727
+  %136 = shl i32 %.153, 27
+  %137 = or disjoint i32 %135, %136
+  store volatile i32 %137, ptr %133, align 4
+  br label %138
 
-139:                                              ; preds = %132, %22
-  %.1 = phi ptr [ %36, %132 ], [ %.05169, %22 ]
-  %140 = add nuw nsw i64 %.05070, 1
-  %exitcond.not = icmp eq i64 %140, %18
+138:                                              ; preds = %131, %22
+  %.1 = phi ptr [ %36, %131 ], [ %.05169, %22 ]
+  %139 = add nuw nsw i64 %.05070, 1
+  %exitcond.not = icmp eq i64 %139, %18
   br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %139, %8
-  %.051.lcssa = phi ptr [ %5, %8 ], [ %.1, %139 ]
+._crit_edge:                                      ; preds = %138, %8
+  %.051.lcssa = phi ptr [ %5, %8 ], [ %.1, %138 ]
   store ptr %.051.lcssa, ptr %7, align 8
-  br label %141
+  br label %140
 
-141:                                              ; preds = %._crit_edge, %_ZN19ParallelCompactData21summarize_split_spaceEmR9SplitInfoPP12HeapWordImplS4_PS4_.exit
-  %142 = phi i1 [ true, %._crit_edge ], [ false, %_ZN19ParallelCompactData21summarize_split_spaceEmR9SplitInfoPP12HeapWordImplS4_PS4_.exit ]
-  ret i1 %142
+140:                                              ; preds = %._crit_edge, %_ZN19ParallelCompactData21summarize_split_spaceEmR9SplitInfoPP12HeapWordImplS4_PS4_.exit
+  %141 = phi i1 [ true, %._crit_edge ], [ false, %_ZN19ParallelCompactData21summarize_split_spaceEmR9SplitInfoPP12HeapWordImplS4_PS4_.exit ]
+  ret i1 %141
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8960,17 +8957,17 @@ _ZN20MoveAndUpdateClosure16copy_partial_objEm.exit: ; preds = %236, %249
 259:                                              ; preds = %_ZN20MoveAndUpdateClosure16copy_partial_objEm.exit
   %260 = ptrtoint ptr %255 to i64
   %261 = and i64 %260, -524288
-  %262 = inttoptr i64 %261 to ptr
-  %.not101 = icmp eq ptr %50, %262
-  br i1 %.not101, label %265, label %263
+  %.not101 = icmp eq i64 %49, %261
+  br i1 %.not101, label %265, label %262
 
-263:                                              ; preds = %259
-  tail call void @_ZN17PSParallelCompact28decrement_destination_countsEP20ParCompactionManagerNS_7SpaceIdEmPP12HeapWordImpl(ptr noundef %0, i32 noundef %.05.i, i64 noundef %spec.select, ptr noundef %262)
-  %264 = call noundef i64 @_ZN17PSParallelCompact15next_src_regionER20MoveAndUpdateClosureRNS_7SpaceIdERPP12HeapWordImplS6_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %262)
+262:                                              ; preds = %259
+  %263 = inttoptr i64 %261 to ptr
+  tail call void @_ZN17PSParallelCompact28decrement_destination_countsEP20ParCompactionManagerNS_7SpaceIdEmPP12HeapWordImpl(ptr noundef %0, i32 noundef %.05.i, i64 noundef %spec.select, ptr noundef %263)
+  %264 = call noundef i64 @_ZN17PSParallelCompact15next_src_regionER20MoveAndUpdateClosureRNS_7SpaceIdERPP12HeapWordImplS6_(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %263)
   br label %265
 
-265:                                              ; preds = %259, %263, %_ZN17PSParallelCompact8space_idEPP12HeapWordImpl.exit
-  %.1 = phi i64 [ %264, %263 ], [ %spec.select, %259 ], [ %spec.select, %_ZN17PSParallelCompact8space_idEPP12HeapWordImpl.exit ]
+265:                                              ; preds = %259, %262, %_ZN17PSParallelCompact8space_idEPP12HeapWordImpl.exit
+  %.1 = phi i64 [ %264, %262 ], [ %spec.select, %259 ], [ %spec.select, %_ZN17PSParallelCompact8space_idEPP12HeapWordImpl.exit ]
   %266 = getelementptr inbounds i8, ptr %1, i64 40
   %267 = getelementptr inbounds i8, ptr %1, i64 32
   %268 = getelementptr inbounds i8, ptr %1, i64 16

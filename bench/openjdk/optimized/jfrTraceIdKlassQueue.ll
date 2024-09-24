@@ -838,11 +838,11 @@ _Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNode
   %60 = inttoptr i64 %59 to ptr
   %61 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %60, ptr %56, ptr nonnull %40) #11, !srcloc !10
   %62 = icmp eq ptr %61, %53
-  %spec.select109 = select i1 %62, ptr %56, ptr null
+  %spec.select115 = select i1 %62, ptr %56, ptr null
   br label %_Z16mark_for_removalI9JfrBufferEPT_S2_.exit
 
 _Z16mark_for_removalI9JfrBufferEPT_S2_.exit:      ; preds = %58, %52
-  %63 = phi ptr [ null, %52 ], [ %spec.select109, %58 ]
+  %63 = phi ptr [ null, %52 ], [ %spec.select115, %58 ]
   %.not = icmp eq ptr %63, null
   br i1 %.not, label %.backedge, label %64
 
@@ -883,7 +883,7 @@ _Z16mark_for_removalI9JfrBufferEPT_S2_.exit:      ; preds = %58, %52
 _ZN8IdentityI9JfrBufferEclEPKS0_S3_.exit.i:       ; preds = %72
   %78 = load ptr, ptr %75, align 8
   %79 = trunc nuw i8 %.sroa.2.1 to i1
-  %80 = icmp ne ptr %40, %75
+  %80 = icmp ne i64 %39, %74
   %or.cond.not.i.i = or i1 %80, %79
   %spec.select56 = select i1 %or.cond.not.i.i, i8 %.sroa.2.1, i8 1
   %81 = ptrtoint ptr %78 to i64
@@ -947,15 +947,15 @@ _Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8Identity
   %107 = and i64 %106, -4
   %108 = inttoptr i64 %107 to ptr
   %109 = and i64 %106, 1
-  %.not.i3876 = icmp eq i64 %109, 0
-  %spec.select5877 = select i1 %.not.i3876, ptr %3, ptr %.8
-  %spec.select5978 = select i1 %.not.i3876, ptr %108, ptr %.025.i34
+  %.not.i3878 = icmp eq i64 %109, 0
+  %spec.select5879 = select i1 %.not.i3878, ptr %3, ptr %.8
+  %spec.select5980 = select i1 %.not.i3878, ptr %108, ptr %.025.i34
   %110 = icmp eq ptr %2, %108
   br i1 %110, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %spec.select5980 = phi ptr [ %spec.select59, %.lr.ph ], [ %spec.select5978, %.preheader ]
-  %spec.select5879 = phi ptr [ %spec.select58, %.lr.ph ], [ %spec.select5877, %.preheader ]
+  %spec.select5982 = phi ptr [ %spec.select59, %.lr.ph ], [ %spec.select5980, %.preheader ]
+  %spec.select5881 = phi ptr [ %spec.select58, %.lr.ph ], [ %spec.select5879, %.preheader ]
   %111 = phi ptr [ %115, %.lr.ph ], [ %108, %.preheader ]
   %112 = load ptr, ptr %111, align 8
   %113 = ptrtoint ptr %112 to i64
@@ -963,15 +963,15 @@ _Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8Identity
   %115 = inttoptr i64 %114 to ptr
   %116 = and i64 %113, 1
   %.not.i38 = icmp eq i64 %116, 0
-  %spec.select58 = select i1 %.not.i38, ptr %111, ptr %spec.select5879
-  %spec.select59 = select i1 %.not.i38, ptr %115, ptr %spec.select5980
+  %spec.select58 = select i1 %.not.i38, ptr %111, ptr %spec.select5881
+  %spec.select59 = select i1 %.not.i38, ptr %115, ptr %spec.select5982
   %117 = icmp eq ptr %2, %115
   br i1 %117, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa65 = phi ptr [ %108, %.preheader ], [ %115, %.lr.ph ]
-  %spec.select58.lcssa = phi ptr [ %spec.select5877, %.preheader ], [ %spec.select58, %.lr.ph ]
-  %spec.select59.lcssa = phi ptr [ %spec.select5978, %.preheader ], [ %spec.select59, %.lr.ph ]
+  %spec.select58.lcssa = phi ptr [ %spec.select5879, %.preheader ], [ %spec.select58, %.lr.ph ]
+  %spec.select59.lcssa = phi ptr [ %spec.select5980, %.preheader ], [ %spec.select59, %.lr.ph ]
   %118 = icmp eq ptr %spec.select59.lcssa, %2
   br i1 %118, label %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8LastNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit, label %119
 

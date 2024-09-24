@@ -100,7 +100,7 @@ thread-pre-split.i:                               ; preds = %14
   %35 = sub i64 %32, %.2.i
   %36 = icmp ult i64 %35, 4294967295
   %or.cond.i = and i1 %.not48.i, %36
-  br i1 %or.cond.i, label %find_prefered_mmap_base.exit, label %.outer.i
+  br i1 %or.cond.i, label %find_prefered_mmap_base.exit.thread98, label %.outer.i
 
 37:                                               ; preds = %.loopexit.i
   %38 = sub i64 %.pre-phi, %.037.ph64.i
@@ -109,7 +109,7 @@ thread-pre-split.i:                               ; preds = %14
 
 40:                                               ; preds = %37
   %.not46.i = icmp ugt i64 %.pre-phi, %.pr.i
-  br i1 %.not46.i, label %..outer_crit_edge.i, label %find_prefered_mmap_base.exit
+  br i1 %.not46.i, label %..outer_crit_edge.i, label %find_prefered_mmap_base.exit.thread98
 
 ..outer_crit_edge.i:                              ; preds = %40
   %.pre.i = load i64, ptr %6, align 8
@@ -127,103 +127,112 @@ thread-pre-split.i:                               ; preds = %14
   %.not4258.i = icmp eq ptr %45, null
   br i1 %.not4258.i, label %find_prefered_mmap_base.exit, label %.lr.ph.i
 
-find_prefered_mmap_base.exit:                     ; preds = %34, %37, %40, %.outer.i, %11, %19
-  %.136.i = phi i64 [ %.035.ph65.i, %19 ], [ %.035.ph65.i, %11 ], [ %.035.ph65.i, %37 ], [ %.03459.i, %40 ], [ %.2.i, %34 ], [ %.4.i, %.outer.i ]
+find_prefered_mmap_base.exit.thread98:            ; preds = %34, %40
+  %.136.i.ph = phi i64 [ %.03459.i, %40 ], [ %.2.i, %34 ]
   %46 = call i32 @fclose(ptr noundef nonnull %8)
-  %47 = inttoptr i64 %.136.i to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7)
-  %.not = icmp eq ptr %47, inttoptr (i64 -1 to ptr)
-  br i1 %.not, label %56, label %48
+  br label %48
 
-48:                                               ; preds = %find_prefered_mmap_base.exit
-  %49 = icmp ugt i64 %0, 2097151
-  %50 = and i64 %0, 2097151
-  %51 = icmp eq i64 %50, 0
-  %or.cond = and i1 %49, %51
-  br i1 %or.cond, label %52, label %54
+find_prefered_mmap_base.exit:                     ; preds = %37, %.outer.i, %11, %19
+  %.136.i = phi i64 [ %.035.ph65.i, %19 ], [ %.035.ph65.i, %11 ], [ %.035.ph65.i, %37 ], [ %.4.i, %.outer.i ]
+  %47 = call i32 @fclose(ptr noundef nonnull %8)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7)
+  %.not = icmp eq i64 %.136.i, -1
+  br i1 %.not, label %57, label %48
 
-52:                                               ; preds = %48
-  %53 = call ptr @mmap(ptr noundef %47, i64 noundef %0, i32 noundef 3, i32 noundef 262193, i32 noundef -1, i64 noundef 0) #8
-  %.not69 = icmp eq ptr %53, inttoptr (i64 -1 to ptr)
-  br i1 %.not69, label %54, label %77
+48:                                               ; preds = %find_prefered_mmap_base.exit.thread98, %find_prefered_mmap_base.exit
+  %.in = phi i64 [ %.136.i.ph, %find_prefered_mmap_base.exit.thread98 ], [ %.136.i, %find_prefered_mmap_base.exit ]
+  %49 = inttoptr i64 %.in to ptr
+  %50 = icmp ugt i64 %0, 2097151
+  %51 = and i64 %0, 2097151
+  %52 = icmp eq i64 %51, 0
+  %or.cond = and i1 %50, %52
+  br i1 %or.cond, label %53, label %55
 
-54:                                               ; preds = %52, %48
-  %55 = call ptr @mmap(ptr noundef %47, i64 noundef %0, i32 noundef 3, i32 noundef 49, i32 noundef -1, i64 noundef 0) #8
-  %.not70 = icmp eq ptr %55, inttoptr (i64 -1 to ptr)
-  br i1 %.not70, label %56, label %77
+53:                                               ; preds = %48
+  %54 = call ptr @mmap(ptr noundef %49, i64 noundef %0, i32 noundef 3, i32 noundef 262193, i32 noundef -1, i64 noundef 0) #8
+  %.not69 = icmp eq ptr %54, inttoptr (i64 -1 to ptr)
+  br i1 %.not69, label %55, label %78
+
+55:                                               ; preds = %53, %48
+  %56 = call ptr @mmap(ptr noundef %49, i64 noundef %0, i32 noundef 3, i32 noundef 49, i32 noundef -1, i64 noundef 0) #8
+  %.not70 = icmp eq ptr %56, inttoptr (i64 -1 to ptr)
+  br i1 %.not70, label %57, label %78
 
 .sink.split:                                      ; preds = %4, %find_prefered_mmap_base.exit.thread81
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7)
-  br label %56
+  br label %57
 
-56:                                               ; preds = %.sink.split, %54, %find_prefered_mmap_base.exit
-  %57 = icmp ugt i64 %0, 2097151
-  %58 = and i64 %0, 2097151
-  %59 = icmp eq i64 %58, 0
-  %or.cond78 = and i1 %57, %59
-  br i1 %or.cond78, label %60, label %73
+57:                                               ; preds = %.sink.split, %55, %find_prefered_mmap_base.exit
+  %58 = icmp ugt i64 %0, 2097151
+  %59 = and i64 %0, 2097151
+  %60 = icmp eq i64 %59, 0
+  %or.cond78 = and i1 %58, %60
+  br i1 %or.cond78, label %61, label %74
 
-60:                                               ; preds = %56
-  %61 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
-  %.not71 = icmp eq ptr %61, inttoptr (i64 -1 to ptr)
-  br i1 %.not71, label %71, label %62
+61:                                               ; preds = %57
+  %62 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
+  %.not71 = icmp eq ptr %62, inttoptr (i64 -1 to ptr)
+  br i1 %.not71, label %72, label %63
 
-62:                                               ; preds = %60
-  %63 = call i32 @munmap(ptr noundef %61, i64 noundef %0) #8
-  %64 = ptrtoint ptr %61 to i64
-  %65 = add i64 %64, 2097151
-  %66 = and i64 %65, -2097152
-  %67 = inttoptr i64 %66 to ptr
-  %68 = call ptr @mmap(ptr noundef %67, i64 noundef %0, i32 noundef 3, i32 noundef 262257, i32 noundef -1, i64 noundef 0) #8
-  %.not72 = icmp eq ptr %68, inttoptr (i64 -1 to ptr)
-  br i1 %.not72, label %69, label %77
+63:                                               ; preds = %61
+  %64 = call i32 @munmap(ptr noundef %62, i64 noundef %0) #8
+  %65 = ptrtoint ptr %62 to i64
+  %66 = add i64 %65, 2097151
+  %67 = and i64 %66, -2097152
+  %68 = inttoptr i64 %67 to ptr
+  %69 = call ptr @mmap(ptr noundef %68, i64 noundef %0, i32 noundef 3, i32 noundef 262257, i32 noundef -1, i64 noundef 0) #8
+  %.not72 = icmp eq ptr %69, inttoptr (i64 -1 to ptr)
+  br i1 %.not72, label %70, label %78
 
-69:                                               ; preds = %62
-  %70 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
-  %.not73 = icmp eq ptr %70, inttoptr (i64 -1 to ptr)
-  br i1 %.not73, label %71, label %77
+70:                                               ; preds = %63
+  %71 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 97, i32 noundef -1, i64 noundef 0) #8
+  %.not73 = icmp eq ptr %71, inttoptr (i64 -1 to ptr)
+  br i1 %.not73, label %72, label %78
 
-71:                                               ; preds = %69, %60
-  %72 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 262177, i32 noundef -1, i64 noundef 0) #8
-  %.not74 = icmp eq ptr %72, inttoptr (i64 -1 to ptr)
-  br i1 %.not74, label %73, label %77
+72:                                               ; preds = %70, %61
+  %73 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 262177, i32 noundef -1, i64 noundef 0) #8
+  %.not74 = icmp eq ptr %73, inttoptr (i64 -1 to ptr)
+  br i1 %.not74, label %74, label %78
 
-73:                                               ; preds = %71, %56
-  %74 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #8
-  %75 = icmp eq ptr %74, inttoptr (i64 -1 to ptr)
-  br i1 %75, label %76, label %77
+74:                                               ; preds = %72, %57
+  %75 = call ptr @mmap(ptr noundef null, i64 noundef %0, i32 noundef 3, i32 noundef 33, i32 noundef -1, i64 noundef 0) #8
+  %76 = icmp eq ptr %75, inttoptr (i64 -1 to ptr)
+  br i1 %76, label %77, label %78
 
-76:                                               ; preds = %73
+77:                                               ; preds = %74
   store ptr @.str, ptr %3, align 8
-  br label %84
+  br label %85
 
-77:                                               ; preds = %73, %71, %69, %62, %54, %52
-  %.058 = phi ptr [ %53, %52 ], [ %55, %54 ], [ %68, %62 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ]
+78:                                               ; preds = %74, %72, %70, %63, %55, %53
+  %.058 = phi ptr [ %54, %53 ], [ %56, %55 ], [ %69, %63 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ]
   store i32 1, ptr %2, align 4
-  %78 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #10
-  store ptr %78, ptr %1, align 8
-  %.not75 = icmp eq ptr %78, null
-  br i1 %.not75, label %79, label %81
+  %79 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #10
+  store ptr %79, ptr %1, align 8
+  %.not75 = icmp eq ptr %79, null
+  br i1 %.not75, label %80, label %82
 
-79:                                               ; preds = %77
-  %80 = call i32 @munmap(ptr noundef %.058, i64 noundef %0) #8
+80:                                               ; preds = %78
+  %81 = call i32 @munmap(ptr noundef %.058, i64 noundef %0) #8
   store ptr @.str.1, ptr %3, align 8
-  br label %84
+  br label %85
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %78, i64 8
-  store ptr %82, ptr %78, align 8
-  %83 = getelementptr inbounds i8, ptr %78, i64 32
-  store ptr %.058, ptr %83, align 8
-  store i64 %0, ptr %82, align 8
-  br label %84
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds i8, ptr %79, i64 8
+  store ptr %83, ptr %79, align 8
+  %84 = getelementptr inbounds i8, ptr %79, i64 32
+  store ptr %.058, ptr %84, align 8
+  store i64 %0, ptr %83, align 8
+  br label %85
 
-84:                                               ; preds = %81, %79, %76
-  %.0 = phi i32 [ 1, %81 ], [ 0, %79 ], [ 0, %76 ]
+85:                                               ; preds = %82, %80, %77
+  %.0 = phi i32 [ 1, %82 ], [ 0, %80 ], [ 0, %77 ]
   ret i32 %.0
 }
 

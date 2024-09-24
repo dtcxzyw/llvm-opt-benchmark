@@ -1264,7 +1264,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_pselect6
   br i1 %15, label %26, label %16
 
 16:                                               ; preds = %6
-  %17 = icmp sgt ptr %14, inttoptr (i64 -1 to ptr)
+  %17 = icmp sgt i64 %5, -1
   br i1 %17, label %18, label %61, !prof !18
 
 18:                                               ; preds = %16

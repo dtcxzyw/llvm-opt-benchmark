@@ -13482,7 +13482,7 @@ define internal void @ip6_dst_destroy(ptr noundef %0) #1 align 16 {
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, -4
   %5 = inttoptr i64 %4 to ptr
-  %6 = icmp eq ptr %5, @dst_default_metrics
+  %6 = icmp eq i64 %4, ptrtoint (ptr @dst_default_metrics to i64)
   br i1 %6, label %.thread, label %7
 
 7:                                                ; preds = %1

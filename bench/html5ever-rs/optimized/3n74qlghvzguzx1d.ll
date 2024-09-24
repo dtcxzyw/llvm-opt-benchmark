@@ -97,8 +97,7 @@ define internal void @"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$s
 
 11:                                               ; preds = %6
   %12 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16) acquire, align 8, !noalias !15
-  %.0.i.i.i.i.i.i = inttoptr i64 %12 to ptr
-  %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i.i.i.i = icmp eq i64 %12, 2
   br i1 %.not.i.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17h8551a25c61eb0954E.exit.i.i", label %13
 
 13:                                               ; preds = %11
@@ -135,8 +134,7 @@ define internal void @"_ZN4core3ptr84drop_in_place$LT$string_cache..atom..Atom$L
 
 10:                                               ; preds = %5
   %11 = load atomic i64, ptr getelementptr inbounds (i8, ptr @_ZN12string_cache11dynamic_set11DYNAMIC_SET17h5f96827a99469c6dE, i64 16) acquire, align 8, !noalias !22
-  %.0.i.i.i.i.i = inttoptr i64 %11 to ptr
-  %.not.i.i.i = icmp eq ptr %.0.i.i.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i.i.i = icmp eq i64 %11, 2
   br i1 %.not.i.i.i, label %"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop9drop_slow17hfed6454e6f6a85feE.exit.i", label %12
 
 12:                                               ; preds = %10
@@ -389,8 +387,7 @@ switch.lookup:
 define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17hadb5a17b279cb8c2E"(ptr noundef nonnull returned align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load atomic i64, ptr %3 acquire, align 8
-  %.0.i.i = inttoptr i64 %4 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %4, 2
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
@@ -408,8 +405,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN9once_cell4sy
 define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$3get17hd20c323b65f8ab77E.llvm.9547364939642047668"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load atomic i64, ptr %2 acquire, align 8
-  %.0.i = inttoptr i64 %3 to ptr
-  %4 = icmp eq ptr %.0.i, inttoptr (i64 2 to ptr)
+  %4 = icmp eq i64 %3, 2
   %spec.select = select i1 %4, ptr %0, ptr null
   ret ptr %spec.select
 }

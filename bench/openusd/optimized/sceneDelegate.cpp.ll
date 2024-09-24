@@ -407,14 +407,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_30HdOptionTokens_StaticT
   %15 = phi ptr [ %4, %2 ], [ %14, %12 ], [ %6, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_30HdOptionTokens_StaticTokenTypeEE3NewEv.exit.i.i.i ]
   %16 = load ptr, ptr %1, align 8
   %17 = ptrtoint ptr %16 to i64
-  %18 = and i64 %17, -8
-  %19 = inttoptr i64 %18 to ptr
-  %20 = load ptr, ptr %15, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = and i64 %21, -8
-  %23 = inttoptr i64 %22 to ptr
-  %24 = icmp eq ptr %19, %23
-  ret i1 %24
+  %18 = load ptr, ptr %15, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %20 = xor i64 %19, %17
+  %21 = icmp ult i64 %20, 8
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1260,7 +1260,7 @@ _ZN13ReservedSpace7releaseEv.exit.thread:         ; preds = %_ZN13ReservedSpace7
   %69 = add i64 %68, %22
   %70 = and i64 %69, %65
   %71 = inttoptr i64 %70 to ptr
-  %72 = icmp eq ptr %67, %71
+  %72 = icmp eq i64 %66, %70
   br i1 %72, label %82, label %73
 
 73:                                               ; preds = %61
@@ -1276,7 +1276,7 @@ _ZN13ReservedSpace7releaseEv.exit.thread:         ; preds = %_ZN13ReservedSpace7
 
 82:                                               ; preds = %73, %61
   %83 = phi i64 [ %81, %73 ], [ %66, %61 ]
-  %.not32.i = icmp ult ptr %67, %71
+  %.not32.i = icmp ult i64 %66, %70
   br i1 %.not32.i, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %82
@@ -1334,7 +1334,7 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit: ; preds = %.crit
   %113 = add i64 %112, %111
   %114 = and i64 %113, %103
   %115 = inttoptr i64 %114 to ptr
-  %116 = icmp eq ptr %105, %115
+  %116 = icmp eq i64 %104, %114
   br i1 %116, label %126, label %117
 
 117:                                              ; preds = %99
@@ -1350,7 +1350,7 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit: ; preds = %.crit
 
 126:                                              ; preds = %117, %99
   %127 = phi i64 [ %125, %117 ], [ %104, %99 ]
-  %.not32.i84 = icmp ult ptr %105, %115
+  %.not32.i84 = icmp ult i64 %104, %114
   br i1 %.not32.i84, label %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93, label %.lr.ph.i85
 
 .lr.ph.i85:                                       ; preds = %126

@@ -733,7 +733,7 @@ define ptr @cloudBddAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %7 = ptrtoint ptr %2 to i64
   %8 = and i64 %7, -2
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %6, %9
+  %10 = icmp eq i64 %5, %8
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %3
@@ -1029,7 +1029,7 @@ define ptr @Cloud_bddOr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %25 = inttoptr i64 %24 to ptr
   %26 = xor i64 %7, 1
   %27 = inttoptr i64 %26 to ptr
-  %.not.i = icmp ugt ptr %25, %27
+  %.not.i = icmp ugt i64 %24, %26
   br i1 %.not.i, label %30, label %28
 
 28:                                               ; preds = %23
@@ -1157,7 +1157,7 @@ cloudBddAnd_gate.exit21:                          ; preds = %34, %36
   %60 = inttoptr i64 %59 to ptr
   %61 = xor i64 %43, 1
   %62 = inttoptr i64 %61 to ptr
-  %.not.i.i = icmp ugt ptr %60, %62
+  %.not.i.i = icmp ugt i64 %59, %61
   br i1 %.not.i.i, label %65, label %63
 
 63:                                               ; preds = %58
@@ -1627,7 +1627,7 @@ define ptr @Cloud_GetOneCube(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %40 = xor i64 %39, 1
   %41 = inttoptr i64 %40 to ptr
   %42 = icmp ult ptr %27, inttoptr (i64 2 to ptr)
-  %43 = icmp ult ptr %41, inttoptr (i64 2 to ptr)
+  %43 = icmp ult ptr %38, inttoptr (i64 2 to ptr)
   %or.cond.i = or i1 %42, %43
   br i1 %or.cond.i, label %Cloud_bddAnd.exit, label %44
 
@@ -1814,7 +1814,7 @@ Cloud_bddPrintCube.exit:                          ; preds = %46, %22
   %58 = xor i64 %23, 1
   %59 = inttoptr i64 %58 to ptr
   %60 = icmp ult ptr %.01418, inttoptr (i64 2 to ptr)
-  %61 = icmp ult ptr %59, inttoptr (i64 2 to ptr)
+  %61 = icmp ult ptr %16, inttoptr (i64 2 to ptr)
   %or.cond.i = or i1 %60, %61
   br i1 %or.cond.i, label %Cloud_bddAnd.exit, label %62
 

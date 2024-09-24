@@ -2064,7 +2064,7 @@ Ivy_ObjChild1Equiv.exit.i:                        ; preds = %124, %Ivy_ObjChild0
   %150 = ptrtoint ptr %.val35.i to i64
   %151 = and i64 %150, -2
   %152 = inttoptr i64 %151 to ptr
-  %153 = icmp eq ptr %149, %152
+  %153 = icmp eq i64 %148, %151
   br i1 %153, label %.sink.split, label %154
 
 154:                                              ; preds = %145

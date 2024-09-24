@@ -5242,52 +5242,50 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread31: ; preds = %3, %_ZN
   %56 = load i64, ptr %55, align 8
   %57 = and i64 %.sroa.0.0.copyload.i25, 7
   %58 = or i64 %56, %57
-  %59 = inttoptr i64 %52 to ptr
-  %60 = inttoptr i64 %58 to ptr
-  %61 = icmp eq ptr %59, %60
-  br i1 %61, label %84, label %.critedge
+  %59 = icmp eq i64 %52, %58
+  br i1 %59, label %82, label %.critedge
 
 .critedge:                                        ; preds = %33, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread31
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
-  %63 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %62, i32 %63, i32 noundef 4326, i1 noundef zeroext false) #13
-  %64 = load i32, ptr %1, align 8
-  %65 = lshr i32 %64, 24
-  %66 = zext nneg i32 %65 to i64
-  %67 = getelementptr inbounds i8, ptr %1, i64 %66
-  %68 = load ptr, ptr %67, align 8
-  %69 = call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #13
-  %.not.i.i.i = icmp eq ptr %69, null
-  br i1 %.not.i.i.i, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit, label %70
+  %60 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = tail call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #14
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %60, i32 %61, i32 noundef 4326, i1 noundef zeroext false) #13
+  %62 = load i32, ptr %1, align 8
+  %63 = lshr i32 %62, 24
+  %64 = zext nneg i32 %63 to i64
+  %65 = getelementptr inbounds i8, ptr %1, i64 %64
+  %66 = load ptr, ptr %65, align 8
+  %67 = call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #13
+  %.not.i.i.i = icmp eq ptr %67, null
+  br i1 %.not.i.i.i, label %_ZN5clang8CallExpr15getDirectCalleeEv.exit, label %68
 
-70:                                               ; preds = %.critedge
-  %71 = getelementptr inbounds nuw i8, ptr %69, i64 28
-  %72 = load i32, ptr %71, align 4
-  %73 = and i32 %72, 127
-  %74 = add nsw i32 %73, -31
-  %75 = icmp ult i32 %74, 6
-  %spec.select.i.i.i.i = select i1 %75, ptr %69, ptr null
+68:                                               ; preds = %.critedge
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 28
+  %70 = load i32, ptr %69, align 4
+  %71 = and i32 %70, 127
+  %72 = add nsw i32 %71, -31
+  %73 = icmp ult i32 %72, 6
+  %spec.select.i.i.i.i = select i1 %73, ptr %67, ptr null
   br label %_ZN5clang8CallExpr15getDirectCalleeEv.exit
 
-_ZN5clang8CallExpr15getDirectCalleeEv.exit:       ; preds = %.critedge, %70
-  %.0.i.i.i = phi ptr [ %spec.select.i.i.i.i, %70 ], [ null, %.critedge ]
+_ZN5clang8CallExpr15getDirectCalleeEv.exit:       ; preds = %.critedge, %68
+  %.0.i.i.i = phi ptr [ %spec.select.i.i.i.i, %68 ], [ null, %.critedge ]
   store ptr %.0.i.i.i, ptr %5, align 8
-  %76 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIPNS_12FunctionDeclEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %78 = load ptr, ptr %77, align 8
-  %79 = call i64 @_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %78, i64 %.sroa.0.0.copyload.i21) #13
-  store i64 %79, ptr %6, align 8
-  %80 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %76, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %74 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIPNS_12FunctionDeclEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %76 = load ptr, ptr %75, align 8
+  %77 = call i64 @_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096) %76, i64 %.sroa.0.0.copyload.i21) #13
+  store i64 %77, ptr %6, align 8
+  %78 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %74, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %.sroa.0.0.copyload.i26 = load i64, ptr %27, align 8
   store i64 %.sroa.0.0.copyload.i26, ptr %7, align 8
-  %81 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %80, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %82 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #14
-  store i64 %82, ptr %8, align 8
-  %83 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %81, ptr noundef nonnull align 4 dereferenceable(8) %8)
+  %79 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %78, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %80 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #14
+  store i64 %80, ptr %8, align 8
+  %81 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_(ptr noundef nonnull align 8 dereferenceable(96) %79, ptr noundef nonnull align 4 dereferenceable(8) %8)
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #13
-  br label %84
+  br label %82
 
-84:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread31, %_ZN5clang8CallExpr15getDirectCalleeEv.exit
+82:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread31, %_ZN5clang8CallExpr15getDirectCalleeEv.exit
   %.0 = phi i1 [ true, %_ZN5clang8CallExpr15getDirectCalleeEv.exit ], [ false, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread31 ]
   ret i1 %.0
 }

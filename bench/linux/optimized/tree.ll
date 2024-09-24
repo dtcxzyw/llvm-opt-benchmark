@@ -1614,7 +1614,7 @@ rcu_qs.exit:                                      ; preds = %129, %102, %150, %1
   %310 = call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds (i8, ptr @rcu_data, i64 312)) #28, !srcloc !78
   %311 = inttoptr i64 %310 to ptr
   %312 = icmp eq i64 %310, 0
-  %313 = icmp eq ptr %57, %311
+  %313 = icmp eq i64 %56, %310
   %or.cond = or i1 %312, %313
   br i1 %or.cond, label %324, label %314
 
@@ -2139,7 +2139,7 @@ define dso_local void @call_rcu(ptr noundef %0, ptr noundef %1) #1 align 16 {
 162:                                              ; preds = %157
   %163 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #30, !srcloc !19
   %164 = inttoptr i64 %163 to ptr
-  %165 = icmp eq ptr %164, %160
+  %165 = icmp eq i64 %163, %159
   br i1 %165, label %176, label %166
 
 166:                                              ; preds = %162
@@ -16367,7 +16367,7 @@ define internal fastcc void @rcu_core() unnamed_addr #1 align 16 {
   %482 = call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) getelementptr inbounds (i8, ptr @rcu_data, i64 312)) #28, !srcloc !78
   %483 = inttoptr i64 %482 to ptr
   %484 = icmp eq i64 %482, 0
-  %485 = icmp eq ptr %49, %483
+  %485 = icmp eq i64 %48, %482
   %or.cond = select i1 %484, i1 true, i1 %485
   br i1 %or.cond, label %496, label %486
 

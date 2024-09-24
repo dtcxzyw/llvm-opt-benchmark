@@ -6635,29 +6635,29 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %.val113 = load ptr, ptr %164, align 8
   %165 = ptrtoint ptr %.val113 to i64
   %166 = and i64 %165, -2
-  %167 = inttoptr i64 %166 to ptr
-  %168 = getelementptr i8, ptr %160, i64 8
-  %.val112 = load ptr, ptr %168, align 8
-  %169 = ptrtoint ptr %.val112 to i64
-  %170 = and i64 %169, -2
-  %171 = inttoptr i64 %170 to ptr
-  %172 = getelementptr inbounds i8, ptr %171, i64 40
-  %173 = load ptr, ptr %172, align 8
-  %174 = ptrtoint ptr %173 to i64
-  %175 = and i64 %174, -2
-  %176 = inttoptr i64 %175 to ptr
-  %177 = icmp eq ptr %167, %176
-  br i1 %177, label %Aig_ObjSetRepr_.exit, label %.sink.split.i
+  %167 = getelementptr i8, ptr %160, i64 8
+  %.val112 = load ptr, ptr %167, align 8
+  %168 = ptrtoint ptr %.val112 to i64
+  %169 = and i64 %168, -2
+  %170 = inttoptr i64 %169 to ptr
+  %171 = getelementptr inbounds i8, ptr %170, i64 40
+  %172 = load ptr, ptr %171, align 8
+  %173 = ptrtoint ptr %172 to i64
+  %174 = and i64 %173, -2
+  %175 = icmp eq i64 %166, %174
+  br i1 %175, label %Aig_ObjSetRepr_.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %156
-  %178 = getelementptr inbounds i8, ptr %167, i64 36
+  %176 = inttoptr i64 %174 to ptr
+  %177 = inttoptr i64 %166 to ptr
+  %178 = getelementptr inbounds i8, ptr %177, i64 36
   %179 = load i32, ptr %178, align 4
   %180 = getelementptr inbounds i8, ptr %176, i64 36
   %181 = load i32, ptr %180, align 4
   %182 = icmp slt i32 %179, %181
   %183 = load ptr, ptr %114, align 8
   %..i = tail call i32 @llvm.smax.i32(i32 %179, i32 %181)
-  %.16.i = select i1 %182, ptr %167, ptr %176
+  %.16.i = select i1 %182, ptr %177, ptr %176
   %184 = sext i32 %..i to i64
   %185 = getelementptr inbounds ptr, ptr %183, i64 %184
   store ptr %.16.i, ptr %185, align 8

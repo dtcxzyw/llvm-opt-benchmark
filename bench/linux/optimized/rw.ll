@@ -238,7 +238,7 @@ define dso_local i32 @io_prep_rwv(ptr nocapture noundef %0, ptr noundef %1) loca
   br i1 %72, label %88, label %74
 
 74:                                               ; preds = %66
-  %75 = icmp sgt ptr %73, inttoptr (i64 -1 to ptr)
+  %75 = icmp sgt i64 %52, -1
   br i1 %75, label %76, label %97, !prof !8
 
 76:                                               ; preds = %74

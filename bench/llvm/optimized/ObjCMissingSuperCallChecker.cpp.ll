@@ -19202,113 +19202,111 @@ define internal fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GL
   %6 = tail call i64 @_ZNK5clang15ObjCMessageExpr11getSelectorEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %7, align 8
-  %8 = inttoptr i64 %6 to ptr
-  %9 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
-  %10 = icmp eq ptr %8, %9
-  br i1 %10, label %11, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit
+  %8 = icmp eq i64 %6, %.sroa.0.0.copyload.i.i
+  br i1 %8, label %9, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit
 
-11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %13 = load i32, ptr %12, align 8
-  %14 = and i32 %13, 16711680
-  %15 = icmp eq i32 %14, 196608
-  br i1 %15, label %16, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %11 = load i32, ptr %10, align 8
+  %12 = and i32 %11, 16711680
+  %13 = icmp eq i32 %12, 196608
+  br i1 %13, label %14, label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit
 
-16:                                               ; preds = %11
+14:                                               ; preds = %9
   store i8 1, ptr %0, align 8
   br label %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit
 
-_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit: ; preds = %3, %11, %16
-  %17 = load i8, ptr %0, align 8
-  %18 = trunc i8 %17 to i1
-  br i1 %18, label %.loopexit, label %19
+_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit: ; preds = %3, %9, %14
+  %15 = load i8, ptr %0, align 8
+  %16 = trunc i8 %15 to i1
+  br i1 %16, label %.loopexit, label %17
 
-19:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %21 = load i32, ptr %20, align 8
-  %22 = and i32 %21, 16711680
-  %23 = icmp eq i32 %22, 0
-  br i1 %23, label %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit, label %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread
+17:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %19 = load i32, ptr %18, align 8
+  %20 = and i32 %19, 16711680
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit, label %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread
 
-_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit: ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %1, i64 40
-  %25 = load ptr, ptr %24, align 8
-  %.not = icmp eq ptr %25, null
-  br i1 %.not, label %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread, label %26
+_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit: ; preds = %17
+  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %.not = icmp eq ptr %23, null
+  br i1 %.not, label %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread, label %24
 
-26:                                               ; preds = %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit
-  %.sroa.0.0.copyload.i = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  %28 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
-  %29 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %28, ptr nonnull %27)
-  br i1 %29, label %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread, label %.loopexit
+24:                                               ; preds = %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit
+  %.sroa.0.0.copyload.i = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %23, i64 8
+  %26 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
+  %27 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %26, ptr nonnull %25)
+  br i1 %27, label %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread, label %.loopexit
 
-_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread: ; preds = %19, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit, %26
+_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread: ; preds = %17, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit, %24
   call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1265") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.0.0.copyload = load ptr, ptr %30, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.0.0.copyload = load ptr, ptr %28, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load ptr, ptr %5, align 8
-  %33 = icmp ne ptr %32, %.sroa.0.0.copyload
-  %34 = load i64, ptr %31, align 8
-  %35 = icmp ne i64 %34, %.sroa.2.0.copyload
-  %.not3.i19 = select i1 %33, i1 true, i1 %35
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %30 = load ptr, ptr %5, align 8
+  %31 = icmp ne ptr %30, %.sroa.0.0.copyload
+  %32 = load i64, ptr %29, align 8
+  %33 = icmp ne i64 %32, %.sroa.2.0.copyload
+  %.not3.i19 = select i1 %31, i1 true, i1 %33
   br i1 %.not3.i19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
-  %36 = phi i64 [ %57, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %34, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread ]
-  %37 = phi ptr [ %55, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %32, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread ]
-  %38 = and i64 %36, 3
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, label %40
+  %34 = phi i64 [ %55, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %32, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread ]
+  %35 = phi ptr [ %53, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %30, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread ]
+  %36 = and i64 %34, 3
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, label %38
 
-40:                                               ; preds = %.lr.ph
-  %41 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
+38:                                               ; preds = %.lr.ph
+  %39 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
   br label %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = %.lr.ph, %40
-  %42 = phi ptr [ %41, %40 ], [ %37, %.lr.ph ]
-  %43 = load ptr, ptr %42, align 8
-  %44 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %43, ptr noundef %2)
-  br i1 %44, label %45, label %.loopexit
+_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit: ; preds = %.lr.ph, %38
+  %40 = phi ptr [ %39, %38 ], [ %35, %.lr.ph ]
+  %41 = load ptr, ptr %40, align 8
+  %42 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %41, ptr noundef %2)
+  br i1 %42, label %43, label %.loopexit
 
-45:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
-  %46 = load i64, ptr %31, align 8
-  %47 = and i64 %46, 3
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %52
+43:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit
+  %44 = load i64, ptr %29, align 8
+  %45 = and i64 %44, 3
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %47, label %50
 
-49:                                               ; preds = %45
-  %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 8
-  store ptr %51, ptr %5, align 8
+47:                                               ; preds = %43
+  %48 = load ptr, ptr %5, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  store ptr %49, ptr %5, align 8
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-52:                                               ; preds = %45
-  %.not.i = icmp ult i64 %46, 4
-  br i1 %.not.i, label %54, label %53
+50:                                               ; preds = %43
+  %.not.i = icmp ult i64 %44, 4
+  br i1 %.not.i, label %52, label %51
 
-53:                                               ; preds = %52
+51:                                               ; preds = %50
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #21
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-54:                                               ; preds = %52
+52:                                               ; preds = %50
   call void @_ZN5clang16StmtIteratorBase8NextDeclEb(ptr noundef nonnull align 8 dereferenceable(24) %5, i1 noundef zeroext true) #21
   br label %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit
 
-_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %49, %53, %54
-  %55 = load ptr, ptr %5, align 8
-  %56 = icmp ne ptr %55, %.sroa.0.0.copyload
-  %57 = load i64, ptr %31, align 8
-  %58 = icmp ne i64 %57, %.sroa.2.0.copyload
-  %.not3.i = select i1 %56, i1 true, i1 %58
+_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit: ; preds = %47, %51, %52
+  %53 = load ptr, ptr %5, align 8
+  %54 = icmp ne ptr %53, %.sroa.0.0.copyload
+  %55 = load i64, ptr %29, align 8
+  %56 = icmp ne i64 %55, %.sroa.2.0.copyload
+  %.not3.i = select i1 %54, i1 true, i1 %56
   br i1 %.not3.i, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread, %26, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit
-  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit ], [ false, %26 ], [ true, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread ], [ %44, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %44, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit ]
+.loopexit:                                        ; preds = %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread, %24, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit
+  %.0 = phi i1 [ false, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_120FindSuperCallVisitorEE25WalkUpFromObjCMessageExprEPNS_15ObjCMessageExprE.exit ], [ false, %24 ], [ true, %_ZNK5clang15ObjCMessageExpr24getClassReceiverTypeInfoEv.exit.thread ], [ %42, %_ZN5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEppEv.exit ], [ %42, %_ZNK5clang16StmtIteratorImplINS_12StmtIteratorERPNS_4StmtEEdeEv.exit ]
   ret i1 %.0
 }
 

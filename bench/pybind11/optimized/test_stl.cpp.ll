@@ -43059,11 +43059,11 @@ _ZN8pybind1118reinterpret_borrowINS_8sequenceEEET_NS_6handleE.exit: ; preds = %_
   %27 = load i64, ptr %25, align 8, !noalias !1394
   %28 = add nsw i64 %27, 1
   store i64 %28, ptr %25, align 8, !noalias !1394
-  %29 = icmp eq ptr %25, @_Py_TrueStruct
+  %29 = icmp eq i64 %24, ptrtoint (ptr @_Py_TrueStruct to i64)
   br i1 %29, label %53, label %30
 
 30:                                               ; preds = %26
-  %31 = icmp eq ptr %25, @_Py_FalseStruct
+  %31 = icmp eq i64 %24, ptrtoint (ptr @_Py_FalseStruct to i64)
   br i1 %31, label %53, label %32
 
 32:                                               ; preds = %30
@@ -43079,7 +43079,7 @@ _ZN8pybind1118reinterpret_borrowINS_8sequenceEEET_NS_6handleE.exit: ; preds = %_
   br i1 %39, label %40, label %53
 
 40:                                               ; preds = %33, %32
-  %41 = icmp eq ptr %25, @_Py_NoneStruct
+  %41 = icmp eq i64 %24, ptrtoint (ptr @_Py_NoneStruct to i64)
   br i1 %41, label %53, label %42
 
 42:                                               ; preds = %40

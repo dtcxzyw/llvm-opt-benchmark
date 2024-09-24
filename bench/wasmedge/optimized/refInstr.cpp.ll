@@ -992,13 +992,11 @@ declare noundef ptr @_ZNK8WasmEdge8Executor8Executor16getFuncInstByIdxERNS_7Runt
 define void @_ZNK8WasmEdge8Executor8Executor10runRefEqOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSF_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 16 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = inttoptr i64 %6 to ptr
-  %8 = getelementptr inbounds i8, ptr %3, i64 8
-  %9 = load i64, ptr %8, align 8
-  %10 = inttoptr i64 %9 to ptr
-  %11 = icmp eq ptr %7, %10
-  %12 = zext i1 %11 to i32
-  store i32 %12, ptr %2, align 16
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  %8 = load i64, ptr %7, align 8
+  %9 = icmp eq i64 %6, %8
+  %10 = zext i1 %9 to i32
+  store i32 %10, ptr %2, align 16
   store i64 1, ptr %0, align 4
   ret void
 }

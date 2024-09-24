@@ -323,14 +323,14 @@ define internal i32 @compat_drm_getclient(ptr noundef %0, i32 %1, i64 noundef %2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal range(i32 -14, 1) i32 @compat_drm_getstats(ptr nocapture readnone %0, i32 %1, i64 noundef %2) #0 align 16 {
-  %4 = inttoptr i64 %2 to ptr
-  %5 = icmp sgt ptr %4, inttoptr (i64 -1 to ptr)
-  br i1 %5, label %6, label %13
+  %4 = icmp sgt i64 %2, -1
+  br i1 %4, label %5, label %13
 
-6:                                                ; preds = %3
+5:                                                ; preds = %3
+  %6 = inttoptr i64 %2 to ptr
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 9*32+20)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09.byte 0x0f,0x01,0xcb\0A6651:\0A.popsection\0A", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
   %7 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %8 = tail call { i64, ptr, i64 } asm sideeffect "1:\0A\09# ALT: oldnstr\0A661:\0A\09rep stosb\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 0) << 16) $| ((12*32+11)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call rep_stos_alternative\0A6651:\0A.popsection\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 3 \0A .popsection\0A", "={cx},={di},={rsp},{ax},0,1,{rsp},~{dirflag},~{fpsr},~{flags}"(i32 0, i64 124, ptr %4, i64 %7) #7, !srcloc !11
+  %8 = tail call { i64, ptr, i64 } asm sideeffect "1:\0A\09# ALT: oldnstr\0A661:\0A\09rep stosb\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 0) << 16) $| ((12*32+11)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call rep_stos_alternative\0A6651:\0A.popsection\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 3 \0A .popsection\0A", "={cx},={di},={rsp},{ax},0,1,{rsp},~{dirflag},~{fpsr},~{flags}"(i32 0, i64 124, ptr %6, i64 %7) #7, !srcloc !11
   %9 = extractvalue { i64, ptr, i64 } %8, 0
   %10 = extractvalue { i64, ptr, i64 } %8, 2
   tail call void @llvm.write_register.i64(metadata !0, i64 %10)
@@ -339,8 +339,8 @@ define internal range(i32 -14, 1) i32 @compat_drm_getstats(ptr nocapture readnon
   %12 = select i1 %11, i32 0, i32 -14
   br label %13
 
-13:                                               ; preds = %6, %3
-  %14 = phi i32 [ %12, %6 ], [ -14, %3 ]
+13:                                               ; preds = %5, %3
+  %14 = phi i32 [ %12, %5 ], [ -14, %3 ]
   ret i32 %14
 }
 

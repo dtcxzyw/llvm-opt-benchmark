@@ -4699,7 +4699,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit82.i: ; preds
 
 57:                                               ; preds = %52, %47, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit82.i
   %.351.i = phi ptr [ %.048192.i, %47 ], [ %.048192.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit82.i ], [ %spec.select.i, %52 ]
-  %58 = icmp eq ptr %30, %21
+  %58 = icmp eq i64 %.in.i, %20
   br i1 %58, label %61, label %59
 
 59:                                               ; preds = %57
@@ -4901,8 +4901,7 @@ _ZNK5clang12ProgramPoint5getAsINS_9StmtPointEEESt8optionalIT_Ev.exit.i: ; preds 
   %.sroa.1.0..sroa_idx.i95.i = getelementptr inbounds i8, ptr %.045185.i, i64 24
   %.sroa.1.0.copyload.i96.i = load i64, ptr %.sroa.1.0..sroa_idx.i95.i, align 8, !noalias !85
   %150 = and i64 %.sroa.1.0.copyload.i96.i, -8
-  %151 = inttoptr i64 %150 to ptr
-  %.not71.i = icmp eq ptr %151, %21
+  %.not71.i = icmp eq i64 %150, %20
   %spec.select73.i = select i1 %.not71.i, ptr %.048187.i, ptr null
   br label %_ZL17GetAllocationSiteRN5clang4ento19ProgramStateManagerEPKNS0_12ExplodedNodeEPKNS0_7SymExprE.exit
 
@@ -4911,40 +4910,40 @@ _ZL17GetAllocationSiteRN5clang4ento19ProgramStateManagerEPKNS0_12ExplodedNodeEPK
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  store ptr %.4.i, ptr %152, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  store ptr %.4.i, ptr %151, align 8
   call void @_ZN5clang4ento22PathSensitiveBugReport15markInterestingEPKNS_15LocationContextE(ptr noundef nonnull align 8 dereferenceable(1016) %0, ptr noundef %.042.i) #18
-  %153 = call noundef ptr @_ZNK5clang4ento12ExplodedNode21getStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.045185.i) #18
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  store ptr %153, ptr %154, align 8
-  %.not = icmp eq ptr %153, null
-  br i1 %.not, label %155, label %156
+  %152 = call noundef ptr @_ZNK5clang4ento12ExplodedNode21getStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.045185.i) #18
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  store ptr %152, ptr %153, align 8
+  %.not = icmp eq ptr %152, null
+  br i1 %.not, label %154, label %155
+
+154:                                              ; preds = %_ZL17GetAllocationSiteRN5clang4ento19ProgramStateManagerEPKNS0_12ExplodedNodeEPKNS0_7SymExprE.exit
+  store ptr null, ptr %151, align 8
+  br label %166
 
 155:                                              ; preds = %_ZL17GetAllocationSiteRN5clang4ento19ProgramStateManagerEPKNS0_12ExplodedNodeEPKNS0_7SymExprE.exit
-  store ptr null, ptr %152, align 8
-  br label %167
-
-156:                                              ; preds = %_ZL17GetAllocationSiteRN5clang4ento19ProgramStateManagerEPKNS0_12ExplodedNodeEPKNS0_7SymExprE.exit
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %.045185.i, i64 24
   %.sroa.1.0.copyload.i = load i64, ptr %.sroa.1.0..sroa_idx.i, align 8
-  %157 = and i64 %.sroa.1.0.copyload.i, -8
-  call void @_ZN5clang4ento22PathDiagnosticLocation11createBeginEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %7, ptr noundef nonnull %153, ptr noundef nonnull align 8 dereferenceable(696) %14, i64 %157) #18
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %156 = and i64 %.sroa.1.0.copyload.i, -8
+  call void @_ZN5clang4ento22PathDiagnosticLocation11createBeginEPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %7, ptr noundef nonnull %152, ptr noundef nonnull align 8 dereferenceable(696) %14, i64 %156) #18
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %157, ptr noundef nonnull align 8 dereferenceable(60) %7, i64 60, i1 false)
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 896
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %158, ptr noundef nonnull align 8 dereferenceable(60) %7, i64 60, i1 false)
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %159, ptr noundef nonnull align 8 dereferenceable(60) %7, i64 60, i1 false)
   %.sroa.1.0.copyload.i8 = load i64, ptr %.sroa.1.0..sroa_idx.i, align 8
-  %160 = and i64 %.sroa.1.0.copyload.i8, -8
-  %161 = inttoptr i64 %160 to ptr
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 24
-  %163 = load ptr, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  store ptr %165, ptr %166, align 8
-  br label %167
+  %159 = and i64 %.sroa.1.0.copyload.i8, -8
+  %160 = inttoptr i64 %159 to ptr
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
+  %162 = load ptr, ptr %161, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  store ptr %164, ptr %165, align 8
+  br label %166
 
-167:                                              ; preds = %156, %155
+166:                                              ; preds = %155, %154
   ret void
 }
 

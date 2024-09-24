@@ -1594,38 +1594,38 @@ Aig_ManObj.exit66:                                ; preds = %16
   %69 = and i64 %57, -2
   %70 = inttoptr i64 %69 to ptr
   %71 = and i64 %65, -2
-  %72 = inttoptr i64 %71 to ptr
-  %73 = icmp eq ptr %70, %72
-  br i1 %73, label %74, label %85
+  %72 = icmp eq i64 %69, %71
+  br i1 %72, label %73, label %84
 
-74:                                               ; preds = %Aig_ManObj.exit66
-  %75 = icmp eq i32 %60, %68
-  br i1 %75, label %96, label %76
+73:                                               ; preds = %Aig_ManObj.exit66
+  %74 = icmp eq i32 %60, %68
+  br i1 %74, label %96, label %75
 
-76:                                               ; preds = %74
-  %77 = getelementptr i8, ptr %70, i64 24
-  %.val63 = load i64, ptr %77, align 8
-  %78 = and i64 %.val63, 7
-  %79 = icmp eq i64 %78, 1
-  %80 = icmp ne i32 %56, %59
-  %or.cond = select i1 %79, i1 %80, i1 false
-  br i1 %or.cond, label %96, label %81
+75:                                               ; preds = %73
+  %76 = getelementptr i8, ptr %70, i64 24
+  %.val63 = load i64, ptr %76, align 8
+  %77 = and i64 %.val63, 7
+  %78 = icmp eq i64 %77, 1
+  %79 = icmp ne i32 %56, %59
+  %or.cond = select i1 %78, i1 %79, i1 false
+  br i1 %or.cond, label %96, label %80
 
-81:                                               ; preds = %76
-  %82 = load ptr, ptr %10, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 76
-  store i32 1, ptr %83, align 4
+80:                                               ; preds = %75
+  %81 = load ptr, ptr %10, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 76
+  store i32 1, ptr %82, align 4
   %.val62 = load ptr, ptr %7, align 8
-  %84 = getelementptr inbounds i32, ptr %.val62, i64 %indvars.iv
-  store i32 0, ptr %84, align 4
+  %83 = getelementptr inbounds i32, ptr %.val62, i64 %indvars.iv
+  store i32 0, ptr %83, align 4
   br label %96
 
-85:                                               ; preds = %Aig_ManObj.exit66
-  %86 = tail call i32 @Fra_NodesAreImp(ptr noundef nonnull %0, ptr noundef %70, ptr noundef %72, i32 noundef %60, i32 noundef %68) #19
+84:                                               ; preds = %Aig_ManObj.exit66
+  %85 = inttoptr i64 %71 to ptr
+  %86 = tail call i32 @Fra_NodesAreImp(ptr noundef nonnull %0, ptr noundef %70, ptr noundef %85, i32 noundef %60, i32 noundef %68) #19
   %.not = icmp eq i32 %86, 1
   br i1 %.not, label %96, label %87
 
-87:                                               ; preds = %85
+87:                                               ; preds = %84
   %88 = load ptr, ptr %10, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 76
   store i32 1, ptr %89, align 4
@@ -1647,7 +1647,7 @@ Aig_ManObj.exit66:                                ; preds = %16
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %96
 
-96:                                               ; preds = %85, %95, %92, %76, %74, %12, %81
+96:                                               ; preds = %84, %95, %92, %75, %73, %12, %80
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %5, align 4
   %97 = sext i32 %.val to i64

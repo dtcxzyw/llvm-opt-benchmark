@@ -286,7 +286,7 @@ define hidden void @_ZN12MutableSpaceC2Em(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %0, ptr %1, i64 %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
   %6 = icmp eq i64 %2, 0
-  br i1 %6, label %23, label %7
+  br i1 %6, label %22, label %7
 
 7:                                                ; preds = %5
   %8 = ptrtoint ptr %1 to i64
@@ -298,23 +298,22 @@ define hidden void @_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb(ptr nocaptu
   %14 = getelementptr inbounds ptr, ptr %1, i64 %2
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, %11
-  %17 = inttoptr i64 %16 to ptr
-  %18 = icmp ugt ptr %17, %13
-  br i1 %18, label %19, label %23
+  %17 = icmp ugt i64 %16, %12
+  br i1 %17, label %18, label %22
 
-19:                                               ; preds = %7
-  %20 = sub i64 %16, %12
-  br i1 %4, label %21, label %22
+18:                                               ; preds = %7
+  %19 = sub nuw i64 %16, %12
+  br i1 %4, label %20, label %21
 
-21:                                               ; preds = %19
-  tail call void @_ZN2os11free_memoryEPcmm(ptr noundef %13, i64 noundef %20, i64 noundef %3) #11
+20:                                               ; preds = %18
+  tail call void @_ZN2os11free_memoryEPcmm(ptr noundef %13, i64 noundef %19, i64 noundef %3) #11
+  br label %21
+
+21:                                               ; preds = %20, %18
+  tail call void @_ZN2os16numa_make_globalEPcm(ptr noundef %13, i64 noundef %19) #11
   br label %22
 
-22:                                               ; preds = %21, %19
-  tail call void @_ZN2os16numa_make_globalEPcm(ptr noundef %13, i64 noundef %20) #11
-  br label %23
-
-23:                                               ; preds = %7, %22, %5
+22:                                               ; preds = %7, %21, %5
   ret void
 }
 
@@ -325,7 +324,7 @@ declare void @_ZN2os16numa_make_globalEPcm(ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12MutableSpace10initializeE9MemRegionbbbP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #1 align 2 {
   %8 = alloca %class.MemRegion, align 8
-  br i1 %5, label %9, label %112
+  br i1 %5, label %9, label %110
 
 9:                                                ; preds = %7
   %10 = load i8, ptr @UseNUMA, align 1
@@ -335,7 +334,7 @@ define hidden void @_ZN12MutableSpace10initializeE9MemRegionbbbP13WorkerThreads(
 12:                                               ; preds = %9
   %13 = load i8, ptr @AlwaysPreTouch, align 1
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %112
+  br i1 %14, label %15, label %110
 
 15:                                               ; preds = %12, %9
   %16 = getelementptr inbounds i8, ptr %0, i64 8
@@ -431,95 +430,93 @@ define hidden void @_ZN12MutableSpace10initializeE9MemRegionbbbP13WorkerThreads(
   %72 = getelementptr inbounds ptr, ptr %.sroa.066.0, i64 %.sroa.769.0
   %73 = ptrtoint ptr %72 to i64
   %74 = and i64 %73, %69
-  %75 = inttoptr i64 %74 to ptr
-  %76 = icmp ugt ptr %75, %71
-  br i1 %76, label %77, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit
+  %75 = icmp ugt i64 %74, %70
+  br i1 %75, label %76, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit
 
-77:                                               ; preds = %65
-  %78 = sub i64 %74, %70
-  br i1 %3, label %79, label %80
+76:                                               ; preds = %65
+  %77 = sub nuw i64 %74, %70
+  br i1 %3, label %78, label %79
 
-79:                                               ; preds = %77
-  call void @_ZN2os11free_memoryEPcmm(ptr noundef %71, i64 noundef %78, i64 noundef %61) #11
-  br label %80
+78:                                               ; preds = %76
+  call void @_ZN2os11free_memoryEPcmm(ptr noundef %71, i64 noundef %77, i64 noundef %61) #11
+  br label %79
 
-80:                                               ; preds = %79, %77
-  call void @_ZN2os16numa_make_globalEPcm(ptr noundef %71, i64 noundef %78) #11
+79:                                               ; preds = %78, %76
+  call void @_ZN2os16numa_make_globalEPcm(ptr noundef %71, i64 noundef %77) #11
   br label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit
 
-_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit: ; preds = %63, %65, %80
-  %81 = icmp eq i64 %.sroa.7.0, 0
-  br i1 %81, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38, label %82
+_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit: ; preds = %63, %65, %79
+  %80 = icmp eq i64 %.sroa.7.0, 0
+  br i1 %80, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38, label %81
 
-82:                                               ; preds = %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit
-  %83 = ptrtoint ptr %.sroa.061.0 to i64
-  %84 = add i64 %83, -1
-  %85 = add i64 %84, %61
-  %86 = sub i64 0, %61
-  %87 = and i64 %85, %86
-  %88 = inttoptr i64 %87 to ptr
-  %89 = getelementptr inbounds ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
-  %90 = ptrtoint ptr %89 to i64
-  %91 = and i64 %86, %90
-  %92 = inttoptr i64 %91 to ptr
-  %93 = icmp ugt ptr %92, %88
-  br i1 %93, label %94, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
+81:                                               ; preds = %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit
+  %82 = ptrtoint ptr %.sroa.061.0 to i64
+  %83 = add i64 %82, -1
+  %84 = add i64 %83, %61
+  %85 = sub i64 0, %61
+  %86 = and i64 %84, %85
+  %87 = inttoptr i64 %86 to ptr
+  %88 = getelementptr inbounds ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
+  %89 = ptrtoint ptr %88 to i64
+  %90 = and i64 %85, %89
+  %91 = icmp ugt i64 %90, %86
+  br i1 %91, label %92, label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
 
-94:                                               ; preds = %82
-  %95 = sub i64 %91, %87
-  br i1 %3, label %96, label %97
+92:                                               ; preds = %81
+  %93 = sub nuw i64 %90, %86
+  br i1 %3, label %94, label %95
 
-96:                                               ; preds = %94
-  call void @_ZN2os11free_memoryEPcmm(ptr noundef %88, i64 noundef %95, i64 noundef %61) #11
-  br label %97
+94:                                               ; preds = %92
+  call void @_ZN2os11free_memoryEPcmm(ptr noundef %87, i64 noundef %93, i64 noundef %61) #11
+  br label %95
 
-97:                                               ; preds = %96, %94
-  call void @_ZN2os16numa_make_globalEPcm(ptr noundef %88, i64 noundef %95) #11
+95:                                               ; preds = %94, %92
+  call void @_ZN2os16numa_make_globalEPcm(ptr noundef %87, i64 noundef %93) #11
   br label %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
 
-_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38: ; preds = %97, %82, %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit, %58
-  %98 = load i8, ptr @AlwaysPreTouch, align 1
-  %99 = trunc i8 %98 to i1
-  br i1 %99, label %100, label %106
+_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38: ; preds = %95, %81, %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit, %58
+  %96 = load i8, ptr @AlwaysPreTouch, align 1
+  %97 = trunc i8 %96 to i1
+  br i1 %97, label %98, label %104
 
-100:                                              ; preds = %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
-  %101 = load i8, ptr @UseLargePages, align 1
-  %102 = trunc i8 %101 to i1
-  %103 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
-  %spec.select89 = select i1 %102, i64 %61, i64 %103
-  %104 = getelementptr inbounds ptr, ptr %.sroa.066.0, i64 %.sroa.769.0
-  call void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef nonnull @.str, ptr noundef %.sroa.066.0, ptr noundef %104, i64 noundef %spec.select89, ptr noundef %6) #11
+98:                                               ; preds = %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
+  %99 = load i8, ptr @UseLargePages, align 1
+  %100 = trunc i8 %99 to i1
+  %101 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
+  %spec.select89 = select i1 %100, i64 %61, i64 %101
+  %102 = getelementptr inbounds ptr, ptr %.sroa.066.0, i64 %.sroa.769.0
+  call void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef nonnull @.str, ptr noundef %.sroa.066.0, ptr noundef %102, i64 noundef %spec.select89, ptr noundef %6) #11
+  %103 = getelementptr inbounds ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
+  call void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef nonnull @.str.4, ptr noundef %.sroa.061.0, ptr noundef %103, i64 noundef %spec.select89, ptr noundef %6) #11
+  br label %104
+
+104:                                              ; preds = %98, %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
   %105 = getelementptr inbounds ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
-  call void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef nonnull @.str.4, ptr noundef %.sroa.061.0, ptr noundef %105, i64 noundef %spec.select89, ptr noundef %6) #11
-  br label %106
-
-106:                                              ; preds = %100, %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
-  %107 = getelementptr inbounds ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
-  %108 = ptrtoint ptr %107 to i64
-  %109 = ptrtoint ptr %.sroa.066.0 to i64
-  %110 = sub i64 %108, %109
-  %111 = lshr i64 %110, 3
+  %106 = ptrtoint ptr %105 to i64
+  %107 = ptrtoint ptr %.sroa.066.0 to i64
+  %108 = sub i64 %106, %107
+  %109 = lshr i64 %108, 3
   store ptr %.sroa.066.0, ptr %16, align 8
-  store i64 %111, ptr %.sroa.2.0..sroa_idx.i, align 8
-  br label %112
+  store i64 %109, ptr %.sroa.2.0..sroa_idx.i, align 8
+  br label %110
 
-112:                                              ; preds = %106, %12, %7
-  %113 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %1, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %0, i64 48
-  %115 = getelementptr inbounds ptr, ptr %1, i64 %2
+110:                                              ; preds = %104, %12, %7
+  %111 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %1, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %0, i64 48
+  %113 = getelementptr inbounds ptr, ptr %1, i64 %2
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  store volatile ptr %115, ptr %114, align 8
-  br i1 %3, label %116, label %120
+  store volatile ptr %113, ptr %112, align 8
+  br i1 %3, label %114, label %118
 
-116:                                              ; preds = %112
-  %117 = load ptr, ptr %0, align 8
-  %118 = getelementptr inbounds i8, ptr %117, i64 32
-  %119 = load ptr, ptr %118, align 8
-  call void %119(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %4) #11
-  br label %120
+114:                                              ; preds = %110
+  %115 = load ptr, ptr %0, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 32
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %4) #11
+  br label %118
 
-120:                                              ; preds = %116, %112
+118:                                              ; preds = %114, %110
   ret void
 }
 

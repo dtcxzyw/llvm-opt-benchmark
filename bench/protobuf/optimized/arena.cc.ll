@@ -2364,7 +2364,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
   %6 = load atomic i64, ptr %head_ acquire, align 8
   %atomic-temp.i.0.i14 = inttoptr i64 %6 to ptr
-  %cmp.not = icmp eq ptr %atomic-temp.i.0.i14, %atomic-temp.i.0.i
+  %cmp.not = icmp eq i64 %6, %0
   br i1 %cmp.not, label %if.end.invoke.cont11_crit_edge, label %if.then6
 
 if.end.invoke.cont11_crit_edge:                   ; preds = %if.end

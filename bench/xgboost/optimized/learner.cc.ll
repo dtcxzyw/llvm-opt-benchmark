@@ -32681,19 +32681,19 @@ _ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3popEv.exit: ; preds = %133, %13
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %159) #15
   %164 = load i64, ptr %4, align 8
   %165 = load i64, ptr %5, align 8
-  %166 = inttoptr i64 %164 to ptr
-  %167 = inttoptr i64 %165 to ptr
-  %.not1.i.i.i.i.i = icmp eq ptr %166, %167
+  %166 = inttoptr i64 %165 to ptr
+  %.not1.i.i.i.i.i = icmp eq i64 %164, %165
   br i1 %.not1.i.i.i.i.i, label %.loopexit237, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %163
-  %168 = load i64, ptr %6, align 8
-  %169 = inttoptr i64 %168 to ptr
+  %167 = load i64, ptr %6, align 8
+  %168 = inttoptr i64 %167 to ptr
+  %169 = inttoptr i64 %164 to ptr
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %176, %.lr.ph.i.i.preheader.i.i.i
-  %.sroa.0.0.i.i.i.i = phi ptr [ %173, %176 ], [ %169, %.lr.ph.i.i.preheader.i.i.i ]
-  %170 = phi ptr [ %171, %176 ], [ %166, %.lr.ph.i.i.preheader.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %173, %176 ], [ %168, %.lr.ph.i.i.preheader.i.i.i ]
+  %170 = phi ptr [ %171, %176 ], [ %169, %.lr.ph.i.i.preheader.i.i.i ]
   %171 = getelementptr inbounds i8, ptr %170, i64 -1
   %172 = load i8, ptr %171, align 1
   %173 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 -1
@@ -32702,7 +32702,7 @@ _ZNSt5stackIN7xgboost4JsonESt5dequeIS1_SaIS1_EEE3popEv.exit: ; preds = %133, %13
   br i1 %175, label %176, label %.loopexit236
 
 176:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq ptr %171, %167
+  %.not.i.i.i.i.i = icmp eq ptr %171, %166
   br i1 %.not.i.i.i.i.i, label %.loopexit237, label %.lr.ph.i.i.i.i.i, !llvm.loop !241
 
 .loopexit237:                                     ; preds = %176, %163

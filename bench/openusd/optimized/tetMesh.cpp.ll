@@ -2639,57 +2639,54 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 528
   %24 = load ptr, ptr %3, align 8
   %25 = ptrtoint ptr %24 to i64
-  %26 = and i64 %25, -8
-  %27 = inttoptr i64 %26 to ptr
-  %28 = load ptr, ptr %23, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %30 = and i64 %29, -8
-  %31 = inttoptr i64 %30 to ptr
-  %32 = icmp eq ptr %27, %31
-  %33 = getelementptr inbounds i8, ptr %5, i64 36
+  %26 = load ptr, ptr %23, align 8
+  %27 = ptrtoint ptr %26 to i64
+  %28 = xor i64 %27, %25
+  %29 = icmp ult i64 %28, 8
+  %30 = getelementptr inbounds i8, ptr %5, i64 36
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 44
-  %34 = getelementptr inbounds i8, ptr %5, i64 4
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
-  %36 = getelementptr inbounds i8, ptr %5, i64 12
+  %31 = getelementptr inbounds i8, ptr %5, i64 4
+  %32 = getelementptr inbounds i8, ptr %5, i64 8
+  %33 = getelementptr inbounds i8, ptr %5, i64 12
   %.sroa.6.0..sroa_idx.i31 = getelementptr inbounds i8, ptr %5, i64 20
-  %37 = getelementptr inbounds i8, ptr %5, i64 24
+  %34 = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.6.0..sroa_idx.i40 = getelementptr inbounds i8, ptr %5, i64 32
-  br label %38
+  br label %35
 
-38:                                               ; preds = %80, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
-  %.0 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ], [ %81, %80 ]
-  %39 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
-          to label %40 unwind label %.loopexit.split-lp.loopexit
+35:                                               ; preds = %77, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit
+  %.0 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit ], [ %78, %77 ]
+  %36 = invoke noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2)
+          to label %37 unwind label %.loopexit.split-lp.loopexit
 
-40:                                               ; preds = %38
-  %41 = icmp ult i64 %.0, %39
-  br i1 %41, label %.preheader, label %82
+37:                                               ; preds = %35
+  %38 = icmp ult i64 %.0, %36
+  br i1 %38, label %.preheader, label %79
 
-.preheader:                                       ; preds = %40, %48
-  %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %40 ]
-  %42 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef %.0)
-          to label %43 unwind label %.loopexit
+.preheader:                                       ; preds = %37, %45
+  %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %37 ]
+  %39 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %2, i64 noundef %.0)
+          to label %40 unwind label %.loopexit
 
-43:                                               ; preds = %.preheader
-  %44 = getelementptr inbounds [4 x i32], ptr %42, i64 0, i64 %indvars.iv
-  %45 = load i32, ptr %44, align 4
-  %46 = sext i32 %45 to i64
-  %47 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %46)
-          to label %48 unwind label %.loopexit
+40:                                               ; preds = %.preheader
+  %41 = getelementptr inbounds [4 x i32], ptr %39, i64 0, i64 %indvars.iv
+  %42 = load i32, ptr %41, align 4
+  %43 = sext i32 %42 to i64
+  %44 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %43)
+          to label %45 unwind label %.loopexit
 
-48:                                               ; preds = %43
-  %49 = getelementptr inbounds [4 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f"], ptr %5, i64 0, i64 %indvars.iv
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %49, ptr noundef nonnull align 4 dereferenceable(12) %47, i64 12, i1 false)
+45:                                               ; preds = %40
+  %46 = getelementptr inbounds [4 x %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f"], ptr %5, i64 0, i64 %indvars.iv
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %46, ptr noundef nonnull align 4 dereferenceable(12) %44, i64 12, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %50, label %.preheader, !llvm.loop !19
+  br i1 %exitcond.not, label %47, label %.preheader, !llvm.loop !19
 
-.loopexit:                                        ; preds = %.preheader, %43
+.loopexit:                                        ; preds = %.preheader, %40
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit:                      ; preds = %78, %38
+.loopexit.split-lp.loopexit:                      ; preds = %75, %35
   %lpad.loopexit58 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -2704,59 +2701,59 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #20
   resume { ptr, i32 } %eh.lpad-body
 
-50:                                               ; preds = %48
-  %.sroa.0.0.copyload.i = load <2 x float>, ptr %33, align 4
+47:                                               ; preds = %45
+  %.sroa.0.0.copyload.i = load <2 x float>, ptr %30, align 4
   %.sroa.6.0.copyload.i = load float, ptr %.sroa.6.0..sroa_idx.i, align 4
-  %51 = load float, ptr %5, align 16
+  %48 = load float, ptr %5, align 16
   %.sroa.0.0.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 0
-  %52 = fsub float %.sroa.0.0.vec.extract.i, %51
-  %53 = load float, ptr %34, align 4
+  %49 = fsub float %.sroa.0.0.vec.extract.i, %48
+  %50 = load float, ptr %31, align 4
   %.sroa.0.4.vec.extract.i = extractelement <2 x float> %.sroa.0.0.copyload.i, i64 1
-  %54 = fsub float %.sroa.0.4.vec.extract.i, %53
-  %55 = load float, ptr %35, align 8
-  %56 = fsub float %.sroa.6.0.copyload.i, %55
-  %.sroa.0.0.copyload.i30 = load <2 x float>, ptr %36, align 4
+  %51 = fsub float %.sroa.0.4.vec.extract.i, %50
+  %52 = load float, ptr %32, align 8
+  %53 = fsub float %.sroa.6.0.copyload.i, %52
+  %.sroa.0.0.copyload.i30 = load <2 x float>, ptr %33, align 4
   %.sroa.6.0.copyload.i32 = load float, ptr %.sroa.6.0..sroa_idx.i31, align 4
   %.sroa.0.0.vec.extract.i33 = extractelement <2 x float> %.sroa.0.0.copyload.i30, i64 0
-  %57 = fsub float %.sroa.0.0.vec.extract.i33, %51
+  %54 = fsub float %.sroa.0.0.vec.extract.i33, %48
   %.sroa.0.4.vec.extract.i35 = extractelement <2 x float> %.sroa.0.0.copyload.i30, i64 1
-  %58 = fsub float %.sroa.0.4.vec.extract.i35, %53
-  %59 = fsub float %.sroa.6.0.copyload.i32, %55
-  %.sroa.0.0.copyload.i39 = load <2 x float>, ptr %37, align 8
+  %55 = fsub float %.sroa.0.4.vec.extract.i35, %50
+  %56 = fsub float %.sroa.6.0.copyload.i32, %52
+  %.sroa.0.0.copyload.i39 = load <2 x float>, ptr %34, align 8
   %.sroa.6.0.copyload.i41 = load float, ptr %.sroa.6.0..sroa_idx.i40, align 16
   %.sroa.0.0.vec.extract.i42 = extractelement <2 x float> %.sroa.0.0.copyload.i39, i64 0
-  %60 = fsub float %.sroa.0.0.vec.extract.i42, %51
+  %57 = fsub float %.sroa.0.0.vec.extract.i42, %48
   %.sroa.0.4.vec.extract.i44 = extractelement <2 x float> %.sroa.0.0.copyload.i39, i64 1
-  %61 = fsub float %.sroa.0.4.vec.extract.i44, %53
-  %62 = fsub float %.sroa.6.0.copyload.i41, %55
-  %63 = fneg float %61
-  %64 = fmul float %59, %63
-  %65 = call float @llvm.fmuladd.f32(float %58, float %62, float %64)
-  %66 = fneg float %62
-  %67 = fmul float %57, %66
-  %68 = call float @llvm.fmuladd.f32(float %59, float %60, float %67)
-  %69 = fneg float %60
-  %70 = fmul float %58, %69
-  %71 = call float @llvm.fmuladd.f32(float %57, float %61, float %70)
-  %72 = fmul float %54, %68
-  %73 = call float @llvm.fmuladd.f32(float %52, float %65, float %72)
-  %74 = call noundef float @llvm.fmuladd.f32(float %56, float %71, float %73)
-  %75 = fneg float %74
-  %76 = select i1 %32, float %75, float %74
-  %77 = fcmp olt float %76, 0.000000e+00
-  br i1 %77, label %78, label %80
+  %58 = fsub float %.sroa.0.4.vec.extract.i44, %50
+  %59 = fsub float %.sroa.6.0.copyload.i41, %52
+  %60 = fneg float %58
+  %61 = fmul float %56, %60
+  %62 = call float @llvm.fmuladd.f32(float %55, float %59, float %61)
+  %63 = fneg float %59
+  %64 = fmul float %54, %63
+  %65 = call float @llvm.fmuladd.f32(float %56, float %57, float %64)
+  %66 = fneg float %57
+  %67 = fmul float %55, %66
+  %68 = call float @llvm.fmuladd.f32(float %54, float %58, float %67)
+  %69 = fmul float %51, %65
+  %70 = call float @llvm.fmuladd.f32(float %49, float %62, float %69)
+  %71 = call noundef float @llvm.fmuladd.f32(float %53, float %68, float %70)
+  %72 = fneg float %71
+  %73 = select i1 %29, float %72, float %71
+  %74 = fcmp olt float %73, 0.000000e+00
+  br i1 %74, label %75, label %77
 
-78:                                               ; preds = %50
-  %79 = trunc i64 %.0 to i32
-  store i32 %79, ptr %6, align 4
+75:                                               ; preds = %47
+  %76 = trunc i64 %.0 to i32
+  store i32 %76, ptr %6, align 4
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiE9push_backEOi(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 4 dereferenceable(4) %6)
-          to label %80 unwind label %.loopexit.split-lp.loopexit
+          to label %77 unwind label %.loopexit.split-lp.loopexit
 
-80:                                               ; preds = %50, %78
-  %81 = add i64 %.0, 1
-  br label %38, !llvm.loop !20
+77:                                               ; preds = %47, %75
+  %78 = add i64 %.0, 1
+  br label %35, !llvm.loop !20
 
-82:                                               ; preds = %40
+79:                                               ; preds = %37
   ret void
 }
 

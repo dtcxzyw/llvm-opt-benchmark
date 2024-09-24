@@ -540,25 +540,25 @@ define noundef zeroext i1 @_ZN3g2o11strEndsWithERKNSt7__cxx1112basic_stringIcSt1
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   %10 = load i64, ptr %3, align 8
   %11 = load i64, ptr %4, align 8
-  %12 = inttoptr i64 %10 to ptr
-  %13 = inttoptr i64 %11 to ptr
-  %.not1.i.i.i.i = icmp eq ptr %12, %13
+  %12 = inttoptr i64 %11 to ptr
+  %.not1.i.i.i.i = icmp eq i64 %10, %11
   br i1 %.not1.i.i.i.i, label %_ZSt5equalISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESC_EbT_SD_T0_.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %9
-  %14 = load i64, ptr %5, align 8
-  %15 = inttoptr i64 %14 to ptr
+  %13 = load i64, ptr %5, align 8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = inttoptr i64 %10 to ptr
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %15, %.lr.ph.i.i.preheader.i.i ], [ %19, %.lr.ph.i.i.i.i ]
-  %16 = phi ptr [ %12, %.lr.ph.i.i.preheader.i.i ], [ %17, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %14, %.lr.ph.i.i.preheader.i.i ], [ %19, %.lr.ph.i.i.i.i ]
+  %16 = phi ptr [ %15, %.lr.ph.i.i.preheader.i.i ], [ %17, %.lr.ph.i.i.i.i ]
   %17 = getelementptr inbounds i8, ptr %16, i64 -1
   %18 = load i8, ptr %17, align 1
   %19 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 -1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %18, %20
-  %.not.i.i.i.i = icmp ne ptr %17, %13
+  %.not.i.i.i.i = icmp ne ptr %17, %12
   %or.cond.not = and i1 %.not.i.i.i.i, %21
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESC_EbT_SD_T0_.exit, !llvm.loop !9
 

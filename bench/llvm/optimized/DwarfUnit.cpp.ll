@@ -395,38 +395,36 @@ define dso_local void @_ZN4llvm18DIEDwarfExpression21commitTemporaryBufferEv(ptr
 6:                                                ; preds = %1
   %.0.copyload.i.i.i.i.i = load i64, ptr %5, align 8
   %7 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %8 = inttoptr i64 %7 to ptr
-  br label %9
+  br label %8
 
-9:                                                ; preds = %_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i, %6
-  %.0.i.i = phi ptr [ %8, %6 ], [ %11, %_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i ]
+8:                                                ; preds = %_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i, %6
+  %.0.in.i.i = phi i64 [ %7, %6 ], [ %9, %_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i ]
+  %.0.i.i = inttoptr i64 %.0.in.i.i to ptr
   %.0.copyload.i.i.i12.i.i = load i64, ptr %.0.i.i, align 8
-  %10 = and i64 %.0.copyload.i.i.i12.i.i, -8
-  %11 = inttoptr i64 %10 to ptr
-  %12 = ptrtoint ptr %.0.i.i to i64
-  %13 = or i64 %12, 4
+  %9 = and i64 %.0.copyload.i.i.i12.i.i, -8
+  %10 = or disjoint i64 %.0.in.i.i, 4
+  store i64 %10, ptr %.0.i.i, align 8
+  %11 = load ptr, ptr %3, align 8
+  %.not.i.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i.i, label %_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i, label %12
+
+12:                                               ; preds = %8
+  %13 = load i64, ptr %11, align 8
   store i64 %13, ptr %.0.i.i, align 8
   %14 = load ptr, ptr %3, align 8
-  %.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i, label %15
-
-15:                                               ; preds = %9
-  %16 = load i64, ptr %14, align 8
-  store i64 %16, ptr %.0.i.i, align 8
-  %17 = load ptr, ptr %3, align 8
-  store i64 %12, ptr %17, align 8
+  store i64 %.0.in.i.i, ptr %14, align 8
   br label %_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i
 
-_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i: ; preds = %15, %9
+_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i: ; preds = %12, %8
   store ptr %.0.i.i, ptr %3, align 8
-  %.not.i.i = icmp eq ptr %11, %8
-  br i1 %.not.i.i, label %18, label %9, !llvm.loop !4
+  %.not.i.i = icmp eq i64 %9, %7
+  br i1 %.not.i.i, label %15, label %8, !llvm.loop !4
 
-18:                                               ; preds = %_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i
+15:                                               ; preds = %_ZN4llvm17IntrusiveBackListINS_12DIEValueList4NodeEE9push_backERS2_.exit.i.i
   store ptr null, ptr %4, align 8
   br label %_ZN4llvm12DIEValueList10takeValuesERS0_.exit
 
-_ZN4llvm12DIEValueList10takeValuesERS0_.exit:     ; preds = %1, %18
+_ZN4llvm12DIEValueList10takeValuesERS0_.exit:     ; preds = %1, %15
   ret void
 }
 

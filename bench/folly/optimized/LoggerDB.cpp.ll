@@ -24516,7 +24516,7 @@ if.end:                                           ; preds = %entry
   %end_.i = getelementptr inbounds i8, ptr %atomic-temp.0.i.i, i64 1024
   %2 = load atomic i64, ptr %end_.i acquire, align 8
   %atomic-temp.0.i.i.i = inttoptr i64 %2 to ptr
-  %cmp.not9.i = icmp eq ptr %atomic-temp.0.i.i.i, %atomic-temp.0.i.i
+  %cmp.not9.i = icmp eq i64 %2, %0
   br i1 %cmp.not9.i, label %cleanup, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end

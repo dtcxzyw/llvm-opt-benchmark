@@ -1186,41 +1186,38 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_24Sdf_AttributeChildPoli
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %29 = ptrtoint ptr %.pre to i64
-  %30 = and i64 %29, -8
-  %31 = inttoptr i64 %30 to ptr
   %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.lr.ph, %39
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, -8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %31
-  br i1 %38, label %._crit_edge, label %39
+30:                                               ; preds = %.lr.ph, %36
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
+  %31 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = xor i64 %29, %33
+  %35 = icmp ult i64 %34, 8
+  br i1 %35, label %._crit_edge, label %36
 
-39:                                               ; preds = %32
-  %40 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %40, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !19
+36:                                               ; preds = %30
+  %37 = add nuw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %37, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %39, %32, %.critedge.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %32 ], [ %29, %39 ]
-  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %39 ], [ %.010, %32 ]
-  %41 = and i64 %.pre-phi, 7
-  %.not.i.i7 = icmp eq i64 %41, 0
-  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %42
+._crit_edge:                                      ; preds = %36, %30, %.critedge.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %30 ], [ %29, %36 ]
+  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %36 ], [ %.010, %30 ]
+  %38 = and i64 %.pre-phi, 7
+  %.not.i.i7 = icmp eq i64 %38, 0
+  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %39
 
-42:                                               ; preds = %._crit_edge
-  %43 = and i64 %.pre-phi, -8
-  %44 = inttoptr i64 %43 to ptr
-  %45 = atomicrmw sub ptr %44, i32 2 release, align 4
+39:                                               ; preds = %._crit_edge
+  %40 = and i64 %.pre-phi, -8
+  %41 = inttoptr i64 %40 to ptr
+  %42 = atomicrmw sub ptr %41, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %42, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_24Sdf_AttributeChildPolicyEE7IsValidEv.exit.thread
-  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_24Sdf_AttributeChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %42 ]
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %39, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_24Sdf_AttributeChildPolicyEE7IsValidEv.exit.thread
+  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_24Sdf_AttributeChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %39 ]
   ret i64 %.06
 }
 
@@ -1650,7 +1647,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i
   %16 = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i ]
   %17 = icmp eq ptr %9, %16
-  br i1 %17, label %18, label %34
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1658,25 +1655,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.0.copyload.i.i = load i64, ptr %19, align 8
   %.0.copyload.i2.i = load i64, ptr %20, align 8
   %21 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %23, align 8
   %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, -8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load ptr, ptr %24, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = icmp eq ptr %28, %32
-  br label %34
+  %27 = load ptr, ptr %24, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = xor i64 %28, %26
+  %30 = icmp ult i64 %29, 8
+  br label %31
 
-34:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
-  %35 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %33, %22 ]
-  ret i1 %35
+31:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
+  %32 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %30, %22 ]
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3331,7 +3325,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i
   %16 = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i ]
   %17 = icmp eq ptr %9, %16
-  br i1 %17, label %18, label %34
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3339,25 +3333,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.0.copyload.i.i = load i64, ptr %19, align 8
   %.0.copyload.i2.i = load i64, ptr %20, align 8
   %21 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %23, align 8
   %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, -8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load ptr, ptr %24, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = icmp eq ptr %28, %32
-  br label %34
+  %27 = load ptr, ptr %24, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = xor i64 %28, %26
+  %30 = icmp ult i64 %29, 8
+  br label %31
 
-34:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
-  %35 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %33, %22 ]
-  ret i1 %35
+31:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
+  %32 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %30, %22 ]
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4345,41 +4336,38 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_24Sdf_MapperArgChildPoli
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %29 = ptrtoint ptr %.pre to i64
-  %30 = and i64 %29, -8
-  %31 = inttoptr i64 %30 to ptr
   %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.lr.ph, %39
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, -8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %31
-  br i1 %38, label %._crit_edge, label %39
+30:                                               ; preds = %.lr.ph, %36
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
+  %31 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = xor i64 %29, %33
+  %35 = icmp ult i64 %34, 8
+  br i1 %35, label %._crit_edge, label %36
 
-39:                                               ; preds = %32
-  %40 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %40, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !56
+36:                                               ; preds = %30
+  %37 = add nuw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %37, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !56
 
-._crit_edge:                                      ; preds = %39, %32, %.critedge.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %32 ], [ %29, %39 ]
-  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %39 ], [ %.010, %32 ]
-  %41 = and i64 %.pre-phi, 7
-  %.not.i.i7 = icmp eq i64 %41, 0
-  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %42
+._crit_edge:                                      ; preds = %36, %30, %.critedge.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %30 ], [ %29, %36 ]
+  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %36 ], [ %.010, %30 ]
+  %38 = and i64 %.pre-phi, 7
+  %.not.i.i7 = icmp eq i64 %38, 0
+  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %39
 
-42:                                               ; preds = %._crit_edge
-  %43 = and i64 %.pre-phi, -8
-  %44 = inttoptr i64 %43 to ptr
-  %45 = atomicrmw sub ptr %44, i32 2 release, align 4
+39:                                               ; preds = %._crit_edge
+  %40 = and i64 %.pre-phi, -8
+  %41 = inttoptr i64 %40 to ptr
+  %42 = atomicrmw sub ptr %41, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %42, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_24Sdf_MapperArgChildPolicyEE7IsValidEv.exit.thread
-  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_24Sdf_MapperArgChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %42 ]
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %39, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_24Sdf_MapperArgChildPolicyEE7IsValidEv.exit.thread
+  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_24Sdf_MapperArgChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %39 ]
   ret i64 %.06
 }
 
@@ -4800,7 +4788,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i
   %16 = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i ]
   %17 = icmp eq ptr %9, %16
-  br i1 %17, label %18, label %34
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4808,25 +4796,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.0.copyload.i.i = load i64, ptr %19, align 8
   %.0.copyload.i2.i = load i64, ptr %20, align 8
   %21 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %23, align 8
   %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, -8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load ptr, ptr %24, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = icmp eq ptr %28, %32
-  br label %34
+  %27 = load ptr, ptr %24, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = xor i64 %28, %26
+  %30 = icmp ult i64 %29, 8
+  br label %31
 
-34:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
-  %35 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %33, %22 ]
-  ret i1 %35
+31:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
+  %32 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %30, %22 ]
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5698,41 +5683,38 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_19Sdf_PrimChildPolicyEE7
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %29 = ptrtoint ptr %.pre to i64
-  %30 = and i64 %29, -8
-  %31 = inttoptr i64 %30 to ptr
   %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.lr.ph, %39
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, -8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %31
-  br i1 %38, label %._crit_edge, label %39
+30:                                               ; preds = %.lr.ph, %36
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
+  %31 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = xor i64 %29, %33
+  %35 = icmp ult i64 %34, 8
+  br i1 %35, label %._crit_edge, label %36
 
-39:                                               ; preds = %32
-  %40 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %40, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !67
+36:                                               ; preds = %30
+  %37 = add nuw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %37, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !67
 
-._crit_edge:                                      ; preds = %39, %32, %.critedge.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %32 ], [ %29, %39 ]
-  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %39 ], [ %.010, %32 ]
-  %41 = and i64 %.pre-phi, 7
-  %.not.i.i7 = icmp eq i64 %41, 0
-  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %42
+._crit_edge:                                      ; preds = %36, %30, %.critedge.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %30 ], [ %29, %36 ]
+  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %36 ], [ %.010, %30 ]
+  %38 = and i64 %.pre-phi, 7
+  %.not.i.i7 = icmp eq i64 %38, 0
+  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %39
 
-42:                                               ; preds = %._crit_edge
-  %43 = and i64 %.pre-phi, -8
-  %44 = inttoptr i64 %43 to ptr
-  %45 = atomicrmw sub ptr %44, i32 2 release, align 4
+39:                                               ; preds = %._crit_edge
+  %40 = and i64 %.pre-phi, -8
+  %41 = inttoptr i64 %40 to ptr
+  %42 = atomicrmw sub ptr %41, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %42, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_19Sdf_PrimChildPolicyEE7IsValidEv.exit.thread
-  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_19Sdf_PrimChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %42 ]
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %39, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_19Sdf_PrimChildPolicyEE7IsValidEv.exit.thread
+  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_19Sdf_PrimChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %39 ]
   ret i64 %.06
 }
 
@@ -6153,7 +6135,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i
   %16 = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i ]
   %17 = icmp eq ptr %9, %16
-  br i1 %17, label %18, label %34
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6161,25 +6143,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.0.copyload.i.i = load i64, ptr %19, align 8
   %.0.copyload.i2.i = load i64, ptr %20, align 8
   %21 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %23, align 8
   %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, -8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load ptr, ptr %24, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = icmp eq ptr %28, %32
-  br label %34
+  %27 = load ptr, ptr %24, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = xor i64 %28, %26
+  %30 = icmp ult i64 %29, 8
+  br label %31
 
-34:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
-  %35 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %33, %22 ]
-  ret i1 %35
+31:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
+  %32 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %30, %22 ]
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7062,41 +7041,38 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_23Sdf_PropertyChildPolic
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %29 = ptrtoint ptr %.pre to i64
-  %30 = and i64 %29, -8
-  %31 = inttoptr i64 %30 to ptr
   %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.lr.ph, %39
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, -8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %31
-  br i1 %38, label %._crit_edge, label %39
+30:                                               ; preds = %.lr.ph, %36
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
+  %31 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = xor i64 %29, %33
+  %35 = icmp ult i64 %34, 8
+  br i1 %35, label %._crit_edge, label %36
 
-39:                                               ; preds = %32
-  %40 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %40, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !81
+36:                                               ; preds = %30
+  %37 = add nuw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %37, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !81
 
-._crit_edge:                                      ; preds = %39, %32, %.critedge.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %32 ], [ %29, %39 ]
-  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %39 ], [ %.010, %32 ]
-  %41 = and i64 %.pre-phi, 7
-  %.not.i.i7 = icmp eq i64 %41, 0
-  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %42
+._crit_edge:                                      ; preds = %36, %30, %.critedge.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %30 ], [ %29, %36 ]
+  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %36 ], [ %.010, %30 ]
+  %38 = and i64 %.pre-phi, 7
+  %.not.i.i7 = icmp eq i64 %38, 0
+  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %39
 
-42:                                               ; preds = %._crit_edge
-  %43 = and i64 %.pre-phi, -8
-  %44 = inttoptr i64 %43 to ptr
-  %45 = atomicrmw sub ptr %44, i32 2 release, align 4
+39:                                               ; preds = %._crit_edge
+  %40 = and i64 %.pre-phi, -8
+  %41 = inttoptr i64 %40 to ptr
+  %42 = atomicrmw sub ptr %41, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %42, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_23Sdf_PropertyChildPolicyEE7IsValidEv.exit.thread
-  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_23Sdf_PropertyChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %42 ]
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %39, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_23Sdf_PropertyChildPolicyEE7IsValidEv.exit.thread
+  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_23Sdf_PropertyChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %39 ]
   ret i64 %.06
 }
 
@@ -7517,7 +7493,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i
   %16 = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i ]
   %17 = icmp eq ptr %9, %16
-  br i1 %17, label %18, label %34
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7525,25 +7501,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.0.copyload.i.i = load i64, ptr %19, align 8
   %.0.copyload.i2.i = load i64, ptr %20, align 8
   %21 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %23, align 8
   %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, -8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load ptr, ptr %24, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = icmp eq ptr %28, %32
-  br label %34
+  %27 = load ptr, ptr %24, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = xor i64 %28, %26
+  %30 = icmp ult i64 %29, 8
+  br label %31
 
-34:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
-  %35 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %33, %22 ]
-  ret i1 %35
+31:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
+  %32 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %30, %22 ]
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8415,41 +8388,38 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_27Sdf_RelationshipChildP
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %29 = ptrtoint ptr %.pre to i64
-  %30 = and i64 %29, -8
-  %31 = inttoptr i64 %30 to ptr
   %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.lr.ph, %39
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, -8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %31
-  br i1 %38, label %._crit_edge, label %39
+30:                                               ; preds = %.lr.ph, %36
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
+  %31 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = xor i64 %29, %33
+  %35 = icmp ult i64 %34, 8
+  br i1 %35, label %._crit_edge, label %36
 
-39:                                               ; preds = %32
-  %40 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %40, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !92
+36:                                               ; preds = %30
+  %37 = add nuw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %37, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !92
 
-._crit_edge:                                      ; preds = %39, %32, %.critedge.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %32 ], [ %29, %39 ]
-  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %39 ], [ %.010, %32 ]
-  %41 = and i64 %.pre-phi, 7
-  %.not.i.i7 = icmp eq i64 %41, 0
-  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %42
+._crit_edge:                                      ; preds = %36, %30, %.critedge.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %30 ], [ %29, %36 ]
+  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %36 ], [ %.010, %30 ]
+  %38 = and i64 %.pre-phi, 7
+  %.not.i.i7 = icmp eq i64 %38, 0
+  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %39
 
-42:                                               ; preds = %._crit_edge
-  %43 = and i64 %.pre-phi, -8
-  %44 = inttoptr i64 %43 to ptr
-  %45 = atomicrmw sub ptr %44, i32 2 release, align 4
+39:                                               ; preds = %._crit_edge
+  %40 = and i64 %.pre-phi, -8
+  %41 = inttoptr i64 %40 to ptr
+  %42 = atomicrmw sub ptr %41, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %42, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_27Sdf_RelationshipChildPolicyEE7IsValidEv.exit.thread
-  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_27Sdf_RelationshipChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %42 ]
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %39, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_27Sdf_RelationshipChildPolicyEE7IsValidEv.exit.thread
+  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_27Sdf_RelationshipChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %39 ]
   ret i64 %.06
 }
 
@@ -8870,7 +8840,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i
   %16 = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i ]
   %17 = icmp eq ptr %9, %16
-  br i1 %17, label %18, label %34
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8878,25 +8848,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.0.copyload.i.i = load i64, ptr %19, align 8
   %.0.copyload.i2.i = load i64, ptr %20, align 8
   %21 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %23, align 8
   %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, -8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load ptr, ptr %24, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = icmp eq ptr %28, %32
-  br label %34
+  %27 = load ptr, ptr %24, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = xor i64 %28, %26
+  %30 = icmp ult i64 %29, 8
+  br label %31
 
-34:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
-  %35 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %33, %22 ]
-  ret i1 %35
+31:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
+  %32 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %30, %22 ]
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9908,41 +9875,38 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_22Sdf_VariantChildPolicy
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %29 = ptrtoint ptr %.pre to i64
-  %30 = and i64 %29, -8
-  %31 = inttoptr i64 %30 to ptr
   %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.lr.ph, %39
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, -8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %31
-  br i1 %38, label %._crit_edge, label %39
+30:                                               ; preds = %.lr.ph, %36
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
+  %31 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = xor i64 %29, %33
+  %35 = icmp ult i64 %34, 8
+  br i1 %35, label %._crit_edge, label %36
 
-39:                                               ; preds = %32
-  %40 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %40, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !103
+36:                                               ; preds = %30
+  %37 = add nuw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %37, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !103
 
-._crit_edge:                                      ; preds = %39, %32, %.critedge.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %32 ], [ %29, %39 ]
-  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %39 ], [ %.010, %32 ]
-  %41 = and i64 %.pre-phi, 7
-  %.not.i.i7 = icmp eq i64 %41, 0
-  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %42
+._crit_edge:                                      ; preds = %36, %30, %.critedge.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %30 ], [ %29, %36 ]
+  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %36 ], [ %.010, %30 ]
+  %38 = and i64 %.pre-phi, 7
+  %.not.i.i7 = icmp eq i64 %38, 0
+  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %39
 
-42:                                               ; preds = %._crit_edge
-  %43 = and i64 %.pre-phi, -8
-  %44 = inttoptr i64 %43 to ptr
-  %45 = atomicrmw sub ptr %44, i32 2 release, align 4
+39:                                               ; preds = %._crit_edge
+  %40 = and i64 %.pre-phi, -8
+  %41 = inttoptr i64 %40 to ptr
+  %42 = atomicrmw sub ptr %41, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %42, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_22Sdf_VariantChildPolicyEE7IsValidEv.exit.thread
-  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_22Sdf_VariantChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %42 ]
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %39, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_22Sdf_VariantChildPolicyEE7IsValidEv.exit.thread
+  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_22Sdf_VariantChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %39 ]
   ret i64 %.06
 }
 
@@ -10466,7 +10430,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i
   %16 = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i ]
   %17 = icmp eq ptr %9, %16
-  br i1 %17, label %18, label %34
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10474,25 +10438,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.0.copyload.i.i = load i64, ptr %19, align 8
   %.0.copyload.i2.i = load i64, ptr %20, align 8
   %21 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %23, align 8
   %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, -8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load ptr, ptr %24, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = icmp eq ptr %28, %32
-  br label %34
+  %27 = load ptr, ptr %24, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = xor i64 %28, %26
+  %30 = icmp ult i64 %29, 8
+  br label %31
 
-34:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
-  %35 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %33, %22 ]
-  ret i1 %35
+31:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
+  %32 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %30, %22 ]
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11429,41 +11390,38 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_25Sdf_VariantSetChildPol
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 3
   %29 = ptrtoint ptr %.pre to i64
-  %30 = and i64 %29, -8
-  %31 = inttoptr i64 %30 to ptr
   %umax = call i64 @llvm.umax.i64(i64 %28, i64 1)
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.lr.ph, %39
-  %.010 = phi i64 [ 0, %.lr.ph ], [ %40, %39 ]
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, -8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = icmp eq ptr %37, %31
-  br i1 %38, label %._crit_edge, label %39
+30:                                               ; preds = %.lr.ph, %36
+  %.010 = phi i64 [ 0, %.lr.ph ], [ %37, %36 ]
+  %31 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %24, i64 %.010
+  %32 = load ptr, ptr %31, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = xor i64 %29, %33
+  %35 = icmp ult i64 %34, 8
+  br i1 %35, label %._crit_edge, label %36
 
-39:                                               ; preds = %32
-  %40 = add nuw i64 %.010, 1
-  %exitcond.not = icmp eq i64 %40, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %32, !llvm.loop !114
+36:                                               ; preds = %30
+  %37 = add nuw i64 %.010, 1
+  %exitcond.not = icmp eq i64 %37, %umax
+  br i1 %exitcond.not, label %._crit_edge, label %30, !llvm.loop !114
 
-._crit_edge:                                      ; preds = %39, %32, %.critedge.._crit_edge_crit_edge
-  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %32 ], [ %29, %39 ]
-  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %39 ], [ %.010, %32 ]
-  %41 = and i64 %.pre-phi, 7
-  %.not.i.i7 = icmp eq i64 %41, 0
-  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %42
+._crit_edge:                                      ; preds = %36, %30, %.critedge.._crit_edge_crit_edge
+  %.pre-phi = phi i64 [ %.pre13, %.critedge.._crit_edge_crit_edge ], [ %29, %30 ], [ %29, %36 ]
+  %.0.lcssa = phi i64 [ 0, %.critedge.._crit_edge_crit_edge ], [ %umax, %36 ], [ %.010, %30 ]
+  %38 = and i64 %.pre-phi, 7
+  %.not.i.i7 = icmp eq i64 %38, 0
+  br i1 %.not.i.i7, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit, label %39
 
-42:                                               ; preds = %._crit_edge
-  %43 = and i64 %.pre-phi, -8
-  %44 = inttoptr i64 %43 to ptr
-  %45 = atomicrmw sub ptr %44, i32 2 release, align 4
+39:                                               ; preds = %._crit_edge
+  %40 = and i64 %.pre-phi, -8
+  %41 = inttoptr i64 %40 to ptr
+  %42 = atomicrmw sub ptr %41, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %42, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_25Sdf_VariantSetChildPolicyEE7IsValidEv.exit.thread
-  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_25Sdf_VariantSetChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %42 ]
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %39, %._crit_edge, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_25Sdf_VariantSetChildPolicyEE7IsValidEv.exit.thread
+  %.06 = phi i64 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_ChildrenINS_25Sdf_VariantSetChildPolicyEE7IsValidEv.exit.thread ], [ %.0.lcssa, %._crit_edge ], [ %.0.lcssa, %39 ]
   ret i64 %.06
 }
 
@@ -11884,7 +11842,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i
 _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i
   %16 = phi ptr [ %15, %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEEptEv.exit.i.i.i3.i ], [ null, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEE19GetUniqueIdentifierEv.exit.i ]
   %17 = icmp eq ptr %9, %16
-  br i1 %17, label %18, label %34
+  br i1 %17, label %18, label %31
 
 18:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11892,25 +11850,22 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
   %.0.copyload.i.i = load i64, ptr %19, align 8
   %.0.copyload.i2.i = load i64, ptr %20, align 8
   %21 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %31
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load ptr, ptr %23, align 8
   %26 = ptrtoint ptr %25 to i64
-  %27 = and i64 %26, -8
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load ptr, ptr %24, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %31 = and i64 %30, -8
-  %32 = inttoptr i64 %31 to ptr
-  %33 = icmp eq ptr %28, %32
-  br label %34
+  %27 = load ptr, ptr %24, align 8
+  %28 = ptrtoint ptr %27 to i64
+  %29 = xor i64 %28, %26
+  %30 = icmp ult i64 %29, 8
+  br label %31
 
-34:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
-  %35 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %33, %22 ]
-  ret i1 %35
+31:                                               ; preds = %22, %18, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit
+  %32 = phi i1 [ false, %18 ], [ false, %_ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLayerEEeqIS2_EEbRKNS1_IT_EE.exit ], [ %30, %22 ]
+  ret i1 %32
 }
 
 ; Function Attrs: mustprogress uwtable

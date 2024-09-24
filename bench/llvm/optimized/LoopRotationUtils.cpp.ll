@@ -6848,270 +6848,251 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implINS_20l
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   %.sroa.01.0.copyload.i.i46 = load i64, ptr %0, align 8
   %.sroa.0.0.copyload.i.i47 = load i64, ptr %1, align 8
-  %5 = inttoptr i64 %.sroa.01.0.copyload.i.i46 to ptr
-  %6 = inttoptr i64 %.sroa.0.0.copyload.i.i47 to ptr
-  %.not48 = icmp eq ptr %5, %6
-  br i1 %.not48, label %.critedge, label %.lr.ph
+  %.not48 = icmp eq i64 %.sroa.01.0.copyload.i.i46, %.sroa.0.0.copyload.i.i47
+  br i1 %.not48, label %.critedge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %14
-  %.sroa.0.0.copyload.i93 = phi i64 [ %.sroa.0.0.copyload.i.i, %14 ], [ %.sroa.0.0.copyload.i.i47, %2 ]
-  %.0.copyload.i.i.i.i.i.i.i.i8 = phi i64 [ %storemerge.i, %14 ], [ %.sroa.01.0.copyload.i.i46, %2 ]
-  %.037.idx49 = phi i64 [ %.037.add, %14 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %12
+  %.sroa.0.0.copyload.i93 = phi i64 [ %.sroa.0.0.copyload.i.i, %12 ], [ %.sroa.0.0.copyload.i.i47, %2 ]
+  %.0.copyload.i.i.i.i.i.i.i.i8 = phi i64 [ %storemerge.i, %12 ], [ %.sroa.01.0.copyload.i.i46, %2 ]
+  %.037.idx49 = phi i64 [ %.037.add, %12 ], [ 0, %2 ]
   %.037.ptr50 = getelementptr inbounds i8, ptr %3, i64 %.037.idx49
-  %7 = and i64 %.0.copyload.i.i.i.i.i.i.i.i8, 4
-  %8 = icmp eq i64 %7, 0
-  %9 = and i64 %.0.copyload.i.i.i.i.i.i.i.i8, -8
-  %10 = inttoptr i64 %9 to ptr
-  br i1 %8, label %_ZN4llvm20location_op_iteratordeEv.exit, label %11
+  %5 = and i64 %.0.copyload.i.i.i.i.i.i.i.i8, 4
+  %6 = icmp eq i64 %5, 0
+  %7 = and i64 %.0.copyload.i.i.i.i.i.i.i.i8, -8
+  %8 = inttoptr i64 %7 to ptr
+  br i1 %6, label %_ZN4llvm20location_op_iteratordeEv.exit, label %9
 
-11:                                               ; preds = %.lr.ph
-  %12 = load ptr, ptr %10, align 8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %8, align 8
   br label %_ZN4llvm20location_op_iteratordeEv.exit
 
-_ZN4llvm20location_op_iteratordeEv.exit:          ; preds = %.lr.ph, %11
-  %13 = phi ptr [ %12, %11 ], [ %10, %.lr.ph ]
+_ZN4llvm20location_op_iteratordeEv.exit:          ; preds = %.lr.ph, %9
+  %11 = phi ptr [ %10, %9 ], [ %8, %.lr.ph ]
   %.not42 = icmp ugt i64 %.037.idx49, 56
-  br i1 %.not42, label %_ZN4llvm20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge, label %14
+  br i1 %.not42, label %.critedge, label %12
 
-_ZN4llvm20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge: ; preds = %_ZN4llvm20location_op_iteratordeEv.exit
-  %.pre99 = inttoptr i64 %.0.copyload.i.i.i.i.i.i.i.i8 to ptr
-  %.pre = inttoptr i64 %.sroa.0.0.copyload.i93 to ptr
-  br label %.critedge
-
-14:                                               ; preds = %_ZN4llvm20location_op_iteratordeEv.exit
+12:                                               ; preds = %_ZN4llvm20location_op_iteratordeEv.exit
   %.037.add = add nuw nsw i64 %.037.idx49, 8
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 128
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %.037.ptr50, align 8
-  %17 = and i64 %.0.copyload.i.i.i.i.i.i.i.i8, -4
-  %18 = add nuw i64 %17, 8
-  %19 = add nuw i64 %9, 136
-  %storemerge.i = select i1 %8, i64 %19, i64 %18
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %.037.ptr50, align 8
+  %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i8, -4
+  %16 = add nuw i64 %15, 8
+  %17 = add nuw i64 %7, 136
+  %storemerge.i = select i1 %6, i64 %17, i64 %16
   store i64 %storemerge.i, ptr %0, align 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %1, align 8
-  %20 = inttoptr i64 %storemerge.i to ptr
-  %21 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
-  %.not = icmp eq ptr %20, %21
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !165
+  %.not = icmp eq i64 %storemerge.i, %.sroa.0.0.copyload.i.i
+  br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !165
 
-.critedge:                                        ; preds = %14, %_ZN4llvm20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge, %2
-  %.pre-phi98 = phi ptr [ %6, %2 ], [ %.pre, %_ZN4llvm20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge ], [ %21, %14 ]
-  %.pre-phi = phi ptr [ %5, %2 ], [ %.pre99, %_ZN4llvm20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge ], [ %20, %14 ]
-  %.sroa.0.0.copyload.i.i1065 = phi i64 [ %.sroa.0.0.copyload.i.i47, %2 ], [ %.sroa.0.0.copyload.i93, %_ZN4llvm20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge ], [ %.sroa.0.0.copyload.i.i, %14 ]
-  %.sroa.01.0.copyload.i.i964 = phi i64 [ %.sroa.01.0.copyload.i.i46, %2 ], [ %.0.copyload.i.i.i.i.i.i.i.i8, %_ZN4llvm20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge ], [ %storemerge.i, %14 ]
-  %.037.idx.lcssa = phi i64 [ 0, %2 ], [ 64, %_ZN4llvm20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge ], [ %.037.add, %14 ]
-  %22 = icmp eq ptr %.pre-phi, %.pre-phi98
-  br i1 %22, label %23, label %.preheader.preheader
+.critedge:                                        ; preds = %_ZN4llvm20location_op_iteratordeEv.exit
+  %18 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i8, %.sroa.0.0.copyload.i93
+  br i1 %18, label %.critedge.thread, label %.preheader.preheader
 
-23:                                               ; preds = %.critedge
-  %24 = call noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef nonnull %3, i64 noundef %.037.idx.lcssa, i64 noundef -49064778989728563)
-  br label %147
+.critedge.thread:                                 ; preds = %12, %2, %.critedge
+  %.037.idx.lcssa100 = phi i64 [ 64, %.critedge ], [ 0, %2 ], [ %.037.add, %12 ]
+  %19 = call noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef nonnull %3, i64 noundef %.037.idx.lcssa100, i64 noundef -49064778989728563)
+  br label %136
 
 .preheader.preheader:                             ; preds = %.critedge
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 48
-  %27 = getelementptr inbounds i8, ptr %3, i64 40
-  %28 = getelementptr inbounds i8, ptr %3, i64 24
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
-  %30 = getelementptr inbounds i8, ptr %3, i64 32
-  %31 = getelementptr inbounds i8, ptr %3, i64 56
-  %.0.copyload.i9.i.i = load i64, ptr %27, align 8, !noalias !166
-  %.0.copyload.i7.i.i = load i64, ptr %26, align 16, !noalias !166
-  %32 = add i64 %.0.copyload.i9.i.i, %.0.copyload.i7.i.i
-  %.0.copyload.i.i12.i.i = load i64, ptr %30, align 16, !noalias !166
-  %33 = add i64 %.0.copyload.i.i12.i.i, 5473611571550975290
-  %34 = add i64 %32, %33
-  %.0.copyload.i15.i13.i.i = load i64, ptr %31, align 8, !noalias !166
-  %35 = add i64 %34, %.0.copyload.i15.i13.i.i
-  %.0.i18.i17.i.i = tail call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 20)
-  %36 = add i64 %.0.i18.i17.i.i, %33
-  %37 = add i64 %.0.copyload.i9.i.i, -8296710342493395487
-  %38 = add i64 %.0.copyload.i7.i.i, -4705135293385828636
-  %.0.i8.i.i = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 22)
-  %39 = mul i64 %.0.i8.i.i, -5435081209227447693
-  %40 = add i64 %37, %39
-  %.0.copyload.i17.i.i.i = load i64, ptr %29, align 16, !noalias !166
-  %41 = add i64 %40, %.0.copyload.i17.i.i.i
-  %42 = add i64 %41, %33
-  %43 = add i64 %42, %.0.copyload.i15.i13.i.i
-  %.0.i.i14.i.i = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 43)
-  %44 = add i64 %36, %.0.i.i14.i.i
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 48
+  %22 = getelementptr inbounds i8, ptr %3, i64 40
+  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %26 = getelementptr inbounds i8, ptr %3, i64 56
+  %.0.copyload.i9.i.i = load i64, ptr %22, align 8, !noalias !166
+  %.0.copyload.i7.i.i = load i64, ptr %21, align 16, !noalias !166
+  %27 = add i64 %.0.copyload.i9.i.i, %.0.copyload.i7.i.i
+  %.0.copyload.i.i12.i.i = load i64, ptr %25, align 16, !noalias !166
+  %28 = add i64 %.0.copyload.i.i12.i.i, 5473611571550975290
+  %29 = add i64 %27, %28
+  %.0.copyload.i15.i13.i.i = load i64, ptr %26, align 8, !noalias !166
+  %30 = add i64 %29, %.0.copyload.i15.i13.i.i
+  %.0.i18.i17.i.i = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 20)
+  %31 = add i64 %.0.i18.i17.i.i, %28
+  %32 = add i64 %.0.copyload.i9.i.i, -8296710342493395487
+  %33 = add i64 %.0.copyload.i7.i.i, -4705135293385828636
+  %.0.i8.i.i = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 22)
+  %34 = mul i64 %.0.i8.i.i, -5435081209227447693
+  %35 = add i64 %32, %34
+  %.0.copyload.i17.i.i.i = load i64, ptr %24, align 16, !noalias !166
+  %36 = add i64 %35, %.0.copyload.i17.i.i.i
+  %37 = add i64 %36, %28
+  %38 = add i64 %37, %.0.copyload.i15.i13.i.i
+  %.0.i.i14.i.i = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 43)
+  %39 = add i64 %31, %.0.i.i14.i.i
   %.0.copyload.i.i.i.i = load i64, ptr %3, align 16, !noalias !166
-  %45 = add i64 %.0.copyload.i.i.i.i, 2994313307402683989
-  %.0.copyload.i.i.i = load i64, ptr %25, align 8, !noalias !166
-  %46 = add i64 %45, %.0.copyload.i.i.i
-  %47 = add i64 %46, %.0.copyload.i17.i.i.i
-  %.0.copyload.i15.i.i.i = load i64, ptr %28, align 8, !noalias !166
-  %48 = add i64 %47, %.0.copyload.i15.i.i.i
-  %.0.i18.i.i.i = tail call i64 @llvm.fshl.i64(i64 %47, i64 %47, i64 20)
-  %49 = add i64 %.0.i18.i.i.i, %45
-  %50 = add i64 %.0.copyload.i.i.i, -8345775121483124050
-  %.0.i.i.i = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 27)
-  %51 = mul i64 %.0.i.i.i, -5435081209227447693
-  %52 = xor i64 %51, -599882191873993834
-  %53 = add i64 %52, -49064778989800850
-  %54 = add i64 %53, %45
-  %55 = add i64 %54, %.0.copyload.i15.i.i.i
-  %.0.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 43)
-  %56 = add i64 %49, %.0.i.i.i.i
+  %40 = add i64 %.0.copyload.i.i.i.i, 2994313307402683989
+  %.0.copyload.i.i.i = load i64, ptr %20, align 8, !noalias !166
+  %41 = add i64 %40, %.0.copyload.i.i.i
+  %42 = add i64 %41, %.0.copyload.i17.i.i.i
+  %.0.copyload.i15.i.i.i = load i64, ptr %23, align 8, !noalias !166
+  %43 = add i64 %42, %.0.copyload.i15.i.i.i
+  %.0.i18.i.i.i = tail call i64 @llvm.fshl.i64(i64 %42, i64 %42, i64 20)
+  %44 = add i64 %.0.i18.i.i.i, %40
+  %45 = add i64 %.0.copyload.i.i.i, -8345775121483124050
+  %.0.i.i.i = tail call i64 @llvm.fshl.i64(i64 %45, i64 %45, i64 27)
+  %46 = mul i64 %.0.i.i.i, -5435081209227447693
+  %47 = xor i64 %46, -599882191873993834
+  %48 = add i64 %47, -49064778989800850
+  %49 = add i64 %48, %40
+  %50 = add i64 %49, %.0.copyload.i15.i.i.i
+  %.0.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 43)
+  %51 = add i64 %44, %.0.i.i.i.i
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.critedge2
-  %.sroa.0.0.copyload.i.i1254 = phi i64 [ %.sroa.0.0.copyload.i.i10, %.critedge2 ], [ %.sroa.0.0.copyload.i.i1065, %.preheader.preheader ]
-  %.sroa.01.0.copyload.i.i1153 = phi i64 [ %.sroa.01.0.copyload.i.i9, %.critedge2 ], [ %.sroa.01.0.copyload.i.i964, %.preheader.preheader ]
-  %.074 = phi i64 [ %107, %.critedge2 ], [ 64, %.preheader.preheader ]
-  %.sroa.0.073 = phi i64 [ %86, %.critedge2 ], [ 6073493763424969124, %.preheader.preheader ]
-  %.sroa.6.072 = phi i64 [ %84, %.critedge2 ], [ %40, %.preheader.preheader ]
-  %.sroa.11.071 = phi i64 [ %82, %.critedge2 ], [ %52, %.preheader.preheader ]
-  %.sroa.16.070 = phi i64 [ %96, %.critedge2 ], [ %48, %.preheader.preheader ]
-  %.sroa.22.069 = phi i64 [ %95, %.critedge2 ], [ %56, %.preheader.preheader ]
-  %.sroa.28.068 = phi i64 [ %106, %.critedge2 ], [ %35, %.preheader.preheader ]
-  %.sroa.34.067 = phi i64 [ %105, %.critedge2 ], [ %44, %.preheader.preheader ]
-  %57 = inttoptr i64 %.sroa.01.0.copyload.i.i1153 to ptr
-  %58 = inttoptr i64 %.sroa.0.0.copyload.i.i1254 to ptr
-  %.not4455 = icmp eq ptr %57, %58
+  %.sroa.0.0.copyload.i.i1254 = phi i64 [ %.sroa.0.0.copyload.i.i10, %.critedge2 ], [ %.sroa.0.0.copyload.i93, %.preheader.preheader ]
+  %.sroa.01.0.copyload.i.i1153 = phi i64 [ %.sroa.01.0.copyload.i.i9, %.critedge2 ], [ %.0.copyload.i.i.i.i.i.i.i.i8, %.preheader.preheader ]
+  %.074 = phi i64 [ %98, %.critedge2 ], [ 64, %.preheader.preheader ]
+  %.sroa.0.073 = phi i64 [ %77, %.critedge2 ], [ 6073493763424969124, %.preheader.preheader ]
+  %.sroa.6.072 = phi i64 [ %75, %.critedge2 ], [ %35, %.preheader.preheader ]
+  %.sroa.11.071 = phi i64 [ %73, %.critedge2 ], [ %47, %.preheader.preheader ]
+  %.sroa.16.070 = phi i64 [ %87, %.critedge2 ], [ %43, %.preheader.preheader ]
+  %.sroa.22.069 = phi i64 [ %86, %.critedge2 ], [ %51, %.preheader.preheader ]
+  %.sroa.28.068 = phi i64 [ %97, %.critedge2 ], [ %30, %.preheader.preheader ]
+  %.sroa.34.067 = phi i64 [ %96, %.critedge2 ], [ %39, %.preheader.preheader ]
+  %.not4455 = icmp eq i64 %.sroa.01.0.copyload.i.i1153, %.sroa.0.0.copyload.i.i1254
   br i1 %.not4455, label %.critedge2, label %.lr.ph59
 
-.lr.ph59:                                         ; preds = %.preheader, %66
-  %.0.copyload.i.i.i.i.i.i.i.i16 = phi i64 [ %storemerge.i17, %66 ], [ %.sroa.01.0.copyload.i.i1153, %.preheader ]
-  %.2.idx56 = phi i64 [ %.2.add, %66 ], [ 0, %.preheader ]
+.lr.ph59:                                         ; preds = %.preheader, %59
+  %.0.copyload.i.i.i.i.i.i.i.i16 = phi i64 [ %storemerge.i17, %59 ], [ %.sroa.01.0.copyload.i.i1153, %.preheader ]
+  %.2.idx56 = phi i64 [ %.2.add, %59 ], [ 0, %.preheader ]
   %.2.ptr57 = getelementptr inbounds i8, ptr %3, i64 %.2.idx56
-  %59 = and i64 %.0.copyload.i.i.i.i.i.i.i.i16, 4
-  %60 = icmp eq i64 %59, 0
-  %61 = and i64 %.0.copyload.i.i.i.i.i.i.i.i16, -8
-  %62 = inttoptr i64 %61 to ptr
-  br i1 %60, label %_ZN4llvm20location_op_iteratordeEv.exit14, label %63
+  %52 = and i64 %.0.copyload.i.i.i.i.i.i.i.i16, 4
+  %53 = icmp eq i64 %52, 0
+  %54 = and i64 %.0.copyload.i.i.i.i.i.i.i.i16, -8
+  %55 = inttoptr i64 %54 to ptr
+  br i1 %53, label %_ZN4llvm20location_op_iteratordeEv.exit14, label %56
 
-63:                                               ; preds = %.lr.ph59
-  %64 = load ptr, ptr %62, align 8
+56:                                               ; preds = %.lr.ph59
+  %57 = load ptr, ptr %55, align 8
   br label %_ZN4llvm20location_op_iteratordeEv.exit14
 
-_ZN4llvm20location_op_iteratordeEv.exit14:        ; preds = %.lr.ph59, %63
-  %65 = phi ptr [ %64, %63 ], [ %62, %.lr.ph59 ]
+_ZN4llvm20location_op_iteratordeEv.exit14:        ; preds = %.lr.ph59, %56
+  %58 = phi ptr [ %57, %56 ], [ %55, %.lr.ph59 ]
   %.not45 = icmp ugt i64 %.2.idx56, 56
-  br i1 %.not45, label %.critedge2, label %66
+  br i1 %.not45, label %.critedge2, label %59
 
-66:                                               ; preds = %_ZN4llvm20location_op_iteratordeEv.exit14
+59:                                               ; preds = %_ZN4llvm20location_op_iteratordeEv.exit14
   %.2.add = add nuw nsw i64 %.2.idx56, 8
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 128
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %.2.ptr57, align 8
-  %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i16, -4
-  %70 = add nuw i64 %69, 8
-  %71 = add nuw i64 %61, 136
-  %storemerge.i17 = select i1 %60, i64 %71, i64 %70
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 128
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %.2.ptr57, align 8
+  %62 = and i64 %.0.copyload.i.i.i.i.i.i.i.i16, -4
+  %63 = add nuw i64 %62, 8
+  %64 = add nuw i64 %54, 136
+  %storemerge.i17 = select i1 %53, i64 %64, i64 %63
   store i64 %storemerge.i17, ptr %0, align 8
   %.sroa.0.0.copyload.i.i12 = load i64, ptr %1, align 8
-  %72 = inttoptr i64 %storemerge.i17 to ptr
-  %73 = inttoptr i64 %.sroa.0.0.copyload.i.i12 to ptr
-  %.not44 = icmp eq ptr %72, %73
-  br i1 %.not44, label %.critedge2.loopexit.split.loop.exit110, label %.lr.ph59, !llvm.loop !169
+  %.not44 = icmp eq i64 %storemerge.i17, %.sroa.0.0.copyload.i.i12
+  br i1 %.not44, label %.critedge2.loopexit.split.loop.exit109, label %.lr.ph59, !llvm.loop !169
 
-.critedge2.loopexit.split.loop.exit110:           ; preds = %66
+.critedge2.loopexit.split.loop.exit109:           ; preds = %59
   %.2.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.2.add
   br label %.critedge2
 
-.critedge2:                                       ; preds = %_ZN4llvm20location_op_iteratordeEv.exit14, %.critedge2.loopexit.split.loop.exit110, %.preheader
-  %.2.idx.lcssa = phi i64 [ 0, %.preheader ], [ %.2.add, %.critedge2.loopexit.split.loop.exit110 ], [ 64, %_ZN4llvm20location_op_iteratordeEv.exit14 ]
-  %.2.ptr.lcssa = phi ptr [ %3, %.preheader ], [ %.2.ptr.le, %.critedge2.loopexit.split.loop.exit110 ], [ %.2.ptr57, %_ZN4llvm20location_op_iteratordeEv.exit14 ]
-  %74 = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %3, ptr noundef nonnull %.2.ptr.lcssa, ptr noundef nonnull %4)
-  %.0.copyload.i.i = load i64, ptr %25, align 8
-  %75 = add i64 %.sroa.6.072, %.sroa.16.070
-  %76 = add i64 %75, %.sroa.0.073
-  %77 = add i64 %76, %.0.copyload.i.i
-  %.0.i.i = call i64 @llvm.fshl.i64(i64 %77, i64 %77, i64 27)
-  %78 = mul i64 %.0.i.i, -5435081209227447693
-  %79 = add i64 %.sroa.6.072, %.sroa.22.069
-  %.0.copyload.i7.i = load i64, ptr %26, align 16
-  %80 = add i64 %79, %.0.copyload.i7.i
-  %.0.i8.i = call i64 @llvm.fshl.i64(i64 %80, i64 %80, i64 22)
-  %81 = mul i64 %.0.i8.i, -5435081209227447693
-  %82 = xor i64 %78, %.sroa.34.067
-  %.0.copyload.i9.i = load i64, ptr %27, align 8
-  %83 = add i64 %.0.copyload.i9.i, %.sroa.16.070
-  %84 = add i64 %83, %81
-  %85 = add i64 %.sroa.11.071, %.sroa.28.068
-  %.0.i10.i = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 31)
-  %86 = mul i64 %.0.i10.i, -5435081209227447693
-  %87 = mul i64 %.sroa.22.069, -5435081209227447693
-  %88 = add i64 %82, %.sroa.28.068
+.critedge2:                                       ; preds = %_ZN4llvm20location_op_iteratordeEv.exit14, %.critedge2.loopexit.split.loop.exit109, %.preheader
+  %.2.idx.lcssa = phi i64 [ 0, %.preheader ], [ %.2.add, %.critedge2.loopexit.split.loop.exit109 ], [ 64, %_ZN4llvm20location_op_iteratordeEv.exit14 ]
+  %.2.ptr.lcssa = phi ptr [ %3, %.preheader ], [ %.2.ptr.le, %.critedge2.loopexit.split.loop.exit109 ], [ %.2.ptr57, %_ZN4llvm20location_op_iteratordeEv.exit14 ]
+  %65 = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %3, ptr noundef nonnull %.2.ptr.lcssa, ptr noundef nonnull %4)
+  %.0.copyload.i.i = load i64, ptr %20, align 8
+  %66 = add i64 %.sroa.6.072, %.sroa.16.070
+  %67 = add i64 %66, %.sroa.0.073
+  %68 = add i64 %67, %.0.copyload.i.i
+  %.0.i.i = call i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 27)
+  %69 = mul i64 %.0.i.i, -5435081209227447693
+  %70 = add i64 %.sroa.6.072, %.sroa.22.069
+  %.0.copyload.i7.i = load i64, ptr %21, align 16
+  %71 = add i64 %70, %.0.copyload.i7.i
+  %.0.i8.i = call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 22)
+  %72 = mul i64 %.0.i8.i, -5435081209227447693
+  %73 = xor i64 %69, %.sroa.34.067
+  %.0.copyload.i9.i = load i64, ptr %22, align 8
+  %74 = add i64 %.0.copyload.i9.i, %.sroa.16.070
+  %75 = add i64 %74, %72
+  %76 = add i64 %.sroa.11.071, %.sroa.28.068
+  %.0.i10.i = call i64 @llvm.fshl.i64(i64 %76, i64 %76, i64 31)
+  %77 = mul i64 %.0.i10.i, -5435081209227447693
+  %78 = mul i64 %.sroa.22.069, -5435081209227447693
+  %79 = add i64 %73, %.sroa.28.068
   %.0.copyload.i.i.i18 = load i64, ptr %3, align 16
-  %89 = add i64 %.0.copyload.i.i.i18, %87
-  %.0.copyload.i15.i.i = load i64, ptr %28, align 8
-  %90 = add i64 %88, %89
-  %91 = add i64 %90, %.0.copyload.i15.i.i
-  %.0.i.i.i19 = call i64 @llvm.fshl.i64(i64 %91, i64 %91, i64 43)
-  %.0.copyload.i17.i.i = load i64, ptr %29, align 16
-  %92 = add i64 %89, %.0.copyload.i.i
-  %93 = add i64 %92, %.0.copyload.i17.i.i
-  %.0.i18.i.i = call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 20)
-  %94 = add i64 %.0.i18.i.i, %89
-  %95 = add i64 %94, %.0.i.i.i19
-  %96 = add i64 %93, %.0.copyload.i15.i.i
-  %97 = add i64 %86, %.sroa.34.067
-  %98 = add i64 %84, %.0.copyload.i17.i.i
-  %.0.copyload.i.i12.i = load i64, ptr %30, align 16
-  %99 = add i64 %97, %.0.copyload.i.i12.i
-  %.0.copyload.i15.i13.i = load i64, ptr %31, align 8
-  %100 = add i64 %98, %99
-  %101 = add i64 %100, %.0.copyload.i15.i13.i
-  %.0.i.i14.i = call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 43)
-  %102 = add i64 %.0.copyload.i9.i, %.0.copyload.i7.i
-  %103 = add i64 %102, %99
-  %.0.i18.i17.i = call i64 @llvm.fshl.i64(i64 %103, i64 %103, i64 20)
-  %104 = add i64 %.0.i.i14.i, %99
-  %105 = add i64 %104, %.0.i18.i17.i
-  %106 = add i64 %103, %.0.copyload.i15.i13.i
-  %107 = add i64 %.2.idx.lcssa, %.074
+  %80 = add i64 %.0.copyload.i.i.i18, %78
+  %.0.copyload.i15.i.i = load i64, ptr %23, align 8
+  %81 = add i64 %79, %80
+  %82 = add i64 %81, %.0.copyload.i15.i.i
+  %.0.i.i.i19 = call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 43)
+  %.0.copyload.i17.i.i = load i64, ptr %24, align 16
+  %83 = add i64 %80, %.0.copyload.i.i
+  %84 = add i64 %83, %.0.copyload.i17.i.i
+  %.0.i18.i.i = call i64 @llvm.fshl.i64(i64 %84, i64 %84, i64 20)
+  %85 = add i64 %.0.i18.i.i, %80
+  %86 = add i64 %85, %.0.i.i.i19
+  %87 = add i64 %84, %.0.copyload.i15.i.i
+  %88 = add i64 %77, %.sroa.34.067
+  %89 = add i64 %75, %.0.copyload.i17.i.i
+  %.0.copyload.i.i12.i = load i64, ptr %25, align 16
+  %90 = add i64 %88, %.0.copyload.i.i12.i
+  %.0.copyload.i15.i13.i = load i64, ptr %26, align 8
+  %91 = add i64 %89, %90
+  %92 = add i64 %91, %.0.copyload.i15.i13.i
+  %.0.i.i14.i = call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 43)
+  %93 = add i64 %.0.copyload.i9.i, %.0.copyload.i7.i
+  %94 = add i64 %93, %90
+  %.0.i18.i17.i = call i64 @llvm.fshl.i64(i64 %94, i64 %94, i64 20)
+  %95 = add i64 %.0.i.i14.i, %90
+  %96 = add i64 %95, %.0.i18.i17.i
+  %97 = add i64 %94, %.0.copyload.i15.i13.i
+  %98 = add i64 %.2.idx.lcssa, %.074
   %.sroa.01.0.copyload.i.i9 = load i64, ptr %0, align 8
   %.sroa.0.0.copyload.i.i10 = load i64, ptr %1, align 8
-  %108 = inttoptr i64 %.sroa.01.0.copyload.i.i9 to ptr
-  %109 = inttoptr i64 %.sroa.0.0.copyload.i.i10 to ptr
-  %.not43 = icmp eq ptr %108, %109
+  %.not43 = icmp eq i64 %.sroa.01.0.copyload.i.i9, %.sroa.0.0.copyload.i.i10
   br i1 %.not43, label %._crit_edge, label %.preheader, !llvm.loop !170
 
 ._crit_edge:                                      ; preds = %.critedge2
-  %110 = xor i64 %96, %106
-  %111 = mul i64 %110, -7070675565921424023
-  %112 = lshr i64 %111, 47
-  %113 = xor i64 %106, %112
-  %114 = xor i64 %113, %111
-  %115 = mul i64 %114, -7070675565921424023
-  %116 = lshr i64 %115, 47
-  %117 = xor i64 %116, %115
+  %99 = xor i64 %87, %97
+  %100 = mul i64 %99, -7070675565921424023
+  %101 = lshr i64 %100, 47
+  %102 = xor i64 %97, %101
+  %103 = xor i64 %102, %100
+  %104 = mul i64 %103, -7070675565921424023
+  %105 = lshr i64 %104, 47
+  %106 = xor i64 %105, %104
+  %107 = mul i64 %106, -7070675565921424023
+  %108 = lshr i64 %75, 47
+  %109 = xor i64 %108, %75
+  %110 = mul i64 %109, -5435081209227447693
+  %111 = add i64 %110, %73
+  %112 = add i64 %111, %107
+  %113 = xor i64 %86, %96
+  %114 = mul i64 %113, -7070675565921424023
+  %115 = lshr i64 %114, 47
+  %116 = xor i64 %96, %115
+  %117 = xor i64 %116, %114
   %118 = mul i64 %117, -7070675565921424023
-  %119 = lshr i64 %84, 47
-  %120 = xor i64 %119, %84
-  %121 = mul i64 %120, -5435081209227447693
-  %122 = add i64 %121, %82
-  %123 = add i64 %122, %118
-  %124 = xor i64 %95, %105
-  %125 = mul i64 %124, -7070675565921424023
-  %126 = lshr i64 %125, 47
-  %127 = xor i64 %105, %126
-  %128 = xor i64 %127, %125
-  %129 = mul i64 %128, -7070675565921424023
-  %130 = lshr i64 %129, 47
-  %131 = xor i64 %130, %129
+  %119 = lshr i64 %118, 47
+  %120 = xor i64 %119, %118
+  %121 = mul i64 %120, -7070675565921424023
+  %122 = lshr i64 %98, 47
+  %123 = xor i64 %122, %98
+  %124 = add i64 %123, %.0.i10.i
+  %125 = mul i64 %124, -5435081209227447693
+  %126 = add i64 %125, %121
+  %127 = xor i64 %112, %126
+  %128 = mul i64 %127, -7070675565921424023
+  %129 = lshr i64 %128, 47
+  %130 = xor i64 %126, %129
+  %131 = xor i64 %130, %128
   %132 = mul i64 %131, -7070675565921424023
-  %133 = lshr i64 %107, 47
-  %134 = xor i64 %133, %107
-  %135 = add i64 %134, %.0.i10.i
-  %136 = mul i64 %135, -5435081209227447693
-  %137 = add i64 %136, %132
-  %138 = xor i64 %123, %137
-  %139 = mul i64 %138, -7070675565921424023
-  %140 = lshr i64 %139, 47
-  %141 = xor i64 %137, %140
-  %142 = xor i64 %141, %139
-  %143 = mul i64 %142, -7070675565921424023
-  %144 = lshr i64 %143, 47
-  %145 = xor i64 %144, %143
-  %146 = mul i64 %145, -7070675565921424023
-  br label %147
+  %133 = lshr i64 %132, 47
+  %134 = xor i64 %133, %132
+  %135 = mul i64 %134, -7070675565921424023
+  br label %136
 
-147:                                              ; preds = %._crit_edge, %23
-  %.sroa.036.0 = phi i64 [ %24, %23 ], [ %146, %._crit_edge ]
+136:                                              ; preds = %._crit_edge, %.critedge.thread
+  %.sroa.036.0 = phi i64 [ %19, %.critedge.thread ], [ %135, %._crit_edge ]
   ret i64 %.sroa.036.0
 }
 
@@ -7477,270 +7458,251 @@ define linkonce_odr i64 @_ZN4llvm7hashing6detail23hash_combine_range_implINS_17D
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   %.sroa.01.0.copyload.i.i46 = load i64, ptr %0, align 8
   %.sroa.0.0.copyload.i.i47 = load i64, ptr %1, align 8
-  %5 = inttoptr i64 %.sroa.01.0.copyload.i.i46 to ptr
-  %6 = inttoptr i64 %.sroa.0.0.copyload.i.i47 to ptr
-  %.not48 = icmp eq ptr %5, %6
-  br i1 %.not48, label %.critedge, label %.lr.ph
+  %.not48 = icmp eq i64 %.sroa.01.0.copyload.i.i46, %.sroa.0.0.copyload.i.i47
+  br i1 %.not48, label %.critedge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %2, %14
-  %.sroa.0.0.copyload.i93 = phi i64 [ %.sroa.0.0.copyload.i.i, %14 ], [ %.sroa.0.0.copyload.i.i47, %2 ]
-  %.0.copyload.i.i.i.i.i.i.i.i.i8 = phi i64 [ %storemerge.i, %14 ], [ %.sroa.01.0.copyload.i.i46, %2 ]
-  %.037.idx49 = phi i64 [ %.037.add, %14 ], [ 0, %2 ]
+.lr.ph:                                           ; preds = %2, %12
+  %.sroa.0.0.copyload.i93 = phi i64 [ %.sroa.0.0.copyload.i.i, %12 ], [ %.sroa.0.0.copyload.i.i47, %2 ]
+  %.0.copyload.i.i.i.i.i.i.i.i.i8 = phi i64 [ %storemerge.i, %12 ], [ %.sroa.01.0.copyload.i.i46, %2 ]
+  %.037.idx49 = phi i64 [ %.037.add, %12 ], [ 0, %2 ]
   %.037.ptr50 = getelementptr inbounds i8, ptr %3, i64 %.037.idx49
-  %7 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, 4
-  %8 = icmp eq i64 %7, 0
-  %9 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, -8
-  %10 = inttoptr i64 %9 to ptr
-  br i1 %8, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit, label %11
+  %5 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, 4
+  %6 = icmp eq i64 %5, 0
+  %7 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, -8
+  %8 = inttoptr i64 %7 to ptr
+  br i1 %6, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit, label %9
 
-11:                                               ; preds = %.lr.ph
-  %12 = load ptr, ptr %10, align 8
+9:                                                ; preds = %.lr.ph
+  %10 = load ptr, ptr %8, align 8
   br label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit
 
-_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph, %11
-  %13 = phi ptr [ %12, %11 ], [ %10, %.lr.ph ]
+_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit: ; preds = %.lr.ph, %9
+  %11 = phi ptr [ %10, %9 ], [ %8, %.lr.ph ]
   %.not42 = icmp ugt i64 %.037.idx49, 56
-  br i1 %.not42, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge, label %14
+  br i1 %.not42, label %.critedge, label %12
 
-_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge: ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit
-  %.pre99 = inttoptr i64 %.0.copyload.i.i.i.i.i.i.i.i.i8 to ptr
-  %.pre = inttoptr i64 %.sroa.0.0.copyload.i93 to ptr
-  br label %.critedge
-
-14:                                               ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit
+12:                                               ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit
   %.037.add = add nuw nsw i64 %.037.idx49, 8
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 128
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %.037.ptr50, align 8
-  %17 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, -4
-  %18 = add nuw i64 %17, 8
-  %19 = add nuw i64 %9, 136
-  %storemerge.i = select i1 %8, i64 %19, i64 %18
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  %14 = load ptr, ptr %13, align 8
+  store ptr %14, ptr %.037.ptr50, align 8
+  %15 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, -4
+  %16 = add nuw i64 %15, 8
+  %17 = add nuw i64 %7, 136
+  %storemerge.i = select i1 %6, i64 %17, i64 %16
   store i64 %storemerge.i, ptr %0, align 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %1, align 8
-  %20 = inttoptr i64 %storemerge.i to ptr
-  %21 = inttoptr i64 %.sroa.0.0.copyload.i.i to ptr
-  %.not = icmp eq ptr %20, %21
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !175
+  %.not = icmp eq i64 %storemerge.i, %.sroa.0.0.copyload.i.i
+  br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !175
 
-.critedge:                                        ; preds = %14, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge, %2
-  %.pre-phi98 = phi ptr [ %6, %2 ], [ %.pre, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge ], [ %21, %14 ]
-  %.pre-phi = phi ptr [ %5, %2 ], [ %.pre99, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge ], [ %20, %14 ]
-  %.sroa.0.0.copyload.i.i1065 = phi i64 [ %.sroa.0.0.copyload.i.i47, %2 ], [ %.sroa.0.0.copyload.i93, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge ], [ %.sroa.0.0.copyload.i.i, %14 ]
-  %.sroa.01.0.copyload.i.i964 = phi i64 [ %.sroa.01.0.copyload.i.i46, %2 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i8, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge ], [ %storemerge.i, %14 ]
-  %.037.idx.lcssa = phi i64 [ 0, %2 ], [ 64, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit..critedge.loopexit_crit_edge ], [ %.037.add, %14 ]
-  %22 = icmp eq ptr %.pre-phi, %.pre-phi98
-  br i1 %22, label %23, label %.preheader.preheader
+.critedge:                                        ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit
+  %18 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, %.sroa.0.0.copyload.i93
+  br i1 %18, label %.critedge.thread, label %.preheader.preheader
 
-23:                                               ; preds = %.critedge
-  %24 = call noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef nonnull %3, i64 noundef %.037.idx.lcssa, i64 noundef -49064778989728563)
-  br label %147
+.critedge.thread:                                 ; preds = %12, %2, %.critedge
+  %.037.idx.lcssa100 = phi i64 [ 64, %.critedge ], [ 0, %2 ], [ %.037.add, %12 ]
+  %19 = call noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcmm(ptr noundef nonnull %3, i64 noundef %.037.idx.lcssa100, i64 noundef -49064778989728563)
+  br label %136
 
 .preheader.preheader:                             ; preds = %.critedge
-  %25 = getelementptr inbounds i8, ptr %3, i64 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 48
-  %27 = getelementptr inbounds i8, ptr %3, i64 40
-  %28 = getelementptr inbounds i8, ptr %3, i64 24
-  %29 = getelementptr inbounds i8, ptr %3, i64 16
-  %30 = getelementptr inbounds i8, ptr %3, i64 32
-  %31 = getelementptr inbounds i8, ptr %3, i64 56
-  %.0.copyload.i9.i.i = load i64, ptr %27, align 8, !noalias !176
-  %.0.copyload.i7.i.i = load i64, ptr %26, align 16, !noalias !176
-  %32 = add i64 %.0.copyload.i9.i.i, %.0.copyload.i7.i.i
-  %.0.copyload.i.i12.i.i = load i64, ptr %30, align 16, !noalias !176
-  %33 = add i64 %.0.copyload.i.i12.i.i, 5473611571550975290
-  %34 = add i64 %32, %33
-  %.0.copyload.i15.i13.i.i = load i64, ptr %31, align 8, !noalias !176
-  %35 = add i64 %34, %.0.copyload.i15.i13.i.i
-  %.0.i18.i17.i.i = tail call i64 @llvm.fshl.i64(i64 %34, i64 %34, i64 20)
-  %36 = add i64 %.0.i18.i17.i.i, %33
-  %37 = add i64 %.0.copyload.i9.i.i, -8296710342493395487
-  %38 = add i64 %.0.copyload.i7.i.i, -4705135293385828636
-  %.0.i8.i.i = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 22)
-  %39 = mul i64 %.0.i8.i.i, -5435081209227447693
-  %40 = add i64 %37, %39
-  %.0.copyload.i17.i.i.i = load i64, ptr %29, align 16, !noalias !176
-  %41 = add i64 %40, %.0.copyload.i17.i.i.i
-  %42 = add i64 %41, %33
-  %43 = add i64 %42, %.0.copyload.i15.i13.i.i
-  %.0.i.i14.i.i = tail call i64 @llvm.fshl.i64(i64 %43, i64 %43, i64 43)
-  %44 = add i64 %36, %.0.i.i14.i.i
+  %20 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds i8, ptr %3, i64 48
+  %22 = getelementptr inbounds i8, ptr %3, i64 40
+  %23 = getelementptr inbounds i8, ptr %3, i64 24
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds i8, ptr %3, i64 32
+  %26 = getelementptr inbounds i8, ptr %3, i64 56
+  %.0.copyload.i9.i.i = load i64, ptr %22, align 8, !noalias !176
+  %.0.copyload.i7.i.i = load i64, ptr %21, align 16, !noalias !176
+  %27 = add i64 %.0.copyload.i9.i.i, %.0.copyload.i7.i.i
+  %.0.copyload.i.i12.i.i = load i64, ptr %25, align 16, !noalias !176
+  %28 = add i64 %.0.copyload.i.i12.i.i, 5473611571550975290
+  %29 = add i64 %27, %28
+  %.0.copyload.i15.i13.i.i = load i64, ptr %26, align 8, !noalias !176
+  %30 = add i64 %29, %.0.copyload.i15.i13.i.i
+  %.0.i18.i17.i.i = tail call i64 @llvm.fshl.i64(i64 %29, i64 %29, i64 20)
+  %31 = add i64 %.0.i18.i17.i.i, %28
+  %32 = add i64 %.0.copyload.i9.i.i, -8296710342493395487
+  %33 = add i64 %.0.copyload.i7.i.i, -4705135293385828636
+  %.0.i8.i.i = tail call i64 @llvm.fshl.i64(i64 %33, i64 %33, i64 22)
+  %34 = mul i64 %.0.i8.i.i, -5435081209227447693
+  %35 = add i64 %32, %34
+  %.0.copyload.i17.i.i.i = load i64, ptr %24, align 16, !noalias !176
+  %36 = add i64 %35, %.0.copyload.i17.i.i.i
+  %37 = add i64 %36, %28
+  %38 = add i64 %37, %.0.copyload.i15.i13.i.i
+  %.0.i.i14.i.i = tail call i64 @llvm.fshl.i64(i64 %38, i64 %38, i64 43)
+  %39 = add i64 %31, %.0.i.i14.i.i
   %.0.copyload.i.i.i.i = load i64, ptr %3, align 16, !noalias !176
-  %45 = add i64 %.0.copyload.i.i.i.i, 2994313307402683989
-  %.0.copyload.i.i.i = load i64, ptr %25, align 8, !noalias !176
-  %46 = add i64 %45, %.0.copyload.i.i.i
-  %47 = add i64 %46, %.0.copyload.i17.i.i.i
-  %.0.copyload.i15.i.i.i = load i64, ptr %28, align 8, !noalias !176
-  %48 = add i64 %47, %.0.copyload.i15.i.i.i
-  %.0.i18.i.i.i = tail call i64 @llvm.fshl.i64(i64 %47, i64 %47, i64 20)
-  %49 = add i64 %.0.i18.i.i.i, %45
-  %50 = add i64 %.0.copyload.i.i.i, -8345775121483124050
-  %.0.i.i.i = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 27)
-  %51 = mul i64 %.0.i.i.i, -5435081209227447693
-  %52 = xor i64 %51, -599882191873993834
-  %53 = add i64 %52, -49064778989800850
-  %54 = add i64 %53, %45
-  %55 = add i64 %54, %.0.copyload.i15.i.i.i
-  %.0.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %55, i64 %55, i64 43)
-  %56 = add i64 %49, %.0.i.i.i.i
+  %40 = add i64 %.0.copyload.i.i.i.i, 2994313307402683989
+  %.0.copyload.i.i.i = load i64, ptr %20, align 8, !noalias !176
+  %41 = add i64 %40, %.0.copyload.i.i.i
+  %42 = add i64 %41, %.0.copyload.i17.i.i.i
+  %.0.copyload.i15.i.i.i = load i64, ptr %23, align 8, !noalias !176
+  %43 = add i64 %42, %.0.copyload.i15.i.i.i
+  %.0.i18.i.i.i = tail call i64 @llvm.fshl.i64(i64 %42, i64 %42, i64 20)
+  %44 = add i64 %.0.i18.i.i.i, %40
+  %45 = add i64 %.0.copyload.i.i.i, -8345775121483124050
+  %.0.i.i.i = tail call i64 @llvm.fshl.i64(i64 %45, i64 %45, i64 27)
+  %46 = mul i64 %.0.i.i.i, -5435081209227447693
+  %47 = xor i64 %46, -599882191873993834
+  %48 = add i64 %47, -49064778989800850
+  %49 = add i64 %48, %40
+  %50 = add i64 %49, %.0.copyload.i15.i.i.i
+  %.0.i.i.i.i = tail call i64 @llvm.fshl.i64(i64 %50, i64 %50, i64 43)
+  %51 = add i64 %44, %.0.i.i.i.i
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.critedge2
-  %.sroa.0.0.copyload.i.i1254 = phi i64 [ %.sroa.0.0.copyload.i.i10, %.critedge2 ], [ %.sroa.0.0.copyload.i.i1065, %.preheader.preheader ]
-  %.sroa.01.0.copyload.i.i1153 = phi i64 [ %.sroa.01.0.copyload.i.i9, %.critedge2 ], [ %.sroa.01.0.copyload.i.i964, %.preheader.preheader ]
-  %.074 = phi i64 [ %107, %.critedge2 ], [ 64, %.preheader.preheader ]
-  %.sroa.0.073 = phi i64 [ %86, %.critedge2 ], [ 6073493763424969124, %.preheader.preheader ]
-  %.sroa.6.072 = phi i64 [ %84, %.critedge2 ], [ %40, %.preheader.preheader ]
-  %.sroa.11.071 = phi i64 [ %82, %.critedge2 ], [ %52, %.preheader.preheader ]
-  %.sroa.16.070 = phi i64 [ %96, %.critedge2 ], [ %48, %.preheader.preheader ]
-  %.sroa.22.069 = phi i64 [ %95, %.critedge2 ], [ %56, %.preheader.preheader ]
-  %.sroa.28.068 = phi i64 [ %106, %.critedge2 ], [ %35, %.preheader.preheader ]
-  %.sroa.34.067 = phi i64 [ %105, %.critedge2 ], [ %44, %.preheader.preheader ]
-  %57 = inttoptr i64 %.sroa.01.0.copyload.i.i1153 to ptr
-  %58 = inttoptr i64 %.sroa.0.0.copyload.i.i1254 to ptr
-  %.not4455 = icmp eq ptr %57, %58
+  %.sroa.0.0.copyload.i.i1254 = phi i64 [ %.sroa.0.0.copyload.i.i10, %.critedge2 ], [ %.sroa.0.0.copyload.i93, %.preheader.preheader ]
+  %.sroa.01.0.copyload.i.i1153 = phi i64 [ %.sroa.01.0.copyload.i.i9, %.critedge2 ], [ %.0.copyload.i.i.i.i.i.i.i.i.i8, %.preheader.preheader ]
+  %.074 = phi i64 [ %98, %.critedge2 ], [ 64, %.preheader.preheader ]
+  %.sroa.0.073 = phi i64 [ %77, %.critedge2 ], [ 6073493763424969124, %.preheader.preheader ]
+  %.sroa.6.072 = phi i64 [ %75, %.critedge2 ], [ %35, %.preheader.preheader ]
+  %.sroa.11.071 = phi i64 [ %73, %.critedge2 ], [ %47, %.preheader.preheader ]
+  %.sroa.16.070 = phi i64 [ %87, %.critedge2 ], [ %43, %.preheader.preheader ]
+  %.sroa.22.069 = phi i64 [ %86, %.critedge2 ], [ %51, %.preheader.preheader ]
+  %.sroa.28.068 = phi i64 [ %97, %.critedge2 ], [ %30, %.preheader.preheader ]
+  %.sroa.34.067 = phi i64 [ %96, %.critedge2 ], [ %39, %.preheader.preheader ]
+  %.not4455 = icmp eq i64 %.sroa.01.0.copyload.i.i1153, %.sroa.0.0.copyload.i.i1254
   br i1 %.not4455, label %.critedge2, label %.lr.ph59
 
-.lr.ph59:                                         ; preds = %.preheader, %66
-  %.0.copyload.i.i.i.i.i.i.i.i.i16 = phi i64 [ %storemerge.i17, %66 ], [ %.sroa.01.0.copyload.i.i1153, %.preheader ]
-  %.2.idx56 = phi i64 [ %.2.add, %66 ], [ 0, %.preheader ]
+.lr.ph59:                                         ; preds = %.preheader, %59
+  %.0.copyload.i.i.i.i.i.i.i.i.i16 = phi i64 [ %storemerge.i17, %59 ], [ %.sroa.01.0.copyload.i.i1153, %.preheader ]
+  %.2.idx56 = phi i64 [ %.2.add, %59 ], [ 0, %.preheader ]
   %.2.ptr57 = getelementptr inbounds i8, ptr %3, i64 %.2.idx56
-  %59 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i16, 4
-  %60 = icmp eq i64 %59, 0
-  %61 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i16, -8
-  %62 = inttoptr i64 %61 to ptr
-  br i1 %60, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14, label %63
+  %52 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i16, 4
+  %53 = icmp eq i64 %52, 0
+  %54 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i16, -8
+  %55 = inttoptr i64 %54 to ptr
+  br i1 %53, label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14, label %56
 
-63:                                               ; preds = %.lr.ph59
-  %64 = load ptr, ptr %62, align 8
+56:                                               ; preds = %.lr.ph59
+  %57 = load ptr, ptr %55, align 8
   br label %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14
 
-_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14: ; preds = %.lr.ph59, %63
-  %65 = phi ptr [ %64, %63 ], [ %62, %.lr.ph59 ]
+_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14: ; preds = %.lr.ph59, %56
+  %58 = phi ptr [ %57, %56 ], [ %55, %.lr.ph59 ]
   %.not45 = icmp ugt i64 %.2.idx56, 56
-  br i1 %.not45, label %.critedge2, label %66
+  br i1 %.not45, label %.critedge2, label %59
 
-66:                                               ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14
+59:                                               ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14
   %.2.add = add nuw nsw i64 %.2.idx56, 8
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 128
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %.2.ptr57, align 8
-  %69 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i16, -4
-  %70 = add nuw i64 %69, 8
-  %71 = add nuw i64 %61, 136
-  %storemerge.i17 = select i1 %60, i64 %71, i64 %70
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 128
+  %61 = load ptr, ptr %60, align 8
+  store ptr %61, ptr %.2.ptr57, align 8
+  %62 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i16, -4
+  %63 = add nuw i64 %62, 8
+  %64 = add nuw i64 %54, 136
+  %storemerge.i17 = select i1 %53, i64 %64, i64 %63
   store i64 %storemerge.i17, ptr %0, align 8
   %.sroa.0.0.copyload.i.i12 = load i64, ptr %1, align 8
-  %72 = inttoptr i64 %storemerge.i17 to ptr
-  %73 = inttoptr i64 %.sroa.0.0.copyload.i.i12 to ptr
-  %.not44 = icmp eq ptr %72, %73
-  br i1 %.not44, label %.critedge2.loopexit.split.loop.exit110, label %.lr.ph59, !llvm.loop !179
+  %.not44 = icmp eq i64 %storemerge.i17, %.sroa.0.0.copyload.i.i12
+  br i1 %.not44, label %.critedge2.loopexit.split.loop.exit109, label %.lr.ph59, !llvm.loop !179
 
-.critedge2.loopexit.split.loop.exit110:           ; preds = %66
+.critedge2.loopexit.split.loop.exit109:           ; preds = %59
   %.2.ptr.le = getelementptr inbounds i8, ptr %3, i64 %.2.add
   br label %.critedge2
 
-.critedge2:                                       ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14, %.critedge2.loopexit.split.loop.exit110, %.preheader
-  %.2.idx.lcssa = phi i64 [ 0, %.preheader ], [ %.2.add, %.critedge2.loopexit.split.loop.exit110 ], [ 64, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14 ]
-  %.2.ptr.lcssa = phi ptr [ %3, %.preheader ], [ %.2.ptr.le, %.critedge2.loopexit.split.loop.exit110 ], [ %.2.ptr57, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14 ]
-  %74 = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %3, ptr noundef nonnull %.2.ptr.lcssa, ptr noundef nonnull %4)
-  %.0.copyload.i.i = load i64, ptr %25, align 8
-  %75 = add i64 %.sroa.6.072, %.sroa.16.070
-  %76 = add i64 %75, %.sroa.0.073
-  %77 = add i64 %76, %.0.copyload.i.i
-  %.0.i.i = call i64 @llvm.fshl.i64(i64 %77, i64 %77, i64 27)
-  %78 = mul i64 %.0.i.i, -5435081209227447693
-  %79 = add i64 %.sroa.6.072, %.sroa.22.069
-  %.0.copyload.i7.i = load i64, ptr %26, align 16
-  %80 = add i64 %79, %.0.copyload.i7.i
-  %.0.i8.i = call i64 @llvm.fshl.i64(i64 %80, i64 %80, i64 22)
-  %81 = mul i64 %.0.i8.i, -5435081209227447693
-  %82 = xor i64 %78, %.sroa.34.067
-  %.0.copyload.i9.i = load i64, ptr %27, align 8
-  %83 = add i64 %.0.copyload.i9.i, %.sroa.16.070
-  %84 = add i64 %83, %81
-  %85 = add i64 %.sroa.11.071, %.sroa.28.068
-  %.0.i10.i = call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 31)
-  %86 = mul i64 %.0.i10.i, -5435081209227447693
-  %87 = mul i64 %.sroa.22.069, -5435081209227447693
-  %88 = add i64 %82, %.sroa.28.068
+.critedge2:                                       ; preds = %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14, %.critedge2.loopexit.split.loop.exit109, %.preheader
+  %.2.idx.lcssa = phi i64 [ 0, %.preheader ], [ %.2.add, %.critedge2.loopexit.split.loop.exit109 ], [ 64, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14 ]
+  %.2.ptr.lcssa = phi ptr [ %3, %.preheader ], [ %.2.ptr.le, %.critedge2.loopexit.split.loop.exit109 ], [ %.2.ptr57, %_ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit14 ]
+  %65 = call noundef ptr @_ZNSt3_V28__rotateIPcEET_S2_S2_S2_St26random_access_iterator_tag(ptr noundef nonnull %3, ptr noundef nonnull %.2.ptr.lcssa, ptr noundef nonnull %4)
+  %.0.copyload.i.i = load i64, ptr %20, align 8
+  %66 = add i64 %.sroa.6.072, %.sroa.16.070
+  %67 = add i64 %66, %.sroa.0.073
+  %68 = add i64 %67, %.0.copyload.i.i
+  %.0.i.i = call i64 @llvm.fshl.i64(i64 %68, i64 %68, i64 27)
+  %69 = mul i64 %.0.i.i, -5435081209227447693
+  %70 = add i64 %.sroa.6.072, %.sroa.22.069
+  %.0.copyload.i7.i = load i64, ptr %21, align 16
+  %71 = add i64 %70, %.0.copyload.i7.i
+  %.0.i8.i = call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 22)
+  %72 = mul i64 %.0.i8.i, -5435081209227447693
+  %73 = xor i64 %69, %.sroa.34.067
+  %.0.copyload.i9.i = load i64, ptr %22, align 8
+  %74 = add i64 %.0.copyload.i9.i, %.sroa.16.070
+  %75 = add i64 %74, %72
+  %76 = add i64 %.sroa.11.071, %.sroa.28.068
+  %.0.i10.i = call i64 @llvm.fshl.i64(i64 %76, i64 %76, i64 31)
+  %77 = mul i64 %.0.i10.i, -5435081209227447693
+  %78 = mul i64 %.sroa.22.069, -5435081209227447693
+  %79 = add i64 %73, %.sroa.28.068
   %.0.copyload.i.i.i18 = load i64, ptr %3, align 16
-  %89 = add i64 %.0.copyload.i.i.i18, %87
-  %.0.copyload.i15.i.i = load i64, ptr %28, align 8
-  %90 = add i64 %88, %89
-  %91 = add i64 %90, %.0.copyload.i15.i.i
-  %.0.i.i.i19 = call i64 @llvm.fshl.i64(i64 %91, i64 %91, i64 43)
-  %.0.copyload.i17.i.i = load i64, ptr %29, align 16
-  %92 = add i64 %89, %.0.copyload.i.i
-  %93 = add i64 %92, %.0.copyload.i17.i.i
-  %.0.i18.i.i = call i64 @llvm.fshl.i64(i64 %93, i64 %93, i64 20)
-  %94 = add i64 %.0.i18.i.i, %89
-  %95 = add i64 %94, %.0.i.i.i19
-  %96 = add i64 %93, %.0.copyload.i15.i.i
-  %97 = add i64 %86, %.sroa.34.067
-  %98 = add i64 %84, %.0.copyload.i17.i.i
-  %.0.copyload.i.i12.i = load i64, ptr %30, align 16
-  %99 = add i64 %97, %.0.copyload.i.i12.i
-  %.0.copyload.i15.i13.i = load i64, ptr %31, align 8
-  %100 = add i64 %98, %99
-  %101 = add i64 %100, %.0.copyload.i15.i13.i
-  %.0.i.i14.i = call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 43)
-  %102 = add i64 %.0.copyload.i9.i, %.0.copyload.i7.i
-  %103 = add i64 %102, %99
-  %.0.i18.i17.i = call i64 @llvm.fshl.i64(i64 %103, i64 %103, i64 20)
-  %104 = add i64 %.0.i.i14.i, %99
-  %105 = add i64 %104, %.0.i18.i17.i
-  %106 = add i64 %103, %.0.copyload.i15.i13.i
-  %107 = add i64 %.2.idx.lcssa, %.074
+  %80 = add i64 %.0.copyload.i.i.i18, %78
+  %.0.copyload.i15.i.i = load i64, ptr %23, align 8
+  %81 = add i64 %79, %80
+  %82 = add i64 %81, %.0.copyload.i15.i.i
+  %.0.i.i.i19 = call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 43)
+  %.0.copyload.i17.i.i = load i64, ptr %24, align 16
+  %83 = add i64 %80, %.0.copyload.i.i
+  %84 = add i64 %83, %.0.copyload.i17.i.i
+  %.0.i18.i.i = call i64 @llvm.fshl.i64(i64 %84, i64 %84, i64 20)
+  %85 = add i64 %.0.i18.i.i, %80
+  %86 = add i64 %85, %.0.i.i.i19
+  %87 = add i64 %84, %.0.copyload.i15.i.i
+  %88 = add i64 %77, %.sroa.34.067
+  %89 = add i64 %75, %.0.copyload.i17.i.i
+  %.0.copyload.i.i12.i = load i64, ptr %25, align 16
+  %90 = add i64 %88, %.0.copyload.i.i12.i
+  %.0.copyload.i15.i13.i = load i64, ptr %26, align 8
+  %91 = add i64 %89, %90
+  %92 = add i64 %91, %.0.copyload.i15.i13.i
+  %.0.i.i14.i = call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 43)
+  %93 = add i64 %.0.copyload.i9.i, %.0.copyload.i7.i
+  %94 = add i64 %93, %90
+  %.0.i18.i17.i = call i64 @llvm.fshl.i64(i64 %94, i64 %94, i64 20)
+  %95 = add i64 %.0.i.i14.i, %90
+  %96 = add i64 %95, %.0.i18.i17.i
+  %97 = add i64 %94, %.0.copyload.i15.i13.i
+  %98 = add i64 %.2.idx.lcssa, %.074
   %.sroa.01.0.copyload.i.i9 = load i64, ptr %0, align 8
   %.sroa.0.0.copyload.i.i10 = load i64, ptr %1, align 8
-  %108 = inttoptr i64 %.sroa.01.0.copyload.i.i9 to ptr
-  %109 = inttoptr i64 %.sroa.0.0.copyload.i.i10 to ptr
-  %.not43 = icmp eq ptr %108, %109
+  %.not43 = icmp eq i64 %.sroa.01.0.copyload.i.i9, %.sroa.0.0.copyload.i.i10
   br i1 %.not43, label %._crit_edge, label %.preheader, !llvm.loop !180
 
 ._crit_edge:                                      ; preds = %.critedge2
-  %110 = xor i64 %96, %106
-  %111 = mul i64 %110, -7070675565921424023
-  %112 = lshr i64 %111, 47
-  %113 = xor i64 %106, %112
-  %114 = xor i64 %113, %111
-  %115 = mul i64 %114, -7070675565921424023
-  %116 = lshr i64 %115, 47
-  %117 = xor i64 %116, %115
+  %99 = xor i64 %87, %97
+  %100 = mul i64 %99, -7070675565921424023
+  %101 = lshr i64 %100, 47
+  %102 = xor i64 %97, %101
+  %103 = xor i64 %102, %100
+  %104 = mul i64 %103, -7070675565921424023
+  %105 = lshr i64 %104, 47
+  %106 = xor i64 %105, %104
+  %107 = mul i64 %106, -7070675565921424023
+  %108 = lshr i64 %75, 47
+  %109 = xor i64 %108, %75
+  %110 = mul i64 %109, -5435081209227447693
+  %111 = add i64 %110, %73
+  %112 = add i64 %111, %107
+  %113 = xor i64 %86, %96
+  %114 = mul i64 %113, -7070675565921424023
+  %115 = lshr i64 %114, 47
+  %116 = xor i64 %96, %115
+  %117 = xor i64 %116, %114
   %118 = mul i64 %117, -7070675565921424023
-  %119 = lshr i64 %84, 47
-  %120 = xor i64 %119, %84
-  %121 = mul i64 %120, -5435081209227447693
-  %122 = add i64 %121, %82
-  %123 = add i64 %122, %118
-  %124 = xor i64 %95, %105
-  %125 = mul i64 %124, -7070675565921424023
-  %126 = lshr i64 %125, 47
-  %127 = xor i64 %105, %126
-  %128 = xor i64 %127, %125
-  %129 = mul i64 %128, -7070675565921424023
-  %130 = lshr i64 %129, 47
-  %131 = xor i64 %130, %129
+  %119 = lshr i64 %118, 47
+  %120 = xor i64 %119, %118
+  %121 = mul i64 %120, -7070675565921424023
+  %122 = lshr i64 %98, 47
+  %123 = xor i64 %122, %98
+  %124 = add i64 %123, %.0.i10.i
+  %125 = mul i64 %124, -5435081209227447693
+  %126 = add i64 %125, %121
+  %127 = xor i64 %112, %126
+  %128 = mul i64 %127, -7070675565921424023
+  %129 = lshr i64 %128, 47
+  %130 = xor i64 %126, %129
+  %131 = xor i64 %130, %128
   %132 = mul i64 %131, -7070675565921424023
-  %133 = lshr i64 %107, 47
-  %134 = xor i64 %133, %107
-  %135 = add i64 %134, %.0.i10.i
-  %136 = mul i64 %135, -5435081209227447693
-  %137 = add i64 %136, %132
-  %138 = xor i64 %123, %137
-  %139 = mul i64 %138, -7070675565921424023
-  %140 = lshr i64 %139, 47
-  %141 = xor i64 %137, %140
-  %142 = xor i64 %141, %139
-  %143 = mul i64 %142, -7070675565921424023
-  %144 = lshr i64 %143, 47
-  %145 = xor i64 %144, %143
-  %146 = mul i64 %145, -7070675565921424023
-  br label %147
+  %133 = lshr i64 %132, 47
+  %134 = xor i64 %133, %132
+  %135 = mul i64 %134, -7070675565921424023
+  br label %136
 
-147:                                              ; preds = %._crit_edge, %23
-  %.sroa.036.0 = phi i64 [ %24, %23 ], [ %146, %._crit_edge ]
+136:                                              ; preds = %._crit_edge, %.critedge.thread
+  %.sroa.036.0 = phi i64 [ %19, %.critedge.thread ], [ %135, %._crit_edge ]
   ret i64 %.sroa.036.0
 }
 

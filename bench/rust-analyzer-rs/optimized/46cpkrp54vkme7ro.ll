@@ -6,39 +6,37 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN9once_cell4sync17Lazy$LT$T$C$F$GT$5force17hfe722c35568d30c6E"(ptr noundef nonnull align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load atomic i64, ptr %0 acquire, align 8
-  %3 = inttoptr i64 %2 to ptr
-  %.not.i = icmp eq ptr %3, inttoptr (i64 2 to ptr)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h850636752a12125bE.llvm.14109308272594318293.exit", label %5
+  %.not.i = icmp eq i64 %2, 2
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not.i, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h850636752a12125bE.llvm.14109308272594318293.exit", label %4
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h159439ca19d2b030E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %0)
-  %6 = load i8, ptr %4, align 8, !range !4, !noundef !5
-  %7 = icmp ne i8 %6, 2
-  tail call void @llvm.assume(i1 %7)
+  %5 = load i8, ptr %3, align 8, !range !4, !noundef !5
+  %6 = icmp ne i8 %5, 2
+  tail call void @llvm.assume(i1 %6)
   br label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h850636752a12125bE.llvm.14109308272594318293.exit"
 
-"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h850636752a12125bE.llvm.14109308272594318293.exit": ; preds = %1, %5
-  ret ptr %4
+"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h850636752a12125bE.llvm.14109308272594318293.exit": ; preds = %1, %4
+  ret ptr %3
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_init17h850636752a12125bE.llvm.14109308272594318293"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load atomic i64, ptr %0 acquire, align 8
-  %4 = inttoptr i64 %3 to ptr
-  %.not = icmp eq ptr %4, inttoptr (i64 2 to ptr)
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not, label %9, label %6
+  %.not = icmp eq i64 %3, 2
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.not, label %8, label %5
 
-6:                                                ; preds = %2
+5:                                                ; preds = %2
   tail call void @"_ZN9once_cell3imp17OnceCell$LT$T$GT$10initialize17h159439ca19d2b030E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1)
-  %7 = load i8, ptr %5, align 8, !range !4, !noundef !5
-  %8 = icmp ne i8 %7, 2
-  tail call void @llvm.assume(i1 %8)
-  br label %9
+  %6 = load i8, ptr %4, align 8, !range !4, !noundef !5
+  %7 = icmp ne i8 %6, 2
+  tail call void @llvm.assume(i1 %7)
+  br label %8
 
-9:                                                ; preds = %2, %6
-  ret ptr %5
+8:                                                ; preds = %2, %5
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)

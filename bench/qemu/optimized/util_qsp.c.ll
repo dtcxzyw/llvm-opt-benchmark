@@ -75,8 +75,7 @@ declare zeroext i1 @qemu_cond_timedwait_impl(ptr noundef, ptr noundef, i32 nound
 define dso_local zeroext i1 @qsp_is_enabled() local_unnamed_addr #1 {
 entry:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %1 = inttoptr i64 %0 to ptr
-  %cmp = icmp eq ptr %1, @qsp_mutex_lock
+  %cmp = icmp eq i64 %0, ptrtoint (ptr @qsp_mutex_lock to i64)
   ret i1 %cmp
 }
 

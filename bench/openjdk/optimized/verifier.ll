@@ -3284,16 +3284,16 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %81, %_ZN26Gro
   %148 = load ptr, ptr %125, align 8
   %149 = icmp ne ptr %148, null
   %or.cond1208 = select i1 %147, i1 true, i1 %149
-  br i1 %or.cond1208, label %2349, label %._crit_edge1871
+  br i1 %or.cond1208, label %2349, label %._crit_edge1872
 
-._crit_edge1871:                                  ; preds = %145
+._crit_edge1872:                                  ; preds = %145
   %.pre = load ptr, ptr %1, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
-  %.pre1872 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre1873 = load ptr, ptr %.phi.trans.insert, align 8
   br label %150
 
-150:                                              ; preds = %._crit_edge1871, %138
-  %151 = phi ptr [ %.pre1872, %._crit_edge1871 ], [ %141, %138 ]
+150:                                              ; preds = %._crit_edge1872, %138
+  %151 = phi ptr [ %.pre1873, %._crit_edge1872 ], [ %141, %138 ]
   %152 = getelementptr inbounds i8, ptr %151, i64 16
   %153 = load ptr, ptr %152, align 8
   store ptr %153, ptr %9, align 8
@@ -3347,8 +3347,8 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %81, %_ZN26Gro
   %179 = getelementptr inbounds i8, ptr %15, i64 32
   %180 = load i32, ptr %178, align 4
   %181 = load i32, ptr %179, align 8
-  %.not16771796 = icmp slt i32 %180, %181
-  br i1 %.not16771796, label %.lr.ph, label %._crit_edge.thread
+  %.not16771797 = icmp slt i32 %180, %181
+  br i1 %.not16771797, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %176
   %182 = getelementptr inbounds i8, ptr %15, i64 24
@@ -3367,335 +3367,335 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %81, %_ZN26Gro
   %195 = getelementptr inbounds i8, ptr %69, i64 36
   %196 = getelementptr inbounds i8, ptr %69, i64 40
   %197 = getelementptr inbounds i8, ptr %69, i64 48
-  %198 = icmp eq ptr %114, inttoptr (i64 4294901761 to ptr)
-  %199 = getelementptr inbounds i8, ptr %6, i64 20
-  br label %200
+  %.not1686 = icmp eq ptr %114, inttoptr (i64 4294901761 to ptr)
+  %198 = getelementptr inbounds i8, ptr %6, i64 20
+  br label %199
 
-200:                                              ; preds = %.lr.ph, %2333
-  %.01798 = phi i16 [ 0, %.lr.ph ], [ %210, %2333 ]
-  %.09631797 = phi i8 [ 0, %.lr.ph ], [ %.1, %2333 ]
-  %201 = load ptr, ptr %128, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 308
-  %203 = load i16, ptr %202, align 2
-  %204 = and i16 %203, 1
-  %.not1678 = icmp eq i16 %204, 0
-  br i1 %.not1678, label %205, label %.loopexit
+199:                                              ; preds = %.lr.ph, %2333
+  %.01799 = phi i16 [ 0, %.lr.ph ], [ %209, %2333 ]
+  %.09631798 = phi i8 [ 0, %.lr.ph ], [ %.1, %2333 ]
+  %200 = load ptr, ptr %128, align 8
+  %201 = getelementptr inbounds i8, ptr %200, i64 308
+  %202 = load i16, ptr %201, align 2
+  %203 = and i16 %202, 1
+  %.not1678 = icmp eq i16 %203, 0
+  br i1 %.not1678, label %204, label %.loopexit
 
-205:                                              ; preds = %200
-  %206 = call noundef i32 @_ZN17RawBytecodeStream8raw_nextEv(ptr noundef nonnull align 8 dereferenceable(42) %15)
-  %207 = load i32, ptr %182, align 8
-  store i32 %207, ptr %6, align 8
-  %208 = load i32, ptr %183, align 8
-  store i32 %208, ptr %184, align 4
-  %209 = trunc i8 %.09631797 to i1
-  %210 = call noundef zeroext i16 @_ZN13ClassVerifier21verify_stackmap_tableEtiP13StackMapFrameP13StackMapTablebP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i16 noundef zeroext %.01798, i32 noundef %207, ptr noundef nonnull %6, ptr noundef nonnull %11, i1 noundef zeroext %209, ptr noundef nonnull %2)
-  %211 = load ptr, ptr %122, align 8
-  %212 = icmp ne ptr %211, null
-  %213 = load ptr, ptr %125, align 8
-  %214 = icmp ne ptr %213, null
-  %or.cond1212 = select i1 %212, i1 true, i1 %214
-  br i1 %or.cond1212, label %.loopexit, label %215
+204:                                              ; preds = %199
+  %205 = call noundef i32 @_ZN17RawBytecodeStream8raw_nextEv(ptr noundef nonnull align 8 dereferenceable(42) %15)
+  %206 = load i32, ptr %182, align 8
+  store i32 %206, ptr %6, align 8
+  %207 = load i32, ptr %183, align 8
+  store i32 %207, ptr %184, align 4
+  %208 = trunc i8 %.09631798 to i1
+  %209 = call noundef zeroext i16 @_ZN13ClassVerifier21verify_stackmap_tableEtiP13StackMapFrameP13StackMapTablebP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i16 noundef zeroext %.01799, i32 noundef %206, ptr noundef nonnull %6, ptr noundef nonnull %11, i1 noundef zeroext %208, ptr noundef nonnull %2)
+  %210 = load ptr, ptr %122, align 8
+  %211 = icmp ne ptr %210, null
+  %212 = load ptr, ptr %125, align 8
+  %213 = icmp ne ptr %212, null
+  %or.cond1212 = select i1 %211, i1 true, i1 %213
+  br i1 %or.cond1212, label %.loopexit, label %214
 
-215:                                              ; preds = %205
+214:                                              ; preds = %204
   store i8 0, ptr %16, align 1
   store ptr inttoptr (i64 4294901761 to ptr), ptr %17, align 8
-  %216 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not1679 = icmp eq ptr %216, null
-  br i1 %.not1679, label %234, label %217
+  %215 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not1679 = icmp eq ptr %215, null
+  br i1 %.not1679, label %233, label %216
 
-217:                                              ; preds = %215
-  %218 = load ptr, ptr %185, align 8
-  store ptr %218, ptr %19, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 24
-  %220 = load ptr, ptr %219, align 8
-  store ptr %220, ptr %186, align 8
-  %221 = getelementptr inbounds i8, ptr %218, i64 32
-  %222 = load ptr, ptr %221, align 8
-  store ptr %222, ptr %187, align 8
-  %223 = getelementptr inbounds i8, ptr %218, i64 40
-  %224 = load ptr, ptr %223, align 8
-  store ptr %224, ptr %188, align 8
-  %225 = getelementptr inbounds i8, ptr %218, i64 8
-  %226 = load i64, ptr %225, align 8
-  store i64 %226, ptr %189, align 8
+216:                                              ; preds = %214
+  %217 = load ptr, ptr %185, align 8
+  store ptr %217, ptr %19, align 8
+  %218 = getelementptr inbounds i8, ptr %217, i64 24
+  %219 = load ptr, ptr %218, align 8
+  store ptr %219, ptr %186, align 8
+  %220 = getelementptr inbounds i8, ptr %217, i64 32
+  %221 = load ptr, ptr %220, align 8
+  store ptr %221, ptr %187, align 8
+  %222 = getelementptr inbounds i8, ptr %217, i64 40
+  %223 = load ptr, ptr %222, align 8
+  store ptr %223, ptr %188, align 8
+  %224 = getelementptr inbounds i8, ptr %217, i64 8
+  %225 = load i64, ptr %224, align 8
+  store i64 %225, ptr %189, align 8
   call void @_ZN9LogStreamC2ILN8LogLevel4typeE2ELN6LogTag4typeE170ELS4_0ELS4_0ELS4_0ELS4_0ELS4_0EEERK13LogTargetImplIXT_EXT0_EXT1_EXT2_EXT3_EXT4_EXT5_EE(ptr noundef nonnull align 8 dereferenceable(160) %20, ptr noundef nonnull align 1 dereferenceable(1) %18)
   call void @_ZNK13StackMapFrame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %20) #20
-  %227 = icmp eq i32 %206, -1
-  br i1 %227, label %232, label %228
+  %226 = icmp eq i32 %205, -1
+  br i1 %226, label %231, label %227
 
-228:                                              ; preds = %217
-  %229 = sext i32 %206 to i64
-  %230 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %229
-  %231 = load ptr, ptr %230, align 8
-  br label %232
+227:                                              ; preds = %216
+  %228 = sext i32 %205 to i64
+  %229 = getelementptr inbounds [239 x ptr], ptr @_ZN9Bytecodes5_nameE, i64 0, i64 %228
+  %230 = load ptr, ptr %229, align 8
+  br label %231
 
-232:                                              ; preds = %217, %228
-  %233 = phi ptr [ %231, %228 ], [ @.str.54, %217 ]
-  call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE2ELN6LogTag4typeE170ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.53, i32 noundef %207, ptr noundef %233)
+231:                                              ; preds = %216, %227
+  %232 = phi ptr [ %230, %227 ], [ @.str.54, %216 ]
+  call void (ptr, ...) @_ZN13LogTargetImplILN8LogLevel4typeE2ELN6LogTag4typeE170ELS3_0ELS3_0ELS3_0ELS3_0ELS3_0EE5printEPKcz(ptr noundef nonnull @.str.53, i32 noundef %206, ptr noundef %232)
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %20) #20
   call void @_ZN12ResourceMarkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #20
-  br label %234
+  br label %233
 
-234:                                              ; preds = %232, %215
-  %235 = load i8, ptr %190, align 8
-  %236 = trunc i8 %235 to i1
-  br i1 %236, label %237, label %248
+233:                                              ; preds = %231, %214
+  %234 = load i8, ptr %190, align 8
+  %235 = trunc i8 %234 to i1
+  br i1 %235, label %236, label %247
 
-237:                                              ; preds = %234
-  switch i32 %206, label %238 [
-    i32 132, label %248
-    i32 58, label %248
-    i32 57, label %248
-    i32 56, label %248
-    i32 55, label %248
-    i32 54, label %248
-    i32 25, label %248
-    i32 24, label %248
-    i32 23, label %248
-    i32 22, label %248
-    i32 21, label %248
+236:                                              ; preds = %233
+  switch i32 %205, label %237 [
+    i32 132, label %247
+    i32 58, label %247
+    i32 57, label %247
+    i32 56, label %247
+    i32 55, label %247
+    i32 54, label %247
+    i32 25, label %247
+    i32 24, label %247
+    i32 23, label %247
+    i32 22, label %247
+    i32 21, label %247
   ]
 
-238:                                              ; preds = %237
-  store i32 %207, ptr %21, align 8, !alias.scope !21
-  %239 = getelementptr inbounds i8, ptr %21, i64 4
-  store i32 0, ptr %239, align 4, !alias.scope !21
-  %240 = getelementptr inbounds i8, ptr %21, i64 8
-  store i32 9, ptr %240, align 8, !alias.scope !21
-  %241 = getelementptr inbounds i8, ptr %21, i64 12
-  store i32 0, ptr %241, align 4, !alias.scope !21
-  %242 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr null, ptr %242, align 8, !alias.scope !21
-  %243 = getelementptr inbounds i8, ptr %21, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %243, align 8, !alias.scope !21
-  %244 = getelementptr inbounds i8, ptr %21, i64 32
-  store i32 9, ptr %244, align 8, !alias.scope !21
-  %245 = getelementptr inbounds i8, ptr %21, i64 36
-  store i32 0, ptr %245, align 4, !alias.scope !21
-  %246 = getelementptr inbounds i8, ptr %21, i64 40
-  store ptr null, ptr %246, align 8, !alias.scope !21
-  %247 = getelementptr inbounds i8, ptr %21, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %247, align 8, !alias.scope !21
+237:                                              ; preds = %236
+  store i32 %206, ptr %21, align 8, !alias.scope !21
+  %238 = getelementptr inbounds i8, ptr %21, i64 4
+  store i32 0, ptr %238, align 4, !alias.scope !21
+  %239 = getelementptr inbounds i8, ptr %21, i64 8
+  store i32 9, ptr %239, align 8, !alias.scope !21
+  %240 = getelementptr inbounds i8, ptr %21, i64 12
+  store i32 0, ptr %240, align 4, !alias.scope !21
+  %241 = getelementptr inbounds i8, ptr %21, i64 16
+  store ptr null, ptr %241, align 8, !alias.scope !21
+  %242 = getelementptr inbounds i8, ptr %21, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %242, align 8, !alias.scope !21
+  %243 = getelementptr inbounds i8, ptr %21, i64 32
+  store i32 9, ptr %243, align 8, !alias.scope !21
+  %244 = getelementptr inbounds i8, ptr %21, i64 36
+  store i32 0, ptr %244, align 4, !alias.scope !21
+  %245 = getelementptr inbounds i8, ptr %21, i64 40
+  store ptr null, ptr %245, align 8, !alias.scope !21
+  %246 = getelementptr inbounds i8, ptr %21, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %246, align 8, !alias.scope !21
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %21, ptr noundef nonnull @.str.55)
   br label %.loopexit
 
-248:                                              ; preds = %237, %237, %237, %237, %237, %237, %237, %237, %237, %237, %237, %234
-  %249 = add i32 %206, -54
-  %250 = icmp ult i32 %249, 25
-  %251 = load i32, ptr %7, align 4
-  %.not = icmp sge i32 %207, %251
-  %or.cond.not1681 = select i1 %250, i1 %.not, i1 false
-  %252 = load i32, ptr %8, align 4
-  %253 = icmp slt i32 %207, %252
-  %or.cond973 = select i1 %or.cond.not1681, i1 %253, i1 false
-  br i1 %or.cond973, label %254, label %264
+247:                                              ; preds = %236, %236, %236, %236, %236, %236, %236, %236, %236, %236, %236, %233
+  %248 = add i32 %205, -54
+  %249 = icmp ult i32 %248, 25
+  %250 = load i32, ptr %7, align 4
+  %.not = icmp sge i32 %206, %250
+  %or.cond.not1681 = select i1 %249, i1 %.not, i1 false
+  %251 = load i32, ptr %8, align 4
+  %252 = icmp slt i32 %206, %251
+  %or.cond973 = select i1 %or.cond.not1681, i1 %252, i1 false
+  br i1 %or.cond973, label %253, label %263
 
-254:                                              ; preds = %248
-  %255 = load ptr, ptr %128, align 8
-  %256 = getelementptr inbounds i8, ptr %255, i64 308
-  %257 = load i16, ptr %256, align 2
-  %258 = and i16 %257, 1
-  %.not1682 = icmp eq i16 %258, 0
-  br i1 %.not1682, label %259, label %.loopexit
+253:                                              ; preds = %247
+  %254 = load ptr, ptr %128, align 8
+  %255 = getelementptr inbounds i8, ptr %254, i64 308
+  %256 = load i16, ptr %255, align 2
+  %257 = and i16 %256, 1
+  %.not1682 = icmp eq i16 %257, 0
+  br i1 %.not1682, label %258, label %.loopexit
 
-259:                                              ; preds = %254
-  call void @_ZN13ClassVerifier32verify_exception_handler_targetsEibP13StackMapFrameP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %207, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %2)
-  %260 = load ptr, ptr %122, align 8
-  %261 = icmp ne ptr %260, null
-  %262 = load ptr, ptr %125, align 8
-  %263 = icmp ne ptr %262, null
-  %or.cond1214 = select i1 %261, i1 true, i1 %263
-  br i1 %or.cond1214, label %.loopexit, label %264
+258:                                              ; preds = %253
+  call void @_ZN13ClassVerifier32verify_exception_handler_targetsEibP13StackMapFrameP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %206, i1 noundef zeroext false, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %2)
+  %259 = load ptr, ptr %122, align 8
+  %260 = icmp ne ptr %259, null
+  %261 = load ptr, ptr %125, align 8
+  %262 = icmp ne ptr %261, null
+  %or.cond1214 = select i1 %260, i1 true, i1 %262
+  br i1 %or.cond1214, label %.loopexit, label %263
 
-264:                                              ; preds = %259, %248
-  %265 = load ptr, ptr %128, align 8
-  %266 = getelementptr inbounds i8, ptr %265, i64 308
-  %267 = load i16, ptr %266, align 2
-  %268 = and i16 %267, 1
-  %.not1683 = icmp eq i16 %268, 0
-  br i1 %.not1683, label %269, label %.loopexit
+263:                                              ; preds = %258, %247
+  %264 = load ptr, ptr %128, align 8
+  %265 = getelementptr inbounds i8, ptr %264, i64 308
+  %266 = load i16, ptr %265, align 2
+  %267 = and i16 %266, 1
+  %.not1683 = icmp eq i16 %267, 0
+  br i1 %.not1683, label %268, label %.loopexit
 
-269:                                              ; preds = %264
-  switch i32 %206, label %2308 [
+268:                                              ; preds = %263
+  switch i32 %205, label %2308 [
     i32 0, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
-    i32 1, label %270
-    i32 2, label %275
-    i32 3, label %275
-    i32 4, label %275
-    i32 5, label %275
-    i32 6, label %275
-    i32 7, label %275
-    i32 8, label %275
-    i32 9, label %280
-    i32 10, label %280
-    i32 11, label %285
-    i32 12, label %285
-    i32 13, label %285
-    i32 14, label %290
-    i32 15, label %290
-    i32 17, label %295
-    i32 16, label %295
-    i32 18, label %300
-    i32 19, label %315
-    i32 20, label %315
-    i32 21, label %329
-    i32 26, label %352
-    i32 27, label %352
-    i32 28, label %352
-    i32 29, label %352
-    i32 22, label %358
-    i32 30, label %381
-    i32 31, label %381
-    i32 32, label %381
-    i32 33, label %381
-    i32 23, label %387
-    i32 34, label %410
-    i32 35, label %410
-    i32 36, label %410
-    i32 37, label %410
-    i32 24, label %416
-    i32 38, label %439
-    i32 39, label %439
-    i32 40, label %439
-    i32 41, label %439
-    i32 25, label %445
-    i32 42, label %468
-    i32 43, label %468
-    i32 44, label %468
-    i32 45, label %468
-    i32 46, label %474
-    i32 51, label %509
-    i32 52, label %556
-    i32 53, label %591
-    i32 47, label %626
-    i32 48, label %661
-    i32 49, label %696
-    i32 50, label %731
-    i32 54, label %763
-    i32 59, label %786
-    i32 60, label %786
-    i32 61, label %786
-    i32 62, label %786
-    i32 55, label %792
-    i32 63, label %815
-    i32 64, label %815
-    i32 65, label %815
-    i32 66, label %815
-    i32 56, label %821
-    i32 67, label %844
-    i32 68, label %844
-    i32 69, label %844
-    i32 70, label %844
-    i32 57, label %850
-    i32 71, label %873
-    i32 72, label %873
-    i32 73, label %873
-    i32 74, label %873
-    i32 58, label %879
-    i32 75, label %902
-    i32 76, label %902
-    i32 77, label %902
-    i32 78, label %902
-    i32 79, label %908
-    i32 84, label %945
-    i32 85, label %994
-    i32 86, label %1031
-    i32 80, label %1068
-    i32 81, label %1104
-    i32 82, label %1141
-    i32 83, label %1177
-    i32 87, label %1202
-    i32 88, label %1208
-    i32 89, label %1239
-    i32 90, label %1255
-    i32 91, label %1282
-    i32 92, label %1339
-    i32 93, label %1390
-    i32 94, label %1452
-    i32 95, label %1544
-    i32 96, label %1566
-    i32 100, label %1566
-    i32 104, label %1566
-    i32 108, label %1566
-    i32 112, label %1566
-    i32 120, label %1566
-    i32 122, label %1566
-    i32 124, label %1566
-    i32 128, label %1566
-    i32 130, label %1566
-    i32 126, label %1566
-    i32 116, label %1572
-    i32 97, label %1583
-    i32 101, label %1583
-    i32 105, label %1583
-    i32 109, label %1583
-    i32 113, label %1583
-    i32 127, label %1583
-    i32 129, label %1583
-    i32 131, label %1583
-    i32 117, label %1588
-    i32 121, label %1598
-    i32 123, label %1598
-    i32 125, label %1598
-    i32 98, label %1614
-    i32 102, label %1614
-    i32 106, label %1614
-    i32 110, label %1614
-    i32 114, label %1614
-    i32 118, label %1620
-    i32 99, label %1631
-    i32 103, label %1631
-    i32 107, label %1631
-    i32 111, label %1631
-    i32 115, label %1631
-    i32 119, label %1636
-    i32 132, label %1646
-    i32 133, label %1669
-    i32 136, label %1680
-    i32 134, label %1690
-    i32 135, label %1701
-    i32 137, label %1712
-    i32 138, label %1722
-    i32 139, label %1732
-    i32 140, label %1743
-    i32 141, label %1754
-    i32 142, label %1765
-    i32 143, label %1775
-    i32 144, label %1785
-    i32 145, label %1795
-    i32 146, label %1795
-    i32 147, label %1795
-    i32 148, label %1806
-    i32 149, label %1821
-    i32 150, label %1821
-    i32 151, label %1838
-    i32 152, label %1838
-    i32 159, label %1853
-    i32 160, label %1853
-    i32 161, label %1853
-    i32 162, label %1853
-    i32 163, label %1853
-    i32 164, label %1853
-    i32 153, label %1859
-    i32 154, label %1859
-    i32 155, label %1859
-    i32 156, label %1859
-    i32 157, label %1859
-    i32 158, label %1859
-    i32 165, label %1871
-    i32 166, label %1871
-    i32 198, label %1877
-    i32 199, label %1877
-    i32 167, label %1889
-    i32 200, label %1895
-    i32 170, label %1913
-    i32 171, label %1913
-    i32 172, label %1918
-    i32 173, label %1929
-    i32 174, label %1946
-    i32 175, label %1957
-    i32 176, label %1974
-    i32 177, label %1985
+    i32 1, label %269
+    i32 2, label %274
+    i32 3, label %274
+    i32 4, label %274
+    i32 5, label %274
+    i32 6, label %274
+    i32 7, label %274
+    i32 8, label %274
+    i32 9, label %279
+    i32 10, label %279
+    i32 11, label %284
+    i32 12, label %284
+    i32 13, label %284
+    i32 14, label %289
+    i32 15, label %289
+    i32 17, label %294
+    i32 16, label %294
+    i32 18, label %299
+    i32 19, label %314
+    i32 20, label %314
+    i32 21, label %328
+    i32 26, label %351
+    i32 27, label %351
+    i32 28, label %351
+    i32 29, label %351
+    i32 22, label %357
+    i32 30, label %380
+    i32 31, label %380
+    i32 32, label %380
+    i32 33, label %380
+    i32 23, label %386
+    i32 34, label %409
+    i32 35, label %409
+    i32 36, label %409
+    i32 37, label %409
+    i32 24, label %415
+    i32 38, label %438
+    i32 39, label %438
+    i32 40, label %438
+    i32 41, label %438
+    i32 25, label %444
+    i32 42, label %467
+    i32 43, label %467
+    i32 44, label %467
+    i32 45, label %467
+    i32 46, label %473
+    i32 51, label %508
+    i32 52, label %555
+    i32 53, label %590
+    i32 47, label %625
+    i32 48, label %660
+    i32 49, label %695
+    i32 50, label %730
+    i32 54, label %762
+    i32 59, label %785
+    i32 60, label %785
+    i32 61, label %785
+    i32 62, label %785
+    i32 55, label %791
+    i32 63, label %814
+    i32 64, label %814
+    i32 65, label %814
+    i32 66, label %814
+    i32 56, label %820
+    i32 67, label %843
+    i32 68, label %843
+    i32 69, label %843
+    i32 70, label %843
+    i32 57, label %849
+    i32 71, label %872
+    i32 72, label %872
+    i32 73, label %872
+    i32 74, label %872
+    i32 58, label %878
+    i32 75, label %901
+    i32 76, label %901
+    i32 77, label %901
+    i32 78, label %901
+    i32 79, label %907
+    i32 84, label %944
+    i32 85, label %993
+    i32 86, label %1030
+    i32 80, label %1067
+    i32 81, label %1103
+    i32 82, label %1140
+    i32 83, label %1176
+    i32 87, label %1201
+    i32 88, label %1207
+    i32 89, label %1238
+    i32 90, label %1254
+    i32 91, label %1281
+    i32 92, label %1338
+    i32 93, label %1389
+    i32 94, label %1451
+    i32 95, label %1543
+    i32 96, label %1565
+    i32 100, label %1565
+    i32 104, label %1565
+    i32 108, label %1565
+    i32 112, label %1565
+    i32 120, label %1565
+    i32 122, label %1565
+    i32 124, label %1565
+    i32 128, label %1565
+    i32 130, label %1565
+    i32 126, label %1565
+    i32 116, label %1571
+    i32 97, label %1582
+    i32 101, label %1582
+    i32 105, label %1582
+    i32 109, label %1582
+    i32 113, label %1582
+    i32 127, label %1582
+    i32 129, label %1582
+    i32 131, label %1582
+    i32 117, label %1587
+    i32 121, label %1597
+    i32 123, label %1597
+    i32 125, label %1597
+    i32 98, label %1613
+    i32 102, label %1613
+    i32 106, label %1613
+    i32 110, label %1613
+    i32 114, label %1613
+    i32 118, label %1619
+    i32 99, label %1630
+    i32 103, label %1630
+    i32 107, label %1630
+    i32 111, label %1630
+    i32 115, label %1630
+    i32 119, label %1635
+    i32 132, label %1645
+    i32 133, label %1668
+    i32 136, label %1679
+    i32 134, label %1689
+    i32 135, label %1700
+    i32 137, label %1711
+    i32 138, label %1721
+    i32 139, label %1731
+    i32 140, label %1742
+    i32 141, label %1753
+    i32 142, label %1764
+    i32 143, label %1774
+    i32 144, label %1784
+    i32 145, label %1794
+    i32 146, label %1794
+    i32 147, label %1794
+    i32 148, label %1805
+    i32 149, label %1820
+    i32 150, label %1820
+    i32 151, label %1837
+    i32 152, label %1837
+    i32 159, label %1852
+    i32 160, label %1852
+    i32 161, label %1852
+    i32 162, label %1852
+    i32 163, label %1852
+    i32 164, label %1852
+    i32 153, label %1858
+    i32 154, label %1858
+    i32 155, label %1858
+    i32 156, label %1858
+    i32 157, label %1858
+    i32 158, label %1858
+    i32 165, label %1870
+    i32 166, label %1870
+    i32 198, label %1876
+    i32 199, label %1876
+    i32 167, label %1888
+    i32 200, label %1894
+    i32 170, label %1912
+    i32 171, label %1912
+    i32 172, label %1917
+    i32 173, label %1928
+    i32 174, label %1945
+    i32 175, label %1956
+    i32 176, label %1973
+    i32 177, label %1984
     i32 178, label %2022
     i32 179, label %2022
     i32 180, label %2027
@@ -3717,3119 +3717,3119 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %81, %_ZN26Gro
     i32 191, label %2301
   ]
 
-270:                                              ; preds = %269
+269:                                              ; preds = %268
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr null, ptr noundef nonnull %2)
-  %271 = load ptr, ptr %122, align 8
-  %272 = icmp ne ptr %271, null
-  %273 = load ptr, ptr %125, align 8
-  %274 = icmp ne ptr %273, null
-  %or.cond1216 = select i1 %272, i1 true, i1 %274
+  %270 = load ptr, ptr %122, align 8
+  %271 = icmp ne ptr %270, null
+  %272 = load ptr, ptr %125, align 8
+  %273 = icmp ne ptr %272, null
+  %or.cond1216 = select i1 %271, i1 true, i1 %273
   br i1 %or.cond1216, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-275:                                              ; preds = %269, %269, %269, %269, %269, %269, %269
+274:                                              ; preds = %268, %268, %268, %268, %268, %268, %268
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %276 = load ptr, ptr %122, align 8
-  %277 = icmp ne ptr %276, null
-  %278 = load ptr, ptr %125, align 8
-  %279 = icmp ne ptr %278, null
-  %or.cond1218 = select i1 %277, i1 true, i1 %279
+  %275 = load ptr, ptr %122, align 8
+  %276 = icmp ne ptr %275, null
+  %277 = load ptr, ptr %125, align 8
+  %278 = icmp ne ptr %277, null
+  %or.cond1218 = select i1 %276, i1 true, i1 %278
   br i1 %or.cond1218, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-280:                                              ; preds = %269, %269
+279:                                              ; preds = %268, %268
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 262657 to ptr), ptr nonnull inttoptr (i64 852993 to ptr), ptr noundef nonnull %2)
-  %281 = load ptr, ptr %122, align 8
-  %282 = icmp ne ptr %281, null
-  %283 = load ptr, ptr %125, align 8
-  %284 = icmp ne ptr %283, null
-  %or.cond1220 = select i1 %282, i1 true, i1 %284
+  %280 = load ptr, ptr %122, align 8
+  %281 = icmp ne ptr %280, null
+  %282 = load ptr, ptr %125, align 8
+  %283 = icmp ne ptr %282, null
+  %or.cond1220 = select i1 %281, i1 true, i1 %283
   br i1 %or.cond1220, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-285:                                              ; preds = %269, %269, %269
+284:                                              ; preds = %268, %268, %268
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %286 = load ptr, ptr %122, align 8
-  %287 = icmp ne ptr %286, null
-  %288 = load ptr, ptr %125, align 8
-  %289 = icmp ne ptr %288, null
-  %or.cond1222 = select i1 %287, i1 true, i1 %289
+  %285 = load ptr, ptr %122, align 8
+  %286 = icmp ne ptr %285, null
+  %287 = load ptr, ptr %125, align 8
+  %288 = icmp ne ptr %287, null
+  %or.cond1222 = select i1 %286, i1 true, i1 %288
   br i1 %or.cond1222, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-290:                                              ; preds = %269, %269
+289:                                              ; preds = %268, %268
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 197121 to ptr), ptr nonnull inttoptr (i64 918529 to ptr), ptr noundef nonnull %2)
-  %291 = load ptr, ptr %122, align 8
-  %292 = icmp ne ptr %291, null
-  %293 = load ptr, ptr %125, align 8
-  %294 = icmp ne ptr %293, null
-  %or.cond1224 = select i1 %292, i1 true, i1 %294
+  %290 = load ptr, ptr %122, align 8
+  %291 = icmp ne ptr %290, null
+  %292 = load ptr, ptr %125, align 8
+  %293 = icmp ne ptr %292, null
+  %or.cond1224 = select i1 %291, i1 true, i1 %293
   br i1 %or.cond1224, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-295:                                              ; preds = %269, %269
+294:                                              ; preds = %268, %268
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %296 = load ptr, ptr %122, align 8
-  %297 = icmp ne ptr %296, null
-  %298 = load ptr, ptr %125, align 8
-  %299 = icmp ne ptr %298, null
-  %or.cond1226 = select i1 %297, i1 true, i1 %299
+  %295 = load ptr, ptr %122, align 8
+  %296 = icmp ne ptr %295, null
+  %297 = load ptr, ptr %125, align 8
+  %298 = icmp ne ptr %297, null
+  %or.cond1226 = select i1 %296, i1 true, i1 %298
   br i1 %or.cond1226, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-300:                                              ; preds = %269
-  %301 = load ptr, ptr %191, align 8
-  %302 = getelementptr inbounds i8, ptr %301, i64 8
-  %303 = load ptr, ptr %302, align 8
-  %304 = getelementptr inbounds i8, ptr %303, i64 56
-  %305 = load i32, ptr %182, align 8
-  %306 = sext i32 %305 to i64
-  %307 = getelementptr inbounds i8, ptr %304, i64 %306
-  %308 = getelementptr inbounds i8, ptr %307, i64 1
-  %309 = load i8, ptr %308, align 1
-  %310 = zext i8 %309 to i16
-  call void @_ZN13ClassVerifier10verify_ldcEitP13StackMapFrameRK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef 18, i16 noundef zeroext %310, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %207, ptr noundef nonnull %2)
-  %311 = load ptr, ptr %122, align 8
-  %312 = icmp ne ptr %311, null
-  %313 = load ptr, ptr %125, align 8
-  %314 = icmp ne ptr %313, null
-  %or.cond1228 = select i1 %312, i1 true, i1 %314
+299:                                              ; preds = %268
+  %300 = load ptr, ptr %191, align 8
+  %301 = getelementptr inbounds i8, ptr %300, i64 8
+  %302 = load ptr, ptr %301, align 8
+  %303 = getelementptr inbounds i8, ptr %302, i64 56
+  %304 = load i32, ptr %182, align 8
+  %305 = sext i32 %304 to i64
+  %306 = getelementptr inbounds i8, ptr %303, i64 %305
+  %307 = getelementptr inbounds i8, ptr %306, i64 1
+  %308 = load i8, ptr %307, align 1
+  %309 = zext i8 %308 to i16
+  call void @_ZN13ClassVerifier10verify_ldcEitP13StackMapFrameRK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef 18, i16 noundef zeroext %309, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %206, ptr noundef nonnull %2)
+  %310 = load ptr, ptr %122, align 8
+  %311 = icmp ne ptr %310, null
+  %312 = load ptr, ptr %125, align 8
+  %313 = icmp ne ptr %312, null
+  %or.cond1228 = select i1 %311, i1 true, i1 %313
   br i1 %or.cond1228, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-315:                                              ; preds = %269, %269
-  %316 = load ptr, ptr %191, align 8
-  %317 = getelementptr inbounds i8, ptr %316, i64 8
-  %318 = load ptr, ptr %317, align 8
-  %319 = getelementptr inbounds i8, ptr %318, i64 56
-  %320 = load i32, ptr %182, align 8
-  %321 = sext i32 %320 to i64
-  %322 = getelementptr inbounds i8, ptr %319, i64 %321
-  %323 = getelementptr inbounds i8, ptr %322, i64 1
-  %.0.i.i.i.i.i = load i16, ptr %323, align 1
-  %324 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
-  call void @_ZN13ClassVerifier10verify_ldcEitP13StackMapFrameRK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %206, i16 noundef zeroext %324, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %207, ptr noundef nonnull %2)
-  %325 = load ptr, ptr %122, align 8
-  %326 = icmp ne ptr %325, null
-  %327 = load ptr, ptr %125, align 8
-  %328 = icmp ne ptr %327, null
-  %or.cond1230 = select i1 %326, i1 true, i1 %328
+314:                                              ; preds = %268, %268
+  %315 = load ptr, ptr %191, align 8
+  %316 = getelementptr inbounds i8, ptr %315, i64 8
+  %317 = load ptr, ptr %316, align 8
+  %318 = getelementptr inbounds i8, ptr %317, i64 56
+  %319 = load i32, ptr %182, align 8
+  %320 = sext i32 %319 to i64
+  %321 = getelementptr inbounds i8, ptr %318, i64 %320
+  %322 = getelementptr inbounds i8, ptr %321, i64 1
+  %.0.i.i.i.i.i = load i16, ptr %322, align 1
+  %323 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
+  call void @_ZN13ClassVerifier10verify_ldcEitP13StackMapFrameRK18constantPoolHandleiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %205, i16 noundef zeroext %323, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef %206, ptr noundef nonnull %2)
+  %324 = load ptr, ptr %122, align 8
+  %325 = icmp ne ptr %324, null
+  %326 = load ptr, ptr %125, align 8
+  %327 = icmp ne ptr %326, null
+  %or.cond1230 = select i1 %325, i1 true, i1 %327
   br i1 %or.cond1230, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-329:                                              ; preds = %269
-  %330 = load i8, ptr %190, align 8
-  %331 = trunc i8 %330 to i1
-  %332 = load ptr, ptr %191, align 8
-  %333 = getelementptr inbounds i8, ptr %332, i64 8
-  %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr inbounds i8, ptr %334, i64 56
-  %336 = load i32, ptr %182, align 8
-  %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds i8, ptr %335, i64 %337
-  br i1 %331, label %339, label %342
+328:                                              ; preds = %268
+  %329 = load i8, ptr %190, align 8
+  %330 = trunc i8 %329 to i1
+  %331 = load ptr, ptr %191, align 8
+  %332 = getelementptr inbounds i8, ptr %331, i64 8
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr inbounds i8, ptr %333, i64 56
+  %335 = load i32, ptr %182, align 8
+  %336 = sext i32 %335 to i64
+  %337 = getelementptr inbounds i8, ptr %334, i64 %336
+  br i1 %330, label %338, label %341
 
-339:                                              ; preds = %329
-  %340 = getelementptr inbounds i8, ptr %338, i64 2
-  %.0.i.i.i.i.i977 = load i16, ptr %340, align 1
-  %341 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i977)
+338:                                              ; preds = %328
+  %339 = getelementptr inbounds i8, ptr %337, i64 2
+  %.0.i.i.i.i.i977 = load i16, ptr %339, align 1
+  %340 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i977)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit
 
-342:                                              ; preds = %329
-  %343 = getelementptr inbounds i8, ptr %338, i64 1
-  %344 = load i8, ptr %343, align 1
-  %345 = zext i8 %344 to i16
+341:                                              ; preds = %328
+  %342 = getelementptr inbounds i8, ptr %337, i64 1
+  %343 = load i8, ptr %342, align 1
+  %344 = zext i8 %343 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit
 
-_ZNK17RawBytecodeStream9get_indexEv.exit:         ; preds = %339, %342
-  %346 = phi i16 [ %341, %339 ], [ %345, %342 ]
-  %347 = zext i16 %346 to i32
-  call void @_ZN13ClassVerifier12verify_iloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %347, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %348 = load ptr, ptr %122, align 8
-  %349 = icmp ne ptr %348, null
-  %350 = load ptr, ptr %125, align 8
-  %351 = icmp ne ptr %350, null
-  %or.cond1232 = select i1 %349, i1 true, i1 %351
+_ZNK17RawBytecodeStream9get_indexEv.exit:         ; preds = %338, %341
+  %345 = phi i16 [ %340, %338 ], [ %344, %341 ]
+  %346 = zext i16 %345 to i32
+  call void @_ZN13ClassVerifier12verify_iloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %346, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %347 = load ptr, ptr %122, align 8
+  %348 = icmp ne ptr %347, null
+  %349 = load ptr, ptr %125, align 8
+  %350 = icmp ne ptr %349, null
+  %or.cond1232 = select i1 %348, i1 true, i1 %350
   br i1 %or.cond1232, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-352:                                              ; preds = %269, %269, %269, %269
-  %353 = add nsw i32 %206, -26
-  call void @_ZN13ClassVerifier12verify_iloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %353, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %354 = load ptr, ptr %122, align 8
-  %355 = icmp ne ptr %354, null
-  %356 = load ptr, ptr %125, align 8
-  %357 = icmp ne ptr %356, null
-  %or.cond1234 = select i1 %355, i1 true, i1 %357
+351:                                              ; preds = %268, %268, %268, %268
+  %352 = add nsw i32 %205, -26
+  call void @_ZN13ClassVerifier12verify_iloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %352, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %353 = load ptr, ptr %122, align 8
+  %354 = icmp ne ptr %353, null
+  %355 = load ptr, ptr %125, align 8
+  %356 = icmp ne ptr %355, null
+  %or.cond1234 = select i1 %354, i1 true, i1 %356
   br i1 %or.cond1234, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-358:                                              ; preds = %269
-  %359 = load i8, ptr %190, align 8
-  %360 = trunc i8 %359 to i1
-  %361 = load ptr, ptr %191, align 8
-  %362 = getelementptr inbounds i8, ptr %361, i64 8
-  %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 56
-  %365 = load i32, ptr %182, align 8
-  %366 = sext i32 %365 to i64
-  %367 = getelementptr inbounds i8, ptr %364, i64 %366
-  br i1 %360, label %368, label %371
+357:                                              ; preds = %268
+  %358 = load i8, ptr %190, align 8
+  %359 = trunc i8 %358 to i1
+  %360 = load ptr, ptr %191, align 8
+  %361 = getelementptr inbounds i8, ptr %360, i64 8
+  %362 = load ptr, ptr %361, align 8
+  %363 = getelementptr inbounds i8, ptr %362, i64 56
+  %364 = load i32, ptr %182, align 8
+  %365 = sext i32 %364 to i64
+  %366 = getelementptr inbounds i8, ptr %363, i64 %365
+  br i1 %359, label %367, label %370
 
-368:                                              ; preds = %358
-  %369 = getelementptr inbounds i8, ptr %367, i64 2
-  %.0.i.i.i.i.i978 = load i16, ptr %369, align 1
-  %370 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i978)
+367:                                              ; preds = %357
+  %368 = getelementptr inbounds i8, ptr %366, i64 2
+  %.0.i.i.i.i.i978 = load i16, ptr %368, align 1
+  %369 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i978)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit979
 
-371:                                              ; preds = %358
-  %372 = getelementptr inbounds i8, ptr %367, i64 1
-  %373 = load i8, ptr %372, align 1
-  %374 = zext i8 %373 to i16
+370:                                              ; preds = %357
+  %371 = getelementptr inbounds i8, ptr %366, i64 1
+  %372 = load i8, ptr %371, align 1
+  %373 = zext i8 %372 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit979
 
-_ZNK17RawBytecodeStream9get_indexEv.exit979:      ; preds = %368, %371
-  %375 = phi i16 [ %370, %368 ], [ %374, %371 ]
-  %376 = zext i16 %375 to i32
-  call void @_ZN13ClassVerifier12verify_lloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %376, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %377 = load ptr, ptr %122, align 8
-  %378 = icmp ne ptr %377, null
-  %379 = load ptr, ptr %125, align 8
-  %380 = icmp ne ptr %379, null
-  %or.cond1236 = select i1 %378, i1 true, i1 %380
+_ZNK17RawBytecodeStream9get_indexEv.exit979:      ; preds = %367, %370
+  %374 = phi i16 [ %369, %367 ], [ %373, %370 ]
+  %375 = zext i16 %374 to i32
+  call void @_ZN13ClassVerifier12verify_lloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %375, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %376 = load ptr, ptr %122, align 8
+  %377 = icmp ne ptr %376, null
+  %378 = load ptr, ptr %125, align 8
+  %379 = icmp ne ptr %378, null
+  %or.cond1236 = select i1 %377, i1 true, i1 %379
   br i1 %or.cond1236, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-381:                                              ; preds = %269, %269, %269, %269
-  %382 = add nsw i32 %206, -30
-  call void @_ZN13ClassVerifier12verify_lloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %382, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %383 = load ptr, ptr %122, align 8
-  %384 = icmp ne ptr %383, null
-  %385 = load ptr, ptr %125, align 8
-  %386 = icmp ne ptr %385, null
-  %or.cond1238 = select i1 %384, i1 true, i1 %386
+380:                                              ; preds = %268, %268, %268, %268
+  %381 = add nsw i32 %205, -30
+  call void @_ZN13ClassVerifier12verify_lloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %381, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %382 = load ptr, ptr %122, align 8
+  %383 = icmp ne ptr %382, null
+  %384 = load ptr, ptr %125, align 8
+  %385 = icmp ne ptr %384, null
+  %or.cond1238 = select i1 %383, i1 true, i1 %385
   br i1 %or.cond1238, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-387:                                              ; preds = %269
-  %388 = load i8, ptr %190, align 8
-  %389 = trunc i8 %388 to i1
-  %390 = load ptr, ptr %191, align 8
-  %391 = getelementptr inbounds i8, ptr %390, i64 8
-  %392 = load ptr, ptr %391, align 8
-  %393 = getelementptr inbounds i8, ptr %392, i64 56
-  %394 = load i32, ptr %182, align 8
-  %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds i8, ptr %393, i64 %395
-  br i1 %389, label %397, label %400
+386:                                              ; preds = %268
+  %387 = load i8, ptr %190, align 8
+  %388 = trunc i8 %387 to i1
+  %389 = load ptr, ptr %191, align 8
+  %390 = getelementptr inbounds i8, ptr %389, i64 8
+  %391 = load ptr, ptr %390, align 8
+  %392 = getelementptr inbounds i8, ptr %391, i64 56
+  %393 = load i32, ptr %182, align 8
+  %394 = sext i32 %393 to i64
+  %395 = getelementptr inbounds i8, ptr %392, i64 %394
+  br i1 %388, label %396, label %399
 
-397:                                              ; preds = %387
-  %398 = getelementptr inbounds i8, ptr %396, i64 2
-  %.0.i.i.i.i.i980 = load i16, ptr %398, align 1
-  %399 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i980)
+396:                                              ; preds = %386
+  %397 = getelementptr inbounds i8, ptr %395, i64 2
+  %.0.i.i.i.i.i980 = load i16, ptr %397, align 1
+  %398 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i980)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit981
 
-400:                                              ; preds = %387
-  %401 = getelementptr inbounds i8, ptr %396, i64 1
-  %402 = load i8, ptr %401, align 1
-  %403 = zext i8 %402 to i16
+399:                                              ; preds = %386
+  %400 = getelementptr inbounds i8, ptr %395, i64 1
+  %401 = load i8, ptr %400, align 1
+  %402 = zext i8 %401 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit981
 
-_ZNK17RawBytecodeStream9get_indexEv.exit981:      ; preds = %397, %400
-  %404 = phi i16 [ %399, %397 ], [ %403, %400 ]
-  %405 = zext i16 %404 to i32
-  call void @_ZN13ClassVerifier12verify_floadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %405, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %406 = load ptr, ptr %122, align 8
-  %407 = icmp ne ptr %406, null
-  %408 = load ptr, ptr %125, align 8
-  %409 = icmp ne ptr %408, null
-  %or.cond1240 = select i1 %407, i1 true, i1 %409
+_ZNK17RawBytecodeStream9get_indexEv.exit981:      ; preds = %396, %399
+  %403 = phi i16 [ %398, %396 ], [ %402, %399 ]
+  %404 = zext i16 %403 to i32
+  call void @_ZN13ClassVerifier12verify_floadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %404, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %405 = load ptr, ptr %122, align 8
+  %406 = icmp ne ptr %405, null
+  %407 = load ptr, ptr %125, align 8
+  %408 = icmp ne ptr %407, null
+  %or.cond1240 = select i1 %406, i1 true, i1 %408
   br i1 %or.cond1240, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-410:                                              ; preds = %269, %269, %269, %269
-  %411 = add nsw i32 %206, -34
-  call void @_ZN13ClassVerifier12verify_floadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %411, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %412 = load ptr, ptr %122, align 8
-  %413 = icmp ne ptr %412, null
-  %414 = load ptr, ptr %125, align 8
-  %415 = icmp ne ptr %414, null
-  %or.cond1242 = select i1 %413, i1 true, i1 %415
+409:                                              ; preds = %268, %268, %268, %268
+  %410 = add nsw i32 %205, -34
+  call void @_ZN13ClassVerifier12verify_floadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %410, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %411 = load ptr, ptr %122, align 8
+  %412 = icmp ne ptr %411, null
+  %413 = load ptr, ptr %125, align 8
+  %414 = icmp ne ptr %413, null
+  %or.cond1242 = select i1 %412, i1 true, i1 %414
   br i1 %or.cond1242, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-416:                                              ; preds = %269
-  %417 = load i8, ptr %190, align 8
-  %418 = trunc i8 %417 to i1
-  %419 = load ptr, ptr %191, align 8
-  %420 = getelementptr inbounds i8, ptr %419, i64 8
-  %421 = load ptr, ptr %420, align 8
-  %422 = getelementptr inbounds i8, ptr %421, i64 56
-  %423 = load i32, ptr %182, align 8
-  %424 = sext i32 %423 to i64
-  %425 = getelementptr inbounds i8, ptr %422, i64 %424
-  br i1 %418, label %426, label %429
+415:                                              ; preds = %268
+  %416 = load i8, ptr %190, align 8
+  %417 = trunc i8 %416 to i1
+  %418 = load ptr, ptr %191, align 8
+  %419 = getelementptr inbounds i8, ptr %418, i64 8
+  %420 = load ptr, ptr %419, align 8
+  %421 = getelementptr inbounds i8, ptr %420, i64 56
+  %422 = load i32, ptr %182, align 8
+  %423 = sext i32 %422 to i64
+  %424 = getelementptr inbounds i8, ptr %421, i64 %423
+  br i1 %417, label %425, label %428
 
-426:                                              ; preds = %416
-  %427 = getelementptr inbounds i8, ptr %425, i64 2
-  %.0.i.i.i.i.i982 = load i16, ptr %427, align 1
-  %428 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i982)
+425:                                              ; preds = %415
+  %426 = getelementptr inbounds i8, ptr %424, i64 2
+  %.0.i.i.i.i.i982 = load i16, ptr %426, align 1
+  %427 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i982)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit983
 
-429:                                              ; preds = %416
-  %430 = getelementptr inbounds i8, ptr %425, i64 1
-  %431 = load i8, ptr %430, align 1
-  %432 = zext i8 %431 to i16
+428:                                              ; preds = %415
+  %429 = getelementptr inbounds i8, ptr %424, i64 1
+  %430 = load i8, ptr %429, align 1
+  %431 = zext i8 %430 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit983
 
-_ZNK17RawBytecodeStream9get_indexEv.exit983:      ; preds = %426, %429
-  %433 = phi i16 [ %428, %426 ], [ %432, %429 ]
-  %434 = zext i16 %433 to i32
-  call void @_ZN13ClassVerifier12verify_dloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %434, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %435 = load ptr, ptr %122, align 8
-  %436 = icmp ne ptr %435, null
-  %437 = load ptr, ptr %125, align 8
-  %438 = icmp ne ptr %437, null
-  %or.cond1244 = select i1 %436, i1 true, i1 %438
+_ZNK17RawBytecodeStream9get_indexEv.exit983:      ; preds = %425, %428
+  %432 = phi i16 [ %427, %425 ], [ %431, %428 ]
+  %433 = zext i16 %432 to i32
+  call void @_ZN13ClassVerifier12verify_dloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %433, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %434 = load ptr, ptr %122, align 8
+  %435 = icmp ne ptr %434, null
+  %436 = load ptr, ptr %125, align 8
+  %437 = icmp ne ptr %436, null
+  %or.cond1244 = select i1 %435, i1 true, i1 %437
   br i1 %or.cond1244, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-439:                                              ; preds = %269, %269, %269, %269
-  %440 = add nsw i32 %206, -38
-  call void @_ZN13ClassVerifier12verify_dloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %440, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %441 = load ptr, ptr %122, align 8
-  %442 = icmp ne ptr %441, null
-  %443 = load ptr, ptr %125, align 8
-  %444 = icmp ne ptr %443, null
-  %or.cond1246 = select i1 %442, i1 true, i1 %444
+438:                                              ; preds = %268, %268, %268, %268
+  %439 = add nsw i32 %205, -38
+  call void @_ZN13ClassVerifier12verify_dloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %439, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %440 = load ptr, ptr %122, align 8
+  %441 = icmp ne ptr %440, null
+  %442 = load ptr, ptr %125, align 8
+  %443 = icmp ne ptr %442, null
+  %or.cond1246 = select i1 %441, i1 true, i1 %443
   br i1 %or.cond1246, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-445:                                              ; preds = %269
-  %446 = load i8, ptr %190, align 8
-  %447 = trunc i8 %446 to i1
-  %448 = load ptr, ptr %191, align 8
-  %449 = getelementptr inbounds i8, ptr %448, i64 8
-  %450 = load ptr, ptr %449, align 8
-  %451 = getelementptr inbounds i8, ptr %450, i64 56
-  %452 = load i32, ptr %182, align 8
-  %453 = sext i32 %452 to i64
-  %454 = getelementptr inbounds i8, ptr %451, i64 %453
-  br i1 %447, label %455, label %458
+444:                                              ; preds = %268
+  %445 = load i8, ptr %190, align 8
+  %446 = trunc i8 %445 to i1
+  %447 = load ptr, ptr %191, align 8
+  %448 = getelementptr inbounds i8, ptr %447, i64 8
+  %449 = load ptr, ptr %448, align 8
+  %450 = getelementptr inbounds i8, ptr %449, i64 56
+  %451 = load i32, ptr %182, align 8
+  %452 = sext i32 %451 to i64
+  %453 = getelementptr inbounds i8, ptr %450, i64 %452
+  br i1 %446, label %454, label %457
 
-455:                                              ; preds = %445
-  %456 = getelementptr inbounds i8, ptr %454, i64 2
-  %.0.i.i.i.i.i984 = load i16, ptr %456, align 1
-  %457 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i984)
+454:                                              ; preds = %444
+  %455 = getelementptr inbounds i8, ptr %453, i64 2
+  %.0.i.i.i.i.i984 = load i16, ptr %455, align 1
+  %456 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i984)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit985
 
-458:                                              ; preds = %445
-  %459 = getelementptr inbounds i8, ptr %454, i64 1
-  %460 = load i8, ptr %459, align 1
-  %461 = zext i8 %460 to i16
+457:                                              ; preds = %444
+  %458 = getelementptr inbounds i8, ptr %453, i64 1
+  %459 = load i8, ptr %458, align 1
+  %460 = zext i8 %459 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit985
 
-_ZNK17RawBytecodeStream9get_indexEv.exit985:      ; preds = %455, %458
-  %462 = phi i16 [ %457, %455 ], [ %461, %458 ]
-  %463 = zext i16 %462 to i32
-  call void @_ZN13ClassVerifier12verify_aloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %463, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %464 = load ptr, ptr %122, align 8
-  %465 = icmp ne ptr %464, null
-  %466 = load ptr, ptr %125, align 8
-  %467 = icmp ne ptr %466, null
-  %or.cond1248 = select i1 %465, i1 true, i1 %467
+_ZNK17RawBytecodeStream9get_indexEv.exit985:      ; preds = %454, %457
+  %461 = phi i16 [ %456, %454 ], [ %460, %457 ]
+  %462 = zext i16 %461 to i32
+  call void @_ZN13ClassVerifier12verify_aloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %462, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %463 = load ptr, ptr %122, align 8
+  %464 = icmp ne ptr %463, null
+  %465 = load ptr, ptr %125, align 8
+  %466 = icmp ne ptr %465, null
+  %or.cond1248 = select i1 %464, i1 true, i1 %466
   br i1 %or.cond1248, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-468:                                              ; preds = %269, %269, %269, %269
-  %469 = add nsw i32 %206, -42
-  call void @_ZN13ClassVerifier12verify_aloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %469, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %470 = load ptr, ptr %122, align 8
-  %471 = icmp ne ptr %470, null
-  %472 = load ptr, ptr %125, align 8
-  %473 = icmp ne ptr %472, null
-  %or.cond1250 = select i1 %471, i1 true, i1 %473
+467:                                              ; preds = %268, %268, %268, %268
+  %468 = add nsw i32 %205, -42
+  call void @_ZN13ClassVerifier12verify_aloadEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %468, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %469 = load ptr, ptr %122, align 8
+  %470 = icmp ne ptr %469, null
+  %471 = load ptr, ptr %125, align 8
+  %472 = icmp ne ptr %471, null
+  %or.cond1250 = select i1 %470, i1 true, i1 %472
   br i1 %or.cond1250, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-474:                                              ; preds = %269
-  %475 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %476 = load ptr, ptr %122, align 8
-  %477 = icmp ne ptr %476, null
-  %478 = load ptr, ptr %125, align 8
-  %479 = icmp ne ptr %478, null
-  %or.cond1252 = select i1 %477, i1 true, i1 %479
-  br i1 %or.cond1252, label %.loopexit, label %480
+473:                                              ; preds = %268
+  %474 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %475 = load ptr, ptr %122, align 8
+  %476 = icmp ne ptr %475, null
+  %477 = load ptr, ptr %125, align 8
+  %478 = icmp ne ptr %477, null
+  %or.cond1252 = select i1 %476, i1 true, i1 %478
+  br i1 %or.cond1252, label %.loopexit, label %479
 
-480:                                              ; preds = %474
-  %481 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %481, ptr %17, align 8
-  %482 = load ptr, ptr %122, align 8
-  %483 = icmp ne ptr %482, null
-  %484 = load ptr, ptr %125, align 8
-  %485 = icmp ne ptr %484, null
-  %or.cond1254 = select i1 %483, i1 true, i1 %485
-  %486 = ptrtoint ptr %481 to i64
-  br i1 %or.cond1254, label %.loopexit, label %487
+479:                                              ; preds = %473
+  %480 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %480, ptr %17, align 8
+  %481 = load ptr, ptr %122, align 8
+  %482 = icmp ne ptr %481, null
+  %483 = load ptr, ptr %125, align 8
+  %484 = icmp ne ptr %483, null
+  %or.cond1254 = select i1 %482, i1 true, i1 %484
+  %485 = ptrtoint ptr %480 to i64
+  br i1 %or.cond1254, label %.loopexit, label %486
 
-487:                                              ; preds = %480
-  %488 = icmp eq ptr %481, null
-  br i1 %488, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread1191, label %489
+486:                                              ; preds = %479
+  %487 = icmp eq ptr %480, null
+  br i1 %487, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread1191, label %488
 
-489:                                              ; preds = %487
-  %490 = and i64 %486, 3
-  %.not.i.i = icmp eq i64 %490, 0
-  br i1 %.not.i.i, label %491, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread
+488:                                              ; preds = %486
+  %489 = and i64 %485, 3
+  %.not.i.i = icmp eq i64 %489, 0
+  br i1 %.not.i.i, label %490, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread
 
-491:                                              ; preds = %489
-  %492 = getelementptr inbounds i8, ptr %481, i64 4
-  %493 = load i16, ptr %492, align 4
-  %494 = icmp ugt i16 %493, 1
-  br i1 %494, label %_ZNK16VerificationType8is_arrayEv.exit.i.i, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread
+490:                                              ; preds = %488
+  %491 = getelementptr inbounds i8, ptr %480, i64 4
+  %492 = load i16, ptr %491, align 4
+  %493 = icmp ugt i16 %492, 1
+  br i1 %493, label %_ZNK16VerificationType8is_arrayEv.exit.i.i, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i:       ; preds = %491
-  %495 = getelementptr inbounds i8, ptr %481, i64 6
-  %496 = load i8, ptr %495, align 1
-  %497 = icmp eq i8 %496, 91
-  br i1 %497, label %_ZNK16VerificationType12is_int_arrayEv.exit, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i:       ; preds = %490
+  %494 = getelementptr inbounds i8, ptr %480, i64 6
+  %495 = load i8, ptr %494, align 1
+  %496 = icmp eq i8 %495, 91
+  br i1 %496, label %_ZNK16VerificationType12is_int_arrayEv.exit, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread
 
 _ZNK16VerificationType12is_int_arrayEv.exit:      ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i
-  %498 = getelementptr inbounds i8, ptr %481, i64 7
-  %499 = load i8, ptr %498, align 1
-  %500 = icmp eq i8 %499, 73
-  br i1 %500, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread1191, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread
+  %497 = getelementptr inbounds i8, ptr %480, i64 7
+  %498 = load i8, ptr %497, align 1
+  %499 = icmp eq i8 %498, 73
+  br i1 %499, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread1191, label %_ZNK16VerificationType12is_int_arrayEv.exit.thread
 
-_ZNK16VerificationType12is_int_arrayEv.exit.thread: ; preds = %489, %491, %_ZNK16VerificationType8is_arrayEv.exit.i.i, %_ZNK16VerificationType12is_int_arrayEv.exit
+_ZNK16VerificationType12is_int_arrayEv.exit.thread: ; preds = %488, %490, %_ZNK16VerificationType8is_arrayEv.exit.i.i, %_ZNK16VerificationType12is_int_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %23, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %501 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.56, i32 noundef 2), !noalias !24
-  %502 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %502, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
-  %503 = getelementptr inbounds i8, ptr %22, i64 32
-  store i32 6, ptr %503, align 8
+  %500 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.56, i32 noundef 2), !noalias !24
+  %501 = getelementptr inbounds i8, ptr %22, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %501, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
+  %502 = getelementptr inbounds i8, ptr %22, i64 32
+  store i32 6, ptr %502, align 8
   %.sroa.41130.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 36
   store i32 0, ptr %.sroa.41130.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 40
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 48
-  store ptr %501, ptr %.sroa.6.0..sroa_idx, align 8
-  store i32 %207, ptr %22, align 8, !alias.scope !27
-  %504 = getelementptr inbounds i8, ptr %22, i64 4
-  store i32 1, ptr %504, align 4, !alias.scope !27
+  store ptr %500, ptr %.sroa.6.0..sroa_idx, align 8
+  store i32 %206, ptr %22, align 8, !alias.scope !27
+  %503 = getelementptr inbounds i8, ptr %22, i64 4
+  store i32 1, ptr %503, align 4, !alias.scope !27
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %22, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.58)
   br label %.loopexit
 
-_ZNK16VerificationType12is_int_arrayEv.exit.thread1191: ; preds = %487, %_ZNK16VerificationType12is_int_arrayEv.exit
+_ZNK16VerificationType12is_int_arrayEv.exit.thread1191: ; preds = %486, %_ZNK16VerificationType12is_int_arrayEv.exit
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %505 = load ptr, ptr %122, align 8
-  %506 = icmp ne ptr %505, null
-  %507 = load ptr, ptr %125, align 8
-  %508 = icmp ne ptr %507, null
-  %or.cond1256 = select i1 %506, i1 true, i1 %508
+  %504 = load ptr, ptr %122, align 8
+  %505 = icmp ne ptr %504, null
+  %506 = load ptr, ptr %125, align 8
+  %507 = icmp ne ptr %506, null
+  %or.cond1256 = select i1 %505, i1 true, i1 %507
   br i1 %or.cond1256, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-509:                                              ; preds = %269
-  %510 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %511 = load ptr, ptr %122, align 8
-  %512 = icmp ne ptr %511, null
-  %513 = load ptr, ptr %125, align 8
-  %514 = icmp ne ptr %513, null
-  %or.cond1258 = select i1 %512, i1 true, i1 %514
-  br i1 %or.cond1258, label %.loopexit, label %515
+508:                                              ; preds = %268
+  %509 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %510 = load ptr, ptr %122, align 8
+  %511 = icmp ne ptr %510, null
+  %512 = load ptr, ptr %125, align 8
+  %513 = icmp ne ptr %512, null
+  %or.cond1258 = select i1 %511, i1 true, i1 %513
+  br i1 %or.cond1258, label %.loopexit, label %514
 
-515:                                              ; preds = %509
-  %516 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %516, ptr %17, align 8
-  %517 = load ptr, ptr %122, align 8
-  %518 = icmp ne ptr %517, null
-  %519 = load ptr, ptr %125, align 8
-  %520 = icmp ne ptr %519, null
-  %or.cond1260 = select i1 %518, i1 true, i1 %520
-  %521 = ptrtoint ptr %516 to i64
-  br i1 %or.cond1260, label %.loopexit, label %522
+514:                                              ; preds = %508
+  %515 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %515, ptr %17, align 8
+  %516 = load ptr, ptr %122, align 8
+  %517 = icmp ne ptr %516, null
+  %518 = load ptr, ptr %125, align 8
+  %519 = icmp ne ptr %518, null
+  %or.cond1260 = select i1 %517, i1 true, i1 %519
+  %520 = ptrtoint ptr %515 to i64
+  br i1 %or.cond1260, label %.loopexit, label %521
 
-522:                                              ; preds = %515
-  %523 = icmp eq ptr %516, null
-  br i1 %523, label %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192, label %524
+521:                                              ; preds = %514
+  %522 = icmp eq ptr %515, null
+  br i1 %522, label %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192, label %523
 
-524:                                              ; preds = %522
-  %525 = and i64 %521, 3
-  %.not.i.i986 = icmp eq i64 %525, 0
-  br i1 %.not.i.i986, label %526, label %_ZNK16VerificationType13is_byte_arrayEv.exit.thread
+523:                                              ; preds = %521
+  %524 = and i64 %520, 3
+  %.not.i.i986 = icmp eq i64 %524, 0
+  br i1 %.not.i.i986, label %525, label %_ZNK16VerificationType13is_byte_arrayEv.exit.thread
 
-526:                                              ; preds = %524
-  %527 = getelementptr inbounds i8, ptr %516, i64 4
-  %528 = load i16, ptr %527, align 4
-  %529 = icmp ugt i16 %528, 1
-  br i1 %529, label %_ZNK16VerificationType8is_arrayEv.exit.i.i987, label %536
+525:                                              ; preds = %523
+  %526 = getelementptr inbounds i8, ptr %515, i64 4
+  %527 = load i16, ptr %526, align 4
+  %528 = icmp ugt i16 %527, 1
+  br i1 %528, label %_ZNK16VerificationType8is_arrayEv.exit.i.i987, label %535
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i987:    ; preds = %526
-  %530 = getelementptr inbounds i8, ptr %516, i64 6
-  %531 = load i8, ptr %530, align 1
-  %532 = icmp eq i8 %531, 91
-  br i1 %532, label %_ZNK16VerificationType13is_bool_arrayEv.exit, label %536
+_ZNK16VerificationType8is_arrayEv.exit.i.i987:    ; preds = %525
+  %529 = getelementptr inbounds i8, ptr %515, i64 6
+  %530 = load i8, ptr %529, align 1
+  %531 = icmp eq i8 %530, 91
+  br i1 %531, label %_ZNK16VerificationType13is_bool_arrayEv.exit, label %535
 
 _ZNK16VerificationType13is_bool_arrayEv.exit:     ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i987
-  %533 = getelementptr inbounds i8, ptr %516, i64 7
-  %534 = load i8, ptr %533, align 1
-  %535 = icmp eq i8 %534, 90
-  br i1 %535, label %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192, label %536
+  %532 = getelementptr inbounds i8, ptr %515, i64 7
+  %533 = load i8, ptr %532, align 1
+  %534 = icmp eq i8 %533, 90
+  br i1 %534, label %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192, label %535
 
-536:                                              ; preds = %526, %_ZNK16VerificationType8is_arrayEv.exit.i.i987, %_ZNK16VerificationType13is_bool_arrayEv.exit
-  %537 = getelementptr inbounds i8, ptr %516, i64 4
-  %538 = load i16, ptr %537, align 4
-  %539 = icmp ugt i16 %538, 1
-  br i1 %539, label %_ZNK16VerificationType8is_arrayEv.exit.i.i989, label %_ZNK16VerificationType13is_byte_arrayEv.exit.thread
+535:                                              ; preds = %525, %_ZNK16VerificationType8is_arrayEv.exit.i.i987, %_ZNK16VerificationType13is_bool_arrayEv.exit
+  %536 = getelementptr inbounds i8, ptr %515, i64 4
+  %537 = load i16, ptr %536, align 4
+  %538 = icmp ugt i16 %537, 1
+  br i1 %538, label %_ZNK16VerificationType8is_arrayEv.exit.i.i989, label %_ZNK16VerificationType13is_byte_arrayEv.exit.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i989:    ; preds = %536
-  %540 = getelementptr inbounds i8, ptr %516, i64 6
-  %541 = load i8, ptr %540, align 1
-  %542 = icmp eq i8 %541, 91
-  br i1 %542, label %_ZNK16VerificationType13is_byte_arrayEv.exit, label %_ZNK16VerificationType13is_byte_arrayEv.exit.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i989:    ; preds = %535
+  %539 = getelementptr inbounds i8, ptr %515, i64 6
+  %540 = load i8, ptr %539, align 1
+  %541 = icmp eq i8 %540, 91
+  br i1 %541, label %_ZNK16VerificationType13is_byte_arrayEv.exit, label %_ZNK16VerificationType13is_byte_arrayEv.exit.thread
 
 _ZNK16VerificationType13is_byte_arrayEv.exit:     ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i989
-  %543 = getelementptr inbounds i8, ptr %516, i64 7
-  %544 = load i8, ptr %543, align 1
-  %545 = icmp eq i8 %544, 66
-  br i1 %545, label %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192, label %_ZNK16VerificationType13is_byte_arrayEv.exit.thread
+  %542 = getelementptr inbounds i8, ptr %515, i64 7
+  %543 = load i8, ptr %542, align 1
+  %544 = icmp eq i8 %543, 66
+  br i1 %544, label %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192, label %_ZNK16VerificationType13is_byte_arrayEv.exit.thread
 
-_ZNK16VerificationType13is_byte_arrayEv.exit.thread: ; preds = %524, %536, %_ZNK16VerificationType8is_arrayEv.exit.i.i989, %_ZNK16VerificationType13is_byte_arrayEv.exit
+_ZNK16VerificationType13is_byte_arrayEv.exit.thread: ; preds = %523, %535, %_ZNK16VerificationType8is_arrayEv.exit.i.i989, %_ZNK16VerificationType13is_byte_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %25, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %546 = getelementptr inbounds i8, ptr %24, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %546, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
-  store i32 %207, ptr %24, align 8, !alias.scope !30
-  %547 = getelementptr inbounds i8, ptr %24, i64 4
-  store i32 1, ptr %547, align 4, !alias.scope !30
-  %548 = getelementptr inbounds i8, ptr %24, i64 32
-  store i32 9, ptr %548, align 8, !alias.scope !30
-  %549 = getelementptr inbounds i8, ptr %24, i64 36
-  store i32 0, ptr %549, align 4, !alias.scope !30
-  %550 = getelementptr inbounds i8, ptr %24, i64 40
-  store ptr null, ptr %550, align 8, !alias.scope !30
-  %551 = getelementptr inbounds i8, ptr %24, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %551, align 8, !alias.scope !30
+  %545 = getelementptr inbounds i8, ptr %24, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %545, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
+  store i32 %206, ptr %24, align 8, !alias.scope !30
+  %546 = getelementptr inbounds i8, ptr %24, i64 4
+  store i32 1, ptr %546, align 4, !alias.scope !30
+  %547 = getelementptr inbounds i8, ptr %24, i64 32
+  store i32 9, ptr %547, align 8, !alias.scope !30
+  %548 = getelementptr inbounds i8, ptr %24, i64 36
+  store i32 0, ptr %548, align 4, !alias.scope !30
+  %549 = getelementptr inbounds i8, ptr %24, i64 40
+  store ptr null, ptr %549, align 8, !alias.scope !30
+  %550 = getelementptr inbounds i8, ptr %24, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %550, align 8, !alias.scope !30
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %24, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.59)
   br label %.loopexit
 
-_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192: ; preds = %522, %_ZNK16VerificationType13is_byte_arrayEv.exit, %_ZNK16VerificationType13is_bool_arrayEv.exit
+_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192: ; preds = %521, %_ZNK16VerificationType13is_byte_arrayEv.exit, %_ZNK16VerificationType13is_bool_arrayEv.exit
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %552 = load ptr, ptr %122, align 8
-  %553 = icmp ne ptr %552, null
-  %554 = load ptr, ptr %125, align 8
-  %555 = icmp ne ptr %554, null
-  %or.cond1262 = select i1 %553, i1 true, i1 %555
+  %551 = load ptr, ptr %122, align 8
+  %552 = icmp ne ptr %551, null
+  %553 = load ptr, ptr %125, align 8
+  %554 = icmp ne ptr %553, null
+  %or.cond1262 = select i1 %552, i1 true, i1 %554
   br i1 %or.cond1262, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-556:                                              ; preds = %269
-  %557 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %558 = load ptr, ptr %122, align 8
-  %559 = icmp ne ptr %558, null
-  %560 = load ptr, ptr %125, align 8
-  %561 = icmp ne ptr %560, null
-  %or.cond1264 = select i1 %559, i1 true, i1 %561
-  br i1 %or.cond1264, label %.loopexit, label %562
+555:                                              ; preds = %268
+  %556 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %557 = load ptr, ptr %122, align 8
+  %558 = icmp ne ptr %557, null
+  %559 = load ptr, ptr %125, align 8
+  %560 = icmp ne ptr %559, null
+  %or.cond1264 = select i1 %558, i1 true, i1 %560
+  br i1 %or.cond1264, label %.loopexit, label %561
 
-562:                                              ; preds = %556
-  %563 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %563, ptr %17, align 8
-  %564 = load ptr, ptr %122, align 8
-  %565 = icmp ne ptr %564, null
-  %566 = load ptr, ptr %125, align 8
-  %567 = icmp ne ptr %566, null
-  %or.cond1266 = select i1 %565, i1 true, i1 %567
-  %568 = ptrtoint ptr %563 to i64
-  br i1 %or.cond1266, label %.loopexit, label %569
+561:                                              ; preds = %555
+  %562 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %562, ptr %17, align 8
+  %563 = load ptr, ptr %122, align 8
+  %564 = icmp ne ptr %563, null
+  %565 = load ptr, ptr %125, align 8
+  %566 = icmp ne ptr %565, null
+  %or.cond1266 = select i1 %564, i1 true, i1 %566
+  %567 = ptrtoint ptr %562 to i64
+  br i1 %or.cond1266, label %.loopexit, label %568
 
-569:                                              ; preds = %562
-  %570 = icmp eq ptr %563, null
-  br i1 %570, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread1193, label %571
+568:                                              ; preds = %561
+  %569 = icmp eq ptr %562, null
+  br i1 %569, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread1193, label %570
 
-571:                                              ; preds = %569
-  %572 = and i64 %568, 3
-  %.not.i.i990 = icmp eq i64 %572, 0
-  br i1 %.not.i.i990, label %573, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread
+570:                                              ; preds = %568
+  %571 = and i64 %567, 3
+  %.not.i.i990 = icmp eq i64 %571, 0
+  br i1 %.not.i.i990, label %572, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread
 
-573:                                              ; preds = %571
-  %574 = getelementptr inbounds i8, ptr %563, i64 4
-  %575 = load i16, ptr %574, align 4
-  %576 = icmp ugt i16 %575, 1
-  br i1 %576, label %_ZNK16VerificationType8is_arrayEv.exit.i.i991, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread
+572:                                              ; preds = %570
+  %573 = getelementptr inbounds i8, ptr %562, i64 4
+  %574 = load i16, ptr %573, align 4
+  %575 = icmp ugt i16 %574, 1
+  br i1 %575, label %_ZNK16VerificationType8is_arrayEv.exit.i.i991, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i991:    ; preds = %573
-  %577 = getelementptr inbounds i8, ptr %563, i64 6
-  %578 = load i8, ptr %577, align 1
-  %579 = icmp eq i8 %578, 91
-  br i1 %579, label %_ZNK16VerificationType13is_char_arrayEv.exit, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i991:    ; preds = %572
+  %576 = getelementptr inbounds i8, ptr %562, i64 6
+  %577 = load i8, ptr %576, align 1
+  %578 = icmp eq i8 %577, 91
+  br i1 %578, label %_ZNK16VerificationType13is_char_arrayEv.exit, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread
 
 _ZNK16VerificationType13is_char_arrayEv.exit:     ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i991
-  %580 = getelementptr inbounds i8, ptr %563, i64 7
-  %581 = load i8, ptr %580, align 1
-  %582 = icmp eq i8 %581, 67
-  br i1 %582, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread1193, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread
+  %579 = getelementptr inbounds i8, ptr %562, i64 7
+  %580 = load i8, ptr %579, align 1
+  %581 = icmp eq i8 %580, 67
+  br i1 %581, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread1193, label %_ZNK16VerificationType13is_char_arrayEv.exit.thread
 
-_ZNK16VerificationType13is_char_arrayEv.exit.thread: ; preds = %571, %573, %_ZNK16VerificationType8is_arrayEv.exit.i.i991, %_ZNK16VerificationType13is_char_arrayEv.exit
+_ZNK16VerificationType13is_char_arrayEv.exit.thread: ; preds = %570, %572, %_ZNK16VerificationType8is_arrayEv.exit.i.i991, %_ZNK16VerificationType13is_char_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %27, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %583 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.60, i32 noundef 2), !noalias !33
-  %584 = getelementptr inbounds i8, ptr %26, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %584, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
-  %585 = getelementptr inbounds i8, ptr %26, i64 32
-  store i32 6, ptr %585, align 8
+  %582 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.60, i32 noundef 2), !noalias !33
+  %583 = getelementptr inbounds i8, ptr %26, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %583, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
+  %584 = getelementptr inbounds i8, ptr %26, i64 32
+  store i32 6, ptr %584, align 8
   %.sroa.41132.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 36
   store i32 0, ptr %.sroa.41132.0..sroa_idx, align 4
   %.sroa.51133.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 40
   store ptr null, ptr %.sroa.51133.0..sroa_idx, align 8
   %.sroa.61134.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 48
-  store ptr %583, ptr %.sroa.61134.0..sroa_idx, align 8
-  store i32 %207, ptr %26, align 8, !alias.scope !36
-  %586 = getelementptr inbounds i8, ptr %26, i64 4
-  store i32 1, ptr %586, align 4, !alias.scope !36
+  store ptr %582, ptr %.sroa.61134.0..sroa_idx, align 8
+  store i32 %206, ptr %26, align 8, !alias.scope !36
+  %585 = getelementptr inbounds i8, ptr %26, i64 4
+  store i32 1, ptr %585, align 4, !alias.scope !36
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %26, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.61)
   br label %.loopexit
 
-_ZNK16VerificationType13is_char_arrayEv.exit.thread1193: ; preds = %569, %_ZNK16VerificationType13is_char_arrayEv.exit
+_ZNK16VerificationType13is_char_arrayEv.exit.thread1193: ; preds = %568, %_ZNK16VerificationType13is_char_arrayEv.exit
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %587 = load ptr, ptr %122, align 8
-  %588 = icmp ne ptr %587, null
-  %589 = load ptr, ptr %125, align 8
-  %590 = icmp ne ptr %589, null
-  %or.cond1268 = select i1 %588, i1 true, i1 %590
+  %586 = load ptr, ptr %122, align 8
+  %587 = icmp ne ptr %586, null
+  %588 = load ptr, ptr %125, align 8
+  %589 = icmp ne ptr %588, null
+  %or.cond1268 = select i1 %587, i1 true, i1 %589
   br i1 %or.cond1268, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-591:                                              ; preds = %269
-  %592 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %593 = load ptr, ptr %122, align 8
-  %594 = icmp ne ptr %593, null
-  %595 = load ptr, ptr %125, align 8
-  %596 = icmp ne ptr %595, null
-  %or.cond1270 = select i1 %594, i1 true, i1 %596
-  br i1 %or.cond1270, label %.loopexit, label %597
+590:                                              ; preds = %268
+  %591 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %592 = load ptr, ptr %122, align 8
+  %593 = icmp ne ptr %592, null
+  %594 = load ptr, ptr %125, align 8
+  %595 = icmp ne ptr %594, null
+  %or.cond1270 = select i1 %593, i1 true, i1 %595
+  br i1 %or.cond1270, label %.loopexit, label %596
 
-597:                                              ; preds = %591
-  %598 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %598, ptr %17, align 8
-  %599 = load ptr, ptr %122, align 8
-  %600 = icmp ne ptr %599, null
-  %601 = load ptr, ptr %125, align 8
-  %602 = icmp ne ptr %601, null
-  %or.cond1272 = select i1 %600, i1 true, i1 %602
-  %603 = ptrtoint ptr %598 to i64
-  br i1 %or.cond1272, label %.loopexit, label %604
+596:                                              ; preds = %590
+  %597 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %597, ptr %17, align 8
+  %598 = load ptr, ptr %122, align 8
+  %599 = icmp ne ptr %598, null
+  %600 = load ptr, ptr %125, align 8
+  %601 = icmp ne ptr %600, null
+  %or.cond1272 = select i1 %599, i1 true, i1 %601
+  %602 = ptrtoint ptr %597 to i64
+  br i1 %or.cond1272, label %.loopexit, label %603
 
-604:                                              ; preds = %597
-  %605 = icmp eq ptr %598, null
-  br i1 %605, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread1194, label %606
+603:                                              ; preds = %596
+  %604 = icmp eq ptr %597, null
+  br i1 %604, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread1194, label %605
 
-606:                                              ; preds = %604
-  %607 = and i64 %603, 3
-  %.not.i.i992 = icmp eq i64 %607, 0
-  br i1 %.not.i.i992, label %608, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread
+605:                                              ; preds = %603
+  %606 = and i64 %602, 3
+  %.not.i.i992 = icmp eq i64 %606, 0
+  br i1 %.not.i.i992, label %607, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread
 
-608:                                              ; preds = %606
-  %609 = getelementptr inbounds i8, ptr %598, i64 4
-  %610 = load i16, ptr %609, align 4
-  %611 = icmp ugt i16 %610, 1
-  br i1 %611, label %_ZNK16VerificationType8is_arrayEv.exit.i.i993, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread
+607:                                              ; preds = %605
+  %608 = getelementptr inbounds i8, ptr %597, i64 4
+  %609 = load i16, ptr %608, align 4
+  %610 = icmp ugt i16 %609, 1
+  br i1 %610, label %_ZNK16VerificationType8is_arrayEv.exit.i.i993, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i993:    ; preds = %608
-  %612 = getelementptr inbounds i8, ptr %598, i64 6
-  %613 = load i8, ptr %612, align 1
-  %614 = icmp eq i8 %613, 91
-  br i1 %614, label %_ZNK16VerificationType14is_short_arrayEv.exit, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i993:    ; preds = %607
+  %611 = getelementptr inbounds i8, ptr %597, i64 6
+  %612 = load i8, ptr %611, align 1
+  %613 = icmp eq i8 %612, 91
+  br i1 %613, label %_ZNK16VerificationType14is_short_arrayEv.exit, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread
 
 _ZNK16VerificationType14is_short_arrayEv.exit:    ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i993
-  %615 = getelementptr inbounds i8, ptr %598, i64 7
-  %616 = load i8, ptr %615, align 1
-  %617 = icmp eq i8 %616, 83
-  br i1 %617, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread1194, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread
+  %614 = getelementptr inbounds i8, ptr %597, i64 7
+  %615 = load i8, ptr %614, align 1
+  %616 = icmp eq i8 %615, 83
+  br i1 %616, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread1194, label %_ZNK16VerificationType14is_short_arrayEv.exit.thread
 
-_ZNK16VerificationType14is_short_arrayEv.exit.thread: ; preds = %606, %608, %_ZNK16VerificationType8is_arrayEv.exit.i.i993, %_ZNK16VerificationType14is_short_arrayEv.exit
+_ZNK16VerificationType14is_short_arrayEv.exit.thread: ; preds = %605, %607, %_ZNK16VerificationType8is_arrayEv.exit.i.i993, %_ZNK16VerificationType14is_short_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %29, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %618 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.62, i32 noundef 2), !noalias !39
-  %619 = getelementptr inbounds i8, ptr %28, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %619, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
-  %620 = getelementptr inbounds i8, ptr %28, i64 32
-  store i32 6, ptr %620, align 8
+  %617 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.62, i32 noundef 2), !noalias !39
+  %618 = getelementptr inbounds i8, ptr %28, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %618, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
+  %619 = getelementptr inbounds i8, ptr %28, i64 32
+  store i32 6, ptr %619, align 8
   %.sroa.41136.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 36
   store i32 0, ptr %.sroa.41136.0..sroa_idx, align 4
   %.sroa.51137.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 40
   store ptr null, ptr %.sroa.51137.0..sroa_idx, align 8
   %.sroa.61138.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 48
-  store ptr %618, ptr %.sroa.61138.0..sroa_idx, align 8
-  store i32 %207, ptr %28, align 8, !alias.scope !42
-  %621 = getelementptr inbounds i8, ptr %28, i64 4
-  store i32 1, ptr %621, align 4, !alias.scope !42
+  store ptr %617, ptr %.sroa.61138.0..sroa_idx, align 8
+  store i32 %206, ptr %28, align 8, !alias.scope !42
+  %620 = getelementptr inbounds i8, ptr %28, i64 4
+  store i32 1, ptr %620, align 4, !alias.scope !42
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %28, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.63)
   br label %.loopexit
 
-_ZNK16VerificationType14is_short_arrayEv.exit.thread1194: ; preds = %604, %_ZNK16VerificationType14is_short_arrayEv.exit
+_ZNK16VerificationType14is_short_arrayEv.exit.thread1194: ; preds = %603, %_ZNK16VerificationType14is_short_arrayEv.exit
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %622 = load ptr, ptr %122, align 8
-  %623 = icmp ne ptr %622, null
-  %624 = load ptr, ptr %125, align 8
-  %625 = icmp ne ptr %624, null
-  %or.cond1274 = select i1 %623, i1 true, i1 %625
+  %621 = load ptr, ptr %122, align 8
+  %622 = icmp ne ptr %621, null
+  %623 = load ptr, ptr %125, align 8
+  %624 = icmp ne ptr %623, null
+  %or.cond1274 = select i1 %622, i1 true, i1 %624
   br i1 %or.cond1274, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-626:                                              ; preds = %269
-  %627 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %628 = load ptr, ptr %122, align 8
-  %629 = icmp ne ptr %628, null
-  %630 = load ptr, ptr %125, align 8
-  %631 = icmp ne ptr %630, null
-  %or.cond1276 = select i1 %629, i1 true, i1 %631
-  br i1 %or.cond1276, label %.loopexit, label %632
+625:                                              ; preds = %268
+  %626 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %627 = load ptr, ptr %122, align 8
+  %628 = icmp ne ptr %627, null
+  %629 = load ptr, ptr %125, align 8
+  %630 = icmp ne ptr %629, null
+  %or.cond1276 = select i1 %628, i1 true, i1 %630
+  br i1 %or.cond1276, label %.loopexit, label %631
 
-632:                                              ; preds = %626
-  %633 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %633, ptr %17, align 8
-  %634 = load ptr, ptr %122, align 8
-  %635 = icmp ne ptr %634, null
-  %636 = load ptr, ptr %125, align 8
-  %637 = icmp ne ptr %636, null
-  %or.cond1278 = select i1 %635, i1 true, i1 %637
-  %638 = ptrtoint ptr %633 to i64
-  br i1 %or.cond1278, label %.loopexit, label %639
+631:                                              ; preds = %625
+  %632 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %632, ptr %17, align 8
+  %633 = load ptr, ptr %122, align 8
+  %634 = icmp ne ptr %633, null
+  %635 = load ptr, ptr %125, align 8
+  %636 = icmp ne ptr %635, null
+  %or.cond1278 = select i1 %634, i1 true, i1 %636
+  %637 = ptrtoint ptr %632 to i64
+  br i1 %or.cond1278, label %.loopexit, label %638
 
-639:                                              ; preds = %632
-  %640 = icmp eq ptr %633, null
-  br i1 %640, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread1195, label %641
+638:                                              ; preds = %631
+  %639 = icmp eq ptr %632, null
+  br i1 %639, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread1195, label %640
 
-641:                                              ; preds = %639
-  %642 = and i64 %638, 3
-  %.not.i.i994 = icmp eq i64 %642, 0
-  br i1 %.not.i.i994, label %643, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread
+640:                                              ; preds = %638
+  %641 = and i64 %637, 3
+  %.not.i.i994 = icmp eq i64 %641, 0
+  br i1 %.not.i.i994, label %642, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread
 
-643:                                              ; preds = %641
-  %644 = getelementptr inbounds i8, ptr %633, i64 4
-  %645 = load i16, ptr %644, align 4
-  %646 = icmp ugt i16 %645, 1
-  br i1 %646, label %_ZNK16VerificationType8is_arrayEv.exit.i.i995, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread
+642:                                              ; preds = %640
+  %643 = getelementptr inbounds i8, ptr %632, i64 4
+  %644 = load i16, ptr %643, align 4
+  %645 = icmp ugt i16 %644, 1
+  br i1 %645, label %_ZNK16VerificationType8is_arrayEv.exit.i.i995, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i995:    ; preds = %643
-  %647 = getelementptr inbounds i8, ptr %633, i64 6
-  %648 = load i8, ptr %647, align 1
-  %649 = icmp eq i8 %648, 91
-  br i1 %649, label %_ZNK16VerificationType13is_long_arrayEv.exit, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i995:    ; preds = %642
+  %646 = getelementptr inbounds i8, ptr %632, i64 6
+  %647 = load i8, ptr %646, align 1
+  %648 = icmp eq i8 %647, 91
+  br i1 %648, label %_ZNK16VerificationType13is_long_arrayEv.exit, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread
 
 _ZNK16VerificationType13is_long_arrayEv.exit:     ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i995
-  %650 = getelementptr inbounds i8, ptr %633, i64 7
-  %651 = load i8, ptr %650, align 1
-  %652 = icmp eq i8 %651, 74
-  br i1 %652, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread1195, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread
+  %649 = getelementptr inbounds i8, ptr %632, i64 7
+  %650 = load i8, ptr %649, align 1
+  %651 = icmp eq i8 %650, 74
+  br i1 %651, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread1195, label %_ZNK16VerificationType13is_long_arrayEv.exit.thread
 
-_ZNK16VerificationType13is_long_arrayEv.exit.thread: ; preds = %641, %643, %_ZNK16VerificationType8is_arrayEv.exit.i.i995, %_ZNK16VerificationType13is_long_arrayEv.exit
+_ZNK16VerificationType13is_long_arrayEv.exit.thread: ; preds = %640, %642, %_ZNK16VerificationType8is_arrayEv.exit.i.i995, %_ZNK16VerificationType13is_long_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %31, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %653 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.64, i32 noundef 2), !noalias !45
-  %654 = getelementptr inbounds i8, ptr %30, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %654, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
-  %655 = getelementptr inbounds i8, ptr %30, i64 32
-  store i32 6, ptr %655, align 8
+  %652 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.64, i32 noundef 2), !noalias !45
+  %653 = getelementptr inbounds i8, ptr %30, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %653, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
+  %654 = getelementptr inbounds i8, ptr %30, i64 32
+  store i32 6, ptr %654, align 8
   %.sroa.41140.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 36
   store i32 0, ptr %.sroa.41140.0..sroa_idx, align 4
   %.sroa.51141.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 40
   store ptr null, ptr %.sroa.51141.0..sroa_idx, align 8
   %.sroa.61142.0..sroa_idx = getelementptr inbounds i8, ptr %30, i64 48
-  store ptr %653, ptr %.sroa.61142.0..sroa_idx, align 8
-  store i32 %207, ptr %30, align 8, !alias.scope !48
-  %656 = getelementptr inbounds i8, ptr %30, i64 4
-  store i32 1, ptr %656, align 4, !alias.scope !48
+  store ptr %652, ptr %.sroa.61142.0..sroa_idx, align 8
+  store i32 %206, ptr %30, align 8, !alias.scope !48
+  %655 = getelementptr inbounds i8, ptr %30, i64 4
+  store i32 1, ptr %655, align 4, !alias.scope !48
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %30, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.65)
   br label %.loopexit
 
-_ZNK16VerificationType13is_long_arrayEv.exit.thread1195: ; preds = %639, %_ZNK16VerificationType13is_long_arrayEv.exit
+_ZNK16VerificationType13is_long_arrayEv.exit.thread1195: ; preds = %638, %_ZNK16VerificationType13is_long_arrayEv.exit
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 262657 to ptr), ptr nonnull inttoptr (i64 852993 to ptr), ptr noundef nonnull %2)
-  %657 = load ptr, ptr %122, align 8
-  %658 = icmp ne ptr %657, null
-  %659 = load ptr, ptr %125, align 8
-  %660 = icmp ne ptr %659, null
-  %or.cond1280 = select i1 %658, i1 true, i1 %660
+  %656 = load ptr, ptr %122, align 8
+  %657 = icmp ne ptr %656, null
+  %658 = load ptr, ptr %125, align 8
+  %659 = icmp ne ptr %658, null
+  %or.cond1280 = select i1 %657, i1 true, i1 %659
   br i1 %or.cond1280, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-661:                                              ; preds = %269
-  %662 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %663 = load ptr, ptr %122, align 8
-  %664 = icmp ne ptr %663, null
-  %665 = load ptr, ptr %125, align 8
-  %666 = icmp ne ptr %665, null
-  %or.cond1282 = select i1 %664, i1 true, i1 %666
-  br i1 %or.cond1282, label %.loopexit, label %667
+660:                                              ; preds = %268
+  %661 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %662 = load ptr, ptr %122, align 8
+  %663 = icmp ne ptr %662, null
+  %664 = load ptr, ptr %125, align 8
+  %665 = icmp ne ptr %664, null
+  %or.cond1282 = select i1 %663, i1 true, i1 %665
+  br i1 %or.cond1282, label %.loopexit, label %666
 
-667:                                              ; preds = %661
-  %668 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %668, ptr %17, align 8
-  %669 = load ptr, ptr %122, align 8
-  %670 = icmp ne ptr %669, null
-  %671 = load ptr, ptr %125, align 8
-  %672 = icmp ne ptr %671, null
-  %or.cond1284 = select i1 %670, i1 true, i1 %672
-  %673 = ptrtoint ptr %668 to i64
-  br i1 %or.cond1284, label %.loopexit, label %674
+666:                                              ; preds = %660
+  %667 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %667, ptr %17, align 8
+  %668 = load ptr, ptr %122, align 8
+  %669 = icmp ne ptr %668, null
+  %670 = load ptr, ptr %125, align 8
+  %671 = icmp ne ptr %670, null
+  %or.cond1284 = select i1 %669, i1 true, i1 %671
+  %672 = ptrtoint ptr %667 to i64
+  br i1 %or.cond1284, label %.loopexit, label %673
 
-674:                                              ; preds = %667
-  %675 = icmp eq ptr %668, null
-  br i1 %675, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread1196, label %676
+673:                                              ; preds = %666
+  %674 = icmp eq ptr %667, null
+  br i1 %674, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread1196, label %675
 
-676:                                              ; preds = %674
-  %677 = and i64 %673, 3
-  %.not.i.i996 = icmp eq i64 %677, 0
-  br i1 %.not.i.i996, label %678, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread
+675:                                              ; preds = %673
+  %676 = and i64 %672, 3
+  %.not.i.i996 = icmp eq i64 %676, 0
+  br i1 %.not.i.i996, label %677, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread
 
-678:                                              ; preds = %676
-  %679 = getelementptr inbounds i8, ptr %668, i64 4
-  %680 = load i16, ptr %679, align 4
-  %681 = icmp ugt i16 %680, 1
-  br i1 %681, label %_ZNK16VerificationType8is_arrayEv.exit.i.i997, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread
+677:                                              ; preds = %675
+  %678 = getelementptr inbounds i8, ptr %667, i64 4
+  %679 = load i16, ptr %678, align 4
+  %680 = icmp ugt i16 %679, 1
+  br i1 %680, label %_ZNK16VerificationType8is_arrayEv.exit.i.i997, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i997:    ; preds = %678
-  %682 = getelementptr inbounds i8, ptr %668, i64 6
-  %683 = load i8, ptr %682, align 1
-  %684 = icmp eq i8 %683, 91
-  br i1 %684, label %_ZNK16VerificationType14is_float_arrayEv.exit, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i997:    ; preds = %677
+  %681 = getelementptr inbounds i8, ptr %667, i64 6
+  %682 = load i8, ptr %681, align 1
+  %683 = icmp eq i8 %682, 91
+  br i1 %683, label %_ZNK16VerificationType14is_float_arrayEv.exit, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread
 
 _ZNK16VerificationType14is_float_arrayEv.exit:    ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i997
-  %685 = getelementptr inbounds i8, ptr %668, i64 7
-  %686 = load i8, ptr %685, align 1
-  %687 = icmp eq i8 %686, 70
-  br i1 %687, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread1196, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread
+  %684 = getelementptr inbounds i8, ptr %667, i64 7
+  %685 = load i8, ptr %684, align 1
+  %686 = icmp eq i8 %685, 70
+  br i1 %686, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread1196, label %_ZNK16VerificationType14is_float_arrayEv.exit.thread
 
-_ZNK16VerificationType14is_float_arrayEv.exit.thread: ; preds = %676, %678, %_ZNK16VerificationType8is_arrayEv.exit.i.i997, %_ZNK16VerificationType14is_float_arrayEv.exit
+_ZNK16VerificationType14is_float_arrayEv.exit.thread: ; preds = %675, %677, %_ZNK16VerificationType8is_arrayEv.exit.i.i997, %_ZNK16VerificationType14is_float_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %33, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %688 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.66, i32 noundef 2), !noalias !51
-  %689 = getelementptr inbounds i8, ptr %32, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %689, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
-  %690 = getelementptr inbounds i8, ptr %32, i64 32
-  store i32 6, ptr %690, align 8
+  %687 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.66, i32 noundef 2), !noalias !51
+  %688 = getelementptr inbounds i8, ptr %32, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %688, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
+  %689 = getelementptr inbounds i8, ptr %32, i64 32
+  store i32 6, ptr %689, align 8
   %.sroa.41144.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 36
   store i32 0, ptr %.sroa.41144.0..sroa_idx, align 4
   %.sroa.51145.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 40
   store ptr null, ptr %.sroa.51145.0..sroa_idx, align 8
   %.sroa.61146.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 48
-  store ptr %688, ptr %.sroa.61146.0..sroa_idx, align 8
-  store i32 %207, ptr %32, align 8, !alias.scope !54
-  %691 = getelementptr inbounds i8, ptr %32, i64 4
-  store i32 1, ptr %691, align 4, !alias.scope !54
+  store ptr %687, ptr %.sroa.61146.0..sroa_idx, align 8
+  store i32 %206, ptr %32, align 8, !alias.scope !54
+  %690 = getelementptr inbounds i8, ptr %32, i64 4
+  store i32 1, ptr %690, align 4, !alias.scope !54
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %32, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.67)
   br label %.loopexit
 
-_ZNK16VerificationType14is_float_arrayEv.exit.thread1196: ; preds = %674, %_ZNK16VerificationType14is_float_arrayEv.exit
+_ZNK16VerificationType14is_float_arrayEv.exit.thread1196: ; preds = %673, %_ZNK16VerificationType14is_float_arrayEv.exit
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %692 = load ptr, ptr %122, align 8
-  %693 = icmp ne ptr %692, null
-  %694 = load ptr, ptr %125, align 8
-  %695 = icmp ne ptr %694, null
-  %or.cond1286 = select i1 %693, i1 true, i1 %695
+  %691 = load ptr, ptr %122, align 8
+  %692 = icmp ne ptr %691, null
+  %693 = load ptr, ptr %125, align 8
+  %694 = icmp ne ptr %693, null
+  %or.cond1286 = select i1 %692, i1 true, i1 %694
   br i1 %or.cond1286, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-696:                                              ; preds = %269
-  %697 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %698 = load ptr, ptr %122, align 8
-  %699 = icmp ne ptr %698, null
-  %700 = load ptr, ptr %125, align 8
-  %701 = icmp ne ptr %700, null
-  %or.cond1288 = select i1 %699, i1 true, i1 %701
-  br i1 %or.cond1288, label %.loopexit, label %702
+695:                                              ; preds = %268
+  %696 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %697 = load ptr, ptr %122, align 8
+  %698 = icmp ne ptr %697, null
+  %699 = load ptr, ptr %125, align 8
+  %700 = icmp ne ptr %699, null
+  %or.cond1288 = select i1 %698, i1 true, i1 %700
+  br i1 %or.cond1288, label %.loopexit, label %701
 
-702:                                              ; preds = %696
-  %703 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %703, ptr %17, align 8
-  %704 = load ptr, ptr %122, align 8
-  %705 = icmp ne ptr %704, null
-  %706 = load ptr, ptr %125, align 8
-  %707 = icmp ne ptr %706, null
-  %or.cond1290 = select i1 %705, i1 true, i1 %707
-  %708 = ptrtoint ptr %703 to i64
-  br i1 %or.cond1290, label %.loopexit, label %709
+701:                                              ; preds = %695
+  %702 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %702, ptr %17, align 8
+  %703 = load ptr, ptr %122, align 8
+  %704 = icmp ne ptr %703, null
+  %705 = load ptr, ptr %125, align 8
+  %706 = icmp ne ptr %705, null
+  %or.cond1290 = select i1 %704, i1 true, i1 %706
+  %707 = ptrtoint ptr %702 to i64
+  br i1 %or.cond1290, label %.loopexit, label %708
 
-709:                                              ; preds = %702
-  %710 = icmp eq ptr %703, null
-  br i1 %710, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread1197, label %711
+708:                                              ; preds = %701
+  %709 = icmp eq ptr %702, null
+  br i1 %709, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread1197, label %710
 
-711:                                              ; preds = %709
-  %712 = and i64 %708, 3
-  %.not.i.i998 = icmp eq i64 %712, 0
-  br i1 %.not.i.i998, label %713, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread
+710:                                              ; preds = %708
+  %711 = and i64 %707, 3
+  %.not.i.i998 = icmp eq i64 %711, 0
+  br i1 %.not.i.i998, label %712, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread
 
-713:                                              ; preds = %711
-  %714 = getelementptr inbounds i8, ptr %703, i64 4
-  %715 = load i16, ptr %714, align 4
-  %716 = icmp ugt i16 %715, 1
-  br i1 %716, label %_ZNK16VerificationType8is_arrayEv.exit.i.i999, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread
+712:                                              ; preds = %710
+  %713 = getelementptr inbounds i8, ptr %702, i64 4
+  %714 = load i16, ptr %713, align 4
+  %715 = icmp ugt i16 %714, 1
+  br i1 %715, label %_ZNK16VerificationType8is_arrayEv.exit.i.i999, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i999:    ; preds = %713
-  %717 = getelementptr inbounds i8, ptr %703, i64 6
-  %718 = load i8, ptr %717, align 1
-  %719 = icmp eq i8 %718, 91
-  br i1 %719, label %_ZNK16VerificationType15is_double_arrayEv.exit, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i999:    ; preds = %712
+  %716 = getelementptr inbounds i8, ptr %702, i64 6
+  %717 = load i8, ptr %716, align 1
+  %718 = icmp eq i8 %717, 91
+  br i1 %718, label %_ZNK16VerificationType15is_double_arrayEv.exit, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread
 
 _ZNK16VerificationType15is_double_arrayEv.exit:   ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i999
-  %720 = getelementptr inbounds i8, ptr %703, i64 7
-  %721 = load i8, ptr %720, align 1
-  %722 = icmp eq i8 %721, 68
-  br i1 %722, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread1197, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread
+  %719 = getelementptr inbounds i8, ptr %702, i64 7
+  %720 = load i8, ptr %719, align 1
+  %721 = icmp eq i8 %720, 68
+  br i1 %721, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread1197, label %_ZNK16VerificationType15is_double_arrayEv.exit.thread
 
-_ZNK16VerificationType15is_double_arrayEv.exit.thread: ; preds = %711, %713, %_ZNK16VerificationType8is_arrayEv.exit.i.i999, %_ZNK16VerificationType15is_double_arrayEv.exit
+_ZNK16VerificationType15is_double_arrayEv.exit.thread: ; preds = %710, %712, %_ZNK16VerificationType8is_arrayEv.exit.i.i999, %_ZNK16VerificationType15is_double_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %35, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %723 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.68, i32 noundef 2), !noalias !57
-  %724 = getelementptr inbounds i8, ptr %34, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %724, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  %725 = getelementptr inbounds i8, ptr %34, i64 32
-  store i32 6, ptr %725, align 8
+  %722 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.68, i32 noundef 2), !noalias !57
+  %723 = getelementptr inbounds i8, ptr %34, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %723, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
+  %724 = getelementptr inbounds i8, ptr %34, i64 32
+  store i32 6, ptr %724, align 8
   %.sroa.41148.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 36
   store i32 0, ptr %.sroa.41148.0..sroa_idx, align 4
   %.sroa.51149.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 40
   store ptr null, ptr %.sroa.51149.0..sroa_idx, align 8
   %.sroa.61150.0..sroa_idx = getelementptr inbounds i8, ptr %34, i64 48
-  store ptr %723, ptr %.sroa.61150.0..sroa_idx, align 8
-  store i32 %207, ptr %34, align 8, !alias.scope !60
-  %726 = getelementptr inbounds i8, ptr %34, i64 4
-  store i32 1, ptr %726, align 4, !alias.scope !60
+  store ptr %722, ptr %.sroa.61150.0..sroa_idx, align 8
+  store i32 %206, ptr %34, align 8, !alias.scope !60
+  %725 = getelementptr inbounds i8, ptr %34, i64 4
+  store i32 1, ptr %725, align 4, !alias.scope !60
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %34, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.69)
   br label %.loopexit
 
-_ZNK16VerificationType15is_double_arrayEv.exit.thread1197: ; preds = %709, %_ZNK16VerificationType15is_double_arrayEv.exit
+_ZNK16VerificationType15is_double_arrayEv.exit.thread1197: ; preds = %708, %_ZNK16VerificationType15is_double_arrayEv.exit
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 197121 to ptr), ptr nonnull inttoptr (i64 918529 to ptr), ptr noundef nonnull %2)
-  %727 = load ptr, ptr %122, align 8
-  %728 = icmp ne ptr %727, null
-  %729 = load ptr, ptr %125, align 8
-  %730 = icmp ne ptr %729, null
-  %or.cond1292 = select i1 %728, i1 true, i1 %730
+  %726 = load ptr, ptr %122, align 8
+  %727 = icmp ne ptr %726, null
+  %728 = load ptr, ptr %125, align 8
+  %729 = icmp ne ptr %728, null
+  %or.cond1292 = select i1 %727, i1 true, i1 %729
   br i1 %or.cond1292, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-731:                                              ; preds = %269
-  %732 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %733 = load ptr, ptr %122, align 8
-  %734 = icmp ne ptr %733, null
-  %735 = load ptr, ptr %125, align 8
-  %736 = icmp ne ptr %735, null
-  %or.cond1294 = select i1 %734, i1 true, i1 %736
-  br i1 %or.cond1294, label %.loopexit, label %737
+730:                                              ; preds = %268
+  %731 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %732 = load ptr, ptr %122, align 8
+  %733 = icmp ne ptr %732, null
+  %734 = load ptr, ptr %125, align 8
+  %735 = icmp ne ptr %734, null
+  %or.cond1294 = select i1 %733, i1 true, i1 %735
+  br i1 %or.cond1294, label %.loopexit, label %736
 
-737:                                              ; preds = %731
-  %738 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %738, ptr %17, align 8
-  %739 = load ptr, ptr %122, align 8
-  %740 = icmp ne ptr %739, null
-  %741 = load ptr, ptr %125, align 8
-  %742 = icmp ne ptr %741, null
-  %or.cond1296 = select i1 %740, i1 true, i1 %742
-  br i1 %or.cond1296, label %.loopexit, label %743
+736:                                              ; preds = %730
+  %737 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %737, ptr %17, align 8
+  %738 = load ptr, ptr %122, align 8
+  %739 = icmp ne ptr %738, null
+  %740 = load ptr, ptr %125, align 8
+  %741 = icmp ne ptr %740, null
+  %or.cond1296 = select i1 %739, i1 true, i1 %741
+  br i1 %or.cond1296, label %.loopexit, label %742
 
-743:                                              ; preds = %737
-  %744 = call noundef zeroext i1 @_ZNK16VerificationType18is_reference_arrayEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
-  br i1 %744, label %749, label %745
+742:                                              ; preds = %736
+  %743 = call noundef zeroext i1 @_ZNK16VerificationType18is_reference_arrayEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  br i1 %743, label %748, label %744
 
-745:                                              ; preds = %743
+744:                                              ; preds = %742
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %37, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %746 = getelementptr inbounds i8, ptr %36, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %746, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
-  %747 = getelementptr inbounds i8, ptr %36, i64 32
-  store i32 6, ptr %747, align 8
+  %745 = getelementptr inbounds i8, ptr %36, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %745, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
+  %746 = getelementptr inbounds i8, ptr %36, i64 32
+  store i32 6, ptr %746, align 8
   %.sroa.41152.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 36
   store i32 0, ptr %.sroa.41152.0..sroa_idx, align 4
   %.sroa.51153.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 40
   store ptr null, ptr %.sroa.51153.0..sroa_idx, align 8
   %.sroa.61154.0..sroa_idx = getelementptr inbounds i8, ptr %36, i64 48
   store ptr inttoptr (i64 3 to ptr), ptr %.sroa.61154.0..sroa_idx, align 8
-  store i32 %207, ptr %36, align 8, !alias.scope !63
-  %748 = getelementptr inbounds i8, ptr %36, i64 4
-  store i32 1, ptr %748, align 4, !alias.scope !63
+  store i32 %206, ptr %36, align 8, !alias.scope !63
+  %747 = getelementptr inbounds i8, ptr %36, i64 4
+  store i32 1, ptr %747, align 4, !alias.scope !63
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %36, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.70)
   br label %.loopexit
 
-749:                                              ; preds = %743
-  %750 = load i64, ptr %17, align 8
-  %751 = icmp eq i64 %750, 0
-  br i1 %751, label %752, label %757
+748:                                              ; preds = %742
+  %749 = load i64, ptr %17, align 8
+  %750 = icmp eq i64 %749, 0
+  br i1 %750, label %751, label %756
 
-752:                                              ; preds = %749
+751:                                              ; preds = %748
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr null, ptr noundef nonnull %2)
-  %753 = load ptr, ptr %122, align 8
-  %754 = icmp ne ptr %753, null
-  %755 = load ptr, ptr %125, align 8
-  %756 = icmp ne ptr %755, null
-  %or.cond1298 = select i1 %754, i1 true, i1 %756
+  %752 = load ptr, ptr %122, align 8
+  %753 = icmp ne ptr %752, null
+  %754 = load ptr, ptr %125, align 8
+  %755 = icmp ne ptr %754, null
+  %or.cond1298 = select i1 %753, i1 true, i1 %755
   br i1 %or.cond1298, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-757:                                              ; preds = %749
-  %758 = call ptr @_ZNK16VerificationType13get_componentEP13ClassVerifier(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %0) #20
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %758, ptr noundef nonnull %2)
-  %759 = load ptr, ptr %122, align 8
-  %760 = icmp ne ptr %759, null
-  %761 = load ptr, ptr %125, align 8
-  %762 = icmp ne ptr %761, null
-  %or.cond1300 = select i1 %760, i1 true, i1 %762
+756:                                              ; preds = %748
+  %757 = call ptr @_ZNK16VerificationType13get_componentEP13ClassVerifier(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %0) #20
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %757, ptr noundef nonnull %2)
+  %758 = load ptr, ptr %122, align 8
+  %759 = icmp ne ptr %758, null
+  %760 = load ptr, ptr %125, align 8
+  %761 = icmp ne ptr %760, null
+  %or.cond1300 = select i1 %759, i1 true, i1 %761
   br i1 %or.cond1300, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-763:                                              ; preds = %269
-  %764 = load i8, ptr %190, align 8
-  %765 = trunc i8 %764 to i1
-  %766 = load ptr, ptr %191, align 8
-  %767 = getelementptr inbounds i8, ptr %766, i64 8
-  %768 = load ptr, ptr %767, align 8
-  %769 = getelementptr inbounds i8, ptr %768, i64 56
-  %770 = load i32, ptr %182, align 8
-  %771 = sext i32 %770 to i64
-  %772 = getelementptr inbounds i8, ptr %769, i64 %771
-  br i1 %765, label %773, label %776
+762:                                              ; preds = %268
+  %763 = load i8, ptr %190, align 8
+  %764 = trunc i8 %763 to i1
+  %765 = load ptr, ptr %191, align 8
+  %766 = getelementptr inbounds i8, ptr %765, i64 8
+  %767 = load ptr, ptr %766, align 8
+  %768 = getelementptr inbounds i8, ptr %767, i64 56
+  %769 = load i32, ptr %182, align 8
+  %770 = sext i32 %769 to i64
+  %771 = getelementptr inbounds i8, ptr %768, i64 %770
+  br i1 %764, label %772, label %775
 
-773:                                              ; preds = %763
-  %774 = getelementptr inbounds i8, ptr %772, i64 2
-  %.0.i.i.i.i.i1000 = load i16, ptr %774, align 1
-  %775 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1000)
+772:                                              ; preds = %762
+  %773 = getelementptr inbounds i8, ptr %771, i64 2
+  %.0.i.i.i.i.i1000 = load i16, ptr %773, align 1
+  %774 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1000)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1001
 
-776:                                              ; preds = %763
-  %777 = getelementptr inbounds i8, ptr %772, i64 1
-  %778 = load i8, ptr %777, align 1
-  %779 = zext i8 %778 to i16
+775:                                              ; preds = %762
+  %776 = getelementptr inbounds i8, ptr %771, i64 1
+  %777 = load i8, ptr %776, align 1
+  %778 = zext i8 %777 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1001
 
-_ZNK17RawBytecodeStream9get_indexEv.exit1001:     ; preds = %773, %776
-  %780 = phi i16 [ %775, %773 ], [ %779, %776 ]
-  %781 = zext i16 %780 to i32
-  call void @_ZN13ClassVerifier13verify_istoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %781, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %782 = load ptr, ptr %122, align 8
-  %783 = icmp ne ptr %782, null
-  %784 = load ptr, ptr %125, align 8
-  %785 = icmp ne ptr %784, null
-  %or.cond1302 = select i1 %783, i1 true, i1 %785
+_ZNK17RawBytecodeStream9get_indexEv.exit1001:     ; preds = %772, %775
+  %779 = phi i16 [ %774, %772 ], [ %778, %775 ]
+  %780 = zext i16 %779 to i32
+  call void @_ZN13ClassVerifier13verify_istoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %780, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %781 = load ptr, ptr %122, align 8
+  %782 = icmp ne ptr %781, null
+  %783 = load ptr, ptr %125, align 8
+  %784 = icmp ne ptr %783, null
+  %or.cond1302 = select i1 %782, i1 true, i1 %784
   br i1 %or.cond1302, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-786:                                              ; preds = %269, %269, %269, %269
-  %787 = add nsw i32 %206, -59
-  call void @_ZN13ClassVerifier13verify_istoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %787, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %788 = load ptr, ptr %122, align 8
-  %789 = icmp ne ptr %788, null
-  %790 = load ptr, ptr %125, align 8
-  %791 = icmp ne ptr %790, null
-  %or.cond1304 = select i1 %789, i1 true, i1 %791
+785:                                              ; preds = %268, %268, %268, %268
+  %786 = add nsw i32 %205, -59
+  call void @_ZN13ClassVerifier13verify_istoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %786, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %787 = load ptr, ptr %122, align 8
+  %788 = icmp ne ptr %787, null
+  %789 = load ptr, ptr %125, align 8
+  %790 = icmp ne ptr %789, null
+  %or.cond1304 = select i1 %788, i1 true, i1 %790
   br i1 %or.cond1304, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-792:                                              ; preds = %269
-  %793 = load i8, ptr %190, align 8
-  %794 = trunc i8 %793 to i1
-  %795 = load ptr, ptr %191, align 8
-  %796 = getelementptr inbounds i8, ptr %795, i64 8
-  %797 = load ptr, ptr %796, align 8
-  %798 = getelementptr inbounds i8, ptr %797, i64 56
-  %799 = load i32, ptr %182, align 8
-  %800 = sext i32 %799 to i64
-  %801 = getelementptr inbounds i8, ptr %798, i64 %800
-  br i1 %794, label %802, label %805
+791:                                              ; preds = %268
+  %792 = load i8, ptr %190, align 8
+  %793 = trunc i8 %792 to i1
+  %794 = load ptr, ptr %191, align 8
+  %795 = getelementptr inbounds i8, ptr %794, i64 8
+  %796 = load ptr, ptr %795, align 8
+  %797 = getelementptr inbounds i8, ptr %796, i64 56
+  %798 = load i32, ptr %182, align 8
+  %799 = sext i32 %798 to i64
+  %800 = getelementptr inbounds i8, ptr %797, i64 %799
+  br i1 %793, label %801, label %804
 
-802:                                              ; preds = %792
-  %803 = getelementptr inbounds i8, ptr %801, i64 2
-  %.0.i.i.i.i.i1002 = load i16, ptr %803, align 1
-  %804 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1002)
+801:                                              ; preds = %791
+  %802 = getelementptr inbounds i8, ptr %800, i64 2
+  %.0.i.i.i.i.i1002 = load i16, ptr %802, align 1
+  %803 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1002)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1003
 
-805:                                              ; preds = %792
-  %806 = getelementptr inbounds i8, ptr %801, i64 1
-  %807 = load i8, ptr %806, align 1
-  %808 = zext i8 %807 to i16
+804:                                              ; preds = %791
+  %805 = getelementptr inbounds i8, ptr %800, i64 1
+  %806 = load i8, ptr %805, align 1
+  %807 = zext i8 %806 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1003
 
-_ZNK17RawBytecodeStream9get_indexEv.exit1003:     ; preds = %802, %805
-  %809 = phi i16 [ %804, %802 ], [ %808, %805 ]
-  %810 = zext i16 %809 to i32
-  call void @_ZN13ClassVerifier13verify_lstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %810, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %811 = load ptr, ptr %122, align 8
-  %812 = icmp ne ptr %811, null
-  %813 = load ptr, ptr %125, align 8
-  %814 = icmp ne ptr %813, null
-  %or.cond1306 = select i1 %812, i1 true, i1 %814
+_ZNK17RawBytecodeStream9get_indexEv.exit1003:     ; preds = %801, %804
+  %808 = phi i16 [ %803, %801 ], [ %807, %804 ]
+  %809 = zext i16 %808 to i32
+  call void @_ZN13ClassVerifier13verify_lstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %809, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %810 = load ptr, ptr %122, align 8
+  %811 = icmp ne ptr %810, null
+  %812 = load ptr, ptr %125, align 8
+  %813 = icmp ne ptr %812, null
+  %or.cond1306 = select i1 %811, i1 true, i1 %813
   br i1 %or.cond1306, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-815:                                              ; preds = %269, %269, %269, %269
-  %816 = add nsw i32 %206, -63
-  call void @_ZN13ClassVerifier13verify_lstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %816, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %817 = load ptr, ptr %122, align 8
-  %818 = icmp ne ptr %817, null
-  %819 = load ptr, ptr %125, align 8
-  %820 = icmp ne ptr %819, null
-  %or.cond1308 = select i1 %818, i1 true, i1 %820
+814:                                              ; preds = %268, %268, %268, %268
+  %815 = add nsw i32 %205, -63
+  call void @_ZN13ClassVerifier13verify_lstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %815, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %816 = load ptr, ptr %122, align 8
+  %817 = icmp ne ptr %816, null
+  %818 = load ptr, ptr %125, align 8
+  %819 = icmp ne ptr %818, null
+  %or.cond1308 = select i1 %817, i1 true, i1 %819
   br i1 %or.cond1308, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-821:                                              ; preds = %269
-  %822 = load i8, ptr %190, align 8
-  %823 = trunc i8 %822 to i1
-  %824 = load ptr, ptr %191, align 8
-  %825 = getelementptr inbounds i8, ptr %824, i64 8
-  %826 = load ptr, ptr %825, align 8
-  %827 = getelementptr inbounds i8, ptr %826, i64 56
-  %828 = load i32, ptr %182, align 8
-  %829 = sext i32 %828 to i64
-  %830 = getelementptr inbounds i8, ptr %827, i64 %829
-  br i1 %823, label %831, label %834
+820:                                              ; preds = %268
+  %821 = load i8, ptr %190, align 8
+  %822 = trunc i8 %821 to i1
+  %823 = load ptr, ptr %191, align 8
+  %824 = getelementptr inbounds i8, ptr %823, i64 8
+  %825 = load ptr, ptr %824, align 8
+  %826 = getelementptr inbounds i8, ptr %825, i64 56
+  %827 = load i32, ptr %182, align 8
+  %828 = sext i32 %827 to i64
+  %829 = getelementptr inbounds i8, ptr %826, i64 %828
+  br i1 %822, label %830, label %833
 
-831:                                              ; preds = %821
-  %832 = getelementptr inbounds i8, ptr %830, i64 2
-  %.0.i.i.i.i.i1004 = load i16, ptr %832, align 1
-  %833 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1004)
+830:                                              ; preds = %820
+  %831 = getelementptr inbounds i8, ptr %829, i64 2
+  %.0.i.i.i.i.i1004 = load i16, ptr %831, align 1
+  %832 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1004)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1005
 
-834:                                              ; preds = %821
-  %835 = getelementptr inbounds i8, ptr %830, i64 1
-  %836 = load i8, ptr %835, align 1
-  %837 = zext i8 %836 to i16
+833:                                              ; preds = %820
+  %834 = getelementptr inbounds i8, ptr %829, i64 1
+  %835 = load i8, ptr %834, align 1
+  %836 = zext i8 %835 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1005
 
-_ZNK17RawBytecodeStream9get_indexEv.exit1005:     ; preds = %831, %834
-  %838 = phi i16 [ %833, %831 ], [ %837, %834 ]
-  %839 = zext i16 %838 to i32
-  call void @_ZN13ClassVerifier13verify_fstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %839, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %840 = load ptr, ptr %122, align 8
-  %841 = icmp ne ptr %840, null
-  %842 = load ptr, ptr %125, align 8
-  %843 = icmp ne ptr %842, null
-  %or.cond1310 = select i1 %841, i1 true, i1 %843
+_ZNK17RawBytecodeStream9get_indexEv.exit1005:     ; preds = %830, %833
+  %837 = phi i16 [ %832, %830 ], [ %836, %833 ]
+  %838 = zext i16 %837 to i32
+  call void @_ZN13ClassVerifier13verify_fstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %838, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %839 = load ptr, ptr %122, align 8
+  %840 = icmp ne ptr %839, null
+  %841 = load ptr, ptr %125, align 8
+  %842 = icmp ne ptr %841, null
+  %or.cond1310 = select i1 %840, i1 true, i1 %842
   br i1 %or.cond1310, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-844:                                              ; preds = %269, %269, %269, %269
-  %845 = add nsw i32 %206, -67
-  call void @_ZN13ClassVerifier13verify_fstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %845, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %846 = load ptr, ptr %122, align 8
-  %847 = icmp ne ptr %846, null
-  %848 = load ptr, ptr %125, align 8
-  %849 = icmp ne ptr %848, null
-  %or.cond1312 = select i1 %847, i1 true, i1 %849
+843:                                              ; preds = %268, %268, %268, %268
+  %844 = add nsw i32 %205, -67
+  call void @_ZN13ClassVerifier13verify_fstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %844, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %845 = load ptr, ptr %122, align 8
+  %846 = icmp ne ptr %845, null
+  %847 = load ptr, ptr %125, align 8
+  %848 = icmp ne ptr %847, null
+  %or.cond1312 = select i1 %846, i1 true, i1 %848
   br i1 %or.cond1312, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-850:                                              ; preds = %269
-  %851 = load i8, ptr %190, align 8
-  %852 = trunc i8 %851 to i1
-  %853 = load ptr, ptr %191, align 8
-  %854 = getelementptr inbounds i8, ptr %853, i64 8
-  %855 = load ptr, ptr %854, align 8
-  %856 = getelementptr inbounds i8, ptr %855, i64 56
-  %857 = load i32, ptr %182, align 8
-  %858 = sext i32 %857 to i64
-  %859 = getelementptr inbounds i8, ptr %856, i64 %858
-  br i1 %852, label %860, label %863
+849:                                              ; preds = %268
+  %850 = load i8, ptr %190, align 8
+  %851 = trunc i8 %850 to i1
+  %852 = load ptr, ptr %191, align 8
+  %853 = getelementptr inbounds i8, ptr %852, i64 8
+  %854 = load ptr, ptr %853, align 8
+  %855 = getelementptr inbounds i8, ptr %854, i64 56
+  %856 = load i32, ptr %182, align 8
+  %857 = sext i32 %856 to i64
+  %858 = getelementptr inbounds i8, ptr %855, i64 %857
+  br i1 %851, label %859, label %862
 
-860:                                              ; preds = %850
-  %861 = getelementptr inbounds i8, ptr %859, i64 2
-  %.0.i.i.i.i.i1006 = load i16, ptr %861, align 1
-  %862 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1006)
+859:                                              ; preds = %849
+  %860 = getelementptr inbounds i8, ptr %858, i64 2
+  %.0.i.i.i.i.i1006 = load i16, ptr %860, align 1
+  %861 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1006)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1007
 
-863:                                              ; preds = %850
-  %864 = getelementptr inbounds i8, ptr %859, i64 1
-  %865 = load i8, ptr %864, align 1
-  %866 = zext i8 %865 to i16
+862:                                              ; preds = %849
+  %863 = getelementptr inbounds i8, ptr %858, i64 1
+  %864 = load i8, ptr %863, align 1
+  %865 = zext i8 %864 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1007
 
-_ZNK17RawBytecodeStream9get_indexEv.exit1007:     ; preds = %860, %863
-  %867 = phi i16 [ %862, %860 ], [ %866, %863 ]
-  %868 = zext i16 %867 to i32
-  call void @_ZN13ClassVerifier13verify_dstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %868, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %869 = load ptr, ptr %122, align 8
-  %870 = icmp ne ptr %869, null
-  %871 = load ptr, ptr %125, align 8
-  %872 = icmp ne ptr %871, null
-  %or.cond1314 = select i1 %870, i1 true, i1 %872
+_ZNK17RawBytecodeStream9get_indexEv.exit1007:     ; preds = %859, %862
+  %866 = phi i16 [ %861, %859 ], [ %865, %862 ]
+  %867 = zext i16 %866 to i32
+  call void @_ZN13ClassVerifier13verify_dstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %867, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %868 = load ptr, ptr %122, align 8
+  %869 = icmp ne ptr %868, null
+  %870 = load ptr, ptr %125, align 8
+  %871 = icmp ne ptr %870, null
+  %or.cond1314 = select i1 %869, i1 true, i1 %871
   br i1 %or.cond1314, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-873:                                              ; preds = %269, %269, %269, %269
-  %874 = add nsw i32 %206, -71
-  call void @_ZN13ClassVerifier13verify_dstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %874, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %875 = load ptr, ptr %122, align 8
-  %876 = icmp ne ptr %875, null
-  %877 = load ptr, ptr %125, align 8
-  %878 = icmp ne ptr %877, null
-  %or.cond1316 = select i1 %876, i1 true, i1 %878
+872:                                              ; preds = %268, %268, %268, %268
+  %873 = add nsw i32 %205, -71
+  call void @_ZN13ClassVerifier13verify_dstoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %873, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %874 = load ptr, ptr %122, align 8
+  %875 = icmp ne ptr %874, null
+  %876 = load ptr, ptr %125, align 8
+  %877 = icmp ne ptr %876, null
+  %or.cond1316 = select i1 %875, i1 true, i1 %877
   br i1 %or.cond1316, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-879:                                              ; preds = %269
-  %880 = load i8, ptr %190, align 8
-  %881 = trunc i8 %880 to i1
-  %882 = load ptr, ptr %191, align 8
-  %883 = getelementptr inbounds i8, ptr %882, i64 8
-  %884 = load ptr, ptr %883, align 8
-  %885 = getelementptr inbounds i8, ptr %884, i64 56
-  %886 = load i32, ptr %182, align 8
-  %887 = sext i32 %886 to i64
-  %888 = getelementptr inbounds i8, ptr %885, i64 %887
-  br i1 %881, label %889, label %892
+878:                                              ; preds = %268
+  %879 = load i8, ptr %190, align 8
+  %880 = trunc i8 %879 to i1
+  %881 = load ptr, ptr %191, align 8
+  %882 = getelementptr inbounds i8, ptr %881, i64 8
+  %883 = load ptr, ptr %882, align 8
+  %884 = getelementptr inbounds i8, ptr %883, i64 56
+  %885 = load i32, ptr %182, align 8
+  %886 = sext i32 %885 to i64
+  %887 = getelementptr inbounds i8, ptr %884, i64 %886
+  br i1 %880, label %888, label %891
 
-889:                                              ; preds = %879
-  %890 = getelementptr inbounds i8, ptr %888, i64 2
-  %.0.i.i.i.i.i1008 = load i16, ptr %890, align 1
-  %891 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1008)
+888:                                              ; preds = %878
+  %889 = getelementptr inbounds i8, ptr %887, i64 2
+  %.0.i.i.i.i.i1008 = load i16, ptr %889, align 1
+  %890 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1008)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1009
 
-892:                                              ; preds = %879
-  %893 = getelementptr inbounds i8, ptr %888, i64 1
-  %894 = load i8, ptr %893, align 1
-  %895 = zext i8 %894 to i16
+891:                                              ; preds = %878
+  %892 = getelementptr inbounds i8, ptr %887, i64 1
+  %893 = load i8, ptr %892, align 1
+  %894 = zext i8 %893 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1009
 
-_ZNK17RawBytecodeStream9get_indexEv.exit1009:     ; preds = %889, %892
-  %896 = phi i16 [ %891, %889 ], [ %895, %892 ]
-  %897 = zext i16 %896 to i32
-  call void @_ZN13ClassVerifier13verify_astoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %897, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %898 = load ptr, ptr %122, align 8
-  %899 = icmp ne ptr %898, null
-  %900 = load ptr, ptr %125, align 8
-  %901 = icmp ne ptr %900, null
-  %or.cond1318 = select i1 %899, i1 true, i1 %901
+_ZNK17RawBytecodeStream9get_indexEv.exit1009:     ; preds = %888, %891
+  %895 = phi i16 [ %890, %888 ], [ %894, %891 ]
+  %896 = zext i16 %895 to i32
+  call void @_ZN13ClassVerifier13verify_astoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %896, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %897 = load ptr, ptr %122, align 8
+  %898 = icmp ne ptr %897, null
+  %899 = load ptr, ptr %125, align 8
+  %900 = icmp ne ptr %899, null
+  %or.cond1318 = select i1 %898, i1 true, i1 %900
   br i1 %or.cond1318, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-902:                                              ; preds = %269, %269, %269, %269
-  %903 = add nsw i32 %206, -75
-  call void @_ZN13ClassVerifier13verify_astoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %903, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %904 = load ptr, ptr %122, align 8
-  %905 = icmp ne ptr %904, null
-  %906 = load ptr, ptr %125, align 8
-  %907 = icmp ne ptr %906, null
-  %or.cond1320 = select i1 %905, i1 true, i1 %907
+901:                                              ; preds = %268, %268, %268, %268
+  %902 = add nsw i32 %205, -75
+  call void @_ZN13ClassVerifier13verify_astoreEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %902, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %903 = load ptr, ptr %122, align 8
+  %904 = icmp ne ptr %903, null
+  %905 = load ptr, ptr %125, align 8
+  %906 = icmp ne ptr %905, null
+  %or.cond1320 = select i1 %904, i1 true, i1 %906
   br i1 %or.cond1320, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-908:                                              ; preds = %269
-  %909 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %910 = load ptr, ptr %122, align 8
-  %911 = icmp ne ptr %910, null
-  %912 = load ptr, ptr %125, align 8
-  %913 = icmp ne ptr %912, null
-  %or.cond1322 = select i1 %911, i1 true, i1 %913
-  br i1 %or.cond1322, label %.loopexit, label %914
+907:                                              ; preds = %268
+  %908 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %909 = load ptr, ptr %122, align 8
+  %910 = icmp ne ptr %909, null
+  %911 = load ptr, ptr %125, align 8
+  %912 = icmp ne ptr %911, null
+  %or.cond1322 = select i1 %910, i1 true, i1 %912
+  br i1 %or.cond1322, label %.loopexit, label %913
 
-914:                                              ; preds = %908
-  %915 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %916 = load ptr, ptr %122, align 8
-  %917 = icmp ne ptr %916, null
-  %918 = load ptr, ptr %125, align 8
-  %919 = icmp ne ptr %918, null
-  %or.cond1324 = select i1 %917, i1 true, i1 %919
-  br i1 %or.cond1324, label %.loopexit, label %920
+913:                                              ; preds = %907
+  %914 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %915 = load ptr, ptr %122, align 8
+  %916 = icmp ne ptr %915, null
+  %917 = load ptr, ptr %125, align 8
+  %918 = icmp ne ptr %917, null
+  %or.cond1324 = select i1 %916, i1 true, i1 %918
+  br i1 %or.cond1324, label %.loopexit, label %919
 
-920:                                              ; preds = %914
-  %921 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %921, ptr %17, align 8
-  %922 = load ptr, ptr %122, align 8
-  %923 = icmp ne ptr %922, null
-  %924 = load ptr, ptr %125, align 8
-  %925 = icmp ne ptr %924, null
-  %or.cond1326 = select i1 %923, i1 true, i1 %925
-  %926 = ptrtoint ptr %921 to i64
-  br i1 %or.cond1326, label %.loopexit, label %927
+919:                                              ; preds = %913
+  %920 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %920, ptr %17, align 8
+  %921 = load ptr, ptr %122, align 8
+  %922 = icmp ne ptr %921, null
+  %923 = load ptr, ptr %125, align 8
+  %924 = icmp ne ptr %923, null
+  %or.cond1326 = select i1 %922, i1 true, i1 %924
+  %925 = ptrtoint ptr %920 to i64
+  br i1 %or.cond1326, label %.loopexit, label %926
 
-927:                                              ; preds = %920
-  %928 = icmp eq ptr %921, null
-  br i1 %928, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %929
+926:                                              ; preds = %919
+  %927 = icmp eq ptr %920, null
+  br i1 %927, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %928
 
-929:                                              ; preds = %927
-  %930 = and i64 %926, 3
-  %.not.i.i1010 = icmp eq i64 %930, 0
-  br i1 %.not.i.i1010, label %931, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread
+928:                                              ; preds = %926
+  %929 = and i64 %925, 3
+  %.not.i.i1010 = icmp eq i64 %929, 0
+  br i1 %.not.i.i1010, label %930, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread
 
-931:                                              ; preds = %929
-  %932 = getelementptr inbounds i8, ptr %921, i64 4
-  %933 = load i16, ptr %932, align 4
-  %934 = icmp ugt i16 %933, 1
-  br i1 %934, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1011, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread
+930:                                              ; preds = %928
+  %931 = getelementptr inbounds i8, ptr %920, i64 4
+  %932 = load i16, ptr %931, align 4
+  %933 = icmp ugt i16 %932, 1
+  br i1 %933, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1011, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i1011:   ; preds = %931
-  %935 = getelementptr inbounds i8, ptr %921, i64 6
-  %936 = load i8, ptr %935, align 1
-  %937 = icmp eq i8 %936, 91
-  br i1 %937, label %_ZNK16VerificationType12is_int_arrayEv.exit1012, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i1011:   ; preds = %930
+  %934 = getelementptr inbounds i8, ptr %920, i64 6
+  %935 = load i8, ptr %934, align 1
+  %936 = icmp eq i8 %935, 91
+  br i1 %936, label %_ZNK16VerificationType12is_int_arrayEv.exit1012, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread
 
 _ZNK16VerificationType12is_int_arrayEv.exit1012:  ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i1011
-  %938 = getelementptr inbounds i8, ptr %921, i64 7
-  %939 = load i8, ptr %938, align 1
-  %940 = icmp eq i8 %939, 73
-  br i1 %940, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread
+  %937 = getelementptr inbounds i8, ptr %920, i64 7
+  %938 = load i8, ptr %937, align 1
+  %939 = icmp eq i8 %938, 73
+  br i1 %939, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread
 
-_ZNK16VerificationType12is_int_arrayEv.exit1012.thread: ; preds = %929, %931, %_ZNK16VerificationType8is_arrayEv.exit.i.i1011, %_ZNK16VerificationType12is_int_arrayEv.exit1012
+_ZNK16VerificationType12is_int_arrayEv.exit1012.thread: ; preds = %928, %930, %_ZNK16VerificationType8is_arrayEv.exit.i.i1011, %_ZNK16VerificationType12is_int_arrayEv.exit1012
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %39, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %941 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.56, i32 noundef 2), !noalias !66
-  %942 = getelementptr inbounds i8, ptr %38, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %942, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
-  %943 = getelementptr inbounds i8, ptr %38, i64 32
-  store i32 6, ptr %943, align 8
+  %940 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.56, i32 noundef 2), !noalias !66
+  %941 = getelementptr inbounds i8, ptr %38, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %941, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
+  %942 = getelementptr inbounds i8, ptr %38, i64 32
+  store i32 6, ptr %942, align 8
   %.sroa.41156.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 36
   store i32 0, ptr %.sroa.41156.0..sroa_idx, align 4
   %.sroa.51157.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 40
   store ptr null, ptr %.sroa.51157.0..sroa_idx, align 8
   %.sroa.61158.0..sroa_idx = getelementptr inbounds i8, ptr %38, i64 48
-  store ptr %941, ptr %.sroa.61158.0..sroa_idx, align 8
-  store i32 %207, ptr %38, align 8, !alias.scope !69
-  %944 = getelementptr inbounds i8, ptr %38, i64 4
-  store i32 1, ptr %944, align 4, !alias.scope !69
+  store ptr %940, ptr %.sroa.61158.0..sroa_idx, align 8
+  store i32 %206, ptr %38, align 8, !alias.scope !69
+  %943 = getelementptr inbounds i8, ptr %38, i64 4
+  store i32 1, ptr %943, align 4, !alias.scope !69
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %38, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.71)
   br label %.loopexit
 
-945:                                              ; preds = %269
-  %946 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %947 = load ptr, ptr %122, align 8
-  %948 = icmp ne ptr %947, null
-  %949 = load ptr, ptr %125, align 8
-  %950 = icmp ne ptr %949, null
-  %or.cond1328 = select i1 %948, i1 true, i1 %950
-  br i1 %or.cond1328, label %.loopexit, label %951
+944:                                              ; preds = %268
+  %945 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %946 = load ptr, ptr %122, align 8
+  %947 = icmp ne ptr %946, null
+  %948 = load ptr, ptr %125, align 8
+  %949 = icmp ne ptr %948, null
+  %or.cond1328 = select i1 %947, i1 true, i1 %949
+  br i1 %or.cond1328, label %.loopexit, label %950
 
-951:                                              ; preds = %945
-  %952 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %953 = load ptr, ptr %122, align 8
-  %954 = icmp ne ptr %953, null
-  %955 = load ptr, ptr %125, align 8
-  %956 = icmp ne ptr %955, null
-  %or.cond1330 = select i1 %954, i1 true, i1 %956
-  br i1 %or.cond1330, label %.loopexit, label %957
+950:                                              ; preds = %944
+  %951 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %952 = load ptr, ptr %122, align 8
+  %953 = icmp ne ptr %952, null
+  %954 = load ptr, ptr %125, align 8
+  %955 = icmp ne ptr %954, null
+  %or.cond1330 = select i1 %953, i1 true, i1 %955
+  br i1 %or.cond1330, label %.loopexit, label %956
 
-957:                                              ; preds = %951
-  %958 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %958, ptr %17, align 8
-  %959 = load ptr, ptr %122, align 8
-  %960 = icmp ne ptr %959, null
-  %961 = load ptr, ptr %125, align 8
-  %962 = icmp ne ptr %961, null
-  %or.cond1332 = select i1 %960, i1 true, i1 %962
-  %963 = ptrtoint ptr %958 to i64
-  br i1 %or.cond1332, label %.loopexit, label %964
+956:                                              ; preds = %950
+  %957 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %957, ptr %17, align 8
+  %958 = load ptr, ptr %122, align 8
+  %959 = icmp ne ptr %958, null
+  %960 = load ptr, ptr %125, align 8
+  %961 = icmp ne ptr %960, null
+  %or.cond1332 = select i1 %959, i1 true, i1 %961
+  %962 = ptrtoint ptr %957 to i64
+  br i1 %or.cond1332, label %.loopexit, label %963
 
-964:                                              ; preds = %957
-  %965 = icmp eq ptr %958, null
-  br i1 %965, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %966
+963:                                              ; preds = %956
+  %964 = icmp eq ptr %957, null
+  br i1 %964, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %965
 
-966:                                              ; preds = %964
-  %967 = and i64 %963, 3
-  %.not.i.i1013 = icmp eq i64 %967, 0
-  br i1 %.not.i.i1013, label %968, label %_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread
+965:                                              ; preds = %963
+  %966 = and i64 %962, 3
+  %.not.i.i1013 = icmp eq i64 %966, 0
+  br i1 %.not.i.i1013, label %967, label %_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread
 
-968:                                              ; preds = %966
-  %969 = getelementptr inbounds i8, ptr %958, i64 4
-  %970 = load i16, ptr %969, align 4
-  %971 = icmp ugt i16 %970, 1
-  br i1 %971, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1014, label %978
+967:                                              ; preds = %965
+  %968 = getelementptr inbounds i8, ptr %957, i64 4
+  %969 = load i16, ptr %968, align 4
+  %970 = icmp ugt i16 %969, 1
+  br i1 %970, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1014, label %977
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i1014:   ; preds = %968
-  %972 = getelementptr inbounds i8, ptr %958, i64 6
-  %973 = load i8, ptr %972, align 1
-  %974 = icmp eq i8 %973, 91
-  br i1 %974, label %_ZNK16VerificationType13is_bool_arrayEv.exit1015, label %978
+_ZNK16VerificationType8is_arrayEv.exit.i.i1014:   ; preds = %967
+  %971 = getelementptr inbounds i8, ptr %957, i64 6
+  %972 = load i8, ptr %971, align 1
+  %973 = icmp eq i8 %972, 91
+  br i1 %973, label %_ZNK16VerificationType13is_bool_arrayEv.exit1015, label %977
 
 _ZNK16VerificationType13is_bool_arrayEv.exit1015: ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i1014
-  %975 = getelementptr inbounds i8, ptr %958, i64 7
-  %976 = load i8, ptr %975, align 1
-  %977 = icmp eq i8 %976, 90
-  br i1 %977, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %978
+  %974 = getelementptr inbounds i8, ptr %957, i64 7
+  %975 = load i8, ptr %974, align 1
+  %976 = icmp eq i8 %975, 90
+  br i1 %976, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %977
 
-978:                                              ; preds = %968, %_ZNK16VerificationType8is_arrayEv.exit.i.i1014, %_ZNK16VerificationType13is_bool_arrayEv.exit1015
-  %979 = getelementptr inbounds i8, ptr %958, i64 4
-  %980 = load i16, ptr %979, align 4
-  %981 = icmp ugt i16 %980, 1
-  br i1 %981, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1017, label %_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread
+977:                                              ; preds = %967, %_ZNK16VerificationType8is_arrayEv.exit.i.i1014, %_ZNK16VerificationType13is_bool_arrayEv.exit1015
+  %978 = getelementptr inbounds i8, ptr %957, i64 4
+  %979 = load i16, ptr %978, align 4
+  %980 = icmp ugt i16 %979, 1
+  br i1 %980, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1017, label %_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i1017:   ; preds = %978
-  %982 = getelementptr inbounds i8, ptr %958, i64 6
-  %983 = load i8, ptr %982, align 1
-  %984 = icmp eq i8 %983, 91
-  br i1 %984, label %_ZNK16VerificationType13is_byte_arrayEv.exit1018, label %_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i1017:   ; preds = %977
+  %981 = getelementptr inbounds i8, ptr %957, i64 6
+  %982 = load i8, ptr %981, align 1
+  %983 = icmp eq i8 %982, 91
+  br i1 %983, label %_ZNK16VerificationType13is_byte_arrayEv.exit1018, label %_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread
 
 _ZNK16VerificationType13is_byte_arrayEv.exit1018: ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i1017
-  %985 = getelementptr inbounds i8, ptr %958, i64 7
-  %986 = load i8, ptr %985, align 1
-  %987 = icmp eq i8 %986, 66
-  br i1 %987, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread
+  %984 = getelementptr inbounds i8, ptr %957, i64 7
+  %985 = load i8, ptr %984, align 1
+  %986 = icmp eq i8 %985, 66
+  br i1 %986, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread
 
-_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread: ; preds = %966, %978, %_ZNK16VerificationType8is_arrayEv.exit.i.i1017, %_ZNK16VerificationType13is_byte_arrayEv.exit1018
+_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread: ; preds = %965, %977, %_ZNK16VerificationType8is_arrayEv.exit.i.i1017, %_ZNK16VerificationType13is_byte_arrayEv.exit1018
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %41, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %988 = getelementptr inbounds i8, ptr %40, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %988, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
-  store i32 %207, ptr %40, align 8, !alias.scope !72
-  %989 = getelementptr inbounds i8, ptr %40, i64 4
-  store i32 1, ptr %989, align 4, !alias.scope !72
-  %990 = getelementptr inbounds i8, ptr %40, i64 32
-  store i32 9, ptr %990, align 8, !alias.scope !72
-  %991 = getelementptr inbounds i8, ptr %40, i64 36
-  store i32 0, ptr %991, align 4, !alias.scope !72
-  %992 = getelementptr inbounds i8, ptr %40, i64 40
-  store ptr null, ptr %992, align 8, !alias.scope !72
-  %993 = getelementptr inbounds i8, ptr %40, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %993, align 8, !alias.scope !72
+  %987 = getelementptr inbounds i8, ptr %40, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %987, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
+  store i32 %206, ptr %40, align 8, !alias.scope !72
+  %988 = getelementptr inbounds i8, ptr %40, i64 4
+  store i32 1, ptr %988, align 4, !alias.scope !72
+  %989 = getelementptr inbounds i8, ptr %40, i64 32
+  store i32 9, ptr %989, align 8, !alias.scope !72
+  %990 = getelementptr inbounds i8, ptr %40, i64 36
+  store i32 0, ptr %990, align 4, !alias.scope !72
+  %991 = getelementptr inbounds i8, ptr %40, i64 40
+  store ptr null, ptr %991, align 8, !alias.scope !72
+  %992 = getelementptr inbounds i8, ptr %40, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %992, align 8, !alias.scope !72
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %40, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.72)
   br label %.loopexit
 
-994:                                              ; preds = %269
-  %995 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %996 = load ptr, ptr %122, align 8
-  %997 = icmp ne ptr %996, null
-  %998 = load ptr, ptr %125, align 8
-  %999 = icmp ne ptr %998, null
-  %or.cond1334 = select i1 %997, i1 true, i1 %999
-  br i1 %or.cond1334, label %.loopexit, label %1000
+993:                                              ; preds = %268
+  %994 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %995 = load ptr, ptr %122, align 8
+  %996 = icmp ne ptr %995, null
+  %997 = load ptr, ptr %125, align 8
+  %998 = icmp ne ptr %997, null
+  %or.cond1334 = select i1 %996, i1 true, i1 %998
+  br i1 %or.cond1334, label %.loopexit, label %999
 
-1000:                                             ; preds = %994
-  %1001 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1002 = load ptr, ptr %122, align 8
-  %1003 = icmp ne ptr %1002, null
-  %1004 = load ptr, ptr %125, align 8
-  %1005 = icmp ne ptr %1004, null
-  %or.cond1336 = select i1 %1003, i1 true, i1 %1005
-  br i1 %or.cond1336, label %.loopexit, label %1006
+999:                                              ; preds = %993
+  %1000 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1001 = load ptr, ptr %122, align 8
+  %1002 = icmp ne ptr %1001, null
+  %1003 = load ptr, ptr %125, align 8
+  %1004 = icmp ne ptr %1003, null
+  %or.cond1336 = select i1 %1002, i1 true, i1 %1004
+  br i1 %or.cond1336, label %.loopexit, label %1005
 
-1006:                                             ; preds = %1000
-  %1007 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %1007, ptr %17, align 8
-  %1008 = load ptr, ptr %122, align 8
-  %1009 = icmp ne ptr %1008, null
-  %1010 = load ptr, ptr %125, align 8
-  %1011 = icmp ne ptr %1010, null
-  %or.cond1338 = select i1 %1009, i1 true, i1 %1011
-  %1012 = ptrtoint ptr %1007 to i64
-  br i1 %or.cond1338, label %.loopexit, label %1013
+1005:                                             ; preds = %999
+  %1006 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %1006, ptr %17, align 8
+  %1007 = load ptr, ptr %122, align 8
+  %1008 = icmp ne ptr %1007, null
+  %1009 = load ptr, ptr %125, align 8
+  %1010 = icmp ne ptr %1009, null
+  %or.cond1338 = select i1 %1008, i1 true, i1 %1010
+  %1011 = ptrtoint ptr %1006 to i64
+  br i1 %or.cond1338, label %.loopexit, label %1012
 
-1013:                                             ; preds = %1006
-  %1014 = icmp eq ptr %1007, null
-  br i1 %1014, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1015
+1012:                                             ; preds = %1005
+  %1013 = icmp eq ptr %1006, null
+  br i1 %1013, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1014
 
-1015:                                             ; preds = %1013
-  %1016 = and i64 %1012, 3
-  %.not.i.i1019 = icmp eq i64 %1016, 0
-  br i1 %.not.i.i1019, label %1017, label %_ZNK16VerificationType13is_char_arrayEv.exit1021.thread
+1014:                                             ; preds = %1012
+  %1015 = and i64 %1011, 3
+  %.not.i.i1019 = icmp eq i64 %1015, 0
+  br i1 %.not.i.i1019, label %1016, label %_ZNK16VerificationType13is_char_arrayEv.exit1021.thread
 
-1017:                                             ; preds = %1015
-  %1018 = getelementptr inbounds i8, ptr %1007, i64 4
-  %1019 = load i16, ptr %1018, align 4
-  %1020 = icmp ugt i16 %1019, 1
-  br i1 %1020, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1020, label %_ZNK16VerificationType13is_char_arrayEv.exit1021.thread
+1016:                                             ; preds = %1014
+  %1017 = getelementptr inbounds i8, ptr %1006, i64 4
+  %1018 = load i16, ptr %1017, align 4
+  %1019 = icmp ugt i16 %1018, 1
+  br i1 %1019, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1020, label %_ZNK16VerificationType13is_char_arrayEv.exit1021.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i1020:   ; preds = %1017
-  %1021 = getelementptr inbounds i8, ptr %1007, i64 6
-  %1022 = load i8, ptr %1021, align 1
-  %1023 = icmp eq i8 %1022, 91
-  br i1 %1023, label %_ZNK16VerificationType13is_char_arrayEv.exit1021, label %_ZNK16VerificationType13is_char_arrayEv.exit1021.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i1020:   ; preds = %1016
+  %1020 = getelementptr inbounds i8, ptr %1006, i64 6
+  %1021 = load i8, ptr %1020, align 1
+  %1022 = icmp eq i8 %1021, 91
+  br i1 %1022, label %_ZNK16VerificationType13is_char_arrayEv.exit1021, label %_ZNK16VerificationType13is_char_arrayEv.exit1021.thread
 
 _ZNK16VerificationType13is_char_arrayEv.exit1021: ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i1020
-  %1024 = getelementptr inbounds i8, ptr %1007, i64 7
-  %1025 = load i8, ptr %1024, align 1
-  %1026 = icmp eq i8 %1025, 67
-  br i1 %1026, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType13is_char_arrayEv.exit1021.thread
+  %1023 = getelementptr inbounds i8, ptr %1006, i64 7
+  %1024 = load i8, ptr %1023, align 1
+  %1025 = icmp eq i8 %1024, 67
+  br i1 %1025, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType13is_char_arrayEv.exit1021.thread
 
-_ZNK16VerificationType13is_char_arrayEv.exit1021.thread: ; preds = %1015, %1017, %_ZNK16VerificationType8is_arrayEv.exit.i.i1020, %_ZNK16VerificationType13is_char_arrayEv.exit1021
+_ZNK16VerificationType13is_char_arrayEv.exit1021.thread: ; preds = %1014, %1016, %_ZNK16VerificationType8is_arrayEv.exit.i.i1020, %_ZNK16VerificationType13is_char_arrayEv.exit1021
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %43, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1027 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.60, i32 noundef 2), !noalias !75
-  %1028 = getelementptr inbounds i8, ptr %42, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1028, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false)
-  %1029 = getelementptr inbounds i8, ptr %42, i64 32
-  store i32 6, ptr %1029, align 8
+  %1026 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.60, i32 noundef 2), !noalias !75
+  %1027 = getelementptr inbounds i8, ptr %42, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1027, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false)
+  %1028 = getelementptr inbounds i8, ptr %42, i64 32
+  store i32 6, ptr %1028, align 8
   %.sroa.41160.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 36
   store i32 0, ptr %.sroa.41160.0..sroa_idx, align 4
   %.sroa.51161.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 40
   store ptr null, ptr %.sroa.51161.0..sroa_idx, align 8
   %.sroa.61162.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 48
-  store ptr %1027, ptr %.sroa.61162.0..sroa_idx, align 8
-  store i32 %207, ptr %42, align 8, !alias.scope !78
-  %1030 = getelementptr inbounds i8, ptr %42, i64 4
-  store i32 1, ptr %1030, align 4, !alias.scope !78
+  store ptr %1026, ptr %.sroa.61162.0..sroa_idx, align 8
+  store i32 %206, ptr %42, align 8, !alias.scope !78
+  %1029 = getelementptr inbounds i8, ptr %42, i64 4
+  store i32 1, ptr %1029, align 4, !alias.scope !78
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %42, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.73)
   br label %.loopexit
 
-1031:                                             ; preds = %269
-  %1032 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1033 = load ptr, ptr %122, align 8
-  %1034 = icmp ne ptr %1033, null
-  %1035 = load ptr, ptr %125, align 8
-  %1036 = icmp ne ptr %1035, null
-  %or.cond1340 = select i1 %1034, i1 true, i1 %1036
-  br i1 %or.cond1340, label %.loopexit, label %1037
+1030:                                             ; preds = %268
+  %1031 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1032 = load ptr, ptr %122, align 8
+  %1033 = icmp ne ptr %1032, null
+  %1034 = load ptr, ptr %125, align 8
+  %1035 = icmp ne ptr %1034, null
+  %or.cond1340 = select i1 %1033, i1 true, i1 %1035
+  br i1 %or.cond1340, label %.loopexit, label %1036
 
-1037:                                             ; preds = %1031
-  %1038 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1039 = load ptr, ptr %122, align 8
-  %1040 = icmp ne ptr %1039, null
-  %1041 = load ptr, ptr %125, align 8
-  %1042 = icmp ne ptr %1041, null
-  %or.cond1342 = select i1 %1040, i1 true, i1 %1042
-  br i1 %or.cond1342, label %.loopexit, label %1043
+1036:                                             ; preds = %1030
+  %1037 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1038 = load ptr, ptr %122, align 8
+  %1039 = icmp ne ptr %1038, null
+  %1040 = load ptr, ptr %125, align 8
+  %1041 = icmp ne ptr %1040, null
+  %or.cond1342 = select i1 %1039, i1 true, i1 %1041
+  br i1 %or.cond1342, label %.loopexit, label %1042
 
-1043:                                             ; preds = %1037
-  %1044 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %1044, ptr %17, align 8
-  %1045 = load ptr, ptr %122, align 8
-  %1046 = icmp ne ptr %1045, null
-  %1047 = load ptr, ptr %125, align 8
-  %1048 = icmp ne ptr %1047, null
-  %or.cond1344 = select i1 %1046, i1 true, i1 %1048
-  %1049 = ptrtoint ptr %1044 to i64
-  br i1 %or.cond1344, label %.loopexit, label %1050
+1042:                                             ; preds = %1036
+  %1043 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %1043, ptr %17, align 8
+  %1044 = load ptr, ptr %122, align 8
+  %1045 = icmp ne ptr %1044, null
+  %1046 = load ptr, ptr %125, align 8
+  %1047 = icmp ne ptr %1046, null
+  %or.cond1344 = select i1 %1045, i1 true, i1 %1047
+  %1048 = ptrtoint ptr %1043 to i64
+  br i1 %or.cond1344, label %.loopexit, label %1049
 
-1050:                                             ; preds = %1043
-  %1051 = icmp eq ptr %1044, null
-  br i1 %1051, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1052
+1049:                                             ; preds = %1042
+  %1050 = icmp eq ptr %1043, null
+  br i1 %1050, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1051
 
-1052:                                             ; preds = %1050
-  %1053 = and i64 %1049, 3
-  %.not.i.i1022 = icmp eq i64 %1053, 0
-  br i1 %.not.i.i1022, label %1054, label %_ZNK16VerificationType14is_short_arrayEv.exit1024.thread
+1051:                                             ; preds = %1049
+  %1052 = and i64 %1048, 3
+  %.not.i.i1022 = icmp eq i64 %1052, 0
+  br i1 %.not.i.i1022, label %1053, label %_ZNK16VerificationType14is_short_arrayEv.exit1024.thread
 
-1054:                                             ; preds = %1052
-  %1055 = getelementptr inbounds i8, ptr %1044, i64 4
-  %1056 = load i16, ptr %1055, align 4
-  %1057 = icmp ugt i16 %1056, 1
-  br i1 %1057, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1023, label %_ZNK16VerificationType14is_short_arrayEv.exit1024.thread
+1053:                                             ; preds = %1051
+  %1054 = getelementptr inbounds i8, ptr %1043, i64 4
+  %1055 = load i16, ptr %1054, align 4
+  %1056 = icmp ugt i16 %1055, 1
+  br i1 %1056, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1023, label %_ZNK16VerificationType14is_short_arrayEv.exit1024.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i1023:   ; preds = %1054
-  %1058 = getelementptr inbounds i8, ptr %1044, i64 6
-  %1059 = load i8, ptr %1058, align 1
-  %1060 = icmp eq i8 %1059, 91
-  br i1 %1060, label %_ZNK16VerificationType14is_short_arrayEv.exit1024, label %_ZNK16VerificationType14is_short_arrayEv.exit1024.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i1023:   ; preds = %1053
+  %1057 = getelementptr inbounds i8, ptr %1043, i64 6
+  %1058 = load i8, ptr %1057, align 1
+  %1059 = icmp eq i8 %1058, 91
+  br i1 %1059, label %_ZNK16VerificationType14is_short_arrayEv.exit1024, label %_ZNK16VerificationType14is_short_arrayEv.exit1024.thread
 
 _ZNK16VerificationType14is_short_arrayEv.exit1024: ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i1023
-  %1061 = getelementptr inbounds i8, ptr %1044, i64 7
-  %1062 = load i8, ptr %1061, align 1
-  %1063 = icmp eq i8 %1062, 83
-  br i1 %1063, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType14is_short_arrayEv.exit1024.thread
+  %1060 = getelementptr inbounds i8, ptr %1043, i64 7
+  %1061 = load i8, ptr %1060, align 1
+  %1062 = icmp eq i8 %1061, 83
+  br i1 %1062, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType14is_short_arrayEv.exit1024.thread
 
-_ZNK16VerificationType14is_short_arrayEv.exit1024.thread: ; preds = %1052, %1054, %_ZNK16VerificationType8is_arrayEv.exit.i.i1023, %_ZNK16VerificationType14is_short_arrayEv.exit1024
+_ZNK16VerificationType14is_short_arrayEv.exit1024.thread: ; preds = %1051, %1053, %_ZNK16VerificationType8is_arrayEv.exit.i.i1023, %_ZNK16VerificationType14is_short_arrayEv.exit1024
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %45, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1064 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.62, i32 noundef 2), !noalias !81
-  %1065 = getelementptr inbounds i8, ptr %44, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1065, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
-  %1066 = getelementptr inbounds i8, ptr %44, i64 32
-  store i32 6, ptr %1066, align 8
+  %1063 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.62, i32 noundef 2), !noalias !81
+  %1064 = getelementptr inbounds i8, ptr %44, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1064, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
+  %1065 = getelementptr inbounds i8, ptr %44, i64 32
+  store i32 6, ptr %1065, align 8
   %.sroa.41164.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 36
   store i32 0, ptr %.sroa.41164.0..sroa_idx, align 4
   %.sroa.51165.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 40
   store ptr null, ptr %.sroa.51165.0..sroa_idx, align 8
   %.sroa.61166.0..sroa_idx = getelementptr inbounds i8, ptr %44, i64 48
-  store ptr %1064, ptr %.sroa.61166.0..sroa_idx, align 8
-  store i32 %207, ptr %44, align 8, !alias.scope !84
-  %1067 = getelementptr inbounds i8, ptr %44, i64 4
-  store i32 1, ptr %1067, align 4, !alias.scope !84
+  store ptr %1063, ptr %.sroa.61166.0..sroa_idx, align 8
+  store i32 %206, ptr %44, align 8, !alias.scope !84
+  %1066 = getelementptr inbounds i8, ptr %44, i64 4
+  store i32 1, ptr %1066, align 4, !alias.scope !84
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %44, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.74)
   br label %.loopexit
 
-1068:                                             ; preds = %269
+1067:                                             ; preds = %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
-  %1069 = load ptr, ptr %122, align 8
-  %1070 = icmp ne ptr %1069, null
-  %1071 = load ptr, ptr %125, align 8
-  %1072 = icmp ne ptr %1071, null
-  %or.cond1346 = select i1 %1070, i1 true, i1 %1072
-  br i1 %or.cond1346, label %.loopexit, label %1073
+  %1068 = load ptr, ptr %122, align 8
+  %1069 = icmp ne ptr %1068, null
+  %1070 = load ptr, ptr %125, align 8
+  %1071 = icmp ne ptr %1070, null
+  %or.cond1346 = select i1 %1069, i1 true, i1 %1071
+  br i1 %or.cond1346, label %.loopexit, label %1072
 
-1073:                                             ; preds = %1068
-  %1074 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1075 = load ptr, ptr %122, align 8
-  %1076 = icmp ne ptr %1075, null
-  %1077 = load ptr, ptr %125, align 8
-  %1078 = icmp ne ptr %1077, null
-  %or.cond1348 = select i1 %1076, i1 true, i1 %1078
-  br i1 %or.cond1348, label %.loopexit, label %1079
+1072:                                             ; preds = %1067
+  %1073 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1074 = load ptr, ptr %122, align 8
+  %1075 = icmp ne ptr %1074, null
+  %1076 = load ptr, ptr %125, align 8
+  %1077 = icmp ne ptr %1076, null
+  %or.cond1348 = select i1 %1075, i1 true, i1 %1077
+  br i1 %or.cond1348, label %.loopexit, label %1078
 
-1079:                                             ; preds = %1073
-  %1080 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %1080, ptr %17, align 8
-  %1081 = load ptr, ptr %122, align 8
-  %1082 = icmp ne ptr %1081, null
-  %1083 = load ptr, ptr %125, align 8
-  %1084 = icmp ne ptr %1083, null
-  %or.cond1350 = select i1 %1082, i1 true, i1 %1084
-  %1085 = ptrtoint ptr %1080 to i64
-  br i1 %or.cond1350, label %.loopexit, label %1086
+1078:                                             ; preds = %1072
+  %1079 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %1079, ptr %17, align 8
+  %1080 = load ptr, ptr %122, align 8
+  %1081 = icmp ne ptr %1080, null
+  %1082 = load ptr, ptr %125, align 8
+  %1083 = icmp ne ptr %1082, null
+  %or.cond1350 = select i1 %1081, i1 true, i1 %1083
+  %1084 = ptrtoint ptr %1079 to i64
+  br i1 %or.cond1350, label %.loopexit, label %1085
 
-1086:                                             ; preds = %1079
-  %1087 = icmp eq ptr %1080, null
-  br i1 %1087, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1088
+1085:                                             ; preds = %1078
+  %1086 = icmp eq ptr %1079, null
+  br i1 %1086, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1087
 
-1088:                                             ; preds = %1086
-  %1089 = and i64 %1085, 3
-  %.not.i.i1025 = icmp eq i64 %1089, 0
-  br i1 %.not.i.i1025, label %1090, label %_ZNK16VerificationType13is_long_arrayEv.exit1027.thread
+1087:                                             ; preds = %1085
+  %1088 = and i64 %1084, 3
+  %.not.i.i1025 = icmp eq i64 %1088, 0
+  br i1 %.not.i.i1025, label %1089, label %_ZNK16VerificationType13is_long_arrayEv.exit1027.thread
 
-1090:                                             ; preds = %1088
-  %1091 = getelementptr inbounds i8, ptr %1080, i64 4
-  %1092 = load i16, ptr %1091, align 4
-  %1093 = icmp ugt i16 %1092, 1
-  br i1 %1093, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1026, label %_ZNK16VerificationType13is_long_arrayEv.exit1027.thread
+1089:                                             ; preds = %1087
+  %1090 = getelementptr inbounds i8, ptr %1079, i64 4
+  %1091 = load i16, ptr %1090, align 4
+  %1092 = icmp ugt i16 %1091, 1
+  br i1 %1092, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1026, label %_ZNK16VerificationType13is_long_arrayEv.exit1027.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i1026:   ; preds = %1090
-  %1094 = getelementptr inbounds i8, ptr %1080, i64 6
-  %1095 = load i8, ptr %1094, align 1
-  %1096 = icmp eq i8 %1095, 91
-  br i1 %1096, label %_ZNK16VerificationType13is_long_arrayEv.exit1027, label %_ZNK16VerificationType13is_long_arrayEv.exit1027.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i1026:   ; preds = %1089
+  %1093 = getelementptr inbounds i8, ptr %1079, i64 6
+  %1094 = load i8, ptr %1093, align 1
+  %1095 = icmp eq i8 %1094, 91
+  br i1 %1095, label %_ZNK16VerificationType13is_long_arrayEv.exit1027, label %_ZNK16VerificationType13is_long_arrayEv.exit1027.thread
 
 _ZNK16VerificationType13is_long_arrayEv.exit1027: ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i1026
-  %1097 = getelementptr inbounds i8, ptr %1080, i64 7
-  %1098 = load i8, ptr %1097, align 1
-  %1099 = icmp eq i8 %1098, 74
-  br i1 %1099, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType13is_long_arrayEv.exit1027.thread
+  %1096 = getelementptr inbounds i8, ptr %1079, i64 7
+  %1097 = load i8, ptr %1096, align 1
+  %1098 = icmp eq i8 %1097, 74
+  br i1 %1098, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType13is_long_arrayEv.exit1027.thread
 
-_ZNK16VerificationType13is_long_arrayEv.exit1027.thread: ; preds = %1088, %1090, %_ZNK16VerificationType8is_arrayEv.exit.i.i1026, %_ZNK16VerificationType13is_long_arrayEv.exit1027
+_ZNK16VerificationType13is_long_arrayEv.exit1027.thread: ; preds = %1087, %1089, %_ZNK16VerificationType8is_arrayEv.exit.i.i1026, %_ZNK16VerificationType13is_long_arrayEv.exit1027
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %47, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1100 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.64, i32 noundef 2), !noalias !87
-  %1101 = getelementptr inbounds i8, ptr %46, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1101, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
-  %1102 = getelementptr inbounds i8, ptr %46, i64 32
-  store i32 6, ptr %1102, align 8
+  %1099 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.64, i32 noundef 2), !noalias !87
+  %1100 = getelementptr inbounds i8, ptr %46, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1100, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
+  %1101 = getelementptr inbounds i8, ptr %46, i64 32
+  store i32 6, ptr %1101, align 8
   %.sroa.41168.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 36
   store i32 0, ptr %.sroa.41168.0..sroa_idx, align 4
   %.sroa.51169.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 40
   store ptr null, ptr %.sroa.51169.0..sroa_idx, align 8
   %.sroa.61170.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 48
-  store ptr %1100, ptr %.sroa.61170.0..sroa_idx, align 8
-  store i32 %207, ptr %46, align 8, !alias.scope !90
-  %1103 = getelementptr inbounds i8, ptr %46, i64 4
-  store i32 1, ptr %1103, align 4, !alias.scope !90
+  store ptr %1099, ptr %.sroa.61170.0..sroa_idx, align 8
+  store i32 %206, ptr %46, align 8, !alias.scope !90
+  %1102 = getelementptr inbounds i8, ptr %46, i64 4
+  store i32 1, ptr %1102, align 4, !alias.scope !90
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %46, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.75)
   br label %.loopexit
 
-1104:                                             ; preds = %269
-  %1105 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1106 = load ptr, ptr %122, align 8
-  %1107 = icmp ne ptr %1106, null
-  %1108 = load ptr, ptr %125, align 8
-  %1109 = icmp ne ptr %1108, null
-  %or.cond1352 = select i1 %1107, i1 true, i1 %1109
-  br i1 %or.cond1352, label %.loopexit, label %1110
+1103:                                             ; preds = %268
+  %1104 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
+  %1105 = load ptr, ptr %122, align 8
+  %1106 = icmp ne ptr %1105, null
+  %1107 = load ptr, ptr %125, align 8
+  %1108 = icmp ne ptr %1107, null
+  %or.cond1352 = select i1 %1106, i1 true, i1 %1108
+  br i1 %or.cond1352, label %.loopexit, label %1109
 
-1110:                                             ; preds = %1104
-  %1111 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1112 = load ptr, ptr %122, align 8
-  %1113 = icmp ne ptr %1112, null
-  %1114 = load ptr, ptr %125, align 8
-  %1115 = icmp ne ptr %1114, null
-  %or.cond1354 = select i1 %1113, i1 true, i1 %1115
-  br i1 %or.cond1354, label %.loopexit, label %1116
+1109:                                             ; preds = %1103
+  %1110 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1111 = load ptr, ptr %122, align 8
+  %1112 = icmp ne ptr %1111, null
+  %1113 = load ptr, ptr %125, align 8
+  %1114 = icmp ne ptr %1113, null
+  %or.cond1354 = select i1 %1112, i1 true, i1 %1114
+  br i1 %or.cond1354, label %.loopexit, label %1115
 
-1116:                                             ; preds = %1110
-  %1117 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %1117, ptr %17, align 8
-  %1118 = load ptr, ptr %122, align 8
-  %1119 = icmp ne ptr %1118, null
-  %1120 = load ptr, ptr %125, align 8
-  %1121 = icmp ne ptr %1120, null
-  %or.cond1356 = select i1 %1119, i1 true, i1 %1121
-  %1122 = ptrtoint ptr %1117 to i64
-  br i1 %or.cond1356, label %.loopexit, label %1123
+1115:                                             ; preds = %1109
+  %1116 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %1116, ptr %17, align 8
+  %1117 = load ptr, ptr %122, align 8
+  %1118 = icmp ne ptr %1117, null
+  %1119 = load ptr, ptr %125, align 8
+  %1120 = icmp ne ptr %1119, null
+  %or.cond1356 = select i1 %1118, i1 true, i1 %1120
+  %1121 = ptrtoint ptr %1116 to i64
+  br i1 %or.cond1356, label %.loopexit, label %1122
 
-1123:                                             ; preds = %1116
-  %1124 = icmp eq ptr %1117, null
-  br i1 %1124, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1125
+1122:                                             ; preds = %1115
+  %1123 = icmp eq ptr %1116, null
+  br i1 %1123, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1124
 
-1125:                                             ; preds = %1123
-  %1126 = and i64 %1122, 3
-  %.not.i.i1028 = icmp eq i64 %1126, 0
-  br i1 %.not.i.i1028, label %1127, label %_ZNK16VerificationType14is_float_arrayEv.exit1030.thread
+1124:                                             ; preds = %1122
+  %1125 = and i64 %1121, 3
+  %.not.i.i1028 = icmp eq i64 %1125, 0
+  br i1 %.not.i.i1028, label %1126, label %_ZNK16VerificationType14is_float_arrayEv.exit1030.thread
 
-1127:                                             ; preds = %1125
-  %1128 = getelementptr inbounds i8, ptr %1117, i64 4
-  %1129 = load i16, ptr %1128, align 4
-  %1130 = icmp ugt i16 %1129, 1
-  br i1 %1130, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1029, label %_ZNK16VerificationType14is_float_arrayEv.exit1030.thread
+1126:                                             ; preds = %1124
+  %1127 = getelementptr inbounds i8, ptr %1116, i64 4
+  %1128 = load i16, ptr %1127, align 4
+  %1129 = icmp ugt i16 %1128, 1
+  br i1 %1129, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1029, label %_ZNK16VerificationType14is_float_arrayEv.exit1030.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i1029:   ; preds = %1127
-  %1131 = getelementptr inbounds i8, ptr %1117, i64 6
-  %1132 = load i8, ptr %1131, align 1
-  %1133 = icmp eq i8 %1132, 91
-  br i1 %1133, label %_ZNK16VerificationType14is_float_arrayEv.exit1030, label %_ZNK16VerificationType14is_float_arrayEv.exit1030.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i1029:   ; preds = %1126
+  %1130 = getelementptr inbounds i8, ptr %1116, i64 6
+  %1131 = load i8, ptr %1130, align 1
+  %1132 = icmp eq i8 %1131, 91
+  br i1 %1132, label %_ZNK16VerificationType14is_float_arrayEv.exit1030, label %_ZNK16VerificationType14is_float_arrayEv.exit1030.thread
 
 _ZNK16VerificationType14is_float_arrayEv.exit1030: ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i1029
-  %1134 = getelementptr inbounds i8, ptr %1117, i64 7
-  %1135 = load i8, ptr %1134, align 1
-  %1136 = icmp eq i8 %1135, 70
-  br i1 %1136, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType14is_float_arrayEv.exit1030.thread
+  %1133 = getelementptr inbounds i8, ptr %1116, i64 7
+  %1134 = load i8, ptr %1133, align 1
+  %1135 = icmp eq i8 %1134, 70
+  br i1 %1135, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType14is_float_arrayEv.exit1030.thread
 
-_ZNK16VerificationType14is_float_arrayEv.exit1030.thread: ; preds = %1125, %1127, %_ZNK16VerificationType8is_arrayEv.exit.i.i1029, %_ZNK16VerificationType14is_float_arrayEv.exit1030
+_ZNK16VerificationType14is_float_arrayEv.exit1030.thread: ; preds = %1124, %1126, %_ZNK16VerificationType8is_arrayEv.exit.i.i1029, %_ZNK16VerificationType14is_float_arrayEv.exit1030
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %49, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1137 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.66, i32 noundef 2), !noalias !93
-  %1138 = getelementptr inbounds i8, ptr %48, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1138, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
-  %1139 = getelementptr inbounds i8, ptr %48, i64 32
-  store i32 6, ptr %1139, align 8
+  %1136 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.66, i32 noundef 2), !noalias !93
+  %1137 = getelementptr inbounds i8, ptr %48, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1137, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
+  %1138 = getelementptr inbounds i8, ptr %48, i64 32
+  store i32 6, ptr %1138, align 8
   %.sroa.41172.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 36
   store i32 0, ptr %.sroa.41172.0..sroa_idx, align 4
   %.sroa.51173.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 40
   store ptr null, ptr %.sroa.51173.0..sroa_idx, align 8
   %.sroa.61174.0..sroa_idx = getelementptr inbounds i8, ptr %48, i64 48
-  store ptr %1137, ptr %.sroa.61174.0..sroa_idx, align 8
-  store i32 %207, ptr %48, align 8, !alias.scope !96
-  %1140 = getelementptr inbounds i8, ptr %48, i64 4
-  store i32 1, ptr %1140, align 4, !alias.scope !96
+  store ptr %1136, ptr %.sroa.61174.0..sroa_idx, align 8
+  store i32 %206, ptr %48, align 8, !alias.scope !96
+  %1139 = getelementptr inbounds i8, ptr %48, i64 4
+  store i32 1, ptr %1139, align 4, !alias.scope !96
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %48, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.76)
   br label %.loopexit
 
-1141:                                             ; preds = %269
+1140:                                             ; preds = %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 918529 to ptr), ptr nonnull inttoptr (i64 197121 to ptr), ptr noundef nonnull %2)
-  %1142 = load ptr, ptr %122, align 8
-  %1143 = icmp ne ptr %1142, null
-  %1144 = load ptr, ptr %125, align 8
-  %1145 = icmp ne ptr %1144, null
-  %or.cond1358 = select i1 %1143, i1 true, i1 %1145
-  br i1 %or.cond1358, label %.loopexit, label %1146
+  %1141 = load ptr, ptr %122, align 8
+  %1142 = icmp ne ptr %1141, null
+  %1143 = load ptr, ptr %125, align 8
+  %1144 = icmp ne ptr %1143, null
+  %or.cond1358 = select i1 %1142, i1 true, i1 %1144
+  br i1 %or.cond1358, label %.loopexit, label %1145
 
-1146:                                             ; preds = %1141
-  %1147 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1148 = load ptr, ptr %122, align 8
-  %1149 = icmp ne ptr %1148, null
-  %1150 = load ptr, ptr %125, align 8
-  %1151 = icmp ne ptr %1150, null
-  %or.cond1360 = select i1 %1149, i1 true, i1 %1151
-  br i1 %or.cond1360, label %.loopexit, label %1152
+1145:                                             ; preds = %1140
+  %1146 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1147 = load ptr, ptr %122, align 8
+  %1148 = icmp ne ptr %1147, null
+  %1149 = load ptr, ptr %125, align 8
+  %1150 = icmp ne ptr %1149, null
+  %or.cond1360 = select i1 %1148, i1 true, i1 %1150
+  br i1 %or.cond1360, label %.loopexit, label %1151
 
-1152:                                             ; preds = %1146
-  %1153 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %1153, ptr %17, align 8
-  %1154 = load ptr, ptr %122, align 8
-  %1155 = icmp ne ptr %1154, null
-  %1156 = load ptr, ptr %125, align 8
-  %1157 = icmp ne ptr %1156, null
-  %or.cond1362 = select i1 %1155, i1 true, i1 %1157
-  %1158 = ptrtoint ptr %1153 to i64
-  br i1 %or.cond1362, label %.loopexit, label %1159
+1151:                                             ; preds = %1145
+  %1152 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %1152, ptr %17, align 8
+  %1153 = load ptr, ptr %122, align 8
+  %1154 = icmp ne ptr %1153, null
+  %1155 = load ptr, ptr %125, align 8
+  %1156 = icmp ne ptr %1155, null
+  %or.cond1362 = select i1 %1154, i1 true, i1 %1156
+  %1157 = ptrtoint ptr %1152 to i64
+  br i1 %or.cond1362, label %.loopexit, label %1158
 
-1159:                                             ; preds = %1152
-  %1160 = icmp eq ptr %1153, null
-  br i1 %1160, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1161
+1158:                                             ; preds = %1151
+  %1159 = icmp eq ptr %1152, null
+  br i1 %1159, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1160
 
-1161:                                             ; preds = %1159
-  %1162 = and i64 %1158, 3
-  %.not.i.i1031 = icmp eq i64 %1162, 0
-  br i1 %.not.i.i1031, label %1163, label %_ZNK16VerificationType15is_double_arrayEv.exit1033.thread
+1160:                                             ; preds = %1158
+  %1161 = and i64 %1157, 3
+  %.not.i.i1031 = icmp eq i64 %1161, 0
+  br i1 %.not.i.i1031, label %1162, label %_ZNK16VerificationType15is_double_arrayEv.exit1033.thread
 
-1163:                                             ; preds = %1161
-  %1164 = getelementptr inbounds i8, ptr %1153, i64 4
-  %1165 = load i16, ptr %1164, align 4
-  %1166 = icmp ugt i16 %1165, 1
-  br i1 %1166, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1032, label %_ZNK16VerificationType15is_double_arrayEv.exit1033.thread
+1162:                                             ; preds = %1160
+  %1163 = getelementptr inbounds i8, ptr %1152, i64 4
+  %1164 = load i16, ptr %1163, align 4
+  %1165 = icmp ugt i16 %1164, 1
+  br i1 %1165, label %_ZNK16VerificationType8is_arrayEv.exit.i.i1032, label %_ZNK16VerificationType15is_double_arrayEv.exit1033.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.i.i1032:   ; preds = %1163
-  %1167 = getelementptr inbounds i8, ptr %1153, i64 6
-  %1168 = load i8, ptr %1167, align 1
-  %1169 = icmp eq i8 %1168, 91
-  br i1 %1169, label %_ZNK16VerificationType15is_double_arrayEv.exit1033, label %_ZNK16VerificationType15is_double_arrayEv.exit1033.thread
+_ZNK16VerificationType8is_arrayEv.exit.i.i1032:   ; preds = %1162
+  %1166 = getelementptr inbounds i8, ptr %1152, i64 6
+  %1167 = load i8, ptr %1166, align 1
+  %1168 = icmp eq i8 %1167, 91
+  br i1 %1168, label %_ZNK16VerificationType15is_double_arrayEv.exit1033, label %_ZNK16VerificationType15is_double_arrayEv.exit1033.thread
 
 _ZNK16VerificationType15is_double_arrayEv.exit1033: ; preds = %_ZNK16VerificationType8is_arrayEv.exit.i.i1032
-  %1170 = getelementptr inbounds i8, ptr %1153, i64 7
-  %1171 = load i8, ptr %1170, align 1
-  %1172 = icmp eq i8 %1171, 68
-  br i1 %1172, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType15is_double_arrayEv.exit1033.thread
+  %1169 = getelementptr inbounds i8, ptr %1152, i64 7
+  %1170 = load i8, ptr %1169, align 1
+  %1171 = icmp eq i8 %1170, 68
+  br i1 %1171, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %_ZNK16VerificationType15is_double_arrayEv.exit1033.thread
 
-_ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1161, %1163, %_ZNK16VerificationType8is_arrayEv.exit.i.i1032, %_ZNK16VerificationType15is_double_arrayEv.exit1033
+_ZNK16VerificationType15is_double_arrayEv.exit1033.thread: ; preds = %1160, %1162, %_ZNK16VerificationType8is_arrayEv.exit.i.i1032, %_ZNK16VerificationType15is_double_arrayEv.exit1033
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %51, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1173 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.68, i32 noundef 2), !noalias !99
-  %1174 = getelementptr inbounds i8, ptr %50, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1174, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
-  %1175 = getelementptr inbounds i8, ptr %50, i64 32
-  store i32 6, ptr %1175, align 8
+  %1172 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.68, i32 noundef 2), !noalias !99
+  %1173 = getelementptr inbounds i8, ptr %50, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1173, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
+  %1174 = getelementptr inbounds i8, ptr %50, i64 32
+  store i32 6, ptr %1174, align 8
   %.sroa.41176.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 36
   store i32 0, ptr %.sroa.41176.0..sroa_idx, align 4
   %.sroa.51177.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 40
   store ptr null, ptr %.sroa.51177.0..sroa_idx, align 8
   %.sroa.61178.0..sroa_idx = getelementptr inbounds i8, ptr %50, i64 48
-  store ptr %1173, ptr %.sroa.61178.0..sroa_idx, align 8
-  store i32 %207, ptr %50, align 8, !alias.scope !102
-  %1176 = getelementptr inbounds i8, ptr %50, i64 4
-  store i32 1, ptr %1176, align 4, !alias.scope !102
+  store ptr %1172, ptr %.sroa.61178.0..sroa_idx, align 8
+  store i32 %206, ptr %50, align 8, !alias.scope !102
+  %1175 = getelementptr inbounds i8, ptr %50, i64 4
+  store i32 1, ptr %1175, align 4, !alias.scope !102
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %50, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.77)
   br label %.loopexit
 
-1177:                                             ; preds = %269
-  %1178 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
-  %1179 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1178, ptr noundef nonnull %2)
-  %1180 = load ptr, ptr %122, align 8
-  %1181 = icmp ne ptr %1180, null
-  %1182 = load ptr, ptr %125, align 8
-  %1183 = icmp ne ptr %1182, null
-  %or.cond1364 = select i1 %1181, i1 true, i1 %1183
-  br i1 %or.cond1364, label %.loopexit, label %1184
+1176:                                             ; preds = %268
+  %1177 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %1178 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1177, ptr noundef nonnull %2)
+  %1179 = load ptr, ptr %122, align 8
+  %1180 = icmp ne ptr %1179, null
+  %1181 = load ptr, ptr %125, align 8
+  %1182 = icmp ne ptr %1181, null
+  %or.cond1364 = select i1 %1180, i1 true, i1 %1182
+  br i1 %or.cond1364, label %.loopexit, label %1183
 
-1184:                                             ; preds = %1177
-  %1185 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1186 = load ptr, ptr %122, align 8
-  %1187 = icmp ne ptr %1186, null
-  %1188 = load ptr, ptr %125, align 8
-  %1189 = icmp ne ptr %1188, null
-  %or.cond1366 = select i1 %1187, i1 true, i1 %1189
-  br i1 %or.cond1366, label %.loopexit, label %1190
+1183:                                             ; preds = %1176
+  %1184 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1185 = load ptr, ptr %122, align 8
+  %1186 = icmp ne ptr %1185, null
+  %1187 = load ptr, ptr %125, align 8
+  %1188 = icmp ne ptr %1187, null
+  %or.cond1366 = select i1 %1186, i1 true, i1 %1188
+  br i1 %or.cond1366, label %.loopexit, label %1189
 
-1190:                                             ; preds = %1184
-  %1191 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  store ptr %1191, ptr %17, align 8
-  %1192 = load ptr, ptr %122, align 8
-  %1193 = icmp ne ptr %1192, null
-  %1194 = load ptr, ptr %125, align 8
-  %1195 = icmp ne ptr %1194, null
-  %or.cond1368 = select i1 %1193, i1 true, i1 %1195
-  br i1 %or.cond1368, label %.loopexit, label %1196
+1189:                                             ; preds = %1183
+  %1190 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  store ptr %1190, ptr %17, align 8
+  %1191 = load ptr, ptr %122, align 8
+  %1192 = icmp ne ptr %1191, null
+  %1193 = load ptr, ptr %125, align 8
+  %1194 = icmp ne ptr %1193, null
+  %or.cond1368 = select i1 %1192, i1 true, i1 %1194
+  br i1 %or.cond1368, label %.loopexit, label %1195
 
-1196:                                             ; preds = %1190
-  %1197 = call noundef zeroext i1 @_ZNK16VerificationType18is_reference_arrayEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
-  br i1 %1197, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1198
+1195:                                             ; preds = %1189
+  %1196 = call noundef zeroext i1 @_ZNK16VerificationType18is_reference_arrayEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  br i1 %1196, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %1197
 
-1198:                                             ; preds = %1196
+1197:                                             ; preds = %1195
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %53, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1199 = getelementptr inbounds i8, ptr %52, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1199, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
-  %1200 = getelementptr inbounds i8, ptr %52, i64 32
-  store i32 6, ptr %1200, align 8
+  %1198 = getelementptr inbounds i8, ptr %52, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1198, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
+  %1199 = getelementptr inbounds i8, ptr %52, i64 32
+  store i32 6, ptr %1199, align 8
   %.sroa.41180.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 36
   store i32 0, ptr %.sroa.41180.0..sroa_idx, align 4
   %.sroa.51181.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 40
   store ptr null, ptr %.sroa.51181.0..sroa_idx, align 8
   %.sroa.61182.0..sroa_idx = getelementptr inbounds i8, ptr %52, i64 48
   store ptr inttoptr (i64 3 to ptr), ptr %.sroa.61182.0..sroa_idx, align 8
-  store i32 %207, ptr %52, align 8, !alias.scope !105
-  %1201 = getelementptr inbounds i8, ptr %52, i64 4
-  store i32 1, ptr %1201, align 4, !alias.scope !105
+  store i32 %206, ptr %52, align 8, !alias.scope !105
+  %1200 = getelementptr inbounds i8, ptr %52, i64 4
+  store i32 1, ptr %1200, align 4, !alias.scope !105
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %52, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.78)
   br label %.loopexit
 
-1202:                                             ; preds = %269
-  %1203 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1204 = load ptr, ptr %122, align 8
-  %1205 = icmp ne ptr %1204, null
-  %1206 = load ptr, ptr %125, align 8
-  %1207 = icmp ne ptr %1206, null
-  %or.cond1370 = select i1 %1205, i1 true, i1 %1207
+1201:                                             ; preds = %268
+  %1202 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1203 = load ptr, ptr %122, align 8
+  %1204 = icmp ne ptr %1203, null
+  %1205 = load ptr, ptr %125, align 8
+  %1206 = icmp ne ptr %1205, null
+  %or.cond1370 = select i1 %1204, i1 true, i1 %1206
   br i1 %or.cond1370, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1208:                                             ; preds = %269
-  %1209 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
-  %1210 = load ptr, ptr %122, align 8
-  %1211 = icmp ne ptr %1210, null
-  %1212 = load ptr, ptr %125, align 8
-  %1213 = icmp ne ptr %1212, null
-  %or.cond1372 = select i1 %1211, i1 true, i1 %1213
-  br i1 %or.cond1372, label %.loopexit, label %1214
+1207:                                             ; preds = %268
+  %1208 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
+  %1209 = load ptr, ptr %122, align 8
+  %1210 = icmp ne ptr %1209, null
+  %1211 = load ptr, ptr %125, align 8
+  %1212 = icmp ne ptr %1211, null
+  %or.cond1372 = select i1 %1210, i1 true, i1 %1212
+  br i1 %or.cond1372, label %.loopexit, label %1213
 
-1214:                                             ; preds = %1208
-  %1215 = ptrtoint ptr %1209 to i64
-  %1216 = and i64 %1215, 257
-  %.not1692 = icmp eq i64 %1216, 1
-  br i1 %.not1692, label %1223, label %1217
+1213:                                             ; preds = %1207
+  %1214 = ptrtoint ptr %1208 to i64
+  %1215 = and i64 %1214, 257
+  %.not1693 = icmp eq i64 %1215, 1
+  br i1 %.not1693, label %1222, label %1216
 
-1217:                                             ; preds = %1214
-  %1218 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1219 = load ptr, ptr %122, align 8
-  %1220 = icmp ne ptr %1219, null
-  %1221 = load ptr, ptr %125, align 8
-  %1222 = icmp ne ptr %1221, null
-  %or.cond1374 = select i1 %1220, i1 true, i1 %1222
+1216:                                             ; preds = %1213
+  %1217 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1218 = load ptr, ptr %122, align 8
+  %1219 = icmp ne ptr %1218, null
+  %1220 = load ptr, ptr %125, align 8
+  %1221 = icmp ne ptr %1220, null
+  %or.cond1374 = select i1 %1219, i1 true, i1 %1221
   br i1 %or.cond1374, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1223:                                             ; preds = %1214
-  %1224 = and i64 %1215, 1025
-  %1225 = icmp eq i64 %1224, 1025
-  br i1 %1225, label %1226, label %1232
+1222:                                             ; preds = %1213
+  %1223 = and i64 %1214, 1025
+  %1224 = icmp eq i64 %1223, 1025
+  br i1 %1224, label %1225, label %1231
 
-1226:                                             ; preds = %1223
-  %1227 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
-  %1228 = load ptr, ptr %122, align 8
-  %1229 = icmp ne ptr %1228, null
-  %1230 = load ptr, ptr %125, align 8
-  %1231 = icmp ne ptr %1230, null
-  %or.cond1376 = select i1 %1229, i1 true, i1 %1231
+1225:                                             ; preds = %1222
+  %1226 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
+  %1227 = load ptr, ptr %122, align 8
+  %1228 = icmp ne ptr %1227, null
+  %1229 = load ptr, ptr %125, align 8
+  %1230 = icmp ne ptr %1229, null
+  %or.cond1376 = select i1 %1228, i1 true, i1 %1230
   br i1 %or.cond1376, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1232:                                             ; preds = %1223
+1231:                                             ; preds = %1222
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %55, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1233 = getelementptr inbounds i8, ptr %54, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1233, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
-  store i32 %207, ptr %54, align 8, !alias.scope !108
-  %1234 = getelementptr inbounds i8, ptr %54, i64 4
-  store i32 1, ptr %1234, align 4, !alias.scope !108
-  %1235 = getelementptr inbounds i8, ptr %54, i64 32
-  store i32 9, ptr %1235, align 8, !alias.scope !108
-  %1236 = getelementptr inbounds i8, ptr %54, i64 36
-  store i32 0, ptr %1236, align 4, !alias.scope !108
-  %1237 = getelementptr inbounds i8, ptr %54, i64 40
-  store ptr null, ptr %1237, align 8, !alias.scope !108
-  %1238 = getelementptr inbounds i8, ptr %54, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1238, align 8, !alias.scope !108
+  %1232 = getelementptr inbounds i8, ptr %54, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1232, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
+  store i32 %206, ptr %54, align 8, !alias.scope !108
+  %1233 = getelementptr inbounds i8, ptr %54, i64 4
+  store i32 1, ptr %1233, align 4, !alias.scope !108
+  %1234 = getelementptr inbounds i8, ptr %54, i64 32
+  store i32 9, ptr %1234, align 8, !alias.scope !108
+  %1235 = getelementptr inbounds i8, ptr %54, i64 36
+  store i32 0, ptr %1235, align 4, !alias.scope !108
+  %1236 = getelementptr inbounds i8, ptr %54, i64 40
+  store ptr null, ptr %1236, align 8, !alias.scope !108
+  %1237 = getelementptr inbounds i8, ptr %54, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1237, align 8, !alias.scope !108
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %54, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.79)
   br label %.loopexit
 
-1239:                                             ; preds = %269
-  %1240 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1241 = load ptr, ptr %122, align 8
-  %1242 = icmp ne ptr %1241, null
-  %1243 = load ptr, ptr %125, align 8
-  %1244 = icmp ne ptr %1243, null
-  %or.cond1378 = select i1 %1242, i1 true, i1 %1244
-  br i1 %or.cond1378, label %.loopexit, label %1245
+1238:                                             ; preds = %268
+  %1239 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1240 = load ptr, ptr %122, align 8
+  %1241 = icmp ne ptr %1240, null
+  %1242 = load ptr, ptr %125, align 8
+  %1243 = icmp ne ptr %1242, null
+  %or.cond1378 = select i1 %1241, i1 true, i1 %1243
+  br i1 %or.cond1378, label %.loopexit, label %1244
 
-1245:                                             ; preds = %1239
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1240, ptr noundef nonnull %2)
-  %1246 = load ptr, ptr %122, align 8
-  %1247 = icmp ne ptr %1246, null
-  %1248 = load ptr, ptr %125, align 8
-  %1249 = icmp ne ptr %1248, null
-  %or.cond1380 = select i1 %1247, i1 true, i1 %1249
-  br i1 %or.cond1380, label %.loopexit, label %1250
+1244:                                             ; preds = %1238
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1239, ptr noundef nonnull %2)
+  %1245 = load ptr, ptr %122, align 8
+  %1246 = icmp ne ptr %1245, null
+  %1247 = load ptr, ptr %125, align 8
+  %1248 = icmp ne ptr %1247, null
+  %or.cond1380 = select i1 %1246, i1 true, i1 %1248
+  br i1 %or.cond1380, label %.loopexit, label %1249
 
-1250:                                             ; preds = %1245
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1240, ptr noundef nonnull %2)
-  %1251 = load ptr, ptr %122, align 8
-  %1252 = icmp ne ptr %1251, null
-  %1253 = load ptr, ptr %125, align 8
-  %1254 = icmp ne ptr %1253, null
-  %or.cond1382 = select i1 %1252, i1 true, i1 %1254
+1249:                                             ; preds = %1244
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1239, ptr noundef nonnull %2)
+  %1250 = load ptr, ptr %122, align 8
+  %1251 = icmp ne ptr %1250, null
+  %1252 = load ptr, ptr %125, align 8
+  %1253 = icmp ne ptr %1252, null
+  %or.cond1382 = select i1 %1251, i1 true, i1 %1253
   br i1 %or.cond1382, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1255:                                             ; preds = %269
-  %1256 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1257 = load ptr, ptr %122, align 8
-  %1258 = icmp ne ptr %1257, null
-  %1259 = load ptr, ptr %125, align 8
-  %1260 = icmp ne ptr %1259, null
-  %or.cond1384 = select i1 %1258, i1 true, i1 %1260
-  br i1 %or.cond1384, label %.loopexit, label %1261
+1254:                                             ; preds = %268
+  %1255 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1256 = load ptr, ptr %122, align 8
+  %1257 = icmp ne ptr %1256, null
+  %1258 = load ptr, ptr %125, align 8
+  %1259 = icmp ne ptr %1258, null
+  %or.cond1384 = select i1 %1257, i1 true, i1 %1259
+  br i1 %or.cond1384, label %.loopexit, label %1260
 
-1261:                                             ; preds = %1255
-  %1262 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1263 = load ptr, ptr %122, align 8
-  %1264 = icmp ne ptr %1263, null
-  %1265 = load ptr, ptr %125, align 8
-  %1266 = icmp ne ptr %1265, null
-  %or.cond1386 = select i1 %1264, i1 true, i1 %1266
-  br i1 %or.cond1386, label %.loopexit, label %1267
+1260:                                             ; preds = %1254
+  %1261 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1262 = load ptr, ptr %122, align 8
+  %1263 = icmp ne ptr %1262, null
+  %1264 = load ptr, ptr %125, align 8
+  %1265 = icmp ne ptr %1264, null
+  %or.cond1386 = select i1 %1263, i1 true, i1 %1265
+  br i1 %or.cond1386, label %.loopexit, label %1266
 
-1267:                                             ; preds = %1261
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1256, ptr noundef nonnull %2)
-  %1268 = load ptr, ptr %122, align 8
-  %1269 = icmp ne ptr %1268, null
-  %1270 = load ptr, ptr %125, align 8
-  %1271 = icmp ne ptr %1270, null
-  %or.cond1388 = select i1 %1269, i1 true, i1 %1271
-  br i1 %or.cond1388, label %.loopexit, label %1272
+1266:                                             ; preds = %1260
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1255, ptr noundef nonnull %2)
+  %1267 = load ptr, ptr %122, align 8
+  %1268 = icmp ne ptr %1267, null
+  %1269 = load ptr, ptr %125, align 8
+  %1270 = icmp ne ptr %1269, null
+  %or.cond1388 = select i1 %1268, i1 true, i1 %1270
+  br i1 %or.cond1388, label %.loopexit, label %1271
 
-1272:                                             ; preds = %1267
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1262, ptr noundef nonnull %2)
-  %1273 = load ptr, ptr %122, align 8
-  %1274 = icmp ne ptr %1273, null
-  %1275 = load ptr, ptr %125, align 8
-  %1276 = icmp ne ptr %1275, null
-  %or.cond1390 = select i1 %1274, i1 true, i1 %1276
-  br i1 %or.cond1390, label %.loopexit, label %1277
+1271:                                             ; preds = %1266
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1261, ptr noundef nonnull %2)
+  %1272 = load ptr, ptr %122, align 8
+  %1273 = icmp ne ptr %1272, null
+  %1274 = load ptr, ptr %125, align 8
+  %1275 = icmp ne ptr %1274, null
+  %or.cond1390 = select i1 %1273, i1 true, i1 %1275
+  br i1 %or.cond1390, label %.loopexit, label %1276
 
-1277:                                             ; preds = %1272
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1256, ptr noundef nonnull %2)
-  %1278 = load ptr, ptr %122, align 8
-  %1279 = icmp ne ptr %1278, null
-  %1280 = load ptr, ptr %125, align 8
-  %1281 = icmp ne ptr %1280, null
-  %or.cond1392 = select i1 %1279, i1 true, i1 %1281
+1276:                                             ; preds = %1271
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1255, ptr noundef nonnull %2)
+  %1277 = load ptr, ptr %122, align 8
+  %1278 = icmp ne ptr %1277, null
+  %1279 = load ptr, ptr %125, align 8
+  %1280 = icmp ne ptr %1279, null
+  %or.cond1392 = select i1 %1278, i1 true, i1 %1280
   br i1 %or.cond1392, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1282:                                             ; preds = %269
-  %1283 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1284 = load ptr, ptr %122, align 8
-  %1285 = icmp ne ptr %1284, null
-  %1286 = load ptr, ptr %125, align 8
-  %1287 = icmp ne ptr %1286, null
-  %or.cond1394 = select i1 %1285, i1 true, i1 %1287
-  br i1 %or.cond1394, label %.loopexit, label %1288
+1281:                                             ; preds = %268
+  %1282 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1283 = load ptr, ptr %122, align 8
+  %1284 = icmp ne ptr %1283, null
+  %1285 = load ptr, ptr %125, align 8
+  %1286 = icmp ne ptr %1285, null
+  %or.cond1394 = select i1 %1284, i1 true, i1 %1286
+  br i1 %or.cond1394, label %.loopexit, label %1287
 
-1288:                                             ; preds = %1282
-  %1289 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
-  %1290 = load ptr, ptr %122, align 8
-  %1291 = icmp ne ptr %1290, null
-  %1292 = load ptr, ptr %125, align 8
-  %1293 = icmp ne ptr %1292, null
-  %or.cond1396 = select i1 %1291, i1 true, i1 %1293
-  br i1 %or.cond1396, label %.loopexit, label %1294
+1287:                                             ; preds = %1281
+  %1288 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
+  %1289 = load ptr, ptr %122, align 8
+  %1290 = icmp ne ptr %1289, null
+  %1291 = load ptr, ptr %125, align 8
+  %1292 = icmp ne ptr %1291, null
+  %or.cond1396 = select i1 %1290, i1 true, i1 %1292
+  br i1 %or.cond1396, label %.loopexit, label %1293
 
-1294:                                             ; preds = %1288
-  %1295 = ptrtoint ptr %1289 to i64
-  %1296 = and i64 %1295, 257
-  %.not1691 = icmp eq i64 %1296, 1
-  br i1 %.not1691, label %1303, label %1297
+1293:                                             ; preds = %1287
+  %1294 = ptrtoint ptr %1288 to i64
+  %1295 = and i64 %1294, 257
+  %.not1692 = icmp eq i64 %1295, 1
+  br i1 %.not1692, label %1302, label %1296
 
-1297:                                             ; preds = %1294
-  %1298 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1299 = load ptr, ptr %122, align 8
-  %1300 = icmp ne ptr %1299, null
-  %1301 = load ptr, ptr %125, align 8
-  %1302 = icmp ne ptr %1301, null
-  %or.cond1398 = select i1 %1300, i1 true, i1 %1302
-  br i1 %or.cond1398, label %.loopexit, label %1319
+1296:                                             ; preds = %1293
+  %1297 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1298 = load ptr, ptr %122, align 8
+  %1299 = icmp ne ptr %1298, null
+  %1300 = load ptr, ptr %125, align 8
+  %1301 = icmp ne ptr %1300, null
+  %or.cond1398 = select i1 %1299, i1 true, i1 %1301
+  br i1 %or.cond1398, label %.loopexit, label %1318
 
-1303:                                             ; preds = %1294
-  %1304 = and i64 %1295, 1025
-  %1305 = icmp eq i64 %1304, 1025
-  br i1 %1305, label %1306, label %1312
+1302:                                             ; preds = %1293
+  %1303 = and i64 %1294, 1025
+  %1304 = icmp eq i64 %1303, 1025
+  br i1 %1304, label %1305, label %1311
 
-1306:                                             ; preds = %1303
-  %1307 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
-  %1308 = load ptr, ptr %122, align 8
-  %1309 = icmp ne ptr %1308, null
-  %1310 = load ptr, ptr %125, align 8
-  %1311 = icmp ne ptr %1310, null
-  %or.cond1400 = select i1 %1309, i1 true, i1 %1311
-  br i1 %or.cond1400, label %.loopexit, label %1319
+1305:                                             ; preds = %1302
+  %1306 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
+  %1307 = load ptr, ptr %122, align 8
+  %1308 = icmp ne ptr %1307, null
+  %1309 = load ptr, ptr %125, align 8
+  %1310 = icmp ne ptr %1309, null
+  %or.cond1400 = select i1 %1308, i1 true, i1 %1310
+  br i1 %or.cond1400, label %.loopexit, label %1318
 
-1312:                                             ; preds = %1303
+1311:                                             ; preds = %1302
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %57, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1313 = getelementptr inbounds i8, ptr %56, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1313, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
-  store i32 %207, ptr %56, align 8, !alias.scope !111
-  %1314 = getelementptr inbounds i8, ptr %56, i64 4
-  store i32 1, ptr %1314, align 4, !alias.scope !111
-  %1315 = getelementptr inbounds i8, ptr %56, i64 32
-  store i32 9, ptr %1315, align 8, !alias.scope !111
-  %1316 = getelementptr inbounds i8, ptr %56, i64 36
-  store i32 0, ptr %1316, align 4, !alias.scope !111
-  %1317 = getelementptr inbounds i8, ptr %56, i64 40
-  store ptr null, ptr %1317, align 8, !alias.scope !111
-  %1318 = getelementptr inbounds i8, ptr %56, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1318, align 8, !alias.scope !111
+  %1312 = getelementptr inbounds i8, ptr %56, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1312, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
+  store i32 %206, ptr %56, align 8, !alias.scope !111
+  %1313 = getelementptr inbounds i8, ptr %56, i64 4
+  store i32 1, ptr %1313, align 4, !alias.scope !111
+  %1314 = getelementptr inbounds i8, ptr %56, i64 32
+  store i32 9, ptr %1314, align 8, !alias.scope !111
+  %1315 = getelementptr inbounds i8, ptr %56, i64 36
+  store i32 0, ptr %1315, align 4, !alias.scope !111
+  %1316 = getelementptr inbounds i8, ptr %56, i64 40
+  store ptr null, ptr %1316, align 8, !alias.scope !111
+  %1317 = getelementptr inbounds i8, ptr %56, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1317, align 8, !alias.scope !111
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %56, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.80)
   br label %.loopexit
 
-1319:                                             ; preds = %1306, %1297
-  %.sroa.01059.0 = phi ptr [ %1298, %1297 ], [ %1307, %1306 ]
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1283, ptr noundef nonnull %2)
-  %1320 = load ptr, ptr %122, align 8
-  %1321 = icmp ne ptr %1320, null
-  %1322 = load ptr, ptr %125, align 8
-  %1323 = icmp ne ptr %1322, null
-  %or.cond1402 = select i1 %1321, i1 true, i1 %1323
-  br i1 %or.cond1402, label %.loopexit, label %1324
+1318:                                             ; preds = %1305, %1296
+  %.sroa.01059.0 = phi ptr [ %1297, %1296 ], [ %1306, %1305 ]
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1282, ptr noundef nonnull %2)
+  %1319 = load ptr, ptr %122, align 8
+  %1320 = icmp ne ptr %1319, null
+  %1321 = load ptr, ptr %125, align 8
+  %1322 = icmp ne ptr %1321, null
+  %or.cond1402 = select i1 %1320, i1 true, i1 %1322
+  br i1 %or.cond1402, label %.loopexit, label %1323
 
-1324:                                             ; preds = %1319
+1323:                                             ; preds = %1318
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.01059.0, ptr noundef nonnull %2)
-  %1325 = load ptr, ptr %122, align 8
-  %1326 = icmp ne ptr %1325, null
-  %1327 = load ptr, ptr %125, align 8
-  %1328 = icmp ne ptr %1327, null
-  %or.cond1404 = select i1 %1326, i1 true, i1 %1328
-  br i1 %or.cond1404, label %.loopexit, label %1329
+  %1324 = load ptr, ptr %122, align 8
+  %1325 = icmp ne ptr %1324, null
+  %1326 = load ptr, ptr %125, align 8
+  %1327 = icmp ne ptr %1326, null
+  %or.cond1404 = select i1 %1325, i1 true, i1 %1327
+  br i1 %or.cond1404, label %.loopexit, label %1328
 
-1329:                                             ; preds = %1324
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1289, ptr noundef nonnull %2)
-  %1330 = load ptr, ptr %122, align 8
-  %1331 = icmp ne ptr %1330, null
-  %1332 = load ptr, ptr %125, align 8
-  %1333 = icmp ne ptr %1332, null
-  %or.cond1406 = select i1 %1331, i1 true, i1 %1333
-  br i1 %or.cond1406, label %.loopexit, label %1334
+1328:                                             ; preds = %1323
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1288, ptr noundef nonnull %2)
+  %1329 = load ptr, ptr %122, align 8
+  %1330 = icmp ne ptr %1329, null
+  %1331 = load ptr, ptr %125, align 8
+  %1332 = icmp ne ptr %1331, null
+  %or.cond1406 = select i1 %1330, i1 true, i1 %1332
+  br i1 %or.cond1406, label %.loopexit, label %1333
 
-1334:                                             ; preds = %1329
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1283, ptr noundef nonnull %2)
-  %1335 = load ptr, ptr %122, align 8
-  %1336 = icmp ne ptr %1335, null
-  %1337 = load ptr, ptr %125, align 8
-  %1338 = icmp ne ptr %1337, null
-  %or.cond1408 = select i1 %1336, i1 true, i1 %1338
+1333:                                             ; preds = %1328
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1282, ptr noundef nonnull %2)
+  %1334 = load ptr, ptr %122, align 8
+  %1335 = icmp ne ptr %1334, null
+  %1336 = load ptr, ptr %125, align 8
+  %1337 = icmp ne ptr %1336, null
+  %or.cond1408 = select i1 %1335, i1 true, i1 %1337
   br i1 %or.cond1408, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1339:                                             ; preds = %269
-  %1340 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
-  %1341 = load ptr, ptr %122, align 8
-  %1342 = icmp ne ptr %1341, null
-  %1343 = load ptr, ptr %125, align 8
-  %1344 = icmp ne ptr %1343, null
-  %or.cond1410 = select i1 %1342, i1 true, i1 %1344
-  br i1 %or.cond1410, label %.loopexit, label %1345
+1338:                                             ; preds = %268
+  %1339 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
+  %1340 = load ptr, ptr %122, align 8
+  %1341 = icmp ne ptr %1340, null
+  %1342 = load ptr, ptr %125, align 8
+  %1343 = icmp ne ptr %1342, null
+  %or.cond1410 = select i1 %1341, i1 true, i1 %1343
+  br i1 %or.cond1410, label %.loopexit, label %1344
 
-1345:                                             ; preds = %1339
-  %1346 = ptrtoint ptr %1340 to i64
-  %1347 = and i64 %1346, 257
-  %.not1690 = icmp eq i64 %1347, 1
-  br i1 %.not1690, label %1354, label %1348
+1344:                                             ; preds = %1338
+  %1345 = ptrtoint ptr %1339 to i64
+  %1346 = and i64 %1345, 257
+  %.not1691 = icmp eq i64 %1346, 1
+  br i1 %.not1691, label %1353, label %1347
 
-1348:                                             ; preds = %1345
-  %1349 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1350 = load ptr, ptr %122, align 8
-  %1351 = icmp ne ptr %1350, null
-  %1352 = load ptr, ptr %125, align 8
-  %1353 = icmp ne ptr %1352, null
-  %or.cond1412 = select i1 %1351, i1 true, i1 %1353
-  br i1 %or.cond1412, label %.loopexit, label %1370
+1347:                                             ; preds = %1344
+  %1348 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1349 = load ptr, ptr %122, align 8
+  %1350 = icmp ne ptr %1349, null
+  %1351 = load ptr, ptr %125, align 8
+  %1352 = icmp ne ptr %1351, null
+  %or.cond1412 = select i1 %1350, i1 true, i1 %1352
+  br i1 %or.cond1412, label %.loopexit, label %1369
 
-1354:                                             ; preds = %1345
-  %1355 = and i64 %1346, 1025
-  %1356 = icmp eq i64 %1355, 1025
-  br i1 %1356, label %1357, label %1363
+1353:                                             ; preds = %1344
+  %1354 = and i64 %1345, 1025
+  %1355 = icmp eq i64 %1354, 1025
+  br i1 %1355, label %1356, label %1362
 
-1357:                                             ; preds = %1354
-  %1358 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
-  %1359 = load ptr, ptr %122, align 8
-  %1360 = icmp ne ptr %1359, null
-  %1361 = load ptr, ptr %125, align 8
-  %1362 = icmp ne ptr %1361, null
-  %or.cond1414 = select i1 %1360, i1 true, i1 %1362
-  br i1 %or.cond1414, label %.loopexit, label %1370
+1356:                                             ; preds = %1353
+  %1357 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
+  %1358 = load ptr, ptr %122, align 8
+  %1359 = icmp ne ptr %1358, null
+  %1360 = load ptr, ptr %125, align 8
+  %1361 = icmp ne ptr %1360, null
+  %or.cond1414 = select i1 %1359, i1 true, i1 %1361
+  br i1 %or.cond1414, label %.loopexit, label %1369
 
-1363:                                             ; preds = %1354
+1362:                                             ; preds = %1353
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %59, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1364 = getelementptr inbounds i8, ptr %58, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1364, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
-  store i32 %207, ptr %58, align 8, !alias.scope !114
-  %1365 = getelementptr inbounds i8, ptr %58, i64 4
-  store i32 1, ptr %1365, align 4, !alias.scope !114
-  %1366 = getelementptr inbounds i8, ptr %58, i64 32
-  store i32 9, ptr %1366, align 8, !alias.scope !114
-  %1367 = getelementptr inbounds i8, ptr %58, i64 36
-  store i32 0, ptr %1367, align 4, !alias.scope !114
-  %1368 = getelementptr inbounds i8, ptr %58, i64 40
-  store ptr null, ptr %1368, align 8, !alias.scope !114
-  %1369 = getelementptr inbounds i8, ptr %58, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1369, align 8, !alias.scope !114
+  %1363 = getelementptr inbounds i8, ptr %58, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1363, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
+  store i32 %206, ptr %58, align 8, !alias.scope !114
+  %1364 = getelementptr inbounds i8, ptr %58, i64 4
+  store i32 1, ptr %1364, align 4, !alias.scope !114
+  %1365 = getelementptr inbounds i8, ptr %58, i64 32
+  store i32 9, ptr %1365, align 8, !alias.scope !114
+  %1366 = getelementptr inbounds i8, ptr %58, i64 36
+  store i32 0, ptr %1366, align 4, !alias.scope !114
+  %1367 = getelementptr inbounds i8, ptr %58, i64 40
+  store ptr null, ptr %1367, align 8, !alias.scope !114
+  %1368 = getelementptr inbounds i8, ptr %58, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1368, align 8, !alias.scope !114
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %58, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.81)
   br label %.loopexit
 
-1370:                                             ; preds = %1357, %1348
-  %.sroa.01116.0 = phi ptr [ %1349, %1348 ], [ %1358, %1357 ]
+1369:                                             ; preds = %1356, %1347
+  %.sroa.01116.0 = phi ptr [ %1348, %1347 ], [ %1357, %1356 ]
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.01116.0, ptr noundef nonnull %2)
-  %1371 = load ptr, ptr %122, align 8
-  %1372 = icmp ne ptr %1371, null
-  %1373 = load ptr, ptr %125, align 8
-  %1374 = icmp ne ptr %1373, null
-  %or.cond1416 = select i1 %1372, i1 true, i1 %1374
-  br i1 %or.cond1416, label %.loopexit, label %1375
+  %1370 = load ptr, ptr %122, align 8
+  %1371 = icmp ne ptr %1370, null
+  %1372 = load ptr, ptr %125, align 8
+  %1373 = icmp ne ptr %1372, null
+  %or.cond1416 = select i1 %1371, i1 true, i1 %1373
+  br i1 %or.cond1416, label %.loopexit, label %1374
 
-1375:                                             ; preds = %1370
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1340, ptr noundef nonnull %2)
-  %1376 = load ptr, ptr %122, align 8
-  %1377 = icmp ne ptr %1376, null
-  %1378 = load ptr, ptr %125, align 8
-  %1379 = icmp ne ptr %1378, null
-  %or.cond1418 = select i1 %1377, i1 true, i1 %1379
-  br i1 %or.cond1418, label %.loopexit, label %1380
+1374:                                             ; preds = %1369
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1339, ptr noundef nonnull %2)
+  %1375 = load ptr, ptr %122, align 8
+  %1376 = icmp ne ptr %1375, null
+  %1377 = load ptr, ptr %125, align 8
+  %1378 = icmp ne ptr %1377, null
+  %or.cond1418 = select i1 %1376, i1 true, i1 %1378
+  br i1 %or.cond1418, label %.loopexit, label %1379
 
-1380:                                             ; preds = %1375
+1379:                                             ; preds = %1374
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.01116.0, ptr noundef nonnull %2)
-  %1381 = load ptr, ptr %122, align 8
-  %1382 = icmp ne ptr %1381, null
-  %1383 = load ptr, ptr %125, align 8
-  %1384 = icmp ne ptr %1383, null
-  %or.cond1420 = select i1 %1382, i1 true, i1 %1384
-  br i1 %or.cond1420, label %.loopexit, label %1385
+  %1380 = load ptr, ptr %122, align 8
+  %1381 = icmp ne ptr %1380, null
+  %1382 = load ptr, ptr %125, align 8
+  %1383 = icmp ne ptr %1382, null
+  %or.cond1420 = select i1 %1381, i1 true, i1 %1383
+  br i1 %or.cond1420, label %.loopexit, label %1384
 
-1385:                                             ; preds = %1380
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1340, ptr noundef nonnull %2)
-  %1386 = load ptr, ptr %122, align 8
-  %1387 = icmp ne ptr %1386, null
-  %1388 = load ptr, ptr %125, align 8
-  %1389 = icmp ne ptr %1388, null
-  %or.cond1422 = select i1 %1387, i1 true, i1 %1389
+1384:                                             ; preds = %1379
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1339, ptr noundef nonnull %2)
+  %1385 = load ptr, ptr %122, align 8
+  %1386 = icmp ne ptr %1385, null
+  %1387 = load ptr, ptr %125, align 8
+  %1388 = icmp ne ptr %1387, null
+  %or.cond1422 = select i1 %1386, i1 true, i1 %1388
   br i1 %or.cond1422, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1390:                                             ; preds = %269
-  %1391 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
-  %1392 = load ptr, ptr %122, align 8
-  %1393 = icmp ne ptr %1392, null
-  %1394 = load ptr, ptr %125, align 8
-  %1395 = icmp ne ptr %1394, null
-  %or.cond1424 = select i1 %1393, i1 true, i1 %1395
-  br i1 %or.cond1424, label %.loopexit, label %1396
+1389:                                             ; preds = %268
+  %1390 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
+  %1391 = load ptr, ptr %122, align 8
+  %1392 = icmp ne ptr %1391, null
+  %1393 = load ptr, ptr %125, align 8
+  %1394 = icmp ne ptr %1393, null
+  %or.cond1424 = select i1 %1392, i1 true, i1 %1394
+  br i1 %or.cond1424, label %.loopexit, label %1395
 
-1396:                                             ; preds = %1390
-  %1397 = ptrtoint ptr %1391 to i64
-  %1398 = and i64 %1397, 257
-  %.not1689 = icmp eq i64 %1398, 1
-  br i1 %.not1689, label %1405, label %1399
+1395:                                             ; preds = %1389
+  %1396 = ptrtoint ptr %1390 to i64
+  %1397 = and i64 %1396, 257
+  %.not1690 = icmp eq i64 %1397, 1
+  br i1 %.not1690, label %1404, label %1398
 
-1399:                                             ; preds = %1396
-  %1400 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1401 = load ptr, ptr %122, align 8
-  %1402 = icmp ne ptr %1401, null
-  %1403 = load ptr, ptr %125, align 8
-  %1404 = icmp ne ptr %1403, null
-  %or.cond1426 = select i1 %1402, i1 true, i1 %1404
-  br i1 %or.cond1426, label %.loopexit, label %1421
+1398:                                             ; preds = %1395
+  %1399 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1400 = load ptr, ptr %122, align 8
+  %1401 = icmp ne ptr %1400, null
+  %1402 = load ptr, ptr %125, align 8
+  %1403 = icmp ne ptr %1402, null
+  %or.cond1426 = select i1 %1401, i1 true, i1 %1403
+  br i1 %or.cond1426, label %.loopexit, label %1420
 
-1405:                                             ; preds = %1396
-  %1406 = and i64 %1397, 1025
-  %1407 = icmp eq i64 %1406, 1025
-  br i1 %1407, label %1408, label %1414
+1404:                                             ; preds = %1395
+  %1405 = and i64 %1396, 1025
+  %1406 = icmp eq i64 %1405, 1025
+  br i1 %1406, label %1407, label %1413
 
-1408:                                             ; preds = %1405
-  %1409 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
-  %1410 = load ptr, ptr %122, align 8
-  %1411 = icmp ne ptr %1410, null
-  %1412 = load ptr, ptr %125, align 8
-  %1413 = icmp ne ptr %1412, null
-  %or.cond1428 = select i1 %1411, i1 true, i1 %1413
-  br i1 %or.cond1428, label %.loopexit, label %1421
+1407:                                             ; preds = %1404
+  %1408 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
+  %1409 = load ptr, ptr %122, align 8
+  %1410 = icmp ne ptr %1409, null
+  %1411 = load ptr, ptr %125, align 8
+  %1412 = icmp ne ptr %1411, null
+  %or.cond1428 = select i1 %1410, i1 true, i1 %1412
+  br i1 %or.cond1428, label %.loopexit, label %1420
 
-1414:                                             ; preds = %1405
+1413:                                             ; preds = %1404
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %61, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1415 = getelementptr inbounds i8, ptr %60, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1415, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
-  store i32 %207, ptr %60, align 8, !alias.scope !117
-  %1416 = getelementptr inbounds i8, ptr %60, i64 4
-  store i32 1, ptr %1416, align 4, !alias.scope !117
-  %1417 = getelementptr inbounds i8, ptr %60, i64 32
-  store i32 9, ptr %1417, align 8, !alias.scope !117
-  %1418 = getelementptr inbounds i8, ptr %60, i64 36
-  store i32 0, ptr %1418, align 4, !alias.scope !117
-  %1419 = getelementptr inbounds i8, ptr %60, i64 40
-  store ptr null, ptr %1419, align 8, !alias.scope !117
-  %1420 = getelementptr inbounds i8, ptr %60, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1420, align 8, !alias.scope !117
+  %1414 = getelementptr inbounds i8, ptr %60, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1414, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
+  store i32 %206, ptr %60, align 8, !alias.scope !117
+  %1415 = getelementptr inbounds i8, ptr %60, i64 4
+  store i32 1, ptr %1415, align 4, !alias.scope !117
+  %1416 = getelementptr inbounds i8, ptr %60, i64 32
+  store i32 9, ptr %1416, align 8, !alias.scope !117
+  %1417 = getelementptr inbounds i8, ptr %60, i64 36
+  store i32 0, ptr %1417, align 4, !alias.scope !117
+  %1418 = getelementptr inbounds i8, ptr %60, i64 40
+  store ptr null, ptr %1418, align 8, !alias.scope !117
+  %1419 = getelementptr inbounds i8, ptr %60, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1419, align 8, !alias.scope !117
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %60, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.82)
   br label %.loopexit
 
-1421:                                             ; preds = %1408, %1399
-  %.sroa.01116.1 = phi ptr [ %1400, %1399 ], [ %1409, %1408 ]
-  %1422 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1423 = load ptr, ptr %122, align 8
-  %1424 = icmp ne ptr %1423, null
-  %1425 = load ptr, ptr %125, align 8
-  %1426 = icmp ne ptr %1425, null
-  %or.cond1430 = select i1 %1424, i1 true, i1 %1426
-  br i1 %or.cond1430, label %.loopexit, label %1427
+1420:                                             ; preds = %1407, %1398
+  %.sroa.01116.1 = phi ptr [ %1399, %1398 ], [ %1408, %1407 ]
+  %1421 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1422 = load ptr, ptr %122, align 8
+  %1423 = icmp ne ptr %1422, null
+  %1424 = load ptr, ptr %125, align 8
+  %1425 = icmp ne ptr %1424, null
+  %or.cond1430 = select i1 %1423, i1 true, i1 %1425
+  br i1 %or.cond1430, label %.loopexit, label %1426
 
-1427:                                             ; preds = %1421
+1426:                                             ; preds = %1420
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.01116.1, ptr noundef nonnull %2)
-  %1428 = load ptr, ptr %122, align 8
-  %1429 = icmp ne ptr %1428, null
-  %1430 = load ptr, ptr %125, align 8
-  %1431 = icmp ne ptr %1430, null
-  %or.cond1432 = select i1 %1429, i1 true, i1 %1431
-  br i1 %or.cond1432, label %.loopexit, label %1432
+  %1427 = load ptr, ptr %122, align 8
+  %1428 = icmp ne ptr %1427, null
+  %1429 = load ptr, ptr %125, align 8
+  %1430 = icmp ne ptr %1429, null
+  %or.cond1432 = select i1 %1428, i1 true, i1 %1430
+  br i1 %or.cond1432, label %.loopexit, label %1431
 
-1432:                                             ; preds = %1427
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1391, ptr noundef nonnull %2)
-  %1433 = load ptr, ptr %122, align 8
-  %1434 = icmp ne ptr %1433, null
-  %1435 = load ptr, ptr %125, align 8
-  %1436 = icmp ne ptr %1435, null
-  %or.cond1434 = select i1 %1434, i1 true, i1 %1436
-  br i1 %or.cond1434, label %.loopexit, label %1437
+1431:                                             ; preds = %1426
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1390, ptr noundef nonnull %2)
+  %1432 = load ptr, ptr %122, align 8
+  %1433 = icmp ne ptr %1432, null
+  %1434 = load ptr, ptr %125, align 8
+  %1435 = icmp ne ptr %1434, null
+  %or.cond1434 = select i1 %1433, i1 true, i1 %1435
+  br i1 %or.cond1434, label %.loopexit, label %1436
 
-1437:                                             ; preds = %1432
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1422, ptr noundef nonnull %2)
-  %1438 = load ptr, ptr %122, align 8
-  %1439 = icmp ne ptr %1438, null
-  %1440 = load ptr, ptr %125, align 8
-  %1441 = icmp ne ptr %1440, null
-  %or.cond1436 = select i1 %1439, i1 true, i1 %1441
-  br i1 %or.cond1436, label %.loopexit, label %1442
+1436:                                             ; preds = %1431
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1421, ptr noundef nonnull %2)
+  %1437 = load ptr, ptr %122, align 8
+  %1438 = icmp ne ptr %1437, null
+  %1439 = load ptr, ptr %125, align 8
+  %1440 = icmp ne ptr %1439, null
+  %or.cond1436 = select i1 %1438, i1 true, i1 %1440
+  br i1 %or.cond1436, label %.loopexit, label %1441
 
-1442:                                             ; preds = %1437
+1441:                                             ; preds = %1436
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.01116.1, ptr noundef nonnull %2)
-  %1443 = load ptr, ptr %122, align 8
-  %1444 = icmp ne ptr %1443, null
-  %1445 = load ptr, ptr %125, align 8
-  %1446 = icmp ne ptr %1445, null
-  %or.cond1438 = select i1 %1444, i1 true, i1 %1446
-  br i1 %or.cond1438, label %.loopexit, label %1447
+  %1442 = load ptr, ptr %122, align 8
+  %1443 = icmp ne ptr %1442, null
+  %1444 = load ptr, ptr %125, align 8
+  %1445 = icmp ne ptr %1444, null
+  %or.cond1438 = select i1 %1443, i1 true, i1 %1445
+  br i1 %or.cond1438, label %.loopexit, label %1446
 
-1447:                                             ; preds = %1442
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1391, ptr noundef nonnull %2)
-  %1448 = load ptr, ptr %122, align 8
-  %1449 = icmp ne ptr %1448, null
-  %1450 = load ptr, ptr %125, align 8
-  %1451 = icmp ne ptr %1450, null
-  %or.cond1440 = select i1 %1449, i1 true, i1 %1451
+1446:                                             ; preds = %1441
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1390, ptr noundef nonnull %2)
+  %1447 = load ptr, ptr %122, align 8
+  %1448 = icmp ne ptr %1447, null
+  %1449 = load ptr, ptr %125, align 8
+  %1450 = icmp ne ptr %1449, null
+  %or.cond1440 = select i1 %1448, i1 true, i1 %1450
   br i1 %or.cond1440, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1452:                                             ; preds = %269
-  %1453 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
-  %1454 = load ptr, ptr %122, align 8
-  %1455 = icmp ne ptr %1454, null
-  %1456 = load ptr, ptr %125, align 8
-  %1457 = icmp ne ptr %1456, null
-  %or.cond1442 = select i1 %1455, i1 true, i1 %1457
-  br i1 %or.cond1442, label %.loopexit, label %1458
+1451:                                             ; preds = %268
+  %1452 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
+  %1453 = load ptr, ptr %122, align 8
+  %1454 = icmp ne ptr %1453, null
+  %1455 = load ptr, ptr %125, align 8
+  %1456 = icmp ne ptr %1455, null
+  %or.cond1442 = select i1 %1454, i1 true, i1 %1456
+  br i1 %or.cond1442, label %.loopexit, label %1457
 
-1458:                                             ; preds = %1452
-  %1459 = ptrtoint ptr %1453 to i64
-  %1460 = and i64 %1459, 257
-  %.not1687 = icmp eq i64 %1460, 1
-  br i1 %.not1687, label %1467, label %1461
+1457:                                             ; preds = %1451
+  %1458 = ptrtoint ptr %1452 to i64
+  %1459 = and i64 %1458, 257
+  %.not1688 = icmp eq i64 %1459, 1
+  br i1 %.not1688, label %1466, label %1460
 
-1461:                                             ; preds = %1458
-  %1462 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1463 = load ptr, ptr %122, align 8
-  %1464 = icmp ne ptr %1463, null
-  %1465 = load ptr, ptr %125, align 8
-  %1466 = icmp ne ptr %1465, null
-  %or.cond1444 = select i1 %1464, i1 true, i1 %1466
-  br i1 %or.cond1444, label %.loopexit, label %1483
+1460:                                             ; preds = %1457
+  %1461 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1462 = load ptr, ptr %122, align 8
+  %1463 = icmp ne ptr %1462, null
+  %1464 = load ptr, ptr %125, align 8
+  %1465 = icmp ne ptr %1464, null
+  %or.cond1444 = select i1 %1463, i1 true, i1 %1465
+  br i1 %or.cond1444, label %.loopexit, label %1482
 
-1467:                                             ; preds = %1458
-  %1468 = and i64 %1459, 1025
-  %1469 = icmp eq i64 %1468, 1025
-  br i1 %1469, label %1470, label %1476
+1466:                                             ; preds = %1457
+  %1467 = and i64 %1458, 1025
+  %1468 = icmp eq i64 %1467, 1025
+  br i1 %1468, label %1469, label %1475
 
-1470:                                             ; preds = %1467
-  %1471 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
-  %1472 = load ptr, ptr %122, align 8
-  %1473 = icmp ne ptr %1472, null
-  %1474 = load ptr, ptr %125, align 8
-  %1475 = icmp ne ptr %1474, null
-  %or.cond1446 = select i1 %1473, i1 true, i1 %1475
-  br i1 %or.cond1446, label %.loopexit, label %1483
+1469:                                             ; preds = %1466
+  %1470 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
+  %1471 = load ptr, ptr %122, align 8
+  %1472 = icmp ne ptr %1471, null
+  %1473 = load ptr, ptr %125, align 8
+  %1474 = icmp ne ptr %1473, null
+  %or.cond1446 = select i1 %1472, i1 true, i1 %1474
+  br i1 %or.cond1446, label %.loopexit, label %1482
 
-1476:                                             ; preds = %1467
+1475:                                             ; preds = %1466
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %63, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1477 = getelementptr inbounds i8, ptr %62, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1477, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
-  store i32 %207, ptr %62, align 8, !alias.scope !120
-  %1478 = getelementptr inbounds i8, ptr %62, i64 4
-  store i32 1, ptr %1478, align 4, !alias.scope !120
-  %1479 = getelementptr inbounds i8, ptr %62, i64 32
-  store i32 9, ptr %1479, align 8, !alias.scope !120
-  %1480 = getelementptr inbounds i8, ptr %62, i64 36
-  store i32 0, ptr %1480, align 4, !alias.scope !120
-  %1481 = getelementptr inbounds i8, ptr %62, i64 40
-  store ptr null, ptr %1481, align 8, !alias.scope !120
-  %1482 = getelementptr inbounds i8, ptr %62, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1482, align 8, !alias.scope !120
+  %1476 = getelementptr inbounds i8, ptr %62, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1476, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
+  store i32 %206, ptr %62, align 8, !alias.scope !120
+  %1477 = getelementptr inbounds i8, ptr %62, i64 4
+  store i32 1, ptr %1477, align 4, !alias.scope !120
+  %1478 = getelementptr inbounds i8, ptr %62, i64 32
+  store i32 9, ptr %1478, align 8, !alias.scope !120
+  %1479 = getelementptr inbounds i8, ptr %62, i64 36
+  store i32 0, ptr %1479, align 4, !alias.scope !120
+  %1480 = getelementptr inbounds i8, ptr %62, i64 40
+  store ptr null, ptr %1480, align 8, !alias.scope !120
+  %1481 = getelementptr inbounds i8, ptr %62, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1481, align 8, !alias.scope !120
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %62, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.83)
   br label %.loopexit
 
-1483:                                             ; preds = %1470, %1461
-  %.sroa.01116.2 = phi ptr [ %1462, %1461 ], [ %1471, %1470 ]
-  %1484 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
-  %1485 = load ptr, ptr %122, align 8
-  %1486 = icmp ne ptr %1485, null
-  %1487 = load ptr, ptr %125, align 8
-  %1488 = icmp ne ptr %1487, null
-  %or.cond1448 = select i1 %1486, i1 true, i1 %1488
-  br i1 %or.cond1448, label %.loopexit, label %1489
+1482:                                             ; preds = %1469, %1460
+  %.sroa.01116.2 = phi ptr [ %1461, %1460 ], [ %1470, %1469 ]
+  %1483 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull %2)
+  %1484 = load ptr, ptr %122, align 8
+  %1485 = icmp ne ptr %1484, null
+  %1486 = load ptr, ptr %125, align 8
+  %1487 = icmp ne ptr %1486, null
+  %or.cond1448 = select i1 %1485, i1 true, i1 %1487
+  br i1 %or.cond1448, label %.loopexit, label %1488
 
-1489:                                             ; preds = %1483
-  %1490 = ptrtoint ptr %1484 to i64
-  %1491 = and i64 %1490, 257
-  %.not1688 = icmp eq i64 %1491, 1
-  br i1 %.not1688, label %1498, label %1492
+1488:                                             ; preds = %1482
+  %1489 = ptrtoint ptr %1483 to i64
+  %1490 = and i64 %1489, 257
+  %.not1689 = icmp eq i64 %1490, 1
+  br i1 %.not1689, label %1497, label %1491
 
-1492:                                             ; preds = %1489
-  %1493 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1494 = load ptr, ptr %122, align 8
-  %1495 = icmp ne ptr %1494, null
-  %1496 = load ptr, ptr %125, align 8
-  %1497 = icmp ne ptr %1496, null
-  %or.cond1450 = select i1 %1495, i1 true, i1 %1497
-  br i1 %or.cond1450, label %.loopexit, label %1514
+1491:                                             ; preds = %1488
+  %1492 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1493 = load ptr, ptr %122, align 8
+  %1494 = icmp ne ptr %1493, null
+  %1495 = load ptr, ptr %125, align 8
+  %1496 = icmp ne ptr %1495, null
+  %or.cond1450 = select i1 %1494, i1 true, i1 %1496
+  br i1 %or.cond1450, label %.loopexit, label %1513
 
-1498:                                             ; preds = %1489
-  %1499 = and i64 %1490, 1025
-  %1500 = icmp eq i64 %1499, 1025
-  br i1 %1500, label %1501, label %1507
+1497:                                             ; preds = %1488
+  %1498 = and i64 %1489, 1025
+  %1499 = icmp eq i64 %1498, 1025
+  br i1 %1499, label %1500, label %1506
 
-1501:                                             ; preds = %1498
-  %1502 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
-  %1503 = load ptr, ptr %122, align 8
-  %1504 = icmp ne ptr %1503, null
-  %1505 = load ptr, ptr %125, align 8
-  %1506 = icmp ne ptr %1505, null
-  %or.cond1452 = select i1 %1504, i1 true, i1 %1506
-  br i1 %or.cond1452, label %.loopexit, label %1514
+1500:                                             ; preds = %1497
+  %1501 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 515 to ptr), ptr noundef nonnull %2)
+  %1502 = load ptr, ptr %122, align 8
+  %1503 = icmp ne ptr %1502, null
+  %1504 = load ptr, ptr %125, align 8
+  %1505 = icmp ne ptr %1504, null
+  %or.cond1452 = select i1 %1503, i1 true, i1 %1505
+  br i1 %or.cond1452, label %.loopexit, label %1513
 
-1507:                                             ; preds = %1498
+1506:                                             ; preds = %1497
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %65, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
-  %1508 = getelementptr inbounds i8, ptr %64, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1508, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
-  store i32 %207, ptr %64, align 8, !alias.scope !123
-  %1509 = getelementptr inbounds i8, ptr %64, i64 4
-  store i32 1, ptr %1509, align 4, !alias.scope !123
-  %1510 = getelementptr inbounds i8, ptr %64, i64 32
-  store i32 9, ptr %1510, align 8, !alias.scope !123
-  %1511 = getelementptr inbounds i8, ptr %64, i64 36
-  store i32 0, ptr %1511, align 4, !alias.scope !123
-  %1512 = getelementptr inbounds i8, ptr %64, i64 40
-  store ptr null, ptr %1512, align 8, !alias.scope !123
-  %1513 = getelementptr inbounds i8, ptr %64, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1513, align 8, !alias.scope !123
+  %1507 = getelementptr inbounds i8, ptr %64, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1507, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
+  store i32 %206, ptr %64, align 8, !alias.scope !123
+  %1508 = getelementptr inbounds i8, ptr %64, i64 4
+  store i32 1, ptr %1508, align 4, !alias.scope !123
+  %1509 = getelementptr inbounds i8, ptr %64, i64 32
+  store i32 9, ptr %1509, align 8, !alias.scope !123
+  %1510 = getelementptr inbounds i8, ptr %64, i64 36
+  store i32 0, ptr %1510, align 4, !alias.scope !123
+  %1511 = getelementptr inbounds i8, ptr %64, i64 40
+  store ptr null, ptr %1511, align 8, !alias.scope !123
+  %1512 = getelementptr inbounds i8, ptr %64, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1512, align 8, !alias.scope !123
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %64, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.83)
   br label %.loopexit
 
-1514:                                             ; preds = %1501, %1492
-  %.sroa.01055.0 = phi ptr [ %1493, %1492 ], [ %1502, %1501 ]
+1513:                                             ; preds = %1500, %1491
+  %.sroa.01055.0 = phi ptr [ %1492, %1491 ], [ %1501, %1500 ]
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.01116.2, ptr noundef nonnull %2)
-  %1515 = load ptr, ptr %122, align 8
-  %1516 = icmp ne ptr %1515, null
-  %1517 = load ptr, ptr %125, align 8
-  %1518 = icmp ne ptr %1517, null
-  %or.cond1454 = select i1 %1516, i1 true, i1 %1518
-  br i1 %or.cond1454, label %.loopexit, label %1519
+  %1514 = load ptr, ptr %122, align 8
+  %1515 = icmp ne ptr %1514, null
+  %1516 = load ptr, ptr %125, align 8
+  %1517 = icmp ne ptr %1516, null
+  %or.cond1454 = select i1 %1515, i1 true, i1 %1517
+  br i1 %or.cond1454, label %.loopexit, label %1518
 
-1519:                                             ; preds = %1514
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1453, ptr noundef nonnull %2)
-  %1520 = load ptr, ptr %122, align 8
-  %1521 = icmp ne ptr %1520, null
-  %1522 = load ptr, ptr %125, align 8
-  %1523 = icmp ne ptr %1522, null
-  %or.cond1456 = select i1 %1521, i1 true, i1 %1523
-  br i1 %or.cond1456, label %.loopexit, label %1524
+1518:                                             ; preds = %1513
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1452, ptr noundef nonnull %2)
+  %1519 = load ptr, ptr %122, align 8
+  %1520 = icmp ne ptr %1519, null
+  %1521 = load ptr, ptr %125, align 8
+  %1522 = icmp ne ptr %1521, null
+  %or.cond1456 = select i1 %1520, i1 true, i1 %1522
+  br i1 %or.cond1456, label %.loopexit, label %1523
 
-1524:                                             ; preds = %1519
+1523:                                             ; preds = %1518
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.01055.0, ptr noundef nonnull %2)
-  %1525 = load ptr, ptr %122, align 8
-  %1526 = icmp ne ptr %1525, null
-  %1527 = load ptr, ptr %125, align 8
-  %1528 = icmp ne ptr %1527, null
-  %or.cond1458 = select i1 %1526, i1 true, i1 %1528
-  br i1 %or.cond1458, label %.loopexit, label %1529
+  %1524 = load ptr, ptr %122, align 8
+  %1525 = icmp ne ptr %1524, null
+  %1526 = load ptr, ptr %125, align 8
+  %1527 = icmp ne ptr %1526, null
+  %or.cond1458 = select i1 %1525, i1 true, i1 %1527
+  br i1 %or.cond1458, label %.loopexit, label %1528
 
-1529:                                             ; preds = %1524
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1484, ptr noundef nonnull %2)
-  %1530 = load ptr, ptr %122, align 8
-  %1531 = icmp ne ptr %1530, null
-  %1532 = load ptr, ptr %125, align 8
-  %1533 = icmp ne ptr %1532, null
-  %or.cond1460 = select i1 %1531, i1 true, i1 %1533
-  br i1 %or.cond1460, label %.loopexit, label %1534
+1528:                                             ; preds = %1523
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1483, ptr noundef nonnull %2)
+  %1529 = load ptr, ptr %122, align 8
+  %1530 = icmp ne ptr %1529, null
+  %1531 = load ptr, ptr %125, align 8
+  %1532 = icmp ne ptr %1531, null
+  %or.cond1460 = select i1 %1530, i1 true, i1 %1532
+  br i1 %or.cond1460, label %.loopexit, label %1533
 
-1534:                                             ; preds = %1529
+1533:                                             ; preds = %1528
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %.sroa.01116.2, ptr noundef nonnull %2)
-  %1535 = load ptr, ptr %122, align 8
-  %1536 = icmp ne ptr %1535, null
-  %1537 = load ptr, ptr %125, align 8
-  %1538 = icmp ne ptr %1537, null
-  %or.cond1462 = select i1 %1536, i1 true, i1 %1538
-  br i1 %or.cond1462, label %.loopexit, label %1539
+  %1534 = load ptr, ptr %122, align 8
+  %1535 = icmp ne ptr %1534, null
+  %1536 = load ptr, ptr %125, align 8
+  %1537 = icmp ne ptr %1536, null
+  %or.cond1462 = select i1 %1535, i1 true, i1 %1537
+  br i1 %or.cond1462, label %.loopexit, label %1538
 
-1539:                                             ; preds = %1534
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1453, ptr noundef nonnull %2)
-  %1540 = load ptr, ptr %122, align 8
-  %1541 = icmp ne ptr %1540, null
-  %1542 = load ptr, ptr %125, align 8
-  %1543 = icmp ne ptr %1542, null
-  %or.cond1464 = select i1 %1541, i1 true, i1 %1543
+1538:                                             ; preds = %1533
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1452, ptr noundef nonnull %2)
+  %1539 = load ptr, ptr %122, align 8
+  %1540 = icmp ne ptr %1539, null
+  %1541 = load ptr, ptr %125, align 8
+  %1542 = icmp ne ptr %1541, null
+  %or.cond1464 = select i1 %1540, i1 true, i1 %1542
   br i1 %or.cond1464, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1544:                                             ; preds = %269
-  %1545 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1546 = load ptr, ptr %122, align 8
-  %1547 = icmp ne ptr %1546, null
-  %1548 = load ptr, ptr %125, align 8
-  %1549 = icmp ne ptr %1548, null
-  %or.cond1466 = select i1 %1547, i1 true, i1 %1549
-  br i1 %or.cond1466, label %.loopexit, label %1550
+1543:                                             ; preds = %268
+  %1544 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1545 = load ptr, ptr %122, align 8
+  %1546 = icmp ne ptr %1545, null
+  %1547 = load ptr, ptr %125, align 8
+  %1548 = icmp ne ptr %1547, null
+  %or.cond1466 = select i1 %1546, i1 true, i1 %1548
+  br i1 %or.cond1466, label %.loopexit, label %1549
 
-1550:                                             ; preds = %1544
-  %1551 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
-  %1552 = load ptr, ptr %122, align 8
-  %1553 = icmp ne ptr %1552, null
-  %1554 = load ptr, ptr %125, align 8
-  %1555 = icmp ne ptr %1554, null
-  %or.cond1468 = select i1 %1553, i1 true, i1 %1555
-  br i1 %or.cond1468, label %.loopexit, label %1556
+1549:                                             ; preds = %1543
+  %1550 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 259 to ptr), ptr noundef nonnull %2)
+  %1551 = load ptr, ptr %122, align 8
+  %1552 = icmp ne ptr %1551, null
+  %1553 = load ptr, ptr %125, align 8
+  %1554 = icmp ne ptr %1553, null
+  %or.cond1468 = select i1 %1552, i1 true, i1 %1554
+  br i1 %or.cond1468, label %.loopexit, label %1555
 
-1556:                                             ; preds = %1550
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1545, ptr noundef nonnull %2)
-  %1557 = load ptr, ptr %122, align 8
-  %1558 = icmp ne ptr %1557, null
-  %1559 = load ptr, ptr %125, align 8
-  %1560 = icmp ne ptr %1559, null
-  %or.cond1470 = select i1 %1558, i1 true, i1 %1560
-  br i1 %or.cond1470, label %.loopexit, label %1561
+1555:                                             ; preds = %1549
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1544, ptr noundef nonnull %2)
+  %1556 = load ptr, ptr %122, align 8
+  %1557 = icmp ne ptr %1556, null
+  %1558 = load ptr, ptr %125, align 8
+  %1559 = icmp ne ptr %1558, null
+  %or.cond1470 = select i1 %1557, i1 true, i1 %1559
+  br i1 %or.cond1470, label %.loopexit, label %1560
 
-1561:                                             ; preds = %1556
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1551, ptr noundef nonnull %2)
-  %1562 = load ptr, ptr %122, align 8
-  %1563 = icmp ne ptr %1562, null
-  %1564 = load ptr, ptr %125, align 8
-  %1565 = icmp ne ptr %1564, null
-  %or.cond1472 = select i1 %1563, i1 true, i1 %1565
+1560:                                             ; preds = %1555
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %1550, ptr noundef nonnull %2)
+  %1561 = load ptr, ptr %122, align 8
+  %1562 = icmp ne ptr %1561, null
+  %1563 = load ptr, ptr %125, align 8
+  %1564 = icmp ne ptr %1563, null
+  %or.cond1472 = select i1 %1562, i1 true, i1 %1564
   br i1 %or.cond1472, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1566:                                             ; preds = %269, %269, %269, %269, %269, %269, %269, %269, %269, %269, %269
-  %1567 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1568 = load ptr, ptr %122, align 8
-  %1569 = icmp ne ptr %1568, null
-  %1570 = load ptr, ptr %125, align 8
-  %1571 = icmp ne ptr %1570, null
-  %or.cond1474 = select i1 %1569, i1 true, i1 %1571
-  br i1 %or.cond1474, label %.loopexit, label %1572
+1565:                                             ; preds = %268, %268, %268, %268, %268, %268, %268, %268, %268, %268, %268
+  %1566 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1567 = load ptr, ptr %122, align 8
+  %1568 = icmp ne ptr %1567, null
+  %1569 = load ptr, ptr %125, align 8
+  %1570 = icmp ne ptr %1569, null
+  %or.cond1474 = select i1 %1568, i1 true, i1 %1570
+  br i1 %or.cond1474, label %.loopexit, label %1571
 
-1572:                                             ; preds = %1566, %269
-  %1573 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1574 = load ptr, ptr %122, align 8
-  %1575 = icmp ne ptr %1574, null
-  %1576 = load ptr, ptr %125, align 8
-  %1577 = icmp ne ptr %1576, null
-  %or.cond1476 = select i1 %1575, i1 true, i1 %1577
-  br i1 %or.cond1476, label %.loopexit, label %1578
+1571:                                             ; preds = %1565, %268
+  %1572 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1573 = load ptr, ptr %122, align 8
+  %1574 = icmp ne ptr %1573, null
+  %1575 = load ptr, ptr %125, align 8
+  %1576 = icmp ne ptr %1575, null
+  %or.cond1476 = select i1 %1574, i1 true, i1 %1576
+  br i1 %or.cond1476, label %.loopexit, label %1577
 
-1578:                                             ; preds = %1572
+1577:                                             ; preds = %1571
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1579 = load ptr, ptr %122, align 8
-  %1580 = icmp ne ptr %1579, null
-  %1581 = load ptr, ptr %125, align 8
-  %1582 = icmp ne ptr %1581, null
-  %or.cond1478 = select i1 %1580, i1 true, i1 %1582
+  %1578 = load ptr, ptr %122, align 8
+  %1579 = icmp ne ptr %1578, null
+  %1580 = load ptr, ptr %125, align 8
+  %1581 = icmp ne ptr %1580, null
+  %or.cond1478 = select i1 %1579, i1 true, i1 %1581
   br i1 %or.cond1478, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1583:                                             ; preds = %269, %269, %269, %269, %269, %269, %269, %269
+1582:                                             ; preds = %268, %268, %268, %268, %268, %268, %268, %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
-  %1584 = load ptr, ptr %122, align 8
-  %1585 = icmp ne ptr %1584, null
-  %1586 = load ptr, ptr %125, align 8
-  %1587 = icmp ne ptr %1586, null
-  %or.cond1480 = select i1 %1585, i1 true, i1 %1587
-  br i1 %or.cond1480, label %.loopexit, label %1588
+  %1583 = load ptr, ptr %122, align 8
+  %1584 = icmp ne ptr %1583, null
+  %1585 = load ptr, ptr %125, align 8
+  %1586 = icmp ne ptr %1585, null
+  %or.cond1480 = select i1 %1584, i1 true, i1 %1586
+  br i1 %or.cond1480, label %.loopexit, label %1587
 
-1588:                                             ; preds = %1583, %269
+1587:                                             ; preds = %1582, %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
-  %1589 = load ptr, ptr %122, align 8
-  %1590 = icmp ne ptr %1589, null
-  %1591 = load ptr, ptr %125, align 8
-  %1592 = icmp ne ptr %1591, null
-  %or.cond1482 = select i1 %1590, i1 true, i1 %1592
-  br i1 %or.cond1482, label %.loopexit, label %1593
+  %1588 = load ptr, ptr %122, align 8
+  %1589 = icmp ne ptr %1588, null
+  %1590 = load ptr, ptr %125, align 8
+  %1591 = icmp ne ptr %1590, null
+  %or.cond1482 = select i1 %1589, i1 true, i1 %1591
+  br i1 %or.cond1482, label %.loopexit, label %1592
 
-1593:                                             ; preds = %1588
+1592:                                             ; preds = %1587
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 262657 to ptr), ptr nonnull inttoptr (i64 852993 to ptr), ptr noundef nonnull %2)
-  %1594 = load ptr, ptr %122, align 8
-  %1595 = icmp ne ptr %1594, null
-  %1596 = load ptr, ptr %125, align 8
-  %1597 = icmp ne ptr %1596, null
-  %or.cond1484 = select i1 %1595, i1 true, i1 %1597
+  %1593 = load ptr, ptr %122, align 8
+  %1594 = icmp ne ptr %1593, null
+  %1595 = load ptr, ptr %125, align 8
+  %1596 = icmp ne ptr %1595, null
+  %or.cond1484 = select i1 %1594, i1 true, i1 %1596
   br i1 %or.cond1484, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1598:                                             ; preds = %269, %269, %269
-  %1599 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1600 = load ptr, ptr %122, align 8
-  %1601 = icmp ne ptr %1600, null
-  %1602 = load ptr, ptr %125, align 8
-  %1603 = icmp ne ptr %1602, null
-  %or.cond1486 = select i1 %1601, i1 true, i1 %1603
-  br i1 %or.cond1486, label %.loopexit, label %1604
+1597:                                             ; preds = %268, %268, %268
+  %1598 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1599 = load ptr, ptr %122, align 8
+  %1600 = icmp ne ptr %1599, null
+  %1601 = load ptr, ptr %125, align 8
+  %1602 = icmp ne ptr %1601, null
+  %or.cond1486 = select i1 %1600, i1 true, i1 %1602
+  br i1 %or.cond1486, label %.loopexit, label %1603
 
-1604:                                             ; preds = %1598
+1603:                                             ; preds = %1597
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
-  %1605 = load ptr, ptr %122, align 8
-  %1606 = icmp ne ptr %1605, null
-  %1607 = load ptr, ptr %125, align 8
-  %1608 = icmp ne ptr %1607, null
-  %or.cond1488 = select i1 %1606, i1 true, i1 %1608
-  br i1 %or.cond1488, label %.loopexit, label %1609
+  %1604 = load ptr, ptr %122, align 8
+  %1605 = icmp ne ptr %1604, null
+  %1606 = load ptr, ptr %125, align 8
+  %1607 = icmp ne ptr %1606, null
+  %or.cond1488 = select i1 %1605, i1 true, i1 %1607
+  br i1 %or.cond1488, label %.loopexit, label %1608
 
-1609:                                             ; preds = %1604
+1608:                                             ; preds = %1603
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 262657 to ptr), ptr nonnull inttoptr (i64 852993 to ptr), ptr noundef nonnull %2)
-  %1610 = load ptr, ptr %122, align 8
-  %1611 = icmp ne ptr %1610, null
-  %1612 = load ptr, ptr %125, align 8
-  %1613 = icmp ne ptr %1612, null
-  %or.cond1490 = select i1 %1611, i1 true, i1 %1613
+  %1609 = load ptr, ptr %122, align 8
+  %1610 = icmp ne ptr %1609, null
+  %1611 = load ptr, ptr %125, align 8
+  %1612 = icmp ne ptr %1611, null
+  %or.cond1490 = select i1 %1610, i1 true, i1 %1612
   br i1 %or.cond1490, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1614:                                             ; preds = %269, %269, %269, %269, %269
-  %1615 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1616 = load ptr, ptr %122, align 8
-  %1617 = icmp ne ptr %1616, null
-  %1618 = load ptr, ptr %125, align 8
-  %1619 = icmp ne ptr %1618, null
-  %or.cond1492 = select i1 %1617, i1 true, i1 %1619
-  br i1 %or.cond1492, label %.loopexit, label %1620
+1613:                                             ; preds = %268, %268, %268, %268, %268
+  %1614 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
+  %1615 = load ptr, ptr %122, align 8
+  %1616 = icmp ne ptr %1615, null
+  %1617 = load ptr, ptr %125, align 8
+  %1618 = icmp ne ptr %1617, null
+  %or.cond1492 = select i1 %1616, i1 true, i1 %1618
+  br i1 %or.cond1492, label %.loopexit, label %1619
 
-1620:                                             ; preds = %1614, %269
-  %1621 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1622 = load ptr, ptr %122, align 8
-  %1623 = icmp ne ptr %1622, null
-  %1624 = load ptr, ptr %125, align 8
-  %1625 = icmp ne ptr %1624, null
-  %or.cond1494 = select i1 %1623, i1 true, i1 %1625
-  br i1 %or.cond1494, label %.loopexit, label %1626
+1619:                                             ; preds = %1613, %268
+  %1620 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
+  %1621 = load ptr, ptr %122, align 8
+  %1622 = icmp ne ptr %1621, null
+  %1623 = load ptr, ptr %125, align 8
+  %1624 = icmp ne ptr %1623, null
+  %or.cond1494 = select i1 %1622, i1 true, i1 %1624
+  br i1 %or.cond1494, label %.loopexit, label %1625
 
-1626:                                             ; preds = %1620
+1625:                                             ; preds = %1619
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1627 = load ptr, ptr %122, align 8
-  %1628 = icmp ne ptr %1627, null
-  %1629 = load ptr, ptr %125, align 8
-  %1630 = icmp ne ptr %1629, null
-  %or.cond1496 = select i1 %1628, i1 true, i1 %1630
+  %1626 = load ptr, ptr %122, align 8
+  %1627 = icmp ne ptr %1626, null
+  %1628 = load ptr, ptr %125, align 8
+  %1629 = icmp ne ptr %1628, null
+  %or.cond1496 = select i1 %1627, i1 true, i1 %1629
   br i1 %or.cond1496, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1631:                                             ; preds = %269, %269, %269, %269, %269
+1630:                                             ; preds = %268, %268, %268, %268, %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 918529 to ptr), ptr nonnull inttoptr (i64 197121 to ptr), ptr noundef nonnull %2)
-  %1632 = load ptr, ptr %122, align 8
-  %1633 = icmp ne ptr %1632, null
-  %1634 = load ptr, ptr %125, align 8
-  %1635 = icmp ne ptr %1634, null
-  %or.cond1498 = select i1 %1633, i1 true, i1 %1635
-  br i1 %or.cond1498, label %.loopexit, label %1636
+  %1631 = load ptr, ptr %122, align 8
+  %1632 = icmp ne ptr %1631, null
+  %1633 = load ptr, ptr %125, align 8
+  %1634 = icmp ne ptr %1633, null
+  %or.cond1498 = select i1 %1632, i1 true, i1 %1634
+  br i1 %or.cond1498, label %.loopexit, label %1635
 
-1636:                                             ; preds = %1631, %269
+1635:                                             ; preds = %1630, %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 918529 to ptr), ptr nonnull inttoptr (i64 197121 to ptr), ptr noundef nonnull %2)
-  %1637 = load ptr, ptr %122, align 8
-  %1638 = icmp ne ptr %1637, null
-  %1639 = load ptr, ptr %125, align 8
-  %1640 = icmp ne ptr %1639, null
-  %or.cond1500 = select i1 %1638, i1 true, i1 %1640
-  br i1 %or.cond1500, label %.loopexit, label %1641
+  %1636 = load ptr, ptr %122, align 8
+  %1637 = icmp ne ptr %1636, null
+  %1638 = load ptr, ptr %125, align 8
+  %1639 = icmp ne ptr %1638, null
+  %or.cond1500 = select i1 %1637, i1 true, i1 %1639
+  br i1 %or.cond1500, label %.loopexit, label %1640
 
-1641:                                             ; preds = %1636
+1640:                                             ; preds = %1635
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 197121 to ptr), ptr nonnull inttoptr (i64 918529 to ptr), ptr noundef nonnull %2)
-  %1642 = load ptr, ptr %122, align 8
-  %1643 = icmp ne ptr %1642, null
-  %1644 = load ptr, ptr %125, align 8
-  %1645 = icmp ne ptr %1644, null
-  %or.cond1502 = select i1 %1643, i1 true, i1 %1645
+  %1641 = load ptr, ptr %122, align 8
+  %1642 = icmp ne ptr %1641, null
+  %1643 = load ptr, ptr %125, align 8
+  %1644 = icmp ne ptr %1643, null
+  %or.cond1502 = select i1 %1642, i1 true, i1 %1644
   br i1 %or.cond1502, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1646:                                             ; preds = %269
-  %1647 = load i8, ptr %190, align 8
-  %1648 = trunc i8 %1647 to i1
-  %1649 = load ptr, ptr %191, align 8
-  %1650 = getelementptr inbounds i8, ptr %1649, i64 8
-  %1651 = load ptr, ptr %1650, align 8
-  %1652 = getelementptr inbounds i8, ptr %1651, i64 56
-  %1653 = load i32, ptr %182, align 8
-  %1654 = sext i32 %1653 to i64
-  %1655 = getelementptr inbounds i8, ptr %1652, i64 %1654
-  br i1 %1648, label %1656, label %1659
+1645:                                             ; preds = %268
+  %1646 = load i8, ptr %190, align 8
+  %1647 = trunc i8 %1646 to i1
+  %1648 = load ptr, ptr %191, align 8
+  %1649 = getelementptr inbounds i8, ptr %1648, i64 8
+  %1650 = load ptr, ptr %1649, align 8
+  %1651 = getelementptr inbounds i8, ptr %1650, i64 56
+  %1652 = load i32, ptr %182, align 8
+  %1653 = sext i32 %1652 to i64
+  %1654 = getelementptr inbounds i8, ptr %1651, i64 %1653
+  br i1 %1647, label %1655, label %1658
 
-1656:                                             ; preds = %1646
-  %1657 = getelementptr inbounds i8, ptr %1655, i64 2
-  %.0.i.i.i.i.i1034 = load i16, ptr %1657, align 1
-  %1658 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1034)
+1655:                                             ; preds = %1645
+  %1656 = getelementptr inbounds i8, ptr %1654, i64 2
+  %.0.i.i.i.i.i1034 = load i16, ptr %1656, align 1
+  %1657 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1034)
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1035
 
-1659:                                             ; preds = %1646
-  %1660 = getelementptr inbounds i8, ptr %1655, i64 1
-  %1661 = load i8, ptr %1660, align 1
-  %1662 = zext i8 %1661 to i16
+1658:                                             ; preds = %1645
+  %1659 = getelementptr inbounds i8, ptr %1654, i64 1
+  %1660 = load i8, ptr %1659, align 1
+  %1661 = zext i8 %1660 to i16
   br label %_ZNK17RawBytecodeStream9get_indexEv.exit1035
 
-_ZNK17RawBytecodeStream9get_indexEv.exit1035:     ; preds = %1656, %1659
-  %1663 = phi i16 [ %1658, %1656 ], [ %1662, %1659 ]
-  %1664 = zext i16 %1663 to i32
-  call void @_ZN13ClassVerifier11verify_iincEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %1664, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %1665 = load ptr, ptr %122, align 8
-  %1666 = icmp ne ptr %1665, null
-  %1667 = load ptr, ptr %125, align 8
-  %1668 = icmp ne ptr %1667, null
-  %or.cond1504 = select i1 %1666, i1 true, i1 %1668
+_ZNK17RawBytecodeStream9get_indexEv.exit1035:     ; preds = %1655, %1658
+  %1662 = phi i16 [ %1657, %1655 ], [ %1661, %1658 ]
+  %1663 = zext i16 %1662 to i32
+  call void @_ZN13ClassVerifier11verify_iincEiP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %1663, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %1664 = load ptr, ptr %122, align 8
+  %1665 = icmp ne ptr %1664, null
+  %1666 = load ptr, ptr %125, align 8
+  %1667 = icmp ne ptr %1666, null
+  %or.cond1504 = select i1 %1665, i1 true, i1 %1667
   br i1 %or.cond1504, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1669:                                             ; preds = %269
-  %1670 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1671 = load ptr, ptr %122, align 8
-  %1672 = icmp ne ptr %1671, null
-  %1673 = load ptr, ptr %125, align 8
-  %1674 = icmp ne ptr %1673, null
-  %or.cond1506 = select i1 %1672, i1 true, i1 %1674
-  br i1 %or.cond1506, label %.loopexit, label %1675
+1668:                                             ; preds = %268
+  %1669 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1670 = load ptr, ptr %122, align 8
+  %1671 = icmp ne ptr %1670, null
+  %1672 = load ptr, ptr %125, align 8
+  %1673 = icmp ne ptr %1672, null
+  %or.cond1506 = select i1 %1671, i1 true, i1 %1673
+  br i1 %or.cond1506, label %.loopexit, label %1674
 
-1675:                                             ; preds = %1669
+1674:                                             ; preds = %1668
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 262657 to ptr), ptr nonnull inttoptr (i64 852993 to ptr), ptr noundef nonnull %2)
-  %1676 = load ptr, ptr %122, align 8
-  %1677 = icmp ne ptr %1676, null
-  %1678 = load ptr, ptr %125, align 8
-  %1679 = icmp ne ptr %1678, null
-  %or.cond1508 = select i1 %1677, i1 true, i1 %1679
+  %1675 = load ptr, ptr %122, align 8
+  %1676 = icmp ne ptr %1675, null
+  %1677 = load ptr, ptr %125, align 8
+  %1678 = icmp ne ptr %1677, null
+  %or.cond1508 = select i1 %1676, i1 true, i1 %1678
   br i1 %or.cond1508, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1680:                                             ; preds = %269
+1679:                                             ; preds = %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
-  %1681 = load ptr, ptr %122, align 8
-  %1682 = icmp ne ptr %1681, null
-  %1683 = load ptr, ptr %125, align 8
-  %1684 = icmp ne ptr %1683, null
-  %or.cond1510 = select i1 %1682, i1 true, i1 %1684
-  br i1 %or.cond1510, label %.loopexit, label %1685
+  %1680 = load ptr, ptr %122, align 8
+  %1681 = icmp ne ptr %1680, null
+  %1682 = load ptr, ptr %125, align 8
+  %1683 = icmp ne ptr %1682, null
+  %or.cond1510 = select i1 %1681, i1 true, i1 %1683
+  br i1 %or.cond1510, label %.loopexit, label %1684
 
-1685:                                             ; preds = %1680
+1684:                                             ; preds = %1679
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1686 = load ptr, ptr %122, align 8
-  %1687 = icmp ne ptr %1686, null
-  %1688 = load ptr, ptr %125, align 8
-  %1689 = icmp ne ptr %1688, null
-  %or.cond1512 = select i1 %1687, i1 true, i1 %1689
+  %1685 = load ptr, ptr %122, align 8
+  %1686 = icmp ne ptr %1685, null
+  %1687 = load ptr, ptr %125, align 8
+  %1688 = icmp ne ptr %1687, null
+  %or.cond1512 = select i1 %1686, i1 true, i1 %1688
   br i1 %or.cond1512, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1690:                                             ; preds = %269
-  %1691 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1692 = load ptr, ptr %122, align 8
-  %1693 = icmp ne ptr %1692, null
-  %1694 = load ptr, ptr %125, align 8
-  %1695 = icmp ne ptr %1694, null
-  %or.cond1514 = select i1 %1693, i1 true, i1 %1695
-  br i1 %or.cond1514, label %.loopexit, label %1696
+1689:                                             ; preds = %268
+  %1690 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1691 = load ptr, ptr %122, align 8
+  %1692 = icmp ne ptr %1691, null
+  %1693 = load ptr, ptr %125, align 8
+  %1694 = icmp ne ptr %1693, null
+  %or.cond1514 = select i1 %1692, i1 true, i1 %1694
+  br i1 %or.cond1514, label %.loopexit, label %1695
 
-1696:                                             ; preds = %1690
+1695:                                             ; preds = %1689
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1697 = load ptr, ptr %122, align 8
-  %1698 = icmp ne ptr %1697, null
-  %1699 = load ptr, ptr %125, align 8
-  %1700 = icmp ne ptr %1699, null
-  %or.cond1516 = select i1 %1698, i1 true, i1 %1700
+  %1696 = load ptr, ptr %122, align 8
+  %1697 = icmp ne ptr %1696, null
+  %1698 = load ptr, ptr %125, align 8
+  %1699 = icmp ne ptr %1698, null
+  %or.cond1516 = select i1 %1697, i1 true, i1 %1699
   br i1 %or.cond1516, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1701:                                             ; preds = %269
-  %1702 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1703 = load ptr, ptr %122, align 8
-  %1704 = icmp ne ptr %1703, null
-  %1705 = load ptr, ptr %125, align 8
-  %1706 = icmp ne ptr %1705, null
-  %or.cond1518 = select i1 %1704, i1 true, i1 %1706
-  br i1 %or.cond1518, label %.loopexit, label %1707
+1700:                                             ; preds = %268
+  %1701 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1702 = load ptr, ptr %122, align 8
+  %1703 = icmp ne ptr %1702, null
+  %1704 = load ptr, ptr %125, align 8
+  %1705 = icmp ne ptr %1704, null
+  %or.cond1518 = select i1 %1703, i1 true, i1 %1705
+  br i1 %or.cond1518, label %.loopexit, label %1706
 
-1707:                                             ; preds = %1701
+1706:                                             ; preds = %1700
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 197121 to ptr), ptr nonnull inttoptr (i64 918529 to ptr), ptr noundef nonnull %2)
-  %1708 = load ptr, ptr %122, align 8
-  %1709 = icmp ne ptr %1708, null
-  %1710 = load ptr, ptr %125, align 8
-  %1711 = icmp ne ptr %1710, null
-  %or.cond1520 = select i1 %1709, i1 true, i1 %1711
+  %1707 = load ptr, ptr %122, align 8
+  %1708 = icmp ne ptr %1707, null
+  %1709 = load ptr, ptr %125, align 8
+  %1710 = icmp ne ptr %1709, null
+  %or.cond1520 = select i1 %1708, i1 true, i1 %1710
   br i1 %or.cond1520, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1712:                                             ; preds = %269
+1711:                                             ; preds = %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
-  %1713 = load ptr, ptr %122, align 8
-  %1714 = icmp ne ptr %1713, null
-  %1715 = load ptr, ptr %125, align 8
-  %1716 = icmp ne ptr %1715, null
-  %or.cond1522 = select i1 %1714, i1 true, i1 %1716
-  br i1 %or.cond1522, label %.loopexit, label %1717
+  %1712 = load ptr, ptr %122, align 8
+  %1713 = icmp ne ptr %1712, null
+  %1714 = load ptr, ptr %125, align 8
+  %1715 = icmp ne ptr %1714, null
+  %or.cond1522 = select i1 %1713, i1 true, i1 %1715
+  br i1 %or.cond1522, label %.loopexit, label %1716
 
-1717:                                             ; preds = %1712
+1716:                                             ; preds = %1711
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1718 = load ptr, ptr %122, align 8
-  %1719 = icmp ne ptr %1718, null
-  %1720 = load ptr, ptr %125, align 8
-  %1721 = icmp ne ptr %1720, null
-  %or.cond1524 = select i1 %1719, i1 true, i1 %1721
+  %1717 = load ptr, ptr %122, align 8
+  %1718 = icmp ne ptr %1717, null
+  %1719 = load ptr, ptr %125, align 8
+  %1720 = icmp ne ptr %1719, null
+  %or.cond1524 = select i1 %1718, i1 true, i1 %1720
   br i1 %or.cond1524, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1722:                                             ; preds = %269
+1721:                                             ; preds = %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
-  %1723 = load ptr, ptr %122, align 8
-  %1724 = icmp ne ptr %1723, null
-  %1725 = load ptr, ptr %125, align 8
-  %1726 = icmp ne ptr %1725, null
-  %or.cond1526 = select i1 %1724, i1 true, i1 %1726
-  br i1 %or.cond1526, label %.loopexit, label %1727
+  %1722 = load ptr, ptr %122, align 8
+  %1723 = icmp ne ptr %1722, null
+  %1724 = load ptr, ptr %125, align 8
+  %1725 = icmp ne ptr %1724, null
+  %or.cond1526 = select i1 %1723, i1 true, i1 %1725
+  br i1 %or.cond1526, label %.loopexit, label %1726
 
-1727:                                             ; preds = %1722
+1726:                                             ; preds = %1721
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 197121 to ptr), ptr nonnull inttoptr (i64 918529 to ptr), ptr noundef nonnull %2)
-  %1728 = load ptr, ptr %122, align 8
-  %1729 = icmp ne ptr %1728, null
-  %1730 = load ptr, ptr %125, align 8
-  %1731 = icmp ne ptr %1730, null
-  %or.cond1528 = select i1 %1729, i1 true, i1 %1731
+  %1727 = load ptr, ptr %122, align 8
+  %1728 = icmp ne ptr %1727, null
+  %1729 = load ptr, ptr %125, align 8
+  %1730 = icmp ne ptr %1729, null
+  %or.cond1528 = select i1 %1728, i1 true, i1 %1730
   br i1 %or.cond1528, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1732:                                             ; preds = %269
-  %1733 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1734 = load ptr, ptr %122, align 8
-  %1735 = icmp ne ptr %1734, null
-  %1736 = load ptr, ptr %125, align 8
-  %1737 = icmp ne ptr %1736, null
-  %or.cond1530 = select i1 %1735, i1 true, i1 %1737
-  br i1 %or.cond1530, label %.loopexit, label %1738
+1731:                                             ; preds = %268
+  %1732 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
+  %1733 = load ptr, ptr %122, align 8
+  %1734 = icmp ne ptr %1733, null
+  %1735 = load ptr, ptr %125, align 8
+  %1736 = icmp ne ptr %1735, null
+  %or.cond1530 = select i1 %1734, i1 true, i1 %1736
+  br i1 %or.cond1530, label %.loopexit, label %1737
 
-1738:                                             ; preds = %1732
+1737:                                             ; preds = %1731
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1739 = load ptr, ptr %122, align 8
-  %1740 = icmp ne ptr %1739, null
-  %1741 = load ptr, ptr %125, align 8
-  %1742 = icmp ne ptr %1741, null
-  %or.cond1532 = select i1 %1740, i1 true, i1 %1742
+  %1738 = load ptr, ptr %122, align 8
+  %1739 = icmp ne ptr %1738, null
+  %1740 = load ptr, ptr %125, align 8
+  %1741 = icmp ne ptr %1740, null
+  %or.cond1532 = select i1 %1739, i1 true, i1 %1741
   br i1 %or.cond1532, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1743:                                             ; preds = %269
-  %1744 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1745 = load ptr, ptr %122, align 8
-  %1746 = icmp ne ptr %1745, null
-  %1747 = load ptr, ptr %125, align 8
-  %1748 = icmp ne ptr %1747, null
-  %or.cond1534 = select i1 %1746, i1 true, i1 %1748
-  br i1 %or.cond1534, label %.loopexit, label %1749
+1742:                                             ; preds = %268
+  %1743 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
+  %1744 = load ptr, ptr %122, align 8
+  %1745 = icmp ne ptr %1744, null
+  %1746 = load ptr, ptr %125, align 8
+  %1747 = icmp ne ptr %1746, null
+  %or.cond1534 = select i1 %1745, i1 true, i1 %1747
+  br i1 %or.cond1534, label %.loopexit, label %1748
 
-1749:                                             ; preds = %1743
+1748:                                             ; preds = %1742
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 262657 to ptr), ptr nonnull inttoptr (i64 852993 to ptr), ptr noundef nonnull %2)
-  %1750 = load ptr, ptr %122, align 8
-  %1751 = icmp ne ptr %1750, null
-  %1752 = load ptr, ptr %125, align 8
-  %1753 = icmp ne ptr %1752, null
-  %or.cond1536 = select i1 %1751, i1 true, i1 %1753
+  %1749 = load ptr, ptr %122, align 8
+  %1750 = icmp ne ptr %1749, null
+  %1751 = load ptr, ptr %125, align 8
+  %1752 = icmp ne ptr %1751, null
+  %or.cond1536 = select i1 %1750, i1 true, i1 %1752
   br i1 %or.cond1536, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1754:                                             ; preds = %269
-  %1755 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1756 = load ptr, ptr %122, align 8
-  %1757 = icmp ne ptr %1756, null
-  %1758 = load ptr, ptr %125, align 8
-  %1759 = icmp ne ptr %1758, null
-  %or.cond1538 = select i1 %1757, i1 true, i1 %1759
-  br i1 %or.cond1538, label %.loopexit, label %1760
+1753:                                             ; preds = %268
+  %1754 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
+  %1755 = load ptr, ptr %122, align 8
+  %1756 = icmp ne ptr %1755, null
+  %1757 = load ptr, ptr %125, align 8
+  %1758 = icmp ne ptr %1757, null
+  %or.cond1538 = select i1 %1756, i1 true, i1 %1758
+  br i1 %or.cond1538, label %.loopexit, label %1759
 
-1760:                                             ; preds = %1754
+1759:                                             ; preds = %1753
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 197121 to ptr), ptr nonnull inttoptr (i64 918529 to ptr), ptr noundef nonnull %2)
-  %1761 = load ptr, ptr %122, align 8
-  %1762 = icmp ne ptr %1761, null
-  %1763 = load ptr, ptr %125, align 8
-  %1764 = icmp ne ptr %1763, null
-  %or.cond1540 = select i1 %1762, i1 true, i1 %1764
+  %1760 = load ptr, ptr %122, align 8
+  %1761 = icmp ne ptr %1760, null
+  %1762 = load ptr, ptr %125, align 8
+  %1763 = icmp ne ptr %1762, null
+  %or.cond1540 = select i1 %1761, i1 true, i1 %1763
   br i1 %or.cond1540, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1765:                                             ; preds = %269
+1764:                                             ; preds = %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 918529 to ptr), ptr nonnull inttoptr (i64 197121 to ptr), ptr noundef nonnull %2)
-  %1766 = load ptr, ptr %122, align 8
-  %1767 = icmp ne ptr %1766, null
-  %1768 = load ptr, ptr %125, align 8
-  %1769 = icmp ne ptr %1768, null
-  %or.cond1542 = select i1 %1767, i1 true, i1 %1769
-  br i1 %or.cond1542, label %.loopexit, label %1770
+  %1765 = load ptr, ptr %122, align 8
+  %1766 = icmp ne ptr %1765, null
+  %1767 = load ptr, ptr %125, align 8
+  %1768 = icmp ne ptr %1767, null
+  %or.cond1542 = select i1 %1766, i1 true, i1 %1768
+  br i1 %or.cond1542, label %.loopexit, label %1769
 
-1770:                                             ; preds = %1765
+1769:                                             ; preds = %1764
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1771 = load ptr, ptr %122, align 8
-  %1772 = icmp ne ptr %1771, null
-  %1773 = load ptr, ptr %125, align 8
-  %1774 = icmp ne ptr %1773, null
-  %or.cond1544 = select i1 %1772, i1 true, i1 %1774
+  %1770 = load ptr, ptr %122, align 8
+  %1771 = icmp ne ptr %1770, null
+  %1772 = load ptr, ptr %125, align 8
+  %1773 = icmp ne ptr %1772, null
+  %or.cond1544 = select i1 %1771, i1 true, i1 %1773
   br i1 %or.cond1544, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1775:                                             ; preds = %269
+1774:                                             ; preds = %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 918529 to ptr), ptr nonnull inttoptr (i64 197121 to ptr), ptr noundef nonnull %2)
-  %1776 = load ptr, ptr %122, align 8
-  %1777 = icmp ne ptr %1776, null
-  %1778 = load ptr, ptr %125, align 8
-  %1779 = icmp ne ptr %1778, null
-  %or.cond1546 = select i1 %1777, i1 true, i1 %1779
-  br i1 %or.cond1546, label %.loopexit, label %1780
+  %1775 = load ptr, ptr %122, align 8
+  %1776 = icmp ne ptr %1775, null
+  %1777 = load ptr, ptr %125, align 8
+  %1778 = icmp ne ptr %1777, null
+  %or.cond1546 = select i1 %1776, i1 true, i1 %1778
+  br i1 %or.cond1546, label %.loopexit, label %1779
 
-1780:                                             ; preds = %1775
+1779:                                             ; preds = %1774
   call void @_ZN13StackMapFrame12push_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 262657 to ptr), ptr nonnull inttoptr (i64 852993 to ptr), ptr noundef nonnull %2)
-  %1781 = load ptr, ptr %122, align 8
-  %1782 = icmp ne ptr %1781, null
-  %1783 = load ptr, ptr %125, align 8
-  %1784 = icmp ne ptr %1783, null
-  %or.cond1548 = select i1 %1782, i1 true, i1 %1784
+  %1780 = load ptr, ptr %122, align 8
+  %1781 = icmp ne ptr %1780, null
+  %1782 = load ptr, ptr %125, align 8
+  %1783 = icmp ne ptr %1782, null
+  %or.cond1548 = select i1 %1781, i1 true, i1 %1783
   br i1 %or.cond1548, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1785:                                             ; preds = %269
+1784:                                             ; preds = %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 918529 to ptr), ptr nonnull inttoptr (i64 197121 to ptr), ptr noundef nonnull %2)
-  %1786 = load ptr, ptr %122, align 8
-  %1787 = icmp ne ptr %1786, null
-  %1788 = load ptr, ptr %125, align 8
-  %1789 = icmp ne ptr %1788, null
-  %or.cond1550 = select i1 %1787, i1 true, i1 %1789
-  br i1 %or.cond1550, label %.loopexit, label %1790
+  %1785 = load ptr, ptr %122, align 8
+  %1786 = icmp ne ptr %1785, null
+  %1787 = load ptr, ptr %125, align 8
+  %1788 = icmp ne ptr %1787, null
+  %or.cond1550 = select i1 %1786, i1 true, i1 %1788
+  br i1 %or.cond1550, label %.loopexit, label %1789
 
-1790:                                             ; preds = %1785
+1789:                                             ; preds = %1784
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1791 = load ptr, ptr %122, align 8
-  %1792 = icmp ne ptr %1791, null
-  %1793 = load ptr, ptr %125, align 8
-  %1794 = icmp ne ptr %1793, null
-  %or.cond1552 = select i1 %1792, i1 true, i1 %1794
+  %1790 = load ptr, ptr %122, align 8
+  %1791 = icmp ne ptr %1790, null
+  %1792 = load ptr, ptr %125, align 8
+  %1793 = icmp ne ptr %1792, null
+  %or.cond1552 = select i1 %1791, i1 true, i1 %1793
   br i1 %or.cond1552, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1795:                                             ; preds = %269, %269, %269
-  %1796 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1797 = load ptr, ptr %122, align 8
-  %1798 = icmp ne ptr %1797, null
-  %1799 = load ptr, ptr %125, align 8
-  %1800 = icmp ne ptr %1799, null
-  %or.cond1554 = select i1 %1798, i1 true, i1 %1800
-  br i1 %or.cond1554, label %.loopexit, label %1801
+1794:                                             ; preds = %268, %268, %268
+  %1795 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1796 = load ptr, ptr %122, align 8
+  %1797 = icmp ne ptr %1796, null
+  %1798 = load ptr, ptr %125, align 8
+  %1799 = icmp ne ptr %1798, null
+  %or.cond1554 = select i1 %1797, i1 true, i1 %1799
+  br i1 %or.cond1554, label %.loopexit, label %1800
 
-1801:                                             ; preds = %1795
+1800:                                             ; preds = %1794
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1802 = load ptr, ptr %122, align 8
-  %1803 = icmp ne ptr %1802, null
-  %1804 = load ptr, ptr %125, align 8
-  %1805 = icmp ne ptr %1804, null
-  %or.cond1556 = select i1 %1803, i1 true, i1 %1805
+  %1801 = load ptr, ptr %122, align 8
+  %1802 = icmp ne ptr %1801, null
+  %1803 = load ptr, ptr %125, align 8
+  %1804 = icmp ne ptr %1803, null
+  %or.cond1556 = select i1 %1802, i1 true, i1 %1804
   br i1 %or.cond1556, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1806:                                             ; preds = %269
+1805:                                             ; preds = %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
-  %1807 = load ptr, ptr %122, align 8
-  %1808 = icmp ne ptr %1807, null
-  %1809 = load ptr, ptr %125, align 8
-  %1810 = icmp ne ptr %1809, null
-  %or.cond1558 = select i1 %1808, i1 true, i1 %1810
-  br i1 %or.cond1558, label %.loopexit, label %1811
+  %1806 = load ptr, ptr %122, align 8
+  %1807 = icmp ne ptr %1806, null
+  %1808 = load ptr, ptr %125, align 8
+  %1809 = icmp ne ptr %1808, null
+  %or.cond1558 = select i1 %1807, i1 true, i1 %1809
+  br i1 %or.cond1558, label %.loopexit, label %1810
 
-1811:                                             ; preds = %1806
+1810:                                             ; preds = %1805
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
-  %1812 = load ptr, ptr %122, align 8
-  %1813 = icmp ne ptr %1812, null
-  %1814 = load ptr, ptr %125, align 8
-  %1815 = icmp ne ptr %1814, null
-  %or.cond1560 = select i1 %1813, i1 true, i1 %1815
-  br i1 %or.cond1560, label %.loopexit, label %1816
+  %1811 = load ptr, ptr %122, align 8
+  %1812 = icmp ne ptr %1811, null
+  %1813 = load ptr, ptr %125, align 8
+  %1814 = icmp ne ptr %1813, null
+  %or.cond1560 = select i1 %1812, i1 true, i1 %1814
+  br i1 %or.cond1560, label %.loopexit, label %1815
 
-1816:                                             ; preds = %1811
+1815:                                             ; preds = %1810
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1817 = load ptr, ptr %122, align 8
-  %1818 = icmp ne ptr %1817, null
-  %1819 = load ptr, ptr %125, align 8
-  %1820 = icmp ne ptr %1819, null
-  %or.cond1562 = select i1 %1818, i1 true, i1 %1820
+  %1816 = load ptr, ptr %122, align 8
+  %1817 = icmp ne ptr %1816, null
+  %1818 = load ptr, ptr %125, align 8
+  %1819 = icmp ne ptr %1818, null
+  %or.cond1562 = select i1 %1817, i1 true, i1 %1819
   br i1 %or.cond1562, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1821:                                             ; preds = %269, %269
-  %1822 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1823 = load ptr, ptr %122, align 8
-  %1824 = icmp ne ptr %1823, null
-  %1825 = load ptr, ptr %125, align 8
-  %1826 = icmp ne ptr %1825, null
-  %or.cond1564 = select i1 %1824, i1 true, i1 %1826
-  br i1 %or.cond1564, label %.loopexit, label %1827
+1820:                                             ; preds = %268, %268
+  %1821 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
+  %1822 = load ptr, ptr %122, align 8
+  %1823 = icmp ne ptr %1822, null
+  %1824 = load ptr, ptr %125, align 8
+  %1825 = icmp ne ptr %1824, null
+  %or.cond1564 = select i1 %1823, i1 true, i1 %1825
+  br i1 %or.cond1564, label %.loopexit, label %1826
 
-1827:                                             ; preds = %1821
-  %1828 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1829 = load ptr, ptr %122, align 8
-  %1830 = icmp ne ptr %1829, null
-  %1831 = load ptr, ptr %125, align 8
-  %1832 = icmp ne ptr %1831, null
-  %or.cond1566 = select i1 %1830, i1 true, i1 %1832
-  br i1 %or.cond1566, label %.loopexit, label %1833
+1826:                                             ; preds = %1820
+  %1827 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
+  %1828 = load ptr, ptr %122, align 8
+  %1829 = icmp ne ptr %1828, null
+  %1830 = load ptr, ptr %125, align 8
+  %1831 = icmp ne ptr %1830, null
+  %or.cond1566 = select i1 %1829, i1 true, i1 %1831
+  br i1 %or.cond1566, label %.loopexit, label %1832
 
-1833:                                             ; preds = %1827
+1832:                                             ; preds = %1826
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1834 = load ptr, ptr %122, align 8
-  %1835 = icmp ne ptr %1834, null
-  %1836 = load ptr, ptr %125, align 8
-  %1837 = icmp ne ptr %1836, null
-  %or.cond1568 = select i1 %1835, i1 true, i1 %1837
+  %1833 = load ptr, ptr %122, align 8
+  %1834 = icmp ne ptr %1833, null
+  %1835 = load ptr, ptr %125, align 8
+  %1836 = icmp ne ptr %1835, null
+  %or.cond1568 = select i1 %1834, i1 true, i1 %1836
   br i1 %or.cond1568, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1838:                                             ; preds = %269, %269
+1837:                                             ; preds = %268, %268
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 918529 to ptr), ptr nonnull inttoptr (i64 197121 to ptr), ptr noundef nonnull %2)
-  %1839 = load ptr, ptr %122, align 8
-  %1840 = icmp ne ptr %1839, null
-  %1841 = load ptr, ptr %125, align 8
-  %1842 = icmp ne ptr %1841, null
-  %or.cond1570 = select i1 %1840, i1 true, i1 %1842
-  br i1 %or.cond1570, label %.loopexit, label %1843
+  %1838 = load ptr, ptr %122, align 8
+  %1839 = icmp ne ptr %1838, null
+  %1840 = load ptr, ptr %125, align 8
+  %1841 = icmp ne ptr %1840, null
+  %or.cond1570 = select i1 %1839, i1 true, i1 %1841
+  br i1 %or.cond1570, label %.loopexit, label %1842
 
-1843:                                             ; preds = %1838
+1842:                                             ; preds = %1837
   call void @_ZN13StackMapFrame11pop_stack_2E16VerificationTypeS0_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 918529 to ptr), ptr nonnull inttoptr (i64 197121 to ptr), ptr noundef nonnull %2)
-  %1844 = load ptr, ptr %122, align 8
-  %1845 = icmp ne ptr %1844, null
-  %1846 = load ptr, ptr %125, align 8
-  %1847 = icmp ne ptr %1846, null
-  %or.cond1572 = select i1 %1845, i1 true, i1 %1847
-  br i1 %or.cond1572, label %.loopexit, label %1848
+  %1843 = load ptr, ptr %122, align 8
+  %1844 = icmp ne ptr %1843, null
+  %1845 = load ptr, ptr %125, align 8
+  %1846 = icmp ne ptr %1845, null
+  %or.cond1572 = select i1 %1844, i1 true, i1 %1846
+  br i1 %or.cond1572, label %.loopexit, label %1847
 
-1848:                                             ; preds = %1843
+1847:                                             ; preds = %1842
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1849 = load ptr, ptr %122, align 8
-  %1850 = icmp ne ptr %1849, null
-  %1851 = load ptr, ptr %125, align 8
-  %1852 = icmp ne ptr %1851, null
-  %or.cond1574 = select i1 %1850, i1 true, i1 %1852
+  %1848 = load ptr, ptr %122, align 8
+  %1849 = icmp ne ptr %1848, null
+  %1850 = load ptr, ptr %125, align 8
+  %1851 = icmp ne ptr %1850, null
+  %or.cond1574 = select i1 %1849, i1 true, i1 %1851
   br i1 %or.cond1574, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1853:                                             ; preds = %269, %269, %269, %269, %269, %269
-  %1854 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1855 = load ptr, ptr %122, align 8
-  %1856 = icmp ne ptr %1855, null
-  %1857 = load ptr, ptr %125, align 8
-  %1858 = icmp ne ptr %1857, null
-  %or.cond1576 = select i1 %1856, i1 true, i1 %1858
-  br i1 %or.cond1576, label %.loopexit, label %1859
+1852:                                             ; preds = %268, %268, %268, %268, %268, %268
+  %1853 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1854 = load ptr, ptr %122, align 8
+  %1855 = icmp ne ptr %1854, null
+  %1856 = load ptr, ptr %125, align 8
+  %1857 = icmp ne ptr %1856, null
+  %or.cond1576 = select i1 %1855, i1 true, i1 %1857
+  br i1 %or.cond1576, label %.loopexit, label %1858
 
-1859:                                             ; preds = %1853, %269, %269, %269, %269, %269, %269
-  %1860 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1861 = load ptr, ptr %122, align 8
-  %1862 = icmp ne ptr %1861, null
-  %1863 = load ptr, ptr %125, align 8
-  %1864 = icmp ne ptr %1863, null
-  %or.cond1578 = select i1 %1862, i1 true, i1 %1864
-  br i1 %or.cond1578, label %.loopexit, label %1865
+1858:                                             ; preds = %1852, %268, %268, %268, %268, %268, %268
+  %1859 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1860 = load ptr, ptr %122, align 8
+  %1861 = icmp ne ptr %1860, null
+  %1862 = load ptr, ptr %125, align 8
+  %1863 = icmp ne ptr %1862, null
+  %or.cond1578 = select i1 %1861, i1 true, i1 %1863
+  br i1 %or.cond1578, label %.loopexit, label %1864
 
-1865:                                             ; preds = %1859
-  %1866 = call noundef i32 @_ZNK18BaseBytecodeStream4destEv(ptr noundef nonnull align 8 dereferenceable(42) %15)
-  call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %6, i32 noundef %1866, ptr noundef nonnull %2) #20
-  %1867 = load ptr, ptr %122, align 8
-  %1868 = icmp ne ptr %1867, null
-  %1869 = load ptr, ptr %125, align 8
-  %1870 = icmp ne ptr %1869, null
-  %or.cond1580 = select i1 %1868, i1 true, i1 %1870
+1864:                                             ; preds = %1858
+  %1865 = call noundef i32 @_ZNK18BaseBytecodeStream4destEv(ptr noundef nonnull align 8 dereferenceable(42) %15)
+  call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %6, i32 noundef %1865, ptr noundef nonnull %2) #20
+  %1866 = load ptr, ptr %122, align 8
+  %1867 = icmp ne ptr %1866, null
+  %1868 = load ptr, ptr %125, align 8
+  %1869 = icmp ne ptr %1868, null
+  %or.cond1580 = select i1 %1867, i1 true, i1 %1869
   br i1 %or.cond1580, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1871:                                             ; preds = %269, %269
-  %1872 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  %1873 = load ptr, ptr %122, align 8
-  %1874 = icmp ne ptr %1873, null
-  %1875 = load ptr, ptr %125, align 8
-  %1876 = icmp ne ptr %1875, null
-  %or.cond1582 = select i1 %1874, i1 true, i1 %1876
-  br i1 %or.cond1582, label %.loopexit, label %1877
+1870:                                             ; preds = %268, %268
+  %1871 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  %1872 = load ptr, ptr %122, align 8
+  %1873 = icmp ne ptr %1872, null
+  %1874 = load ptr, ptr %125, align 8
+  %1875 = icmp ne ptr %1874, null
+  %or.cond1582 = select i1 %1873, i1 true, i1 %1875
+  br i1 %or.cond1582, label %.loopexit, label %1876
 
-1877:                                             ; preds = %1871, %269, %269
-  %1878 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  %1879 = load ptr, ptr %122, align 8
-  %1880 = icmp ne ptr %1879, null
-  %1881 = load ptr, ptr %125, align 8
-  %1882 = icmp ne ptr %1881, null
-  %or.cond1584 = select i1 %1880, i1 true, i1 %1882
-  br i1 %or.cond1584, label %.loopexit, label %1883
+1876:                                             ; preds = %1870, %268, %268
+  %1877 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  %1878 = load ptr, ptr %122, align 8
+  %1879 = icmp ne ptr %1878, null
+  %1880 = load ptr, ptr %125, align 8
+  %1881 = icmp ne ptr %1880, null
+  %or.cond1584 = select i1 %1879, i1 true, i1 %1881
+  br i1 %or.cond1584, label %.loopexit, label %1882
 
-1883:                                             ; preds = %1877
-  %1884 = call noundef i32 @_ZNK18BaseBytecodeStream4destEv(ptr noundef nonnull align 8 dereferenceable(42) %15)
-  call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %6, i32 noundef %1884, ptr noundef nonnull %2) #20
-  %1885 = load ptr, ptr %122, align 8
-  %1886 = icmp ne ptr %1885, null
-  %1887 = load ptr, ptr %125, align 8
-  %1888 = icmp ne ptr %1887, null
-  %or.cond1586 = select i1 %1886, i1 true, i1 %1888
+1882:                                             ; preds = %1876
+  %1883 = call noundef i32 @_ZNK18BaseBytecodeStream4destEv(ptr noundef nonnull align 8 dereferenceable(42) %15)
+  call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %6, i32 noundef %1883, ptr noundef nonnull %2) #20
+  %1884 = load ptr, ptr %122, align 8
+  %1885 = icmp ne ptr %1884, null
+  %1886 = load ptr, ptr %125, align 8
+  %1887 = icmp ne ptr %1886, null
+  %or.cond1586 = select i1 %1885, i1 true, i1 %1887
   br i1 %or.cond1586, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1889:                                             ; preds = %269
-  %1890 = call noundef i32 @_ZNK18BaseBytecodeStream4destEv(ptr noundef nonnull align 8 dereferenceable(42) %15)
-  call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %6, i32 noundef %1890, ptr noundef nonnull %2) #20
-  %1891 = load ptr, ptr %122, align 8
-  %1892 = icmp ne ptr %1891, null
-  %1893 = load ptr, ptr %125, align 8
-  %1894 = icmp ne ptr %1893, null
-  %or.cond1588 = select i1 %1892, i1 true, i1 %1894
+1888:                                             ; preds = %268
+  %1889 = call noundef i32 @_ZNK18BaseBytecodeStream4destEv(ptr noundef nonnull align 8 dereferenceable(42) %15)
+  call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %6, i32 noundef %1889, ptr noundef nonnull %2) #20
+  %1890 = load ptr, ptr %122, align 8
+  %1891 = icmp ne ptr %1890, null
+  %1892 = load ptr, ptr %125, align 8
+  %1893 = icmp ne ptr %1892, null
+  %or.cond1588 = select i1 %1891, i1 true, i1 %1893
   br i1 %or.cond1588, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1895:                                             ; preds = %269
-  %1896 = load i32, ptr %182, align 8
-  %1897 = load ptr, ptr %191, align 8
-  %1898 = getelementptr inbounds i8, ptr %1897, i64 8
-  %1899 = load ptr, ptr %1898, align 8
-  %1900 = getelementptr inbounds i8, ptr %1899, i64 56
-  %1901 = sext i32 %1896 to i64
-  %1902 = getelementptr inbounds i8, ptr %1900, i64 %1901
-  %1903 = load i8, ptr %1902, align 1
-  %.not.i.i.i.i = icmp eq i8 %1903, -54
-  br i1 %.not.i.i.i.i, label %1904, label %_ZNK18BaseBytecodeStream6dest_wEv.exit
+1894:                                             ; preds = %268
+  %1895 = load i32, ptr %182, align 8
+  %1896 = load ptr, ptr %191, align 8
+  %1897 = getelementptr inbounds i8, ptr %1896, i64 8
+  %1898 = load ptr, ptr %1897, align 8
+  %1899 = getelementptr inbounds i8, ptr %1898, i64 56
+  %1900 = sext i32 %1895 to i64
+  %1901 = getelementptr inbounds i8, ptr %1899, i64 %1900
+  %1902 = load i8, ptr %1901, align 1
+  %.not.i.i.i.i = icmp eq i8 %1902, -54
+  br i1 %.not.i.i.i.i, label %1903, label %_ZNK18BaseBytecodeStream6dest_wEv.exit
 
-1904:                                             ; preds = %1895
-  %1905 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef nonnull %1897, ptr noundef nonnull %1902) #20
+1903:                                             ; preds = %1894
+  %1904 = call noundef i32 @_ZN9Bytecodes22non_breakpoint_code_atEPK6MethodPh(ptr noundef nonnull %1896, ptr noundef nonnull %1901) #20
   br label %_ZNK18BaseBytecodeStream6dest_wEv.exit
 
-_ZNK18BaseBytecodeStream6dest_wEv.exit:           ; preds = %1895, %1904
-  %1906 = getelementptr inbounds i8, ptr %1902, i64 1
-  %.0.i.i.i.i.i1036 = load i32, ptr %1906, align 1
-  %1907 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i1036)
-  %1908 = add nsw i32 %1907, %1896
-  call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %6, i32 noundef %1908, ptr noundef nonnull %2) #20
-  %1909 = load ptr, ptr %122, align 8
-  %1910 = icmp ne ptr %1909, null
-  %1911 = load ptr, ptr %125, align 8
-  %1912 = icmp ne ptr %1911, null
-  %or.cond1590 = select i1 %1910, i1 true, i1 %1912
+_ZNK18BaseBytecodeStream6dest_wEv.exit:           ; preds = %1894, %1903
+  %1905 = getelementptr inbounds i8, ptr %1901, i64 1
+  %.0.i.i.i.i.i1036 = load i32, ptr %1905, align 1
+  %1906 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i.i.i1036)
+  %1907 = add nsw i32 %1906, %1895
+  call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull %6, i32 noundef %1907, ptr noundef nonnull %2) #20
+  %1908 = load ptr, ptr %122, align 8
+  %1909 = icmp ne ptr %1908, null
+  %1910 = load ptr, ptr %125, align 8
+  %1911 = icmp ne ptr %1910, null
+  %or.cond1590 = select i1 %1909, i1 true, i1 %1911
   br i1 %or.cond1590, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1913:                                             ; preds = %269, %269
+1912:                                             ; preds = %268, %268
   call void @_ZN13ClassVerifier13verify_switchEP17RawBytecodeStreamjPcP13StackMapFrameP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull %15, i32 poison, ptr poison, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %2)
-  %1914 = load ptr, ptr %122, align 8
-  %1915 = icmp ne ptr %1914, null
-  %1916 = load ptr, ptr %125, align 8
-  %1917 = icmp ne ptr %1916, null
-  %or.cond1592 = select i1 %1915, i1 true, i1 %1917
+  %1913 = load ptr, ptr %122, align 8
+  %1914 = icmp ne ptr %1913, null
+  %1915 = load ptr, ptr %125, align 8
+  %1916 = icmp ne ptr %1915, null
+  %or.cond1592 = select i1 %1914, i1 true, i1 %1916
   br i1 %or.cond1592, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1918:                                             ; preds = %269
-  %1919 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
-  %1920 = load ptr, ptr %122, align 8
-  %1921 = icmp ne ptr %1920, null
-  %1922 = load ptr, ptr %125, align 8
-  %1923 = icmp ne ptr %1922, null
-  %or.cond1594 = select i1 %1921, i1 true, i1 %1923
-  br i1 %or.cond1594, label %.loopexit, label %1924
+1917:                                             ; preds = %268
+  %1918 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
+  %1919 = load ptr, ptr %122, align 8
+  %1920 = icmp ne ptr %1919, null
+  %1921 = load ptr, ptr %125, align 8
+  %1922 = icmp ne ptr %1921, null
+  %or.cond1594 = select i1 %1920, i1 true, i1 %1922
+  br i1 %or.cond1594, label %.loopexit, label %1923
 
-1924:                                             ; preds = %1918
-  call void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0_iP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr %114, ptr %1919, i32 noundef %207, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %1925 = load ptr, ptr %122, align 8
-  %1926 = icmp ne ptr %1925, null
-  %1927 = load ptr, ptr %125, align 8
-  %1928 = icmp ne ptr %1927, null
-  %or.cond1596 = select i1 %1926, i1 true, i1 %1928
+1923:                                             ; preds = %1917
+  call void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0_iP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr %114, ptr %1918, i32 noundef %206, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %1924 = load ptr, ptr %122, align 8
+  %1925 = icmp ne ptr %1924, null
+  %1926 = load ptr, ptr %125, align 8
+  %1927 = icmp ne ptr %1926, null
+  %or.cond1596 = select i1 %1925, i1 true, i1 %1927
   br i1 %or.cond1596, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1929:                                             ; preds = %269
-  %1930 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr noundef nonnull %2)
-  %1931 = load ptr, ptr %122, align 8
-  %1932 = icmp ne ptr %1931, null
-  %1933 = load ptr, ptr %125, align 8
-  %1934 = icmp ne ptr %1933, null
-  %or.cond1598 = select i1 %1932, i1 true, i1 %1934
-  br i1 %or.cond1598, label %.loopexit, label %1935
+1928:                                             ; preds = %268
+  %1929 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 852993 to ptr), ptr noundef nonnull %2)
+  %1930 = load ptr, ptr %122, align 8
+  %1931 = icmp ne ptr %1930, null
+  %1932 = load ptr, ptr %125, align 8
+  %1933 = icmp ne ptr %1932, null
+  %or.cond1598 = select i1 %1931, i1 true, i1 %1933
+  br i1 %or.cond1598, label %.loopexit, label %1934
 
-1935:                                             ; preds = %1929
-  %1936 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
-  %1937 = load ptr, ptr %122, align 8
-  %1938 = icmp ne ptr %1937, null
-  %1939 = load ptr, ptr %125, align 8
-  %1940 = icmp ne ptr %1939, null
-  %or.cond1600 = select i1 %1938, i1 true, i1 %1940
-  br i1 %or.cond1600, label %.loopexit, label %1941
+1934:                                             ; preds = %1928
+  %1935 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 262657 to ptr), ptr noundef nonnull %2)
+  %1936 = load ptr, ptr %122, align 8
+  %1937 = icmp ne ptr %1936, null
+  %1938 = load ptr, ptr %125, align 8
+  %1939 = icmp ne ptr %1938, null
+  %or.cond1600 = select i1 %1937, i1 true, i1 %1939
+  br i1 %or.cond1600, label %.loopexit, label %1940
 
-1941:                                             ; preds = %1935
-  call void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0_iP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr %114, ptr %1936, i32 noundef %207, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %1942 = load ptr, ptr %122, align 8
-  %1943 = icmp ne ptr %1942, null
-  %1944 = load ptr, ptr %125, align 8
-  %1945 = icmp ne ptr %1944, null
-  %or.cond1602 = select i1 %1943, i1 true, i1 %1945
+1940:                                             ; preds = %1934
+  call void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0_iP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr %114, ptr %1935, i32 noundef %206, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %1941 = load ptr, ptr %122, align 8
+  %1942 = icmp ne ptr %1941, null
+  %1943 = load ptr, ptr %125, align 8
+  %1944 = icmp ne ptr %1943, null
+  %or.cond1602 = select i1 %1942, i1 true, i1 %1944
   br i1 %or.cond1602, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1946:                                             ; preds = %269
-  %1947 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
-  %1948 = load ptr, ptr %122, align 8
-  %1949 = icmp ne ptr %1948, null
-  %1950 = load ptr, ptr %125, align 8
-  %1951 = icmp ne ptr %1950, null
-  %or.cond1604 = select i1 %1949, i1 true, i1 %1951
-  br i1 %or.cond1604, label %.loopexit, label %1952
+1945:                                             ; preds = %268
+  %1946 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %2)
+  %1947 = load ptr, ptr %122, align 8
+  %1948 = icmp ne ptr %1947, null
+  %1949 = load ptr, ptr %125, align 8
+  %1950 = icmp ne ptr %1949, null
+  %or.cond1604 = select i1 %1948, i1 true, i1 %1950
+  br i1 %or.cond1604, label %.loopexit, label %1951
 
-1952:                                             ; preds = %1946
-  call void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0_iP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr %114, ptr %1947, i32 noundef %207, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %1953 = load ptr, ptr %122, align 8
-  %1954 = icmp ne ptr %1953, null
-  %1955 = load ptr, ptr %125, align 8
-  %1956 = icmp ne ptr %1955, null
-  %or.cond1606 = select i1 %1954, i1 true, i1 %1956
+1951:                                             ; preds = %1945
+  call void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0_iP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr %114, ptr %1946, i32 noundef %206, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %1952 = load ptr, ptr %122, align 8
+  %1953 = icmp ne ptr %1952, null
+  %1954 = load ptr, ptr %125, align 8
+  %1955 = icmp ne ptr %1954, null
+  %or.cond1606 = select i1 %1953, i1 true, i1 %1955
   br i1 %or.cond1606, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1957:                                             ; preds = %269
-  %1958 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 918529 to ptr), ptr noundef nonnull %2)
-  %1959 = load ptr, ptr %122, align 8
-  %1960 = icmp ne ptr %1959, null
-  %1961 = load ptr, ptr %125, align 8
-  %1962 = icmp ne ptr %1961, null
-  %or.cond1608 = select i1 %1960, i1 true, i1 %1962
-  br i1 %or.cond1608, label %.loopexit, label %1963
+1956:                                             ; preds = %268
+  %1957 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 918529 to ptr), ptr noundef nonnull %2)
+  %1958 = load ptr, ptr %122, align 8
+  %1959 = icmp ne ptr %1958, null
+  %1960 = load ptr, ptr %125, align 8
+  %1961 = icmp ne ptr %1960, null
+  %or.cond1608 = select i1 %1959, i1 true, i1 %1961
+  br i1 %or.cond1608, label %.loopexit, label %1962
 
-1963:                                             ; preds = %1957
-  %1964 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 197121 to ptr), ptr noundef nonnull %2)
-  %1965 = load ptr, ptr %122, align 8
-  %1966 = icmp ne ptr %1965, null
-  %1967 = load ptr, ptr %125, align 8
-  %1968 = icmp ne ptr %1967, null
-  %or.cond1610 = select i1 %1966, i1 true, i1 %1968
-  br i1 %or.cond1610, label %.loopexit, label %1969
+1962:                                             ; preds = %1956
+  %1963 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 197121 to ptr), ptr noundef nonnull %2)
+  %1964 = load ptr, ptr %122, align 8
+  %1965 = icmp ne ptr %1964, null
+  %1966 = load ptr, ptr %125, align 8
+  %1967 = icmp ne ptr %1966, null
+  %or.cond1610 = select i1 %1965, i1 true, i1 %1967
+  br i1 %or.cond1610, label %.loopexit, label %1968
 
-1969:                                             ; preds = %1963
-  call void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0_iP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr %114, ptr %1964, i32 noundef %207, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %1970 = load ptr, ptr %122, align 8
-  %1971 = icmp ne ptr %1970, null
-  %1972 = load ptr, ptr %125, align 8
-  %1973 = icmp ne ptr %1972, null
-  %or.cond1612 = select i1 %1971, i1 true, i1 %1973
+1968:                                             ; preds = %1962
+  call void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0_iP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr %114, ptr %1963, i32 noundef %206, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %1969 = load ptr, ptr %122, align 8
+  %1970 = icmp ne ptr %1969, null
+  %1971 = load ptr, ptr %125, align 8
+  %1972 = icmp ne ptr %1971, null
+  %or.cond1612 = select i1 %1970, i1 true, i1 %1972
   br i1 %or.cond1612, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1974:                                             ; preds = %269
-  %1975 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
-  %1976 = load ptr, ptr %122, align 8
-  %1977 = icmp ne ptr %1976, null
-  %1978 = load ptr, ptr %125, align 8
-  %1979 = icmp ne ptr %1978, null
-  %or.cond1614 = select i1 %1977, i1 true, i1 %1979
-  br i1 %or.cond1614, label %.loopexit, label %1980
+1973:                                             ; preds = %268
+  %1974 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
+  %1975 = load ptr, ptr %122, align 8
+  %1976 = icmp ne ptr %1975, null
+  %1977 = load ptr, ptr %125, align 8
+  %1978 = icmp ne ptr %1977, null
+  %or.cond1614 = select i1 %1976, i1 true, i1 %1978
+  br i1 %or.cond1614, label %.loopexit, label %1979
 
-1980:                                             ; preds = %1974
-  call void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0_iP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr %114, ptr %1975, i32 noundef %207, ptr noundef nonnull %6, ptr noundef nonnull %2)
-  %1981 = load ptr, ptr %122, align 8
-  %1982 = icmp ne ptr %1981, null
-  %1983 = load ptr, ptr %125, align 8
-  %1984 = icmp ne ptr %1983, null
-  %or.cond1616 = select i1 %1982, i1 true, i1 %1984
+1979:                                             ; preds = %1973
+  call void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0_iP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr %114, ptr %1974, i32 noundef %206, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  %1980 = load ptr, ptr %122, align 8
+  %1981 = icmp ne ptr %1980, null
+  %1982 = load ptr, ptr %125, align 8
+  %1983 = icmp ne ptr %1982, null
+  %or.cond1616 = select i1 %1981, i1 true, i1 %1983
   br i1 %or.cond1616, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-1985:                                             ; preds = %269
-  br i1 %198, label %_ZNK16VerificationTypeneERKS_.exit, label %1986
+1984:                                             ; preds = %268
+  br i1 %.not1686, label %1995, label %1985
 
-1986:                                             ; preds = %1985
-  store i32 %207, ptr %66, align 8, !alias.scope !126
-  %1987 = getelementptr inbounds i8, ptr %66, i64 4
-  store i32 0, ptr %1987, align 4, !alias.scope !126
-  %1988 = getelementptr inbounds i8, ptr %66, i64 8
-  store i32 9, ptr %1988, align 8, !alias.scope !126
-  %1989 = getelementptr inbounds i8, ptr %66, i64 12
-  store i32 0, ptr %1989, align 4, !alias.scope !126
-  %1990 = getelementptr inbounds i8, ptr %66, i64 16
-  store ptr null, ptr %1990, align 8, !alias.scope !126
-  %1991 = getelementptr inbounds i8, ptr %66, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1991, align 8, !alias.scope !126
-  %1992 = getelementptr inbounds i8, ptr %66, i64 32
-  store i32 9, ptr %1992, align 8, !alias.scope !126
-  %1993 = getelementptr inbounds i8, ptr %66, i64 36
-  store i32 0, ptr %1993, align 4, !alias.scope !126
-  %1994 = getelementptr inbounds i8, ptr %66, i64 40
-  store ptr null, ptr %1994, align 8, !alias.scope !126
-  %1995 = getelementptr inbounds i8, ptr %66, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %1995, align 8, !alias.scope !126
+1985:                                             ; preds = %1984
+  store i32 %206, ptr %66, align 8, !alias.scope !126
+  %1986 = getelementptr inbounds i8, ptr %66, i64 4
+  store i32 0, ptr %1986, align 4, !alias.scope !126
+  %1987 = getelementptr inbounds i8, ptr %66, i64 8
+  store i32 9, ptr %1987, align 8, !alias.scope !126
+  %1988 = getelementptr inbounds i8, ptr %66, i64 12
+  store i32 0, ptr %1988, align 4, !alias.scope !126
+  %1989 = getelementptr inbounds i8, ptr %66, i64 16
+  store ptr null, ptr %1989, align 8, !alias.scope !126
+  %1990 = getelementptr inbounds i8, ptr %66, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1990, align 8, !alias.scope !126
+  %1991 = getelementptr inbounds i8, ptr %66, i64 32
+  store i32 9, ptr %1991, align 8, !alias.scope !126
+  %1992 = getelementptr inbounds i8, ptr %66, i64 36
+  store i32 0, ptr %1992, align 4, !alias.scope !126
+  %1993 = getelementptr inbounds i8, ptr %66, i64 40
+  store ptr null, ptr %1993, align 8, !alias.scope !126
+  %1994 = getelementptr inbounds i8, ptr %66, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %1994, align 8, !alias.scope !126
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %66, ptr noundef nonnull @.str.84)
   br label %.loopexit
 
-_ZNK16VerificationTypeneERKS_.exit:               ; preds = %1985
+1995:                                             ; preds = %1984
   %1996 = load ptr, ptr %75, align 8
   %1997 = getelementptr inbounds i8, ptr %1996, i64 8
   %1998 = load ptr, ptr %1997, align 8
@@ -6845,14 +6845,14 @@ _ZNK16VerificationTypeneERKS_.exit:               ; preds = %1985
   %2008 = icmp eq ptr %2006, %2007
   br i1 %2008, label %2009, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2009:                                             ; preds = %_ZNK16VerificationTypeneERKS_.exit
-  %2010 = load i8, ptr %199, align 4
+2009:                                             ; preds = %1995
+  %2010 = load i8, ptr %198, align 4
   %2011 = and i8 %2010, 1
-  %.not1686 = icmp eq i8 %2011, 0
-  br i1 %.not1686, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %2012
+  %.not1687 = icmp eq i8 %2011, 0
+  br i1 %.not1687, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198, label %2012
 
 2012:                                             ; preds = %2009
-  store i32 %207, ptr %67, align 8, !alias.scope !129
+  store i32 %206, ptr %67, align 8, !alias.scope !129
   %2013 = getelementptr inbounds i8, ptr %67, i64 4
   store i32 0, ptr %2013, align 4, !alias.scope !129
   %2014 = getelementptr inbounds i8, ptr %67, i64 8
@@ -6874,7 +6874,7 @@ _ZNK16VerificationTypeneERKS_.exit:               ; preds = %1985
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %67, ptr noundef nonnull @.str.85)
   br label %.loopexit
 
-2022:                                             ; preds = %269, %269
+2022:                                             ; preds = %268, %268
   call void @_ZN13ClassVerifier25verify_field_instructionsEP17RawBytecodeStreamP13StackMapFrameRK18constantPoolHandlebP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull %15, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext true, ptr noundef nonnull %2)
   %2023 = load ptr, ptr %122, align 8
   %2024 = icmp ne ptr %2023, null
@@ -6883,7 +6883,7 @@ _ZNK16VerificationTypeneERKS_.exit:               ; preds = %1985
   %or.cond1618 = select i1 %2024, i1 true, i1 %2026
   br i1 %or.cond1618, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2027:                                             ; preds = %269, %269
+2027:                                             ; preds = %268, %268
   call void @_ZN13ClassVerifier25verify_field_instructionsEP17RawBytecodeStreamP13StackMapFrameRK18constantPoolHandlebP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull %15, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(16) %5, i1 noundef zeroext false, ptr noundef nonnull %2)
   %2028 = load ptr, ptr %122, align 8
   %2029 = icmp ne ptr %2028, null
@@ -6892,8 +6892,8 @@ _ZNK16VerificationTypeneERKS_.exit:               ; preds = %1985
   %or.cond1620 = select i1 %2029, i1 true, i1 %2031
   br i1 %or.cond1620, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2032:                                             ; preds = %269, %269, %269
-  %2033 = select i1 %.not, i1 %253, i1 false
+2032:                                             ; preds = %268, %268, %268
+  %2033 = select i1 %.not, i1 %252, i1 false
   call void @_ZN13ClassVerifier26verify_invoke_instructionsEP17RawBytecodeStreamjP13StackMapFramebPb16VerificationTypeRK18constantPoolHandleP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull %15, i32 noundef %120, ptr noundef nonnull %6, i1 noundef zeroext %2033, ptr noundef nonnull %16, i64 poison, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %11, ptr noundef nonnull %2)
   %2034 = load ptr, ptr %122, align 8
   %2035 = icmp ne ptr %2034, null
@@ -6902,8 +6902,8 @@ _ZNK16VerificationTypeneERKS_.exit:               ; preds = %1985
   %or.cond1622 = select i1 %2035, i1 true, i1 %2037
   br i1 %or.cond1622, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2038:                                             ; preds = %269, %269
-  %2039 = select i1 %.not, i1 %253, i1 false
+2038:                                             ; preds = %268, %268
+  %2039 = select i1 %.not, i1 %252, i1 false
   call void @_ZN13ClassVerifier26verify_invoke_instructionsEP17RawBytecodeStreamjP13StackMapFramebPb16VerificationTypeRK18constantPoolHandleP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull %15, i32 noundef %120, ptr noundef nonnull %6, i1 noundef zeroext %2039, ptr noundef nonnull %16, i64 poison, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %11, ptr noundef nonnull %2)
   %2040 = load ptr, ptr %122, align 8
   %2041 = icmp ne ptr %2040, null
@@ -6912,7 +6912,7 @@ _ZNK16VerificationTypeneERKS_.exit:               ; preds = %1985
   %or.cond1624 = select i1 %2041, i1 true, i1 %2043
   br i1 %or.cond1624, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2044:                                             ; preds = %269
+2044:                                             ; preds = %268
   %2045 = load ptr, ptr %191, align 8
   %2046 = getelementptr inbounds i8, ptr %2045, i64 8
   %2047 = load ptr, ptr %2046, align 8
@@ -6923,7 +6923,7 @@ _ZNK16VerificationTypeneERKS_.exit:               ; preds = %1985
   %2052 = getelementptr inbounds i8, ptr %2051, i64 1
   %.0.i.i.i.i.i1037 = load i16, ptr %2052, align 1
   %2053 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1037)
-  call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %207, i16 noundef zeroext %2053, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %2)
+  call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %206, i16 noundef zeroext %2053, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %2)
   %2054 = load ptr, ptr %122, align 8
   %2055 = icmp ne ptr %2054, null
   %2056 = load ptr, ptr %125, align 8
@@ -6971,7 +6971,7 @@ _ZNK16VerificationType9is_objectEv.exit.thread:   ; preds = %2066, %2071, %_ZNK1
   store ptr null, ptr %.sroa.51185.0..sroa_idx, align 8
   %.sroa.61186.0..sroa_idx = getelementptr inbounds i8, ptr %68, i64 24
   store ptr %2061, ptr %.sroa.61186.0..sroa_idx, align 8
-  store i32 %207, ptr %68, align 8, !alias.scope !132
+  store i32 %206, ptr %68, align 8, !alias.scope !132
   %2077 = getelementptr inbounds i8, ptr %68, i64 4
   store i32 1, ptr %2077, align 4, !alias.scope !132
   %2078 = getelementptr inbounds i8, ptr %68, i64 32
@@ -6986,7 +6986,7 @@ _ZNK16VerificationType9is_objectEv.exit.thread:   ; preds = %2066, %2071, %_ZNK1
   br label %.loopexit
 
 2082:                                             ; preds = %_ZNK16VerificationType9is_objectEv.exit
-  %2083 = shl i32 %207, 8
+  %2083 = shl i32 %206, 8
   %2084 = and i32 %2083, 16776960
   %2085 = or disjoint i32 %2084, 2
   %2086 = zext nneg i32 %2085 to i64
@@ -6999,7 +6999,7 @@ _ZNK16VerificationType9is_objectEv.exit.thread:   ; preds = %2066, %2071, %_ZNK1
   %or.cond1630 = select i1 %2089, i1 true, i1 %2091
   br i1 %or.cond1630, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2092:                                             ; preds = %269
+2092:                                             ; preds = %268
   %2093 = load i8, ptr %190, align 8
   %2094 = trunc i8 %2093 to i1
   %2095 = load ptr, ptr %191, align 8
@@ -7025,7 +7025,7 @@ _ZNK16VerificationType9is_objectEv.exit.thread:   ; preds = %2066, %2071, %_ZNK1
 
 _ZNK17RawBytecodeStream9get_indexEv.exit1040:     ; preds = %2102, %2105
   %2109 = phi i16 [ %2104, %2102 ], [ %2108, %2105 ]
-  %2110 = call ptr @_ZN13ClassVerifier17get_newarray_typeEtiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i16 noundef zeroext %2109, i32 noundef %207, ptr nonnull poison)
+  %2110 = call ptr @_ZN13ClassVerifier17get_newarray_typeEtiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i16 noundef zeroext %2109, i32 noundef %206, ptr nonnull poison)
   %2111 = load ptr, ptr %122, align 8
   %2112 = icmp ne ptr %2111, null
   %2113 = load ptr, ptr %125, align 8
@@ -7051,7 +7051,7 @@ _ZNK17RawBytecodeStream9get_indexEv.exit1040:     ; preds = %2102, %2105
   %or.cond1636 = select i1 %2123, i1 true, i1 %2125
   br i1 %or.cond1636, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2126:                                             ; preds = %269
+2126:                                             ; preds = %268
   %2127 = load ptr, ptr %191, align 8
   %2128 = getelementptr inbounds i8, ptr %2127, i64 8
   %2129 = load ptr, ptr %2128, align 8
@@ -7062,7 +7062,7 @@ _ZNK17RawBytecodeStream9get_indexEv.exit1040:     ; preds = %2102, %2105
   %2134 = getelementptr inbounds i8, ptr %2133, i64 1
   %.0.i.i.i.i.i1041 = load i16, ptr %2134, align 1
   %2135 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1041)
-  call void @_ZN13ClassVerifier16verify_anewarrayEitRK18constantPoolHandleP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %207, i16 noundef zeroext %2135, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, ptr noundef nonnull %2)
+  call void @_ZN13ClassVerifier16verify_anewarrayEitRK18constantPoolHandleP13StackMapFrameP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %206, i16 noundef zeroext %2135, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, ptr noundef nonnull %2)
   %2136 = load ptr, ptr %122, align 8
   %2137 = icmp ne ptr %2136, null
   %2138 = load ptr, ptr %125, align 8
@@ -7070,7 +7070,7 @@ _ZNK17RawBytecodeStream9get_indexEv.exit1040:     ; preds = %2102, %2105
   %or.cond1638 = select i1 %2137, i1 true, i1 %2139
   br i1 %or.cond1638, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2140:                                             ; preds = %269
+2140:                                             ; preds = %268
   %2141 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
   %2142 = load ptr, ptr %122, align 8
   %2143 = icmp ne ptr %2142, null
@@ -7104,7 +7104,7 @@ _ZNK16VerificationType8is_arrayEv.exit:           ; preds = %2151
 _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %2148, %2151, %_ZNK16VerificationType8is_arrayEv.exit
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %70, ptr noundef nonnull align 8 dereferenceable(48) %6) #20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %192, ptr noundef nonnull align 8 dereferenceable(24) %70, i64 24, i1 false)
-  store i32 %207, ptr %69, align 8, !alias.scope !135
+  store i32 %206, ptr %69, align 8, !alias.scope !135
   store i32 1, ptr %193, align 4, !alias.scope !135
   store i32 9, ptr %194, align 8, !alias.scope !135
   store i32 0, ptr %195, align 4, !alias.scope !135
@@ -7122,7 +7122,7 @@ _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %2148, %2151, %_ZNK1
   %or.cond1642 = select i1 %2160, i1 true, i1 %2162
   br i1 %or.cond1642, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2163:                                             ; preds = %269
+2163:                                             ; preds = %268
   %2164 = load ptr, ptr %191, align 8
   %2165 = getelementptr inbounds i8, ptr %2164, i64 8
   %2166 = load ptr, ptr %2165, align 8
@@ -7133,7 +7133,7 @@ _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %2148, %2151, %_ZNK1
   %2171 = getelementptr inbounds i8, ptr %2170, i64 1
   %.0.i.i.i.i.i1043 = load i16, ptr %2171, align 1
   %2172 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1043)
-  call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %207, i16 noundef zeroext %2172, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %2)
+  call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %206, i16 noundef zeroext %2172, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %2)
   %2173 = load ptr, ptr %122, align 8
   %2174 = icmp ne ptr %2173, null
   %2175 = load ptr, ptr %125, align 8
@@ -7171,7 +7171,7 @@ _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %2148, %2151, %_ZNK1
   %or.cond1650 = select i1 %2194, i1 true, i1 %2196
   br i1 %or.cond1650, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2197:                                             ; preds = %269
+2197:                                             ; preds = %268
   %2198 = load ptr, ptr %191, align 8
   %2199 = getelementptr inbounds i8, ptr %2198, i64 8
   %2200 = load ptr, ptr %2199, align 8
@@ -7182,7 +7182,7 @@ _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %2148, %2151, %_ZNK1
   %2205 = getelementptr inbounds i8, ptr %2204, i64 1
   %.0.i.i.i.i.i1044 = load i16, ptr %2205, align 1
   %2206 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1044)
-  call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %207, i16 noundef zeroext %2206, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %2)
+  call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %206, i16 noundef zeroext %2206, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %2)
   %2207 = load ptr, ptr %122, align 8
   %2208 = icmp ne ptr %2207, null
   %2209 = load ptr, ptr %125, align 8
@@ -7209,7 +7209,7 @@ _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %2148, %2151, %_ZNK1
   %or.cond1656 = select i1 %2220, i1 true, i1 %2222
   br i1 %or.cond1656, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2223:                                             ; preds = %269, %269
+2223:                                             ; preds = %268, %268
   %2224 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef nonnull %2)
   %2225 = load ptr, ptr %122, align 8
   %2226 = icmp ne ptr %2225, null
@@ -7218,7 +7218,7 @@ _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %2148, %2151, %_ZNK1
   %or.cond1658 = select i1 %2226, i1 true, i1 %2228
   br i1 %or.cond1658, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2229:                                             ; preds = %269
+2229:                                             ; preds = %268
   %2230 = load ptr, ptr %191, align 8
   %2231 = getelementptr inbounds i8, ptr %2230, i64 8
   %2232 = load ptr, ptr %2231, align 8
@@ -7231,7 +7231,7 @@ _ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %2148, %2151, %_ZNK1
   %2238 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i1045)
   %2239 = getelementptr inbounds i8, ptr %2236, i64 3
   %2240 = load i8, ptr %2239, align 1
-  call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %207, i16 noundef zeroext %2238, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %2)
+  call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %206, i16 noundef zeroext %2238, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %2)
   %2241 = load ptr, ptr %122, align 8
   %2242 = icmp ne ptr %2241, null
   %2243 = load ptr, ptr %125, align 8
@@ -7279,7 +7279,7 @@ _ZNK16VerificationType8is_arrayEv.exit1047.thread: ; preds = %2253, %2258, %_ZNK
   store ptr null, ptr %.sroa.51189.0..sroa_idx, align 8
   %.sroa.61190.0..sroa_idx = getelementptr inbounds i8, ptr %71, i64 24
   store ptr %2248, ptr %.sroa.61190.0..sroa_idx, align 8
-  store i32 %207, ptr %71, align 8, !alias.scope !138
+  store i32 %206, ptr %71, align 8, !alias.scope !138
   %2266 = getelementptr inbounds i8, ptr %71, i64 4
   store i32 1, ptr %2266, align 4, !alias.scope !138
   %2267 = getelementptr inbounds i8, ptr %71, i64 32
@@ -7296,23 +7296,23 @@ _ZNK16VerificationType8is_arrayEv.exit1047.thread: ; preds = %2253, %2258, %_ZNK
 2271:                                             ; preds = %_ZNK16VerificationType8is_arrayEv.exit1047
   %2272 = zext i8 %2240 to i32
   %2273 = icmp eq i8 %2240, 0
-  br i1 %2273, label %2279, label %.preheader1946
+  br i1 %2273, label %2279, label %.preheader1947
 
-.preheader1946:                                   ; preds = %2271, %.preheader1946
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader1946 ], [ 0, %2271 ]
+.preheader1947:                                   ; preds = %2271, %.preheader1947
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader1947 ], [ 0, %2271 ]
   %2274 = getelementptr inbounds i8, ptr %2262, i64 %indvars.iv.i
   %2275 = load i8, ptr %2274, align 1
   %2276 = icmp eq i8 %2275, 91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  br i1 %2276, label %.preheader1946, label %_ZNK16VerificationType10dimensionsEv.exit, !llvm.loop !141
+  br i1 %2276, label %.preheader1947, label %_ZNK16VerificationType10dimensionsEv.exit, !llvm.loop !141
 
-_ZNK16VerificationType10dimensionsEv.exit:        ; preds = %.preheader1946
+_ZNK16VerificationType10dimensionsEv.exit:        ; preds = %.preheader1947
   %2277 = trunc nuw nsw i64 %indvars.iv.i to i32
   %2278 = icmp slt i32 %2277, %2272
   br i1 %2278, label %2279, label %.preheader
 
 2279:                                             ; preds = %_ZNK16VerificationType10dimensionsEv.exit, %2271
-  store i32 %207, ptr %72, align 8, !alias.scope !142
+  store i32 %206, ptr %72, align 8, !alias.scope !142
   %2280 = getelementptr inbounds i8, ptr %72, i64 4
   store i32 0, ptr %2280, align 4, !alias.scope !142
   %2281 = getelementptr inbounds i8, ptr %72, i64 8
@@ -7335,12 +7335,12 @@ _ZNK16VerificationType10dimensionsEv.exit:        ; preds = %.preheader1946
   br label %.loopexit
 
 2289:                                             ; preds = %.preheader
-  %2290 = add nuw nsw i32 %.09651795, 1
+  %2290 = add nuw nsw i32 %.09651796, 1
   %exitcond.not = icmp eq i32 %2290, %2272
   br i1 %exitcond.not, label %2296, label %.preheader, !llvm.loop !145
 
 .preheader:                                       ; preds = %_ZNK16VerificationType10dimensionsEv.exit, %2289
-  %.09651795 = phi i32 [ %2290, %2289 ], [ 0, %_ZNK16VerificationType10dimensionsEv.exit ]
+  %.09651796 = phi i32 [ %2290, %2289 ], [ 0, %_ZNK16VerificationType10dimensionsEv.exit ]
   %2291 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %2)
   %2292 = load ptr, ptr %122, align 8
   %2293 = icmp ne ptr %2292, null
@@ -7358,7 +7358,7 @@ _ZNK16VerificationType10dimensionsEv.exit:        ; preds = %.preheader1946
   %or.cond1666 = select i1 %2298, i1 true, i1 %2300
   br i1 %or.cond1666, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2301:                                             ; preds = %269
+2301:                                             ; preds = %268
   %2302 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 136), align 8
   %2303 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr %2302, ptr noundef nonnull %2)
   %2304 = load ptr, ptr %122, align 8
@@ -7368,8 +7368,8 @@ _ZNK16VerificationType10dimensionsEv.exit:        ; preds = %.preheader1946
   %or.cond1668 = select i1 %2305, i1 true, i1 %2307
   br i1 %or.cond1668, label %.loopexit, label %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198
 
-2308:                                             ; preds = %269
-  store i32 %207, ptr %73, align 8, !alias.scope !146
+2308:                                             ; preds = %268
+  store i32 %206, ptr %73, align 8, !alias.scope !146
   %2309 = getelementptr inbounds i8, ptr %73, i64 4
   store i32 0, ptr %2309, align 4, !alias.scope !146
   %2310 = getelementptr inbounds i8, ptr %73, i64 8
@@ -7388,17 +7388,17 @@ _ZNK16VerificationType10dimensionsEv.exit:        ; preds = %.preheader1946
   store ptr null, ptr %2316, align 8, !alias.scope !146
   %2317 = getelementptr inbounds i8, ptr %73, i64 48
   store ptr inttoptr (i64 4294901761 to ptr), ptr %2317, align 8, !alias.scope !146
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %73, ptr noundef nonnull @.str.90, i32 noundef %206)
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %73, ptr noundef nonnull @.str.90, i32 noundef %205)
   br label %.loopexit
 
-_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198: ; preds = %2301, %2296, %2223, %2218, %2192, %2158, %2126, %2121, %2082, %2038, %2032, %2027, %2022, %1980, %1969, %1952, %1941, %1924, %1913, %_ZNK18BaseBytecodeStream6dest_wEv.exit, %1889, %1883, %1865, %1848, %1833, %1816, %1801, %1790, %1780, %1770, %1760, %1749, %1738, %1727, %1717, %1707, %1696, %1685, %1675, %_ZNK17RawBytecodeStream9get_indexEv.exit1035, %1641, %1626, %1609, %1593, %1578, %1561, %1539, %1447, %1385, %1334, %1277, %1250, %1226, %1217, %1202, %902, %_ZNK17RawBytecodeStream9get_indexEv.exit1009, %873, %_ZNK17RawBytecodeStream9get_indexEv.exit1007, %844, %_ZNK17RawBytecodeStream9get_indexEv.exit1005, %815, %_ZNK17RawBytecodeStream9get_indexEv.exit1003, %786, %_ZNK17RawBytecodeStream9get_indexEv.exit1001, %757, %752, %_ZNK16VerificationType15is_double_arrayEv.exit.thread1197, %_ZNK16VerificationType14is_float_arrayEv.exit.thread1196, %_ZNK16VerificationType13is_long_arrayEv.exit.thread1195, %_ZNK16VerificationType14is_short_arrayEv.exit.thread1194, %_ZNK16VerificationType13is_char_arrayEv.exit.thread1193, %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192, %_ZNK16VerificationType12is_int_arrayEv.exit.thread1191, %468, %_ZNK17RawBytecodeStream9get_indexEv.exit985, %439, %_ZNK17RawBytecodeStream9get_indexEv.exit983, %410, %_ZNK17RawBytecodeStream9get_indexEv.exit981, %381, %_ZNK17RawBytecodeStream9get_indexEv.exit979, %352, %_ZNK17RawBytecodeStream9get_indexEv.exit, %315, %300, %295, %290, %285, %280, %275, %270, %1159, %1123, %1086, %1050, %1013, %964, %927, %_ZNK16VerificationTypeneERKS_.exit, %2009, %1196, %_ZNK16VerificationType15is_double_arrayEv.exit1033, %_ZNK16VerificationType14is_float_arrayEv.exit1030, %_ZNK16VerificationType13is_long_arrayEv.exit1027, %_ZNK16VerificationType14is_short_arrayEv.exit1024, %_ZNK16VerificationType13is_char_arrayEv.exit1021, %_ZNK16VerificationType13is_bool_arrayEv.exit1015, %_ZNK16VerificationType13is_byte_arrayEv.exit1018, %_ZNK16VerificationType12is_int_arrayEv.exit1012, %269
-  %.1 = phi i8 [ 0, %269 ], [ 0, %_ZNK16VerificationType12is_int_arrayEv.exit1012 ], [ 0, %_ZNK16VerificationType13is_byte_arrayEv.exit1018 ], [ 0, %_ZNK16VerificationType13is_bool_arrayEv.exit1015 ], [ 0, %_ZNK16VerificationType13is_char_arrayEv.exit1021 ], [ 0, %_ZNK16VerificationType14is_short_arrayEv.exit1024 ], [ 0, %_ZNK16VerificationType13is_long_arrayEv.exit1027 ], [ 0, %_ZNK16VerificationType14is_float_arrayEv.exit1030 ], [ 0, %_ZNK16VerificationType15is_double_arrayEv.exit1033 ], [ 0, %1196 ], [ 1, %2009 ], [ 1, %_ZNK16VerificationTypeneERKS_.exit ], [ 0, %927 ], [ 0, %964 ], [ 0, %1013 ], [ 0, %1050 ], [ 0, %1086 ], [ 0, %1123 ], [ 0, %1159 ], [ 0, %270 ], [ 0, %275 ], [ 0, %280 ], [ 0, %285 ], [ 0, %290 ], [ 0, %295 ], [ 0, %300 ], [ 0, %315 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit ], [ 0, %352 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit979 ], [ 0, %381 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit981 ], [ 0, %410 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit983 ], [ 0, %439 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit985 ], [ 0, %468 ], [ 0, %_ZNK16VerificationType12is_int_arrayEv.exit.thread1191 ], [ 0, %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192 ], [ 0, %_ZNK16VerificationType13is_char_arrayEv.exit.thread1193 ], [ 0, %_ZNK16VerificationType14is_short_arrayEv.exit.thread1194 ], [ 0, %_ZNK16VerificationType13is_long_arrayEv.exit.thread1195 ], [ 0, %_ZNK16VerificationType14is_float_arrayEv.exit.thread1196 ], [ 0, %_ZNK16VerificationType15is_double_arrayEv.exit.thread1197 ], [ 0, %752 ], [ 0, %757 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1001 ], [ 0, %786 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1003 ], [ 0, %815 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1005 ], [ 0, %844 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1007 ], [ 0, %873 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1009 ], [ 0, %902 ], [ 0, %1202 ], [ 0, %1217 ], [ 0, %1226 ], [ 0, %1250 ], [ 0, %1277 ], [ 0, %1334 ], [ 0, %1385 ], [ 0, %1447 ], [ 0, %1539 ], [ 0, %1561 ], [ 0, %1578 ], [ 0, %1593 ], [ 0, %1609 ], [ 0, %1626 ], [ 0, %1641 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1035 ], [ 0, %1675 ], [ 0, %1685 ], [ 0, %1696 ], [ 0, %1707 ], [ 0, %1717 ], [ 0, %1727 ], [ 0, %1738 ], [ 0, %1749 ], [ 0, %1760 ], [ 0, %1770 ], [ 0, %1780 ], [ 0, %1790 ], [ 0, %1801 ], [ 0, %1816 ], [ 0, %1833 ], [ 0, %1848 ], [ 0, %1865 ], [ 0, %1883 ], [ 1, %1889 ], [ 1, %_ZNK18BaseBytecodeStream6dest_wEv.exit ], [ 1, %1913 ], [ 1, %1924 ], [ 1, %1941 ], [ 1, %1952 ], [ 1, %1969 ], [ 1, %1980 ], [ 0, %2022 ], [ 0, %2027 ], [ 0, %2032 ], [ 0, %2038 ], [ 0, %2082 ], [ 0, %2121 ], [ 0, %2126 ], [ 0, %2158 ], [ 0, %2192 ], [ 0, %2218 ], [ 0, %2223 ], [ 0, %2296 ], [ 1, %2301 ]
+_ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198: ; preds = %2301, %2296, %2223, %2218, %2192, %2158, %2126, %2121, %2082, %2038, %2032, %2027, %2022, %1979, %1968, %1951, %1940, %1923, %1912, %_ZNK18BaseBytecodeStream6dest_wEv.exit, %1888, %1882, %1864, %1847, %1832, %1815, %1800, %1789, %1779, %1769, %1759, %1748, %1737, %1726, %1716, %1706, %1695, %1684, %1674, %_ZNK17RawBytecodeStream9get_indexEv.exit1035, %1640, %1625, %1608, %1592, %1577, %1560, %1538, %1446, %1384, %1333, %1276, %1249, %1225, %1216, %1201, %901, %_ZNK17RawBytecodeStream9get_indexEv.exit1009, %872, %_ZNK17RawBytecodeStream9get_indexEv.exit1007, %843, %_ZNK17RawBytecodeStream9get_indexEv.exit1005, %814, %_ZNK17RawBytecodeStream9get_indexEv.exit1003, %785, %_ZNK17RawBytecodeStream9get_indexEv.exit1001, %756, %751, %_ZNK16VerificationType15is_double_arrayEv.exit.thread1197, %_ZNK16VerificationType14is_float_arrayEv.exit.thread1196, %_ZNK16VerificationType13is_long_arrayEv.exit.thread1195, %_ZNK16VerificationType14is_short_arrayEv.exit.thread1194, %_ZNK16VerificationType13is_char_arrayEv.exit.thread1193, %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192, %_ZNK16VerificationType12is_int_arrayEv.exit.thread1191, %467, %_ZNK17RawBytecodeStream9get_indexEv.exit985, %438, %_ZNK17RawBytecodeStream9get_indexEv.exit983, %409, %_ZNK17RawBytecodeStream9get_indexEv.exit981, %380, %_ZNK17RawBytecodeStream9get_indexEv.exit979, %351, %_ZNK17RawBytecodeStream9get_indexEv.exit, %314, %299, %294, %289, %284, %279, %274, %269, %1158, %1122, %1085, %1049, %1012, %963, %926, %1995, %2009, %1195, %_ZNK16VerificationType15is_double_arrayEv.exit1033, %_ZNK16VerificationType14is_float_arrayEv.exit1030, %_ZNK16VerificationType13is_long_arrayEv.exit1027, %_ZNK16VerificationType14is_short_arrayEv.exit1024, %_ZNK16VerificationType13is_char_arrayEv.exit1021, %_ZNK16VerificationType13is_bool_arrayEv.exit1015, %_ZNK16VerificationType13is_byte_arrayEv.exit1018, %_ZNK16VerificationType12is_int_arrayEv.exit1012, %268
+  %.1 = phi i8 [ 0, %268 ], [ 0, %_ZNK16VerificationType12is_int_arrayEv.exit1012 ], [ 0, %_ZNK16VerificationType13is_byte_arrayEv.exit1018 ], [ 0, %_ZNK16VerificationType13is_bool_arrayEv.exit1015 ], [ 0, %_ZNK16VerificationType13is_char_arrayEv.exit1021 ], [ 0, %_ZNK16VerificationType14is_short_arrayEv.exit1024 ], [ 0, %_ZNK16VerificationType13is_long_arrayEv.exit1027 ], [ 0, %_ZNK16VerificationType14is_float_arrayEv.exit1030 ], [ 0, %_ZNK16VerificationType15is_double_arrayEv.exit1033 ], [ 0, %1195 ], [ 1, %2009 ], [ 1, %1995 ], [ 0, %926 ], [ 0, %963 ], [ 0, %1012 ], [ 0, %1049 ], [ 0, %1085 ], [ 0, %1122 ], [ 0, %1158 ], [ 0, %269 ], [ 0, %274 ], [ 0, %279 ], [ 0, %284 ], [ 0, %289 ], [ 0, %294 ], [ 0, %299 ], [ 0, %314 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit ], [ 0, %351 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit979 ], [ 0, %380 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit981 ], [ 0, %409 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit983 ], [ 0, %438 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit985 ], [ 0, %467 ], [ 0, %_ZNK16VerificationType12is_int_arrayEv.exit.thread1191 ], [ 0, %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192 ], [ 0, %_ZNK16VerificationType13is_char_arrayEv.exit.thread1193 ], [ 0, %_ZNK16VerificationType14is_short_arrayEv.exit.thread1194 ], [ 0, %_ZNK16VerificationType13is_long_arrayEv.exit.thread1195 ], [ 0, %_ZNK16VerificationType14is_float_arrayEv.exit.thread1196 ], [ 0, %_ZNK16VerificationType15is_double_arrayEv.exit.thread1197 ], [ 0, %751 ], [ 0, %756 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1001 ], [ 0, %785 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1003 ], [ 0, %814 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1005 ], [ 0, %843 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1007 ], [ 0, %872 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1009 ], [ 0, %901 ], [ 0, %1201 ], [ 0, %1216 ], [ 0, %1225 ], [ 0, %1249 ], [ 0, %1276 ], [ 0, %1333 ], [ 0, %1384 ], [ 0, %1446 ], [ 0, %1538 ], [ 0, %1560 ], [ 0, %1577 ], [ 0, %1592 ], [ 0, %1608 ], [ 0, %1625 ], [ 0, %1640 ], [ 0, %_ZNK17RawBytecodeStream9get_indexEv.exit1035 ], [ 0, %1674 ], [ 0, %1684 ], [ 0, %1695 ], [ 0, %1706 ], [ 0, %1716 ], [ 0, %1726 ], [ 0, %1737 ], [ 0, %1748 ], [ 0, %1759 ], [ 0, %1769 ], [ 0, %1779 ], [ 0, %1789 ], [ 0, %1800 ], [ 0, %1815 ], [ 0, %1832 ], [ 0, %1847 ], [ 0, %1864 ], [ 0, %1882 ], [ 1, %1888 ], [ 1, %_ZNK18BaseBytecodeStream6dest_wEv.exit ], [ 1, %1912 ], [ 1, %1923 ], [ 1, %1940 ], [ 1, %1951 ], [ 1, %1968 ], [ 1, %1979 ], [ 0, %2022 ], [ 0, %2027 ], [ 0, %2032 ], [ 0, %2038 ], [ 0, %2082 ], [ 0, %2121 ], [ 0, %2126 ], [ 0, %2158 ], [ 0, %2192 ], [ 0, %2218 ], [ 0, %2223 ], [ 0, %2296 ], [ 1, %2301 ]
   %2318 = load i32, ptr %7, align 4
-  %.not970 = icmp sge i32 %207, %2318
+  %.not970 = icmp sge i32 %206, %2318
   %not.or.cond973 = xor i1 %or.cond973, true
   %or.cond974 = select i1 %not.or.cond973, i1 %.not970, i1 false
   %2319 = load i32, ptr %8, align 4
-  %2320 = icmp slt i32 %207, %2319
+  %2320 = icmp slt i32 %206, %2319
   %or.cond976 = select i1 %or.cond974, i1 %2320, i1 false
   br i1 %or.cond976, label %2321, label %2333
 
@@ -7407,13 +7407,13 @@ _ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198: ; preds = %2301, %22
   %2323 = getelementptr inbounds i8, ptr %2322, i64 308
   %2324 = load i16, ptr %2323, align 2
   %2325 = and i16 %2324, 1
-  %.not1693 = icmp eq i16 %2325, 0
-  br i1 %.not1693, label %2326, label %.loopexit
+  %.not1694 = icmp eq i16 %2325, 0
+  br i1 %.not1694, label %2326, label %.loopexit
 
 2326:                                             ; preds = %2321
   %2327 = load i8, ptr %16, align 1
   %2328 = trunc i8 %2327 to i1
-  call void @_ZN13ClassVerifier32verify_exception_handler_targetsEibP13StackMapFrameP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %207, i1 noundef zeroext %2328, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %2)
+  call void @_ZN13ClassVerifier32verify_exception_handler_targetsEibP13StackMapFrameP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %206, i1 noundef zeroext %2328, ptr noundef nonnull %6, ptr noundef nonnull %11, ptr noundef nonnull %2)
   %2329 = load ptr, ptr %122, align 8
   %2330 = icmp ne ptr %2329, null
   %2331 = load ptr, ptr %125, align 8
@@ -7425,7 +7425,7 @@ _ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198: ; preds = %2301, %22
   %2334 = load i32, ptr %178, align 4
   %2335 = load i32, ptr %179, align 8
   %.not1677 = icmp slt i32 %2334, %2335
-  br i1 %.not1677, label %200, label %._crit_edge, !llvm.loop !149
+  br i1 %.not1677, label %199, label %._crit_edge, !llvm.loop !149
 
 ._crit_edge:                                      ; preds = %2333
   %2336 = trunc nuw i8 %.1 to i1
@@ -7454,7 +7454,7 @@ _ZNK16VerificationType12is_int_arrayEv.exit1012.thread1198: ; preds = %2301, %22
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %74, ptr noundef nonnull @.str.91)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %2326, %2321, %2301, %2296, %2245, %2229, %2223, %2218, %2211, %2197, %2192, %2184, %2177, %2163, %2158, %2140, %2126, %2121, %2115, %_ZNK17RawBytecodeStream9get_indexEv.exit1040, %2082, %2058, %2044, %2038, %2032, %2027, %2022, %1980, %1974, %1969, %1963, %1957, %1952, %1946, %1941, %1935, %1929, %1924, %1918, %1913, %_ZNK18BaseBytecodeStream6dest_wEv.exit, %1889, %1883, %1877, %1871, %1865, %1859, %1853, %1848, %1843, %1838, %1833, %1827, %1821, %1816, %1811, %1806, %1801, %1795, %1790, %1785, %1780, %1775, %1770, %1765, %1760, %1754, %1749, %1743, %1738, %1732, %1727, %1722, %1717, %1712, %1707, %1701, %1696, %1690, %1685, %1680, %1675, %1669, %_ZNK17RawBytecodeStream9get_indexEv.exit1035, %1641, %1636, %1631, %1626, %1620, %1614, %1609, %1604, %1598, %1593, %1588, %1583, %1578, %1572, %1566, %1561, %1556, %1550, %1544, %1539, %1534, %1529, %1524, %1519, %1514, %1501, %1492, %1483, %1470, %1461, %1452, %1447, %1442, %1437, %1432, %1427, %1421, %1408, %1399, %1390, %1385, %1380, %1375, %1370, %1357, %1348, %1339, %1334, %1329, %1324, %1319, %1306, %1297, %1288, %1282, %1277, %1272, %1267, %1261, %1255, %1250, %1245, %1239, %1226, %1217, %1208, %1202, %1190, %1184, %1177, %1152, %1146, %1141, %1116, %1110, %1104, %1079, %1073, %1068, %1043, %1037, %1031, %1006, %1000, %994, %957, %951, %945, %920, %914, %908, %902, %_ZNK17RawBytecodeStream9get_indexEv.exit1009, %873, %_ZNK17RawBytecodeStream9get_indexEv.exit1007, %844, %_ZNK17RawBytecodeStream9get_indexEv.exit1005, %815, %_ZNK17RawBytecodeStream9get_indexEv.exit1003, %786, %_ZNK17RawBytecodeStream9get_indexEv.exit1001, %757, %752, %737, %731, %_ZNK16VerificationType15is_double_arrayEv.exit.thread1197, %702, %696, %_ZNK16VerificationType14is_float_arrayEv.exit.thread1196, %667, %661, %_ZNK16VerificationType13is_long_arrayEv.exit.thread1195, %632, %626, %_ZNK16VerificationType14is_short_arrayEv.exit.thread1194, %597, %591, %_ZNK16VerificationType13is_char_arrayEv.exit.thread1193, %562, %556, %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192, %515, %509, %_ZNK16VerificationType12is_int_arrayEv.exit.thread1191, %480, %474, %468, %_ZNK17RawBytecodeStream9get_indexEv.exit985, %439, %_ZNK17RawBytecodeStream9get_indexEv.exit983, %410, %_ZNK17RawBytecodeStream9get_indexEv.exit981, %381, %_ZNK17RawBytecodeStream9get_indexEv.exit979, %352, %_ZNK17RawBytecodeStream9get_indexEv.exit, %315, %300, %295, %290, %285, %280, %275, %270, %264, %259, %254, %205, %200, %.preheader, %._crit_edge, %._crit_edge.thread, %2308, %2279, %_ZNK16VerificationType8is_arrayEv.exit1047.thread, %_ZNK16VerificationType9is_objectEv.exit.thread, %2012, %1986, %1507, %1476, %1414, %1363, %1312, %1232, %1198, %_ZNK16VerificationType15is_double_arrayEv.exit1033.thread, %_ZNK16VerificationType14is_float_arrayEv.exit1030.thread, %_ZNK16VerificationType13is_long_arrayEv.exit1027.thread, %_ZNK16VerificationType14is_short_arrayEv.exit1024.thread, %_ZNK16VerificationType13is_char_arrayEv.exit1021.thread, %_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread, %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread, %745, %_ZNK16VerificationType15is_double_arrayEv.exit.thread, %_ZNK16VerificationType14is_float_arrayEv.exit.thread, %_ZNK16VerificationType13is_long_arrayEv.exit.thread, %_ZNK16VerificationType14is_short_arrayEv.exit.thread, %_ZNK16VerificationType13is_char_arrayEv.exit.thread, %_ZNK16VerificationType13is_byte_arrayEv.exit.thread, %_ZNK16VerificationType12is_int_arrayEv.exit.thread, %238
+.loopexit:                                        ; preds = %2326, %2321, %2301, %2296, %2245, %2229, %2223, %2218, %2211, %2197, %2192, %2184, %2177, %2163, %2158, %2140, %2126, %2121, %2115, %_ZNK17RawBytecodeStream9get_indexEv.exit1040, %2082, %2058, %2044, %2038, %2032, %2027, %2022, %1979, %1973, %1968, %1962, %1956, %1951, %1945, %1940, %1934, %1928, %1923, %1917, %1912, %_ZNK18BaseBytecodeStream6dest_wEv.exit, %1888, %1882, %1876, %1870, %1864, %1858, %1852, %1847, %1842, %1837, %1832, %1826, %1820, %1815, %1810, %1805, %1800, %1794, %1789, %1784, %1779, %1774, %1769, %1764, %1759, %1753, %1748, %1742, %1737, %1731, %1726, %1721, %1716, %1711, %1706, %1700, %1695, %1689, %1684, %1679, %1674, %1668, %_ZNK17RawBytecodeStream9get_indexEv.exit1035, %1640, %1635, %1630, %1625, %1619, %1613, %1608, %1603, %1597, %1592, %1587, %1582, %1577, %1571, %1565, %1560, %1555, %1549, %1543, %1538, %1533, %1528, %1523, %1518, %1513, %1500, %1491, %1482, %1469, %1460, %1451, %1446, %1441, %1436, %1431, %1426, %1420, %1407, %1398, %1389, %1384, %1379, %1374, %1369, %1356, %1347, %1338, %1333, %1328, %1323, %1318, %1305, %1296, %1287, %1281, %1276, %1271, %1266, %1260, %1254, %1249, %1244, %1238, %1225, %1216, %1207, %1201, %1189, %1183, %1176, %1151, %1145, %1140, %1115, %1109, %1103, %1078, %1072, %1067, %1042, %1036, %1030, %1005, %999, %993, %956, %950, %944, %919, %913, %907, %901, %_ZNK17RawBytecodeStream9get_indexEv.exit1009, %872, %_ZNK17RawBytecodeStream9get_indexEv.exit1007, %843, %_ZNK17RawBytecodeStream9get_indexEv.exit1005, %814, %_ZNK17RawBytecodeStream9get_indexEv.exit1003, %785, %_ZNK17RawBytecodeStream9get_indexEv.exit1001, %756, %751, %736, %730, %_ZNK16VerificationType15is_double_arrayEv.exit.thread1197, %701, %695, %_ZNK16VerificationType14is_float_arrayEv.exit.thread1196, %666, %660, %_ZNK16VerificationType13is_long_arrayEv.exit.thread1195, %631, %625, %_ZNK16VerificationType14is_short_arrayEv.exit.thread1194, %596, %590, %_ZNK16VerificationType13is_char_arrayEv.exit.thread1193, %561, %555, %_ZNK16VerificationType13is_bool_arrayEv.exit.thread1192, %514, %508, %_ZNK16VerificationType12is_int_arrayEv.exit.thread1191, %479, %473, %467, %_ZNK17RawBytecodeStream9get_indexEv.exit985, %438, %_ZNK17RawBytecodeStream9get_indexEv.exit983, %409, %_ZNK17RawBytecodeStream9get_indexEv.exit981, %380, %_ZNK17RawBytecodeStream9get_indexEv.exit979, %351, %_ZNK17RawBytecodeStream9get_indexEv.exit, %314, %299, %294, %289, %284, %279, %274, %269, %263, %258, %253, %204, %199, %.preheader, %._crit_edge, %._crit_edge.thread, %2308, %2279, %_ZNK16VerificationType8is_arrayEv.exit1047.thread, %_ZNK16VerificationType9is_objectEv.exit.thread, %2012, %1985, %1506, %1475, %1413, %1362, %1311, %1231, %1197, %_ZNK16VerificationType15is_double_arrayEv.exit1033.thread, %_ZNK16VerificationType14is_float_arrayEv.exit1030.thread, %_ZNK16VerificationType13is_long_arrayEv.exit1027.thread, %_ZNK16VerificationType14is_short_arrayEv.exit1024.thread, %_ZNK16VerificationType13is_char_arrayEv.exit1021.thread, %_ZNK16VerificationType13is_byte_arrayEv.exit1018.thread, %_ZNK16VerificationType12is_int_arrayEv.exit1012.thread, %744, %_ZNK16VerificationType15is_double_arrayEv.exit.thread, %_ZNK16VerificationType14is_float_arrayEv.exit.thread, %_ZNK16VerificationType13is_long_arrayEv.exit.thread, %_ZNK16VerificationType14is_short_arrayEv.exit.thread, %_ZNK16VerificationType13is_char_arrayEv.exit.thread, %_ZNK16VerificationType13is_byte_arrayEv.exit.thread, %_ZNK16VerificationType12is_int_arrayEv.exit.thread, %237
   %2346 = getelementptr inbounds i8, ptr %15, i64 8
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2346) #20
   br label %2347
@@ -8052,11 +8052,11 @@ define hidden void @_ZN13ClassVerifier30verify_exception_handler_tableEjPcRiS1_P
   %23 = zext i16 %22 to i32
   %.pre = load ptr, ptr %12, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
-  %.pre106 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre105 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN14ExceptionTableC2EPK6Method.exit
 
 _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %6, %19
-  %24 = phi ptr [ %.pre106, %19 ], [ %15, %6 ]
+  %24 = phi ptr [ %.pre105, %19 ], [ %15, %6 ]
   %.sroa.062.0 = phi ptr [ %20, %19 ], [ null, %6 ]
   %.sink.i = phi i32 [ %23, %19 ], [ 0, %6 ]
   %25 = getelementptr inbounds i8, ptr %24, i64 8
@@ -8102,8 +8102,8 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   br label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
 
 _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14ExceptionTableC2EPK6Method.exit, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
-  %.not91 = icmp eq i32 %.sink.i, 0
-  br i1 %.not91, label %.loopexit, label %.lr.ph
+  %.not90 = icmp eq i32 %.sink.i, 0
+  br i1 %.not90, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
   %49 = getelementptr inbounds i8, ptr %5, i64 8
@@ -8113,9 +8113,9 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14Exceptio
   %wide.trip.count = zext nneg i32 %.sink.i to i64
   br label %53
 
-53:                                               ; preds = %.lr.ph, %142
-  %54 = phi ptr [ %26, %.lr.ph ], [ %134, %142 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %142 ]
+53:                                               ; preds = %.lr.ph, %171
+  %54 = phi ptr [ %26, %.lr.ph ], [ %163, %171 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %171 ]
   %55 = getelementptr inbounds %class.ExceptionTableElement, ptr %.sroa.062.0, i64 %indvars.iv
   %56 = load i16, ptr %55, align 2
   %57 = getelementptr inbounds %class.ExceptionTableElement, ptr %.sroa.062.0, i64 %indvars.iv, i32 1
@@ -8178,7 +8178,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14Exceptio
   %88 = load i16, ptr %87, align 2
   %89 = zext i16 %88 to i32
   %.not55 = icmp eq i16 %88, 0
-  br i1 %.not55, label %133, label %90
+  br i1 %.not55, label %162, label %90
 
 90:                                               ; preds = %86
   %91 = call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %54, i32 noundef %89) #20
@@ -8187,8 +8187,8 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %_ZN14Exceptio
   %.not74 = icmp eq ptr %92, null
   %93 = load ptr, ptr %50, align 8
   %.not75 = icmp eq ptr %93, null
-  %or.cond90 = select i1 %.not74, i1 %.not75, i1 false
-  br i1 %or.cond90, label %94, label %.loopexit
+  %or.cond89 = select i1 %.not74, i1 %.not75, i1 false
+  br i1 %or.cond89, label %94, label %.loopexit
 
 94:                                               ; preds = %90
   %95 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 136), align 8
@@ -8241,30 +8241,97 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %100, %106
   br i1 %.not76, label %122, label %.loopexit
 
 122:                                              ; preds = %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %94
-  %123 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %5)
-  %124 = load ptr, ptr %49, align 8
-  %125 = icmp ne ptr %124, null
-  %126 = load ptr, ptr %50, align 8
-  %127 = icmp ne ptr %126, null
-  %or.cond = select i1 %125, i1 true, i1 %127
-  br i1 %or.cond, label %.loopexit, label %128
+  %123 = load i64, ptr %10, align 8
+  %124 = load i64, ptr %9, align 8
+  %125 = icmp eq i64 %123, %124
+  %126 = icmp eq i64 %123, 4294901761
+  %or.cond.i = or i1 %126, %125
+  br i1 %or.cond.i, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, label %127
 
-128:                                              ; preds = %122
-  br i1 %123, label %133, label %129
+127:                                              ; preds = %122
+  switch i64 %123, label %145 [
+    i64 259, label %128
+    i64 515, label %131
+    i64 1027, label %134
+    i64 3, label %137
+    i64 590081, label %143
+    i64 655617, label %143
+    i64 786689, label %143
+    i64 721153, label %143
+  ]
 
-129:                                              ; preds = %128
+128:                                              ; preds = %127
+  %129 = and i64 %124, 257
+  %130 = icmp ne i64 %129, 1
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+131:                                              ; preds = %127
+  %132 = and i64 %124, 513
+  %133 = icmp eq i64 %132, 513
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+134:                                              ; preds = %127
+  %135 = and i64 %124, 1025
+  %136 = icmp eq i64 %135, 1025
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+137:                                              ; preds = %127
+  %138 = and i64 %124, 3
+  %139 = icmp eq i64 %138, 0
+  br i1 %139, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, label %140
+
+140:                                              ; preds = %137
+  %141 = and i64 %124, 2
+  %142 = icmp ne i64 %141, 0
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+143:                                              ; preds = %127, %127, %127, %127
+  %144 = icmp eq i64 %124, 65793
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+145:                                              ; preds = %127
+  %146 = or i64 %124, %123
+  %147 = and i64 %146, 3
+  %or.cond14.i = icmp eq i64 %147, 0
+  br i1 %or.cond14.i, label %148, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread
+
+148:                                              ; preds = %145
+  %149 = call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %5) #20
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit: ; preds = %122, %128, %131, %134, %137, %140, %143, %148
+  %.0.i = phi i1 [ %149, %148 ], [ %144, %143 ], [ %136, %134 ], [ %133, %131 ], [ %130, %128 ], [ true, %122 ], [ true, %137 ], [ %142, %140 ]
+  %150 = load ptr, ptr %49, align 8
+  %151 = icmp ne ptr %150, null
+  %152 = load ptr, ptr %50, align 8
+  %153 = icmp ne ptr %152, null
+  %or.cond = select i1 %151, i1 true, i1 %153
+  br i1 %or.cond, label %.loopexit, label %158
+
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread: ; preds = %145
+  %154 = load ptr, ptr %49, align 8
+  %155 = icmp ne ptr %154, null
+  %156 = load ptr, ptr %50, align 8
+  %157 = icmp ne ptr %156, null
+  %or.cond107 = select i1 %155, i1 true, i1 %157
+  br i1 %or.cond107, label %.loopexit, label %.thread
+
+158:                                              ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+  br i1 %.0.i, label %162, label %.thread
+
+.thread:                                          ; preds = %158, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread
   %.sroa.01.0.copyload = load ptr, ptr %9, align 8
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8
-  %130 = getelementptr inbounds i8, ptr %11, i64 8
-  store i32 4, ptr %130, align 8
+  %159 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 4, ptr %159, align 8
   %.sroa.467.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 12
   store i32 %89, ptr %.sroa.467.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 16
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.668.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %.sroa.01.0.copyload, ptr %.sroa.668.0..sroa_idx, align 8
-  %131 = getelementptr inbounds i8, ptr %11, i64 32
-  store i32 6, ptr %131, align 8
+  %160 = getelementptr inbounds i8, ptr %11, i64 32
+  store i32 6, ptr %160, align 8
   %.sroa.470.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 36
   store i32 0, ptr %.sroa.470.0..sroa_idx, align 4
   %.sroa.571.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 40
@@ -8272,36 +8339,36 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %100, %106
   %.sroa.672.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 48
   store ptr %.sroa.0.0.copyload, ptr %.sroa.672.0..sroa_idx, align 8
   store i32 %79, ptr %11, align 8, !alias.scope !163
-  %132 = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 1, ptr %132, align 4, !alias.scope !163
+  %161 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 1, ptr %161, align 4, !alias.scope !163
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %11, ptr noundef nonnull @.str.96, i32 noundef %79)
   br label %.loopexit
 
-133:                                              ; preds = %128, %86
-  %134 = phi ptr [ %96, %128 ], [ %54, %86 ]
-  %135 = load i32, ptr %3, align 4
-  %136 = icmp sgt i32 %135, %61
-  br i1 %136, label %137, label %138
+162:                                              ; preds = %158, %86
+  %163 = phi ptr [ %96, %158 ], [ %54, %86 ]
+  %164 = load i32, ptr %3, align 4
+  %165 = icmp sgt i32 %164, %61
+  br i1 %165, label %166, label %167
 
-137:                                              ; preds = %133
+166:                                              ; preds = %162
   store i32 %61, ptr %3, align 4
-  br label %138
+  br label %167
 
-138:                                              ; preds = %137, %133
-  %139 = load i32, ptr %4, align 4
-  %140 = icmp slt i32 %139, %69
-  br i1 %140, label %141, label %142
+167:                                              ; preds = %166, %162
+  %168 = load i32, ptr %4, align 4
+  %169 = icmp slt i32 %168, %69
+  br i1 %169, label %170, label %171
 
-141:                                              ; preds = %138
+170:                                              ; preds = %167
   store i32 %69, ptr %4, align 4
-  br label %142
+  br label %171
 
-142:                                              ; preds = %138, %141
+171:                                              ; preds = %167, %170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %53, !llvm.loop !166
 
-.loopexit:                                        ; preds = %90, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %122, %142, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %129, %85, %77, %67
+.loopexit:                                        ; preds = %90, %_ZN12ConstantPool8klass_atEiP10JavaThread.exit, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, %171, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, %.thread, %85, %77, %67
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #20
   ret void
 }
@@ -9736,45 +9803,109 @@ define linkonce_odr hidden ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %24, label %8
+  %8 = ptrtoint ptr %1 to i64
+  br i1 %.not, label %.thread, label %9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
-  %10 = load ptr, ptr %9, align 8
-  %11 = sext i32 %7 to i64
-  %12 = getelementptr %class.VerificationType, ptr %10, i64 %11
-  %13 = getelementptr i8, ptr %12, i64 -8
-  %14 = load i64, ptr %13, align 8
-  store i64 %14, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 40
-  %16 = load ptr, ptr %15, align 8
-  %17 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %16, i1 noundef zeroext false, ptr noundef %2)
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %.not5 = icmp eq ptr %19, null
-  br i1 %.not5, label %20, label %26
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = load ptr, ptr %10, align 8
+  %12 = sext i32 %7 to i64
+  %13 = getelementptr %class.VerificationType, ptr %11, i64 %12
+  %14 = getelementptr i8, ptr %13, i64 -8
+  %15 = load i64, ptr %14, align 8
+  store i64 %15, ptr %5, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %17 = load ptr, ptr %16, align 8
+  %18 = icmp eq i64 %15, %8
+  %19 = icmp eq ptr %1, inttoptr (i64 4294901761 to ptr)
+  %or.cond.i = or i1 %19, %18
+  br i1 %or.cond.i, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, label %20
 
-20:                                               ; preds = %8
-  br i1 %17, label %21, label %._crit_edge
-
-._crit_edge:                                      ; preds = %20
-  %.sroa.0.0.copyload.pre = load ptr, ptr %4, align 8
-  br label %24
+20:                                               ; preds = %9
+  switch i64 %8, label %38 [
+    i64 259, label %21
+    i64 515, label %24
+    i64 1027, label %27
+    i64 3, label %30
+    i64 590081, label %36
+    i64 655617, label %36
+    i64 786689, label %36
+    i64 721153, label %36
+  ]
 
 21:                                               ; preds = %20
-  %22 = load i32, ptr %6, align 8
-  %23 = add nsw i32 %22, -1
-  store i32 %23, ptr %6, align 8
+  %22 = and i64 %15, 257
+  %23 = icmp ne i64 %22, 1
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+24:                                               ; preds = %20
+  %25 = and i64 %15, 513
+  %26 = icmp eq i64 %25, 513
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+27:                                               ; preds = %20
+  %28 = and i64 %15, 1025
+  %29 = icmp eq i64 %28, 1025
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+30:                                               ; preds = %20
+  %31 = and i64 %15, 3
+  %32 = icmp eq i64 %31, 0
+  br i1 %32, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, label %33
+
+33:                                               ; preds = %30
+  %34 = and i64 %15, 2
+  %35 = icmp ne i64 %34, 0
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+36:                                               ; preds = %20, %20, %20, %20
+  %37 = icmp eq i64 %15, 65793
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+38:                                               ; preds = %20
+  %39 = or i64 %15, %8
+  %40 = and i64 %39, 3
+  %or.cond14.i = icmp eq i64 %40, 0
+  br i1 %or.cond14.i, label %41, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread
+
+41:                                               ; preds = %38
+  %42 = call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %17, i1 noundef zeroext false, ptr noundef %2) #20
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit: ; preds = %9, %21, %24, %27, %30, %33, %36, %41
+  %.0.i = phi i1 [ %42, %41 ], [ %37, %36 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ true, %9 ], [ true, %30 ], [ %35, %33 ]
+  %43 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %.not9 = icmp eq ptr %44, null
+  br i1 %.not9, label %47, label %52
+
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread: ; preds = %38
+  %45 = getelementptr inbounds i8, ptr %2, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %.not8 = icmp eq ptr %46, null
+  br i1 %.not8, label %.thread, label %52
+
+47:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+  br i1 %.0.i, label %48, label %..thread_crit_edge
+
+..thread_crit_edge:                               ; preds = %47
+  %.sroa.0.0.copyload.pre = load ptr, ptr %4, align 8
+  br label %.thread
+
+48:                                               ; preds = %47
+  %49 = load i32, ptr %6, align 8
+  %50 = add nsw i32 %49, -1
+  store i32 %50, ptr %6, align 8
   %.sroa.04.0.copyload = load ptr, ptr %5, align 8
-  br label %26
+  br label %52
 
-24:                                               ; preds = %._crit_edge, %3
-  %.sroa.0.0.copyload = phi ptr [ %.sroa.0.0.copyload.pre, %._crit_edge ], [ %1, %3 ]
-  %25 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.0.0.copyload, ptr noundef %2) #20
-  br label %26
+.thread:                                          ; preds = %..thread_crit_edge, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, %3
+  %.sroa.0.0.copyload = phi ptr [ %.sroa.0.0.copyload.pre, %..thread_crit_edge ], [ %1, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread ], [ %1, %3 ]
+  %51 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.0.0.copyload, ptr noundef %2) #20
+  br label %52
 
-26:                                               ; preds = %8, %24, %21
-  %.sroa.04.0 = phi ptr [ %.sroa.04.0.copyload, %21 ], [ %25, %24 ], [ inttoptr (i64 4294901761 to ptr), %8 ]
+52:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, %.thread, %48
+  %.sroa.04.0 = phi ptr [ %.sroa.04.0.copyload, %48 ], [ %51, %.thread ], [ inttoptr (i64 4294901761 to ptr), %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit ], [ inttoptr (i64 4294901761 to ptr), %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread ]
   ret ptr %.sroa.04.0
 }
 
@@ -9837,67 +9968,54 @@ declare ptr @_ZNK16VerificationType13get_componentEP13ClassVerifier(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ClassVerifier13verify_istoreEiP13StackMapFrameP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8192) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
-  %5 = alloca %class.VerificationType, align 8
-  %6 = alloca %class.VerificationType, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr inttoptr (i64 65793 to ptr), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = load i32, ptr %7, align 8
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %25, label %9
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = load i32, ptr %5, align 8
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %.thread.i, label %7
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = sext i32 %8 to i64
-  %13 = getelementptr %class.VerificationType, ptr %11, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -8
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 40
-  %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %17, i1 noundef zeroext false, ptr noundef %3)
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %.not5.i = icmp eq ptr %20, null
-  br i1 %.not5.i, label %21, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = load ptr, ptr %8, align 8
+  %10 = sext i32 %6 to i64
+  %11 = getelementptr %class.VerificationType, ptr %9, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -8
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp eq i64 %13, 65793
+  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.not9.i = icmp eq ptr %16, null
+  br i1 %14, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i, label %17
 
-21:                                               ; preds = %9
-  br i1 %18, label %22, label %._crit_edge.i
+17:                                               ; preds = %7
+  br i1 %.not9.i, label %.thread.i, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-._crit_edge.i:                                    ; preds = %21
-  %.sroa.0.0.copyload.pre.i = load ptr, ptr %5, align 8
-  br label %25
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i: ; preds = %7
+  br i1 %.not9.i, label %18, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-22:                                               ; preds = %21
-  %23 = load i32, ptr %7, align 8
-  %24 = add nsw i32 %23, -1
-  store i32 %24, ptr %7, align 8
+18:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i
+  %19 = add nsw i32 %6, -1
+  store i32 %19, ptr %5, align 8
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-25:                                               ; preds = %._crit_edge.i, %4
-  %.sroa.0.0.copyload.i = phi ptr [ %.sroa.0.0.copyload.pre.i, %._crit_edge.i ], [ inttoptr (i64 65793 to ptr), %4 ]
-  %26 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.0.0.copyload.i, ptr noundef %3) #20
+.thread.i:                                        ; preds = %17, %4
+  %20 = tail call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef %3) #20
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %9, %22, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.not = icmp eq ptr %28, null
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %.not9 = icmp eq ptr %30, null
-  %or.cond = select i1 %.not, i1 %.not9, i1 false
-  br i1 %or.cond, label %31, label %32
+_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i, %17, %18, %.thread.i
+  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %22, null
+  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %.not10 = icmp eq ptr %24, null
+  %or.cond = select i1 %.not, i1 %.not10, i1 false
+  br i1 %or.cond, label %25, label %26
 
-31:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-  call void @_ZN13StackMapFrame9set_localEi16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %1, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %3) #20
-  br label %32
+25:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+  tail call void @_ZN13StackMapFrame9set_localEi16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %1, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %3) #20
+  br label %26
 
-32:                                               ; preds = %31, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+26:                                               ; preds = %25, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
   ret void
 }
 
@@ -9923,67 +10041,54 @@ define hidden void @_ZN13ClassVerifier13verify_lstoreEiP13StackMapFrameP10JavaTh
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ClassVerifier13verify_fstoreEiP13StackMapFrameP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8192) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
-  %5 = alloca %class.VerificationType, align 8
-  %6 = alloca %class.VerificationType, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr inttoptr (i64 131329 to ptr), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = load i32, ptr %7, align 8
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %25, label %9
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = load i32, ptr %5, align 8
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %.thread.i, label %7
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = sext i32 %8 to i64
-  %13 = getelementptr %class.VerificationType, ptr %11, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -8
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 40
-  %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %17, i1 noundef zeroext false, ptr noundef %3)
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %.not5.i = icmp eq ptr %20, null
-  br i1 %.not5.i, label %21, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = load ptr, ptr %8, align 8
+  %10 = sext i32 %6 to i64
+  %11 = getelementptr %class.VerificationType, ptr %9, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -8
+  %13 = load i64, ptr %12, align 8
+  %14 = icmp eq i64 %13, 131329
+  %15 = getelementptr inbounds i8, ptr %3, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %.not9.i = icmp eq ptr %16, null
+  br i1 %14, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i, label %17
 
-21:                                               ; preds = %9
-  br i1 %18, label %22, label %._crit_edge.i
+17:                                               ; preds = %7
+  br i1 %.not9.i, label %.thread.i, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-._crit_edge.i:                                    ; preds = %21
-  %.sroa.0.0.copyload.pre.i = load ptr, ptr %5, align 8
-  br label %25
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i: ; preds = %7
+  br i1 %.not9.i, label %18, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-22:                                               ; preds = %21
-  %23 = load i32, ptr %7, align 8
-  %24 = add nsw i32 %23, -1
-  store i32 %24, ptr %7, align 8
+18:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i
+  %19 = add nsw i32 %6, -1
+  store i32 %19, ptr %5, align 8
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-25:                                               ; preds = %._crit_edge.i, %4
-  %.sroa.0.0.copyload.i = phi ptr [ %.sroa.0.0.copyload.pre.i, %._crit_edge.i ], [ inttoptr (i64 131329 to ptr), %4 ]
-  %26 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.0.0.copyload.i, ptr noundef %3) #20
+.thread.i:                                        ; preds = %17, %4
+  %20 = tail call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef %3) #20
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %9, %22, %25
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.not = icmp eq ptr %28, null
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %.not9 = icmp eq ptr %30, null
-  %or.cond = select i1 %.not, i1 %.not9, i1 false
-  br i1 %or.cond, label %31, label %32
+_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i, %17, %18, %.thread.i
+  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %.not = icmp eq ptr %22, null
+  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %.not10 = icmp eq ptr %24, null
+  %or.cond = select i1 %.not, i1 %.not10, i1 false
+  br i1 %or.cond, label %25, label %26
 
-31:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-  call void @_ZN13StackMapFrame9set_localEi16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %1, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %3) #20
-  br label %32
+25:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+  tail call void @_ZN13StackMapFrame9set_localEi16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %1, ptr nonnull inttoptr (i64 131329 to ptr), ptr noundef nonnull %3) #20
+  br label %26
 
-32:                                               ; preds = %31, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+26:                                               ; preds = %25, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
   ret void
 }
 
@@ -10009,69 +10114,64 @@ define hidden void @_ZN13ClassVerifier13verify_dstoreEiP13StackMapFrameP10JavaTh
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ClassVerifier13verify_astoreEiP13StackMapFrameP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8192) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
-  %5 = alloca %class.VerificationType, align 8
-  %6 = alloca %class.VerificationType, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr inttoptr (i64 3 to ptr), ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
-  %8 = load i32, ptr %7, align 8
-  %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %25, label %9
+  %5 = getelementptr inbounds i8, ptr %2, i64 8
+  %6 = load i32, ptr %5, align 8
+  %.not.i = icmp eq i32 %6, 0
+  br i1 %.not.i, label %.thread.i, label %7
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %2, i64 32
-  %11 = load ptr, ptr %10, align 8
-  %12 = sext i32 %8 to i64
-  %13 = getelementptr %class.VerificationType, ptr %11, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -8
-  %15 = load i64, ptr %14, align 8
-  store i64 %15, ptr %6, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 40
-  %17 = load ptr, ptr %16, align 8
-  %18 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %17, i1 noundef zeroext false, ptr noundef %3)
-  %19 = getelementptr inbounds i8, ptr %3, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %.not5.i = icmp eq ptr %20, null
-  br i1 %.not5.i, label %21, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %2, i64 32
+  %9 = load ptr, ptr %8, align 8
+  %10 = sext i32 %6 to i64
+  %11 = getelementptr %class.VerificationType, ptr %9, i64 %10
+  %12 = getelementptr i8, ptr %11, i64 -8
+  %13 = load i64, ptr %12, align 8
+  %14 = inttoptr i64 %13 to ptr
+  %15 = icmp eq i64 %13, 3
+  %16 = and i64 %13, 3
+  %17 = icmp eq i64 %16, 0
+  %or.cond = or i1 %15, %17
+  %18 = getelementptr inbounds i8, ptr %3, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %.not9.i16 = icmp eq ptr %19, null
+  br i1 %or.cond, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i
 
-21:                                               ; preds = %9
-  br i1 %18, label %22, label %._crit_edge.i
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i: ; preds = %7
+  br i1 %.not9.i16, label %20, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-._crit_edge.i:                                    ; preds = %21
-  %.sroa.0.0.copyload.pre.i = load ptr, ptr %5, align 8
-  br label %25
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i.thread: ; preds = %7
+  br i1 %.not9.i16, label %.thread, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-22:                                               ; preds = %21
-  %23 = load i32, ptr %7, align 8
-  %24 = add nsw i32 %23, -1
-  store i32 %24, ptr %7, align 8
-  %.sroa.04.0.copyload.i = load ptr, ptr %6, align 8
+20:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i
+  %21 = and i64 %13, 2
+  %.not19 = icmp eq i64 %21, 0
+  br i1 %.not19, label %.thread.i, label %.thread
+
+.thread:                                          ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i.thread, %20
+  %22 = add nsw i32 %6, -1
+  store i32 %22, ptr %5, align 8
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-25:                                               ; preds = %._crit_edge.i, %4
-  %.sroa.0.0.copyload.i = phi ptr [ %.sroa.0.0.copyload.pre.i, %._crit_edge.i ], [ inttoptr (i64 3 to ptr), %4 ]
-  %26 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.0.0.copyload.i, ptr noundef %3) #20
+.thread.i:                                        ; preds = %20, %4
+  %23 = tail call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef %3) #20
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %9, %22, %25
-  %.sroa.04.0.i = phi ptr [ %.sroa.04.0.copyload.i, %22 ], [ %26, %25 ], [ inttoptr (i64 4294901761 to ptr), %9 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %27 = getelementptr inbounds i8, ptr %3, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %.not = icmp eq ptr %28, null
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %.not9 = icmp eq ptr %30, null
-  %or.cond = select i1 %.not, i1 %.not9, i1 false
-  br i1 %or.cond, label %31, label %32
+_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i.thread, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i, %.thread, %.thread.i
+  %.sroa.04.0.i = phi ptr [ %14, %.thread ], [ %23, %.thread.i ], [ inttoptr (i64 4294901761 to ptr), %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i ], [ inttoptr (i64 4294901761 to ptr), %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i.thread ]
+  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %.not = icmp eq ptr %25, null
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = load ptr, ptr %26, align 8
+  %.not11 = icmp eq ptr %27, null
+  %or.cond14 = select i1 %.not, i1 %.not11, i1 false
+  br i1 %or.cond14, label %28, label %29
 
-31:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-  call void @_ZN13StackMapFrame9set_localEi16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %1, ptr %.sroa.04.0.i, ptr noundef nonnull %3) #20
-  br label %32
+28:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+  tail call void @_ZN13StackMapFrame9set_localEi16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %1, ptr %.sroa.04.0.i, ptr noundef nonnull %3) #20
+  br label %29
 
-32:                                               ; preds = %31, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+29:                                               ; preds = %28, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
   ret void
 }
 
@@ -10086,60 +10186,173 @@ define linkonce_odr hidden void @_ZN13StackMapFrame11pop_stack_2E16VerificationT
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 1
-  br i1 %11, label %12, label %38
+  %12 = ptrtoint ptr %1 to i64
+  %13 = ptrtoint ptr %2 to i64
+  br i1 %11, label %14, label %86
 
-12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
-  %14 = load ptr, ptr %13, align 8
-  %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr %class.VerificationType, ptr %14, i64 %15
-  %17 = getelementptr i8, ptr %16, i64 -8
-  %18 = load i64, ptr %17, align 8
-  store i64 %18, ptr %7, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 40
-  %20 = load ptr, ptr %19, align 8
-  %21 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %20, i1 noundef zeroext false, ptr noundef %3)
-  %22 = getelementptr inbounds i8, ptr %3, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %.not12 = icmp eq ptr %23, null
-  br i1 %.not12, label %24, label %41
+14:                                               ; preds = %4
+  %15 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = zext nneg i32 %10 to i64
+  %18 = getelementptr %class.VerificationType, ptr %16, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 -8
+  %20 = load i64, ptr %19, align 8
+  store i64 %20, ptr %7, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq i64 %20, %12
+  %24 = icmp eq ptr %1, inttoptr (i64 4294901761 to ptr)
+  %or.cond.i = or i1 %24, %23
+  br i1 %or.cond.i, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, label %25
 
-24:                                               ; preds = %12
-  %25 = load ptr, ptr %13, align 8
-  %26 = load i32, ptr %9, align 8
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr %class.VerificationType, ptr %25, i64 %27
-  %29 = getelementptr i8, ptr %28, i64 -16
-  %30 = load i64, ptr %29, align 8
-  store i64 %30, ptr %8, align 8
-  %31 = load ptr, ptr %19, align 8
-  %32 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %31, i1 noundef zeroext false, ptr noundef nonnull %3)
-  %33 = load ptr, ptr %22, align 8
-  %.not13 = icmp eq ptr %33, null
-  br i1 %.not13, label %34, label %41
+25:                                               ; preds = %14
+  switch i64 %12, label %43 [
+    i64 259, label %26
+    i64 515, label %29
+    i64 1027, label %32
+    i64 3, label %35
+    i64 590081, label %41
+    i64 655617, label %41
+    i64 786689, label %41
+    i64 721153, label %41
+  ]
 
-34:                                               ; preds = %24
-  %brmerge.demorgan = and i1 %21, %32
-  br i1 %brmerge.demorgan, label %35, label %._crit_edge
+26:                                               ; preds = %25
+  %27 = and i64 %20, 257
+  %28 = icmp ne i64 %27, 1
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
 
-._crit_edge:                                      ; preds = %34
+29:                                               ; preds = %25
+  %30 = and i64 %20, 513
+  %31 = icmp eq i64 %30, 513
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+32:                                               ; preds = %25
+  %33 = and i64 %20, 1025
+  %34 = icmp eq i64 %33, 1025
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+35:                                               ; preds = %25
+  %36 = and i64 %20, 3
+  %37 = icmp eq i64 %36, 0
+  br i1 %37, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, label %38
+
+38:                                               ; preds = %35
+  %39 = and i64 %20, 2
+  %40 = icmp ne i64 %39, 0
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+41:                                               ; preds = %25, %25, %25, %25
+  %42 = icmp eq i64 %20, 65793
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+43:                                               ; preds = %25
+  %44 = or i64 %20, %12
+  %45 = and i64 %44, 3
+  %or.cond14.i = icmp eq i64 %45, 0
+  br i1 %or.cond14.i, label %46, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+46:                                               ; preds = %43
+  %47 = call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %22, i1 noundef zeroext false, ptr noundef %3) #20
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit: ; preds = %14, %26, %29, %32, %35, %38, %41, %43, %46
+  %.0.i = phi i1 [ %47, %46 ], [ %42, %41 ], [ %34, %32 ], [ %31, %29 ], [ %28, %26 ], [ true, %14 ], [ true, %35 ], [ %40, %38 ], [ false, %43 ]
+  %48 = getelementptr inbounds i8, ptr %3, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %.not16 = icmp eq ptr %49, null
+  br i1 %.not16, label %50, label %89
+
+50:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+  %51 = load ptr, ptr %15, align 8
+  %52 = load i32, ptr %9, align 8
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr %class.VerificationType, ptr %51, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 -16
+  %56 = load i64, ptr %55, align 8
+  store i64 %56, ptr %8, align 8
+  %57 = load ptr, ptr %21, align 8
+  %58 = icmp eq i64 %56, %13
+  %59 = icmp eq ptr %2, inttoptr (i64 4294901761 to ptr)
+  %or.cond.i12 = or i1 %59, %58
+  br i1 %or.cond.i12, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread, label %60
+
+60:                                               ; preds = %50
+  switch i64 %13, label %78 [
+    i64 259, label %61
+    i64 515, label %64
+    i64 1027, label %67
+    i64 3, label %70
+    i64 590081, label %76
+    i64 655617, label %76
+    i64 786689, label %76
+    i64 721153, label %76
+  ]
+
+61:                                               ; preds = %60
+  %62 = and i64 %56, 257
+  %63 = icmp ne i64 %62, 1
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread
+
+64:                                               ; preds = %60
+  %65 = and i64 %56, 513
+  %66 = icmp eq i64 %65, 513
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread
+
+67:                                               ; preds = %60
+  %68 = and i64 %56, 1025
+  %69 = icmp eq i64 %68, 1025
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread
+
+70:                                               ; preds = %60
+  %71 = and i64 %56, 3
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread, label %73
+
+73:                                               ; preds = %70
+  %74 = and i64 %56, 2
+  %75 = icmp ne i64 %74, 0
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread
+
+76:                                               ; preds = %60, %60, %60, %60
+  %77 = icmp eq i64 %56, 65793
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread
+
+78:                                               ; preds = %60
+  %79 = or i64 %56, %13
+  %80 = and i64 %79, 3
+  %or.cond14.i14 = icmp eq i64 %80, 0
+  br i1 %or.cond14.i14, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15, label %._crit_edge
+
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15: ; preds = %78
+  %81 = call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %57, i1 noundef zeroext false, ptr noundef nonnull %3) #20
+  %.pre = load ptr, ptr %48, align 8
+  %82 = icmp eq ptr %.pre, null
+  br i1 %82, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread, label %89
+
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread: ; preds = %73, %70, %50, %61, %64, %67, %76, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15
+  %.0.i1321 = phi i1 [ %81, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15 ], [ %75, %73 ], [ true, %70 ], [ true, %50 ], [ %63, %61 ], [ %66, %64 ], [ %69, %67 ], [ %77, %76 ]
+  %brmerge.demorgan = and i1 %.0.i, %.0.i1321
+  br i1 %brmerge.demorgan, label %83, label %._crit_edge
+
+._crit_edge:                                      ; preds = %78, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread
   %.sroa.03.0.copyload.pre = load ptr, ptr %5, align 8
-  br label %38
+  br label %86
 
-35:                                               ; preds = %34
-  %36 = load i32, ptr %9, align 8
-  %37 = add nsw i32 %36, -2
-  store i32 %37, ptr %9, align 8
-  br label %41
+83:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15.thread
+  %84 = load i32, ptr %9, align 8
+  %85 = add nsw i32 %84, -2
+  store i32 %85, ptr %9, align 8
+  br label %89
 
-38:                                               ; preds = %._crit_edge, %4
+86:                                               ; preds = %._crit_edge, %4
   %.sroa.03.0.copyload = phi ptr [ %.sroa.03.0.copyload.pre, %._crit_edge ], [ %1, %4 ]
-  %39 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.03.0.copyload, ptr noundef %3) #20
+  %87 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.03.0.copyload, ptr noundef %3) #20
   %.sroa.01.0.copyload = load ptr, ptr %6, align 8
-  %40 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.01.0.copyload, ptr noundef %3) #20
-  br label %41
+  %88 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.sroa.01.0.copyload, ptr noundef %3) #20
+  br label %89
 
-41:                                               ; preds = %24, %12, %38, %35
+89:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit15, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, %86, %83
   ret void
 }
 
@@ -10247,338 +10460,325 @@ declare void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ClassVerifier13verify_switchEP17RawBytecodeStreamjPcP13StackMapFrameP13StackMapTableP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(8192) %0, ptr nocapture noundef readonly %1, i32 %2, ptr nocapture readnone %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #1 align 2 {
-  %8 = alloca %class.VerificationType, align 8
-  %9 = alloca %class.VerificationType, align 8
+  %8 = alloca %class.ErrorContext, align 8
+  %9 = alloca %class.ErrorContext, align 8
   %10 = alloca %class.ErrorContext, align 8
   %11 = alloca %class.ErrorContext, align 8
   %12 = alloca %class.ErrorContext, align 8
-  %13 = alloca %class.ErrorContext, align 8
-  %14 = alloca %class.ErrorContext, align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 24
-  %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 24
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 56
-  %22 = sext i32 %16 to i64
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  %24 = getelementptr inbounds i8, ptr %23, i64 1
-  %25 = ptrtoint ptr %24 to i64
-  %26 = add i64 %25, 3
-  %27 = and i64 %26, -4
-  %28 = inttoptr i64 %27 to ptr
-  %29 = getelementptr inbounds i8, ptr %0, i64 8160
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %30) #20
-  %32 = icmp ult i16 %31, 51
-  %33 = icmp ult ptr %24, %28
-  %or.cond91 = select i1 %32, i1 %33, i1 false
-  br i1 %or.cond91, label %.lr.ph, label %.loopexit83
+  %19 = getelementptr inbounds i8, ptr %18, i64 56
+  %20 = sext i32 %14 to i64
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
+  %22 = getelementptr inbounds i8, ptr %21, i64 1
+  %23 = ptrtoint ptr %22 to i64
+  %24 = add i64 %23, 3
+  %25 = and i64 %24, -4
+  %26 = inttoptr i64 %25 to ptr
+  %27 = getelementptr inbounds i8, ptr %0, i64 8160
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %28) #20
+  %30 = icmp ult i16 %29, 51
+  %31 = icmp ult ptr %22, %26
+  %or.cond92 = select i1 %30, i1 %31, i1 false
+  br i1 %or.cond92, label %.lr.ph, label %.loopexit84
 
-34:                                               ; preds = %.lr.ph
-  %35 = add i16 %.05984, 1
-  %36 = zext i16 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %23, i64 %36
-  %38 = icmp ult ptr %37, %28
-  br i1 %38, label %.lr.ph, label %.loopexit83, !llvm.loop !254
+32:                                               ; preds = %.lr.ph
+  %33 = add i16 %.05985, 1
+  %34 = zext i16 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %21, i64 %34
+  %36 = icmp ult ptr %35, %26
+  br i1 %36, label %.lr.ph, label %.loopexit84, !llvm.loop !254
 
-.lr.ph:                                           ; preds = %7, %34
-  %39 = phi ptr [ %37, %34 ], [ %24, %7 ]
-  %.05984 = phi i16 [ %35, %34 ], [ 1, %7 ]
-  %40 = load i8, ptr %39, align 1
-  %.not68 = icmp eq i8 %40, 0
-  br i1 %.not68, label %34, label %41
+.lr.ph:                                           ; preds = %7, %32
+  %37 = phi ptr [ %35, %32 ], [ %22, %7 ]
+  %.05985 = phi i16 [ %33, %32 ], [ 1, %7 ]
+  %38 = load i8, ptr %37, align 1
+  %.not68 = icmp eq i8 %38, 0
+  br i1 %.not68, label %32, label %39
 
-41:                                               ; preds = %.lr.ph
-  store i32 %16, ptr %10, align 8, !alias.scope !255
-  %42 = getelementptr inbounds i8, ptr %10, i64 4
+39:                                               ; preds = %.lr.ph
+  store i32 %14, ptr %8, align 8, !alias.scope !255
+  %40 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 0, ptr %40, align 4, !alias.scope !255
+  %41 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 9, ptr %41, align 8, !alias.scope !255
+  %42 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 0, ptr %42, align 4, !alias.scope !255
-  %43 = getelementptr inbounds i8, ptr %10, i64 8
-  store i32 9, ptr %43, align 8, !alias.scope !255
-  %44 = getelementptr inbounds i8, ptr %10, i64 12
-  store i32 0, ptr %44, align 4, !alias.scope !255
-  %45 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr null, ptr %45, align 8, !alias.scope !255
-  %46 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %46, align 8, !alias.scope !255
-  %47 = getelementptr inbounds i8, ptr %10, i64 32
-  store i32 9, ptr %47, align 8, !alias.scope !255
-  %48 = getelementptr inbounds i8, ptr %10, i64 36
-  store i32 0, ptr %48, align 4, !alias.scope !255
-  %49 = getelementptr inbounds i8, ptr %10, i64 40
-  store ptr null, ptr %49, align 8, !alias.scope !255
-  %50 = getelementptr inbounds i8, ptr %10, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %50, align 8, !alias.scope !255
-  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %10, ptr noundef nonnull @.str.110)
+  %43 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr null, ptr %43, align 8, !alias.scope !255
+  %44 = getelementptr inbounds i8, ptr %8, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %44, align 8, !alias.scope !255
+  %45 = getelementptr inbounds i8, ptr %8, i64 32
+  store i32 9, ptr %45, align 8, !alias.scope !255
+  %46 = getelementptr inbounds i8, ptr %8, i64 36
+  store i32 0, ptr %46, align 4, !alias.scope !255
+  %47 = getelementptr inbounds i8, ptr %8, i64 40
+  store ptr null, ptr %47, align 8, !alias.scope !255
+  %48 = getelementptr inbounds i8, ptr %8, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %48, align 8, !alias.scope !255
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %8, ptr noundef nonnull @.str.110)
   br label %.loopexit
 
-.loopexit83:                                      ; preds = %34, %7
-  %.0.i.i.i = load i32, ptr %28, align 4
-  %51 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store ptr inttoptr (i64 65793 to ptr), ptr %8, align 8
-  %52 = getelementptr inbounds i8, ptr %4, i64 8
-  %53 = load i32, ptr %52, align 8
-  %.not.i = icmp eq i32 %53, 0
-  br i1 %.not.i, label %70, label %54
+.loopexit84:                                      ; preds = %32, %7
+  %.0.i.i.i = load i32, ptr %26, align 4
+  %49 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i)
+  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  %51 = load i32, ptr %50, align 8
+  %.not.i = icmp eq i32 %51, 0
+  br i1 %.not.i, label %.thread.i, label %52
 
-54:                                               ; preds = %.loopexit83
-  %55 = getelementptr inbounds i8, ptr %4, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %57 = sext i32 %53 to i64
-  %58 = getelementptr %class.VerificationType, ptr %56, i64 %57
-  %59 = getelementptr i8, ptr %58, i64 -8
-  %60 = load i64, ptr %59, align 8
-  store i64 %60, ptr %9, align 8
-  %61 = getelementptr inbounds i8, ptr %4, i64 40
-  %62 = load ptr, ptr %61, align 8
-  %63 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %62, i1 noundef zeroext false, ptr noundef %6)
-  %64 = getelementptr inbounds i8, ptr %6, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %.not5.i = icmp eq ptr %65, null
-  br i1 %.not5.i, label %66, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+52:                                               ; preds = %.loopexit84
+  %53 = getelementptr inbounds i8, ptr %4, i64 32
+  %54 = load ptr, ptr %53, align 8
+  %55 = sext i32 %51 to i64
+  %56 = getelementptr %class.VerificationType, ptr %54, i64 %55
+  %57 = getelementptr i8, ptr %56, i64 -8
+  %58 = load i64, ptr %57, align 8
+  %59 = icmp eq i64 %58, 65793
+  %60 = getelementptr inbounds i8, ptr %6, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %.not9.i = icmp eq ptr %61, null
+  br i1 %59, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i, label %62
 
-66:                                               ; preds = %54
-  br i1 %63, label %67, label %._crit_edge.i
+62:                                               ; preds = %52
+  br i1 %.not9.i, label %.thread.i, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-._crit_edge.i:                                    ; preds = %66
-  %.sroa.0.0.copyload.pre.i = load ptr, ptr %8, align 8
-  br label %70
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i: ; preds = %52
+  br i1 %.not9.i, label %63, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-67:                                               ; preds = %66
-  %68 = load i32, ptr %52, align 8
-  %69 = add nsw i32 %68, -1
-  store i32 %69, ptr %52, align 8
+63:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i
+  %64 = add nsw i32 %51, -1
+  store i32 %64, ptr %50, align 8
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-70:                                               ; preds = %._crit_edge.i, %.loopexit83
-  %.sroa.0.0.copyload.i = phi ptr [ %.sroa.0.0.copyload.pre.i, %._crit_edge.i ], [ inttoptr (i64 65793 to ptr), %.loopexit83 ]
-  %71 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr %.sroa.0.0.copyload.i, ptr noundef %6) #20
+.thread.i:                                        ; preds = %62, %.loopexit84
+  %65 = tail call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef %6) #20
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %54, %67, %70
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %72 = getelementptr inbounds i8, ptr %6, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %.not78 = icmp eq ptr %73, null
-  br i1 %.not78, label %74, label %.loopexit
+_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i, %62, %63, %.thread.i
+  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %.not79 = icmp eq ptr %67, null
+  br i1 %.not79, label %68, label %.loopexit
 
-74:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-  %75 = getelementptr inbounds i8, ptr %0, i64 24
-  %76 = load ptr, ptr %75, align 8
-  %.not79 = icmp eq ptr %76, null
-  br i1 %.not79, label %77, label %.loopexit
+68:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+  %69 = getelementptr inbounds i8, ptr %0, i64 24
+  %70 = load ptr, ptr %69, align 8
+  %.not80 = icmp eq ptr %70, null
+  br i1 %.not80, label %71, label %.loopexit
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %1, i64 36
-  %79 = load i32, ptr %78, align 4
-  %80 = icmp eq i32 %79, 170
-  %81 = getelementptr inbounds i8, ptr %28, i64 4
-  %.0.i.i.i69 = load i32, ptr %81, align 4
-  %82 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i69)
-  br i1 %80, label %83, label %115
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %1, i64 36
+  %73 = load i32, ptr %72, align 4
+  %74 = icmp eq i32 %73, 170
+  %75 = getelementptr inbounds i8, ptr %26, i64 4
+  %.0.i.i.i69 = load i32, ptr %75, align 4
+  %76 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i69)
+  br i1 %74, label %77, label %109
 
-83:                                               ; preds = %77
-  %84 = getelementptr inbounds i8, ptr %28, i64 8
-  %.0.i.i.i70 = load i32, ptr %84, align 4
-  %85 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i70)
-  %86 = icmp sgt i32 %82, %85
-  br i1 %86, label %87, label %97
+77:                                               ; preds = %71
+  %78 = getelementptr inbounds i8, ptr %26, i64 8
+  %.0.i.i.i70 = load i32, ptr %78, align 4
+  %79 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i70)
+  %80 = icmp sgt i32 %76, %79
+  br i1 %80, label %81, label %91
 
-87:                                               ; preds = %83
-  store i32 %16, ptr %11, align 8, !alias.scope !258
-  %88 = getelementptr inbounds i8, ptr %11, i64 4
+81:                                               ; preds = %77
+  store i32 %14, ptr %9, align 8, !alias.scope !258
+  %82 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 0, ptr %82, align 4, !alias.scope !258
+  %83 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 9, ptr %83, align 8, !alias.scope !258
+  %84 = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 0, ptr %84, align 4, !alias.scope !258
+  %85 = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr null, ptr %85, align 8, !alias.scope !258
+  %86 = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %86, align 8, !alias.scope !258
+  %87 = getelementptr inbounds i8, ptr %9, i64 32
+  store i32 9, ptr %87, align 8, !alias.scope !258
+  %88 = getelementptr inbounds i8, ptr %9, i64 36
   store i32 0, ptr %88, align 4, !alias.scope !258
-  %89 = getelementptr inbounds i8, ptr %11, i64 8
-  store i32 9, ptr %89, align 8, !alias.scope !258
-  %90 = getelementptr inbounds i8, ptr %11, i64 12
-  store i32 0, ptr %90, align 4, !alias.scope !258
-  %91 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr null, ptr %91, align 8, !alias.scope !258
-  %92 = getelementptr inbounds i8, ptr %11, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %92, align 8, !alias.scope !258
-  %93 = getelementptr inbounds i8, ptr %11, i64 32
-  store i32 9, ptr %93, align 8, !alias.scope !258
-  %94 = getelementptr inbounds i8, ptr %11, i64 36
-  store i32 0, ptr %94, align 4, !alias.scope !258
-  %95 = getelementptr inbounds i8, ptr %11, i64 40
-  store ptr null, ptr %95, align 8, !alias.scope !258
-  %96 = getelementptr inbounds i8, ptr %11, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %96, align 8, !alias.scope !258
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %11, ptr noundef nonnull @.str.111)
+  %89 = getelementptr inbounds i8, ptr %9, i64 40
+  store ptr null, ptr %89, align 8, !alias.scope !258
+  %90 = getelementptr inbounds i8, ptr %9, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %90, align 8, !alias.scope !258
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %9, ptr noundef nonnull @.str.111)
   br label %.loopexit
 
-97:                                               ; preds = %83
-  %98 = sext i32 %85 to i64
-  %99 = sext i32 %82 to i64
-  %100 = sub nsw i64 %98, %99
-  %101 = icmp sgt i64 %100, 65534
-  br i1 %101, label %102, label %112
+91:                                               ; preds = %77
+  %92 = sext i32 %79 to i64
+  %93 = sext i32 %76 to i64
+  %94 = sub nsw i64 %92, %93
+  %95 = icmp sgt i64 %94, 65534
+  br i1 %95, label %96, label %106
 
-102:                                              ; preds = %97
-  store i32 %16, ptr %12, align 8, !alias.scope !261
-  %103 = getelementptr inbounds i8, ptr %12, i64 4
+96:                                               ; preds = %91
+  store i32 %14, ptr %10, align 8, !alias.scope !261
+  %97 = getelementptr inbounds i8, ptr %10, i64 4
+  store i32 0, ptr %97, align 4, !alias.scope !261
+  %98 = getelementptr inbounds i8, ptr %10, i64 8
+  store i32 9, ptr %98, align 8, !alias.scope !261
+  %99 = getelementptr inbounds i8, ptr %10, i64 12
+  store i32 0, ptr %99, align 4, !alias.scope !261
+  %100 = getelementptr inbounds i8, ptr %10, i64 16
+  store ptr null, ptr %100, align 8, !alias.scope !261
+  %101 = getelementptr inbounds i8, ptr %10, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %101, align 8, !alias.scope !261
+  %102 = getelementptr inbounds i8, ptr %10, i64 32
+  store i32 9, ptr %102, align 8, !alias.scope !261
+  %103 = getelementptr inbounds i8, ptr %10, i64 36
   store i32 0, ptr %103, align 4, !alias.scope !261
-  %104 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 9, ptr %104, align 8, !alias.scope !261
-  %105 = getelementptr inbounds i8, ptr %12, i64 12
-  store i32 0, ptr %105, align 4, !alias.scope !261
-  %106 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr null, ptr %106, align 8, !alias.scope !261
-  %107 = getelementptr inbounds i8, ptr %12, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %107, align 8, !alias.scope !261
-  %108 = getelementptr inbounds i8, ptr %12, i64 32
-  store i32 9, ptr %108, align 8, !alias.scope !261
-  %109 = getelementptr inbounds i8, ptr %12, i64 36
-  store i32 0, ptr %109, align 4, !alias.scope !261
-  %110 = getelementptr inbounds i8, ptr %12, i64 40
-  store ptr null, ptr %110, align 8, !alias.scope !261
-  %111 = getelementptr inbounds i8, ptr %12, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %111, align 8, !alias.scope !261
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.112)
+  %104 = getelementptr inbounds i8, ptr %10, i64 40
+  store ptr null, ptr %104, align 8, !alias.scope !261
+  %105 = getelementptr inbounds i8, ptr %10, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %105, align 8, !alias.scope !261
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %10, ptr noundef nonnull @.str.112)
   br label %.loopexit
 
-112:                                              ; preds = %97
-  %113 = trunc i64 %100 to i32
-  %114 = add i32 %113, 1
-  br label %.loopexit81
+106:                                              ; preds = %91
+  %107 = trunc i64 %94 to i32
+  %108 = add i32 %107, 1
+  br label %.loopexit82
 
-115:                                              ; preds = %77
-  %116 = icmp slt i32 %82, 0
-  br i1 %116, label %119, label %.preheader80
+109:                                              ; preds = %71
+  %110 = icmp slt i32 %76, 0
+  br i1 %110, label %113, label %.preheader81
 
-.preheader80:                                     ; preds = %115
-  %117 = icmp ugt i32 %82, 1
-  br i1 %117, label %.lr.ph86.preheader, label %.loopexit81
+.preheader81:                                     ; preds = %109
+  %111 = icmp ugt i32 %76, 1
+  br i1 %111, label %.lr.ph87.preheader, label %.loopexit82
 
-.lr.ph86.preheader:                               ; preds = %.preheader80
-  %118 = add nsw i32 %82, -1
-  %wide.trip.count = zext nneg i32 %118 to i64
-  br label %.lr.ph86
+.lr.ph87.preheader:                               ; preds = %.preheader81
+  %112 = add nsw i32 %76, -1
+  %wide.trip.count = zext nneg i32 %112 to i64
+  br label %.lr.ph87
 
-119:                                              ; preds = %115
-  store i32 %16, ptr %13, align 8, !alias.scope !264
-  %120 = getelementptr inbounds i8, ptr %13, i64 4
+113:                                              ; preds = %109
+  store i32 %14, ptr %11, align 8, !alias.scope !264
+  %114 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 0, ptr %114, align 4, !alias.scope !264
+  %115 = getelementptr inbounds i8, ptr %11, i64 8
+  store i32 9, ptr %115, align 8, !alias.scope !264
+  %116 = getelementptr inbounds i8, ptr %11, i64 12
+  store i32 0, ptr %116, align 4, !alias.scope !264
+  %117 = getelementptr inbounds i8, ptr %11, i64 16
+  store ptr null, ptr %117, align 8, !alias.scope !264
+  %118 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %118, align 8, !alias.scope !264
+  %119 = getelementptr inbounds i8, ptr %11, i64 32
+  store i32 9, ptr %119, align 8, !alias.scope !264
+  %120 = getelementptr inbounds i8, ptr %11, i64 36
   store i32 0, ptr %120, align 4, !alias.scope !264
-  %121 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 9, ptr %121, align 8, !alias.scope !264
-  %122 = getelementptr inbounds i8, ptr %13, i64 12
-  store i32 0, ptr %122, align 4, !alias.scope !264
-  %123 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr null, ptr %123, align 8, !alias.scope !264
-  %124 = getelementptr inbounds i8, ptr %13, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %124, align 8, !alias.scope !264
-  %125 = getelementptr inbounds i8, ptr %13, i64 32
-  store i32 9, ptr %125, align 8, !alias.scope !264
-  %126 = getelementptr inbounds i8, ptr %13, i64 36
-  store i32 0, ptr %126, align 4, !alias.scope !264
-  %127 = getelementptr inbounds i8, ptr %13, i64 40
-  store ptr null, ptr %127, align 8, !alias.scope !264
-  %128 = getelementptr inbounds i8, ptr %13, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %128, align 8, !alias.scope !264
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %13, ptr noundef nonnull @.str.113)
+  %121 = getelementptr inbounds i8, ptr %11, i64 40
+  store ptr null, ptr %121, align 8, !alias.scope !264
+  %122 = getelementptr inbounds i8, ptr %11, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %122, align 8, !alias.scope !264
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %11, ptr noundef nonnull @.str.113)
   br label %.loopexit
 
-129:                                              ; preds = %.lr.ph86
+123:                                              ; preds = %.lr.ph87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit81, label %.lr.ph86, !llvm.loop !267
+  br i1 %exitcond.not, label %.loopexit82, label %.lr.ph87, !llvm.loop !267
 
-.lr.ph86:                                         ; preds = %.lr.ph86.preheader, %129
-  %indvars.iv = phi i64 [ 0, %.lr.ph86.preheader ], [ %indvars.iv.next, %129 ]
-  %130 = trunc nuw nsw i64 %indvars.iv to i32
-  %131 = shl i32 %130, 3
-  %132 = add i32 %131, 8
-  %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds i8, ptr %28, i64 %133
-  %.0.i.i.i72 = load i32, ptr %134, align 4
-  %135 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i72)
-  %136 = add i32 %131, 16
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i8, ptr %28, i64 %137
-  %.0.i.i.i73 = load i32, ptr %138, align 4
-  %139 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i73)
-  %.not = icmp slt i32 %135, %139
-  br i1 %.not, label %129, label %140
+.lr.ph87:                                         ; preds = %.lr.ph87.preheader, %123
+  %indvars.iv = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next, %123 ]
+  %124 = trunc nuw nsw i64 %indvars.iv to i32
+  %125 = shl i32 %124, 3
+  %126 = add i32 %125, 8
+  %127 = zext nneg i32 %126 to i64
+  %128 = getelementptr inbounds i8, ptr %26, i64 %127
+  %.0.i.i.i72 = load i32, ptr %128, align 4
+  %129 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i72)
+  %130 = add i32 %125, 16
+  %131 = sext i32 %130 to i64
+  %132 = getelementptr inbounds i8, ptr %26, i64 %131
+  %.0.i.i.i73 = load i32, ptr %132, align 4
+  %133 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i73)
+  %.not = icmp slt i32 %129, %133
+  br i1 %.not, label %123, label %134
 
-140:                                              ; preds = %.lr.ph86
-  store i32 %16, ptr %14, align 8, !alias.scope !268
-  %141 = getelementptr inbounds i8, ptr %14, i64 4
+134:                                              ; preds = %.lr.ph87
+  store i32 %14, ptr %12, align 8, !alias.scope !268
+  %135 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 0, ptr %135, align 4, !alias.scope !268
+  %136 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 9, ptr %136, align 8, !alias.scope !268
+  %137 = getelementptr inbounds i8, ptr %12, i64 12
+  store i32 0, ptr %137, align 4, !alias.scope !268
+  %138 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr null, ptr %138, align 8, !alias.scope !268
+  %139 = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %139, align 8, !alias.scope !268
+  %140 = getelementptr inbounds i8, ptr %12, i64 32
+  store i32 9, ptr %140, align 8, !alias.scope !268
+  %141 = getelementptr inbounds i8, ptr %12, i64 36
   store i32 0, ptr %141, align 4, !alias.scope !268
-  %142 = getelementptr inbounds i8, ptr %14, i64 8
-  store i32 9, ptr %142, align 8, !alias.scope !268
-  %143 = getelementptr inbounds i8, ptr %14, i64 12
-  store i32 0, ptr %143, align 4, !alias.scope !268
-  %144 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr null, ptr %144, align 8, !alias.scope !268
-  %145 = getelementptr inbounds i8, ptr %14, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %145, align 8, !alias.scope !268
-  %146 = getelementptr inbounds i8, ptr %14, i64 32
-  store i32 9, ptr %146, align 8, !alias.scope !268
-  %147 = getelementptr inbounds i8, ptr %14, i64 36
-  store i32 0, ptr %147, align 4, !alias.scope !268
-  %148 = getelementptr inbounds i8, ptr %14, i64 40
-  store ptr null, ptr %148, align 8, !alias.scope !268
-  %149 = getelementptr inbounds i8, ptr %14, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %149, align 8, !alias.scope !268
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %14, ptr noundef nonnull @.str.114)
+  %142 = getelementptr inbounds i8, ptr %12, i64 40
+  store ptr null, ptr %142, align 8, !alias.scope !268
+  %143 = getelementptr inbounds i8, ptr %12, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %143, align 8, !alias.scope !268
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.114)
   br label %.loopexit
 
-.loopexit81:                                      ; preds = %129, %.preheader80, %112
-  %.062 = phi i64 [ 4, %112 ], [ 8, %.preheader80 ], [ 8, %129 ]
-  %.061 = phi i32 [ %114, %112 ], [ %82, %.preheader80 ], [ %82, %129 ]
-  %150 = add nsw i32 %51, %16
-  call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4, i32 noundef %150, ptr noundef nonnull %6) #20
-  %151 = load ptr, ptr %72, align 8
-  %152 = icmp eq ptr %151, null
-  %153 = load ptr, ptr %75, align 8
-  %154 = icmp eq ptr %153, null
-  %or.cond.not95 = select i1 %152, i1 %154, i1 false
-  %155 = icmp sgt i32 %.061, 0
-  %or.cond92 = and i1 %or.cond.not95, %155
-  br i1 %or.cond92, label %.lr.ph88, label %.loopexit
+.loopexit82:                                      ; preds = %123, %.preheader81, %106
+  %.062 = phi i64 [ 4, %106 ], [ 8, %.preheader81 ], [ 8, %123 ]
+  %.061 = phi i32 [ %108, %106 ], [ %76, %.preheader81 ], [ %76, %123 ]
+  %144 = add nsw i32 %49, %14
+  tail call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4, i32 noundef %144, ptr noundef nonnull %6) #20
+  %145 = load ptr, ptr %66, align 8
+  %146 = icmp eq ptr %145, null
+  %147 = load ptr, ptr %69, align 8
+  %148 = icmp eq ptr %147, null
+  %or.cond.not96 = select i1 %146, i1 %148, i1 false
+  %149 = icmp sgt i32 %.061, 0
+  %or.cond93 = and i1 %or.cond.not96, %149
+  br i1 %or.cond93, label %.lr.ph89, label %.loopexit
 
-.lr.ph88:                                         ; preds = %.loopexit81
-  %wide.trip.count100 = zext nneg i32 %.061 to i64
-  br label %156
+.lr.ph89:                                         ; preds = %.loopexit82
+  %wide.trip.count101 = zext nneg i32 %.061 to i64
+  br label %150
 
-156:                                              ; preds = %156, %.lr.ph88
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next98, %156 ]
-  %157 = load ptr, ptr %17, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 8
-  %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 56
-  %161 = load i32, ptr %15, align 8
-  %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds i8, ptr %160, i64 %162
-  %164 = getelementptr inbounds i8, ptr %163, i64 1
-  %165 = ptrtoint ptr %164 to i64
-  %166 = add i64 %165, 3
-  %167 = and i64 %166, -4
-  %168 = inttoptr i64 %167 to ptr
-  %169 = mul i64 %.062, %indvars.iv97
-  %170 = shl i64 %169, 32
-  %sext = add i64 %170, 51539607552
-  %171 = ashr exact i64 %sext, 32
-  %172 = getelementptr inbounds i8, ptr %168, i64 %171
-  %.0.i.i.i74 = load i32, ptr %172, align 1
-  %173 = call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i74)
-  %174 = add nsw i32 %173, %16
-  call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4, i32 noundef %174, ptr noundef nonnull %6) #20
-  %175 = load ptr, ptr %72, align 8
-  %176 = icmp ne ptr %175, null
-  %177 = load ptr, ptr %75, align 8
-  %178 = icmp ne ptr %177, null
-  %or.cond77 = select i1 %176, i1 true, i1 %178
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  %or.cond = select i1 %or.cond77, i1 true, i1 %exitcond101.not
-  br i1 %or.cond, label %.loopexit, label %156, !llvm.loop !271
+150:                                              ; preds = %150, %.lr.ph89
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next99, %150 ]
+  %151 = load ptr, ptr %15, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i64 8
+  %153 = load ptr, ptr %152, align 8
+  %154 = getelementptr inbounds i8, ptr %153, i64 56
+  %155 = load i32, ptr %13, align 8
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds i8, ptr %154, i64 %156
+  %158 = getelementptr inbounds i8, ptr %157, i64 1
+  %159 = ptrtoint ptr %158 to i64
+  %160 = add i64 %159, 3
+  %161 = and i64 %160, -4
+  %162 = inttoptr i64 %161 to ptr
+  %163 = mul i64 %.062, %indvars.iv98
+  %164 = shl i64 %163, 32
+  %sext = add i64 %164, 51539607552
+  %165 = ashr exact i64 %sext, 32
+  %166 = getelementptr inbounds i8, ptr %162, i64 %165
+  %.0.i.i.i74 = load i32, ptr %166, align 1
+  %167 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.i.i.i74)
+  %168 = add nsw i32 %167, %14
+  tail call void @_ZNK13StackMapTable17check_jump_targetEP13StackMapFrameiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %4, i32 noundef %168, ptr noundef nonnull %6) #20
+  %169 = load ptr, ptr %66, align 8
+  %170 = icmp ne ptr %169, null
+  %171 = load ptr, ptr %69, align 8
+  %172 = icmp ne ptr %171, null
+  %or.cond78 = select i1 %170, i1 true, i1 %172
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
+  %or.cond = select i1 %or.cond78, i1 true, i1 %exitcond102.not
+  br i1 %or.cond, label %.loopexit, label %150, !llvm.loop !271
 
-.loopexit:                                        ; preds = %156, %.loopexit81, %74, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit, %140, %119, %102, %87, %41
+.loopexit:                                        ; preds = %150, %.loopexit82, %68, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit, %134, %113, %96, %81, %39
   ret void
 }
 
@@ -10592,15 +10792,17 @@ define hidden void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0
   %12 = alloca %class.TypeOrigin, align 8
   store ptr %1, ptr %7, align 8
   store ptr %2, ptr %8, align 8
+  %.cast = ptrtoint ptr %1 to i64
   %13 = icmp eq ptr %1, inttoptr (i64 4294901761 to ptr)
-  br i1 %13, label %14, label %18
+  %14 = ptrtoint ptr %2 to i64
+  br i1 %13, label %15, label %19
 
-14:                                               ; preds = %6
+15:                                               ; preds = %6
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %10, ptr noundef nonnull align 8 dereferenceable(48) %4) #20
-  %15 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
-  %16 = getelementptr inbounds i8, ptr %9, i64 32
-  store i32 5, ptr %16, align 8
+  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
+  %17 = getelementptr inbounds i8, ptr %9, i64 32
+  store i32 5, ptr %17, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 36
   store i32 0, ptr %.sroa.415.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 40
@@ -10608,32 +10810,87 @@ define hidden void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 48
   store ptr %1, ptr %.sroa.6.0..sroa_idx, align 8
   store i32 %3, ptr %9, align 8, !alias.scope !272
-  %17 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 1, ptr %17, align 4, !alias.scope !272
+  %18 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 1, ptr %18, align 4, !alias.scope !272
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %9, ptr noundef nonnull @.str.142)
-  br label %30
+  br label %54
 
-18:                                               ; preds = %6
-  %19 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef %5)
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %.not = icmp eq ptr %21, null
-  br i1 %.not, label %22, label %30
+19:                                               ; preds = %6
+  %20 = icmp eq ptr %2, %1
+  br i1 %20, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, label %21
 
-22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp ne ptr %24, null
-  %brmerge = or i1 %19, %25
-  br i1 %brmerge, label %30, label %26
+21:                                               ; preds = %19
+  switch i64 %.cast, label %39 [
+    i64 259, label %22
+    i64 515, label %25
+    i64 1027, label %28
+    i64 3, label %31
+    i64 590081, label %37
+    i64 655617, label %37
+    i64 786689, label %37
+    i64 721153, label %37
+  ]
 
-26:                                               ; preds = %22
+22:                                               ; preds = %21
+  %23 = and i64 %14, 257
+  %24 = icmp ne i64 %23, 1
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+25:                                               ; preds = %21
+  %26 = and i64 %14, 513
+  %27 = icmp eq i64 %26, 513
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+28:                                               ; preds = %21
+  %29 = and i64 %14, 1025
+  %30 = icmp eq i64 %29, 1025
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+31:                                               ; preds = %21
+  %32 = and i64 %14, 3
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, label %34
+
+34:                                               ; preds = %31
+  %35 = and i64 %14, 2
+  %36 = icmp ne i64 %35, 0
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+37:                                               ; preds = %21, %21, %21, %21
+  %38 = icmp eq ptr %2, inttoptr (i64 65793 to ptr)
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+39:                                               ; preds = %21
+  %40 = or i64 %14, %.cast
+  %41 = and i64 %40, 3
+  %or.cond14.i = icmp eq i64 %41, 0
+  br i1 %or.cond14.i, label %42, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+42:                                               ; preds = %39
+  %43 = call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef %5) #20
+  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit: ; preds = %19, %22, %25, %28, %31, %34, %37, %39, %42
+  %.0.i = phi i1 [ %43, %42 ], [ %38, %37 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ true, %19 ], [ true, %31 ], [ %36, %34 ], [ false, %39 ]
+  %44 = getelementptr inbounds i8, ptr %5, i64 8
+  %45 = load ptr, ptr %44, align 8
+  %.not = icmp eq ptr %45, null
+  br i1 %.not, label %46, label %54
+
+46:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit
+  %47 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = icmp ne ptr %48, null
+  %brmerge = or i1 %.0.i, %49
+  br i1 %brmerge, label %54, label %50
+
+50:                                               ; preds = %46
   call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %4) #20
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
-  %28 = getelementptr inbounds i8, ptr %11, i64 32
-  store i32 5, ptr %28, align 8
+  %51 = getelementptr inbounds i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  %52 = getelementptr inbounds i8, ptr %11, i64 32
+  store i32 5, ptr %52, align 8
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 36
   store i32 0, ptr %.sroa.417.0..sroa_idx, align 4
   %.sroa.518.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 40
@@ -10641,34 +10898,592 @@ define hidden void @_ZN13ClassVerifier19verify_return_valueE16VerificationTypeS0
   %.sroa.619.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 48
   store ptr %.sroa.0.0.copyload, ptr %.sroa.619.0..sroa_idx, align 8
   store i32 %3, ptr %11, align 8, !alias.scope !275
-  %29 = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 1, ptr %29, align 4, !alias.scope !275
+  %53 = getelementptr inbounds i8, ptr %11, i64 4
+  store i32 1, ptr %53, align 4, !alias.scope !275
   call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %11, ptr noundef nonnull @.str.143)
-  br label %30
+  br label %54
 
-30:                                               ; preds = %22, %18, %26, %14
+54:                                               ; preds = %46, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, %50, %15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ClassVerifier25verify_field_instructionsEP17RawBytecodeStreamP13StackMapFrameRK18constantPoolHandlebP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %class.ErrorContext, align 8
-  %8 = alloca %class.VerificationType, align 8
-  %9 = alloca %class.VerificationType, align 8
+  %8 = alloca %class.ErrorContext, align 8
+  %9 = alloca %class.ErrorContext, align 8
   %10 = alloca %class.VerificationType, align 8
+  %11 = alloca [2 x i64], align 16
+  %12 = alloca %class.SignatureStream, align 8
+  %13 = alloca %class.VerificationType, align 8
+  %14 = alloca %class.fieldDescriptor, align 8
+  %15 = alloca %class.ErrorContext, align 8
+  %16 = alloca %class.TypeOrigin, align 8
+  %17 = alloca %class.VerificationType, align 8
+  %18 = alloca %class.ErrorContext, align 8
+  %19 = alloca %class.TypeOrigin, align 8
+  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 56
+  %25 = getelementptr inbounds i8, ptr %1, i64 24
+  %26 = load i32, ptr %25, align 8
+  %27 = sext i32 %26 to i64
+  %28 = getelementptr inbounds i8, ptr %24, i64 %27
+  %29 = getelementptr inbounds i8, ptr %28, i64 1
+  %.0.i.i.i.i.i = load i16, ptr %29, align 1
+  %30 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
+  tail call void @_ZN13ClassVerifier14verify_cp_typeEitRK18constantPoolHandlejP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %26, i16 noundef zeroext %30, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 512, ptr noundef %5)
+  %31 = getelementptr inbounds i8, ptr %5, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %33, label %258
+
+33:                                               ; preds = %6
+  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %.not174 = icmp eq ptr %35, null
+  br i1 %.not174, label %36, label %258
+
+36:                                               ; preds = %33
+  %37 = load ptr, ptr %3, align 8
+  %38 = zext i16 %30 to i32
+  %39 = tail call noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %37, i32 noundef %38) #20
+  %40 = zext i16 %39 to i32
+  %41 = tail call noundef zeroext i16 @_ZN12ConstantPool17name_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %37, i32 noundef %40) #20
+  %42 = getelementptr inbounds i8, ptr %37, i64 72
+  %43 = zext i16 %41 to i64
+  %44 = getelementptr inbounds i64, ptr %42, i64 %43
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %3, align 8
+  %47 = tail call noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %46, i32 noundef %38) #20
+  %48 = zext i16 %47 to i32
+  %49 = tail call noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %46, i32 noundef %48) #20
+  %50 = getelementptr inbounds i8, ptr %46, i64 72
+  %51 = zext i16 %49 to i64
+  %52 = getelementptr inbounds i64, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %3, align 8
+  %55 = tail call noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %54, i32 noundef %38) #20
+  %56 = zext i16 %55 to i32
+  %57 = load ptr, ptr %3, align 8
+  %58 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %57, i32 noundef %56) #20
+  %59 = load ptr, ptr %31, align 8
+  %60 = icmp ne ptr %59, null
+  %61 = load ptr, ptr %34, align 8
+  %62 = icmp ne ptr %61, null
+  %or.cond = select i1 %60, i1 true, i1 %62
+  br i1 %or.cond, label %258, label %63
+
+63:                                               ; preds = %36
+  %64 = ptrtoint ptr %58 to i64
+  %65 = and i64 %64, 3
+  %66 = icmp ne i64 %65, 0
+  %67 = icmp eq ptr %58, null
+  %or.cond.i = or i1 %67, %66
+  br i1 %or.cond.i, label %_ZNK16VerificationType8is_arrayEv.exit.thread, label %68
+
+68:                                               ; preds = %63
+  %69 = getelementptr inbounds i8, ptr %58, i64 4
+  %70 = load i16, ptr %69, align 4
+  %.not.i = icmp eq i16 %70, 0
+  br i1 %.not.i, label %_ZNK16VerificationType8is_arrayEv.exit.thread, label %_ZNK16VerificationType9is_objectEv.exit
+
+_ZNK16VerificationType9is_objectEv.exit:          ; preds = %68
+  %71 = getelementptr inbounds i8, ptr %58, i64 6
+  %72 = load i8, ptr %71, align 1
+  %.not175 = icmp eq i8 %72, 91
+  br i1 %.not175, label %.thread, label %87
+
+.thread:                                          ; preds = %_ZNK16VerificationType9is_objectEv.exit
+  %73 = icmp ne i16 %70, 1
+  %or.cond214 = and i1 %4, %73
+  br i1 %or.cond214, label %_ZNK16VerificationType8is_arrayEv.exit, label %_ZNK16VerificationType8is_arrayEv.exit.thread
+
+_ZNK16VerificationType8is_arrayEv.exit:           ; preds = %.thread
+  %74 = getelementptr inbounds i8, ptr %58, i64 6
+  %75 = load i8, ptr %74, align 1
+  %76 = icmp eq i8 %75, 91
+  br i1 %76, label %87, label %_ZNK16VerificationType8is_arrayEv.exit.thread
+
+_ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %68, %63, %.thread, %_ZNK16VerificationType8is_arrayEv.exit
+  %77 = load i32, ptr %25, align 8
+  %78 = getelementptr inbounds i8, ptr %9, i64 8
+  store i32 4, ptr %78, align 8
+  %.sroa.4142.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 12
+  store i32 %38, ptr %.sroa.4142.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
+  store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
+  store ptr %58, ptr %.sroa.6.0..sroa_idx, align 8
+  store i32 %77, ptr %9, align 8, !alias.scope !278
+  %79 = getelementptr inbounds i8, ptr %9, i64 4
+  store i32 1, ptr %79, align 4, !alias.scope !278
+  %80 = getelementptr inbounds i8, ptr %9, i64 32
+  store i32 9, ptr %80, align 8, !alias.scope !278
+  %81 = getelementptr inbounds i8, ptr %9, i64 36
+  store i32 0, ptr %81, align 4, !alias.scope !278
+  %82 = getelementptr inbounds i8, ptr %9, i64 40
+  store ptr null, ptr %82, align 8, !alias.scope !278
+  %83 = getelementptr inbounds i8, ptr %9, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %83, align 8, !alias.scope !278
+  %84 = getelementptr inbounds i8, ptr %0, i64 8160
+  %85 = load ptr, ptr %84, align 8
+  %86 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %85) #20
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %9, ptr noundef nonnull @.str.115, ptr noundef %86, i32 noundef %38)
+  br label %258
+
+87:                                               ; preds = %_ZNK16VerificationType8is_arrayEv.exit, %_ZNK16VerificationType9is_objectEv.exit
+  store i64 %64, ptr %10, align 8
+  call void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %53, i1 noundef zeroext false) #20
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %13, align 8
+  %88 = getelementptr inbounds i8, ptr %12, i64 24
+  %89 = load i8, ptr %88, align 8
+  switch i8 %89, label %99 [
+    i8 12, label %90
+    i8 13, label %90
+    i8 11, label %93
+    i8 7, label %95
+    i8 10, label %97
+    i8 4, label %97
+    i8 8, label %97
+    i8 5, label %97
+    i8 9, label %97
+    i8 6, label %98
+  ]
+
+90:                                               ; preds = %87, %87
+  %91 = call noundef ptr @_ZN15SignatureStream11find_symbolEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #20
+  %92 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEP6Symbol(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %91)
+  store ptr %92, ptr %11, align 16
+  br label %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
+
+93:                                               ; preds = %87
+  store ptr inttoptr (i64 262657 to ptr), ptr %11, align 16
+  %94 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr inttoptr (i64 852993 to ptr), ptr %94, align 8
+  br label %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
+
+95:                                               ; preds = %87
+  store ptr inttoptr (i64 197121 to ptr), ptr %11, align 16
+  %96 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr inttoptr (i64 918529 to ptr), ptr %96, align 8
+  br label %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
+
+97:                                               ; preds = %87, %87, %87, %87, %87
+  store ptr inttoptr (i64 65793 to ptr), ptr %11, align 16
+  br label %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
+
+98:                                               ; preds = %87
+  store ptr inttoptr (i64 131329 to ptr), ptr %11, align 16
+  br label %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
+
+99:                                               ; preds = %87
+  %100 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %100, align 1
+  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.180, i32 noundef 509) #21
+  unreachable
+
+_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit: ; preds = %90, %93, %95, %97, %98
+  %.0.i = phi i64 [ 1, %98 ], [ 1, %97 ], [ 2, %95 ], [ 2, %93 ], [ 1, %90 ]
+  %101 = load i32, ptr %25, align 8
+  %102 = getelementptr inbounds i8, ptr %1, i64 36
+  %103 = load i32, ptr %102, align 4
+  switch i32 %103, label %228 [
+    i32 178, label %.preheader
+    i32 179, label %.preheader178
+    i32 180, label %140
+    i32 181, label %.preheader184
+  ]
+
+.preheader:                                       ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
+  %104 = getelementptr inbounds i8, ptr %2, i64 8
+  %105 = getelementptr inbounds i8, ptr %2, i64 18
+  %106 = getelementptr inbounds i8, ptr %2, i64 40
+  %107 = getelementptr inbounds i8, ptr %8, i64 4
+  %108 = getelementptr inbounds i8, ptr %8, i64 8
+  %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 12
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 16
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 24
+  %109 = getelementptr inbounds i8, ptr %8, i64 32
+  %110 = getelementptr inbounds i8, ptr %8, i64 36
+  %111 = getelementptr inbounds i8, ptr %8, i64 40
+  %112 = getelementptr inbounds i8, ptr %8, i64 48
+  %113 = getelementptr inbounds i8, ptr %2, i64 32
+  br label %114
+
+114:                                              ; preds = %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit, %.preheader
+  %indvars.iv205 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next206, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit ]
+  %115 = getelementptr inbounds %class.VerificationType, ptr %11, i64 %indvars.iv205
+  %.sroa.026.0.copyload = load ptr, ptr %115, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8)
+  %116 = load i32, ptr %104, align 8
+  %117 = load i16, ptr %105, align 2
+  %118 = zext i16 %117 to i32
+  %.not.i117 = icmp slt i32 %116, %118
+  br i1 %.not.i117, label %123, label %119
+
+119:                                              ; preds = %114
+  %120 = load ptr, ptr %106, align 8
+  %121 = load i32, ptr %2, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !281)
+  %122 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !284
+  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %122, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !284
+  store i32 %121, ptr %8, align 8, !alias.scope !281
+  store i32 7, ptr %107, align 4, !alias.scope !281
+  store i32 8, ptr %108, align 8, !alias.scope !281
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !281
+  store ptr %122, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !281
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !281
+  store i32 9, ptr %109, align 8, !alias.scope !281
+  store i32 0, ptr %110, align 4, !alias.scope !281
+  store ptr null, ptr %111, align 8, !alias.scope !281
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %112, align 8, !alias.scope !281
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %120, ptr noundef nonnull byval(%class.ErrorContext) align 8 %8, ptr noundef nonnull @.str.181)
+  br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
+
+123:                                              ; preds = %114
+  %124 = load ptr, ptr %113, align 8
+  %125 = add nsw i32 %116, 1
+  store i32 %125, ptr %104, align 8
+  %126 = sext i32 %116 to i64
+  %127 = getelementptr inbounds %class.VerificationType, ptr %124, i64 %126
+  store ptr %.sroa.026.0.copyload, ptr %127, align 8
+  br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
+
+_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %119, %123
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %8)
+  %128 = load ptr, ptr %31, align 8
+  %129 = icmp ne ptr %128, null
+  %130 = load ptr, ptr %34, align 8
+  %131 = icmp ne ptr %130, null
+  %or.cond157 = select i1 %129, i1 true, i1 %131
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  %exitcond209.not = icmp eq i64 %indvars.iv.next206, %.0.i
+  %or.cond215 = select i1 %or.cond157, i1 true, i1 %exitcond209.not
+  br i1 %or.cond215, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %114, !llvm.loop !287
+
+.preheader178:                                    ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit, %133
+  %indvars.iv202 = phi i64 [ %indvars.iv.next203, %133 ], [ %.0.i, %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit ]
+  %132 = icmp sgt i64 %indvars.iv202, 0
+  br i1 %132, label %133, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152
+
+133:                                              ; preds = %.preheader178
+  %indvars.iv.next203 = add nsw i64 %indvars.iv202, -1
+  %134 = getelementptr inbounds %class.VerificationType, ptr %11, i64 %indvars.iv.next203
+  %.sroa.021.0.copyload = load ptr, ptr %134, align 8
+  %135 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.021.0.copyload, ptr noundef nonnull %5)
+  %136 = load ptr, ptr %31, align 8
+  %137 = icmp ne ptr %136, null
+  %138 = load ptr, ptr %34, align 8
+  %139 = icmp ne ptr %138, null
+  %or.cond159 = select i1 %137, i1 true, i1 %139
+  br i1 %or.cond159, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %.preheader178, !llvm.loop !288
+
+140:                                              ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
+  %141 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nonnull %58, ptr noundef nonnull %5)
+  store ptr %141, ptr %13, align 8
+  %142 = load ptr, ptr %31, align 8
+  %143 = icmp ne ptr %142, null
+  %144 = load ptr, ptr %34, align 8
+  %145 = icmp ne ptr %144, null
+  %or.cond161 = select i1 %143, i1 true, i1 %145
+  %146 = ptrtoint ptr %141 to i64
+  br i1 %or.cond161, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %183
+
+.preheader184:                                    ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit, %148
+  %indvars.iv = phi i64 [ %indvars.iv.next, %148 ], [ %.0.i, %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit ]
+  %147 = icmp sgt i64 %indvars.iv, 0
+  br i1 %147, label %148, label %155
+
+148:                                              ; preds = %.preheader184
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %149 = getelementptr inbounds %class.VerificationType, ptr %11, i64 %indvars.iv.next
+  %.sroa.014.0.copyload = load ptr, ptr %149, align 8
+  %150 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.014.0.copyload, ptr noundef nonnull %5)
+  %151 = load ptr, ptr %31, align 8
+  %152 = icmp ne ptr %151, null
+  %153 = load ptr, ptr %34, align 8
+  %154 = icmp ne ptr %153, null
+  %or.cond163 = select i1 %152, i1 true, i1 %154
+  br i1 %or.cond163, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %.preheader184, !llvm.loop !289
+
+155:                                              ; preds = %.preheader184
+  %156 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %5)
+  store ptr %156, ptr %13, align 8
+  %157 = load ptr, ptr %31, align 8
+  %158 = icmp ne ptr %157, null
+  %159 = load ptr, ptr %34, align 8
+  %160 = icmp ne ptr %159, null
+  %or.cond165 = select i1 %158, i1 true, i1 %160
+  br i1 %or.cond165, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %161
+
+161:                                              ; preds = %155
+  %162 = getelementptr inbounds i8, ptr %14, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %162, i8 0, i64 22, i1 false)
+  %163 = getelementptr inbounds i8, ptr %14, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %163, i8 0, i64 16, i1 false)
+  %164 = icmp eq ptr %156, inttoptr (i64 16776962 to ptr)
+  br i1 %164, label %_ZNK16VerificationType6equalsERKS_.exit, label %.critedge
+
+_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %161
+  %165 = getelementptr inbounds i8, ptr %0, i64 8184
+  %.sroa.0.0.copyload.i = load ptr, ptr %165, align 8
+  %166 = icmp eq ptr %58, %.sroa.0.0.copyload.i
+  br i1 %166, label %167, label %.critedge
+
+167:                                              ; preds = %_ZNK16VerificationType6equalsERKS_.exit
+  %168 = getelementptr inbounds i8, ptr %0, i64 8160
+  %169 = load ptr, ptr %168, align 8
+  %170 = call noundef zeroext i1 @_ZNK13InstanceKlass16find_local_fieldEP6SymbolS1_P15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(464) %169, ptr noundef %45, ptr noundef %53, ptr noundef nonnull %14) #20
+  br i1 %170, label %171, label %.critedge
+
+171:                                              ; preds = %167
+  %.sroa.0.0.copyload.i118 = load ptr, ptr %165, align 8
+  store ptr %.sroa.0.0.copyload.i118, ptr %13, align 8
+  br label %.critedge
+
+.critedge:                                        ; preds = %_ZNK16VerificationType6equalsERKS_.exit, %161, %171, %167
+  %172 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %5)
+  %173 = load ptr, ptr %31, align 8
+  %174 = icmp ne ptr %173, null
+  %175 = load ptr, ptr %34, align 8
+  %176 = icmp ne ptr %175, null
+  %or.cond167 = select i1 %174, i1 true, i1 %176
+  br i1 %or.cond167, label %.critedge115, label %177
+
+177:                                              ; preds = %.critedge
+  br i1 %172, label %182, label %178
+
+178:                                              ; preds = %177
+  call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %2) #20
+  %.sroa.010.0.copyload = load ptr, ptr %10, align 8
+  %179 = getelementptr inbounds i8, ptr %15, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %179, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
+  %180 = getelementptr inbounds i8, ptr %15, i64 32
+  store i32 4, ptr %180, align 8
+  %.sroa.4144.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 36
+  store i32 %38, ptr %.sroa.4144.0..sroa_idx, align 4
+  %.sroa.5145.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 40
+  store ptr null, ptr %.sroa.5145.0..sroa_idx, align 8
+  %.sroa.6146.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 48
+  store ptr %.sroa.010.0.copyload, ptr %.sroa.6146.0..sroa_idx, align 8
+  store i32 %101, ptr %15, align 8, !alias.scope !290
+  %181 = getelementptr inbounds i8, ptr %15, i64 4
+  store i32 1, ptr %181, align 4, !alias.scope !290
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %15, ptr noundef nonnull @.str.116)
+  br label %.critedge115
+
+182:                                              ; preds = %177
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %163) #20
+  %.pre = load i64, ptr %13, align 8
+  br label %183
+
+183:                                              ; preds = %140, %182
+  %184 = phi i64 [ %.pre, %182 ], [ %146, %140 ]
+  %.1 = phi i1 [ false, %182 ], [ true, %140 ]
+  %185 = getelementptr inbounds i8, ptr %0, i64 8184
+  %186 = load i64, ptr %185, align 8
+  %187 = icmp eq i64 %186, %184
+  br i1 %187, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %188
+
+188:                                              ; preds = %183
+  %189 = getelementptr inbounds i8, ptr %0, i64 8160
+  %190 = load ptr, ptr %189, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 308
+  %192 = load i16, ptr %191, align 2
+  %193 = and i16 %192, 1
+  %.not176 = icmp eq i16 %193, 0
+  br i1 %.not176, label %200, label %194
+
+194:                                              ; preds = %188
+  br i1 %.1, label %.preheader182, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152
+
+.preheader182:                                    ; preds = %194, %.preheader182
+  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %.preheader182 ], [ 0, %194 ]
+  %195 = getelementptr inbounds %class.VerificationType, ptr %11, i64 %indvars.iv194
+  %.sroa.06.0.copyload = load ptr, ptr %195, align 8
+  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.06.0.copyload, ptr noundef nonnull %5)
+  %196 = load ptr, ptr %31, align 8
+  %197 = icmp ne ptr %196, null
+  %198 = load ptr, ptr %34, align 8
+  %199 = icmp ne ptr %198, null
+  %or.cond169 = select i1 %197, i1 true, i1 %199
+  %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next195, %.0.i
+  %or.cond216 = select i1 %or.cond169, i1 true, i1 %exitcond.not
+  br i1 %or.cond216, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %.preheader182, !llvm.loop !293
+
+200:                                              ; preds = %188
+  %201 = load ptr, ptr %3, align 8
+  %202 = call noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %201, i32 noundef %38) #20
+  %203 = zext i16 %202 to i32
+  %204 = call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %201, i32 noundef %203) #20
+  %205 = load ptr, ptr %189, align 8
+  br label %206
+
+206:                                              ; preds = %207, %200
+  %.pn.i = phi ptr [ %205, %200 ], [ %.0.i119, %207 ]
+  %.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 120
+  %.0.i119 = load ptr, ptr %.0.in.i, align 8
+  %.not.not.not.not.i.not = icmp eq ptr %.0.i119, null
+  br i1 %.not.not.not.not.i.not, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %207
+
+207:                                              ; preds = %206
+  %208 = getelementptr inbounds i8, ptr %.0.i119, i64 24
+  %209 = load ptr, ptr %208, align 8
+  %210 = icmp eq ptr %209, %204
+  br i1 %210, label %211, label %206, !llvm.loop !294
+
+211:                                              ; preds = %207
+  %212 = call noundef ptr @_ZN13ClassVerifier10load_classEP6SymbolP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %204, ptr noundef nonnull %5)
+  %213 = load ptr, ptr %31, align 8
+  %.not177 = icmp eq ptr %213, null
+  br i1 %.not177, label %214, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152
+
+214:                                              ; preds = %211
+  %215 = load ptr, ptr %189, align 8
+  %216 = call noundef zeroext i1 @_ZN13ClassVerifier19is_protected_accessEP13InstanceKlassP5KlassP6SymbolS5_b(ptr nonnull align 8 poison, ptr noundef %215, ptr noundef %212, ptr noundef %45, ptr noundef %53, i1 noundef zeroext false)
+  br i1 %216, label %217, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
+
+217:                                              ; preds = %214
+  %.sroa.0.0.copyload.i120 = load ptr, ptr %185, align 8
+  store ptr %.sroa.0.0.copyload.i120, ptr %17, align 8
+  %218 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %5)
+  %219 = load ptr, ptr %31, align 8
+  %220 = icmp ne ptr %219, null
+  %221 = load ptr, ptr %34, align 8
+  %222 = icmp ne ptr %221, null
+  %or.cond171 = select i1 %220, i1 true, i1 %222
+  br i1 %or.cond171, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %223
+
+223:                                              ; preds = %217
+  br i1 %218, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %224
+
+224:                                              ; preds = %223
+  call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %19, ptr noundef nonnull align 8 dereferenceable(48) %2) #20
+  %.sroa.0.0.copyload.i121 = load ptr, ptr %185, align 8
+  %225 = getelementptr inbounds i8, ptr %18, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %225, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
+  %226 = getelementptr inbounds i8, ptr %18, i64 32
+  store i32 6, ptr %226, align 8
+  %.sroa.4148.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 36
+  store i32 0, ptr %.sroa.4148.0..sroa_idx, align 4
+  %.sroa.5149.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
+  store ptr null, ptr %.sroa.5149.0..sroa_idx, align 8
+  %.sroa.6150.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 48
+  store ptr %.sroa.0.0.copyload.i121, ptr %.sroa.6150.0..sroa_idx, align 8
+  store i32 %101, ptr %18, align 8, !alias.scope !295
+  %227 = getelementptr inbounds i8, ptr %18, i64 4
+  store i32 1, ptr %227, align 4, !alias.scope !295
+  %.str.118..str.119 = select i1 %.1, ptr @.str.118, ptr @.str.119
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %18, ptr noundef nonnull @.str.117, ptr noundef nonnull %.str.118..str.119)
+  br label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152
+
+228:                                              ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
+  %229 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %229, align 1
+  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.12, i32 noundef 2438) #21
+  unreachable
+
+_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %206, %214, %223, %183
+  br i1 %.1, label %.preheader180, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152
+
+.preheader180:                                    ; preds = %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
+  %230 = getelementptr inbounds i8, ptr %2, i64 8
+  %231 = getelementptr inbounds i8, ptr %2, i64 18
+  %232 = getelementptr inbounds i8, ptr %2, i64 40
+  %233 = getelementptr inbounds i8, ptr %7, i64 4
+  %234 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.42.0..sroa_idx.i.i123 = getelementptr inbounds i8, ptr %7, i64 12
+  %.sroa.5.0..sroa_idx.i.i124 = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.6.0..sroa_idx.i.i125 = getelementptr inbounds i8, ptr %7, i64 24
+  %235 = getelementptr inbounds i8, ptr %7, i64 32
+  %236 = getelementptr inbounds i8, ptr %7, i64 36
+  %237 = getelementptr inbounds i8, ptr %7, i64 40
+  %238 = getelementptr inbounds i8, ptr %7, i64 48
+  %239 = getelementptr inbounds i8, ptr %2, i64 32
+  br label %240
+
+240:                                              ; preds = %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126, %.preheader180
+  %indvars.iv197 = phi i64 [ 0, %.preheader180 ], [ %indvars.iv.next198, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126 ]
+  %241 = getelementptr inbounds %class.VerificationType, ptr %11, i64 %indvars.iv197
+  %.sroa.0.0.copyload = load ptr, ptr %241, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
+  %242 = load i32, ptr %230, align 8
+  %243 = load i16, ptr %231, align 2
+  %244 = zext i16 %243 to i32
+  %.not.i122 = icmp slt i32 %242, %244
+  br i1 %.not.i122, label %249, label %245
+
+245:                                              ; preds = %240
+  %246 = load ptr, ptr %232, align 8
+  %247 = load i32, ptr %2, align 8
+  call void @llvm.experimental.noalias.scope.decl(metadata !298)
+  %248 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !301
+  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %248, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !301
+  store i32 %247, ptr %7, align 8, !alias.scope !298
+  store i32 7, ptr %233, align 4, !alias.scope !298
+  store i32 8, ptr %234, align 8, !alias.scope !298
+  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i123, align 4, !alias.scope !298
+  store ptr %248, ptr %.sroa.5.0..sroa_idx.i.i124, align 8, !alias.scope !298
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i125, align 8, !alias.scope !298
+  store i32 9, ptr %235, align 8, !alias.scope !298
+  store i32 0, ptr %236, align 4, !alias.scope !298
+  store ptr null, ptr %237, align 8, !alias.scope !298
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %238, align 8, !alias.scope !298
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %246, ptr noundef nonnull byval(%class.ErrorContext) align 8 %7, ptr noundef nonnull @.str.181)
+  br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126
+
+249:                                              ; preds = %240
+  %250 = load ptr, ptr %239, align 8
+  %251 = add nsw i32 %242, 1
+  store i32 %251, ptr %230, align 8
+  %252 = sext i32 %242 to i64
+  %253 = getelementptr inbounds %class.VerificationType, ptr %250, i64 %252
+  store ptr %.sroa.0.0.copyload, ptr %253, align 8
+  br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126
+
+_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126: ; preds = %245, %249
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
+  %254 = load ptr, ptr %31, align 8
+  %255 = icmp ne ptr %254, null
+  %256 = load ptr, ptr %34, align 8
+  %257 = icmp ne ptr %256, null
+  %or.cond173 = select i1 %255, i1 true, i1 %257
+  %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
+  %exitcond201.not = icmp eq i64 %indvars.iv.next198, %.0.i
+  %or.cond217 = select i1 %or.cond173, i1 true, i1 %exitcond201.not
+  br i1 %or.cond217, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, label %240, !llvm.loop !304
+
+.critedge115:                                     ; preds = %.critedge, %178
+  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %163) #20
+  br label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152
+
+_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152: ; preds = %148, %.preheader182, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit126, %.preheader178, %133, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit, %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, %217, %211, %194, %.critedge115, %155, %140, %224
+  call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #20
+  br label %258
+
+258:                                              ; preds = %36, %33, %6, %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread152, %_ZNK16VerificationType8is_arrayEv.exit.thread
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden void @_ZN13ClassVerifier26verify_invoke_instructionsEP17RawBytecodeStreamjP13StackMapFramebPb16VerificationTypeRK18constantPoolHandleP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef %5, i64 %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #1 align 2 {
   %11 = alloca %class.VerificationType, align 8
   %12 = alloca %class.ErrorContext, align 8
   %13 = alloca %class.ErrorContext, align 8
-  %14 = alloca %class.VerificationType, align 8
-  %15 = alloca [2 x i64], align 16
-  %16 = alloca %class.SignatureStream, align 8
-  %17 = alloca %class.VerificationType, align 8
-  %18 = alloca %class.fieldDescriptor, align 8
-  %19 = alloca %class.ErrorContext, align 8
-  %20 = alloca %class.TypeOrigin, align 8
-  %21 = alloca %class.VerificationType, align 8
-  %22 = alloca %class.ErrorContext, align 8
-  %23 = alloca %class.TypeOrigin, align 8
+  %14 = alloca %class.ErrorContext, align 8
+  %15 = alloca %class.ErrorContext, align 8
+  %16 = alloca %class.VerificationType, align 8
+  %17 = alloca %class.ErrorContext, align 8
+  %18 = alloca %class.ErrorContext, align 8
+  %19 = alloca %class.VerificationType, align 8
+  %20 = alloca %class.VerificationType, align 8
+  %21 = alloca %class.ErrorContext, align 8
+  %22 = alloca %class.TypeOrigin, align 8
+  %23 = alloca %class.ErrorContext, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
@@ -10681,1499 +11496,755 @@ define hidden void @_ZN13ClassVerifier25verify_field_instructionsEP17RawBytecode
   %33 = getelementptr inbounds i8, ptr %32, i64 1
   %.0.i.i.i.i.i = load i16, ptr %33, align 1
   %34 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
-  tail call void @_ZN13ClassVerifier14verify_cp_typeEitRK18constantPoolHandlejP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %30, i16 noundef zeroext %34, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 512, ptr noundef %5)
-  %35 = getelementptr inbounds i8, ptr %5, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %.not = icmp eq ptr %36, null
-  br i1 %.not, label %37, label %313
-
-37:                                               ; preds = %6
-  %38 = getelementptr inbounds i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8
-  %.not191 = icmp eq ptr %39, null
-  br i1 %.not191, label %40, label %313
-
-40:                                               ; preds = %37
-  %41 = load ptr, ptr %3, align 8
-  %42 = zext i16 %34 to i32
-  %43 = tail call noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %41, i32 noundef %42) #20
-  %44 = zext i16 %43 to i32
-  %45 = tail call noundef zeroext i16 @_ZN12ConstantPool17name_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %41, i32 noundef %44) #20
-  %46 = getelementptr inbounds i8, ptr %41, i64 72
-  %47 = zext i16 %45 to i64
-  %48 = getelementptr inbounds i64, ptr %46, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %3, align 8
-  %51 = tail call noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %50, i32 noundef %42) #20
-  %52 = zext i16 %51 to i32
-  %53 = tail call noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %50, i32 noundef %52) #20
-  %54 = getelementptr inbounds i8, ptr %50, i64 72
-  %55 = zext i16 %53 to i64
-  %56 = getelementptr inbounds i64, ptr %54, i64 %55
-  %57 = load ptr, ptr %56, align 8
-  %58 = load ptr, ptr %3, align 8
-  %59 = tail call noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %58, i32 noundef %42) #20
-  %60 = zext i16 %59 to i32
-  %61 = load ptr, ptr %3, align 8
-  %62 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %61, i32 noundef %60) #20
-  %63 = load ptr, ptr %35, align 8
-  %64 = icmp ne ptr %63, null
-  %65 = load ptr, ptr %38, align 8
-  %66 = icmp ne ptr %65, null
-  %or.cond = select i1 %64, i1 true, i1 %66
-  br i1 %or.cond, label %313, label %67
-
-67:                                               ; preds = %40
-  %68 = ptrtoint ptr %62 to i64
-  %69 = and i64 %68, 3
-  %70 = icmp ne i64 %69, 0
-  %71 = icmp eq ptr %62, null
-  %or.cond.i = or i1 %71, %70
-  br i1 %or.cond.i, label %_ZNK16VerificationType8is_arrayEv.exit.thread, label %72
-
-72:                                               ; preds = %67
-  %73 = getelementptr inbounds i8, ptr %62, i64 4
-  %74 = load i16, ptr %73, align 4
-  %.not.i = icmp eq i16 %74, 0
-  br i1 %.not.i, label %_ZNK16VerificationType8is_arrayEv.exit.thread, label %_ZNK16VerificationType9is_objectEv.exit
-
-_ZNK16VerificationType9is_objectEv.exit:          ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %62, i64 6
-  %76 = load i8, ptr %75, align 1
-  %.not192 = icmp eq i8 %76, 91
-  br i1 %.not192, label %.thread, label %91
-
-.thread:                                          ; preds = %_ZNK16VerificationType9is_objectEv.exit
-  %77 = icmp ne i16 %74, 1
-  %or.cond231 = and i1 %4, %77
-  br i1 %or.cond231, label %_ZNK16VerificationType8is_arrayEv.exit, label %_ZNK16VerificationType8is_arrayEv.exit.thread
-
-_ZNK16VerificationType8is_arrayEv.exit:           ; preds = %.thread
-  %78 = getelementptr inbounds i8, ptr %62, i64 6
-  %79 = load i8, ptr %78, align 1
-  %80 = icmp eq i8 %79, 91
-  br i1 %80, label %91, label %_ZNK16VerificationType8is_arrayEv.exit.thread
-
-_ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %72, %67, %.thread, %_ZNK16VerificationType8is_arrayEv.exit
-  %81 = load i32, ptr %29, align 8
-  %82 = getelementptr inbounds i8, ptr %13, i64 8
-  store i32 4, ptr %82, align 8
-  %.sroa.4158.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 12
-  store i32 %42, ptr %.sroa.4158.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 24
-  store ptr %62, ptr %.sroa.6.0..sroa_idx, align 8
-  store i32 %81, ptr %13, align 8, !alias.scope !278
-  %83 = getelementptr inbounds i8, ptr %13, i64 4
-  store i32 1, ptr %83, align 4, !alias.scope !278
-  %84 = getelementptr inbounds i8, ptr %13, i64 32
-  store i32 9, ptr %84, align 8, !alias.scope !278
-  %85 = getelementptr inbounds i8, ptr %13, i64 36
-  store i32 0, ptr %85, align 4, !alias.scope !278
-  %86 = getelementptr inbounds i8, ptr %13, i64 40
-  store ptr null, ptr %86, align 8, !alias.scope !278
-  %87 = getelementptr inbounds i8, ptr %13, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %87, align 8, !alias.scope !278
-  %88 = getelementptr inbounds i8, ptr %0, i64 8160
-  %89 = load ptr, ptr %88, align 8
-  %90 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %89) #20
-  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %13, ptr noundef nonnull @.str.115, ptr noundef %90, i32 noundef %42)
-  br label %313
-
-91:                                               ; preds = %_ZNK16VerificationType8is_arrayEv.exit, %_ZNK16VerificationType9is_objectEv.exit
-  store i64 %68, ptr %14, align 8
-  call void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %57, i1 noundef zeroext false) #20
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %17, align 8
-  %92 = getelementptr inbounds i8, ptr %16, i64 24
-  %93 = load i8, ptr %92, align 8
-  switch i8 %93, label %103 [
-    i8 12, label %94
-    i8 13, label %94
-    i8 11, label %97
-    i8 7, label %99
-    i8 10, label %101
-    i8 4, label %101
-    i8 8, label %101
-    i8 5, label %101
-    i8 9, label %101
-    i8 6, label %102
+  %35 = getelementptr inbounds i8, ptr %1, i64 36
+  %36 = load i32, ptr %35, align 4
+  switch i32 %36, label %44 [
+    i32 185, label %45
+    i32 186, label %37
+    i32 183, label %38
+    i32 184, label %38
   ]
 
-94:                                               ; preds = %91, %91
-  %95 = call noundef ptr @_ZN15SignatureStream11find_symbolEv(ptr noundef nonnull align 8 dereferenceable(48) %16) #20
-  %96 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEP6Symbol(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %95)
-  store ptr %96, ptr %15, align 16
-  br label %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
-
-97:                                               ; preds = %91
-  store ptr inttoptr (i64 262657 to ptr), ptr %15, align 16
-  %98 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr inttoptr (i64 852993 to ptr), ptr %98, align 8
-  br label %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
-
-99:                                               ; preds = %91
-  store ptr inttoptr (i64 197121 to ptr), ptr %15, align 16
-  %100 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr inttoptr (i64 918529 to ptr), ptr %100, align 8
-  br label %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
-
-101:                                              ; preds = %91, %91, %91, %91, %91
-  store ptr inttoptr (i64 65793 to ptr), ptr %15, align 16
-  br label %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
-
-102:                                              ; preds = %91
-  store ptr inttoptr (i64 131329 to ptr), ptr %15, align 16
-  br label %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
-
-103:                                              ; preds = %91
-  %104 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %104, align 1
-  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.180, i32 noundef 509) #21
-  unreachable
-
-_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit: ; preds = %94, %97, %99, %101, %102
-  %.0.i = phi i64 [ 1, %102 ], [ 1, %101 ], [ 2, %99 ], [ 2, %97 ], [ 1, %94 ]
-  %105 = load i32, ptr %29, align 8
-  %106 = getelementptr inbounds i8, ptr %1, i64 36
-  %107 = load i32, ptr %106, align 4
-  switch i32 %107, label %283 [
-    i32 178, label %.preheader
-    i32 179, label %.preheader195
-    i32 180, label %165
-    i32 181, label %.preheader201
-  ]
-
-.preheader201:                                    ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
-  %108 = getelementptr inbounds i8, ptr %2, i64 8
-  %109 = getelementptr inbounds i8, ptr %2, i64 32
-  %110 = getelementptr inbounds i8, ptr %2, i64 40
-  br label %172
-
-.preheader195:                                    ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
-  %111 = getelementptr inbounds i8, ptr %2, i64 8
-  %112 = getelementptr inbounds i8, ptr %2, i64 32
-  %113 = getelementptr inbounds i8, ptr %2, i64 40
-  br label %142
-
-.preheader:                                       ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
-  %114 = getelementptr inbounds i8, ptr %2, i64 8
-  %115 = getelementptr inbounds i8, ptr %2, i64 18
-  %116 = getelementptr inbounds i8, ptr %2, i64 40
-  %117 = getelementptr inbounds i8, ptr %12, i64 4
-  %118 = getelementptr inbounds i8, ptr %12, i64 8
-  %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %12, i64 12
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %12, i64 16
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %12, i64 24
-  %119 = getelementptr inbounds i8, ptr %12, i64 32
-  %120 = getelementptr inbounds i8, ptr %12, i64 36
-  %121 = getelementptr inbounds i8, ptr %12, i64 40
-  %122 = getelementptr inbounds i8, ptr %12, i64 48
-  %123 = getelementptr inbounds i8, ptr %2, i64 32
-  br label %124
-
-124:                                              ; preds = %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit, %.preheader
-  %indvars.iv222 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next223, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit ]
-  %125 = getelementptr inbounds %class.VerificationType, ptr %15, i64 %indvars.iv222
-  %.sroa.026.0.copyload = load ptr, ptr %125, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %12)
-  %126 = load i32, ptr %114, align 8
-  %127 = load i16, ptr %115, align 2
-  %128 = zext i16 %127 to i32
-  %.not.i117 = icmp slt i32 %126, %128
-  br i1 %.not.i117, label %133, label %129
-
-129:                                              ; preds = %124
-  %130 = load ptr, ptr %116, align 8
-  %131 = load i32, ptr %2, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !281)
-  %132 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !284
-  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %132, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !284
-  store i32 %131, ptr %12, align 8, !alias.scope !281
-  store i32 7, ptr %117, align 4, !alias.scope !281
-  store i32 8, ptr %118, align 8, !alias.scope !281
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i, align 4, !alias.scope !281
-  store ptr %132, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !281
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i, align 8, !alias.scope !281
-  store i32 9, ptr %119, align 8, !alias.scope !281
-  store i32 0, ptr %120, align 4, !alias.scope !281
-  store ptr null, ptr %121, align 8, !alias.scope !281
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %122, align 8, !alias.scope !281
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %130, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.181)
-  br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
-
-133:                                              ; preds = %124
-  %134 = load ptr, ptr %123, align 8
-  %135 = add nsw i32 %126, 1
-  store i32 %135, ptr %114, align 8
-  %136 = sext i32 %126 to i64
-  %137 = getelementptr inbounds %class.VerificationType, ptr %134, i64 %136
-  store ptr %.sroa.026.0.copyload, ptr %137, align 8
-  br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit
-
-_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit: ; preds = %129, %133
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %12)
-  %138 = load ptr, ptr %35, align 8
-  %139 = icmp ne ptr %138, null
-  %140 = load ptr, ptr %38, align 8
-  %141 = icmp ne ptr %140, null
-  %or.cond174 = select i1 %139, i1 true, i1 %141
-  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
-  %exitcond226.not = icmp eq i64 %indvars.iv.next223, %.0.i
-  %or.cond232 = select i1 %or.cond174, i1 true, i1 %exitcond226.not
-  br i1 %or.cond232, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169, label %124, !llvm.loop !287
-
-142:                                              ; preds = %.preheader195, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-  %indvars.iv219 = phi i64 [ %.0.i, %.preheader195 ], [ %indvars.iv.next220, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit ]
-  %indvars.iv.next220 = add nsw i64 %indvars.iv219, -1
-  %143 = icmp sgt i64 %indvars.iv219, 0
-  br i1 %143, label %144, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
-
-144:                                              ; preds = %142
-  %145 = getelementptr inbounds %class.VerificationType, ptr %15, i64 %indvars.iv.next220
-  %.sroa.021.0.copyload = load ptr, ptr %145, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  store ptr %.sroa.021.0.copyload, ptr %10, align 8
-  %146 = load i32, ptr %111, align 8
-  %.not.i118 = icmp eq i32 %146, 0
-  br i1 %.not.i118, label %160, label %147
-
-147:                                              ; preds = %144
-  %148 = load ptr, ptr %112, align 8
-  %149 = sext i32 %146 to i64
-  %150 = getelementptr %class.VerificationType, ptr %148, i64 %149
-  %151 = getelementptr i8, ptr %150, i64 -8
-  %152 = load i64, ptr %151, align 8
-  store i64 %152, ptr %11, align 8
-  %153 = load ptr, ptr %113, align 8
-  %154 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %153, i1 noundef zeroext false, ptr noundef nonnull %5)
-  %155 = load ptr, ptr %35, align 8
-  %.not5.i = icmp eq ptr %155, null
-  br i1 %.not5.i, label %156, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit.thread
-
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit.thread: ; preds = %147
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  br label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
-
-156:                                              ; preds = %147
-  br i1 %154, label %157, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %156
-  %.sroa.0.0.copyload.pre.i = load ptr, ptr %10, align 8
-  br label %160
-
-157:                                              ; preds = %156
-  %158 = load i32, ptr %111, align 8
-  %159 = add nsw i32 %158, -1
-  store i32 %159, ptr %111, align 8
-  br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-
-160:                                              ; preds = %._crit_edge.i, %144
-  %.sroa.0.0.copyload.i = phi ptr [ %.sroa.0.0.copyload.pre.i, %._crit_edge.i ], [ %.sroa.021.0.copyload, %144 ]
-  %161 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull %5) #20
-  br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %157, %160
-  %.pr = load ptr, ptr %35, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %162 = icmp ne ptr %.pr, null
-  %163 = load ptr, ptr %38, align 8
-  %164 = icmp ne ptr %163, null
-  %or.cond176 = select i1 %162, i1 true, i1 %164
-  br i1 %or.cond176, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169, label %142, !llvm.loop !288
-
-165:                                              ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
-  %.sroa.018.0.copyload = load ptr, ptr %14, align 8
-  %166 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.018.0.copyload, ptr noundef nonnull %5)
-  store ptr %166, ptr %17, align 8
-  %167 = load ptr, ptr %35, align 8
-  %168 = icmp ne ptr %167, null
-  %169 = load ptr, ptr %38, align 8
-  %170 = icmp ne ptr %169, null
-  %or.cond178 = select i1 %168, i1 true, i1 %170
-  %171 = ptrtoint ptr %166 to i64
-  br i1 %or.cond178, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169, label %231
-
-172:                                              ; preds = %.preheader201, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit126
-  %indvars.iv = phi i64 [ %.0.i, %.preheader201 ], [ %indvars.iv.next, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit126 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %173 = icmp sgt i64 %indvars.iv, 0
-  br i1 %173, label %174, label %195
-
-174:                                              ; preds = %172
-  %175 = getelementptr inbounds %class.VerificationType, ptr %15, i64 %indvars.iv.next
-  %.sroa.014.0.copyload = load ptr, ptr %175, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store ptr %.sroa.014.0.copyload, ptr %8, align 8
-  %176 = load i32, ptr %108, align 8
-  %.not.i119 = icmp eq i32 %176, 0
-  br i1 %.not.i119, label %190, label %177
-
-177:                                              ; preds = %174
-  %178 = load ptr, ptr %109, align 8
-  %179 = sext i32 %176 to i64
-  %180 = getelementptr %class.VerificationType, ptr %178, i64 %179
-  %181 = getelementptr i8, ptr %180, i64 -8
-  %182 = load i64, ptr %181, align 8
-  store i64 %182, ptr %9, align 8
-  %183 = load ptr, ptr %110, align 8
-  %184 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %183, i1 noundef zeroext false, ptr noundef nonnull %5)
-  %185 = load ptr, ptr %35, align 8
-  %.not5.i120 = icmp eq ptr %185, null
-  br i1 %.not5.i120, label %186, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit126.thread
-
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit126.thread: ; preds = %177
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
-
-186:                                              ; preds = %177
-  br i1 %184, label %187, label %._crit_edge.i122
-
-._crit_edge.i122:                                 ; preds = %186
-  %.sroa.0.0.copyload.pre.i123 = load ptr, ptr %8, align 8
-  br label %190
-
-187:                                              ; preds = %186
-  %188 = load i32, ptr %108, align 8
-  %189 = add nsw i32 %188, -1
-  store i32 %189, ptr %108, align 8
-  br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit126
-
-190:                                              ; preds = %._crit_edge.i122, %174
-  %.sroa.0.0.copyload.i124 = phi ptr [ %.sroa.0.0.copyload.pre.i123, %._crit_edge.i122 ], [ %.sroa.014.0.copyload, %174 ]
-  %191 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.0.0.copyload.i124, ptr noundef nonnull %5) #20
-  br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit126
-
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit126: ; preds = %187, %190
-  %.pr168 = load ptr, ptr %35, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %192 = icmp ne ptr %.pr168, null
-  %193 = load ptr, ptr %38, align 8
-  %194 = icmp ne ptr %193, null
-  %or.cond180 = select i1 %192, i1 true, i1 %194
-  br i1 %or.cond180, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169, label %172, !llvm.loop !289
-
-195:                                              ; preds = %172
-  %196 = call ptr @_ZN13StackMapFrame9pop_stackEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull %5)
-  store ptr %196, ptr %17, align 8
-  %197 = load ptr, ptr %35, align 8
-  %198 = icmp ne ptr %197, null
-  %199 = load ptr, ptr %38, align 8
-  %200 = icmp ne ptr %199, null
-  %or.cond182 = select i1 %198, i1 true, i1 %200
-  br i1 %or.cond182, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169, label %201
-
-201:                                              ; preds = %195
-  %202 = getelementptr inbounds i8, ptr %18, i64 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %202, i8 0, i64 22, i1 false)
-  %203 = getelementptr inbounds i8, ptr %18, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %203, i8 0, i64 16, i1 false)
-  %204 = icmp eq ptr %196, inttoptr (i64 16776962 to ptr)
-  br i1 %204, label %205, label %.critedge
-
-205:                                              ; preds = %201
-  %206 = getelementptr inbounds i8, ptr %0, i64 8184
-  %.sroa.0.0.copyload.i127 = load ptr, ptr %206, align 8
-  %207 = load i64, ptr %14, align 8
-  %208 = ptrtoint ptr %.sroa.0.0.copyload.i127 to i64
-  %209 = icmp eq i64 %207, %208
-  br i1 %209, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %_ZNK16VerificationType6equalsERKS_.exit
-
-_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %205
-  %210 = inttoptr i64 %207 to ptr
-  %211 = or i64 %207, %208
-  %212 = and i64 %211, 3
-  %or.cond.i128 = icmp eq i64 %212, 0
-  %213 = icmp ne i64 %207, 0
-  %or.cond6.not8.i = and i1 %213, %or.cond.i128
-  %214 = icmp ne ptr %.sroa.0.0.copyload.i127, null
-  %or.cond7.not.i = and i1 %214, %or.cond6.not8.i
-  %215 = icmp eq ptr %.sroa.0.0.copyload.i127, %210
-  %spec.select.i = and i1 %215, %or.cond7.not.i
-  br i1 %spec.select.i, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %.critedge
-
-_ZNK16VerificationType6equalsERKS_.exit.thread:   ; preds = %205, %_ZNK16VerificationType6equalsERKS_.exit
-  %216 = getelementptr inbounds i8, ptr %0, i64 8160
-  %217 = load ptr, ptr %216, align 8
-  %218 = call noundef zeroext i1 @_ZNK13InstanceKlass16find_local_fieldEP6SymbolS1_P15fieldDescriptor(ptr noundef nonnull align 8 dereferenceable(464) %217, ptr noundef %49, ptr noundef %57, ptr noundef nonnull %18) #20
-  br i1 %218, label %219, label %.critedge
-
-219:                                              ; preds = %_ZNK16VerificationType6equalsERKS_.exit.thread
-  %.sroa.0.0.copyload.i129 = load ptr, ptr %206, align 8
-  store ptr %.sroa.0.0.copyload.i129, ptr %17, align 8
-  br label %.critedge
-
-.critedge:                                        ; preds = %201, %_ZNK16VerificationType6equalsERKS_.exit, %219, %_ZNK16VerificationType6equalsERKS_.exit.thread
-  %220 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %5)
-  %221 = load ptr, ptr %35, align 8
-  %222 = icmp ne ptr %221, null
-  %223 = load ptr, ptr %38, align 8
-  %224 = icmp ne ptr %223, null
-  %or.cond184 = select i1 %222, i1 true, i1 %224
-  br i1 %or.cond184, label %.critedge115, label %225
-
-225:                                              ; preds = %.critedge
-  br i1 %220, label %230, label %226
-
-226:                                              ; preds = %225
-  call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %20, ptr noundef nonnull align 8 dereferenceable(48) %2) #20
-  %.sroa.010.0.copyload = load ptr, ptr %14, align 8
-  %227 = getelementptr inbounds i8, ptr %19, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %227, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
-  %228 = getelementptr inbounds i8, ptr %19, i64 32
-  store i32 4, ptr %228, align 8
-  %.sroa.4160.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 36
-  store i32 %42, ptr %.sroa.4160.0..sroa_idx, align 4
-  %.sroa.5161.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 40
-  store ptr null, ptr %.sroa.5161.0..sroa_idx, align 8
-  %.sroa.6162.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 48
-  store ptr %.sroa.010.0.copyload, ptr %.sroa.6162.0..sroa_idx, align 8
-  store i32 %105, ptr %19, align 8, !alias.scope !290
-  %229 = getelementptr inbounds i8, ptr %19, i64 4
-  store i32 1, ptr %229, align 4, !alias.scope !290
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %19, ptr noundef nonnull @.str.116)
-  br label %.critedge115
-
-230:                                              ; preds = %225
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %203) #20
-  %.pre = load i64, ptr %17, align 8
-  br label %231
-
-231:                                              ; preds = %165, %230
-  %232 = phi i64 [ %.pre, %230 ], [ %171, %165 ]
-  %.1 = phi i1 [ false, %230 ], [ true, %165 ]
-  %233 = getelementptr inbounds i8, ptr %0, i64 8184
-  %234 = load i64, ptr %233, align 8
-  %235 = icmp eq i64 %234, %232
-  br i1 %235, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %_ZNK16VerificationTypeeqERKS_.exit134
-
-_ZNK16VerificationTypeeqERKS_.exit134:            ; preds = %231
-  %236 = inttoptr i64 %232 to ptr
-  %237 = inttoptr i64 %234 to ptr
-  %238 = or i64 %232, %234
-  %239 = and i64 %238, 3
-  %or.cond.i.i130 = icmp eq i64 %239, 0
-  %240 = icmp ne i64 %234, 0
-  %or.cond6.not8.i.i131 = and i1 %240, %or.cond.i.i130
-  %241 = icmp ne i64 %232, 0
-  %or.cond7.not.i.i132 = and i1 %241, %or.cond6.not8.i.i131
-  %242 = icmp eq ptr %237, %236
-  %spec.select.i.i133 = and i1 %242, %or.cond7.not.i.i132
-  br i1 %spec.select.i.i133, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %243
-
-243:                                              ; preds = %_ZNK16VerificationTypeeqERKS_.exit134
-  %244 = getelementptr inbounds i8, ptr %0, i64 8160
-  %245 = load ptr, ptr %244, align 8
-  %246 = getelementptr inbounds i8, ptr %245, i64 308
-  %247 = load i16, ptr %246, align 2
-  %248 = and i16 %247, 1
-  %.not193 = icmp eq i16 %248, 0
-  br i1 %.not193, label %255, label %249
-
-249:                                              ; preds = %243
-  br i1 %.1, label %.preheader199, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
-
-.preheader199:                                    ; preds = %249, %.preheader199
-  %indvars.iv211 = phi i64 [ %indvars.iv.next212, %.preheader199 ], [ 0, %249 ]
-  %250 = getelementptr inbounds %class.VerificationType, ptr %15, i64 %indvars.iv211
-  %.sroa.06.0.copyload = load ptr, ptr %250, align 8
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %.sroa.06.0.copyload, ptr noundef nonnull %5)
-  %251 = load ptr, ptr %35, align 8
-  %252 = icmp ne ptr %251, null
-  %253 = load ptr, ptr %38, align 8
-  %254 = icmp ne ptr %253, null
-  %or.cond186 = select i1 %252, i1 true, i1 %254
-  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next212, %.0.i
-  %or.cond233 = select i1 %or.cond186, i1 true, i1 %exitcond.not
-  br i1 %or.cond233, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169, label %.preheader199, !llvm.loop !293
-
-255:                                              ; preds = %243
-  %256 = load ptr, ptr %3, align 8
-  %257 = call noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %256, i32 noundef %42) #20
-  %258 = zext i16 %257 to i32
-  %259 = call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %256, i32 noundef %258) #20
-  %260 = load ptr, ptr %244, align 8
-  br label %261
-
-261:                                              ; preds = %262, %255
-  %.pn.i = phi ptr [ %260, %255 ], [ %.0.i135, %262 ]
-  %.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 120
-  %.0.i135 = load ptr, ptr %.0.in.i, align 8
-  %.not.not.not.not.i.not = icmp eq ptr %.0.i135, null
-  br i1 %.not.not.not.not.i.not, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %262
-
-262:                                              ; preds = %261
-  %263 = getelementptr inbounds i8, ptr %.0.i135, i64 24
-  %264 = load ptr, ptr %263, align 8
-  %265 = icmp eq ptr %264, %259
-  br i1 %265, label %266, label %261, !llvm.loop !294
-
-266:                                              ; preds = %262
-  %267 = call noundef ptr @_ZN13ClassVerifier10load_classEP6SymbolP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %259, ptr noundef nonnull %5)
-  %268 = load ptr, ptr %35, align 8
-  %.not194 = icmp eq ptr %268, null
-  br i1 %.not194, label %269, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
-
-269:                                              ; preds = %266
-  %270 = load ptr, ptr %244, align 8
-  %271 = call noundef zeroext i1 @_ZN13ClassVerifier19is_protected_accessEP13InstanceKlassP5KlassP6SymbolS5_b(ptr nonnull align 8 poison, ptr noundef %270, ptr noundef %267, ptr noundef %49, ptr noundef %57, i1 noundef zeroext false)
-  br i1 %271, label %272, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
-
-272:                                              ; preds = %269
-  %.sroa.0.0.copyload.i136 = load ptr, ptr %233, align 8
-  store ptr %.sroa.0.0.copyload.i136, ptr %21, align 8
-  %273 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %5)
-  %274 = load ptr, ptr %35, align 8
-  %275 = icmp ne ptr %274, null
-  %276 = load ptr, ptr %38, align 8
-  %277 = icmp ne ptr %276, null
-  %or.cond188 = select i1 %275, i1 true, i1 %277
-  br i1 %or.cond188, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169, label %278
-
-278:                                              ; preds = %272
-  br i1 %273, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %279
-
-279:                                              ; preds = %278
-  call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %23, ptr noundef nonnull align 8 dereferenceable(48) %2) #20
-  %.sroa.0.0.copyload.i137 = load ptr, ptr %233, align 8
-  %280 = getelementptr inbounds i8, ptr %22, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %280, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
-  %281 = getelementptr inbounds i8, ptr %22, i64 32
-  store i32 6, ptr %281, align 8
-  %.sroa.4164.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 36
-  store i32 0, ptr %.sroa.4164.0..sroa_idx, align 4
-  %.sroa.5165.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 40
-  store ptr null, ptr %.sroa.5165.0..sroa_idx, align 8
-  %.sroa.6166.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 48
-  store ptr %.sroa.0.0.copyload.i137, ptr %.sroa.6166.0..sroa_idx, align 8
-  store i32 %105, ptr %22, align 8, !alias.scope !295
-  %282 = getelementptr inbounds i8, ptr %22, i64 4
-  store i32 1, ptr %282, align 4, !alias.scope !295
-  %.str.118..str.119 = select i1 %.1, ptr @.str.118, ptr @.str.119
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %22, ptr noundef nonnull @.str.117, ptr noundef nonnull %.str.118..str.119)
-  br label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
-
-283:                                              ; preds = %_ZN13ClassVerifier30change_sig_to_verificationTypeEP15SignatureStreamP16VerificationType.exit
-  %284 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %284, align 1
-  call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.12, i32 noundef 2438) #21
-  unreachable
-
-_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %261, %231, %269, %278, %_ZNK16VerificationTypeeqERKS_.exit134
-  br i1 %.1, label %.preheader197, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
-
-.preheader197:                                    ; preds = %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
-  %285 = getelementptr inbounds i8, ptr %2, i64 8
-  %286 = getelementptr inbounds i8, ptr %2, i64 18
-  %287 = getelementptr inbounds i8, ptr %2, i64 40
-  %288 = getelementptr inbounds i8, ptr %7, i64 4
-  %289 = getelementptr inbounds i8, ptr %7, i64 8
-  %.sroa.42.0..sroa_idx.i.i139 = getelementptr inbounds i8, ptr %7, i64 12
-  %.sroa.5.0..sroa_idx.i.i140 = getelementptr inbounds i8, ptr %7, i64 16
-  %.sroa.6.0..sroa_idx.i.i141 = getelementptr inbounds i8, ptr %7, i64 24
-  %290 = getelementptr inbounds i8, ptr %7, i64 32
-  %291 = getelementptr inbounds i8, ptr %7, i64 36
-  %292 = getelementptr inbounds i8, ptr %7, i64 40
-  %293 = getelementptr inbounds i8, ptr %7, i64 48
-  %294 = getelementptr inbounds i8, ptr %2, i64 32
-  br label %295
-
-295:                                              ; preds = %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit142, %.preheader197
-  %indvars.iv214 = phi i64 [ 0, %.preheader197 ], [ %indvars.iv.next215, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit142 ]
-  %296 = getelementptr inbounds %class.VerificationType, ptr %15, i64 %indvars.iv214
-  %.sroa.0.0.copyload = load ptr, ptr %296, align 8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
-  %297 = load i32, ptr %285, align 8
-  %298 = load i16, ptr %286, align 2
-  %299 = zext i16 %298 to i32
-  %.not.i138 = icmp slt i32 %297, %299
-  br i1 %.not.i138, label %304, label %300
-
-300:                                              ; preds = %295
-  %301 = load ptr, ptr %287, align 8
-  %302 = load i32, ptr %2, align 8
-  call void @llvm.experimental.noalias.scope.decl(metadata !298)
-  %303 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i32 noundef 0) #20, !noalias !301
-  call void @_ZN13StackMapFrameC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %303, ptr noundef nonnull align 8 dereferenceable(48) %2), !noalias !301
-  store i32 %302, ptr %7, align 8, !alias.scope !298
-  store i32 7, ptr %288, align 4, !alias.scope !298
-  store i32 8, ptr %289, align 8, !alias.scope !298
-  store i32 0, ptr %.sroa.42.0..sroa_idx.i.i139, align 4, !alias.scope !298
-  store ptr %303, ptr %.sroa.5.0..sroa_idx.i.i140, align 8, !alias.scope !298
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %.sroa.6.0..sroa_idx.i.i141, align 8, !alias.scope !298
-  store i32 9, ptr %290, align 8, !alias.scope !298
-  store i32 0, ptr %291, align 4, !alias.scope !298
-  store ptr null, ptr %292, align 8, !alias.scope !298
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %293, align 8, !alias.scope !298
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %301, ptr noundef nonnull byval(%class.ErrorContext) align 8 %7, ptr noundef nonnull @.str.181)
-  br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit142
-
-304:                                              ; preds = %295
-  %305 = load ptr, ptr %294, align 8
-  %306 = add nsw i32 %297, 1
-  store i32 %306, ptr %285, align 8
-  %307 = sext i32 %297 to i64
-  %308 = getelementptr inbounds %class.VerificationType, ptr %305, i64 %307
-  store ptr %.sroa.0.0.copyload, ptr %308, align 8
-  br label %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit142
-
-_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit142: ; preds = %300, %304
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %7)
-  %309 = load ptr, ptr %35, align 8
-  %310 = icmp ne ptr %309, null
-  %311 = load ptr, ptr %38, align 8
-  %312 = icmp ne ptr %311, null
-  %or.cond190 = select i1 %310, i1 true, i1 %312
-  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
-  %exitcond218.not = icmp eq i64 %indvars.iv.next215, %.0.i
-  %or.cond234 = select i1 %or.cond190, i1 true, i1 %exitcond218.not
-  br i1 %or.cond234, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169, label %295, !llvm.loop !304
-
-.critedge115:                                     ; preds = %.critedge, %226
-  call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %203) #20
-  br label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169
-
-_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169: ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit126, %.preheader199, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit142, %142, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit, %_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread.exit, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit126.thread, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit.thread, %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, %272, %266, %249, %.critedge115, %195, %165, %279
-  call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #20
-  br label %313
-
-313:                                              ; preds = %40, %37, %6, %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit.thread169, %_ZNK16VerificationType8is_arrayEv.exit.thread
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ClassVerifier26verify_invoke_instructionsEP17RawBytecodeStreamjP13StackMapFramebPb16VerificationTypeRK18constantPoolHandleP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef %5, i64 %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #1 align 2 {
-  %11 = alloca %class.VerificationType, align 8
-  %12 = alloca %class.VerificationType, align 8
-  %13 = alloca %class.VerificationType, align 8
-  %14 = alloca %class.ErrorContext, align 8
-  %15 = alloca %class.ErrorContext, align 8
-  %16 = alloca %class.ErrorContext, align 8
-  %17 = alloca %class.ErrorContext, align 8
-  %18 = alloca %class.VerificationType, align 8
-  %19 = alloca %class.ErrorContext, align 8
-  %20 = alloca %class.ErrorContext, align 8
-  %21 = alloca %class.VerificationType, align 8
-  %22 = alloca %class.VerificationType, align 8
-  %23 = alloca %class.ErrorContext, align 8
-  %24 = alloca %class.TypeOrigin, align 8
-  %25 = alloca %class.ErrorContext, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 56
-  %31 = getelementptr inbounds i8, ptr %1, i64 24
-  %32 = load i32, ptr %31, align 8
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %30, i64 %33
-  %35 = getelementptr inbounds i8, ptr %34, i64 1
-  %.0.i.i.i.i.i = load i16, ptr %35, align 1
-  %36 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
-  %37 = getelementptr inbounds i8, ptr %1, i64 36
-  %38 = load i32, ptr %37, align 4
-  switch i32 %38, label %46 [
-    i32 185, label %47
-    i32 186, label %39
-    i32 183, label %40
-    i32 184, label %40
-  ]
-
-39:                                               ; preds = %10
-  br label %47
-
-40:                                               ; preds = %10, %10
-  %41 = getelementptr inbounds i8, ptr %0, i64 8160
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %42) #20
-  %44 = icmp ult i16 %43, 52
-  %45 = select i1 %44, i32 1024, i32 3072
-  %.pre = load i32, ptr %31, align 8
-  br label %47
-
-46:                                               ; preds = %10
-  br label %47
-
-47:                                               ; preds = %10, %46, %40, %39
-  %48 = phi i32 [ %32, %46 ], [ %.pre, %40 ], [ %32, %39 ], [ %32, %10 ]
-  %.0 = phi i32 [ 1024, %46 ], [ %45, %40 ], [ 262144, %39 ], [ 2048, %10 ]
-  tail call void @_ZN13ClassVerifier14verify_cp_typeEitRK18constantPoolHandlejP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %48, i16 noundef zeroext %36, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.0, ptr noundef %9)
-  %49 = getelementptr inbounds i8, ptr %9, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %.not = icmp eq ptr %50, null
-  br i1 %.not, label %51, label %.loopexit
-
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
-  %53 = load ptr, ptr %52, align 8
-  %.not185 = icmp eq ptr %53, null
-  br i1 %.not185, label %54, label %.loopexit
-
-54:                                               ; preds = %51
-  %55 = load ptr, ptr %7, align 8
-  %56 = zext i16 %36 to i32
-  %57 = tail call noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %55, i32 noundef %56) #20
-  %58 = zext i16 %57 to i32
-  %59 = tail call noundef zeroext i16 @_ZN12ConstantPool17name_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %55, i32 noundef %58) #20
-  %60 = getelementptr inbounds i8, ptr %55, i64 72
-  %61 = zext i16 %59 to i64
-  %62 = getelementptr inbounds i64, ptr %60, i64 %61
-  %63 = load ptr, ptr %62, align 8
-  %64 = load ptr, ptr %7, align 8
-  %65 = tail call noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %64, i32 noundef %56) #20
-  %66 = zext i16 %65 to i32
-  %67 = tail call noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %64, i32 noundef %66) #20
-  %68 = getelementptr inbounds i8, ptr %64, i64 72
-  %69 = zext i16 %67 to i64
-  %70 = getelementptr inbounds i64, ptr %68, i64 %69
-  %71 = load ptr, ptr %70, align 8
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %13, align 8
-  %72 = icmp eq i32 %38, 186
-  br i1 %72, label %73, label %84
-
-73:                                               ; preds = %54
-  %74 = getelementptr inbounds i8, ptr %0, i64 8160
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %75) #20
-  %77 = icmp ult i16 %76, 51
-  br i1 %77, label %78, label %94
-
-78:                                               ; preds = %73
-  %79 = load ptr, ptr %74, align 8
-  %80 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %79) #20
-  %81 = zext i16 %80 to i32
-  %82 = load ptr, ptr %74, align 8
-  %83 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %82) #20
-  tail call void (ptr, ptr, ...) @_ZN13ClassVerifier18class_format_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.127, i32 noundef %81, ptr noundef %83)
+37:                                               ; preds = %10
+  br label %45
+
+38:                                               ; preds = %10, %10
+  %39 = getelementptr inbounds i8, ptr %0, i64 8160
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %40) #20
+  %42 = icmp ult i16 %41, 52
+  %43 = select i1 %42, i32 1024, i32 3072
+  %.pre = load i32, ptr %29, align 8
+  br label %45
+
+44:                                               ; preds = %10
+  br label %45
+
+45:                                               ; preds = %10, %44, %38, %37
+  %46 = phi i32 [ %30, %44 ], [ %.pre, %38 ], [ %30, %37 ], [ %30, %10 ]
+  %.0 = phi i32 [ 1024, %44 ], [ %43, %38 ], [ 262144, %37 ], [ 2048, %10 ]
+  tail call void @_ZN13ClassVerifier14verify_cp_typeEitRK18constantPoolHandlejP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %46, i16 noundef zeroext %34, ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %.0, ptr noundef %9)
+  %47 = getelementptr inbounds i8, ptr %9, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %.not = icmp eq ptr %48, null
+  br i1 %.not, label %49, label %.loopexit
+
+49:                                               ; preds = %45
+  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = load ptr, ptr %50, align 8
+  %.not181 = icmp eq ptr %51, null
+  br i1 %.not181, label %52, label %.loopexit
+
+52:                                               ; preds = %49
+  %53 = load ptr, ptr %7, align 8
+  %54 = zext i16 %34 to i32
+  %55 = tail call noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %53, i32 noundef %54) #20
+  %56 = zext i16 %55 to i32
+  %57 = tail call noundef zeroext i16 @_ZN12ConstantPool17name_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %53, i32 noundef %56) #20
+  %58 = getelementptr inbounds i8, ptr %53, i64 72
+  %59 = zext i16 %57 to i64
+  %60 = getelementptr inbounds i64, ptr %58, i64 %59
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %7, align 8
+  %63 = tail call noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %62, i32 noundef %54) #20
+  %64 = zext i16 %63 to i32
+  %65 = tail call noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %62, i32 noundef %64) #20
+  %66 = getelementptr inbounds i8, ptr %62, i64 72
+  %67 = zext i16 %65 to i64
+  %68 = getelementptr inbounds i64, ptr %66, i64 %67
+  %69 = load ptr, ptr %68, align 8
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %11, align 8
+  %70 = icmp eq i32 %36, 186
+  br i1 %70, label %71, label %82
+
+71:                                               ; preds = %52
+  %72 = getelementptr inbounds i8, ptr %0, i64 8160
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %73) #20
+  %75 = icmp ult i16 %74, 51
+  br i1 %75, label %76, label %92
+
+76:                                               ; preds = %71
+  %77 = load ptr, ptr %72, align 8
+  %78 = tail call noundef zeroext i16 @_ZNK13InstanceKlass13major_versionEv(ptr noundef nonnull align 8 dereferenceable(464) %77) #20
+  %79 = zext i16 %78 to i32
+  %80 = load ptr, ptr %72, align 8
+  %81 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %80) #20
+  tail call void (ptr, ptr, ...) @_ZN13ClassVerifier18class_format_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull @.str.127, i32 noundef %79, ptr noundef %81)
   br label %.loopexit
 
-84:                                               ; preds = %54
-  %85 = load ptr, ptr %7, align 8
-  %86 = tail call noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %85, i32 noundef %56) #20
-  %87 = zext i16 %86 to i32
-  %88 = load ptr, ptr %7, align 8
-  %89 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %88, i32 noundef %87) #20
-  store ptr %89, ptr %13, align 8
-  %90 = load ptr, ptr %49, align 8
+82:                                               ; preds = %52
+  %83 = load ptr, ptr %7, align 8
+  %84 = tail call noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %83, i32 noundef %54) #20
+  %85 = zext i16 %84 to i32
+  %86 = load ptr, ptr %7, align 8
+  %87 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %86, i32 noundef %85) #20
+  store ptr %87, ptr %11, align 8
+  %88 = load ptr, ptr %47, align 8
+  %89 = icmp ne ptr %88, null
+  %90 = load ptr, ptr %50, align 8
   %91 = icmp ne ptr %90, null
-  %92 = load ptr, ptr %52, align 8
-  %93 = icmp ne ptr %92, null
-  %or.cond = select i1 %91, i1 true, i1 %93
-  br i1 %or.cond, label %.loopexit, label %94
+  %or.cond = select i1 %89, i1 true, i1 %91
+  br i1 %or.cond, label %.loopexit, label %92
 
-94:                                               ; preds = %84, %73
-  %95 = load ptr, ptr %7, align 8
-  %96 = tail call noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %95, i32 noundef %56) #20
+92:                                               ; preds = %82, %71
+  %93 = load ptr, ptr %7, align 8
+  %94 = tail call noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %93, i32 noundef %54) #20
+  %95 = zext i16 %94 to i32
+  %96 = tail call noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %93, i32 noundef %95) #20
   %97 = zext i16 %96 to i32
-  %98 = tail call noundef zeroext i16 @_ZN12ConstantPool22signature_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %95, i32 noundef %97) #20
-  %99 = zext i16 %98 to i32
-  %100 = getelementptr inbounds i8, ptr %0, i64 40
-  %101 = lshr i32 %99, 3
-  %102 = xor i32 %101, %99
-  %.lhs.trunc = trunc nuw i32 %102 to i16
-  %103 = urem i16 %.lhs.trunc, 1007
-  %104 = zext nneg i16 %103 to i64
-  %105 = getelementptr inbounds ptr, ptr %100, i64 %104
-  %106 = load ptr, ptr %105, align 8
-  %.not11.i.i.i = icmp eq ptr %106, null
-  br i1 %.not11.i.i.i, label %.loopexit191, label %.lr.ph.i.i.i
+  %98 = getelementptr inbounds i8, ptr %0, i64 40
+  %99 = lshr i32 %97, 3
+  %100 = xor i32 %99, %97
+  %.lhs.trunc = trunc nuw i32 %100 to i16
+  %101 = urem i16 %.lhs.trunc, 1007
+  %102 = zext nneg i16 %101 to i64
+  %103 = getelementptr inbounds ptr, ptr %98, i64 %102
+  %104 = load ptr, ptr %103, align 8
+  %.not11.i.i.i = icmp eq ptr %104, null
+  br i1 %.not11.i.i.i, label %.loopexit187, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %94, %114
-  %107 = phi ptr [ %116, %114 ], [ %106, %94 ]
-  %108 = load i32, ptr %107, align 8
-  %109 = icmp eq i32 %108, %102
-  br i1 %109, label %110, label %114
+.lr.ph.i.i.i:                                     ; preds = %92, %112
+  %105 = phi ptr [ %114, %112 ], [ %104, %92 ]
+  %106 = load i32, ptr %105, align 8
+  %107 = icmp eq i32 %106, %100
+  br i1 %107, label %108, label %112
 
-110:                                              ; preds = %.lr.ph.i.i.i
-  %111 = getelementptr inbounds i8, ptr %107, i64 4
-  %112 = load i32, ptr %111, align 4
-  %113 = icmp eq i32 %112, %99
-  br i1 %113, label %117, label %114
+108:                                              ; preds = %.lr.ph.i.i.i
+  %109 = getelementptr inbounds i8, ptr %105, i64 4
+  %110 = load i32, ptr %109, align 4
+  %111 = icmp eq i32 %110, %97
+  br i1 %111, label %115, label %112
 
-114:                                              ; preds = %110, %.lr.ph.i.i.i
-  %115 = getelementptr inbounds i8, ptr %107, i64 16
-  %116 = load ptr, ptr %115, align 8
-  %.not.i.i.i = icmp eq ptr %116, null
-  br i1 %.not.i.i.i, label %.loopexit191, label %.lr.ph.i.i.i, !llvm.loop !158
+112:                                              ; preds = %108, %.lr.ph.i.i.i
+  %113 = getelementptr inbounds i8, ptr %105, i64 16
+  %114 = load ptr, ptr %113, align 8
+  %.not.i.i.i = icmp eq ptr %114, null
+  br i1 %.not.i.i.i, label %.loopexit187, label %.lr.ph.i.i.i, !llvm.loop !158
 
-117:                                              ; preds = %110
-  %118 = getelementptr inbounds i8, ptr %107, i64 8
-  %119 = load ptr, ptr %118, align 8
+115:                                              ; preds = %108
+  %116 = getelementptr inbounds i8, ptr %105, i64 8
+  %117 = load ptr, ptr %116, align 8
   br label %_ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit
 
-.loopexit191:                                     ; preds = %114, %94
-  %120 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #20
-  %121 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 10, i32 noundef 8) #20
-  store i32 0, ptr %120, align 4
-  %122 = getelementptr inbounds i8, ptr %120, i64 4
-  store i32 10, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %120, i64 8
-  store ptr %121, ptr %123, align 8
+.loopexit187:                                     ; preds = %112, %92
+  %118 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #20
+  %119 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 10, i32 noundef 8) #20
+  store i32 0, ptr %118, align 4
+  %120 = getelementptr inbounds i8, ptr %118, i64 4
+  store i32 10, ptr %120, align 4
+  %121 = getelementptr inbounds i8, ptr %118, i64 8
+  store ptr %119, ptr %121, align 8
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.loopexit191
-  %indvars.iv.i.i = phi i64 [ 0, %.loopexit191 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %124 = getelementptr inbounds %class.VerificationType, ptr %121, i64 %indvars.iv.i.i
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %124, align 8
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.loopexit187
+  %indvars.iv.i.i = phi i64 [ 0, %.loopexit187 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %122 = getelementptr inbounds %class.VerificationType, ptr %119, i64 %indvars.iv.i.i
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %122, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 10
   br i1 %exitcond.not.i.i, label %_ZN13GrowableArrayI16VerificationTypeEC2Ei.exit, label %.lr.ph.i.i, !llvm.loop !305
 
 _ZN13GrowableArrayI16VerificationTypeEC2Ei.exit:  ; preds = %.lr.ph.i.i
-  %125 = getelementptr inbounds i8, ptr %120, i64 16
-  store i64 0, ptr %125, align 8
-  %126 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
-  store i32 0, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 8
-  store ptr %120, ptr %127, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 8160
+  %123 = getelementptr inbounds i8, ptr %118, i64 16
+  store i64 0, ptr %123, align 8
+  %124 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #20
+  store i32 0, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %124, i64 8
+  store ptr %118, ptr %125, align 8
+  %126 = getelementptr inbounds i8, ptr %0, i64 8160
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds i8, ptr %127, i64 224
   %129 = load ptr, ptr %128, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 224
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 72
-  %133 = zext i16 %98 to i64
-  %134 = getelementptr inbounds i64, ptr %132, i64 %133
-  %135 = load ptr, ptr %134, align 8
-  tail call void @_ZN13ClassVerifier19translate_signatureEP6SymbolP25sig_as_verification_types(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %135, ptr noundef nonnull %126)
-  %136 = load ptr, ptr %105, align 8
-  %.not11.i.i.i143 = icmp eq ptr %136, null
+  %130 = getelementptr inbounds i8, ptr %129, i64 72
+  %131 = zext i16 %96 to i64
+  %132 = getelementptr inbounds i64, ptr %130, i64 %131
+  %133 = load ptr, ptr %132, align 8
+  tail call void @_ZN13ClassVerifier19translate_signatureEP6SymbolP25sig_as_verification_types(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %133, ptr noundef nonnull %124)
+  %134 = load ptr, ptr %103, align 8
+  %.not11.i.i.i143 = icmp eq ptr %134, null
   br i1 %.not11.i.i.i143, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i, label %.lr.ph.i.i.i144
 
-.lr.ph.i.i.i144:                                  ; preds = %_ZN13GrowableArrayI16VerificationTypeEC2Ei.exit, %143
-  %.pr.i.i = phi ptr [ %145, %143 ], [ %136, %_ZN13GrowableArrayI16VerificationTypeEC2Ei.exit ]
-  %137 = load i32, ptr %.pr.i.i, align 8
-  %138 = icmp eq i32 %137, %102
-  br i1 %138, label %139, label %143
+.lr.ph.i.i.i144:                                  ; preds = %_ZN13GrowableArrayI16VerificationTypeEC2Ei.exit, %141
+  %.pr.i.i = phi ptr [ %143, %141 ], [ %134, %_ZN13GrowableArrayI16VerificationTypeEC2Ei.exit ]
+  %135 = load i32, ptr %.pr.i.i, align 8
+  %136 = icmp eq i32 %135, %100
+  br i1 %136, label %137, label %141
 
-139:                                              ; preds = %.lr.ph.i.i.i144
-  %140 = getelementptr inbounds i8, ptr %.pr.i.i, i64 4
-  %141 = load i32, ptr %140, align 4
-  %142 = icmp eq i32 %141, %99
-  br i1 %142, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.i.i, label %143
+137:                                              ; preds = %.lr.ph.i.i.i144
+  %138 = getelementptr inbounds i8, ptr %.pr.i.i, i64 4
+  %139 = load i32, ptr %138, align 4
+  %140 = icmp eq i32 %139, %97
+  br i1 %140, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.i.i, label %141
 
-143:                                              ; preds = %139, %.lr.ph.i.i.i144
-  %144 = getelementptr inbounds i8, ptr %.pr.i.i, i64 16
-  %145 = load ptr, ptr %144, align 8
-  %.not.i.i.i145 = icmp eq ptr %145, null
+141:                                              ; preds = %137, %.lr.ph.i.i.i144
+  %142 = getelementptr inbounds i8, ptr %.pr.i.i, i64 16
+  %143 = load ptr, ptr %142, align 8
+  %.not.i.i.i145 = icmp eq ptr %143, null
   br i1 %.not.i.i.i145, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i.loopexit, label %.lr.ph.i.i.i144, !llvm.loop !158
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.i.i: ; preds = %139
-  %146 = getelementptr inbounds i8, ptr %.pr.i.i, i64 8
-  store ptr %126, ptr %146, align 8
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.i.i: ; preds = %137
+  %144 = getelementptr inbounds i8, ptr %.pr.i.i, i64 8
+  store ptr %124, ptr %144, align 8
   br label %_ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit
 
-_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i.loopexit: ; preds = %143
-  %147 = getelementptr inbounds i8, ptr %.pr.i.i, i64 16
+_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i.loopexit: ; preds = %141
+  %145 = getelementptr inbounds i8, ptr %.pr.i.i, i64 16
   br label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i
 
 _ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i.loopexit, %_ZN13GrowableArrayI16VerificationTypeEC2Ei.exit
-  %.0.lcssa.i14.i.i = phi ptr [ %105, %_ZN13GrowableArrayI16VerificationTypeEC2Ei.exit ], [ %147, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i.loopexit ]
-  %148 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #20
-  store i32 %102, ptr %148, align 8
-  %149 = getelementptr inbounds i8, ptr %148, i64 4
-  store i32 %99, ptr %149, align 4
-  %150 = getelementptr inbounds i8, ptr %148, i64 8
-  store ptr %126, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %148, i64 16
-  store ptr null, ptr %151, align 8
-  store ptr %148, ptr %.0.lcssa.i14.i.i, align 8
-  %152 = getelementptr inbounds i8, ptr %0, i64 8096
-  %153 = load i32, ptr %152, align 8
-  %154 = add nsw i32 %153, 1
-  store i32 %154, ptr %152, align 8
+  %.0.lcssa.i14.i.i = phi ptr [ %103, %_ZN13GrowableArrayI16VerificationTypeEC2Ei.exit ], [ %145, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i.loopexit ]
+  %146 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #20
+  store i32 %100, ptr %146, align 8
+  %147 = getelementptr inbounds i8, ptr %146, i64 4
+  store i32 %97, ptr %147, align 4
+  %148 = getelementptr inbounds i8, ptr %146, i64 8
+  store ptr %124, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %146, i64 16
+  store ptr null, ptr %149, align 8
+  store ptr %146, ptr %.0.lcssa.i14.i.i, align 8
+  %150 = getelementptr inbounds i8, ptr %0, i64 8096
+  %151 = load i32, ptr %150, align 8
+  %152 = add nsw i32 %151, 1
+  store i32 %152, ptr %150, align 8
   br label %_ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit
 
-_ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.i.i, %117
-  %.0130 = phi ptr [ %119, %117 ], [ %126, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.i.i ], [ %126, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i ]
-  %155 = load i32, ptr %.0130, align 8
-  %156 = load i32, ptr %31, align 8
-  %157 = icmp eq i32 %38, 185
-  br i1 %157, label %158, label %192
+_ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit: ; preds = %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.i.i, %115
+  %.0130 = phi ptr [ %117, %115 ], [ %124, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.i.i ], [ %124, %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj1007EiP25sig_as_verification_typesEiS2_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIiEjRKT_EEXadL_Z16primitive_equalsIiEbSA_SA_EEE11lookup_nodeEjRKi.exit.thread.i.i ]
+  %153 = load i32, ptr %.0130, align 8
+  %154 = load i32, ptr %29, align 8
+  %155 = icmp eq i32 %36, 185
+  br i1 %155, label %156, label %190
 
-158:                                              ; preds = %_ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit
-  %159 = load ptr, ptr %26, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
-  %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 56
-  %163 = sext i32 %156 to i64
-  %164 = getelementptr inbounds i8, ptr %162, i64 %163
-  %165 = getelementptr inbounds i8, ptr %164, i64 3
-  %166 = load i8, ptr %165, align 1
-  %167 = zext i8 %166 to i32
-  %168 = add nsw i32 %155, 1
-  %.not137 = icmp eq i32 %168, %167
-  br i1 %.not137, label %179, label %169
+156:                                              ; preds = %_ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit
+  %157 = load ptr, ptr %24, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i64 8
+  %159 = load ptr, ptr %158, align 8
+  %160 = getelementptr inbounds i8, ptr %159, i64 56
+  %161 = sext i32 %154 to i64
+  %162 = getelementptr inbounds i8, ptr %160, i64 %161
+  %163 = getelementptr inbounds i8, ptr %162, i64 3
+  %164 = load i8, ptr %163, align 1
+  %165 = zext i8 %164 to i32
+  %166 = add nsw i32 %153, 1
+  %.not137 = icmp eq i32 %166, %165
+  br i1 %.not137, label %177, label %167
 
-169:                                              ; preds = %158
-  store i32 %156, ptr %14, align 8, !alias.scope !306
-  %170 = getelementptr inbounds i8, ptr %14, i64 4
+167:                                              ; preds = %156
+  store i32 %154, ptr %12, align 8, !alias.scope !306
+  %168 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 0, ptr %168, align 4, !alias.scope !306
+  %169 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 9, ptr %169, align 8, !alias.scope !306
+  %170 = getelementptr inbounds i8, ptr %12, i64 12
   store i32 0, ptr %170, align 4, !alias.scope !306
-  %171 = getelementptr inbounds i8, ptr %14, i64 8
-  store i32 9, ptr %171, align 8, !alias.scope !306
-  %172 = getelementptr inbounds i8, ptr %14, i64 12
-  store i32 0, ptr %172, align 4, !alias.scope !306
-  %173 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr null, ptr %173, align 8, !alias.scope !306
-  %174 = getelementptr inbounds i8, ptr %14, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %174, align 8, !alias.scope !306
-  %175 = getelementptr inbounds i8, ptr %14, i64 32
-  store i32 9, ptr %175, align 8, !alias.scope !306
-  %176 = getelementptr inbounds i8, ptr %14, i64 36
-  store i32 0, ptr %176, align 4, !alias.scope !306
-  %177 = getelementptr inbounds i8, ptr %14, i64 40
-  store ptr null, ptr %177, align 8, !alias.scope !306
-  %178 = getelementptr inbounds i8, ptr %14, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %178, align 8, !alias.scope !306
-  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %14, ptr noundef nonnull @.str.128)
+  %171 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr null, ptr %171, align 8, !alias.scope !306
+  %172 = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %172, align 8, !alias.scope !306
+  %173 = getelementptr inbounds i8, ptr %12, i64 32
+  store i32 9, ptr %173, align 8, !alias.scope !306
+  %174 = getelementptr inbounds i8, ptr %12, i64 36
+  store i32 0, ptr %174, align 4, !alias.scope !306
+  %175 = getelementptr inbounds i8, ptr %12, i64 40
+  store ptr null, ptr %175, align 8, !alias.scope !306
+  %176 = getelementptr inbounds i8, ptr %12, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %176, align 8, !alias.scope !306
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.128)
   br label %.loopexit
 
-179:                                              ; preds = %158
-  %180 = getelementptr inbounds i8, ptr %164, i64 4
-  %181 = load i8, ptr %180, align 1
-  %.not138 = icmp eq i8 %181, 0
-  br i1 %.not138, label %.thread, label %182
+177:                                              ; preds = %156
+  %178 = getelementptr inbounds i8, ptr %162, i64 4
+  %179 = load i8, ptr %178, align 1
+  %.not138 = icmp eq i8 %179, 0
+  br i1 %.not138, label %.thread, label %180
 
-182:                                              ; preds = %179
-  store i32 %156, ptr %15, align 8, !alias.scope !309
-  %183 = getelementptr inbounds i8, ptr %15, i64 4
+180:                                              ; preds = %177
+  store i32 %154, ptr %13, align 8, !alias.scope !309
+  %181 = getelementptr inbounds i8, ptr %13, i64 4
+  store i32 0, ptr %181, align 4, !alias.scope !309
+  %182 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 9, ptr %182, align 8, !alias.scope !309
+  %183 = getelementptr inbounds i8, ptr %13, i64 12
   store i32 0, ptr %183, align 4, !alias.scope !309
-  %184 = getelementptr inbounds i8, ptr %15, i64 8
-  store i32 9, ptr %184, align 8, !alias.scope !309
-  %185 = getelementptr inbounds i8, ptr %15, i64 12
-  store i32 0, ptr %185, align 4, !alias.scope !309
-  %186 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr null, ptr %186, align 8, !alias.scope !309
-  %187 = getelementptr inbounds i8, ptr %15, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %187, align 8, !alias.scope !309
-  %188 = getelementptr inbounds i8, ptr %15, i64 32
-  store i32 9, ptr %188, align 8, !alias.scope !309
-  %189 = getelementptr inbounds i8, ptr %15, i64 36
-  store i32 0, ptr %189, align 4, !alias.scope !309
-  %190 = getelementptr inbounds i8, ptr %15, i64 40
-  store ptr null, ptr %190, align 8, !alias.scope !309
-  %191 = getelementptr inbounds i8, ptr %15, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %191, align 8, !alias.scope !309
-  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %15, ptr noundef nonnull @.str.129)
+  %184 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr null, ptr %184, align 8, !alias.scope !309
+  %185 = getelementptr inbounds i8, ptr %13, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %185, align 8, !alias.scope !309
+  %186 = getelementptr inbounds i8, ptr %13, i64 32
+  store i32 9, ptr %186, align 8, !alias.scope !309
+  %187 = getelementptr inbounds i8, ptr %13, i64 36
+  store i32 0, ptr %187, align 4, !alias.scope !309
+  %188 = getelementptr inbounds i8, ptr %13, i64 40
+  store ptr null, ptr %188, align 8, !alias.scope !309
+  %189 = getelementptr inbounds i8, ptr %13, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %189, align 8, !alias.scope !309
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %13, ptr noundef nonnull @.str.129)
   br label %.loopexit
 
-192:                                              ; preds = %_ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit
-  br i1 %72, label %193, label %.thread
+190:                                              ; preds = %_ZN13ClassVerifier23create_method_sig_entryEP25sig_as_verification_typesi.exit
+  br i1 %70, label %191, label %.thread
 
-193:                                              ; preds = %192
-  %194 = load ptr, ptr %26, align 8
-  %195 = getelementptr inbounds i8, ptr %194, i64 8
-  %196 = load ptr, ptr %195, align 8
-  %197 = getelementptr inbounds i8, ptr %196, i64 56
-  %198 = sext i32 %156 to i64
-  %199 = getelementptr inbounds i8, ptr %197, i64 %198
-  %200 = getelementptr inbounds i8, ptr %199, i64 3
-  %201 = load i8, ptr %200, align 1
-  %.not139 = icmp eq i8 %201, 0
-  br i1 %.not139, label %202, label %205
+191:                                              ; preds = %190
+  %192 = load ptr, ptr %24, align 8
+  %193 = getelementptr inbounds i8, ptr %192, i64 8
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds i8, ptr %194, i64 56
+  %196 = sext i32 %154 to i64
+  %197 = getelementptr inbounds i8, ptr %195, i64 %196
+  %198 = getelementptr inbounds i8, ptr %197, i64 3
+  %199 = load i8, ptr %198, align 1
+  %.not139 = icmp eq i8 %199, 0
+  br i1 %.not139, label %200, label %203
 
-202:                                              ; preds = %193
-  %203 = getelementptr inbounds i8, ptr %199, i64 4
-  %204 = load i8, ptr %203, align 1
-  %.not140 = icmp eq i8 %204, 0
-  br i1 %.not140, label %.thread, label %205
+200:                                              ; preds = %191
+  %201 = getelementptr inbounds i8, ptr %197, i64 4
+  %202 = load i8, ptr %201, align 1
+  %.not140 = icmp eq i8 %202, 0
+  br i1 %.not140, label %.thread, label %203
 
-205:                                              ; preds = %202, %193
-  store i32 %156, ptr %16, align 8, !alias.scope !312
-  %206 = getelementptr inbounds i8, ptr %16, i64 4
+203:                                              ; preds = %200, %191
+  store i32 %154, ptr %14, align 8, !alias.scope !312
+  %204 = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 0, ptr %204, align 4, !alias.scope !312
+  %205 = getelementptr inbounds i8, ptr %14, i64 8
+  store i32 9, ptr %205, align 8, !alias.scope !312
+  %206 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %206, align 4, !alias.scope !312
-  %207 = getelementptr inbounds i8, ptr %16, i64 8
-  store i32 9, ptr %207, align 8, !alias.scope !312
-  %208 = getelementptr inbounds i8, ptr %16, i64 12
-  store i32 0, ptr %208, align 4, !alias.scope !312
-  %209 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr null, ptr %209, align 8, !alias.scope !312
-  %210 = getelementptr inbounds i8, ptr %16, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %210, align 8, !alias.scope !312
-  %211 = getelementptr inbounds i8, ptr %16, i64 32
-  store i32 9, ptr %211, align 8, !alias.scope !312
-  %212 = getelementptr inbounds i8, ptr %16, i64 36
-  store i32 0, ptr %212, align 4, !alias.scope !312
-  %213 = getelementptr inbounds i8, ptr %16, i64 40
-  store ptr null, ptr %213, align 8, !alias.scope !312
-  %214 = getelementptr inbounds i8, ptr %16, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %214, align 8, !alias.scope !312
-  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %16, ptr noundef nonnull @.str.130)
+  %207 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr null, ptr %207, align 8, !alias.scope !312
+  %208 = getelementptr inbounds i8, ptr %14, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %208, align 8, !alias.scope !312
+  %209 = getelementptr inbounds i8, ptr %14, i64 32
+  store i32 9, ptr %209, align 8, !alias.scope !312
+  %210 = getelementptr inbounds i8, ptr %14, i64 36
+  store i32 0, ptr %210, align 4, !alias.scope !312
+  %211 = getelementptr inbounds i8, ptr %14, i64 40
+  store ptr null, ptr %211, align 8, !alias.scope !312
+  %212 = getelementptr inbounds i8, ptr %14, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %212, align 8, !alias.scope !312
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %14, ptr noundef nonnull @.str.130)
   br label %.loopexit
 
-.thread:                                          ; preds = %179, %202, %192
-  %215 = getelementptr inbounds i8, ptr %63, i64 6
-  %216 = load i8, ptr %215, align 1
-  %217 = icmp eq i8 %216, 60
-  %.not141 = icmp eq i32 %38, 183
-  br i1 %217, label %218, label %231
+.thread:                                          ; preds = %177, %200, %190
+  %213 = getelementptr inbounds i8, ptr %61, i64 6
+  %214 = load i8, ptr %213, align 1
+  %215 = icmp eq i8 %214, 60
+  %.not141 = icmp eq i32 %36, 183
+  br i1 %215, label %216, label %229
 
-218:                                              ; preds = %.thread
-  br i1 %.not141, label %219, label %221
+216:                                              ; preds = %.thread
+  br i1 %.not141, label %217, label %219
 
-219:                                              ; preds = %218
-  %220 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
-  %.not142 = icmp eq ptr %63, %220
-  br i1 %.not142, label %.critedge, label %221
+217:                                              ; preds = %216
+  %218 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %.not142 = icmp eq ptr %61, %218
+  br i1 %.not142, label %.critedge, label %219
 
-221:                                              ; preds = %219, %218
-  store i32 %156, ptr %17, align 8, !alias.scope !315
-  %222 = getelementptr inbounds i8, ptr %17, i64 4
+219:                                              ; preds = %217, %216
+  store i32 %154, ptr %15, align 8, !alias.scope !315
+  %220 = getelementptr inbounds i8, ptr %15, i64 4
+  store i32 0, ptr %220, align 4, !alias.scope !315
+  %221 = getelementptr inbounds i8, ptr %15, i64 8
+  store i32 9, ptr %221, align 8, !alias.scope !315
+  %222 = getelementptr inbounds i8, ptr %15, i64 12
   store i32 0, ptr %222, align 4, !alias.scope !315
-  %223 = getelementptr inbounds i8, ptr %17, i64 8
-  store i32 9, ptr %223, align 8, !alias.scope !315
-  %224 = getelementptr inbounds i8, ptr %17, i64 12
-  store i32 0, ptr %224, align 4, !alias.scope !315
-  %225 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr null, ptr %225, align 8, !alias.scope !315
-  %226 = getelementptr inbounds i8, ptr %17, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %226, align 8, !alias.scope !315
-  %227 = getelementptr inbounds i8, ptr %17, i64 32
-  store i32 9, ptr %227, align 8, !alias.scope !315
-  %228 = getelementptr inbounds i8, ptr %17, i64 36
-  store i32 0, ptr %228, align 4, !alias.scope !315
-  %229 = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr null, ptr %229, align 8, !alias.scope !315
-  %230 = getelementptr inbounds i8, ptr %17, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %230, align 8, !alias.scope !315
-  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %17, ptr noundef nonnull @.str.131)
+  %223 = getelementptr inbounds i8, ptr %15, i64 16
+  store ptr null, ptr %223, align 8, !alias.scope !315
+  %224 = getelementptr inbounds i8, ptr %15, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %224, align 8, !alias.scope !315
+  %225 = getelementptr inbounds i8, ptr %15, i64 32
+  store i32 9, ptr %225, align 8, !alias.scope !315
+  %226 = getelementptr inbounds i8, ptr %15, i64 36
+  store i32 0, ptr %226, align 4, !alias.scope !315
+  %227 = getelementptr inbounds i8, ptr %15, i64 40
+  store ptr null, ptr %227, align 8, !alias.scope !315
+  %228 = getelementptr inbounds i8, ptr %15, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %228, align 8, !alias.scope !315
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %15, ptr noundef nonnull @.str.131)
   br label %.loopexit
 
-231:                                              ; preds = %.thread
-  br i1 %.not141, label %232, label %.critedge
+229:                                              ; preds = %.thread
+  br i1 %.not141, label %230, label %.critedge
 
-232:                                              ; preds = %231
-  %233 = getelementptr inbounds i8, ptr %0, i64 8160
-  %234 = load ptr, ptr %233, align 8
-  %235 = getelementptr inbounds i8, ptr %0, i64 8184
-  %.sroa.0.0.copyload.i = load ptr, ptr %235, align 8
-  %.sroa.026.0.copyload = load ptr, ptr %13, align 8
-  %236 = icmp eq ptr %.sroa.026.0.copyload, %.sroa.0.0.copyload.i
-  br i1 %236, label %.critedge, label %_ZNK16VerificationType6equalsERKS_.exit.i
+230:                                              ; preds = %229
+  %231 = getelementptr inbounds i8, ptr %0, i64 8160
+  %232 = load ptr, ptr %231, align 8
+  %233 = getelementptr inbounds i8, ptr %0, i64 8184
+  %.sroa.0.0.copyload.i = load ptr, ptr %233, align 8
+  %.sroa.026.0.copyload = load ptr, ptr %11, align 8
+  %234 = icmp eq ptr %.sroa.026.0.copyload, %.sroa.0.0.copyload.i
+  br i1 %234, label %.critedge, label %235
 
-_ZNK16VerificationType6equalsERKS_.exit.i:        ; preds = %232
-  %237 = getelementptr inbounds i8, ptr %234, i64 416
-  %238 = load ptr, ptr %237, align 8
-  %.not.i146 = icmp eq ptr %238, null
-  br i1 %.not.i146, label %.loopexit190, label %.preheader.i
+235:                                              ; preds = %230
+  %236 = getelementptr inbounds i8, ptr %232, i64 416
+  %237 = load ptr, ptr %236, align 8
+  %.not.i146 = icmp eq ptr %237, null
+  br i1 %.not.i146, label %_ZNK16VerificationType6equalsERKS_.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %_ZNK16VerificationType6equalsERKS_.exit.i
-  %239 = getelementptr inbounds i8, ptr %238, i64 8
-  %240 = load i32, ptr %238, align 8
-  %241 = icmp sgt i32 %240, 0
-  br i1 %241, label %_ZNK16VerificationType6equalsERKS_.exit14.preheader.i, label %.loopexit190
+.preheader.i:                                     ; preds = %235
+  %238 = getelementptr inbounds i8, ptr %237, i64 8
+  %239 = load i32, ptr %237, align 8
+  %240 = icmp sgt i32 %239, 0
+  br i1 %240, label %_ZNK16VerificationType6equalsERKS_.exit10.preheader.i, label %_ZNK16VerificationType6equalsERKS_.exit
 
-_ZNK16VerificationType6equalsERKS_.exit14.preheader.i: ; preds = %.preheader.i
-  %wide.trip.count.i = zext nneg i32 %240 to i64
-  br label %_ZNK16VerificationType6equalsERKS_.exit14.i
+_ZNK16VerificationType6equalsERKS_.exit10.preheader.i: ; preds = %.preheader.i
+  %wide.trip.count.i = zext nneg i32 %239 to i64
+  br label %_ZNK16VerificationType6equalsERKS_.exit10.i
 
-242:                                              ; preds = %_ZNK16VerificationType6equalsERKS_.exit14.i
+241:                                              ; preds = %_ZNK16VerificationType6equalsERKS_.exit10.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit190, label %_ZNK16VerificationType6equalsERKS_.exit14.i, !llvm.loop !318
+  br i1 %exitcond.not.i, label %_ZNK16VerificationType6equalsERKS_.exit, label %_ZNK16VerificationType6equalsERKS_.exit10.i, !llvm.loop !318
 
-_ZNK16VerificationType6equalsERKS_.exit14.i:      ; preds = %242, %_ZNK16VerificationType6equalsERKS_.exit14.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %_ZNK16VerificationType6equalsERKS_.exit14.preheader.i ], [ %indvars.iv.next.i, %242 ]
-  %243 = getelementptr inbounds ptr, ptr %239, i64 %indvars.iv.i
-  %244 = load ptr, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %244, i64 24
-  %246 = load ptr, ptr %245, align 8
-  %247 = icmp eq ptr %.sroa.026.0.copyload, %246
-  br i1 %247, label %.critedge, label %242
+_ZNK16VerificationType6equalsERKS_.exit10.i:      ; preds = %241, %_ZNK16VerificationType6equalsERKS_.exit10.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %_ZNK16VerificationType6equalsERKS_.exit10.preheader.i ], [ %indvars.iv.next.i, %241 ]
+  %242 = getelementptr inbounds ptr, ptr %238, i64 %indvars.iv.i
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds i8, ptr %243, i64 24
+  %245 = load ptr, ptr %244, align 8
+  %246 = icmp eq ptr %.sroa.026.0.copyload, %245
+  br i1 %246, label %.critedge, label %241
 
-.loopexit190:                                     ; preds = %242, %_ZNK16VerificationType6equalsERKS_.exit.i, %.preheader.i
-  %248 = getelementptr inbounds i8, ptr %234, i64 120
-  %249 = load ptr, ptr %248, align 8
-  %250 = getelementptr inbounds i8, ptr %249, i64 24
-  %251 = load ptr, ptr %250, align 8
-  %252 = icmp eq ptr %.sroa.026.0.copyload, %251
-  br i1 %252, label %.critedge, label %_ZNK16VerificationType6equalsERKS_.exit
+_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %241, %235, %.preheader.i
+  %247 = getelementptr inbounds i8, ptr %232, i64 120
+  %248 = load ptr, ptr %247, align 8
+  %249 = getelementptr inbounds i8, ptr %248, i64 24
+  %250 = load ptr, ptr %249, align 8
+  %251 = icmp eq ptr %.sroa.026.0.copyload, %250
+  br i1 %251, label %.critedge, label %252
 
-_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %.loopexit190
+252:                                              ; preds = %_ZNK16VerificationType6equalsERKS_.exit
   %253 = load ptr, ptr %7, align 8
   %254 = getelementptr inbounds i8, ptr %253, i64 8
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr inbounds i8, ptr %255, i64 4
-  %257 = zext i16 %36 to i64
+  %257 = zext i16 %34 to i64
   %258 = getelementptr inbounds i8, ptr %256, i64 %257
   %259 = load volatile i8, ptr %258, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   %260 = icmp eq i8 %259, 11
-  %.sroa.0.0.copyload.i148 = load ptr, ptr %235, align 8
-  store ptr %.sroa.0.0.copyload.i148, ptr %18, align 8
-  %261 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %9)
-  %262 = load ptr, ptr %49, align 8
+  %.sroa.0.0.copyload.i148 = load ptr, ptr %233, align 8
+  store ptr %.sroa.0.0.copyload.i148, ptr %16, align 8
+  %261 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef nonnull %9)
+  %262 = load ptr, ptr %47, align 8
   %263 = icmp ne ptr %262, null
-  %264 = load ptr, ptr %52, align 8
+  %264 = load ptr, ptr %50, align 8
   %265 = icmp ne ptr %264, null
-  %or.cond170 = select i1 %263, i1 true, i1 %265
-  br i1 %or.cond170, label %.loopexit, label %266
+  %or.cond166 = select i1 %263, i1 true, i1 %265
+  br i1 %or.cond166, label %.loopexit, label %266
 
-266:                                              ; preds = %_ZNK16VerificationType6equalsERKS_.exit
+266:                                              ; preds = %252
   br i1 %261, label %277, label %267
 
 267:                                              ; preds = %266
-  store i32 %156, ptr %19, align 8, !alias.scope !319
-  %268 = getelementptr inbounds i8, ptr %19, i64 4
+  store i32 %154, ptr %17, align 8, !alias.scope !319
+  %268 = getelementptr inbounds i8, ptr %17, i64 4
   store i32 0, ptr %268, align 4, !alias.scope !319
-  %269 = getelementptr inbounds i8, ptr %19, i64 8
+  %269 = getelementptr inbounds i8, ptr %17, i64 8
   store i32 9, ptr %269, align 8, !alias.scope !319
-  %270 = getelementptr inbounds i8, ptr %19, i64 12
+  %270 = getelementptr inbounds i8, ptr %17, i64 12
   store i32 0, ptr %270, align 4, !alias.scope !319
-  %271 = getelementptr inbounds i8, ptr %19, i64 16
+  %271 = getelementptr inbounds i8, ptr %17, i64 16
   store ptr null, ptr %271, align 8, !alias.scope !319
-  %272 = getelementptr inbounds i8, ptr %19, i64 24
+  %272 = getelementptr inbounds i8, ptr %17, i64 24
   store ptr inttoptr (i64 4294901761 to ptr), ptr %272, align 8, !alias.scope !319
-  %273 = getelementptr inbounds i8, ptr %19, i64 32
+  %273 = getelementptr inbounds i8, ptr %17, i64 32
   store i32 9, ptr %273, align 8, !alias.scope !319
-  %274 = getelementptr inbounds i8, ptr %19, i64 36
+  %274 = getelementptr inbounds i8, ptr %17, i64 36
   store i32 0, ptr %274, align 4, !alias.scope !319
-  %275 = getelementptr inbounds i8, ptr %19, i64 40
+  %275 = getelementptr inbounds i8, ptr %17, i64 40
   store ptr null, ptr %275, align 8, !alias.scope !319
-  %276 = getelementptr inbounds i8, ptr %19, i64 48
+  %276 = getelementptr inbounds i8, ptr %17, i64 48
   store ptr inttoptr (i64 4294901761 to ptr), ptr %276, align 8, !alias.scope !319
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %19, ptr noundef nonnull @.str.132)
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %17, ptr noundef nonnull @.str.132)
   br label %.loopexit
 
 277:                                              ; preds = %266
   br i1 %260, label %278, label %.critedge
 
 278:                                              ; preds = %277
-  store i32 %156, ptr %20, align 8, !alias.scope !322
-  %279 = getelementptr inbounds i8, ptr %20, i64 4
+  store i32 %154, ptr %18, align 8, !alias.scope !322
+  %279 = getelementptr inbounds i8, ptr %18, i64 4
   store i32 0, ptr %279, align 4, !alias.scope !322
-  %280 = getelementptr inbounds i8, ptr %20, i64 8
+  %280 = getelementptr inbounds i8, ptr %18, i64 8
   store i32 9, ptr %280, align 8, !alias.scope !322
-  %281 = getelementptr inbounds i8, ptr %20, i64 12
+  %281 = getelementptr inbounds i8, ptr %18, i64 12
   store i32 0, ptr %281, align 4, !alias.scope !322
-  %282 = getelementptr inbounds i8, ptr %20, i64 16
+  %282 = getelementptr inbounds i8, ptr %18, i64 16
   store ptr null, ptr %282, align 8, !alias.scope !322
-  %283 = getelementptr inbounds i8, ptr %20, i64 24
+  %283 = getelementptr inbounds i8, ptr %18, i64 24
   store ptr inttoptr (i64 4294901761 to ptr), ptr %283, align 8, !alias.scope !322
-  %284 = getelementptr inbounds i8, ptr %20, i64 32
+  %284 = getelementptr inbounds i8, ptr %18, i64 32
   store i32 9, ptr %284, align 8, !alias.scope !322
-  %285 = getelementptr inbounds i8, ptr %20, i64 36
+  %285 = getelementptr inbounds i8, ptr %18, i64 36
   store i32 0, ptr %285, align 4, !alias.scope !322
-  %286 = getelementptr inbounds i8, ptr %20, i64 40
+  %286 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr null, ptr %286, align 8, !alias.scope !322
-  %287 = getelementptr inbounds i8, ptr %20, i64 48
+  %287 = getelementptr inbounds i8, ptr %18, i64 48
   store ptr inttoptr (i64 4294901761 to ptr), ptr %287, align 8, !alias.scope !322
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %20, ptr noundef nonnull @.str.133)
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %18, ptr noundef nonnull @.str.133)
   br label %.loopexit
 
-.critedge:                                        ; preds = %_ZNK16VerificationType6equalsERKS_.exit14.i, %.loopexit190, %232, %277, %231, %219
+.critedge:                                        ; preds = %_ZNK16VerificationType6equalsERKS_.exit10.i, %230, %_ZNK16VerificationType6equalsERKS_.exit, %277, %229, %217
   %288 = getelementptr inbounds i8, ptr %.0130, i64 8
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr inbounds i8, ptr %289, i64 8
-  %291 = getelementptr inbounds i8, ptr %3, i64 8
-  %292 = getelementptr inbounds i8, ptr %3, i64 32
-  %293 = getelementptr inbounds i8, ptr %3, i64 40
-  %294 = zext i32 %155 to i64
-  br label %295
+  %291 = zext i32 %153 to i64
+  br label %292
 
-295:                                              ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit, %.critedge
-  %indvars.iv = phi i64 [ %296, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit ], [ %294, %.critedge ]
+292:                                              ; preds = %295, %.critedge
+  %indvars.iv = phi i64 [ %296, %295 ], [ %291, %.critedge ]
+  %293 = trunc nuw i64 %indvars.iv to i32
+  %294 = icmp sgt i32 %293, 0
+  br i1 %294, label %295, label %304
+
+295:                                              ; preds = %292
   %296 = add nsw i64 %indvars.iv, -1
-  %297 = trunc nuw i64 %indvars.iv to i32
-  %298 = icmp sgt i32 %297, 0
-  br i1 %298, label %299, label %321
+  %297 = load ptr, ptr %290, align 8
+  %298 = getelementptr inbounds %class.VerificationType, ptr %297, i64 %296
+  %.sroa.017.0.copyload = load ptr, ptr %298, align 8
+  %299 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.017.0.copyload, ptr noundef nonnull %9)
+  %300 = load ptr, ptr %47, align 8
+  %301 = icmp ne ptr %300, null
+  %302 = load ptr, ptr %50, align 8
+  %303 = icmp ne ptr %302, null
+  %or.cond168 = select i1 %301, i1 true, i1 %303
+  br i1 %or.cond168, label %.loopexit, label %292, !llvm.loop !325
 
-299:                                              ; preds = %295
-  %300 = load ptr, ptr %290, align 8
-  %301 = getelementptr inbounds %class.VerificationType, ptr %300, i64 %296
-  %.sroa.017.0.copyload = load ptr, ptr %301, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  store ptr %.sroa.017.0.copyload, ptr %11, align 8
-  %302 = load i32, ptr %291, align 8
-  %.not.i149 = icmp eq i32 %302, 0
-  br i1 %.not.i149, label %316, label %303
+304:                                              ; preds = %292
+  %305 = and i32 %36, -3
+  %or.cond.not = icmp eq i32 %305, 184
+  br i1 %or.cond.not, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %306
 
-303:                                              ; preds = %299
-  %304 = load ptr, ptr %292, align 8
-  %305 = sext i32 %302 to i64
-  %306 = getelementptr %class.VerificationType, ptr %304, i64 %305
-  %307 = getelementptr i8, ptr %306, i64 -8
-  %308 = load i64, ptr %307, align 8
-  store i64 %308, ptr %12, align 8
-  %309 = load ptr, ptr %293, align 8
-  %310 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %309, i1 noundef zeroext false, ptr noundef %9)
-  %311 = load ptr, ptr %49, align 8
-  %.not5.i = icmp eq ptr %311, null
-  br i1 %.not5.i, label %312, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit.thread
+306:                                              ; preds = %304
+  %307 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %308 = icmp eq ptr %61, %307
+  br i1 %308, label %309, label %320
 
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit.thread: ; preds = %303
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  br label %.loopexit
+309:                                              ; preds = %306
+  %.sroa.015.0.copyload = load ptr, ptr %11, align 8
+  call void @_ZN13ClassVerifier18verify_invoke_initEP17RawBytecodeStreamt16VerificationTypeP13StackMapFramejbPbRK18constantPoolHandleP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull %1, i16 noundef zeroext %34, ptr %.sroa.015.0.copyload, ptr noundef %3, i32 noundef %2, i1 noundef zeroext %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, ptr noundef nonnull %9)
+  %310 = load ptr, ptr %47, align 8
+  %311 = icmp ne ptr %310, null
+  %312 = load ptr, ptr %50, align 8
+  %313 = icmp ne ptr %312, null
+  %or.cond170 = select i1 %311, i1 true, i1 %313
+  br i1 %or.cond170, label %.loopexit, label %314
 
-312:                                              ; preds = %303
-  br i1 %310, label %313, label %._crit_edge.i
+314:                                              ; preds = %309
+  %315 = getelementptr inbounds i8, ptr %0, i64 8160
+  %316 = load ptr, ptr %315, align 8
+  %317 = getelementptr inbounds i8, ptr %316, i64 308
+  %318 = load i16, ptr %317, align 2
+  %319 = and i16 %318, 1
+  %.not185 = icmp eq i16 %319, 0
+  br i1 %.not185, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %.loopexit
 
-._crit_edge.i:                                    ; preds = %312
-  %.sroa.0.0.copyload.pre.i = load ptr, ptr %11, align 8
-  br label %316
-
-313:                                              ; preds = %312
-  %314 = load i32, ptr %291, align 8
-  %315 = add nsw i32 %314, -1
-  store i32 %315, ptr %291, align 8
-  br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-
-316:                                              ; preds = %._crit_edge.i, %299
-  %.sroa.0.0.copyload.i150 = phi ptr [ %.sroa.0.0.copyload.pre.i, %._crit_edge.i ], [ %.sroa.017.0.copyload, %299 ]
-  %317 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.0.0.copyload.i150, ptr noundef %9) #20
-  br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %313, %316
-  %.pr = load ptr, ptr %49, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  %318 = icmp ne ptr %.pr, null
-  %319 = load ptr, ptr %52, align 8
-  %320 = icmp ne ptr %319, null
-  %or.cond172 = select i1 %318, i1 true, i1 %320
-  br i1 %or.cond172, label %.loopexit, label %295, !llvm.loop !325
-
-321:                                              ; preds = %295
-  %322 = and i32 %38, -3
-  %or.cond.not = icmp eq i32 %322, 184
-  br i1 %or.cond.not, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %323
-
-323:                                              ; preds = %321
-  %324 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
-  %325 = icmp eq ptr %63, %324
-  br i1 %325, label %326, label %337
-
-326:                                              ; preds = %323
-  %.sroa.015.0.copyload = load ptr, ptr %13, align 8
-  call void @_ZN13ClassVerifier18verify_invoke_initEP17RawBytecodeStreamt16VerificationTypeP13StackMapFramejbPbRK18constantPoolHandleP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull %1, i16 noundef zeroext %36, ptr %.sroa.015.0.copyload, ptr noundef %3, i32 noundef %2, i1 noundef zeroext %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8, ptr noundef nonnull %9)
-  %327 = load ptr, ptr %49, align 8
-  %328 = icmp ne ptr %327, null
-  %329 = load ptr, ptr %52, align 8
-  %330 = icmp ne ptr %329, null
-  %or.cond174 = select i1 %328, i1 true, i1 %330
-  br i1 %or.cond174, label %.loopexit, label %331
-
-331:                                              ; preds = %326
-  %332 = getelementptr inbounds i8, ptr %0, i64 8160
-  %333 = load ptr, ptr %332, align 8
-  %334 = getelementptr inbounds i8, ptr %333, i64 308
-  %335 = load i16, ptr %334, align 2
-  %336 = and i16 %335, 1
-  %.not188 = icmp eq i16 %336, 0
-  br i1 %.not188, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %.loopexit
-
-337:                                              ; preds = %323
-  switch i32 %38, label %406 [
-    i32 183, label %338
-    i32 182, label %345
+320:                                              ; preds = %306
+  switch i32 %36, label %388 [
+    i32 183, label %321
+    i32 182, label %328
   ]
 
-338:                                              ; preds = %337
-  %339 = getelementptr inbounds i8, ptr %0, i64 8184
-  %.sroa.0.0.copyload.i151 = load ptr, ptr %339, align 8
-  %340 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.0.0.copyload.i151, ptr noundef nonnull %9)
-  %341 = load ptr, ptr %49, align 8
-  %342 = icmp ne ptr %341, null
-  %343 = load ptr, ptr %52, align 8
-  %344 = icmp ne ptr %343, null
-  %or.cond176 = select i1 %342, i1 true, i1 %344
-  br i1 %or.cond176, label %.loopexit, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
+321:                                              ; preds = %320
+  %322 = getelementptr inbounds i8, ptr %0, i64 8184
+  %.sroa.0.0.copyload.i149 = load ptr, ptr %322, align 8
+  %323 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.0.0.copyload.i149, ptr noundef nonnull %9)
+  %324 = load ptr, ptr %47, align 8
+  %325 = icmp ne ptr %324, null
+  %326 = load ptr, ptr %50, align 8
+  %327 = icmp ne ptr %326, null
+  %or.cond172 = select i1 %325, i1 true, i1 %327
+  br i1 %or.cond172, label %.loopexit, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
 
-345:                                              ; preds = %337
-  %.sroa.012.0.copyload = load ptr, ptr %13, align 8
-  %346 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.012.0.copyload, ptr noundef nonnull %9)
-  store ptr %346, ptr %21, align 8
-  %347 = load ptr, ptr %49, align 8
-  %348 = icmp ne ptr %347, null
-  %349 = load ptr, ptr %52, align 8
-  %350 = icmp ne ptr %349, null
-  %or.cond178 = select i1 %348, i1 true, i1 %350
-  %351 = ptrtoint ptr %346 to i64
-  br i1 %or.cond178, label %.loopexit, label %352
+328:                                              ; preds = %320
+  %.sroa.012.0.copyload = load ptr, ptr %11, align 8
+  %329 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.012.0.copyload, ptr noundef nonnull %9)
+  store ptr %329, ptr %19, align 8
+  %330 = load ptr, ptr %47, align 8
+  %331 = icmp ne ptr %330, null
+  %332 = load ptr, ptr %50, align 8
+  %333 = icmp ne ptr %332, null
+  %or.cond174 = select i1 %331, i1 true, i1 %333
+  %334 = ptrtoint ptr %329 to i64
+  br i1 %or.cond174, label %.loopexit, label %335
 
-352:                                              ; preds = %345
-  %353 = getelementptr inbounds i8, ptr %0, i64 8184
-  %.sroa.0.0.copyload.i152 = load ptr, ptr %353, align 8
-  %354 = icmp eq ptr %346, %.sroa.0.0.copyload.i152
-  br i1 %354, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %355
+335:                                              ; preds = %328
+  %336 = getelementptr inbounds i8, ptr %0, i64 8184
+  %.sroa.0.0.copyload.i150 = load ptr, ptr %336, align 8
+  %.not182 = icmp eq ptr %329, %.sroa.0.0.copyload.i150
+  br i1 %.not182, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %337
 
-355:                                              ; preds = %352
-  %356 = icmp eq ptr %346, null
-  %357 = getelementptr inbounds i8, ptr %0, i64 8160
-  %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr inbounds i8, ptr %358, i64 308
-  %360 = load i16, ptr %359, align 2
-  %361 = and i16 %360, 1
-  %.not186 = icmp eq i16 %361, 0
-  br i1 %.not186, label %362, label %.loopexit
+337:                                              ; preds = %335
+  %338 = getelementptr inbounds i8, ptr %0, i64 8160
+  %339 = load ptr, ptr %338, align 8
+  %340 = getelementptr inbounds i8, ptr %339, i64 308
+  %341 = load i16, ptr %340, align 2
+  %342 = and i16 %341, 1
+  %.not183 = icmp eq i16 %342, 0
+  br i1 %.not183, label %343, label %.loopexit
 
-362:                                              ; preds = %355
-  %363 = load ptr, ptr %7, align 8
-  %364 = call noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %363, i32 noundef %56) #20
-  %365 = zext i16 %364 to i32
-  %366 = call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %363, i32 noundef %365) #20
-  %367 = load ptr, ptr %357, align 8
-  br label %368
+343:                                              ; preds = %337
+  %344 = load ptr, ptr %7, align 8
+  %345 = call noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68) %344, i32 noundef %54) #20
+  %346 = zext i16 %345 to i32
+  %347 = call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %344, i32 noundef %346) #20
+  %348 = load ptr, ptr %338, align 8
+  br label %349
 
-368:                                              ; preds = %369, %362
-  %.pn.i = phi ptr [ %367, %362 ], [ %.0.i154, %369 ]
+349:                                              ; preds = %350, %343
+  %.pn.i = phi ptr [ %348, %343 ], [ %.0.i151, %350 ]
   %.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 120
-  %.0.i154 = load ptr, ptr %.0.in.i, align 8
-  %.not.not.not.not.i.not = icmp eq ptr %.0.i154, null
-  br i1 %.not.not.not.not.i.not, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %369
+  %.0.i151 = load ptr, ptr %.0.in.i, align 8
+  %.not.not.not.not.i.not = icmp eq ptr %.0.i151, null
+  br i1 %.not.not.not.not.i.not, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %350
 
-369:                                              ; preds = %368
-  %370 = getelementptr inbounds i8, ptr %.0.i154, i64 24
-  %371 = load ptr, ptr %370, align 8
-  %372 = icmp eq ptr %371, %366
-  br i1 %372, label %373, label %368, !llvm.loop !294
+350:                                              ; preds = %349
+  %351 = getelementptr inbounds i8, ptr %.0.i151, i64 24
+  %352 = load ptr, ptr %351, align 8
+  %353 = icmp eq ptr %352, %347
+  br i1 %353, label %354, label %349, !llvm.loop !294
 
-373:                                              ; preds = %369
-  %374 = call noundef ptr @_ZN13ClassVerifier10load_classEP6SymbolP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %366, ptr noundef nonnull %9)
-  %375 = load ptr, ptr %49, align 8
-  %.not187 = icmp eq ptr %375, null
-  br i1 %.not187, label %376, label %.loopexit
+354:                                              ; preds = %350
+  %355 = call noundef ptr @_ZN13ClassVerifier10load_classEP6SymbolP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %347, ptr noundef nonnull %9)
+  %356 = load ptr, ptr %47, align 8
+  %.not184 = icmp eq ptr %356, null
+  br i1 %.not184, label %357, label %.loopexit
 
-376:                                              ; preds = %373
-  %377 = load ptr, ptr %357, align 8
-  %378 = call noundef zeroext i1 @_ZN13ClassVerifier19is_protected_accessEP13InstanceKlassP5KlassP6SymbolS5_b(ptr nonnull align 8 poison, ptr noundef %377, ptr noundef %374, ptr noundef nonnull %63, ptr noundef %71, i1 noundef zeroext true)
-  br i1 %378, label %379, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
+357:                                              ; preds = %354
+  %358 = load ptr, ptr %338, align 8
+  %359 = call noundef zeroext i1 @_ZN13ClassVerifier19is_protected_accessEP13InstanceKlassP5KlassP6SymbolS5_b(ptr nonnull align 8 poison, ptr noundef %358, ptr noundef %355, ptr noundef nonnull %61, ptr noundef %69, i1 noundef zeroext true)
+  br i1 %359, label %360, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
 
-379:                                              ; preds = %376
-  %380 = load ptr, ptr %13, align 8
-  %381 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
-  %382 = icmp eq ptr %380, %381
-  br i1 %382, label %383, label %_ZNK16VerificationType8is_arrayEv.exit.thread
+360:                                              ; preds = %357
+  %361 = load ptr, ptr %11, align 8
+  %362 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
+  %363 = icmp eq ptr %361, %362
+  br i1 %363, label %364, label %_ZNK16VerificationType8is_arrayEv.exit.thread
 
-383:                                              ; preds = %379
-  %384 = and i64 %351, 3
-  %385 = icmp ne i64 %384, 0
-  %or.cond.i155 = or i1 %356, %385
-  br i1 %or.cond.i155, label %_ZNK16VerificationType8is_arrayEv.exit.thread, label %386
+364:                                              ; preds = %360
+  %365 = and i64 %334, 3
+  %366 = icmp ne i64 %365, 0
+  %367 = icmp eq ptr %329, null
+  %or.cond.i = or i1 %367, %366
+  br i1 %or.cond.i, label %_ZNK16VerificationType8is_arrayEv.exit.thread, label %368
 
-386:                                              ; preds = %383
-  %387 = getelementptr inbounds i8, ptr %346, i64 4
-  %388 = load i16, ptr %387, align 4
-  %389 = icmp ugt i16 %388, 1
-  br i1 %389, label %_ZNK16VerificationType8is_arrayEv.exit, label %_ZNK16VerificationType8is_arrayEv.exit.thread
+368:                                              ; preds = %364
+  %369 = getelementptr inbounds i8, ptr %329, i64 4
+  %370 = load i16, ptr %369, align 4
+  %371 = icmp ugt i16 %370, 1
+  br i1 %371, label %_ZNK16VerificationType8is_arrayEv.exit, label %_ZNK16VerificationType8is_arrayEv.exit.thread
 
-_ZNK16VerificationType8is_arrayEv.exit:           ; preds = %386
-  %390 = getelementptr inbounds i8, ptr %346, i64 6
-  %391 = load i8, ptr %390, align 1
-  %392 = icmp eq i8 %391, 91
-  br i1 %392, label %393, label %_ZNK16VerificationType8is_arrayEv.exit.thread
+_ZNK16VerificationType8is_arrayEv.exit:           ; preds = %368
+  %372 = getelementptr inbounds i8, ptr %329, i64 6
+  %373 = load i8, ptr %372, align 1
+  %374 = icmp eq i8 %373, 91
+  br i1 %374, label %375, label %_ZNK16VerificationType8is_arrayEv.exit.thread
 
-393:                                              ; preds = %_ZNK16VerificationType8is_arrayEv.exit
-  %394 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4216), align 8
-  %395 = icmp eq ptr %63, %394
-  br i1 %395, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %_ZNK16VerificationType8is_arrayEv.exit.thread
+375:                                              ; preds = %_ZNK16VerificationType8is_arrayEv.exit
+  %376 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 4216), align 8
+  %377 = icmp eq ptr %61, %376
+  br i1 %377, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %_ZNK16VerificationType8is_arrayEv.exit.thread
 
-_ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %383, %386, %393, %_ZNK16VerificationType8is_arrayEv.exit, %379
-  %.sroa.0.0.copyload.i156 = load ptr, ptr %353, align 8
-  store ptr %.sroa.0.0.copyload.i156, ptr %22, align 8
-  %396 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %9)
-  %397 = load ptr, ptr %49, align 8
-  %398 = icmp ne ptr %397, null
-  %399 = load ptr, ptr %52, align 8
-  %400 = icmp ne ptr %399, null
-  %or.cond180 = select i1 %398, i1 true, i1 %400
-  br i1 %or.cond180, label %.loopexit, label %401
+_ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %364, %368, %375, %_ZNK16VerificationType8is_arrayEv.exit, %360
+  %.sroa.0.0.copyload.i152 = load ptr, ptr %336, align 8
+  store ptr %.sroa.0.0.copyload.i152, ptr %20, align 8
+  %378 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %9)
+  %379 = load ptr, ptr %47, align 8
+  %380 = icmp ne ptr %379, null
+  %381 = load ptr, ptr %50, align 8
+  %382 = icmp ne ptr %381, null
+  %or.cond176 = select i1 %380, i1 true, i1 %382
+  br i1 %or.cond176, label %.loopexit, label %383
 
-401:                                              ; preds = %_ZNK16VerificationType8is_arrayEv.exit.thread
-  br i1 %396, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %402
+383:                                              ; preds = %_ZNK16VerificationType8is_arrayEv.exit.thread
+  br i1 %378, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %384
 
-402:                                              ; preds = %401
-  call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %24, ptr noundef nonnull align 8 dereferenceable(48) %3) #20
-  %.sroa.0.0.copyload.i157 = load ptr, ptr %353, align 8
-  %403 = getelementptr inbounds i8, ptr %23, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %403, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
-  %404 = getelementptr inbounds i8, ptr %23, i64 32
-  store i32 6, ptr %404, align 8
-  %.sroa.4164.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 36
-  store i32 0, ptr %.sroa.4164.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 40
+384:                                              ; preds = %383
+  call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %22, ptr noundef nonnull align 8 dereferenceable(48) %3) #20
+  %.sroa.0.0.copyload.i153 = load ptr, ptr %336, align 8
+  %385 = getelementptr inbounds i8, ptr %21, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %385, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
+  %386 = getelementptr inbounds i8, ptr %21, i64 32
+  store i32 6, ptr %386, align 8
+  %.sroa.4160.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 36
+  store i32 0, ptr %.sroa.4160.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 40
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %23, i64 48
-  store ptr %.sroa.0.0.copyload.i157, ptr %.sroa.6.0..sroa_idx, align 8
-  store i32 %156, ptr %23, align 8, !alias.scope !326
-  %405 = getelementptr inbounds i8, ptr %23, i64 4
-  store i32 1, ptr %405, align 4, !alias.scope !326
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %23, ptr noundef nonnull @.str.134)
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %21, i64 48
+  store ptr %.sroa.0.0.copyload.i153, ptr %.sroa.6.0..sroa_idx, align 8
+  store i32 %154, ptr %21, align 8, !alias.scope !326
+  %387 = getelementptr inbounds i8, ptr %21, i64 4
+  store i32 1, ptr %387, align 4, !alias.scope !326
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %21, ptr noundef nonnull @.str.134)
   br label %.loopexit
 
-406:                                              ; preds = %337
-  %.sroa.07.0.copyload = load ptr, ptr %13, align 8
-  %407 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.07.0.copyload, ptr noundef nonnull %9)
-  %408 = load ptr, ptr %49, align 8
-  %409 = icmp ne ptr %408, null
-  %410 = load ptr, ptr %52, align 8
-  %411 = icmp ne ptr %410, null
-  %or.cond182 = select i1 %409, i1 true, i1 %411
-  br i1 %or.cond182, label %.loopexit, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
+388:                                              ; preds = %320
+  %.sroa.07.0.copyload = load ptr, ptr %11, align 8
+  %389 = call ptr @_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.07.0.copyload, ptr noundef nonnull %9)
+  %390 = load ptr, ptr %47, align 8
+  %391 = icmp ne ptr %390, null
+  %392 = load ptr, ptr %50, align 8
+  %393 = icmp ne ptr %392, null
+  %or.cond178 = select i1 %391, i1 true, i1 %393
+  br i1 %or.cond178, label %.loopexit, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
 
-_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %368, %406, %338, %352, %331, %393, %401, %376, %321
-  %412 = load i32, ptr %289, align 4
-  %413 = icmp sgt i32 %412, %155
-  br i1 %413, label %414, label %.loopexit
+_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %349, %388, %321, %314, %375, %383, %357, %335, %304
+  %394 = load i32, ptr %289, align 4
+  %395 = icmp sgt i32 %394, %153
+  br i1 %395, label %396, label %.loopexit
 
-414:                                              ; preds = %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
-  %415 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
-  %416 = icmp eq ptr %63, %415
-  br i1 %416, label %418, label %.lr.ph
+396:                                              ; preds = %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
+  %397 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %398 = icmp eq ptr %61, %397
+  br i1 %398, label %400, label %.lr.ph
 
-.lr.ph:                                           ; preds = %414
-  %417 = sext i32 %155 to i64
-  %wide.trip.count = sext i32 %412 to i64
-  br label %428
+.lr.ph:                                           ; preds = %396
+  %399 = sext i32 %153 to i64
+  %wide.trip.count = sext i32 %394 to i64
+  br label %410
 
-418:                                              ; preds = %414
-  store i32 %156, ptr %25, align 8, !alias.scope !329
-  %419 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 0, ptr %419, align 4, !alias.scope !329
-  %420 = getelementptr inbounds i8, ptr %25, i64 8
-  store i32 9, ptr %420, align 8, !alias.scope !329
-  %421 = getelementptr inbounds i8, ptr %25, i64 12
-  store i32 0, ptr %421, align 4, !alias.scope !329
-  %422 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr null, ptr %422, align 8, !alias.scope !329
-  %423 = getelementptr inbounds i8, ptr %25, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %423, align 8, !alias.scope !329
-  %424 = getelementptr inbounds i8, ptr %25, i64 32
-  store i32 9, ptr %424, align 8, !alias.scope !329
-  %425 = getelementptr inbounds i8, ptr %25, i64 36
-  store i32 0, ptr %425, align 4, !alias.scope !329
-  %426 = getelementptr inbounds i8, ptr %25, i64 40
-  store ptr null, ptr %426, align 8, !alias.scope !329
-  %427 = getelementptr inbounds i8, ptr %25, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %427, align 8, !alias.scope !329
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %25, ptr noundef nonnull @.str.135)
+400:                                              ; preds = %396
+  store i32 %154, ptr %23, align 8, !alias.scope !329
+  %401 = getelementptr inbounds i8, ptr %23, i64 4
+  store i32 0, ptr %401, align 4, !alias.scope !329
+  %402 = getelementptr inbounds i8, ptr %23, i64 8
+  store i32 9, ptr %402, align 8, !alias.scope !329
+  %403 = getelementptr inbounds i8, ptr %23, i64 12
+  store i32 0, ptr %403, align 4, !alias.scope !329
+  %404 = getelementptr inbounds i8, ptr %23, i64 16
+  store ptr null, ptr %404, align 8, !alias.scope !329
+  %405 = getelementptr inbounds i8, ptr %23, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %405, align 8, !alias.scope !329
+  %406 = getelementptr inbounds i8, ptr %23, i64 32
+  store i32 9, ptr %406, align 8, !alias.scope !329
+  %407 = getelementptr inbounds i8, ptr %23, i64 36
+  store i32 0, ptr %407, align 4, !alias.scope !329
+  %408 = getelementptr inbounds i8, ptr %23, i64 40
+  store ptr null, ptr %408, align 8, !alias.scope !329
+  %409 = getelementptr inbounds i8, ptr %23, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %409, align 8, !alias.scope !329
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %23, ptr noundef nonnull @.str.135)
   br label %.loopexit
 
-428:                                              ; preds = %428, %.lr.ph
-  %indvars.iv203 = phi i64 [ %417, %.lr.ph ], [ %indvars.iv.next204, %428 ]
-  %429 = load ptr, ptr %290, align 8
-  %430 = getelementptr inbounds %class.VerificationType, ptr %429, i64 %indvars.iv203
-  %.sroa.0.0.copyload = load ptr, ptr %430, align 8
+410:                                              ; preds = %410, %.lr.ph
+  %indvars.iv199 = phi i64 [ %399, %.lr.ph ], [ %indvars.iv.next200, %410 ]
+  %411 = load ptr, ptr %290, align 8
+  %412 = getelementptr inbounds %class.VerificationType, ptr %411, i64 %indvars.iv199
+  %.sroa.0.0.copyload = load ptr, ptr %412, align 8
   call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr %.sroa.0.0.copyload, ptr noundef nonnull %9)
-  %431 = load ptr, ptr %49, align 8
-  %432 = icmp ne ptr %431, null
-  %433 = load ptr, ptr %52, align 8
-  %434 = icmp ne ptr %433, null
-  %or.cond184 = select i1 %432, i1 true, i1 %434
-  %indvars.iv.next204 = add nsw i64 %indvars.iv203, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count
-  %or.cond211 = select i1 %or.cond184, i1 true, i1 %exitcond.not
-  br i1 %or.cond211, label %.loopexit, label %428, !llvm.loop !332
+  %413 = load ptr, ptr %47, align 8
+  %414 = icmp ne ptr %413, null
+  %415 = load ptr, ptr %50, align 8
+  %416 = icmp ne ptr %415, null
+  %or.cond180 = select i1 %414, i1 true, i1 %416
+  %indvars.iv.next200 = add nsw i64 %indvars.iv199, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count
+  %or.cond207 = select i1 %or.cond180, i1 true, i1 %exitcond.not
+  br i1 %or.cond207, label %.loopexit, label %410, !llvm.loop !332
 
-.loopexit:                                        ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit, %428, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit.thread, %406, %_ZNK16VerificationType8is_arrayEv.exit.thread, %373, %355, %345, %338, %331, %326, %_ZNK16VerificationType6equalsERKS_.exit, %84, %51, %47, %418, %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, %402, %278, %267, %221, %205, %182, %169, %78
+.loopexit:                                        ; preds = %295, %410, %388, %_ZNK16VerificationType8is_arrayEv.exit.thread, %354, %337, %328, %321, %314, %309, %252, %82, %49, %45, %400, %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, %384, %278, %267, %219, %203, %180, %167, %76
   ret void
 }
 
@@ -12318,183 +12389,157 @@ define hidden noundef ptr @_ZN13ClassVerifier17get_newarray_typeEtiP10JavaThread
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ClassVerifier16verify_anewarrayEitRK18constantPoolHandleP13StackMapFrameP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %1, i16 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
-  %7 = alloca %class.VerificationType, align 8
-  %8 = alloca %class.VerificationType, align 8
-  %9 = alloca %class.ErrorContext, align 8
+  %7 = alloca %class.ErrorContext, align 8
   tail call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef %5)
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
-  %11 = load ptr, ptr %10, align 8
-  %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %99
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %.not = icmp eq ptr %9, null
+  br i1 %.not, label %10, label %91
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = load ptr, ptr %13, align 8
-  %.not43 = icmp eq ptr %14, null
-  br i1 %.not43, label %15, label %99
+10:                                               ; preds = %6
+  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %12 = load ptr, ptr %11, align 8
+  %.not45 = icmp eq ptr %12, null
+  br i1 %.not45, label %13, label %91
 
-15:                                               ; preds = %12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store ptr inttoptr (i64 65793 to ptr), ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %4, i64 8
-  %17 = load i32, ptr %16, align 8
-  %.not.i = icmp eq i32 %17, 0
-  br i1 %.not.i, label %33, label %18
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %4, i64 8
+  %15 = load i32, ptr %14, align 8
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %.thread.i, label %16
 
-18:                                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 32
-  %20 = load ptr, ptr %19, align 8
-  %21 = sext i32 %17 to i64
-  %22 = getelementptr %class.VerificationType, ptr %20, i64 %21
-  %23 = getelementptr i8, ptr %22, i64 -8
-  %24 = load i64, ptr %23, align 8
-  store i64 %24, ptr %8, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 40
-  %26 = load ptr, ptr %25, align 8
-  %27 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %26, i1 noundef zeroext false, ptr noundef nonnull %5)
-  %28 = load ptr, ptr %10, align 8
-  %.not5.i = icmp eq ptr %28, null
-  br i1 %.not5.i, label %29, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit.thread
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds i8, ptr %4, i64 32
+  %18 = load ptr, ptr %17, align 8
+  %19 = sext i32 %15 to i64
+  %20 = getelementptr %class.VerificationType, ptr %18, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 -8
+  %22 = load i64, ptr %21, align 8
+  %23 = icmp eq i64 %22, 65793
+  br i1 %23, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i, label %.thread.i
 
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit.thread: ; preds = %18
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  br label %99
-
-29:                                               ; preds = %18
-  br i1 %27, label %30, label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %29
-  %.sroa.0.0.copyload.pre.i = load ptr, ptr %7, align 8
-  br label %33
-
-30:                                               ; preds = %29
-  %31 = load i32, ptr %16, align 8
-  %32 = add nsw i32 %31, -1
-  store i32 %32, ptr %16, align 8
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i: ; preds = %16
+  %24 = add nsw i32 %15, -1
+  store i32 %24, ptr %14, align 8
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-33:                                               ; preds = %._crit_edge.i, %15
-  %.sroa.0.0.copyload.i = phi ptr [ %.sroa.0.0.copyload.pre.i, %._crit_edge.i ], [ inttoptr (i64 65793 to ptr), %15 ]
-  %34 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr %.sroa.0.0.copyload.i, ptr noundef nonnull %5) #20
+.thread.i:                                        ; preds = %16, %13
+  %25 = tail call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr nonnull inttoptr (i64 65793 to ptr), ptr noundef nonnull %5) #20
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %30, %33
-  %.pr = load ptr, ptr %10, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  %35 = icmp ne ptr %.pr, null
-  %36 = load ptr, ptr %13, align 8
-  %37 = icmp ne ptr %36, null
-  %or.cond = select i1 %35, i1 true, i1 %37
-  br i1 %or.cond, label %99, label %38
+_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i, %.thread.i
+  %26 = load ptr, ptr %8, align 8
+  %27 = icmp ne ptr %26, null
+  %28 = load ptr, ptr %11, align 8
+  %29 = icmp ne ptr %28, null
+  %or.cond = select i1 %27, i1 true, i1 %29
+  br i1 %or.cond, label %91, label %30
 
-38:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-  %39 = getelementptr inbounds i8, ptr %0, i64 8160
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 308
-  %42 = load i16, ptr %41, align 2
-  %43 = and i16 %42, 1
-  %.not44 = icmp eq i16 %43, 0
-  br i1 %.not44, label %44, label %99
+30:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+  %31 = getelementptr inbounds i8, ptr %0, i64 8160
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 308
+  %34 = load i16, ptr %33, align 2
+  %35 = and i16 %34, 1
+  %.not46 = icmp eq i16 %35, 0
+  br i1 %.not46, label %36, label %91
 
-44:                                               ; preds = %38
-  %45 = zext i16 %2 to i32
-  %46 = load ptr, ptr %3, align 8
-  %47 = call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %46, i32 noundef %45) #20
-  %48 = load ptr, ptr %10, align 8
-  %49 = icmp ne ptr %48, null
-  %50 = load ptr, ptr %13, align 8
-  %51 = icmp ne ptr %50, null
-  %or.cond42 = select i1 %49, i1 true, i1 %51
-  br i1 %or.cond42, label %99, label %52
+36:                                               ; preds = %30
+  %37 = zext i16 %2 to i32
+  %38 = load ptr, ptr %3, align 8
+  %39 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %38, i32 noundef %37) #20
+  %40 = load ptr, ptr %8, align 8
+  %41 = icmp ne ptr %40, null
+  %42 = load ptr, ptr %11, align 8
+  %43 = icmp ne ptr %42, null
+  %or.cond44 = select i1 %41, i1 true, i1 %43
+  br i1 %or.cond44, label %91, label %44
 
-52:                                               ; preds = %44
-  %53 = ptrtoint ptr %47 to i64
-  %54 = and i64 %53, 3
-  %55 = icmp ne i64 %54, 0
-  %56 = icmp eq ptr %47, null
-  %or.cond.i = or i1 %56, %55
-  br i1 %or.cond.i, label %_ZNK16VerificationType8is_arrayEv.exit.thread, label %57
+44:                                               ; preds = %36
+  %45 = ptrtoint ptr %39 to i64
+  %46 = and i64 %45, 3
+  %47 = icmp ne i64 %46, 0
+  %48 = icmp eq ptr %39, null
+  %or.cond.i = or i1 %48, %47
+  br i1 %or.cond.i, label %_ZNK16VerificationType8is_arrayEv.exit.thread, label %49
 
-57:                                               ; preds = %52
-  %58 = getelementptr inbounds i8, ptr %47, i64 4
-  %59 = load i16, ptr %58, align 4
-  %60 = icmp ugt i16 %59, 1
-  br i1 %60, label %_ZNK16VerificationType8is_arrayEv.exit, label %_ZNK16VerificationType8is_arrayEv.exit.thread
+49:                                               ; preds = %44
+  %50 = getelementptr inbounds i8, ptr %39, i64 4
+  %51 = load i16, ptr %50, align 4
+  %52 = icmp ugt i16 %51, 1
+  br i1 %52, label %_ZNK16VerificationType8is_arrayEv.exit, label %_ZNK16VerificationType8is_arrayEv.exit.thread
 
-_ZNK16VerificationType8is_arrayEv.exit:           ; preds = %57
-  %61 = getelementptr inbounds i8, ptr %47, i64 6
-  %62 = load i8, ptr %61, align 1
-  %63 = icmp eq i8 %62, 91
-  br i1 %63, label %64, label %_ZNK16VerificationType8is_arrayEv.exit.thread
+_ZNK16VerificationType8is_arrayEv.exit:           ; preds = %49
+  %53 = getelementptr inbounds i8, ptr %39, i64 6
+  %54 = load i8, ptr %53, align 1
+  %55 = icmp eq i8 %54, 91
+  br i1 %55, label %56, label %_ZNK16VerificationType8is_arrayEv.exit.thread
 
-64:                                               ; preds = %_ZNK16VerificationType8is_arrayEv.exit
-  %65 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %47) #20
-  %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #22
-  %67 = trunc i64 %66 to i32
-  %68 = icmp sgt i32 %67, 255
-  br i1 %68, label %69, label %83
+56:                                               ; preds = %_ZNK16VerificationType8is_arrayEv.exit
+  %57 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %39) #20
+  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #22
+  %59 = trunc i64 %58 to i32
+  %60 = icmp sgt i32 %59, 255
+  br i1 %60, label %61, label %75
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds i8, ptr %65, i64 254
-  %71 = load i8, ptr %70, align 1
-  %72 = icmp eq i8 %71, 91
-  br i1 %72, label %73, label %83
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds i8, ptr %57, i64 254
+  %63 = load i8, ptr %62, align 1
+  %64 = icmp eq i8 %63, 91
+  br i1 %64, label %65, label %75
 
-73:                                               ; preds = %69
-  store i32 %1, ptr %9, align 8, !alias.scope !342
-  %74 = getelementptr inbounds i8, ptr %9, i64 4
-  store i32 0, ptr %74, align 4, !alias.scope !342
-  %75 = getelementptr inbounds i8, ptr %9, i64 8
-  store i32 9, ptr %75, align 8, !alias.scope !342
-  %76 = getelementptr inbounds i8, ptr %9, i64 12
-  store i32 0, ptr %76, align 4, !alias.scope !342
-  %77 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr null, ptr %77, align 8, !alias.scope !342
-  %78 = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %78, align 8, !alias.scope !342
-  %79 = getelementptr inbounds i8, ptr %9, i64 32
-  store i32 9, ptr %79, align 8, !alias.scope !342
-  %80 = getelementptr inbounds i8, ptr %9, i64 36
-  store i32 0, ptr %80, align 4, !alias.scope !342
-  %81 = getelementptr inbounds i8, ptr %9, i64 40
-  store ptr null, ptr %81, align 8, !alias.scope !342
-  %82 = getelementptr inbounds i8, ptr %9, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %82, align 8, !alias.scope !342
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %9, ptr noundef nonnull @.str.139)
-  br label %83
+65:                                               ; preds = %61
+  store i32 %1, ptr %7, align 8, !alias.scope !342
+  %66 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 0, ptr %66, align 4, !alias.scope !342
+  %67 = getelementptr inbounds i8, ptr %7, i64 8
+  store i32 9, ptr %67, align 8, !alias.scope !342
+  %68 = getelementptr inbounds i8, ptr %7, i64 12
+  store i32 0, ptr %68, align 4, !alias.scope !342
+  %69 = getelementptr inbounds i8, ptr %7, i64 16
+  store ptr null, ptr %69, align 8, !alias.scope !342
+  %70 = getelementptr inbounds i8, ptr %7, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %70, align 8, !alias.scope !342
+  %71 = getelementptr inbounds i8, ptr %7, i64 32
+  store i32 9, ptr %71, align 8, !alias.scope !342
+  %72 = getelementptr inbounds i8, ptr %7, i64 36
+  store i32 0, ptr %72, align 4, !alias.scope !342
+  %73 = getelementptr inbounds i8, ptr %7, i64 40
+  store ptr null, ptr %73, align 8, !alias.scope !342
+  %74 = getelementptr inbounds i8, ptr %7, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %74, align 8, !alias.scope !342
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %7, ptr noundef nonnull @.str.139)
+  br label %75
 
-83:                                               ; preds = %73, %69, %64
-  %84 = add nsw i32 %67, 1
-  %85 = shl i64 %66, 32
-  %sext38 = add i64 %85, 8589934592
-  %86 = ashr exact i64 %sext38, 32
-  %87 = call noundef ptr @_Z23resource_allocate_bytesP6ThreadmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %5, i64 noundef %86, i32 noundef 0) #20
-  %88 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef %87, i64 noundef %86, ptr noundef nonnull @.str.140, i32 noundef 91, ptr noundef %65) #20
-  br label %97
+75:                                               ; preds = %65, %61, %56
+  %76 = add nsw i32 %59, 1
+  %77 = shl i64 %58, 32
+  %sext38 = add i64 %77, 8589934592
+  %78 = ashr exact i64 %sext38, 32
+  %79 = tail call noundef ptr @_Z23resource_allocate_bytesP6ThreadmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %5, i64 noundef %78, i32 noundef 0) #20
+  %80 = tail call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef %79, i64 noundef %78, ptr noundef nonnull @.str.140, i32 noundef 91, ptr noundef %57) #20
+  br label %89
 
-_ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %52, %57, %_ZNK16VerificationType8is_arrayEv.exit
-  %89 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %47) #20
-  %90 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %89) #22
-  %91 = trunc i64 %90 to i32
-  %92 = add nsw i32 %91, 3
-  %93 = shl i64 %90, 32
-  %sext = add i64 %93, 17179869184
-  %94 = ashr exact i64 %sext, 32
-  %95 = call noundef ptr @_Z23resource_allocate_bytesP6ThreadmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %5, i64 noundef %94, i32 noundef 0) #20
-  %96 = call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef %95, i64 noundef %94, ptr noundef nonnull @.str.141, i32 noundef 91, i32 noundef 76, ptr noundef %89) #20
-  br label %97
+_ZNK16VerificationType8is_arrayEv.exit.thread:    ; preds = %44, %49, %_ZNK16VerificationType8is_arrayEv.exit
+  %81 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %39) #20
+  %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #22
+  %83 = trunc i64 %82 to i32
+  %84 = add nsw i32 %83, 3
+  %85 = shl i64 %82, 32
+  %sext = add i64 %85, 17179869184
+  %86 = ashr exact i64 %sext, 32
+  %87 = tail call noundef ptr @_Z23resource_allocate_bytesP6ThreadmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull %5, i64 noundef %86, i32 noundef 0) #20
+  %88 = tail call noundef i32 (ptr, i64, ptr, ...) @_ZN2os8snprintfEPcmPKcz(ptr noundef %87, i64 noundef %86, ptr noundef nonnull @.str.141, i32 noundef 91, i32 noundef 76, ptr noundef %81) #20
+  br label %89
 
-97:                                               ; preds = %_ZNK16VerificationType8is_arrayEv.exit.thread, %83
-  %.037 = phi ptr [ %87, %83 ], [ %95, %_ZNK16VerificationType8is_arrayEv.exit.thread ]
-  %.0 = phi i32 [ %84, %83 ], [ %92, %_ZNK16VerificationType8is_arrayEv.exit.thread ]
-  %98 = call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %.037, i32 noundef %.0)
-  call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr %98, ptr noundef nonnull %5)
-  br label %99
+89:                                               ; preds = %_ZNK16VerificationType8is_arrayEv.exit.thread, %75
+  %.037 = phi ptr [ %79, %75 ], [ %87, %_ZNK16VerificationType8is_arrayEv.exit.thread ]
+  %.0 = phi i32 [ %76, %75 ], [ %84, %_ZNK16VerificationType8is_arrayEv.exit.thread ]
+  %90 = tail call noundef ptr @_ZN13ClassVerifier23create_temporary_symbolEPKci(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %.037, i32 noundef %.0)
+  tail call void @_ZN13StackMapFrame10push_stackE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr %90, ptr noundef nonnull %5)
+  br label %91
 
-99:                                               ; preds = %97, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit.thread, %44, %38, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit, %12, %6
+91:                                               ; preds = %89, %36, %30, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit, %10, %6
   ret void
 }
 
@@ -12539,77 +12584,67 @@ declare noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #1 comdat align 2 {
-  %6 = load i64, ptr %0, align 8
-  %7 = load i64, ptr %1, align 8
-  %8 = icmp eq i64 %6, %7
-  br i1 %8, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %_ZNK16VerificationType6equalsERKS_.exit
+_ZNK16VerificationType6equalsERKS_.exit:
+  %5 = load i64, ptr %0, align 8
+  %6 = load i64, ptr %1, align 8
+  %7 = icmp eq i64 %5, %6
+  %8 = icmp eq i64 %5, 4294901761
+  %or.cond = or i1 %8, %7
+  br i1 %or.cond, label %32, label %9
 
-_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %5
-  %9 = inttoptr i64 %7 to ptr
-  %10 = inttoptr i64 %6 to ptr
-  %11 = or i64 %7, %6
-  %12 = and i64 %11, 3
-  %or.cond.i = icmp eq i64 %12, 0
-  %13 = icmp ne i64 %6, 0
-  %14 = icmp ne i64 %7, 0
-  %15 = and i1 %13, %14
-  %16 = icmp eq ptr %10, %9
-  %17 = and i1 %15, %16
-  %spec.select.i = and i1 %17, %or.cond.i
-  %18 = icmp eq i64 %6, 4294901761
-  %or.cond = or i1 %18, %spec.select.i
-  br i1 %or.cond, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %19
-
-19:                                               ; preds = %_ZNK16VerificationType6equalsERKS_.exit
-  switch i64 %6, label %37 [
-    i64 259, label %20
-    i64 515, label %23
-    i64 1027, label %26
-    i64 3, label %29
-    i64 590081, label %35
-    i64 655617, label %35
-    i64 786689, label %35
-    i64 721153, label %35
+9:                                                ; preds = %_ZNK16VerificationType6equalsERKS_.exit
+  switch i64 %5, label %27 [
+    i64 259, label %10
+    i64 515, label %13
+    i64 1027, label %16
+    i64 3, label %19
+    i64 590081, label %25
+    i64 655617, label %25
+    i64 786689, label %25
+    i64 721153, label %25
   ]
 
-20:                                               ; preds = %19
-  %21 = and i64 %7, 257
-  %22 = icmp ne i64 %21, 1
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+10:                                               ; preds = %9
+  %11 = and i64 %6, 257
+  %12 = icmp ne i64 %11, 1
+  br label %32
 
-23:                                               ; preds = %19
-  %24 = and i64 %7, 513
-  %25 = icmp eq i64 %24, 513
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+13:                                               ; preds = %9
+  %14 = and i64 %6, 513
+  %15 = icmp eq i64 %14, 513
+  br label %32
 
-26:                                               ; preds = %19
-  %27 = and i64 %7, 1025
-  %28 = icmp eq i64 %27, 1025
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+16:                                               ; preds = %9
+  %17 = and i64 %6, 1025
+  %18 = icmp eq i64 %17, 1025
+  br label %32
 
-29:                                               ; preds = %19
-  %30 = and i64 %7, 3
-  %31 = icmp eq i64 %30, 0
-  br i1 %31, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %32
+19:                                               ; preds = %9
+  %20 = and i64 %6, 3
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %32, label %22
 
-32:                                               ; preds = %29
-  %33 = and i64 %7, 2
-  %34 = icmp ne i64 %33, 0
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+22:                                               ; preds = %19
+  %23 = and i64 %6, 2
+  %24 = icmp ne i64 %23, 0
+  br label %32
 
-35:                                               ; preds = %19, %19, %19, %19
-  %36 = icmp eq i64 %7, 65793
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+25:                                               ; preds = %9, %9, %9, %9
+  %26 = icmp eq i64 %6, 65793
+  br label %32
 
-37:                                               ; preds = %19
-  br i1 %or.cond.i, label %38, label %_ZNK16VerificationType6equalsERKS_.exit.thread
+27:                                               ; preds = %9
+  %28 = or i64 %6, %5
+  %29 = and i64 %28, 3
+  %or.cond14 = icmp eq i64 %29, 0
+  br i1 %or.cond14, label %30, label %32
 
-38:                                               ; preds = %37
-  %39 = tail call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) #20
-  br label %_ZNK16VerificationType6equalsERKS_.exit.thread
+30:                                               ; preds = %27
+  %31 = tail call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) #20
+  br label %32
 
-_ZNK16VerificationType6equalsERKS_.exit.thread:   ; preds = %5, %37, %29, %32, %_ZNK16VerificationType6equalsERKS_.exit, %38, %35, %26, %23, %20
-  %.0 = phi i1 [ %39, %38 ], [ %36, %35 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ true, %_ZNK16VerificationType6equalsERKS_.exit ], [ true, %29 ], [ %34, %32 ], [ false, %37 ], [ true, %5 ]
+32:                                               ; preds = %27, %19, %22, %_ZNK16VerificationType6equalsERKS_.exit, %30, %25, %16, %13, %10
+  %.0 = phi i1 [ %31, %30 ], [ %26, %25 ], [ %18, %16 ], [ %15, %13 ], [ %12, %10 ], [ true, %_ZNK16VerificationType6equalsERKS_.exit ], [ true, %19 ], [ %24, %22 ], [ false, %27 ]
   ret i1 %.0
 }
 
@@ -13943,541 +13978,536 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %426, %428
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN13ClassVerifier18verify_invoke_initEP17RawBytecodeStreamt16VerificationTypeP13StackMapFramejbPbRK18constantPoolHandleP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, ptr %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr nocapture noundef %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #1 align 2 {
-  %12 = alloca %class.VerificationType, align 8
-  %13 = alloca %class.VerificationType, align 8
+  %12 = alloca %class.ErrorContext, align 8
+  %13 = alloca %class.ErrorContext, align 8
   %14 = alloca %class.ErrorContext, align 8
   %15 = alloca %class.ErrorContext, align 8
-  %16 = alloca %class.ErrorContext, align 8
-  %17 = alloca %class.ErrorContext, align 8
-  %18 = alloca %class.VerificationType, align 8
-  %19 = alloca %class.VerificationType, align 8
-  %20 = alloca %class.ErrorContext, align 8
-  %21 = alloca %class.ErrorContext, align 8
-  %22 = alloca %class.TypeOrigin, align 8
-  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = alloca %class.VerificationType, align 8
+  %17 = alloca %class.VerificationType, align 8
+  %18 = alloca %class.ErrorContext, align 8
+  %19 = alloca %class.ErrorContext, align 8
+  %20 = alloca %class.TypeOrigin, align 8
+  %21 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = load i32, ptr %21, align 8
+  %23 = getelementptr inbounds i8, ptr %4, i64 8
   %24 = load i32, ptr %23, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  store ptr inttoptr (i64 3 to ptr), ptr %12, align 8
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
-  %26 = load i32, ptr %25, align 8
-  %.not.i = icmp eq i32 %26, 0
-  br i1 %.not.i, label %43, label %27
+  %.not.i = icmp eq i32 %24, 0
+  br i1 %.not.i, label %.thread.i, label %25
 
-27:                                               ; preds = %11
-  %28 = getelementptr inbounds i8, ptr %4, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %30 = sext i32 %26 to i64
-  %31 = getelementptr %class.VerificationType, ptr %29, i64 %30
-  %32 = getelementptr i8, ptr %31, i64 -8
-  %33 = load i64, ptr %32, align 8
-  store i64 %33, ptr %13, align 8
-  %34 = getelementptr inbounds i8, ptr %4, i64 40
-  %35 = load ptr, ptr %34, align 8
-  %36 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %35, i1 noundef zeroext false, ptr noundef %10)
-  %37 = getelementptr inbounds i8, ptr %10, i64 8
-  %38 = load ptr, ptr %37, align 8
-  %.not5.i = icmp eq ptr %38, null
-  br i1 %.not5.i, label %39, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+25:                                               ; preds = %11
+  %26 = getelementptr inbounds i8, ptr %4, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = sext i32 %24 to i64
+  %29 = getelementptr %class.VerificationType, ptr %27, i64 %28
+  %30 = getelementptr i8, ptr %29, i64 -8
+  %31 = load i64, ptr %30, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %33 = icmp eq i64 %31, 3
+  %34 = and i64 %31, 3
+  %35 = icmp eq i64 %34, 0
+  %or.cond158 = or i1 %33, %35
+  %36 = getelementptr inbounds i8, ptr %10, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not9.i184 = icmp eq ptr %37, null
+  br i1 %or.cond158, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i
 
-39:                                               ; preds = %27
-  br i1 %36, label %40, label %._crit_edge.i
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i: ; preds = %25
+  br i1 %.not9.i184, label %38, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-._crit_edge.i:                                    ; preds = %39
-  %.sroa.0.0.copyload.pre.i = load ptr, ptr %12, align 8
-  br label %43
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i.thread: ; preds = %25
+  br i1 %.not9.i184, label %.thread, label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-40:                                               ; preds = %39
-  %41 = load i32, ptr %25, align 8
-  %42 = add nsw i32 %41, -1
-  store i32 %42, ptr %25, align 8
-  %.sroa.04.0.copyload.i = load ptr, ptr %13, align 8
+38:                                               ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i
+  %39 = and i64 %31, 2
+  %.not190 = icmp eq i64 %39, 0
+  br i1 %.not190, label %.thread.i, label %.thread
+
+.thread:                                          ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i.thread, %38
+  %40 = add nsw i32 %24, -1
+  store i32 %40, ptr %23, align 8
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-43:                                               ; preds = %._crit_edge.i, %11
-  %.sroa.0.0.copyload.i = phi ptr [ %.sroa.0.0.copyload.pre.i, %._crit_edge.i ], [ inttoptr (i64 3 to ptr), %11 ]
-  %44 = call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr %.sroa.0.0.copyload.i, ptr noundef %10) #20
+.thread.i:                                        ; preds = %38, %11
+  %41 = tail call ptr @_ZN13StackMapFrame12pop_stack_exE16VerificationTypeP10JavaThread(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr nonnull inttoptr (i64 3 to ptr), ptr noundef %10) #20
   br label %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
 
-_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %27, %40, %43
-  %.sroa.04.0.i = phi ptr [ %.sroa.04.0.copyload.i, %40 ], [ %44, %43 ], [ inttoptr (i64 4294901761 to ptr), %27 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %45 = getelementptr inbounds i8, ptr %10, i64 8
+_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit: ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i.thread, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i, %.thread, %.thread.i
+  %.sroa.04.0.i = phi ptr [ %32, %.thread ], [ %41, %.thread.i ], [ inttoptr (i64 4294901761 to ptr), %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i ], [ inttoptr (i64 4294901761 to ptr), %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.i.thread ]
+  %42 = getelementptr inbounds i8, ptr %10, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %.not169 = icmp eq ptr %43, null
+  br i1 %.not169, label %44, label %274
+
+44:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
+  %45 = getelementptr inbounds i8, ptr %0, i64 24
   %46 = load ptr, ptr %45, align 8
-  %.not165 = icmp eq ptr %46, null
-  br i1 %.not165, label %47, label %276
+  %.not170 = icmp eq ptr %46, null
+  br i1 %.not170, label %47, label %274
 
-47:                                               ; preds = %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %.not166 = icmp eq ptr %49, null
-  br i1 %.not166, label %50, label %276
+47:                                               ; preds = %44
+  %48 = ptrtoint ptr %.sroa.04.0.i to i64
+  %49 = icmp eq ptr %.sroa.04.0.i, inttoptr (i64 16776962 to ptr)
+  br i1 %49, label %50, label %136
 
 50:                                               ; preds = %47
-  %51 = ptrtoint ptr %.sroa.04.0.i to i64
-  %52 = icmp eq ptr %.sroa.04.0.i, inttoptr (i64 16776962 to ptr)
-  br i1 %52, label %53, label %139
+  %51 = getelementptr inbounds i8, ptr %0, i64 8160
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %54 = load ptr, ptr %53, align 8
+  %.not83 = icmp eq ptr %3, %54
+  br i1 %.not83, label %65, label %55
 
-53:                                               ; preds = %50
-  %54 = getelementptr inbounds i8, ptr %0, i64 8160
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 24
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds i8, ptr %52, i64 120
   %57 = load ptr, ptr %56, align 8
-  %.not83 = icmp eq ptr %3, %57
-  br i1 %.not83, label %68, label %58
+  %58 = getelementptr inbounds i8, ptr %57, i64 24
+  %59 = load ptr, ptr %58, align 8
+  %.not84 = icmp eq ptr %3, %59
+  br i1 %.not84, label %65, label %60
 
-58:                                               ; preds = %53
-  %59 = getelementptr inbounds i8, ptr %55, i64 120
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 24
-  %62 = load ptr, ptr %61, align 8
-  %.not84 = icmp eq ptr %3, %62
-  br i1 %.not84, label %68, label %63
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds i8, ptr %0, i64 8184
+  %.sroa.0.0.copyload.i87 = load ptr, ptr %61, align 8
+  %62 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 6, ptr %62, align 8
+  %.sroa.4134.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 12
+  store i32 0, ptr %.sroa.4134.0..sroa_idx, align 4
+  %.sroa.5135.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr null, ptr %.sroa.5135.0..sroa_idx, align 8
+  %.sroa.6136.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 24
+  store ptr %3, ptr %.sroa.6136.0..sroa_idx, align 8
+  %63 = getelementptr inbounds i8, ptr %12, i64 32
+  store i32 6, ptr %63, align 8
+  %.sroa.4138.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 36
+  store i32 0, ptr %.sroa.4138.0..sroa_idx, align 4
+  %.sroa.5139.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 40
+  store ptr null, ptr %.sroa.5139.0..sroa_idx, align 8
+  %.sroa.6140.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 48
+  store ptr %.sroa.0.0.copyload.i87, ptr %.sroa.6140.0..sroa_idx, align 8
+  store i32 %22, ptr %12, align 8, !alias.scope !358
+  %64 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 1, ptr %64, align 4, !alias.scope !358
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.120)
+  br label %274
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds i8, ptr %0, i64 8184
-  %.sroa.0.0.copyload.i87 = load ptr, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %14, i64 8
-  store i32 6, ptr %65, align 8
-  %.sroa.4132.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 12
-  store i32 0, ptr %.sroa.4132.0..sroa_idx, align 4
-  %.sroa.5133.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr null, ptr %.sroa.5133.0..sroa_idx, align 8
-  %.sroa.6134.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 24
-  store ptr %3, ptr %.sroa.6134.0..sroa_idx, align 8
-  %66 = getelementptr inbounds i8, ptr %14, i64 32
-  store i32 6, ptr %66, align 8
-  %.sroa.4136.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 36
-  store i32 0, ptr %.sroa.4136.0..sroa_idx, align 4
-  %.sroa.5137.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 40
-  store ptr null, ptr %.sroa.5137.0..sroa_idx, align 8
-  %.sroa.6138.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 48
-  store ptr %.sroa.0.0.copyload.i87, ptr %.sroa.6138.0..sroa_idx, align 8
-  store i32 %24, ptr %14, align 8, !alias.scope !358
-  %67 = getelementptr inbounds i8, ptr %14, i64 4
-  store i32 1, ptr %67, align 4, !alias.scope !358
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %14, ptr noundef nonnull @.str.120)
-  br label %276
+65:                                               ; preds = %55, %50
+  br i1 %6, label %66, label %134
 
-68:                                               ; preds = %58, %53
-  br i1 %6, label %69, label %137
-
-69:                                               ; preds = %68
-  %70 = getelementptr inbounds i8, ptr %0, i64 8168
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 8
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 28
-  %75 = load i32, ptr %74, align 4
-  %76 = and i32 %75, 8
-  %.not.i88 = icmp eq i32 %76, 0
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds i8, ptr %0, i64 8168
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds i8, ptr %70, i64 28
+  %72 = load i32, ptr %71, align 4
+  %73 = and i32 %72, 8
+  %.not.i88 = icmp eq i32 %73, 0
   br i1 %.not.i88, label %._crit_edge, label %_ZN14ExceptionTableC2EPK6Method.exit
 
-_ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %69
-  %77 = call noundef ptr @_ZNK11ConstMethod21exception_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %73) #20
-  %78 = load ptr, ptr %72, align 8
-  %79 = call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %78) #20
-  %.not177 = icmp eq i16 %79, 0
-  br i1 %.not177, label %._crit_edge, label %.lr.ph
+_ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %66
+  %74 = tail call noundef ptr @_ZNK11ConstMethod21exception_table_startEv(ptr noundef nonnull align 8 dereferenceable(52) %70) #20
+  %75 = load ptr, ptr %69, align 8
+  %76 = tail call noundef zeroext i16 @_ZNK11ConstMethod22exception_table_lengthEv(ptr noundef nonnull align 8 dereferenceable(52) %75) #20
+  %.not181 = icmp eq i16 %76, 0
+  br i1 %.not181, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN14ExceptionTableC2EPK6Method.exit
-  %80 = getelementptr inbounds i8, ptr %10, i64 800
-  %wide.trip.count = zext i16 %79 to i64
-  br label %81
+  %77 = getelementptr inbounds i8, ptr %10, i64 800
+  %wide.trip.count = zext i16 %76 to i64
+  br label %78
 
-81:                                               ; preds = %.lr.ph, %_ZN12ResourceMarkD2Ev.exit
+78:                                               ; preds = %.lr.ph, %_ZN12ResourceMarkD2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN12ResourceMarkD2Ev.exit ]
-  %82 = getelementptr inbounds %class.ExceptionTableElement, ptr %77, i64 %indvars.iv
-  %83 = load i16, ptr %82, align 2
-  %84 = getelementptr inbounds %class.ExceptionTableElement, ptr %77, i64 %indvars.iv, i32 1
-  %85 = load i16, ptr %84, align 2
-  %86 = zext i16 %83 to i32
-  %.not85 = icmp sge i32 %24, %86
-  %87 = zext i16 %85 to i32
-  %88 = icmp slt i32 %24, %87
-  %or.cond = and i1 %.not85, %88
-  br i1 %or.cond, label %89, label %_ZN12ResourceMarkD2Ev.exit
+  %79 = getelementptr inbounds %class.ExceptionTableElement, ptr %74, i64 %indvars.iv
+  %80 = load i16, ptr %79, align 2
+  %81 = getelementptr inbounds %class.ExceptionTableElement, ptr %74, i64 %indvars.iv, i32 1
+  %82 = load i16, ptr %81, align 2
+  %83 = zext i16 %80 to i32
+  %.not85 = icmp sge i32 %22, %83
+  %84 = zext i16 %82 to i32
+  %85 = icmp slt i32 %22, %84
+  %or.cond = and i1 %.not85, %85
+  br i1 %or.cond, label %86, label %_ZN12ResourceMarkD2Ev.exit
 
-89:                                               ; preds = %81
-  %90 = getelementptr inbounds %class.ExceptionTableElement, ptr %77, i64 %indvars.iv, i32 2
-  %91 = load i16, ptr %90, align 2
-  %92 = zext i16 %91 to i32
-  %93 = call noundef zeroext i1 @_ZN13ClassVerifier14ends_in_athrowEj(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %92)
-  br i1 %93, label %104, label %94
+86:                                               ; preds = %78
+  %87 = getelementptr inbounds %class.ExceptionTableElement, ptr %74, i64 %indvars.iv, i32 2
+  %88 = load i16, ptr %87, align 2
+  %89 = zext i16 %88 to i32
+  %90 = tail call noundef zeroext i1 @_ZN13ClassVerifier14ends_in_athrowEj(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %89)
+  br i1 %90, label %101, label %91
 
-94:                                               ; preds = %89
-  store i32 %24, ptr %15, align 8, !alias.scope !361
-  %95 = getelementptr inbounds i8, ptr %15, i64 4
-  store i32 0, ptr %95, align 4, !alias.scope !361
-  %96 = getelementptr inbounds i8, ptr %15, i64 8
-  store i32 9, ptr %96, align 8, !alias.scope !361
-  %97 = getelementptr inbounds i8, ptr %15, i64 12
-  store i32 0, ptr %97, align 4, !alias.scope !361
-  %98 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr null, ptr %98, align 8, !alias.scope !361
-  %99 = getelementptr inbounds i8, ptr %15, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %99, align 8, !alias.scope !361
-  %100 = getelementptr inbounds i8, ptr %15, i64 32
-  store i32 9, ptr %100, align 8, !alias.scope !361
-  %101 = getelementptr inbounds i8, ptr %15, i64 36
-  store i32 0, ptr %101, align 4, !alias.scope !361
-  %102 = getelementptr inbounds i8, ptr %15, i64 40
-  store ptr null, ptr %102, align 8, !alias.scope !361
-  %103 = getelementptr inbounds i8, ptr %15, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %103, align 8, !alias.scope !361
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %15, ptr noundef nonnull @.str.121)
-  br label %276
+91:                                               ; preds = %86
+  store i32 %22, ptr %13, align 8, !alias.scope !361
+  %92 = getelementptr inbounds i8, ptr %13, i64 4
+  store i32 0, ptr %92, align 4, !alias.scope !361
+  %93 = getelementptr inbounds i8, ptr %13, i64 8
+  store i32 9, ptr %93, align 8, !alias.scope !361
+  %94 = getelementptr inbounds i8, ptr %13, i64 12
+  store i32 0, ptr %94, align 4, !alias.scope !361
+  %95 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr null, ptr %95, align 8, !alias.scope !361
+  %96 = getelementptr inbounds i8, ptr %13, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %96, align 8, !alias.scope !361
+  %97 = getelementptr inbounds i8, ptr %13, i64 32
+  store i32 9, ptr %97, align 8, !alias.scope !361
+  %98 = getelementptr inbounds i8, ptr %13, i64 36
+  store i32 0, ptr %98, align 4, !alias.scope !361
+  %99 = getelementptr inbounds i8, ptr %13, i64 40
+  store ptr null, ptr %99, align 8, !alias.scope !361
+  %100 = getelementptr inbounds i8, ptr %13, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %100, align 8, !alias.scope !361
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %13, ptr noundef nonnull @.str.121)
+  br label %274
 
-104:                                              ; preds = %89
-  %105 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not174 = icmp eq ptr %105, null
-  br i1 %.not174, label %_ZN12ResourceMarkD2Ev.exit, label %106
+101:                                              ; preds = %86
+  %102 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not178 = icmp eq ptr %102, null
+  br i1 %.not178, label %_ZN12ResourceMarkD2Ev.exit, label %103
 
-106:                                              ; preds = %104
-  %107 = load ptr, ptr %80, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 24
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %107, i64 32
-  %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds i8, ptr %107, i64 40
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %107, i64 8
-  %115 = load i64, ptr %114, align 8
-  %116 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not175 = icmp eq ptr %116, null
-  br i1 %.not175, label %122, label %117
+103:                                              ; preds = %101
+  %104 = load ptr, ptr %77, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 24
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %104, i64 32
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %104, i64 40
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds i8, ptr %104, i64 8
+  %112 = load i64, ptr %111, align 8
+  %113 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not179 = icmp eq ptr %113, null
+  br i1 %.not179, label %119, label %114
 
-117:                                              ; preds = %106
-  %118 = load ptr, ptr %54, align 8
-  %119 = getelementptr inbounds i8, ptr %118, i64 24
-  %120 = load ptr, ptr %119, align 8
-  %121 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %120) #20
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.122, ptr noundef %121)
+114:                                              ; preds = %103
+  %115 = load ptr, ptr %51, align 8
+  %116 = getelementptr inbounds i8, ptr %115, i64 24
+  %117 = load ptr, ptr %116, align 8
+  %118 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %117) #20
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE170ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.122, ptr noundef %118)
+  br label %119
+
+119:                                              ; preds = %103, %114
+  %120 = load ptr, ptr %106, align 8
+  %.not.i.i.i.i = icmp eq ptr %120, null
+  br i1 %.not.i.i.i.i, label %122, label %121
+
+121:                                              ; preds = %119
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %104, i64 noundef %112) #20
+  tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %106) #20
   br label %122
 
-122:                                              ; preds = %106, %117
-  %123 = load ptr, ptr %109, align 8
-  %.not.i.i.i.i = icmp eq ptr %123, null
-  br i1 %.not.i.i.i.i, label %125, label %124
+122:                                              ; preds = %121, %119
+  %123 = load ptr, ptr %107, align 8
+  %.not8.i.i.i.i = icmp eq ptr %123, %108
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %124
 
 124:                                              ; preds = %122
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %107, i64 noundef %115) #20
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %109) #20
-  br label %125
-
-125:                                              ; preds = %124, %122
-  %126 = load ptr, ptr %110, align 8
-  %.not8.i.i.i.i = icmp eq ptr %126, %111
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %127
-
-127:                                              ; preds = %125
-  store ptr %109, ptr %108, align 8
-  store ptr %111, ptr %110, align 8
-  store ptr %113, ptr %112, align 8
+  store ptr %106, ptr %105, align 8
+  store ptr %108, ptr %107, align 8
+  store ptr %110, ptr %109, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %127, %125, %81, %104
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %124, %122, %78, %101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %81, !llvm.loop !364
+  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !364
 
-._crit_edge:                                      ; preds = %_ZN12ResourceMarkD2Ev.exit, %69, %_ZN14ExceptionTableC2EPK6Method.exit
-  %128 = load ptr, ptr %54, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 308
-  %130 = load i16, ptr %129, align 2
-  %131 = and i16 %130, 1
-  %.not173 = icmp eq i16 %131, 0
-  br i1 %.not173, label %132, label %276
+._crit_edge:                                      ; preds = %_ZN12ResourceMarkD2Ev.exit, %66, %_ZN14ExceptionTableC2EPK6Method.exit
+  %125 = load ptr, ptr %51, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 308
+  %127 = load i16, ptr %126, align 2
+  %128 = and i16 %127, 1
+  %.not177 = icmp eq i16 %128, 0
+  br i1 %.not177, label %129, label %274
 
-132:                                              ; preds = %._crit_edge
-  call void @_ZN13ClassVerifier32verify_exception_handler_targetsEibP13StackMapFrameP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %24, i1 noundef zeroext true, ptr noundef nonnull %4, ptr noundef %9, ptr noundef nonnull %10)
-  %133 = load ptr, ptr %45, align 8
-  %134 = icmp ne ptr %133, null
-  %135 = load ptr, ptr %48, align 8
-  %136 = icmp ne ptr %135, null
-  %or.cond156 = select i1 %134, i1 true, i1 %136
-  br i1 %or.cond156, label %276, label %137
+129:                                              ; preds = %._crit_edge
+  tail call void @_ZN13ClassVerifier32verify_exception_handler_targetsEibP13StackMapFrameP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %22, i1 noundef zeroext true, ptr noundef nonnull %4, ptr noundef %9, ptr noundef nonnull %10)
+  %130 = load ptr, ptr %42, align 8
+  %131 = icmp ne ptr %130, null
+  %132 = load ptr, ptr %45, align 8
+  %133 = icmp ne ptr %132, null
+  %or.cond160 = select i1 %131, i1 true, i1 %133
+  br i1 %or.cond160, label %274, label %134
 
-137:                                              ; preds = %132, %68
-  %138 = getelementptr inbounds i8, ptr %0, i64 8184
-  %.sroa.0.0.copyload.i89 = load ptr, ptr %138, align 8
-  call void @_ZN13StackMapFrame17initialize_objectE16VerificationTypeS0_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr %.sroa.04.0.i, ptr %.sroa.0.0.copyload.i89) #20
+134:                                              ; preds = %129, %65
+  %135 = getelementptr inbounds i8, ptr %0, i64 8184
+  %.sroa.0.0.copyload.i89 = load ptr, ptr %135, align 8
+  tail call void @_ZN13StackMapFrame17initialize_objectE16VerificationTypeS0_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr %.sroa.04.0.i, ptr %.sroa.0.0.copyload.i89) #20
   store i8 1, ptr %7, align 1
-  br label %276
+  br label %274
 
-139:                                              ; preds = %50
-  %140 = and i64 %51, 2
-  %.not167 = icmp eq i64 %140, 0
-  br i1 %.not167, label %269, label %141
+136:                                              ; preds = %47
+  %137 = and i64 %48, 2
+  %.not171 = icmp eq i64 %137, 0
+  br i1 %.not171, label %267, label %138
 
-141:                                              ; preds = %139
-  %142 = lshr i64 %51, 8
-  %143 = getelementptr inbounds i8, ptr %1, i64 8
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds i8, ptr %146, i64 56
-  %148 = load i32, ptr %23, align 8
-  %149 = sext i32 %148 to i64
+138:                                              ; preds = %136
+  %139 = lshr i64 %48, 8
+  %140 = getelementptr inbounds i8, ptr %1, i64 8
+  %141 = load ptr, ptr %140, align 8
+  %142 = getelementptr inbounds i8, ptr %141, i64 8
+  %143 = load ptr, ptr %142, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 56
+  %145 = load i32, ptr %21, align 8
+  %146 = sext i32 %145 to i64
+  %147 = getelementptr inbounds i8, ptr %144, i64 %146
+  %148 = sext i32 %22 to i64
+  %149 = sub nsw i64 0, %148
   %150 = getelementptr inbounds i8, ptr %147, i64 %149
-  %151 = sext i32 %24 to i64
-  %152 = sub nsw i64 0, %151
-  %153 = getelementptr inbounds i8, ptr %150, i64 %152
-  %154 = trunc i64 %142 to i32
-  %155 = and i32 %154, 65535
-  %156 = and i64 %142, 65535
-  %157 = getelementptr inbounds i8, ptr %153, i64 %156
-  %158 = add i32 %5, -3
-  %159 = icmp ult i32 %158, %155
-  br i1 %159, label %162, label %160
+  %151 = trunc i64 %139 to i32
+  %152 = and i32 %151, 65535
+  %153 = and i64 %139, 65535
+  %154 = getelementptr inbounds i8, ptr %150, i64 %153
+  %155 = add i32 %5, -3
+  %156 = icmp ult i32 %155, %152
+  br i1 %156, label %159, label %157
 
-160:                                              ; preds = %141
-  %161 = load i8, ptr %157, align 1
-  %.not = icmp eq i8 %161, -69
-  br i1 %.not, label %172, label %162
+157:                                              ; preds = %138
+  %158 = load i8, ptr %154, align 1
+  %.not = icmp eq i8 %158, -69
+  br i1 %.not, label %169, label %159
 
-162:                                              ; preds = %160, %141
-  store i32 %155, ptr %16, align 8, !alias.scope !365
-  %163 = getelementptr inbounds i8, ptr %16, i64 4
-  store i32 0, ptr %163, align 4, !alias.scope !365
-  %164 = getelementptr inbounds i8, ptr %16, i64 8
-  store i32 9, ptr %164, align 8, !alias.scope !365
-  %165 = getelementptr inbounds i8, ptr %16, i64 12
-  store i32 0, ptr %165, align 4, !alias.scope !365
-  %166 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr null, ptr %166, align 8, !alias.scope !365
-  %167 = getelementptr inbounds i8, ptr %16, i64 24
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %167, align 8, !alias.scope !365
-  %168 = getelementptr inbounds i8, ptr %16, i64 32
-  store i32 9, ptr %168, align 8, !alias.scope !365
-  %169 = getelementptr inbounds i8, ptr %16, i64 36
-  store i32 0, ptr %169, align 4, !alias.scope !365
-  %170 = getelementptr inbounds i8, ptr %16, i64 40
-  store ptr null, ptr %170, align 8, !alias.scope !365
-  %171 = getelementptr inbounds i8, ptr %16, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %171, align 8, !alias.scope !365
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %16, ptr noundef nonnull @.str.123)
-  br label %276
+159:                                              ; preds = %157, %138
+  store i32 %152, ptr %14, align 8, !alias.scope !365
+  %160 = getelementptr inbounds i8, ptr %14, i64 4
+  store i32 0, ptr %160, align 4, !alias.scope !365
+  %161 = getelementptr inbounds i8, ptr %14, i64 8
+  store i32 9, ptr %161, align 8, !alias.scope !365
+  %162 = getelementptr inbounds i8, ptr %14, i64 12
+  store i32 0, ptr %162, align 4, !alias.scope !365
+  %163 = getelementptr inbounds i8, ptr %14, i64 16
+  store ptr null, ptr %163, align 8, !alias.scope !365
+  %164 = getelementptr inbounds i8, ptr %14, i64 24
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %164, align 8, !alias.scope !365
+  %165 = getelementptr inbounds i8, ptr %14, i64 32
+  store i32 9, ptr %165, align 8, !alias.scope !365
+  %166 = getelementptr inbounds i8, ptr %14, i64 36
+  store i32 0, ptr %166, align 4, !alias.scope !365
+  %167 = getelementptr inbounds i8, ptr %14, i64 40
+  store ptr null, ptr %167, align 8, !alias.scope !365
+  %168 = getelementptr inbounds i8, ptr %14, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %168, align 8, !alias.scope !365
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %14, ptr noundef nonnull @.str.123)
+  br label %274
 
-172:                                              ; preds = %160
-  %173 = getelementptr inbounds i8, ptr %157, i64 1
-  %.0.i.i.i = load i16, ptr %173, align 1
-  %174 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i)
-  %175 = getelementptr inbounds i8, ptr %0, i64 8160
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %176, i64 308
-  %178 = load i16, ptr %177, align 2
-  %179 = and i16 %178, 1
-  %.not168 = icmp eq i16 %179, 0
-  br i1 %.not168, label %180, label %276
+169:                                              ; preds = %157
+  %170 = getelementptr inbounds i8, ptr %154, i64 1
+  %.0.i.i.i = load i16, ptr %170, align 1
+  %171 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i)
+  %172 = getelementptr inbounds i8, ptr %0, i64 8160
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %173, i64 308
+  %175 = load i16, ptr %174, align 2
+  %176 = and i16 %175, 1
+  %.not172 = icmp eq i16 %176, 0
+  br i1 %.not172, label %177, label %274
 
-180:                                              ; preds = %172
-  call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %24, i16 noundef zeroext %174, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %10)
-  %181 = load ptr, ptr %45, align 8
-  %182 = icmp ne ptr %181, null
-  %183 = load ptr, ptr %48, align 8
-  %184 = icmp ne ptr %183, null
-  %or.cond158 = select i1 %182, i1 true, i1 %184
-  br i1 %or.cond158, label %276, label %185
+177:                                              ; preds = %169
+  tail call void @_ZN13ClassVerifier20verify_cp_class_typeEitRK18constantPoolHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %22, i16 noundef zeroext %171, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %10)
+  %178 = load ptr, ptr %42, align 8
+  %179 = icmp ne ptr %178, null
+  %180 = load ptr, ptr %45, align 8
+  %181 = icmp ne ptr %180, null
+  %or.cond162 = select i1 %179, i1 true, i1 %181
+  br i1 %or.cond162, label %274, label %182
 
-185:                                              ; preds = %180
-  %186 = zext i16 %174 to i32
-  %187 = load ptr, ptr %8, align 8
-  %188 = call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %187, i32 noundef %186) #20
-  %189 = load ptr, ptr %45, align 8
-  %190 = icmp ne ptr %189, null
-  %191 = load ptr, ptr %48, align 8
-  %192 = icmp ne ptr %191, null
-  %or.cond160 = select i1 %190, i1 true, i1 %192
-  br i1 %or.cond160, label %276, label %193
+182:                                              ; preds = %177
+  %183 = zext i16 %171 to i32
+  %184 = load ptr, ptr %8, align 8
+  %185 = tail call noundef ptr @_ZNK12ConstantPool13klass_name_atEi(ptr noundef nonnull align 8 dereferenceable(68) %184, i32 noundef %183) #20
+  %186 = load ptr, ptr %42, align 8
+  %187 = icmp ne ptr %186, null
+  %188 = load ptr, ptr %45, align 8
+  %189 = icmp ne ptr %188, null
+  %or.cond164 = select i1 %187, i1 true, i1 %189
+  br i1 %or.cond164, label %274, label %_ZNK16VerificationType6equalsERKS_.exit
 
-193:                                              ; preds = %185
-  %194 = icmp eq ptr %188, %3
-  br i1 %194, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %_ZNK16VerificationType6equalsERKS_.exit
+_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %182
+  %190 = icmp eq ptr %185, %3
+  br i1 %190, label %196, label %191
 
-_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %193
-  %195 = zext i16 %2 to i32
-  %196 = getelementptr inbounds i8, ptr %17, i64 8
-  store i32 4, ptr %196, align 8
-  %.sroa.4140.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 12
-  store i32 %186, ptr %.sroa.4140.0..sroa_idx, align 4
-  %.sroa.5141.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr null, ptr %.sroa.5141.0..sroa_idx, align 8
-  %.sroa.6142.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 24
-  store ptr %188, ptr %.sroa.6142.0..sroa_idx, align 8
-  %197 = getelementptr inbounds i8, ptr %17, i64 32
-  store i32 4, ptr %197, align 8
-  %.sroa.4144.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 36
-  store i32 %195, ptr %.sroa.4144.0..sroa_idx, align 4
-  %.sroa.5145.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr null, ptr %.sroa.5145.0..sroa_idx, align 8
-  %.sroa.6146.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 48
-  store ptr %3, ptr %.sroa.6146.0..sroa_idx, align 8
-  store i32 %24, ptr %17, align 8, !alias.scope !368
-  %198 = getelementptr inbounds i8, ptr %17, i64 4
-  store i32 1, ptr %198, align 4, !alias.scope !368
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %17, ptr noundef nonnull @.str.124)
-  br label %276
+191:                                              ; preds = %_ZNK16VerificationType6equalsERKS_.exit
+  %192 = zext i16 %2 to i32
+  %193 = getelementptr inbounds i8, ptr %15, i64 8
+  store i32 4, ptr %193, align 8
+  %.sroa.4142.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 12
+  store i32 %183, ptr %.sroa.4142.0..sroa_idx, align 4
+  %.sroa.5143.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
+  store ptr null, ptr %.sroa.5143.0..sroa_idx, align 8
+  %.sroa.6144.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
+  store ptr %185, ptr %.sroa.6144.0..sroa_idx, align 8
+  %194 = getelementptr inbounds i8, ptr %15, i64 32
+  store i32 4, ptr %194, align 8
+  %.sroa.4146.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 36
+  store i32 %192, ptr %.sroa.4146.0..sroa_idx, align 4
+  %.sroa.5147.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 40
+  store ptr null, ptr %.sroa.5147.0..sroa_idx, align 8
+  %.sroa.6148.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 48
+  store ptr %3, ptr %.sroa.6148.0..sroa_idx, align 8
+  store i32 %22, ptr %15, align 8, !alias.scope !368
+  %195 = getelementptr inbounds i8, ptr %15, i64 4
+  store i32 1, ptr %195, align 4, !alias.scope !368
+  tail call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %15, ptr noundef nonnull @.str.124)
+  br label %274
 
-_ZNK16VerificationType6equalsERKS_.exit.thread:   ; preds = %193
-  %199 = ptrtoint ptr %3 to i64
-  store i64 %199, ptr %18, align 8
-  %200 = load ptr, ptr %175, align 8
-  br label %201
+196:                                              ; preds = %_ZNK16VerificationType6equalsERKS_.exit
+  %197 = ptrtoint ptr %3 to i64
+  store i64 %197, ptr %16, align 8
+  %198 = load ptr, ptr %172, align 8
+  br label %199
 
-201:                                              ; preds = %202, %_ZNK16VerificationType6equalsERKS_.exit.thread
-  %.pn.i = phi ptr [ %200, %_ZNK16VerificationType6equalsERKS_.exit.thread ], [ %.0.i, %202 ]
+199:                                              ; preds = %200, %196
+  %.pn.i = phi ptr [ %198, %196 ], [ %.0.i, %200 ]
   %.0.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 120
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not.not.not.not.i.not = icmp eq ptr %.0.i, null
-  br i1 %.not.not.not.not.i.not, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %202
+  br i1 %.not.not.not.not.i.not, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %200
 
-202:                                              ; preds = %201
-  %203 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp eq ptr %204, %3
-  br i1 %205, label %206, label %201, !llvm.loop !294
+200:                                              ; preds = %199
+  %201 = getelementptr inbounds i8, ptr %.0.i, i64 24
+  %202 = load ptr, ptr %201, align 8
+  %203 = icmp eq ptr %202, %3
+  br i1 %203, label %204, label %199, !llvm.loop !294
 
-206:                                              ; preds = %202
-  %207 = call noundef ptr @_ZN13ClassVerifier10load_classEP6SymbolP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %3, ptr noundef nonnull %10)
-  %208 = load ptr, ptr %45, align 8
-  %.not169 = icmp eq ptr %208, null
-  br i1 %.not169, label %209, label %276
+204:                                              ; preds = %200
+  %205 = tail call noundef ptr @_ZN13ClassVerifier10load_classEP6SymbolP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef %3, ptr noundef nonnull %10)
+  %206 = load ptr, ptr %42, align 8
+  %.not173 = icmp eq ptr %206, null
+  br i1 %.not173, label %207, label %274
 
-209:                                              ; preds = %206
-  %210 = load ptr, ptr %175, align 8
-  %211 = getelementptr inbounds i8, ptr %210, i64 308
-  %212 = load i16, ptr %211, align 2
-  %213 = and i16 %212, 1
-  %.not170 = icmp eq i16 %213, 0
-  br i1 %.not170, label %214, label %276
+207:                                              ; preds = %204
+  %208 = load ptr, ptr %172, align 8
+  %209 = getelementptr inbounds i8, ptr %208, i64 308
+  %210 = load i16, ptr %209, align 2
+  %211 = and i16 %210, 1
+  %.not174 = icmp eq i16 %211, 0
+  br i1 %.not174, label %212, label %274
 
-214:                                              ; preds = %209
-  %215 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
-  %216 = load ptr, ptr %8, align 8
-  %217 = load ptr, ptr %143, align 8
-  %218 = getelementptr inbounds i8, ptr %217, i64 8
-  %219 = load ptr, ptr %218, align 8
-  %220 = getelementptr inbounds i8, ptr %219, i64 56
-  %221 = load i32, ptr %23, align 8
-  %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds i8, ptr %220, i64 %222
-  %224 = getelementptr inbounds i8, ptr %223, i64 1
-  %.0.i.i.i.i.i = load i16, ptr %224, align 1
-  %225 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
-  %226 = zext i16 %225 to i32
-  %227 = call noundef ptr @_ZN12ConstantPool25uncached_signature_ref_atEi(ptr noundef nonnull align 8 dereferenceable(68) %216, i32 noundef %226)
-  %228 = load ptr, ptr %207, align 8
-  %229 = getelementptr inbounds i8, ptr %228, i64 192
-  %230 = load ptr, ptr %229, align 8
-  %231 = call noundef ptr %230(ptr noundef nonnull align 8 dereferenceable(464) %207, ptr noundef %215, ptr noundef %227, i32 noundef 0, i32 noundef 0) #20
-  %.not82 = icmp eq ptr %231, null
-  br i1 %.not82, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %232
+212:                                              ; preds = %207
+  %213 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 3056), align 8
+  %214 = load ptr, ptr %8, align 8
+  %215 = load ptr, ptr %140, align 8
+  %216 = getelementptr inbounds i8, ptr %215, i64 8
+  %217 = load ptr, ptr %216, align 8
+  %218 = getelementptr inbounds i8, ptr %217, i64 56
+  %219 = load i32, ptr %21, align 8
+  %220 = sext i32 %219 to i64
+  %221 = getelementptr inbounds i8, ptr %218, i64 %220
+  %222 = getelementptr inbounds i8, ptr %221, i64 1
+  %.0.i.i.i.i.i = load i16, ptr %222, align 1
+  %223 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i.i)
+  %224 = zext i16 %223 to i32
+  %225 = tail call noundef ptr @_ZN12ConstantPool25uncached_signature_ref_atEi(ptr noundef nonnull align 8 dereferenceable(68) %214, i32 noundef %224)
+  %226 = load ptr, ptr %205, align 8
+  %227 = getelementptr inbounds i8, ptr %226, i64 192
+  %228 = load ptr, ptr %227, align 8
+  %229 = tail call noundef ptr %228(ptr noundef nonnull align 8 dereferenceable(464) %205, ptr noundef %213, ptr noundef %225, i32 noundef 0, i32 noundef 0) #20
+  %.not82 = icmp eq ptr %229, null
+  br i1 %.not82, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %230
 
-232:                                              ; preds = %214
-  %233 = getelementptr inbounds i8, ptr %231, i64 40
-  %.sroa.0.0.copyload.i.i = load i32, ptr %233, align 8
-  %234 = and i32 %.sroa.0.0.copyload.i.i, 4
-  %.not171 = icmp eq i32 %234, 0
-  br i1 %.not171, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %235
+230:                                              ; preds = %212
+  %231 = getelementptr inbounds i8, ptr %229, i64 40
+  %.sroa.0.0.copyload.i.i = load i32, ptr %231, align 8
+  %232 = and i32 %.sroa.0.0.copyload.i.i, 4
+  %.not175 = icmp eq i32 %232, 0
+  br i1 %.not175, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %233
 
-235:                                              ; preds = %232
-  %236 = getelementptr inbounds i8, ptr %231, i64 8
+233:                                              ; preds = %230
+  %234 = getelementptr inbounds i8, ptr %229, i64 8
+  %235 = load ptr, ptr %234, align 8
+  %236 = getelementptr inbounds i8, ptr %235, i64 8
   %237 = load ptr, ptr %236, align 8
-  %238 = getelementptr inbounds i8, ptr %237, i64 8
+  %238 = getelementptr inbounds i8, ptr %237, i64 24
   %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds i8, ptr %239, i64 24
-  %241 = load ptr, ptr %240, align 8
-  %242 = load ptr, ptr %175, align 8
-  %243 = call noundef zeroext i1 @_ZNK13InstanceKlass21is_same_class_packageEPK5Klass(ptr noundef nonnull align 8 dereferenceable(464) %241, ptr noundef %242) #20
-  br i1 %243, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %244
+  %240 = load ptr, ptr %172, align 8
+  %241 = tail call noundef zeroext i1 @_ZNK13InstanceKlass21is_same_class_packageEPK5Klass(ptr noundef nonnull align 8 dereferenceable(464) %239, ptr noundef %240) #20
+  br i1 %241, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %242
 
-244:                                              ; preds = %235
-  %245 = getelementptr inbounds i8, ptr %0, i64 8184
-  %.sroa.0.0.copyload.i90 = load ptr, ptr %245, align 8
-  store ptr %.sroa.0.0.copyload.i90, ptr %19, align 8
-  %246 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %10)
+242:                                              ; preds = %233
+  %243 = getelementptr inbounds i8, ptr %0, i64 8184
+  %.sroa.0.0.copyload.i90 = load ptr, ptr %243, align 8
+  store ptr %.sroa.0.0.copyload.i90, ptr %17, align 8
+  %244 = call noundef zeroext i1 @_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %0, i1 noundef zeroext true, ptr noundef nonnull %10)
+  %245 = load ptr, ptr %42, align 8
+  %246 = icmp ne ptr %245, null
   %247 = load ptr, ptr %45, align 8
   %248 = icmp ne ptr %247, null
-  %249 = load ptr, ptr %48, align 8
-  %250 = icmp ne ptr %249, null
-  %or.cond162 = select i1 %248, i1 true, i1 %250
-  br i1 %or.cond162, label %276, label %251
+  %or.cond166 = select i1 %246, i1 true, i1 %248
+  br i1 %or.cond166, label %274, label %249
 
-251:                                              ; preds = %244
-  br i1 %246, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %252
+249:                                              ; preds = %242
+  br i1 %244, label %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit, label %250
 
-252:                                              ; preds = %251
-  %.sroa.03.0.copyload = load ptr, ptr %18, align 8
-  %.sroa.0.0.copyload.i91 = load ptr, ptr %245, align 8
-  %253 = getelementptr inbounds i8, ptr %20, i64 8
-  store i32 4, ptr %253, align 8
-  %.sroa.4148.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 12
-  store i32 %186, ptr %.sroa.4148.0..sroa_idx, align 4
-  %.sroa.5149.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 16
-  store ptr null, ptr %.sroa.5149.0..sroa_idx, align 8
-  %.sroa.6150.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 24
-  store ptr %.sroa.03.0.copyload, ptr %.sroa.6150.0..sroa_idx, align 8
-  %254 = getelementptr inbounds i8, ptr %20, i64 32
-  store i32 6, ptr %254, align 8
-  %.sroa.4152.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 36
-  store i32 0, ptr %.sroa.4152.0..sroa_idx, align 4
-  %.sroa.5153.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 40
-  store ptr null, ptr %.sroa.5153.0..sroa_idx, align 8
-  %.sroa.6154.0..sroa_idx = getelementptr inbounds i8, ptr %20, i64 48
-  store ptr %.sroa.0.0.copyload.i91, ptr %.sroa.6154.0..sroa_idx, align 8
-  store i32 %24, ptr %20, align 8, !alias.scope !371
-  %255 = getelementptr inbounds i8, ptr %20, i64 4
-  store i32 1, ptr %255, align 4, !alias.scope !371
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %20, ptr noundef nonnull @.str.125)
-  br label %276
+250:                                              ; preds = %249
+  %.sroa.03.0.copyload = load ptr, ptr %16, align 8
+  %.sroa.0.0.copyload.i91 = load ptr, ptr %243, align 8
+  %251 = getelementptr inbounds i8, ptr %18, i64 8
+  store i32 4, ptr %251, align 8
+  %.sroa.4150.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 12
+  store i32 %183, ptr %.sroa.4150.0..sroa_idx, align 4
+  %.sroa.5151.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
+  store ptr null, ptr %.sroa.5151.0..sroa_idx, align 8
+  %.sroa.6152.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 24
+  store ptr %.sroa.03.0.copyload, ptr %.sroa.6152.0..sroa_idx, align 8
+  %252 = getelementptr inbounds i8, ptr %18, i64 32
+  store i32 6, ptr %252, align 8
+  %.sroa.4154.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 36
+  store i32 0, ptr %.sroa.4154.0..sroa_idx, align 4
+  %.sroa.5155.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 40
+  store ptr null, ptr %.sroa.5155.0..sroa_idx, align 8
+  %.sroa.6156.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 48
+  store ptr %.sroa.0.0.copyload.i91, ptr %.sroa.6156.0..sroa_idx, align 8
+  store i32 %22, ptr %18, align 8, !alias.scope !371
+  %253 = getelementptr inbounds i8, ptr %18, i64 4
+  store i32 1, ptr %253, align 4, !alias.scope !371
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %18, ptr noundef nonnull @.str.125)
+  br label %274
 
-_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %201, %214, %251, %235, %232
-  br i1 %6, label %256, label %268
+_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit: ; preds = %199, %212, %249, %233, %230
+  br i1 %6, label %254, label %266
 
-256:                                              ; preds = %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
-  %257 = load ptr, ptr %175, align 8
-  %258 = getelementptr inbounds i8, ptr %257, i64 308
-  %259 = load i16, ptr %258, align 2
-  %260 = and i16 %259, 1
-  %.not172 = icmp eq i16 %260, 0
-  br i1 %.not172, label %261, label %276
+254:                                              ; preds = %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
+  %255 = load ptr, ptr %172, align 8
+  %256 = getelementptr inbounds i8, ptr %255, i64 308
+  %257 = load i16, ptr %256, align 2
+  %258 = and i16 %257, 1
+  %.not176 = icmp eq i16 %258, 0
+  br i1 %.not176, label %259, label %274
 
-261:                                              ; preds = %256
-  %262 = load i8, ptr %7, align 1
-  %263 = trunc i8 %262 to i1
-  call void @_ZN13ClassVerifier32verify_exception_handler_targetsEibP13StackMapFrameP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %24, i1 noundef zeroext %263, ptr noundef nonnull %4, ptr noundef %9, ptr noundef nonnull %10)
+259:                                              ; preds = %254
+  %260 = load i8, ptr %7, align 1
+  %261 = trunc i8 %260 to i1
+  call void @_ZN13ClassVerifier32verify_exception_handler_targetsEibP13StackMapFrameP13StackMapTableP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8192) %0, i32 noundef %22, i1 noundef zeroext %261, ptr noundef nonnull %4, ptr noundef %9, ptr noundef nonnull %10)
+  %262 = load ptr, ptr %42, align 8
+  %263 = icmp ne ptr %262, null
   %264 = load ptr, ptr %45, align 8
   %265 = icmp ne ptr %264, null
-  %266 = load ptr, ptr %48, align 8
-  %267 = icmp ne ptr %266, null
-  %or.cond164 = select i1 %265, i1 true, i1 %267
-  br i1 %or.cond164, label %276, label %268
+  %or.cond168 = select i1 %263, i1 true, i1 %265
+  br i1 %or.cond168, label %274, label %266
 
-268:                                              ; preds = %261, %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
-  call void @_ZN13StackMapFrame17initialize_objectE16VerificationTypeS0_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr %.sroa.04.0.i, ptr %188) #20
-  br label %276
+266:                                              ; preds = %259, %_ZN13ClassVerifier14name_in_supersEP6SymbolP13InstanceKlass.exit
+  call void @_ZN13StackMapFrame17initialize_objectE16VerificationTypeS0_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr %.sroa.04.0.i, ptr %185) #20
+  br label %274
 
-269:                                              ; preds = %139
-  call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %22, ptr noundef nonnull align 8 dereferenceable(48) %4) #20
-  %270 = getelementptr inbounds i8, ptr %21, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %270, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
-  store i32 %24, ptr %21, align 8, !alias.scope !374
-  %271 = getelementptr inbounds i8, ptr %21, i64 4
-  store i32 1, ptr %271, align 4, !alias.scope !374
-  %272 = getelementptr inbounds i8, ptr %21, i64 32
-  store i32 9, ptr %272, align 8, !alias.scope !374
-  %273 = getelementptr inbounds i8, ptr %21, i64 36
-  store i32 0, ptr %273, align 4, !alias.scope !374
-  %274 = getelementptr inbounds i8, ptr %21, i64 40
-  store ptr null, ptr %274, align 8, !alias.scope !374
-  %275 = getelementptr inbounds i8, ptr %21, i64 48
-  store ptr inttoptr (i64 4294901761 to ptr), ptr %275, align 8, !alias.scope !374
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %21, ptr noundef nonnull @.str.126)
-  br label %276
+267:                                              ; preds = %136
+  call void @_ZN13StackMapFrame13stack_top_ctxEv(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %20, ptr noundef nonnull align 8 dereferenceable(48) %4) #20
+  %268 = getelementptr inbounds i8, ptr %19, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %268, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
+  store i32 %22, ptr %19, align 8, !alias.scope !374
+  %269 = getelementptr inbounds i8, ptr %19, i64 4
+  store i32 1, ptr %269, align 4, !alias.scope !374
+  %270 = getelementptr inbounds i8, ptr %19, i64 32
+  store i32 9, ptr %270, align 8, !alias.scope !374
+  %271 = getelementptr inbounds i8, ptr %19, i64 36
+  store i32 0, ptr %271, align 4, !alias.scope !374
+  %272 = getelementptr inbounds i8, ptr %19, i64 40
+  store ptr null, ptr %272, align 8, !alias.scope !374
+  %273 = getelementptr inbounds i8, ptr %19, i64 48
+  store ptr inttoptr (i64 4294901761 to ptr), ptr %273, align 8, !alias.scope !374
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %0, ptr noundef nonnull byval(%class.ErrorContext) align 8 %19, ptr noundef nonnull @.str.126)
+  br label %274
 
-276:                                              ; preds = %261, %256, %244, %209, %206, %185, %180, %172, %132, %._crit_edge, %47, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit, %268, %269, %252, %_ZNK16VerificationType6equalsERKS_.exit, %162, %137, %94, %63
+274:                                              ; preds = %259, %254, %242, %207, %204, %182, %177, %169, %129, %._crit_edge, %44, %_ZN13StackMapFrame9pop_stackE16VerificationTypeP10JavaThread.exit, %266, %267, %250, %191, %159, %134, %91, %60
   ret void
 }
 
@@ -14494,27 +14524,28 @@ declare void @_ZN13StackMapFrame17initialize_objectE16VerificationTypeS0_(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZN13ClassVerifier27is_same_or_direct_interfaceEP13InstanceKlass16VerificationTypeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8192) %0, ptr nocapture noundef readonly %1, ptr readnone %2, ptr readnone %3) local_unnamed_addr #12 align 2 {
-  %5 = icmp eq ptr %3, %2
-  br i1 %5, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %_ZNK16VerificationType6equalsERKS_.exit
+_ZNK16VerificationType6equalsERKS_.exit:
+  %4 = icmp eq ptr %3, %2
+  br i1 %4, label %.loopexit, label %5
 
-_ZNK16VerificationType6equalsERKS_.exit:          ; preds = %4
+5:                                                ; preds = %_ZNK16VerificationType6equalsERKS_.exit
   %6 = getelementptr inbounds i8, ptr %1, i64 416
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %_ZNK16VerificationType6equalsERKS_.exit
+.preheader:                                       ; preds = %5
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = load i32, ptr %7, align 8
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %_ZNK16VerificationType6equalsERKS_.exit14.preheader, label %_ZNK16VerificationType6equalsERKS_.exit.thread
+  br i1 %10, label %_ZNK16VerificationType6equalsERKS_.exit10.preheader, label %.loopexit
 
-_ZNK16VerificationType6equalsERKS_.exit14.preheader: ; preds = %.preheader
+_ZNK16VerificationType6equalsERKS_.exit10.preheader: ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %9 to i64
-  br label %_ZNK16VerificationType6equalsERKS_.exit14
+  br label %_ZNK16VerificationType6equalsERKS_.exit10
 
-_ZNK16VerificationType6equalsERKS_.exit14:        ; preds = %_ZNK16VerificationType6equalsERKS_.exit14, %_ZNK16VerificationType6equalsERKS_.exit14.preheader
-  %indvars.iv = phi i64 [ 0, %_ZNK16VerificationType6equalsERKS_.exit14.preheader ], [ %indvars.iv.next, %_ZNK16VerificationType6equalsERKS_.exit14 ]
+_ZNK16VerificationType6equalsERKS_.exit10:        ; preds = %_ZNK16VerificationType6equalsERKS_.exit10, %_ZNK16VerificationType6equalsERKS_.exit10.preheader
+  %indvars.iv = phi i64 [ 0, %_ZNK16VerificationType6equalsERKS_.exit10.preheader ], [ %indvars.iv.next, %_ZNK16VerificationType6equalsERKS_.exit10 ]
   %11 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 24
@@ -14523,10 +14554,10 @@ _ZNK16VerificationType6equalsERKS_.exit14:        ; preds = %_ZNK16VerificationT
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   %or.cond = select i1 %15, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %_ZNK16VerificationType6equalsERKS_.exit.thread, label %_ZNK16VerificationType6equalsERKS_.exit14, !llvm.loop !318
+  br i1 %or.cond, label %.loopexit, label %_ZNK16VerificationType6equalsERKS_.exit10, !llvm.loop !318
 
-_ZNK16VerificationType6equalsERKS_.exit.thread:   ; preds = %_ZNK16VerificationType6equalsERKS_.exit14, %.preheader, %4, %_ZNK16VerificationType6equalsERKS_.exit
-  %.0 = phi i1 [ false, %_ZNK16VerificationType6equalsERKS_.exit ], [ true, %4 ], [ false, %.preheader ], [ %15, %_ZNK16VerificationType6equalsERKS_.exit14 ]
+.loopexit:                                        ; preds = %_ZNK16VerificationType6equalsERKS_.exit10, %.preheader, %5, %_ZNK16VerificationType6equalsERKS_.exit
+  %.0 = phi i1 [ true, %_ZNK16VerificationType6equalsERKS_.exit ], [ false, %5 ], [ false, %.preheader ], [ %15, %_ZNK16VerificationType6equalsERKS_.exit10 ]
   ret i1 %.0
 }
 

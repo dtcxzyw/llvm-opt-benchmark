@@ -1053,7 +1053,7 @@ for.body:                                         ; preds = %entry, %Py_XDECREF.
   store atomic i32 0, ptr %arrayidx monotonic, align 8
   store atomic i64 0, ptr %func.i seq_cst, align 8
   %cmp1 = icmp ne i64 %0, 0
-  %cmp2 = icmp ne ptr %1, @_Py_NoneStruct
+  %cmp2 = icmp ne i64 %0, ptrtoint (ptr @_Py_NoneStruct to i64)
   %or.cond = and i1 %cmp1, %cmp2
   br i1 %or.cond, label %land.lhs.true3, label %if.end
 
@@ -1287,7 +1287,7 @@ if.end5:                                          ; preds = %for.body
   %7 = load atomic i64, ptr %func.i seq_cst, align 8
   %8 = inttoptr i64 %7 to ptr
   %cmp10 = icmp eq i64 %7, 0
-  %cmp11 = icmp eq ptr %8, @_Py_NoneStruct
+  %cmp11 = icmp eq i64 %7, ptrtoint (ptr @_Py_NoneStruct to i64)
   %or.cond = or i1 %cmp10, %cmp11
   br i1 %or.cond, label %if.then18, label %lor.lhs.false12
 

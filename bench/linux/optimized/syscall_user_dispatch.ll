@@ -276,7 +276,7 @@ define dso_local noundef range(i32 -22, 1) i32 @syscall_user_dispatch_set_config
   br i1 %26, label %27, label %41
 
 27:                                               ; preds = %22
-  %28 = icmp sgt ptr %17, inttoptr (i64 -1 to ptr)
+  %28 = icmp sgt i64 %16, -1
   br i1 %28, label %29, label %41, !prof !11
 
 29:                                               ; preds = %27

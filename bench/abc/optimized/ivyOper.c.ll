@@ -206,7 +206,7 @@ Ivy_And.exit:                                     ; preds = %3, %10, %23, %25, %
   br i1 %43, label %Ivy_And.exit8, label %44
 
 44:                                               ; preds = %Ivy_And.exit
-  %45 = icmp eq ptr %42, %6
+  %45 = icmp eq ptr %1, %2
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %44
@@ -226,7 +226,7 @@ Ivy_And.exit:                                     ; preds = %3, %10, %23, %25, %
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %52
-  %59 = icmp eq ptr %42, %54
+  %59 = icmp eq i64 %41, %53
   br i1 %59, label %Ivy_And.exit8, label %60
 
 60:                                               ; preds = %58
@@ -261,7 +261,7 @@ Ivy_And.exit8:                                    ; preds = %Ivy_And.exit, %46, 
   %77 = ptrtoint ptr %.0.i7 to i64
   %78 = xor i64 %77, 1
   %79 = inttoptr i64 %78 to ptr
-  %80 = icmp eq ptr %76, %79
+  %80 = icmp eq ptr %.0.i, %.0.i7
   br i1 %80, label %Ivy_Or.exit, label %81
 
 81:                                               ; preds = %Ivy_And.exit8
@@ -284,7 +284,7 @@ Ivy_And.exit8:                                    ; preds = %Ivy_And.exit, %46, 
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %88
-  %95 = icmp eq ptr %76, %90
+  %95 = icmp eq i64 %75, %89
   %96 = or i64 %74, 1
   %spec.select.i = select i1 %95, i64 %78, i64 %96
   br label %Ivy_Or.exit
@@ -326,7 +326,7 @@ define ptr @Ivy_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   %7 = ptrtoint ptr %2 to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %6, %9
+  %10 = icmp eq ptr %1, %2
   br i1 %10, label %Ivy_And.exit, label %11
 
 11:                                               ; preds = %3
@@ -349,7 +349,7 @@ define ptr @Ivy_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %18
-  %25 = icmp eq ptr %6, %20
+  %25 = icmp eq i64 %5, %19
   %26 = or i64 %4, 1
   %spec.select = select i1 %25, i64 %8, i64 %26
   br label %Ivy_And.exit
@@ -721,7 +721,7 @@ Ivy_And.exit:                                     ; preds = %163, %160, %158, %1
   br i1 %167, label %Ivy_And.exit116, label %168
 
 168:                                              ; preds = %166
-  %169 = icmp eq ptr %32, %92
+  %169 = icmp eq ptr %1, %3
   br i1 %169, label %170, label %176
 
 170:                                              ; preds = %168
@@ -741,7 +741,7 @@ Ivy_And.exit:                                     ; preds = %163, %160, %158, %1
   br i1 %181, label %182, label %187
 
 182:                                              ; preds = %176
-  %183 = icmp eq ptr %32, %178
+  %183 = icmp eq i64 %31, %177
   br i1 %183, label %Ivy_And.exit116, label %184
 
 184:                                              ; preds = %182
@@ -776,7 +776,7 @@ Ivy_And.exit116:                                  ; preds = %196, %193, %191, %1
   %202 = ptrtoint ptr %198 to i64
   %203 = xor i64 %202, 1
   %204 = inttoptr i64 %203 to ptr
-  %205 = icmp eq ptr %201, %204
+  %205 = icmp eq ptr %165, %198
   br i1 %205, label %Ivy_Or.exit, label %206
 
 206:                                              ; preds = %Ivy_And.exit116
@@ -799,7 +799,7 @@ Ivy_And.exit116:                                  ; preds = %196, %193, %191, %1
   br i1 %218, label %219, label %222
 
 219:                                              ; preds = %213
-  %220 = icmp eq ptr %201, %215
+  %220 = icmp eq i64 %200, %214
   %221 = or i64 %199, 1
   %spec.select.i = select i1 %220, i64 %203, i64 %221
   br label %Ivy_Or.exit
@@ -873,7 +873,7 @@ Ivy_Or.exit:                                      ; preds = %Ivy_And.exit116, %2
   br i1 %261, label %262, label %267
 
 262:                                              ; preds = %258
-  %263 = icmp eq ptr %260, %7
+  %263 = icmp eq i64 %259, %6
   br i1 %263, label %Ivy_And.exit118, label %264
 
 264:                                              ; preds = %262
@@ -890,7 +890,7 @@ Ivy_And.exit118:                                  ; preds = %267, %264, %262, %2
   br i1 %107, label %Ivy_And.exit120, label %270
 
 270:                                              ; preds = %Ivy_And.exit118
-  %271 = icmp eq ptr %32, %92
+  %271 = icmp eq ptr %1, %3
   br i1 %271, label %Ivy_And.exit120, label %272
 
 272:                                              ; preds = %270
@@ -914,7 +914,7 @@ Ivy_And.exit118:                                  ; preds = %267, %264, %262, %2
   br i1 %285, label %286, label %291
 
 286:                                              ; preds = %280
-  %287 = icmp eq ptr %32, %282
+  %287 = icmp eq i64 %31, %281
   br i1 %287, label %Ivy_And.exit120, label %288
 
 288:                                              ; preds = %286
@@ -929,7 +929,7 @@ Ivy_And.exit118:                                  ; preds = %267, %264, %262, %2
   br i1 %294, label %295, label %300
 
 295:                                              ; preds = %291
-  %296 = icmp eq ptr %293, %92
+  %296 = icmp eq i64 %292, %91
   br i1 %296, label %Ivy_And.exit120, label %297
 
 297:                                              ; preds = %295
@@ -949,7 +949,7 @@ Ivy_And.exit120:                                  ; preds = %300, %297, %295, %2
   %306 = ptrtoint ptr %302 to i64
   %307 = xor i64 %306, 1
   %308 = inttoptr i64 %307 to ptr
-  %309 = icmp eq ptr %305, %308
+  %309 = icmp eq ptr %269, %302
   br i1 %309, label %Ivy_Or.exit123, label %310
 
 310:                                              ; preds = %Ivy_And.exit120
@@ -972,7 +972,7 @@ Ivy_And.exit120:                                  ; preds = %300, %297, %295, %2
   br i1 %322, label %323, label %326
 
 323:                                              ; preds = %317
-  %324 = icmp eq ptr %305, %319
+  %324 = icmp eq i64 %304, %318
   %325 = or i64 %303, 1
   %spec.select.i122 = select i1 %324, i64 %307, i64 %325
   br label %Ivy_Or.exit123
@@ -1133,7 +1133,7 @@ Ivy_And.exit12:                                   ; preds = %Ivy_And.exit, %47, 
   %80 = ptrtoint ptr %.0.i11 to i64
   %81 = xor i64 %80, 1
   %82 = inttoptr i64 %81 to ptr
-  %83 = icmp eq ptr %79, %82
+  %83 = icmp eq ptr %.0.i, %.0.i11
   br i1 %83, label %Ivy_Or.exit, label %84
 
 84:                                               ; preds = %Ivy_And.exit12
@@ -1156,7 +1156,7 @@ Ivy_And.exit12:                                   ; preds = %Ivy_And.exit, %47, 
   br i1 %96, label %97, label %100
 
 97:                                               ; preds = %91
-  %98 = icmp eq ptr %79, %93
+  %98 = icmp eq i64 %78, %92
   %99 = or i64 %77, 1
   %spec.select.i = select i1 %98, i64 %81, i64 %99
   br label %Ivy_Or.exit
@@ -1183,120 +1183,122 @@ Ivy_And.exit12:                                   ; preds = %Ivy_And.exit, %47, 
 
 Ivy_Or.exit:                                      ; preds = %Ivy_And.exit12, %86, %97, %104, %106, %109
   %.0.i.i = phi i64 [ %90, %86 ], [ %111, %109 ], [ %78, %Ivy_And.exit12 ], [ %108, %106 ], [ %78, %104 ], [ %spec.select.i, %97 ]
-  %112 = icmp eq ptr %2, %3
-  br i1 %112, label %Ivy_And.exit14, label %113
+  %112 = xor i64 %.0.i.i, 1
+  %113 = inttoptr i64 %112 to ptr
+  %114 = icmp eq ptr %2, %3
+  br i1 %114, label %Ivy_And.exit14, label %115
 
-113:                                              ; preds = %Ivy_Or.exit
-  %114 = ptrtoint ptr %3 to i64
-  %115 = xor i64 %114, 1
-  %116 = inttoptr i64 %115 to ptr
-  %117 = icmp eq ptr %2, %116
-  br i1 %117, label %118, label %124
+115:                                              ; preds = %Ivy_Or.exit
+  %116 = ptrtoint ptr %3 to i64
+  %117 = xor i64 %116, 1
+  %118 = inttoptr i64 %117 to ptr
+  %119 = icmp eq ptr %2, %118
+  br i1 %119, label %120, label %126
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds i8, ptr %0, i64 32
-  %120 = load ptr, ptr %119, align 8
-  %121 = ptrtoint ptr %120 to i64
-  %122 = xor i64 %121, 1
-  %123 = inttoptr i64 %122 to ptr
+120:                                              ; preds = %115
+  %121 = getelementptr inbounds i8, ptr %0, i64 32
+  %122 = load ptr, ptr %121, align 8
+  %123 = ptrtoint ptr %122 to i64
+  %124 = xor i64 %123, 1
+  %125 = inttoptr i64 %124 to ptr
   br label %Ivy_And.exit14
 
-124:                                              ; preds = %113
-  %125 = ptrtoint ptr %2 to i64
-  %126 = and i64 %125, -2
-  %127 = inttoptr i64 %126 to ptr
-  %128 = getelementptr inbounds i8, ptr %0, i64 32
-  %129 = load ptr, ptr %128, align 8
-  %130 = icmp eq ptr %129, %127
-  br i1 %130, label %131, label %136
+126:                                              ; preds = %115
+  %127 = ptrtoint ptr %2 to i64
+  %128 = and i64 %127, -2
+  %129 = inttoptr i64 %128 to ptr
+  %130 = getelementptr inbounds i8, ptr %0, i64 32
+  %131 = load ptr, ptr %130, align 8
+  %132 = icmp eq ptr %131, %129
+  br i1 %132, label %133, label %138
 
-131:                                              ; preds = %124
-  %132 = icmp eq ptr %2, %127
-  br i1 %132, label %Ivy_And.exit14, label %133
+133:                                              ; preds = %126
+  %134 = icmp eq ptr %2, %129
+  br i1 %134, label %Ivy_And.exit14, label %135
 
-133:                                              ; preds = %131
-  %134 = or i64 %125, 1
-  %135 = inttoptr i64 %134 to ptr
+135:                                              ; preds = %133
+  %136 = or i64 %127, 1
+  %137 = inttoptr i64 %136 to ptr
   br label %Ivy_And.exit14
 
-136:                                              ; preds = %124
-  %137 = and i64 %114, -2
-  %138 = inttoptr i64 %137 to ptr
-  %139 = icmp eq ptr %129, %138
-  br i1 %139, label %140, label %145
+138:                                              ; preds = %126
+  %139 = and i64 %116, -2
+  %140 = inttoptr i64 %139 to ptr
+  %141 = icmp eq ptr %131, %140
+  br i1 %141, label %142, label %147
 
-140:                                              ; preds = %136
-  %141 = icmp eq ptr %3, %138
-  br i1 %141, label %Ivy_And.exit14, label %142
+142:                                              ; preds = %138
+  %143 = icmp eq ptr %3, %140
+  br i1 %143, label %Ivy_And.exit14, label %144
 
-142:                                              ; preds = %140
-  %143 = or i64 %114, 1
-  %144 = inttoptr i64 %143 to ptr
+144:                                              ; preds = %142
+  %145 = or i64 %116, 1
+  %146 = inttoptr i64 %145 to ptr
   br label %Ivy_And.exit14
 
-145:                                              ; preds = %136
-  %146 = tail call ptr @Ivy_CanonAnd(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3) #2
+147:                                              ; preds = %138
+  %148 = tail call ptr @Ivy_CanonAnd(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %3) #2
   br label %Ivy_And.exit14
 
-Ivy_And.exit14:                                   ; preds = %Ivy_Or.exit, %118, %131, %133, %140, %142, %145
-  %.0.i13 = phi ptr [ %123, %118 ], [ %146, %145 ], [ %2, %Ivy_Or.exit ], [ %135, %133 ], [ %3, %131 ], [ %144, %142 ], [ %2, %140 ]
-  %147 = inttoptr i64 %.0.i.i to ptr
-  %148 = ptrtoint ptr %.0.i13 to i64
-  %149 = xor i64 %148, 1
-  %150 = inttoptr i64 %149 to ptr
-  %151 = icmp eq ptr %147, %150
-  br i1 %151, label %Ivy_Or.exit17, label %152
+Ivy_And.exit14:                                   ; preds = %Ivy_Or.exit, %120, %133, %135, %142, %144, %147
+  %.0.i13 = phi ptr [ %125, %120 ], [ %148, %147 ], [ %2, %Ivy_Or.exit ], [ %137, %135 ], [ %3, %133 ], [ %146, %144 ], [ %2, %142 ]
+  %149 = inttoptr i64 %.0.i.i to ptr
+  %150 = ptrtoint ptr %.0.i13 to i64
+  %151 = xor i64 %150, 1
+  %152 = inttoptr i64 %151 to ptr
+  %153 = icmp eq ptr %.0.i13, %113
+  br i1 %153, label %Ivy_Or.exit17, label %154
 
-152:                                              ; preds = %Ivy_And.exit14
-  %153 = icmp eq ptr %.0.i13, %147
-  br i1 %153, label %154, label %159
+154:                                              ; preds = %Ivy_And.exit14
+  %155 = icmp eq ptr %.0.i13, %149
+  br i1 %155, label %156, label %161
 
-154:                                              ; preds = %152
-  %155 = getelementptr inbounds i8, ptr %0, i64 32
-  %156 = load ptr, ptr %155, align 8
-  %157 = ptrtoint ptr %156 to i64
-  %158 = xor i64 %157, 1
+156:                                              ; preds = %154
+  %157 = getelementptr inbounds i8, ptr %0, i64 32
+  %158 = load ptr, ptr %157, align 8
+  %159 = ptrtoint ptr %158 to i64
+  %160 = xor i64 %159, 1
   br label %Ivy_Or.exit17
 
-159:                                              ; preds = %152
-  %160 = and i64 %.0.i.i, -2
-  %161 = inttoptr i64 %160 to ptr
-  %162 = getelementptr inbounds i8, ptr %0, i64 32
-  %163 = load ptr, ptr %162, align 8
-  %164 = icmp eq ptr %163, %161
-  br i1 %164, label %165, label %168
+161:                                              ; preds = %154
+  %162 = and i64 %.0.i.i, -2
+  %163 = inttoptr i64 %162 to ptr
+  %164 = getelementptr inbounds i8, ptr %0, i64 32
+  %165 = load ptr, ptr %164, align 8
+  %166 = icmp eq ptr %165, %163
+  br i1 %166, label %167, label %170
 
-165:                                              ; preds = %159
-  %166 = icmp eq ptr %147, %161
-  %167 = or i64 %.0.i.i, 1
-  %spec.select.i16 = select i1 %166, i64 %149, i64 %167
+167:                                              ; preds = %161
+  %168 = icmp eq i64 %.0.i.i, %162
+  %169 = or i64 %.0.i.i, 1
+  %spec.select.i16 = select i1 %168, i64 %151, i64 %169
   br label %Ivy_Or.exit17
 
-168:                                              ; preds = %159
-  %169 = and i64 %148, -2
-  %170 = inttoptr i64 %169 to ptr
-  %171 = icmp eq ptr %163, %170
-  br i1 %171, label %172, label %177
+170:                                              ; preds = %161
+  %171 = and i64 %150, -2
+  %172 = inttoptr i64 %171 to ptr
+  %173 = icmp eq ptr %165, %172
+  br i1 %173, label %174, label %179
 
-172:                                              ; preds = %168
-  %173 = icmp eq ptr %163, %150
-  br i1 %173, label %Ivy_Or.exit17, label %174
+174:                                              ; preds = %170
+  %175 = icmp eq ptr %165, %152
+  br i1 %175, label %Ivy_Or.exit17, label %176
 
-174:                                              ; preds = %172
-  %175 = ptrtoint ptr %163 to i64
-  %176 = xor i64 %175, 1
+176:                                              ; preds = %174
+  %177 = ptrtoint ptr %165 to i64
+  %178 = xor i64 %177, 1
   br label %Ivy_Or.exit17
 
-177:                                              ; preds = %168
-  %178 = tail call ptr @Ivy_CanonAnd(ptr noundef nonnull %0, ptr noundef %147, ptr noundef %150) #2
-  %179 = ptrtoint ptr %178 to i64
+179:                                              ; preds = %170
+  %180 = tail call ptr @Ivy_CanonAnd(ptr noundef nonnull %0, ptr noundef %149, ptr noundef %152) #2
+  %181 = ptrtoint ptr %180 to i64
   br label %Ivy_Or.exit17
 
-Ivy_Or.exit17:                                    ; preds = %Ivy_And.exit14, %154, %165, %172, %174, %177
-  %.0.i.i15 = phi i64 [ %158, %154 ], [ %179, %177 ], [ %.0.i.i, %Ivy_And.exit14 ], [ %176, %174 ], [ %.0.i.i, %172 ], [ %spec.select.i16, %165 ]
-  %180 = xor i64 %.0.i.i15, 1
-  %181 = inttoptr i64 %180 to ptr
-  ret ptr %181
+Ivy_Or.exit17:                                    ; preds = %Ivy_And.exit14, %156, %167, %174, %176, %179
+  %.0.i.i15 = phi i64 [ %160, %156 ], [ %181, %179 ], [ %.0.i.i, %Ivy_And.exit14 ], [ %178, %176 ], [ %.0.i.i, %174 ], [ %spec.select.i16, %167 ]
+  %182 = xor i64 %.0.i.i15, 1
+  %183 = inttoptr i64 %182 to ptr
+  ret ptr %183
 }
 
 ; Function Attrs: nounwind uwtable

@@ -821,7 +821,7 @@ define internal noundef range(i32 -12, 1) i32 @vmemmap_pmd_entry(ptr noundef %0,
 
 41:                                               ; preds = %32
   %42 = add i64 %38, 2147483648
-  %43 = icmp ugt ptr %39, inttoptr (i64 -2147483649 to ptr)
+  %43 = icmp ugt i64 %38, -2147483649
   %44 = load i64, ptr @phys_base, align 8
   %45 = sub i64 -2147483648, %37
   %46 = select i1 %43, i64 %44, i64 %45

@@ -6807,17 +6807,17 @@ if.then.i.i.i3:                                   ; preds = %cond.true.i.i.i.i.i
   store i64 %24, ptr %agg.tmp5.i.i.i, align 8
   store i64 %25, ptr %agg.tmp6.i.i.i, align 8
   invoke void @_ZSt22__final_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEENS1_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr noundef nonnull %agg.tmp5.i.i.i, ptr noundef nonnull %agg.tmp6.i.i.i)
-          to label %invoke.cont.i unwind label %lpad.loopexit.split-lp.i
+          to label %while.cond.i.i.i.preheader.i unwind label %lpad.loopexit.split-lp.i
 
-invoke.cont.i:                                    ; preds = %.noexc.i
+while.cond.i.i.i.preheader.i:                     ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp1.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp5.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp6.i.i.i)
   br label %while.cond.i.i.i.i
 
-while.cond.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %invoke.cont.i
-  %__first.sroa.0.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i ], [ %call5.i.i.i.i2.i6.i.i, %invoke.cont.i ]
+while.cond.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %while.cond.i.i.i.preheader.i
+  %__first.sroa.0.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %while.body.i.i.i.i ], [ %call5.i.i.i.i2.i6.i.i, %while.cond.i.i.i.preheader.i ]
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.i.i.i.i, i64 8
   %cmp.i3.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i3.not.i.i.i.i, label %invoke.cont19.i, label %while.body.i.i.i.i
@@ -12033,17 +12033,17 @@ if.then.i.i:                                      ; preds = %cond.true.i.i.i.i
   store i64 %0, ptr %agg.tmp5.i.i, align 8
   store i64 %1, ptr %agg.tmp6.i.i, align 8
   invoke void @_ZSt22__final_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEENS1_5__ops15_Iter_less_iterEEvT_SB_T0_(ptr noundef nonnull %agg.tmp5.i.i, ptr noundef nonnull %agg.tmp6.i.i)
-          to label %invoke.cont unwind label %lpad.loopexit.split-lp
+          to label %while.cond.i.i.i.preheader unwind label %lpad.loopexit.split-lp
 
-invoke.cont:                                      ; preds = %.noexc
+while.cond.i.i.i.preheader:                       ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp1.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp5.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp6.i.i)
   br label %while.cond.i.i.i
 
-while.cond.i.i.i:                                 ; preds = %invoke.cont, %while.body.i.i.i
-  %__first.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i ], [ %call5.i.i.i.i2.i6.i, %invoke.cont ]
+while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i.preheader, %while.body.i.i.i
+  %__first.sroa.0.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i ], [ %call5.i.i.i.i2.i6.i, %while.cond.i.i.i.preheader ]
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.0.i.i.i, i64 8
   %cmp.i3.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i.i.i.i.i
   br i1 %cmp.i3.not.i.i.i, label %invoke.cont19, label %while.body.i.i.i

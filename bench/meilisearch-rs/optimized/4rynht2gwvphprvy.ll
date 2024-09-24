@@ -19088,7 +19088,7 @@ define internal fastcc { i64, ptr } @_ZN3std2io19default_read_to_end16small_prob
 .thread:                                          ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !4174, !noalias !4181, !noundef !12
-  br label %36
+  br label %34
 
 9:                                                ; preds = %2
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !4169, !noalias !4172, !nonnull !12, !align !129, !noundef !12
@@ -19141,41 +19141,33 @@ define internal fastcc { i64, ptr } @_ZN3std2io19default_read_to_end16small_prob
   %27 = inttoptr i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i to ptr
   %28 = sub nuw i64 %5, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   store i64 %28, ptr %4, align 8, !alias.scope !4169, !noalias !4172
-  %29 = icmp ugt ptr %27, inttoptr (i64 32 to ptr)
-  br i1 %29, label %.noexc, label %30
+  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = load i64, ptr %29, align 8, !alias.scope !4174, !noalias !4181, !noundef !12
+  %31 = load i64, ptr %1, align 8, !alias.scope !4219, !noalias !4181, !noundef !12
+  %32 = sub i64 %31, %30
+  %33 = icmp ult i64 %32, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  br i1 %33, label %.noexc5, label %34
 
-.noexc:                                           ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h07bd2cb7ec4b99a8E.exit"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.420f2021cd97bdfb841b0d6c3d1da9cd.58) #38
-  unreachable
+.noexc5:                                          ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h07bd2cb7ec4b99a8E.exit"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4741302596bd0c13E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %30, i64 noundef %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i)
+  %.pre.i.i.i = load i64, ptr %29, align 8, !alias.scope !4174, !noalias !4181
+  br label %34
 
-30:                                               ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h07bd2cb7ec4b99a8E.exit"
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
-  %32 = load i64, ptr %31, align 8, !alias.scope !4174, !noalias !4181, !noundef !12
-  %33 = load i64, ptr %1, align 8, !alias.scope !4219, !noalias !4181, !noundef !12
-  %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  br i1 %35, label %.noexc5, label %36
-
-.noexc5:                                          ; preds = %30
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4741302596bd0c13E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %32, i64 noundef %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i)
-  %.pre.i.i.i = load i64, ptr %31, align 8, !alias.scope !4174, !noalias !4181
-  br label %36
-
-36:                                               ; preds = %.thread, %.noexc5, %30
-  %37 = phi ptr [ %31, %30 ], [ %31, %.noexc5 ], [ %7, %.thread ]
-  %.sroa.4.0.i813 = phi ptr [ %27, %30 ], [ %27, %.noexc5 ], [ null, %.thread ]
-  %.cast912 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i, %30 ], [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i, %.noexc5 ], [ 0, %.thread ]
-  %38 = phi i64 [ %32, %30 ], [ %.pre.i.i.i, %.noexc5 ], [ %8, %.thread ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8, !alias.scope !4174, !noalias !4181, !nonnull !12, !noundef !12
-  %41 = getelementptr inbounds i8, ptr %40, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %3, i64 %.cast912, i1 false)
-  %42 = load i64, ptr %37, align 8, !alias.scope !4174, !noalias !4181, !noundef !12
-  %43 = add i64 %42, %.cast912
-  store i64 %43, ptr %37, align 8, !alias.scope !4174, !noalias !4181
+34:                                               ; preds = %.thread, %.noexc5, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h07bd2cb7ec4b99a8E.exit"
+  %35 = phi ptr [ %29, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h07bd2cb7ec4b99a8E.exit" ], [ %29, %.noexc5 ], [ %7, %.thread ]
+  %.sroa.4.0.i813 = phi ptr [ %27, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h07bd2cb7ec4b99a8E.exit" ], [ %27, %.noexc5 ], [ null, %.thread ]
+  %.cast912 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h07bd2cb7ec4b99a8E.exit" ], [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i, %.noexc5 ], [ 0, %.thread ]
+  %36 = phi i64 [ %30, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h07bd2cb7ec4b99a8E.exit" ], [ %.pre.i.i.i, %.noexc5 ], [ %8, %.thread ]
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = load ptr, ptr %37, align 8, !alias.scope !4174, !noalias !4181, !nonnull !12, !noundef !12
+  %39 = getelementptr inbounds i8, ptr %38, i64 %36
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 1 %3, i64 %.cast912, i1 false)
+  %40 = load i64, ptr %35, align 8, !alias.scope !4174, !noalias !4181, !noundef !12
+  %41 = add i64 %40, %.cast912
+  store i64 %41, ptr %35, align 8, !alias.scope !4174, !noalias !4181
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %44 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.4.0.i813, 1
-  ret { i64, ptr } %44
+  %42 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.4.0.i813, 1
+  ret { i64, ptr } %42
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -19722,7 +19714,7 @@ define internal fastcc { i64, ptr } @_ZN3std2io19default_read_to_end16small_prob
 .thread:                                          ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !4363, !noalias !4370, !noundef !12
-  br label %36
+  br label %34
 
 9:                                                ; preds = %2
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !4358, !noalias !4361, !nonnull !12, !align !129, !noundef !12
@@ -19771,41 +19763,33 @@ define internal fastcc { i64, ptr } @_ZN3std2io19default_read_to_end16small_prob
   %27 = inttoptr i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i to ptr
   %28 = sub nuw i64 %5, %.sroa.0.0.sroa.speculated.i.i6.i.i.i
   store i64 %28, ptr %4, align 8, !alias.scope !4358, !noalias !4361
-  %29 = icmp ugt ptr %27, inttoptr (i64 32 to ptr)
-  br i1 %29, label %.noexc, label %30
+  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = load i64, ptr %29, align 8, !alias.scope !4363, !noalias !4370, !noundef !12
+  %31 = load i64, ptr %1, align 8, !alias.scope !4400, !noalias !4370, !noundef !12
+  %32 = sub i64 %31, %30
+  %33 = icmp ult i64 %32, %.sroa.0.0.sroa.speculated.i.i6.i.i.i
+  br i1 %33, label %.noexc5, label %34
 
-.noexc:                                           ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h9b2ea1bb3d9125c6E.exit"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %.sroa.0.0.sroa.speculated.i.i6.i.i.i, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.420f2021cd97bdfb841b0d6c3d1da9cd.58) #38
-  unreachable
+.noexc5:                                          ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h9b2ea1bb3d9125c6E.exit"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4741302596bd0c13E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %30, i64 noundef %.sroa.0.0.sroa.speculated.i.i6.i.i.i)
+  %.pre.i.i.i = load i64, ptr %29, align 8, !alias.scope !4363, !noalias !4370
+  br label %34
 
-30:                                               ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h9b2ea1bb3d9125c6E.exit"
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
-  %32 = load i64, ptr %31, align 8, !alias.scope !4363, !noalias !4370, !noundef !12
-  %33 = load i64, ptr %1, align 8, !alias.scope !4400, !noalias !4370, !noundef !12
-  %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %.sroa.0.0.sroa.speculated.i.i6.i.i.i
-  br i1 %35, label %.noexc5, label %36
-
-.noexc5:                                          ; preds = %30
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4741302596bd0c13E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %32, i64 noundef %.sroa.0.0.sroa.speculated.i.i6.i.i.i)
-  %.pre.i.i.i = load i64, ptr %31, align 8, !alias.scope !4363, !noalias !4370
-  br label %36
-
-36:                                               ; preds = %.thread, %.noexc5, %30
-  %37 = phi ptr [ %31, %30 ], [ %31, %.noexc5 ], [ %7, %.thread ]
-  %.sroa.4.0.i813 = phi ptr [ %27, %30 ], [ %27, %.noexc5 ], [ null, %.thread ]
-  %.cast912 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i, %30 ], [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i, %.noexc5 ], [ 0, %.thread ]
-  %38 = phi i64 [ %32, %30 ], [ %.pre.i.i.i, %.noexc5 ], [ %8, %.thread ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8, !alias.scope !4363, !noalias !4370, !nonnull !12, !noundef !12
-  %41 = getelementptr inbounds i8, ptr %40, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %3, i64 %.cast912, i1 false)
-  %42 = load i64, ptr %37, align 8, !alias.scope !4363, !noalias !4370, !noundef !12
-  %43 = add i64 %42, %.cast912
-  store i64 %43, ptr %37, align 8, !alias.scope !4363, !noalias !4370
+34:                                               ; preds = %.thread, %.noexc5, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h9b2ea1bb3d9125c6E.exit"
+  %35 = phi ptr [ %29, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h9b2ea1bb3d9125c6E.exit" ], [ %29, %.noexc5 ], [ %7, %.thread ]
+  %.sroa.4.0.i813 = phi ptr [ %27, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h9b2ea1bb3d9125c6E.exit" ], [ %27, %.noexc5 ], [ null, %.thread ]
+  %.cast912 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h9b2ea1bb3d9125c6E.exit" ], [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i, %.noexc5 ], [ 0, %.thread ]
+  %36 = phi i64 [ %30, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h9b2ea1bb3d9125c6E.exit" ], [ %.pre.i.i.i, %.noexc5 ], [ %8, %.thread ]
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = load ptr, ptr %37, align 8, !alias.scope !4363, !noalias !4370, !nonnull !12, !noundef !12
+  %39 = getelementptr inbounds i8, ptr %38, i64 %36
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 1 %3, i64 %.cast912, i1 false)
+  %40 = load i64, ptr %35, align 8, !alias.scope !4363, !noalias !4370, !noundef !12
+  %41 = add i64 %40, %.cast912
+  store i64 %41, ptr %35, align 8, !alias.scope !4363, !noalias !4370
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %44 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.4.0.i813, 1
-  ret { i64, ptr } %44
+  %42 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.4.0.i813, 1
+  ret { i64, ptr } %42
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -19823,7 +19807,7 @@ define internal fastcc { i64, ptr } @_ZN3std2io19default_read_to_end16small_prob
 .thread:                                          ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !4408, !noalias !4415, !noundef !12
-  br label %36
+  br label %34
 
 9:                                                ; preds = %2
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !4403, !noalias !4406, !nonnull !12, !align !129, !noundef !12
@@ -19874,41 +19858,33 @@ define internal fastcc { i64, ptr } @_ZN3std2io19default_read_to_end16small_prob
   %27 = inttoptr i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i to ptr
   %28 = sub nuw i64 %5, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   store i64 %28, ptr %4, align 8, !alias.scope !4403, !noalias !4406
-  %29 = icmp ugt ptr %27, inttoptr (i64 32 to ptr)
-  br i1 %29, label %.noexc, label %30
+  %29 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = load i64, ptr %29, align 8, !alias.scope !4408, !noalias !4415, !noundef !12
+  %31 = load i64, ptr %1, align 8, !alias.scope !4449, !noalias !4415, !noundef !12
+  %32 = sub i64 %31, %30
+  %33 = icmp ult i64 %32, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  br i1 %33, label %.noexc5, label %34
 
-.noexc:                                           ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h0188eb1d103de3daE.exit"
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, i64 noundef 32, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.420f2021cd97bdfb841b0d6c3d1da9cd.58) #38
-  unreachable
+.noexc5:                                          ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h0188eb1d103de3daE.exit"
+  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4741302596bd0c13E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %30, i64 noundef %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i)
+  %.pre.i.i.i = load i64, ptr %29, align 8, !alias.scope !4408, !noalias !4415
+  br label %34
 
-30:                                               ; preds = %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h0188eb1d103de3daE.exit"
-  %31 = getelementptr inbounds i8, ptr %1, i64 16
-  %32 = load i64, ptr %31, align 8, !alias.scope !4408, !noalias !4415, !noundef !12
-  %33 = load i64, ptr %1, align 8, !alias.scope !4449, !noalias !4415, !noundef !12
-  %34 = sub i64 %33, %32
-  %35 = icmp ult i64 %34, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  br i1 %35, label %.noexc5, label %36
-
-.noexc5:                                          ; preds = %30
-  tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h4741302596bd0c13E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %32, i64 noundef %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i)
-  %.pre.i.i.i = load i64, ptr %31, align 8, !alias.scope !4408, !noalias !4415
-  br label %36
-
-36:                                               ; preds = %.thread, %.noexc5, %30
-  %37 = phi ptr [ %31, %30 ], [ %31, %.noexc5 ], [ %7, %.thread ]
-  %.sroa.4.0.i813 = phi ptr [ %27, %30 ], [ %27, %.noexc5 ], [ null, %.thread ]
-  %.cast912 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %30 ], [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %.noexc5 ], [ 0, %.thread ]
-  %38 = phi i64 [ %32, %30 ], [ %.pre.i.i.i, %.noexc5 ], [ %8, %.thread ]
-  %39 = getelementptr inbounds i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8, !alias.scope !4408, !noalias !4415, !nonnull !12, !noundef !12
-  %41 = getelementptr inbounds i8, ptr %40, i64 %38
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull readonly align 1 %3, i64 %.cast912, i1 false)
-  %42 = load i64, ptr %37, align 8, !alias.scope !4408, !noalias !4415, !noundef !12
-  %43 = add i64 %42, %.cast912
-  store i64 %43, ptr %37, align 8, !alias.scope !4408, !noalias !4415
+34:                                               ; preds = %.thread, %.noexc5, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h0188eb1d103de3daE.exit"
+  %35 = phi ptr [ %29, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h0188eb1d103de3daE.exit" ], [ %29, %.noexc5 ], [ %7, %.thread ]
+  %.sroa.4.0.i813 = phi ptr [ %27, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h0188eb1d103de3daE.exit" ], [ %27, %.noexc5 ], [ null, %.thread ]
+  %.cast912 = phi i64 [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h0188eb1d103de3daE.exit" ], [ %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %.noexc5 ], [ 0, %.thread ]
+  %36 = phi i64 [ %30, %"_ZN56_$LT$std..io..Take$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h0188eb1d103de3daE.exit" ], [ %.pre.i.i.i, %.noexc5 ], [ %8, %.thread ]
+  %37 = getelementptr inbounds i8, ptr %1, i64 8
+  %38 = load ptr, ptr %37, align 8, !alias.scope !4408, !noalias !4415, !nonnull !12, !noundef !12
+  %39 = getelementptr inbounds i8, ptr %38, i64 %36
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull readonly align 1 %3, i64 %.cast912, i1 false)
+  %40 = load i64, ptr %35, align 8, !alias.scope !4408, !noalias !4415, !noundef !12
+  %41 = add i64 %40, %.cast912
+  store i64 %41, ptr %35, align 8, !alias.scope !4408, !noalias !4415
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  %44 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.4.0.i813, 1
-  ret { i64, ptr } %44
+  %42 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %.sroa.4.0.i813, 1
+  ret { i64, ptr } %42
 }
 
 ; Function Attrs: nonlazybind uwtable

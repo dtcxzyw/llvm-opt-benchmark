@@ -7026,11 +7026,11 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #11
 define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
-  switch i8 %6, label %126 [
+  switch i8 %6, label %125 [
     i8 6, label %7
     i8 7, label %51
     i8 11, label %75
-    i8 12, label %103
+    i8 12, label %102
   ]
 
 7:                                                ; preds = %4
@@ -7039,7 +7039,7 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   %.not103 = icmp ugt ptr %8, %11
-  br i1 %.not103, label %12, label %126
+  br i1 %.not103, label %12, label %125
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr @accel_shared_globals, align 8
@@ -7057,7 +7057,7 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
 20:                                               ; preds = %16
   %21 = tail call fastcc ptr @zend_file_cache_serialize_interned(ptr noundef nonnull %8, ptr noundef %2)
   store ptr %21, ptr %0, align 8
-  br label %126
+  br label %125
 
 22:                                               ; preds = %16, %12
   %23 = getelementptr inbounds i8, ptr %1, i64 416
@@ -7106,7 +7106,7 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
   %49 = sub i64 %47, %48
   %50 = inttoptr i64 %49 to ptr
   store ptr %50, ptr %0, align 8
-  br label %126
+  br label %125
 
 51:                                               ; preds = %4
   %52 = load ptr, ptr %0, align 8
@@ -7114,7 +7114,7 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
   %54 = load i64, ptr %53, align 8
   %55 = inttoptr i64 %54 to ptr
   %.not99 = icmp ugt ptr %52, %55
-  br i1 %.not99, label %56, label %126
+  br i1 %.not99, label %56, label %125
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds i8, ptr %1, i64 416
@@ -7148,7 +7148,7 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
   %74 = getelementptr inbounds i8, ptr %3, i64 %72
   %spec.select = select i1 %.not102, ptr null, ptr %74
   tail call fastcc void @zend_file_cache_serialize_hash(ptr noundef %spec.select, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull @zend_file_cache_serialize_zval)
-  br label %126
+  br label %125
 
 75:                                               ; preds = %4
   %76 = load ptr, ptr %0, align 8
@@ -7156,7 +7156,7 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
   %78 = load i64, ptr %77, align 8
   %79 = inttoptr i64 %78 to ptr
   %.not95 = icmp ugt ptr %76, %79
-  br i1 %.not95, label %80, label %126
+  br i1 %.not95, label %80, label %125
 
 80:                                               ; preds = %75
   %81 = getelementptr inbounds i8, ptr %1, i64 416
@@ -7189,54 +7189,53 @@ define internal void @zend_file_cache_serialize_zval(ptr nocapture noundef %0, p
   %.not98 = icmp ne ptr %76, %82
   tail call void @llvm.assume(i1 %.not98)
   %98 = load i64, ptr %77, align 8
-  %99 = inttoptr i64 %98 to ptr
-  %100 = icmp ule ptr %97, %99
-  tail call void @llvm.assume(i1 %100)
-  %101 = getelementptr inbounds i8, ptr %3, i64 %96
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
-  tail call fastcc void @zend_file_cache_serialize_ast(ptr noundef nonnull %102, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
-  br label %126
+  %99 = icmp ule i64 %96, %98
+  tail call void @llvm.assume(i1 %99)
+  %100 = getelementptr inbounds i8, ptr %3, i64 %96
+  %101 = getelementptr inbounds i8, ptr %100, i64 8
+  tail call fastcc void @zend_file_cache_serialize_ast(ptr noundef nonnull %101, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  br label %125
 
-103:                                              ; preds = %4
-  %104 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %104, null
-  br i1 %.not, label %126, label %105
+102:                                              ; preds = %4
+  %103 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %103, null
+  br i1 %.not, label %125, label %104
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds i8, ptr %1, i64 416
-  %107 = load ptr, ptr %106, align 8
-  %.not93 = icmp ult ptr %104, %107
-  br i1 %.not93, label %112, label %108
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds i8, ptr %1, i64 416
+  %106 = load ptr, ptr %105, align 8
+  %.not93 = icmp ult ptr %103, %106
+  br i1 %.not93, label %111, label %107
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %1, i64 424
-  %110 = load i64, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %107, i64 %110
-  %.not94 = icmp ugt ptr %104, %111
-  br i1 %.not94, label %112, label %120
+107:                                              ; preds = %104
+  %108 = getelementptr inbounds i8, ptr %1, i64 424
+  %109 = load i64, ptr %108, align 8
+  %110 = getelementptr inbounds i8, ptr %106, i64 %109
+  %.not94 = icmp ugt ptr %103, %110
+  br i1 %.not94, label %111, label %119
 
-112:                                              ; preds = %108, %105
-  %113 = load ptr, ptr @accel_shared_globals, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 176
-  %115 = load ptr, ptr %114, align 8
-  %116 = icmp uge ptr %104, %115
-  tail call void @llvm.assume(i1 %116)
-  %117 = getelementptr inbounds i8, ptr %113, i64 184
-  %118 = load ptr, ptr %117, align 8
-  %119 = icmp ult ptr %104, %118
-  br label %120
+111:                                              ; preds = %107, %104
+  %112 = load ptr, ptr @accel_shared_globals, align 8
+  %113 = getelementptr inbounds i8, ptr %112, i64 176
+  %114 = load ptr, ptr %113, align 8
+  %115 = icmp uge ptr %103, %114
+  tail call void @llvm.assume(i1 %115)
+  %116 = getelementptr inbounds i8, ptr %112, i64 184
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp ult ptr %103, %117
+  br label %119
 
-120:                                              ; preds = %112, %108
-  %121 = phi i1 [ true, %108 ], [ %119, %112 ]
-  tail call void @llvm.assume(i1 %121)
-  %122 = ptrtoint ptr %104 to i64
-  %123 = ptrtoint ptr %107 to i64
-  %124 = sub i64 %122, %123
-  %125 = inttoptr i64 %124 to ptr
-  store ptr %125, ptr %0, align 8
-  br label %126
+119:                                              ; preds = %111, %107
+  %120 = phi i1 [ true, %107 ], [ %118, %111 ]
+  tail call void @llvm.assume(i1 %120)
+  %121 = ptrtoint ptr %103 to i64
+  %122 = ptrtoint ptr %106 to i64
+  %123 = sub i64 %121, %122
+  %124 = inttoptr i64 %123 to ptr
+  store ptr %124, ptr %0, align 8
+  br label %125
 
-126:                                              ; preds = %4, %120, %103, %75, %92, %51, %68, %7, %44, %20
+125:                                              ; preds = %4, %119, %102, %75, %92, %51, %68, %7, %44, %20
   ret void
 }
 

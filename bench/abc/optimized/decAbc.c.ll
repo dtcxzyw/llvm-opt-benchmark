@@ -307,8 +307,8 @@ define i32 @Dec_GraphToNetworkCount(ptr noundef readonly %0, ptr nocapture nound
   br i1 %.not90, label %.critedge2, label %.preheader
 
 .preheader:                                       ; preds = %8
-  %.not108 = icmp eq i32 %.val75, 0
-  br i1 %.not108, label %.critedge.preheader, label %.lr.ph
+  %.not111 = icmp eq i32 %.val75, 0
+  br i1 %.not111, label %.critedge.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr i8, ptr %1, i64 16
@@ -529,7 +529,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   %128 = and i32 %127, 16383
   %129 = tail call range(i32 0, 16384) i32 @llvm.umax.i32(i32 %125, i32 %128)
   %130 = add nuw nsw i32 %129, 1
-  br i1 %122, label %151, label %131
+  br i1 %122, label %148, label %131
 
 131:                                              ; preds = %121
   %132 = ptrtoint ptr %.06684 to i64
@@ -538,51 +538,46 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %74, %._crit_edge.i.
   %135 = load ptr, ptr %0, align 8
   %136 = tail call ptr @Abc_AigConst1(ptr noundef %135) #7
   %137 = icmp eq ptr %136, %134
-  br i1 %137, label %151, label %138
+  br i1 %137, label %148, label %138
 
 138:                                              ; preds = %131
   %139 = ptrtoint ptr %.06586 to i64
   %140 = and i64 %139, -2
-  %141 = inttoptr i64 %140 to ptr
-  %142 = icmp eq ptr %134, %141
-  br i1 %142, label %.sink.split, label %143
+  %141 = icmp eq i64 %133, %140
+  %142 = ptrtoint ptr %.06488 to i64
+  %143 = and i64 %142, -2
+  %144 = icmp eq i64 %133, %143
+  %or.cond110 = select i1 %141, i1 true, i1 %144
+  br i1 %or.cond110, label %.sink.split, label %148
 
-143:                                              ; preds = %138
-  %144 = ptrtoint ptr %.06488 to i64
-  %145 = and i64 %144, -2
-  %146 = inttoptr i64 %145 to ptr
-  %147 = icmp eq ptr %134, %146
-  br i1 %147, label %.sink.split, label %151
+.sink.split:                                      ; preds = %138
+  %145 = getelementptr inbounds i8, ptr %134, i64 20
+  %146 = load i32, ptr %145, align 4
+  %147 = lshr i32 %146, 12
+  br label %148
 
-.sink.split:                                      ; preds = %143, %138
-  %.sink = phi ptr [ %141, %138 ], [ %146, %143 ]
-  %148 = getelementptr inbounds i8, ptr %.sink, i64 20
-  %149 = load i32, ptr %148, align 4
-  %150 = lshr i32 %149, 12
-  br label %151
+148:                                              ; preds = %138, %.sink.split, %131, %121
+  %.059 = phi i32 [ %130, %121 ], [ 0, %131 ], [ %147, %.sink.split ], [ %130, %138 ]
+  %149 = icmp sgt i32 %.059, %3
+  br i1 %149, label %.critedge2, label %.critedge
 
-151:                                              ; preds = %.sink.split, %143, %131, %121
-  %.059 = phi i32 [ %130, %121 ], [ %130, %143 ], [ 0, %131 ], [ %150, %.sink.split ]
-  %152 = icmp sgt i32 %.059, %3
-  br i1 %152, label %.critedge2, label %.critedge
-
-.critedge:                                        ; preds = %151
-  %153 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %.06684, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %38, i64 16
-  %155 = load i32, ptr %154, align 8
-  %156 = and i32 %.059, 16383
-  %157 = and i32 %155, -16384
-  %158 = or disjoint i32 %157, %156
-  store i32 %158, ptr %154, align 8
+.critedge:                                        ; preds = %148
+  %150 = getelementptr inbounds i8, ptr %38, i64 8
+  store ptr %.06684, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %38, i64 16
+  %152 = load i32, ptr %151, align 8
+  %153 = and i32 %.059, 16383
+  %154 = and i32 %152, -16384
+  %155 = or disjoint i32 %154, %153
+  store i32 %155, ptr %151, align 8
   %indvars.iv.next104 = add nsw i64 %indvars.iv103, 1
-  %159 = load i32, ptr %14, align 8
-  %160 = sext i32 %159 to i64
-  %161 = icmp slt i64 %indvars.iv.next104, %160
-  br i1 %161, label %37, label %.critedge2, !llvm.loop !11
+  %156 = load i32, ptr %14, align 8
+  %157 = sext i32 %156 to i64
+  %158 = icmp slt i64 %indvars.iv.next104, %157
+  br i1 %158, label %37, label %.critedge2, !llvm.loop !11
 
-.critedge2:                                       ; preds = %56, %.thread, %151, %.critedge, %.critedge.preheader, %4, %8
-  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %.critedge.preheader ], [ -1, %56 ], [ -1, %.thread ], [ -1, %151 ], [ %.161, %.critedge ]
+.critedge2:                                       ; preds = %56, %.thread, %148, %.critedge, %.critedge.preheader, %4, %8
+  %.0 = phi i32 [ 0, %8 ], [ 0, %4 ], [ 0, %.critedge.preheader ], [ -1, %56 ], [ -1, %.thread ], [ -1, %148 ], [ %.161, %.critedge ]
   ret i32 %.0
 }
 

@@ -868,7 +868,7 @@ define internal fastcc void @Fra_FraigNode(ptr noundef %0, ptr noundef %1) unnam
   %43 = ptrtoint ptr %39 to i64
   %44 = and i64 %43, -2
   %45 = inttoptr i64 %44 to ptr
-  %46 = icmp eq ptr %42, %45
+  %46 = icmp eq i64 %41, %44
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %21

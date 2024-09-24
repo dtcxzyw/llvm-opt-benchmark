@@ -147,7 +147,7 @@ entry:
   %3 = inttoptr i64 %2 to ptr
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
-  %cmp = icmp eq ptr %5, %3
+  %cmp = icmp eq i64 %4, %2
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -503,51 +503,50 @@ land.rhs.lr.ph:                                   ; preds = %entry
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %if.end35
-  %.in = phi i64 [ %2, %land.rhs.lr.ph ], [ %14, %if.end35 ]
+  %3 = phi i64 [ %2, %land.rhs.lr.ph ], [ %14, %if.end35 ]
   %p.addr.021 = phi ptr [ %p, %land.rhs.lr.ph ], [ %p.addr.1, %if.end35 ]
   %lim.addr.020 = phi i32 [ %lim, %land.rhs.lr.ph ], [ %dec, %if.end35 ]
-  %3 = inttoptr i64 %.in to ptr
+  %4 = inttoptr i64 %3 to ptr
   %dec = add i32 %lim.addr.020, -1
   %cmp2.not = icmp eq i32 %lim.addr.020, 0
   br i1 %cmp2.not, label %while.end, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %gct = getelementptr inbounds i8, ptr %3, i64 9
-  %4 = load i8, ptr %gct, align 1
-  %cmp5 = icmp eq i8 %4, 6
+  %gct = getelementptr inbounds i8, ptr %4, i64 9
+  %5 = load i8, ptr %gct, align 1
+  %cmp5 = icmp eq i8 %5, 6
   br i1 %cmp5, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %openupval = getelementptr inbounds i8, ptr %3, i64 64
+  %openupval = getelementptr inbounds i8, ptr %4, i64 64
   %call = tail call fastcc ptr @gc_sweep(ptr noundef nonnull %g, ptr noundef nonnull %openupval, i32 noundef -1)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %while.body
-  %marked = getelementptr inbounds i8, ptr %3, i64 8
-  %5 = load i8, ptr %marked, align 8
-  %6 = xor i8 %5, 3
-  %and18 = and i8 %6, %1
+  %marked = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = load i8, ptr %marked, align 8
+  %7 = xor i8 %6, 3
+  %and18 = and i8 %7, %1
   %tobool.not = icmp eq i8 %and18, 0
   br i1 %tobool.not, label %if.else, label %if.then9
 
 if.then9:                                         ; preds = %if.end
-  %and12 = and i8 %5, -8
-  %7 = load i8, ptr %currentwhite, align 8
-  %8 = and i8 %7, 3
-  %or = or disjoint i8 %8, %and12
+  %and12 = and i8 %6, -8
+  %8 = load i8, ptr %currentwhite, align 8
+  %9 = and i8 %8, 3
+  %or = or disjoint i8 %9, %and12
   store i8 %or, ptr %marked, align 8
   br label %if.end35
 
 if.else:                                          ; preds = %if.end
-  %9 = load i64, ptr %3, align 8
-  store i64 %9, ptr %p.addr.021, align 8
-  %10 = load i64, ptr %root, align 8
-  %11 = inttoptr i64 %10 to ptr
-  %cmp24 = icmp eq ptr %3, %11
+  %10 = load i64, ptr %4, align 8
+  store i64 %10, ptr %p.addr.021, align 8
+  %11 = load i64, ptr %root, align 8
+  %cmp24 = icmp eq i64 %3, %11
   br i1 %cmp24, label %if.then26, label %if.end32
 
 if.then26:                                        ; preds = %if.else
-  store i64 %9, ptr %root, align 8
+  store i64 %10, ptr %root, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.then26, %if.else
@@ -557,11 +556,11 @@ if.end32:                                         ; preds = %if.then26, %if.else
   %idxprom = and i64 %sub, 4294967295
   %arrayidx = getelementptr inbounds [9 x ptr], ptr @gc_freefunc, i64 0, i64 %idxprom
   %13 = load ptr, ptr %arrayidx, align 8
-  tail call void %13(ptr noundef nonnull %g, ptr noundef nonnull %3) #8
+  tail call void %13(ptr noundef nonnull %g, ptr noundef nonnull %4) #8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end32, %if.then9
-  %p.addr.1 = phi ptr [ %3, %if.then9 ], [ %p.addr.021, %if.end32 ]
+  %p.addr.1 = phi ptr [ %4, %if.then9 ], [ %p.addr.021, %if.end32 ]
   %14 = load i64, ptr %p.addr.1, align 8
   %cmp.not = icmp eq i64 %14, 0
   br i1 %cmp.not, label %while.end, label %land.rhs, !llvm.loop !10
@@ -1001,11 +1000,11 @@ lj_gc_separateudata.exit.i:                       ; preds = %if.end58.i.i, %gc_p
   %m.0.lcssa.i59.i = phi i64 [ 0, %gc_propagate_gray.exit54.i ], [ %m.1.i.i, %if.end58.i.i ]
   %mmudata.i62.i = getelementptr inbounds i8, ptr %1, i64 80
   %65 = load i64, ptr %mmudata.i62.i, align 8
-  %66 = inttoptr i64 %65 to ptr
   %tobool.not.i63.i = icmp eq i64 %65, 0
   br i1 %tobool.not.i63.i, label %gc_mark_mmudata.exit.i, label %do.body.preheader.i.i
 
 do.body.preheader.i.i:                            ; preds = %lj_gc_separateudata.exit.i
+  %66 = inttoptr i64 %65 to ptr
   %currentwhite.i.i = getelementptr inbounds i8, ptr %1, i64 32
   br label %do.body.i.i
 
@@ -1021,7 +1020,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %do.bo
   %or9.i.i = or disjoint i8 %72, %70
   store i8 %or9.i.i, ptr %marked.i64.i, align 8
   tail call fastcc void @gc_mark(ptr noundef nonnull %1, ptr noundef %68)
-  %cmp.not.i65.i = icmp eq ptr %68, %66
+  %cmp.not.i65.i = icmp eq i64 %67, %65
   br i1 %cmp.not.i65.i, label %gc_mark_mmudata.exit.i, label %do.body.i.i, !llvm.loop !15
 
 gc_mark_mmudata.exit.i:                           ; preds = %do.body.i.i, %lj_gc_separateudata.exit.i

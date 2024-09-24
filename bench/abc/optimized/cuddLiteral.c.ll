@@ -33,7 +33,7 @@ define ptr @cuddBddLiteralSetIntersectionRecur(ptr noundef %0, ptr noundef %1, p
   %11 = inttoptr i64 %10 to ptr
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %8, %11
+  %14 = icmp eq i64 %7, %10
   br i1 %14, label %153, label %15
 
 15:                                               ; preds = %5

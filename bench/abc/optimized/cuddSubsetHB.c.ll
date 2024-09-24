@@ -953,7 +953,7 @@ define internal fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not119, label %172, label %158
 
 158:                                              ; preds = %154, %146
-  %.not120 = icmp eq ptr %17, %149
+  %.not120 = icmp eq i64 %16, %148
   br i1 %.not120, label %169, label %159
 
 159:                                              ; preds = %158

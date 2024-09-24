@@ -620,8 +620,8 @@ define void @Dar_BalancePermute(ptr noundef %0, ptr nocapture noundef readonly %
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
   %27 = icmp eq ptr %21, %26
-  %28 = icmp eq ptr %19, %26
-  %or.cond = or i1 %27, %28
+  %28 = icmp eq i64 %18, %25
+  %or.cond = or i1 %28, %27
   %.not77 = icmp slt i32 %6, %2
   %or.cond79 = or i1 %or.cond, %.not77
   br i1 %or.cond79, label %.loopexit, label %.lr.ph
@@ -656,7 +656,7 @@ define void @Dar_BalancePermute(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %45, label %.loopexit.sink.split, label %46
 
 46:                                               ; preds = %38
-  %47 = icmp eq ptr %19, %43
+  %47 = icmp eq i64 %18, %42
   br i1 %47, label %48, label %50
 
 48:                                               ; preds = %46

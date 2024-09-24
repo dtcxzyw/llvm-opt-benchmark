@@ -899,8 +899,8 @@ define void @Frc_ManCreateRefsSpecial(ptr noundef %0) local_unnamed_addr #1 {
   %8 = getelementptr i8, ptr %0, i64 144
   br label %9
 
-9:                                                ; preds = %.lr.ph, %63
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
+9:                                                ; preds = %.lr.ph, %61
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
   %.val39 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val39, i64 %indvars.iv
   %.not = icmp eq ptr %.val39, null
@@ -913,7 +913,7 @@ define void @Frc_ManCreateRefsSpecial(ptr noundef %0) local_unnamed_addr #1 {
   %13 = and i64 %.val41, 536870911
   %14 = icmp eq i64 %13, 536870911
   %narrow.i.not = or i1 %.not.i, %14
-  br i1 %narrow.i.not, label %63, label %15
+  br i1 %narrow.i.not, label %61, label %15
 
 15:                                               ; preds = %11
   %16 = sub nsw i64 0, %13
@@ -928,7 +928,7 @@ define void @Frc_ManCreateRefsSpecial(ptr noundef %0) local_unnamed_addr #1 {
   %23 = and i64 %.val42, 1073741824
   %.not35 = icmp eq i64 %23, 0
   %or.cond = and i1 %narrow.i48, %.not35
-  br i1 %or.cond, label %24, label %63
+  br i1 %or.cond, label %24, label %61
 
 24:                                               ; preds = %15
   %.val43 = load i64, ptr %21, align 4
@@ -937,12 +937,12 @@ define void @Frc_ManCreateRefsSpecial(ptr noundef %0) local_unnamed_addr #1 {
   %26 = and i64 %.val43, 1073741824
   %.not37 = icmp eq i64 %26, 0
   %or.cond53 = and i1 %narrow.i49, %.not37
-  br i1 %or.cond53, label %27, label %63
+  br i1 %or.cond53, label %27, label %61
 
 27:                                               ; preds = %24
   %28 = call i32 @Gia_ObjIsMuxType(ptr noundef nonnull %10) #19
   %.not38 = icmp eq i32 %28, 0
-  br i1 %.not38, label %63, label %29
+  br i1 %.not38, label %61, label %29
 
 29:                                               ; preds = %27
   %30 = load i64, ptr %10, align 4
@@ -971,36 +971,34 @@ define void @Frc_ManCreateRefsSpecial(ptr noundef %0) local_unnamed_addr #1 {
   %46 = load ptr, ptr %2, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %47, -2
-  %49 = inttoptr i64 %48 to ptr
-  %50 = load ptr, ptr %3, align 8
-  %51 = ptrtoint ptr %50 to i64
-  %52 = and i64 %51, -2
-  %53 = inttoptr i64 %52 to ptr
-  %54 = icmp eq ptr %49, %53
-  br i1 %54, label %55, label %63
+  %49 = load ptr, ptr %3, align 8
+  %50 = ptrtoint ptr %49 to i64
+  %51 = and i64 %50, -2
+  %52 = icmp eq i64 %48, %51
+  br i1 %52, label %53, label %61
 
-55:                                               ; preds = %29
+53:                                               ; preds = %29
   %.val46 = load ptr, ptr %4, align 8
   %.val47 = load ptr, ptr %8, align 8
-  %56 = ptrtoint ptr %.val46 to i64
-  %57 = sub i64 %48, %56
-  %58 = sdiv exact i64 %57, 12
-  %sext.i50 = shl i64 %58, 32
-  %59 = ashr exact i64 %sext.i50, 30
-  %60 = getelementptr inbounds i8, ptr %.val47, i64 %59
-  %61 = load i32, ptr %60, align 4
-  %62 = add nsw i32 %61, -1
-  store i32 %62, ptr %60, align 4
-  br label %63
+  %54 = ptrtoint ptr %.val46 to i64
+  %55 = sub i64 %48, %54
+  %56 = sdiv exact i64 %55, 12
+  %sext.i50 = shl i64 %56, 32
+  %57 = ashr exact i64 %sext.i50, 30
+  %58 = getelementptr inbounds i8, ptr %.val47, i64 %57
+  %59 = load i32, ptr %58, align 4
+  %60 = add nsw i32 %59, -1
+  store i32 %60, ptr %58, align 4
+  br label %61
 
-63:                                               ; preds = %11, %55, %29, %27, %15, %24
+61:                                               ; preds = %11, %53, %29, %27, %15, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %64 = load i32, ptr %5, align 8
-  %65 = sext i32 %64 to i64
-  %66 = icmp slt i64 %indvars.iv.next, %65
-  br i1 %66, label %9, label %.critedge2, !llvm.loop !10
+  %62 = load i32, ptr %5, align 8
+  %63 = sext i32 %62 to i64
+  %64 = icmp slt i64 %indvars.iv.next, %63
+  br i1 %64, label %9, label %.critedge2, !llvm.loop !10
 
-.critedge2:                                       ; preds = %63, %9, %1
+.critedge2:                                       ; preds = %61, %9, %1
   call void @Gia_ManCleanMark0(ptr noundef nonnull %0) #19
   ret void
 }

@@ -783,7 +783,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @__se_sys_modify_ldt(i64 nou
 
 49:                                               ; preds = %3
   %50 = tail call i64 @llvm.umin.i64(i64 %2, i64 128)
-  %51 = icmp sgt ptr %5, inttoptr (i64 -1 to ptr)
+  %51 = icmp sgt i64 %1, -1
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %49

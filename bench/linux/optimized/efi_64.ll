@@ -854,7 +854,7 @@ define internal i64 @efi_thunk_get_variable(ptr noundef %0, ptr nocapture nounde
 
 37:                                               ; preds = %35
   %38 = add i64 %10, 2147483648
-  %39 = icmp ugt ptr %11, inttoptr (i64 -2147483649 to ptr)
+  %39 = icmp ugt i64 %9, -2147483649
   %40 = load i64, ptr @phys_base, align 8
   %41 = load i64, ptr @page_offset_base, align 8
   %42 = sub i64 -2147483648, %41
@@ -1111,7 +1111,7 @@ define internal i64 @efi_thunk_get_next_variable(ptr noundef %0, ptr noundef %1,
 
 34:                                               ; preds = %32
   %35 = add i64 %8, 2147483648
-  %36 = icmp ugt ptr %9, inttoptr (i64 -2147483649 to ptr)
+  %36 = icmp ugt i64 %7, -2147483649
   %37 = load i64, ptr @phys_base, align 8
   %38 = load i64, ptr @page_offset_base, align 8
   %39 = sub i64 -2147483648, %38
@@ -1300,7 +1300,7 @@ define internal i64 @efi_thunk_set_variable(ptr noundef %0, ptr nocapture nounde
 
 38:                                               ; preds = %36
   %39 = add i64 %10, 2147483648
-  %40 = icmp ugt ptr %11, inttoptr (i64 -2147483649 to ptr)
+  %40 = icmp ugt i64 %9, -2147483649
   %41 = load i64, ptr @phys_base, align 8
   %42 = load i64, ptr @page_offset_base, align 8
   %43 = sub i64 -2147483648, %42
@@ -1509,7 +1509,7 @@ define internal i64 @efi_thunk_set_variable_nonblocking(ptr noundef %0, ptr noca
 
 46:                                               ; preds = %44
   %47 = add i64 %11, 2147483648
-  %48 = icmp ugt ptr %12, inttoptr (i64 -2147483649 to ptr)
+  %48 = icmp ugt i64 %10, -2147483649
   %49 = load i64, ptr @phys_base, align 8
   %50 = load i64, ptr @page_offset_base, align 8
   %51 = sub i64 -2147483648, %50

@@ -68,7 +68,7 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr nocapture noundef
   %26 = ptrtoint ptr %.094 to i64
   %27 = add i64 %2, %26
   %28 = inttoptr i64 %27 to ptr
-  %29 = icmp ult ptr %28, %8
+  %29 = icmp ult i64 %27, %7
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !5
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4

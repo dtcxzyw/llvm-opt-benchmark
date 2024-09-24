@@ -8370,7 +8370,7 @@ define linkonce_odr void @_ZSt13__find_if_notIN4llvm16SmallSetIteratorISt4pairIN
   %13 = xor i8 %.fr, %.fr21
   %14 = and i8 %13, 1
   %.not.i.i3.i = icmp ne i8 %14, 0
-  %15 = icmp ne ptr %8, %12
+  %15 = icmp ne i64 %7, %11
   %.0.i.not.i4.i = select i1 %.not.i.i3.i, i1 true, i1 %15
   br i1 %.0.i.not.i4.i, label %.lr.ph.i.preheader, label %_ZSt9__find_ifIN4llvm16SmallSetIteratorISt4pairINS0_5MachO12PlatformTypeENS0_12VersionTupleEELj3ESt4lessIS6_EEEN9__gnu_cxx5__ops12_Iter_negateIZNS0_eqIS6_Lj3ELj3ES8_EEbRKNS0_8SmallSetIT_XT0_ET2_EERKNSE_ISF_XT1_ESG_EEEUlRKS6_E_EEESF_SF_SF_T0_St18input_iterator_tag.exit
 

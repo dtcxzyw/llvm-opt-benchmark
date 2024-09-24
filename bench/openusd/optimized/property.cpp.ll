@@ -402,24 +402,15 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__11NdrProperty12
   %6 = load i8, ptr %5, align 8
   %7 = xor i8 %6, %4
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %9, label %21
-
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %12 = load ptr, ptr %10, align 8
-  %13 = ptrtoint ptr %12 to i64
-  %14 = and i64 %13, -8
-  %15 = inttoptr i64 %14 to ptr
-  %16 = load ptr, ptr %11, align 8
-  %17 = ptrtoint ptr %16 to i64
-  %18 = and i64 %17, -8
-  %19 = inttoptr i64 %18 to ptr
-  %20 = icmp eq ptr %15, %19
-  br label %21
-
-21:                                               ; preds = %2, %9
-  %.0 = phi i1 [ %20, %9 ], [ false, %2 ]
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = load ptr, ptr %9, align 8
+  %12 = ptrtoint ptr %11 to i64
+  %13 = load ptr, ptr %10, align 8
+  %14 = ptrtoint ptr %13 to i64
+  %15 = xor i64 %14, %12
+  %16 = icmp ult i64 %15, 8
+  %.0 = select i1 %8, i1 %16, i1 false
   ret i1 %.0
 }
 

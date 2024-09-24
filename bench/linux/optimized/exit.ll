@@ -2881,7 +2881,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_waitid(i
   br i1 %48, label %71, label %49
 
 49:                                               ; preds = %45
-  %50 = icmp sgt ptr %11, inttoptr (i64 -1 to ptr)
+  %50 = icmp sgt i64 %2, -1
   br i1 %50, label %51, label %71, !prof !7
 
 51:                                               ; preds = %49

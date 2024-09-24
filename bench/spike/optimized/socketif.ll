@@ -57931,7 +57931,7 @@ _ZNK5boost13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_s
   %156 = getelementptr inbounds i8, ptr %.0.i22, i64 8
   %157 = load i64, ptr %156, align 8
   %158 = inttoptr i64 %157 to ptr
-  %159 = icmp eq ptr %150, %158
+  %159 = icmp eq i64 %149, %157
   br i1 %159, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5boost13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaINS_9sub_matchISB_EEEEixEi.exit30

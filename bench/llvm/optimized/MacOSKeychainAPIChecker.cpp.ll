@@ -6841,19 +6841,19 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_113AllocatedDataEEENS0_17Program
   %.sroa.1.0..sroa_idx.i18.i.i.i = getelementptr inbounds i8, ptr %.06.i.i.i, i64 24
   %.sroa.1.0.copyload.i19.i.i.i = load i64, ptr %.sroa.1.0..sroa_idx.i18.i.i.i, align 8, !noalias !150
   %213 = and i64 %.sroa.1.0.copyload.i19.i.i.i, -8
-  %214 = inttoptr i64 %213 to ptr
-  %215 = icmp eq ptr %214, %198
-  br i1 %215, label %218, label %216
+  %214 = icmp eq i64 %213, %197
+  br i1 %214, label %218, label %215
 
-216:                                              ; preds = %212
-  %217 = call noundef zeroext i1 @_ZNK5clang15LocationContext10isParentOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %214, ptr noundef %198) #20, !noalias !150
+215:                                              ; preds = %212
+  %216 = inttoptr i64 %213 to ptr
+  %217 = call noundef zeroext i1 @_ZNK5clang15LocationContext10isParentOfEPKS0_(ptr noundef nonnull align 8 dereferenceable(48) %216, ptr noundef %198) #20, !noalias !150
   br i1 %217, label %218, label %219
 
-218:                                              ; preds = %216, %212
+218:                                              ; preds = %215, %212
   br label %219
 
-219:                                              ; preds = %218, %216
-  %.1.i.i.i = phi ptr [ %.06.i.i.i, %218 ], [ %.0145.i.i.i, %216 ]
+219:                                              ; preds = %218, %215
+  %.1.i.i.i = phi ptr [ %.06.i.i.i, %218 ], [ %.0145.i.i.i, %215 ]
   %220 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 64
   %221 = load i64, ptr %220, align 8, !noalias !150
   %222 = icmp eq i64 %221, 0

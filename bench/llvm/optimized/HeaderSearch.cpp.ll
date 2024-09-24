@@ -1731,7 +1731,7 @@ _ZNK5clang12FileEntryRef12getFileEntryEv.exit.i:  ; preds = %21, %_ZNK5clang12Fi
   br i1 %.not.i.i6.i, label %_ZN5clangeqERKNS_12FileEntryRefES2_.exit, label %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i, !llvm.loop !21
 
 _ZN5clangeqERKNS_12FileEntryRefES2_.exit:         ; preds = %_ZNK5clang12FileEntryRef12getFileEntryEv.exit.i
-  %30 = icmp eq ptr %25, %29
+  %30 = icmp eq i64 %24, %28
   br i1 %30, label %31, label %18
 
 31:                                               ; preds = %_ZN5clangeqERKNS_12FileEntryRefES2_.exit

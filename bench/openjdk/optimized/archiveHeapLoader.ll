@@ -1154,7 +1154,7 @@ define hidden void @_ZN17ArchiveHeapLoader18verify_loaded_heapEv() local_unnamed
   %21 = inttoptr i64 %20 to ptr
   %22 = load i64, ptr @_ZN17ArchiveHeapLoader16_loaded_heap_topE, align 8
   %23 = inttoptr i64 %22 to ptr
-  %24 = icmp ult ptr %21, %23
+  %24 = icmp ult i64 %20, %22
   br i1 %24, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5

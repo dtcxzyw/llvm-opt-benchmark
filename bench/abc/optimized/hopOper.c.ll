@@ -298,7 +298,7 @@ Hop_And.exit:                                     ; preds = %3, %10, %23, %25, %
   br i1 %57, label %Hop_And.exit11, label %58
 
 58:                                               ; preds = %Hop_And.exit
-  %59 = icmp eq ptr %56, %6
+  %59 = icmp eq ptr %1, %2
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %58
@@ -318,7 +318,7 @@ Hop_And.exit:                                     ; preds = %3, %10, %23, %25, %
   br i1 %71, label %72, label %77
 
 72:                                               ; preds = %66
-  %73 = icmp eq ptr %56, %68
+  %73 = icmp eq i64 %55, %67
   br i1 %73, label %Hop_And.exit11, label %74
 
 74:                                               ; preds = %72
@@ -375,7 +375,7 @@ Hop_And.exit11:                                   ; preds = %Hop_And.exit, %60, 
   %105 = ptrtoint ptr %.0.i10 to i64
   %106 = xor i64 %105, 1
   %107 = inttoptr i64 %106 to ptr
-  %108 = icmp eq ptr %104, %107
+  %108 = icmp eq ptr %.0.i, %.0.i10
   br i1 %108, label %Hop_Or.exit, label %109
 
 109:                                              ; preds = %Hop_And.exit11
@@ -399,7 +399,7 @@ Hop_And.exit11:                                   ; preds = %Hop_And.exit, %60, 
   br i1 %122, label %123, label %128
 
 123:                                              ; preds = %117
-  %124 = icmp eq ptr %104, %119
+  %124 = icmp eq i64 %103, %118
   br i1 %124, label %Hop_Or.exit, label %125
 
 125:                                              ; preds = %123
@@ -469,7 +469,7 @@ define ptr @Hop_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   %7 = ptrtoint ptr %2 to i64
   %8 = xor i64 %7, 1
   %9 = inttoptr i64 %8 to ptr
-  %10 = icmp eq ptr %6, %9
+  %10 = icmp eq ptr %1, %2
   br i1 %10, label %Hop_And.exit, label %11
 
 11:                                               ; preds = %3
@@ -493,7 +493,7 @@ define ptr @Hop_Or(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed
   br i1 %24, label %25, label %30
 
 25:                                               ; preds = %19
-  %26 = icmp eq ptr %6, %21
+  %26 = icmp eq i64 %5, %20
   br i1 %26, label %Hop_And.exit, label %27
 
 27:                                               ; preds = %25
@@ -641,166 +641,164 @@ Hop_And.exit:                                     ; preds = %4, %11, %24, %26, %
 
 59:                                               ; preds = %Hop_And.exit
   %60 = ptrtoint ptr %3 to i64
-  %61 = xor i64 %60, 1
-  %62 = inttoptr i64 %61 to ptr
-  %63 = icmp eq ptr %57, %62
-  br i1 %63, label %64, label %70
+  %61 = icmp eq ptr %1, %3
+  br i1 %61, label %62, label %68
 
-64:                                               ; preds = %59
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
-  %66 = load ptr, ptr %65, align 8
-  %67 = ptrtoint ptr %66 to i64
-  %68 = xor i64 %67, 1
-  %69 = inttoptr i64 %68 to ptr
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds i8, ptr %0, i64 24
+  %64 = load ptr, ptr %63, align 8
+  %65 = ptrtoint ptr %64 to i64
+  %66 = xor i64 %65, 1
+  %67 = inttoptr i64 %66 to ptr
   br label %Hop_And.exit11
 
-70:                                               ; preds = %59
-  %71 = and i64 %55, -2
-  %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds i8, ptr %0, i64 24
-  %74 = load ptr, ptr %73, align 8
-  %75 = icmp eq ptr %74, %72
-  br i1 %75, label %76, label %81
+68:                                               ; preds = %59
+  %69 = and i64 %55, -2
+  %70 = inttoptr i64 %69 to ptr
+  %71 = getelementptr inbounds i8, ptr %0, i64 24
+  %72 = load ptr, ptr %71, align 8
+  %73 = icmp eq ptr %72, %70
+  br i1 %73, label %74, label %79
 
-76:                                               ; preds = %70
-  %77 = icmp eq ptr %57, %72
-  br i1 %77, label %Hop_And.exit11, label %78
+74:                                               ; preds = %68
+  %75 = icmp eq i64 %56, %69
+  br i1 %75, label %Hop_And.exit11, label %76
 
-78:                                               ; preds = %76
-  %79 = or i64 %55, 1
-  %80 = inttoptr i64 %79 to ptr
+76:                                               ; preds = %74
+  %77 = or i64 %55, 1
+  %78 = inttoptr i64 %77 to ptr
   br label %Hop_And.exit11
 
-81:                                               ; preds = %70
-  %82 = and i64 %60, -2
-  %83 = inttoptr i64 %82 to ptr
-  %84 = icmp eq ptr %74, %83
-  br i1 %84, label %85, label %91
+79:                                               ; preds = %68
+  %80 = and i64 %60, -2
+  %81 = inttoptr i64 %80 to ptr
+  %82 = icmp eq ptr %72, %81
+  br i1 %82, label %83, label %89
 
-85:                                               ; preds = %81
-  %86 = icmp eq ptr %3, %74
-  br i1 %86, label %Hop_And.exit11, label %87
+83:                                               ; preds = %79
+  %84 = icmp eq ptr %3, %72
+  br i1 %84, label %Hop_And.exit11, label %85
 
-87:                                               ; preds = %85
-  %88 = ptrtoint ptr %74 to i64
-  %89 = xor i64 %88, 1
-  %90 = inttoptr i64 %89 to ptr
+85:                                               ; preds = %83
+  %86 = ptrtoint ptr %72 to i64
+  %87 = xor i64 %86, 1
+  %88 = inttoptr i64 %87 to ptr
   br label %Hop_And.exit11
 
-91:                                               ; preds = %81
-  %92 = getelementptr inbounds i8, ptr %0, i64 64
-  %93 = load i32, ptr %92, align 8
-  %94 = and i32 %93, -8
-  %95 = or disjoint i32 %94, 4
-  store i32 %95, ptr %92, align 8
-  %96 = getelementptr inbounds i8, ptr %72, i64 36
+89:                                               ; preds = %79
+  %90 = getelementptr inbounds i8, ptr %0, i64 64
+  %91 = load i32, ptr %90, align 8
+  %92 = and i32 %91, -8
+  %93 = or disjoint i32 %92, 4
+  store i32 %93, ptr %90, align 8
+  %94 = getelementptr inbounds i8, ptr %70, i64 36
+  %95 = load i32, ptr %94, align 4
+  %96 = getelementptr inbounds i8, ptr %81, i64 36
   %97 = load i32, ptr %96, align 4
-  %98 = getelementptr inbounds i8, ptr %83, i64 36
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp slt i32 %97, %99
-  %spec.select.i.i7 = select i1 %100, ptr %57, ptr %3
-  %spec.select14.i.i8 = select i1 %100, ptr %3, ptr %57
-  %101 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %spec.select.i.i7, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i8, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %0, i64 32
-  %104 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %103) #2
-  %.not.i9 = icmp eq ptr %104, null
-  br i1 %.not.i9, label %105, label %Hop_And.exit11
+  %98 = icmp slt i32 %95, %97
+  %spec.select.i.i7 = select i1 %98, ptr %57, ptr %3
+  %spec.select14.i.i8 = select i1 %98, ptr %3, ptr %57
+  %99 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %spec.select.i.i7, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %spec.select14.i.i8, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %0, i64 32
+  %102 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %101) #2
+  %.not.i9 = icmp eq ptr %102, null
+  br i1 %.not.i9, label %103, label %Hop_And.exit11
 
-105:                                              ; preds = %91
-  %106 = tail call ptr @Hop_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %103) #2
+103:                                              ; preds = %89
+  %104 = tail call ptr @Hop_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %101) #2
   br label %Hop_And.exit11
 
-Hop_And.exit11:                                   ; preds = %Hop_And.exit, %64, %76, %78, %85, %87, %91, %105
-  %.0.i10 = phi ptr [ %69, %64 ], [ %106, %105 ], [ %3, %Hop_And.exit ], [ %80, %78 ], [ %3, %76 ], [ %90, %87 ], [ %57, %85 ], [ %104, %91 ]
-  %107 = ptrtoint ptr %.0.i to i64
-  %108 = xor i64 %107, 1
-  %109 = inttoptr i64 %108 to ptr
-  %110 = ptrtoint ptr %.0.i10 to i64
-  %111 = xor i64 %110, 1
-  %112 = inttoptr i64 %111 to ptr
-  %113 = icmp eq ptr %109, %112
-  br i1 %113, label %Hop_Or.exit, label %114
+Hop_And.exit11:                                   ; preds = %Hop_And.exit, %62, %74, %76, %83, %85, %89, %103
+  %.0.i10 = phi ptr [ %67, %62 ], [ %104, %103 ], [ %3, %Hop_And.exit ], [ %78, %76 ], [ %3, %74 ], [ %88, %85 ], [ %57, %83 ], [ %102, %89 ]
+  %105 = ptrtoint ptr %.0.i to i64
+  %106 = xor i64 %105, 1
+  %107 = inttoptr i64 %106 to ptr
+  %108 = ptrtoint ptr %.0.i10 to i64
+  %109 = xor i64 %108, 1
+  %110 = inttoptr i64 %109 to ptr
+  %111 = icmp eq ptr %.0.i, %.0.i10
+  br i1 %111, label %Hop_Or.exit, label %112
 
-114:                                              ; preds = %Hop_And.exit11
-  %115 = icmp eq ptr %.0.i10, %109
-  br i1 %115, label %116, label %122
+112:                                              ; preds = %Hop_And.exit11
+  %113 = icmp eq ptr %.0.i10, %107
+  br i1 %113, label %114, label %120
 
-116:                                              ; preds = %114
-  %117 = getelementptr inbounds i8, ptr %0, i64 24
-  %118 = load ptr, ptr %117, align 8
-  %119 = ptrtoint ptr %118 to i64
-  %120 = xor i64 %119, 1
-  %121 = inttoptr i64 %120 to ptr
+114:                                              ; preds = %112
+  %115 = getelementptr inbounds i8, ptr %0, i64 24
+  %116 = load ptr, ptr %115, align 8
+  %117 = ptrtoint ptr %116 to i64
+  %118 = xor i64 %117, 1
+  %119 = inttoptr i64 %118 to ptr
   br label %Hop_Or.exit
 
-122:                                              ; preds = %114
-  %123 = and i64 %107, -2
-  %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds i8, ptr %0, i64 24
-  %126 = load ptr, ptr %125, align 8
-  %127 = icmp eq ptr %126, %124
-  br i1 %127, label %128, label %133
+120:                                              ; preds = %112
+  %121 = and i64 %105, -2
+  %122 = inttoptr i64 %121 to ptr
+  %123 = getelementptr inbounds i8, ptr %0, i64 24
+  %124 = load ptr, ptr %123, align 8
+  %125 = icmp eq ptr %124, %122
+  br i1 %125, label %126, label %131
 
-128:                                              ; preds = %122
-  %129 = icmp eq ptr %109, %124
-  br i1 %129, label %Hop_Or.exit, label %130
+126:                                              ; preds = %120
+  %127 = icmp eq i64 %106, %121
+  br i1 %127, label %Hop_Or.exit, label %128
 
-130:                                              ; preds = %128
-  %131 = or i64 %107, 1
-  %132 = inttoptr i64 %131 to ptr
+128:                                              ; preds = %126
+  %129 = or i64 %105, 1
+  %130 = inttoptr i64 %129 to ptr
   br label %Hop_Or.exit
 
-133:                                              ; preds = %122
-  %134 = and i64 %110, -2
-  %135 = inttoptr i64 %134 to ptr
-  %136 = icmp eq ptr %126, %135
-  br i1 %136, label %137, label %143
+131:                                              ; preds = %120
+  %132 = and i64 %108, -2
+  %133 = inttoptr i64 %132 to ptr
+  %134 = icmp eq ptr %124, %133
+  br i1 %134, label %135, label %141
 
-137:                                              ; preds = %133
-  %138 = icmp eq ptr %126, %112
-  br i1 %138, label %Hop_Or.exit, label %139
+135:                                              ; preds = %131
+  %136 = icmp eq ptr %124, %110
+  br i1 %136, label %Hop_Or.exit, label %137
 
-139:                                              ; preds = %137
-  %140 = ptrtoint ptr %126 to i64
-  %141 = xor i64 %140, 1
-  %142 = inttoptr i64 %141 to ptr
+137:                                              ; preds = %135
+  %138 = ptrtoint ptr %124 to i64
+  %139 = xor i64 %138, 1
+  %140 = inttoptr i64 %139 to ptr
   br label %Hop_Or.exit
 
-143:                                              ; preds = %133
-  %144 = getelementptr inbounds i8, ptr %0, i64 64
-  %145 = load i32, ptr %144, align 8
-  %146 = and i32 %145, -8
-  %147 = or disjoint i32 %146, 4
-  store i32 %147, ptr %144, align 8
-  %148 = getelementptr inbounds i8, ptr %124, i64 36
+141:                                              ; preds = %131
+  %142 = getelementptr inbounds i8, ptr %0, i64 64
+  %143 = load i32, ptr %142, align 8
+  %144 = and i32 %143, -8
+  %145 = or disjoint i32 %144, 4
+  store i32 %145, ptr %142, align 8
+  %146 = getelementptr inbounds i8, ptr %122, i64 36
+  %147 = load i32, ptr %146, align 4
+  %148 = getelementptr inbounds i8, ptr %133, i64 36
   %149 = load i32, ptr %148, align 4
-  %150 = getelementptr inbounds i8, ptr %135, i64 36
-  %151 = load i32, ptr %150, align 4
-  %152 = icmp slt i32 %149, %151
-  %spec.select.i.i.i = select i1 %152, ptr %109, ptr %112
-  %spec.select14.i.i.i = select i1 %152, ptr %112, ptr %109
-  %153 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %spec.select.i.i.i, ptr %153, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i.i, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %0, i64 32
-  %156 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %155) #2
-  %.not.i.i = icmp eq ptr %156, null
-  br i1 %.not.i.i, label %157, label %Hop_Or.exit
+  %150 = icmp slt i32 %147, %149
+  %spec.select.i.i.i = select i1 %150, ptr %107, ptr %110
+  %spec.select14.i.i.i = select i1 %150, ptr %110, ptr %107
+  %151 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %spec.select.i.i.i, ptr %151, align 8
+  %152 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %spec.select14.i.i.i, ptr %152, align 8
+  %153 = getelementptr inbounds i8, ptr %0, i64 32
+  %154 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %153) #2
+  %.not.i.i = icmp eq ptr %154, null
+  br i1 %.not.i.i, label %155, label %Hop_Or.exit
 
-157:                                              ; preds = %143
-  %158 = tail call ptr @Hop_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %155) #2
+155:                                              ; preds = %141
+  %156 = tail call ptr @Hop_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %153) #2
   br label %Hop_Or.exit
 
-Hop_Or.exit:                                      ; preds = %Hop_And.exit11, %116, %128, %130, %137, %139, %143, %157
-  %.0.i.i = phi ptr [ %121, %116 ], [ %158, %157 ], [ %109, %Hop_And.exit11 ], [ %132, %130 ], [ %112, %128 ], [ %142, %139 ], [ %109, %137 ], [ %156, %143 ]
-  %159 = ptrtoint ptr %.0.i.i to i64
-  %160 = xor i64 %159, 1
-  %161 = inttoptr i64 %160 to ptr
-  ret ptr %161
+Hop_Or.exit:                                      ; preds = %Hop_And.exit11, %114, %126, %128, %135, %137, %141, %155
+  %.0.i.i = phi ptr [ %119, %114 ], [ %156, %155 ], [ %107, %Hop_And.exit11 ], [ %130, %128 ], [ %110, %126 ], [ %140, %137 ], [ %107, %135 ], [ %154, %141 ]
+  %157 = ptrtoint ptr %.0.i.i to i64
+  %158 = xor i64 %157, 1
+  %159 = inttoptr i64 %158 to ptr
+  ret ptr %159
 }
 
 ; Function Attrs: nounwind uwtable
@@ -971,7 +969,7 @@ Hop_And.exit15:                                   ; preds = %Hop_And.exit, %61, 
   %108 = ptrtoint ptr %.0.i14 to i64
   %109 = xor i64 %108, 1
   %110 = inttoptr i64 %109 to ptr
-  %111 = icmp eq ptr %107, %110
+  %111 = icmp eq ptr %.0.i, %.0.i14
   br i1 %111, label %Hop_Or.exit, label %112
 
 112:                                              ; preds = %Hop_And.exit15
@@ -995,7 +993,7 @@ Hop_And.exit15:                                   ; preds = %Hop_And.exit, %61, 
   br i1 %125, label %126, label %131
 
 126:                                              ; preds = %120
-  %127 = icmp eq ptr %107, %122
+  %127 = icmp eq i64 %106, %121
   br i1 %127, label %Hop_Or.exit, label %128
 
 128:                                              ; preds = %126
@@ -1048,168 +1046,170 @@ Hop_And.exit15:                                   ; preds = %Hop_And.exit, %61, 
 Hop_Or.exit:                                      ; preds = %Hop_And.exit15, %114, %126, %128, %135, %137, %141, %155
   %.0.i.i = phi ptr [ %119, %114 ], [ %156, %155 ], [ %107, %Hop_And.exit15 ], [ %130, %128 ], [ %110, %126 ], [ %140, %137 ], [ %107, %135 ], [ %154, %141 ]
   %157 = ptrtoint ptr %.0.i.i to i64
-  %158 = icmp eq ptr %2, %3
-  br i1 %158, label %Hop_And.exit20, label %159
+  %158 = xor i64 %157, 1
+  %159 = inttoptr i64 %158 to ptr
+  %160 = icmp eq ptr %2, %3
+  br i1 %160, label %Hop_And.exit20, label %161
 
-159:                                              ; preds = %Hop_Or.exit
-  %160 = ptrtoint ptr %3 to i64
-  %161 = xor i64 %160, 1
-  %162 = inttoptr i64 %161 to ptr
-  %163 = icmp eq ptr %2, %162
-  br i1 %163, label %164, label %170
+161:                                              ; preds = %Hop_Or.exit
+  %162 = ptrtoint ptr %3 to i64
+  %163 = xor i64 %162, 1
+  %164 = inttoptr i64 %163 to ptr
+  %165 = icmp eq ptr %2, %164
+  br i1 %165, label %166, label %172
 
-164:                                              ; preds = %159
-  %165 = getelementptr inbounds i8, ptr %0, i64 24
-  %166 = load ptr, ptr %165, align 8
-  %167 = ptrtoint ptr %166 to i64
-  %168 = xor i64 %167, 1
-  %169 = inttoptr i64 %168 to ptr
+166:                                              ; preds = %161
+  %167 = getelementptr inbounds i8, ptr %0, i64 24
+  %168 = load ptr, ptr %167, align 8
+  %169 = ptrtoint ptr %168 to i64
+  %170 = xor i64 %169, 1
+  %171 = inttoptr i64 %170 to ptr
   br label %Hop_And.exit20
 
-170:                                              ; preds = %159
-  %171 = ptrtoint ptr %2 to i64
-  %172 = and i64 %171, -2
-  %173 = inttoptr i64 %172 to ptr
-  %174 = getelementptr inbounds i8, ptr %0, i64 24
-  %175 = load ptr, ptr %174, align 8
-  %176 = icmp eq ptr %175, %173
-  br i1 %176, label %177, label %182
+172:                                              ; preds = %161
+  %173 = ptrtoint ptr %2 to i64
+  %174 = and i64 %173, -2
+  %175 = inttoptr i64 %174 to ptr
+  %176 = getelementptr inbounds i8, ptr %0, i64 24
+  %177 = load ptr, ptr %176, align 8
+  %178 = icmp eq ptr %177, %175
+  br i1 %178, label %179, label %184
 
-177:                                              ; preds = %170
-  %178 = icmp eq ptr %2, %173
-  br i1 %178, label %Hop_And.exit20, label %179
+179:                                              ; preds = %172
+  %180 = icmp eq ptr %2, %175
+  br i1 %180, label %Hop_And.exit20, label %181
 
-179:                                              ; preds = %177
-  %180 = or i64 %171, 1
-  %181 = inttoptr i64 %180 to ptr
+181:                                              ; preds = %179
+  %182 = or i64 %173, 1
+  %183 = inttoptr i64 %182 to ptr
   br label %Hop_And.exit20
 
-182:                                              ; preds = %170
-  %183 = and i64 %160, -2
-  %184 = inttoptr i64 %183 to ptr
-  %185 = icmp eq ptr %175, %184
-  br i1 %185, label %186, label %191
+184:                                              ; preds = %172
+  %185 = and i64 %162, -2
+  %186 = inttoptr i64 %185 to ptr
+  %187 = icmp eq ptr %177, %186
+  br i1 %187, label %188, label %193
 
-186:                                              ; preds = %182
-  %187 = icmp eq ptr %3, %184
-  br i1 %187, label %Hop_And.exit20, label %188
+188:                                              ; preds = %184
+  %189 = icmp eq ptr %3, %186
+  br i1 %189, label %Hop_And.exit20, label %190
 
-188:                                              ; preds = %186
-  %189 = or i64 %160, 1
-  %190 = inttoptr i64 %189 to ptr
+190:                                              ; preds = %188
+  %191 = or i64 %162, 1
+  %192 = inttoptr i64 %191 to ptr
   br label %Hop_And.exit20
 
-191:                                              ; preds = %182
-  %192 = getelementptr inbounds i8, ptr %0, i64 64
-  %193 = load i32, ptr %192, align 8
-  %194 = and i32 %193, -8
-  %195 = or disjoint i32 %194, 4
-  store i32 %195, ptr %192, align 8
-  %196 = getelementptr inbounds i8, ptr %173, i64 36
-  %197 = load i32, ptr %196, align 4
-  %198 = getelementptr inbounds i8, ptr %184, i64 36
+193:                                              ; preds = %184
+  %194 = getelementptr inbounds i8, ptr %0, i64 64
+  %195 = load i32, ptr %194, align 8
+  %196 = and i32 %195, -8
+  %197 = or disjoint i32 %196, 4
+  store i32 %197, ptr %194, align 8
+  %198 = getelementptr inbounds i8, ptr %175, i64 36
   %199 = load i32, ptr %198, align 4
-  %200 = icmp slt i32 %197, %199
-  %spec.select.i.i16 = select i1 %200, ptr %2, ptr %3
-  %spec.select14.i.i17 = select i1 %200, ptr %3, ptr %2
-  %201 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %spec.select.i.i16, ptr %201, align 8
-  %202 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i17, ptr %202, align 8
-  %203 = getelementptr inbounds i8, ptr %0, i64 32
-  %204 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %203) #2
-  %.not.i18 = icmp eq ptr %204, null
-  br i1 %.not.i18, label %205, label %Hop_And.exit20
+  %200 = getelementptr inbounds i8, ptr %186, i64 36
+  %201 = load i32, ptr %200, align 4
+  %202 = icmp slt i32 %199, %201
+  %spec.select.i.i16 = select i1 %202, ptr %2, ptr %3
+  %spec.select14.i.i17 = select i1 %202, ptr %3, ptr %2
+  %203 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %spec.select.i.i16, ptr %203, align 8
+  %204 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %spec.select14.i.i17, ptr %204, align 8
+  %205 = getelementptr inbounds i8, ptr %0, i64 32
+  %206 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %205) #2
+  %.not.i18 = icmp eq ptr %206, null
+  br i1 %.not.i18, label %207, label %Hop_And.exit20
 
-205:                                              ; preds = %191
-  %206 = tail call ptr @Hop_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %203) #2
+207:                                              ; preds = %193
+  %208 = tail call ptr @Hop_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %205) #2
   br label %Hop_And.exit20
 
-Hop_And.exit20:                                   ; preds = %Hop_Or.exit, %164, %177, %179, %186, %188, %191, %205
-  %.0.i19 = phi ptr [ %169, %164 ], [ %206, %205 ], [ %2, %Hop_Or.exit ], [ %181, %179 ], [ %3, %177 ], [ %190, %188 ], [ %2, %186 ], [ %204, %191 ]
-  %207 = ptrtoint ptr %.0.i19 to i64
-  %208 = xor i64 %207, 1
-  %209 = inttoptr i64 %208 to ptr
-  %210 = icmp eq ptr %.0.i.i, %209
-  br i1 %210, label %Hop_Or.exit25, label %211
+Hop_And.exit20:                                   ; preds = %Hop_Or.exit, %166, %179, %181, %188, %190, %193, %207
+  %.0.i19 = phi ptr [ %171, %166 ], [ %208, %207 ], [ %2, %Hop_Or.exit ], [ %183, %181 ], [ %3, %179 ], [ %192, %190 ], [ %2, %188 ], [ %206, %193 ]
+  %209 = ptrtoint ptr %.0.i19 to i64
+  %210 = xor i64 %209, 1
+  %211 = inttoptr i64 %210 to ptr
+  %212 = icmp eq ptr %.0.i19, %159
+  br i1 %212, label %Hop_Or.exit25, label %213
 
-211:                                              ; preds = %Hop_And.exit20
-  %212 = icmp eq ptr %.0.i19, %.0.i.i
-  br i1 %212, label %213, label %219
+213:                                              ; preds = %Hop_And.exit20
+  %214 = icmp eq ptr %.0.i19, %.0.i.i
+  br i1 %214, label %215, label %221
 
-213:                                              ; preds = %211
-  %214 = getelementptr inbounds i8, ptr %0, i64 24
-  %215 = load ptr, ptr %214, align 8
-  %216 = ptrtoint ptr %215 to i64
-  %217 = xor i64 %216, 1
-  %218 = inttoptr i64 %217 to ptr
+215:                                              ; preds = %213
+  %216 = getelementptr inbounds i8, ptr %0, i64 24
+  %217 = load ptr, ptr %216, align 8
+  %218 = ptrtoint ptr %217 to i64
+  %219 = xor i64 %218, 1
+  %220 = inttoptr i64 %219 to ptr
   br label %Hop_Or.exit25
 
-219:                                              ; preds = %211
-  %220 = and i64 %157, -2
-  %221 = inttoptr i64 %220 to ptr
-  %222 = getelementptr inbounds i8, ptr %0, i64 24
-  %223 = load ptr, ptr %222, align 8
-  %224 = icmp eq ptr %223, %221
-  br i1 %224, label %225, label %230
+221:                                              ; preds = %213
+  %222 = and i64 %157, -2
+  %223 = inttoptr i64 %222 to ptr
+  %224 = getelementptr inbounds i8, ptr %0, i64 24
+  %225 = load ptr, ptr %224, align 8
+  %226 = icmp eq ptr %225, %223
+  br i1 %226, label %227, label %232
 
-225:                                              ; preds = %219
-  %226 = icmp eq ptr %.0.i.i, %221
-  br i1 %226, label %Hop_Or.exit25, label %227
+227:                                              ; preds = %221
+  %228 = icmp eq i64 %222, %157
+  br i1 %228, label %Hop_Or.exit25, label %229
 
-227:                                              ; preds = %225
-  %228 = or i64 %157, 1
-  %229 = inttoptr i64 %228 to ptr
+229:                                              ; preds = %227
+  %230 = or i64 %157, 1
+  %231 = inttoptr i64 %230 to ptr
   br label %Hop_Or.exit25
 
-230:                                              ; preds = %219
-  %231 = and i64 %207, -2
-  %232 = inttoptr i64 %231 to ptr
-  %233 = icmp eq ptr %223, %232
-  br i1 %233, label %234, label %240
+232:                                              ; preds = %221
+  %233 = and i64 %209, -2
+  %234 = inttoptr i64 %233 to ptr
+  %235 = icmp eq ptr %225, %234
+  br i1 %235, label %236, label %242
 
-234:                                              ; preds = %230
-  %235 = icmp eq ptr %223, %209
-  br i1 %235, label %Hop_Or.exit25, label %236
+236:                                              ; preds = %232
+  %237 = icmp eq ptr %225, %211
+  br i1 %237, label %Hop_Or.exit25, label %238
 
-236:                                              ; preds = %234
-  %237 = ptrtoint ptr %223 to i64
-  %238 = xor i64 %237, 1
-  %239 = inttoptr i64 %238 to ptr
+238:                                              ; preds = %236
+  %239 = ptrtoint ptr %225 to i64
+  %240 = xor i64 %239, 1
+  %241 = inttoptr i64 %240 to ptr
   br label %Hop_Or.exit25
 
-240:                                              ; preds = %230
-  %241 = getelementptr inbounds i8, ptr %0, i64 64
-  %242 = load i32, ptr %241, align 8
-  %243 = and i32 %242, -8
-  %244 = or disjoint i32 %243, 4
-  store i32 %244, ptr %241, align 8
-  %245 = getelementptr inbounds i8, ptr %221, i64 36
-  %246 = load i32, ptr %245, align 4
-  %247 = getelementptr inbounds i8, ptr %232, i64 36
+242:                                              ; preds = %232
+  %243 = getelementptr inbounds i8, ptr %0, i64 64
+  %244 = load i32, ptr %243, align 8
+  %245 = and i32 %244, -8
+  %246 = or disjoint i32 %245, 4
+  store i32 %246, ptr %243, align 8
+  %247 = getelementptr inbounds i8, ptr %223, i64 36
   %248 = load i32, ptr %247, align 4
-  %249 = icmp slt i32 %246, %248
-  %spec.select.i.i.i21 = select i1 %249, ptr %.0.i.i, ptr %209
-  %spec.select14.i.i.i22 = select i1 %249, ptr %209, ptr %.0.i.i
-  %250 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %spec.select.i.i.i21, ptr %250, align 8
-  %251 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %spec.select14.i.i.i22, ptr %251, align 8
-  %252 = getelementptr inbounds i8, ptr %0, i64 32
-  %253 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %252) #2
-  %.not.i.i23 = icmp eq ptr %253, null
-  br i1 %.not.i.i23, label %254, label %Hop_Or.exit25
+  %249 = getelementptr inbounds i8, ptr %234, i64 36
+  %250 = load i32, ptr %249, align 4
+  %251 = icmp slt i32 %248, %250
+  %spec.select.i.i.i21 = select i1 %251, ptr %.0.i.i, ptr %211
+  %spec.select14.i.i.i22 = select i1 %251, ptr %211, ptr %.0.i.i
+  %252 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %spec.select.i.i.i21, ptr %252, align 8
+  %253 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %spec.select14.i.i.i22, ptr %253, align 8
+  %254 = getelementptr inbounds i8, ptr %0, i64 32
+  %255 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %254) #2
+  %.not.i.i23 = icmp eq ptr %255, null
+  br i1 %.not.i.i23, label %256, label %Hop_Or.exit25
 
-254:                                              ; preds = %240
-  %255 = tail call ptr @Hop_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %252) #2
+256:                                              ; preds = %242
+  %257 = tail call ptr @Hop_ObjCreate(ptr noundef nonnull %0, ptr noundef nonnull %254) #2
   br label %Hop_Or.exit25
 
-Hop_Or.exit25:                                    ; preds = %Hop_And.exit20, %213, %225, %227, %234, %236, %240, %254
-  %.0.i.i24 = phi ptr [ %218, %213 ], [ %255, %254 ], [ %.0.i.i, %Hop_And.exit20 ], [ %229, %227 ], [ %209, %225 ], [ %239, %236 ], [ %.0.i.i, %234 ], [ %253, %240 ]
-  %256 = ptrtoint ptr %.0.i.i24 to i64
-  %257 = xor i64 %256, 1
-  %258 = inttoptr i64 %257 to ptr
-  ret ptr %258
+Hop_Or.exit25:                                    ; preds = %Hop_And.exit20, %215, %227, %229, %236, %238, %242, %256
+  %.0.i.i24 = phi ptr [ %220, %215 ], [ %257, %256 ], [ %.0.i.i, %Hop_And.exit20 ], [ %231, %229 ], [ %211, %227 ], [ %241, %238 ], [ %.0.i.i, %236 ], [ %255, %242 ]
+  %258 = ptrtoint ptr %.0.i.i24 to i64
+  %259 = xor i64 %258, 1
+  %260 = inttoptr i64 %259 to ptr
+  ret ptr %260
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1414,6 +1414,8 @@ define ptr @Hop_CreateOr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %3, align 8
   %.08.in.in9 = ptrtoint ptr %.val to i64
+  %.08.in10 = xor i64 %.08.in.in9, 1
+  %.0811 = inttoptr i64 %.08.in10 to ptr
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1428,8 +1430,9 @@ define ptr @Hop_CreateOr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph, %Hop_Or.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Hop_Or.exit ]
-  %.08.in.in12 = phi i64 [ %.08.in.in9, %.lr.ph ], [ %.08.in.in, %Hop_Or.exit ]
-  %.08.in.in.in10 = phi ptr [ %.val, %.lr.ph ], [ %.0.i.i, %Hop_Or.exit ]
+  %.0815 = phi ptr [ %.0811, %.lr.ph ], [ %.08, %Hop_Or.exit ]
+  %.08.in.in14 = phi i64 [ %.08.in.in9, %.lr.ph ], [ %.08.in.in, %Hop_Or.exit ]
+  %.08.in.in.in12 = phi ptr [ %.val, %.lr.ph ], [ %.0.i.i, %Hop_Or.exit ]
   %.val.i = load i32, ptr %5, align 8
   %11 = sext i32 %.val.i to i64
   %.not8.i = icmp slt i64 %indvars.iv, %11
@@ -1452,11 +1455,11 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   %18 = ptrtoint ptr %17 to i64
   %19 = xor i64 %18, 1
   %20 = inttoptr i64 %19 to ptr
-  %21 = icmp eq ptr %.08.in.in.in10, %20
+  %21 = icmp eq ptr %17, %.0815
   br i1 %21, label %Hop_Or.exit, label %22
 
 22:                                               ; preds = %Hop_IthVar.exit
-  %23 = icmp eq ptr %17, %.08.in.in.in10
+  %23 = icmp eq ptr %17, %.08.in.in.in12
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %22
@@ -1467,18 +1470,18 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   br label %Hop_Or.exit
 
 29:                                               ; preds = %22
-  %30 = and i64 %.08.in.in12, -2
+  %30 = and i64 %.08.in.in14, -2
   %31 = inttoptr i64 %30 to ptr
   %32 = load ptr, ptr %3, align 8
   %33 = icmp eq ptr %32, %31
   br i1 %33, label %34, label %39
 
 34:                                               ; preds = %29
-  %35 = icmp eq ptr %.08.in.in.in10, %31
+  %35 = icmp eq i64 %30, %.08.in.in14
   br i1 %35, label %Hop_Or.exit, label %36
 
 36:                                               ; preds = %34
-  %37 = or i64 %.08.in.in12, 1
+  %37 = or i64 %.08.in.in14, 1
   %38 = inttoptr i64 %37 to ptr
   br label %Hop_Or.exit
 
@@ -1508,8 +1511,8 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   %55 = getelementptr inbounds i8, ptr %41, i64 36
   %56 = load i32, ptr %55, align 4
   %57 = icmp slt i32 %54, %56
-  %spec.select.i.i.i = select i1 %57, ptr %.08.in.in.in10, ptr %20
-  %spec.select14.i.i.i = select i1 %57, ptr %20, ptr %.08.in.in.in10
+  %spec.select.i.i.i = select i1 %57, ptr %.08.in.in.in12, ptr %20
+  %spec.select14.i.i.i = select i1 %57, ptr %20, ptr %.08.in.in.in12
   store ptr %spec.select.i.i.i, ptr %7, align 8
   store ptr %spec.select14.i.i.i, ptr %8, align 8
   %58 = tail call ptr @Hop_TableLookup(ptr noundef nonnull %0, ptr noundef nonnull %9) #2
@@ -1521,17 +1524,17 @@ Hop_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   br label %Hop_Or.exit
 
 Hop_Or.exit:                                      ; preds = %Hop_IthVar.exit, %24, %34, %36, %43, %45, %49, %59
-  %.0.i.i = phi ptr [ %28, %24 ], [ %60, %59 ], [ %.08.in.in.in10, %Hop_IthVar.exit ], [ %38, %36 ], [ %20, %34 ], [ %48, %45 ], [ %.08.in.in.in10, %43 ], [ %58, %49 ]
+  %.0.i.i = phi ptr [ %28, %24 ], [ %60, %59 ], [ %.08.in.in.in12, %Hop_IthVar.exit ], [ %38, %36 ], [ %20, %34 ], [ %48, %45 ], [ %.08.in.in.in12, %43 ], [ %58, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.08.in.in = ptrtoint ptr %.0.i.i to i64
+  %.08.in = xor i64 %.08.in.in, 1
+  %.08 = inttoptr i64 %.08.in to ptr
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %Hop_Or.exit, %2
-  %.08.in.in.lcssa = phi i64 [ %.08.in.in9, %2 ], [ %.08.in.in, %Hop_Or.exit ]
-  %.08.in = xor i64 %.08.in.in.lcssa, 1
-  %.08 = inttoptr i64 %.08.in to ptr
-  ret ptr %.08
+  %.08.lcssa = phi ptr [ %.0811, %2 ], [ %.08, %Hop_Or.exit ]
+  ret ptr %.08.lcssa
 }
 
 ; Function Attrs: nounwind uwtable

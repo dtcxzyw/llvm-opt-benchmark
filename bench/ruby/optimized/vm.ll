@@ -592,7 +592,7 @@ define hidden ptr @rb_vm_cref_new_toplevel() local_unnamed_addr #2 {
   br i1 %.not.i, label %vm_cref_new_toplevel.exit, label %12
 
 12:                                               ; preds = %0
-  %switch.i.i.i = icmp ult ptr %5, inttoptr (i64 2 to ptr)
+  %switch.i.i.i = icmp ult i64 %4, 2
   br i1 %switch.i.i.i, label %19, label %13
 
 13:                                               ; preds = %12
@@ -15539,7 +15539,7 @@ rb_obj_write.exit:                                ; preds = %88, %99
   br i1 %.not.i62, label %vm_cref_new_toplevel.exit, label %120
 
 120:                                              ; preds = %108
-  %switch.i.i.i = icmp ult ptr %113, inttoptr (i64 2 to ptr)
+  %switch.i.i.i = icmp ult i64 %112, 2
   br i1 %switch.i.i.i, label %127, label %121
 
 121:                                              ; preds = %120
@@ -25219,7 +25219,7 @@ define internal i64 @eval_string_wrap_protect(i64 noundef %0) #2 {
   br i1 %.not.i.i, label %rb_vm_cref_new_toplevel.exit, label %13
 
 13:                                               ; preds = %1
-  %switch.i.i.i.i = icmp ult ptr %6, inttoptr (i64 2 to ptr)
+  %switch.i.i.i.i = icmp ult i64 %5, 2
   br i1 %switch.i.i.i.i, label %20, label %14
 
 14:                                               ; preds = %13
@@ -31584,7 +31584,7 @@ define dso_local i64 @rb_iseq_eval(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not.i.i, label %vm_cref_new_toplevel.exit.i, label %21
 
 21:                                               ; preds = %9
-  %switch.i.i.i.i = icmp ult ptr %15, inttoptr (i64 2 to ptr)
+  %switch.i.i.i.i = icmp ult i64 %14, 2
   br i1 %switch.i.i.i.i, label %28, label %22
 
 22:                                               ; preds = %21
@@ -32092,7 +32092,7 @@ define hidden i64 @rb_vm_call_cfunc(i64 noundef %0, ptr nocapture noundef readon
   br i1 %.not.i, label %vm_cref_new_toplevel.exit, label %20
 
 20:                                               ; preds = %5
-  %switch.i.i.i = icmp ult ptr %13, inttoptr (i64 2 to ptr)
+  %switch.i.i.i = icmp ult i64 %12, 2
   br i1 %switch.i.i.i, label %27, label %21
 
 21:                                               ; preds = %20

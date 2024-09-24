@@ -2929,22 +2929,17 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %40, %_ZN28JavaT
   %117 = add i64 %116, 7
   %118 = and i64 %117, -8
   %119 = inttoptr i64 %118 to ptr
-  %120 = icmp ult ptr %5, %119
-  br i1 %120, label %.lr.ph.preheader, label %._crit_edge
+  %120 = icmp ult i64 %1, %118
+  br i1 %120, label %.lr.ph, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %114
-  %121 = sub i64 %118, %1
-  %scevgep = getelementptr i8, ptr %5, i64 %121
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.090 = phi ptr [ %124, %.lr.ph ], [ %5, %.lr.ph.preheader ]
-  %122 = load i8, ptr %.090, align 1
-  %123 = zext i8 %122 to i32
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.52, i32 noundef %123) #28
-  %124 = getelementptr inbounds i8, ptr %.090, i64 1
-  %exitcond.not = icmp eq ptr %124, %scevgep
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
+.lr.ph:                                           ; preds = %114, %.lr.ph
+  %.090 = phi ptr [ %123, %.lr.ph ], [ %5, %114 ]
+  %121 = load i8, ptr %.090, align 1
+  %122 = zext i8 %121 to i32
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.52, i32 noundef %122) #28
+  %123 = getelementptr inbounds i8, ptr %.090, i64 1
+  %124 = icmp ult ptr %123, %119
+  br i1 %124, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.lr.ph, %114
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
@@ -4344,22 +4339,22 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
   %38 = and i64 %25, %37
   %39 = inttoptr i64 %38 to ptr
   %40 = icmp ult ptr %1, %39
-  %41 = icmp ult ptr %39, %27
+  %41 = icmp ult i64 %38, %26
   %or.cond = or i1 %40, %41
   br i1 %or.cond, label %129, label %42
 
 42:                                               ; preds = %34
-  %43 = sub i64 %38, %26
+  %43 = sub nuw i64 %38, %26
   %44 = udiv i64 %43, %19
-  %45 = add i64 %44, 1
-  %46 = trunc i64 %45 to i32
+  %45 = trunc i64 %44 to i32
+  %46 = add i32 %45, 1
   %47 = tail call noundef i32 @llvm.umin.i32(i32 %46, i32 32)
   br i1 %4, label %48, label %84
 
 48:                                               ; preds = %42
   %49 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #28
   %50 = trunc i64 %49 to i32
-  %51 = icmp ult i64 %45, 16
+  %51 = icmp ult i64 %44, 15
   br i1 %51, label %129, label %52
 
 52:                                               ; preds = %48
@@ -4411,7 +4406,7 @@ define hidden noundef ptr @_ZN2os30attempt_reserve_memory_betweenEPcS0_mmb(ptr n
 .split98.us:                                      ; preds = %.split, %.split.us
   %.us-phi = phi i32 [ %.1.i.i.us, %.split.us ], [ %50, %.split ]
   store i32 %.us-phi, ptr %8, align 4
-  %81 = icmp ult i64 %45, 1024
+  %81 = icmp ult i64 %44, 1023
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %.split98.us
@@ -5020,7 +5015,7 @@ define hidden void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef %0, ptr noundef %
   %17 = and i64 %16, %11
   %18 = inttoptr i64 %17 to ptr
   %19 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 0, ptr %9) #28, !srcloc !34
-  %.not2021 = icmp ult ptr %9, %18
+  %.not2021 = icmp ult i64 %8, %17
   br i1 %.not2021, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %15, %.lr.ph

@@ -17129,7 +17129,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
 invoke.cont21:                                    ; preds = %_ZN7testing15AssertionResultD2Ev.exit
   %19 = atomicrmw xchg ptr %dispose_.i, i64 0 monotonic, align 8
   %20 = inttoptr i64 %19 to ptr
-  %cmp.i.i22 = icmp eq ptr %20, @"_ZZN4absl18profiling_internal12_GLOBAL__N_132SampleRecorderTest_Callback_Test8TestBodyEvEN3$_08__invokeERKNS1_4InfoE"
+  %cmp.i.i22 = icmp eq i64 %19, ptrtoint (ptr @"_ZZN4absl18profiling_internal12_GLOBAL__N_132SampleRecorderTest_Callback_Test8TestBodyEvEN3$_08__invokeERKNS1_4InfoE" to i64)
   br i1 %cmp.i.i22, label %if.then.i.i44, label %if.end.i.i23
 
 if.then.i.i44:                                    ; preds = %invoke.cont21

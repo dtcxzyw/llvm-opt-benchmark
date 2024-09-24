@@ -2758,89 +2758,88 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
 203:                                              ; preds = %198
   %204 = getelementptr inbounds i8, ptr %199, i64 8
   %205 = load i64, ptr %204, align 8, !tbaa !51
-  %206 = inttoptr i64 %205 to ptr
-  %207 = icmp eq ptr %20, %206
-  %208 = zext i1 %207 to i64
-  %209 = load i64, ptr %20, align 8, !tbaa !51
-  %210 = icmp ult i64 %209, 2
-  %211 = zext i1 %210 to i64
-  %212 = getelementptr inbounds [2 x i64], ptr %20, i64 0, i64 %211
-  %213 = load i64, ptr %212, align 8, !tbaa !51
-  %214 = and i64 %213, -2
-  %215 = getelementptr inbounds [2 x i64], ptr %199, i64 0, i64 %208
-  %216 = load i64, ptr %215, align 8, !tbaa !51
-  %217 = and i64 %216, 1
-  %218 = or disjoint i64 %217, %214
-  store i64 %218, ptr %215, align 8, !tbaa !51
-  %219 = icmp eq ptr %33, %20
-  br i1 %219, label %255, label %220
+  %206 = icmp eq i64 %19, %205
+  %207 = zext i1 %206 to i64
+  %208 = load i64, ptr %20, align 8, !tbaa !51
+  %209 = icmp ult i64 %208, 2
+  %210 = zext i1 %209 to i64
+  %211 = getelementptr inbounds [2 x i64], ptr %20, i64 0, i64 %210
+  %212 = load i64, ptr %211, align 8, !tbaa !51
+  %213 = and i64 %212, -2
+  %214 = getelementptr inbounds [2 x i64], ptr %199, i64 0, i64 %207
+  %215 = load i64, ptr %214, align 8, !tbaa !51
+  %216 = and i64 %215, 1
+  %217 = or disjoint i64 %216, %213
+  store i64 %217, ptr %214, align 8, !tbaa !51
+  %218 = icmp eq ptr %33, %20
+  br i1 %218, label %254, label %219
 
-220:                                              ; preds = %203
-  %221 = icmp eq ptr %32, null
-  %222 = select i1 %221, ptr %4, ptr %32
-  %223 = icmp eq ptr %222, %4
-  br i1 %223, label %228, label %224
+219:                                              ; preds = %203
+  %220 = icmp eq ptr %32, null
+  %221 = select i1 %220, ptr %4, ptr %32
+  %222 = icmp eq ptr %221, %4
+  br i1 %222, label %227, label %223
 
-224:                                              ; preds = %220
-  %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %221, ptr %4, ptr %32
+223:                                              ; preds = %219
+  %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %220, ptr %4, ptr %32
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 40
-  %225 = load ptr, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !45
-  %226 = icmp ult ptr %225, %10
-  %227 = zext i1 %226 to i64
-  br label %228
+  %224 = load ptr, ptr %.sroa.sel.v.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !45
+  %225 = icmp ult ptr %224, %10
+  %226 = zext i1 %225 to i64
+  br label %227
 
-228:                                              ; preds = %224, %220
-  %229 = phi i64 [ %227, %224 ], [ 1, %220 ]
-  %230 = getelementptr inbounds [2 x i64], ptr %222, i64 0, i64 %229
-  %231 = load i64, ptr %230, align 8, !tbaa !51
-  %232 = and i64 %231, -2
-  %233 = inttoptr i64 %232 to ptr
-  %234 = icmp eq ptr %33, %233
-  br i1 %234, label %.loopexit, label %.preheader
+227:                                              ; preds = %223, %219
+  %228 = phi i64 [ %226, %223 ], [ 1, %219 ]
+  %229 = getelementptr inbounds [2 x i64], ptr %221, i64 0, i64 %228
+  %230 = load i64, ptr %229, align 8, !tbaa !51
+  %231 = and i64 %230, -2
+  %232 = inttoptr i64 %231 to ptr
+  %233 = icmp eq ptr %33, %232
+  br i1 %233, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %228
-  %235 = phi i64 [ %229, %228 ], [ %249, %.preheader ]
-  %236 = phi ptr [ %222, %228 ], [ %245, %.preheader ]
-  %237 = phi i64 [ %231, %228 ], [ %251, %.preheader ]
-  %238 = getelementptr inbounds [2 x i64], ptr %236, i64 0, i64 %235
-  %239 = and i64 %237, 1
-  %240 = or disjoint i64 %239, %19
-  store i64 %240, ptr %238, align 8, !tbaa !51
-  %241 = load i64, ptr %33, align 8, !tbaa !51
-  store i64 %241, ptr %20, align 8, !tbaa !51
-  %242 = getelementptr inbounds i8, ptr %33, i64 8
-  %243 = load i64, ptr %242, align 8, !tbaa !51
-  %244 = getelementptr inbounds i8, ptr %20, i64 8
-  store i64 %243, ptr %244, align 8, !tbaa !51
-  br label %255
+.loopexit:                                        ; preds = %.preheader, %227
+  %234 = phi i64 [ %228, %227 ], [ %248, %.preheader ]
+  %235 = phi ptr [ %221, %227 ], [ %244, %.preheader ]
+  %236 = phi i64 [ %230, %227 ], [ %250, %.preheader ]
+  %237 = getelementptr inbounds [2 x i64], ptr %235, i64 0, i64 %234
+  %238 = and i64 %236, 1
+  %239 = or disjoint i64 %238, %19
+  store i64 %239, ptr %237, align 8, !tbaa !51
+  %240 = load i64, ptr %33, align 8, !tbaa !51
+  store i64 %240, ptr %20, align 8, !tbaa !51
+  %241 = getelementptr inbounds i8, ptr %33, i64 8
+  %242 = load i64, ptr %241, align 8, !tbaa !51
+  %243 = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 %242, ptr %243, align 8, !tbaa !51
+  br label %254
 
-.preheader:                                       ; preds = %228, %.preheader
-  %245 = phi ptr [ %253, %.preheader ], [ %233, %228 ]
-  %246 = getelementptr inbounds i8, ptr %245, i64 40
-  %247 = load ptr, ptr %246, align 8, !tbaa !45
-  %248 = icmp ult ptr %247, %10
-  %249 = zext i1 %248 to i64
-  %250 = getelementptr inbounds [2 x i64], ptr %245, i64 0, i64 %249
-  %251 = load i64, ptr %250, align 8, !tbaa !51
-  %252 = and i64 %251, -2
-  %253 = inttoptr i64 %252 to ptr
-  %254 = icmp eq ptr %33, %253
-  br i1 %254, label %.loopexit, label %.preheader, !llvm.loop !97
+.preheader:                                       ; preds = %227, %.preheader
+  %244 = phi ptr [ %252, %.preheader ], [ %232, %227 ]
+  %245 = getelementptr inbounds i8, ptr %244, i64 40
+  %246 = load ptr, ptr %245, align 8, !tbaa !45
+  %247 = icmp ult ptr %246, %10
+  %248 = zext i1 %247 to i64
+  %249 = getelementptr inbounds [2 x i64], ptr %244, i64 0, i64 %248
+  %250 = load i64, ptr %249, align 8, !tbaa !51
+  %251 = and i64 %250, -2
+  %252 = inttoptr i64 %251 to ptr
+  %253 = icmp eq ptr %33, %252
+  br i1 %253, label %.loopexit, label %.preheader, !llvm.loop !97
 
-255:                                              ; preds = %.loopexit, %203
-  %256 = load i64, ptr %7, align 8, !tbaa !51
-  %257 = inttoptr i64 %256 to ptr
-  store ptr %257, ptr %0, align 8, !tbaa !36
-  %258 = icmp eq i64 %256, 0
-  br i1 %258, label %262, label %259
+254:                                              ; preds = %.loopexit, %203
+  %255 = load i64, ptr %7, align 8, !tbaa !51
+  %256 = inttoptr i64 %255 to ptr
+  store ptr %256, ptr %0, align 8, !tbaa !36
+  %257 = icmp eq i64 %255, 0
+  br i1 %257, label %261, label %258
 
-259:                                              ; preds = %255
-  %260 = load i64, ptr %257, align 8, !tbaa !51
-  %261 = and i64 %260, -2
-  store i64 %261, ptr %257, align 8, !tbaa !51
-  br label %262
+258:                                              ; preds = %254
+  %259 = load i64, ptr %256, align 8, !tbaa !51
+  %260 = and i64 %259, -2
+  store i64 %260, ptr %256, align 8, !tbaa !51
+  br label %261
 
-262:                                              ; preds = %259, %255
+261:                                              ; preds = %258, %254
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   ret void
 }

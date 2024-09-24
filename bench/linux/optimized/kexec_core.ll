@@ -1174,7 +1174,7 @@ define dso_local noundef range(i32 -14, 1) i32 @kimage_load_segment(ptr noundef 
   %42 = add i64 %40, %41
   %43 = inttoptr i64 %42 to ptr
   %44 = add i64 %42, 2147483648
-  %45 = icmp ugt ptr %43, inttoptr (i64 -2147483649 to ptr)
+  %45 = icmp ugt i64 %42, -2147483649
   %46 = load i64, ptr @phys_base, align 8
   %47 = sub i64 -2147483648, %41
   %48 = select i1 %45, i64 %46, i64 %47
@@ -1243,7 +1243,7 @@ define dso_local noundef range(i32 -14, 1) i32 @kimage_load_segment(ptr noundef 
   %88 = add i64 %86, %87
   %89 = inttoptr i64 %88 to ptr
   %90 = add i64 %88, 2147483648
-  %91 = icmp ugt ptr %89, inttoptr (i64 -2147483649 to ptr)
+  %91 = icmp ugt i64 %88, -2147483649
   %92 = load i64, ptr @phys_base, align 8
   %93 = sub i64 -2147483648, %87
   %94 = select i1 %91, i64 %92, i64 %93

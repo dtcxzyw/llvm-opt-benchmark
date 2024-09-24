@@ -254,8 +254,7 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h975c717ff7089a2eE(ptr nounde
   store ptr %1, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 112
   %8 = load atomic i64, ptr %7 acquire, align 8
-  %.0.i.i.i.i.i.i = inttoptr i64 %8 to ptr
-  %.not.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i.i.i.i = icmp eq i64 %8, 2
   br i1 %.not.i.i.i.i, label %13, label %9
 
 9:                                                ; preds = %2
@@ -377,8 +376,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h4b7ef2da59cd2d1aE.llvm.18344
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
   %9 = load atomic i64, ptr %8 acquire, align 8, !noalias !60
-  %.0.i.i.i.i.i = inttoptr i64 %9 to ptr
-  %.not.i.i.i = icmp eq ptr %.0.i.i.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i.i.i = icmp eq i64 %9, 2
   %10 = getelementptr inbounds i8, ptr %7, i64 24
   br i1 %.not.i.i.i, label %14, label %11
 
@@ -480,8 +478,7 @@ define hidden void @_ZN3std9panicking3try7do_call17h8590d2d92a387aeeE.llvm.18344
   store ptr %6, ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 112
   %10 = load atomic i64, ptr %9 acquire, align 8
-  %.0.i.i.i.i.i = inttoptr i64 %10 to ptr
-  %.not.i.i.i = icmp eq ptr %.0.i.i.i.i.i, inttoptr (i64 2 to ptr)
+  %.not.i.i.i = icmp eq i64 %10, 2
   br i1 %.not.i.i.i, label %15, label %11
 
 11:                                               ; preds = %1
@@ -3968,8 +3965,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN5typst4util8d
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load atomic i64, ptr %4 acquire, align 8
-  %.0.i.i = inttoptr i64 %5 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %5, 2
   br i1 %.not, label %6, label %.preheader
 
 6:                                                ; preds = %1, %"_ZN9once_cell4sync17OnceCell$LT$T$GT$4wait17hfe7a0f589c1fa556E.exit"
@@ -3985,8 +3981,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN5typst4util8d
 
 10:                                               ; preds = %.preheader
   %11 = load atomic i64, ptr %4 acquire, align 8
-  %.0.i.i6 = inttoptr i64 %11 to ptr
-  %12 = icmp eq ptr %.0.i.i6, inttoptr (i64 2 to ptr)
+  %12 = icmp eq i64 %11, 2
   br i1 %12, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$4wait17hfe7a0f589c1fa556E.exit", label %13
 
 13:                                               ; preds = %10
@@ -4005,8 +4000,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst4util8d
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load atomic i64, ptr %3 acquire, align 8
-  %.0.i.i = inttoptr i64 %4 to ptr
-  %.not = icmp eq ptr %.0.i.i, inttoptr (i64 2 to ptr)
+  %.not = icmp eq i64 %4, 2
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   br i1 %.not, label %6, label %.preheader
 
@@ -4023,8 +4017,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst4util8d
 
 10:                                               ; preds = %.preheader
   %11 = load atomic i64, ptr %3 acquire, align 8
-  %.0.i.i6 = inttoptr i64 %11 to ptr
-  %12 = icmp eq ptr %.0.i.i6, inttoptr (i64 2 to ptr)
+  %12 = icmp eq i64 %11, 2
   br i1 %12, label %"_ZN9once_cell4sync17OnceCell$LT$T$GT$4wait17h4f2e6cfb72a5479aE.exit", label %13
 
 13:                                               ; preds = %10

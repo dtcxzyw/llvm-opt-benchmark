@@ -7667,11 +7667,9 @@ land.lhs.true:                                    ; preds = %if.then
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
   %and13 = and i64 %27, 140737488355327
-  %28 = inttoptr i64 %and13 to ptr
   %metatable = getelementptr inbounds i8, ptr %22, i64 32
-  %29 = load i64, ptr %metatable, align 8
-  %30 = inttoptr i64 %29 to ptr
-  %cmp15 = icmp eq ptr %28, %30
+  %28 = load i64, ptr %metatable, align 8
+  %cmp15 = icmp eq i64 %and13, %28
   %add.ptr = getelementptr inbounds i8, ptr %22, i64 48
   %spec.select = select i1 %cmp15, ptr %add.ptr, ptr null
   br label %return

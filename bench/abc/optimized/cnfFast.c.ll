@@ -2130,7 +2130,7 @@ Vec_IntStart.exit:                                ; preds = %1, %Vec_IntAlloc.ex
   %201 = and i64 %200, -2
   %202 = inttoptr i64 %201 to ptr
   store ptr %202, ptr %3, align 8
-  %203 = icmp eq ptr %198, %202
+  %203 = icmp eq i64 %197, %201
   %204 = select i1 %203, i32 2, i32 1
   %205 = getelementptr inbounds i8, ptr %198, i64 24
   %206 = load i64, ptr %205, align 8

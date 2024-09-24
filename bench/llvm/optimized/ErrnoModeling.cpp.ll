@@ -1884,7 +1884,7 @@ _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i.i.i.i.i.
   %.sroa.0.0.copyload.i9.i.i.i.i.i.i.i = load i64, ptr %22, align 8
   %50 = icmp eq i64 %49, %.sroa.0.0.copyload.i9.i.i.i.i.i.i.i
   %brmerge.i.i = or i1 %.not.i.i.i.i.i.i.i, %50
-  br i1 %brmerge.i.i, label %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i", label %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i
+  br i1 %brmerge.i.i, label %"_ZSt7find_ifIN5clang12DeclListNode8iteratorEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS0_19TranslationUnitDeclERNS0_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit5.i.i", label %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i.i": ; preds = %39, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i.i.i.i.i.i.i, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.i.i.i.i.i.i.i, %34, %_ZNK5clang12DeclListNode8iteratordeEv.exit.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i
@@ -1895,23 +1895,23 @@ _ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i: ; preds = %"_ZN9__gnu_cxx5_
   %.not.i.i.i.i.i = icmp eq i64 %52, 0
   br i1 %.not.i.i.i.i.i, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit, label %23, !llvm.loop !88
 
-"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.i.i.i.i.i"
-  br i1 %50, label %53, label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
+"_ZSt7find_ifIN5clang12DeclListNode8iteratorEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS0_19TranslationUnitDeclERNS0_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit5.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.i.i.i.i.i"
+  br i1 %50, label %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i", label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
+
+"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i": ; preds = %"_ZSt7find_ifIN5clang12DeclListNode8iteratorEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS0_19TranslationUnitDeclERNS0_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit5.i.i"
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang12DeclListNode8iteratordeEv.exit.i, label %53
 
 53:                                               ; preds = %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i"
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang12DeclListNode8iteratordeEv.exit.i, label %54
-
-54:                                               ; preds = %53
-  %55 = load ptr, ptr %26, align 8
+  %54 = load ptr, ptr %26, align 8
   br label %_ZNK5clang12DeclListNode8iteratordeEv.exit.i
 
-_ZNK5clang12DeclListNode8iteratordeEv.exit.i:     ; preds = %54, %53
-  %.0.i.i = phi ptr [ %55, %54 ], [ %26, %53 ]
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.0.i.i, ptr %56, align 8
+_ZNK5clang12DeclListNode8iteratordeEv.exit.i:     ; preds = %53, %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i"
+  %.0.i.i = phi ptr [ %54, %53 ], [ %26, %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i" ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.0.i.i, ptr %55, align 8
   br label %_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
-_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i.i", %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i, %4, %"_ZN4llvm7find_ifIRN5clang23DeclContextLookupResultEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS1_19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS9_11BugReporterEE3$_0EEDaOT_T0_.exit.i", %_ZNK5clang12DeclListNode8iteratordeEv.exit.i
+_ZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit: ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i.i", %_ZN5clang12DeclListNode8iteratorppEv.exit.i.i.i.i.i, %4, %"_ZSt7find_ifIN5clang12DeclListNode8iteratorEZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKNS0_19TranslationUnitDeclERNS0_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0ET_SE_SE_T0_.exit.loopexit.split.loop.exit5.i.i", %_ZNK5clang12DeclListNode8iteratordeEv.exit.i
   ret void
 }
 

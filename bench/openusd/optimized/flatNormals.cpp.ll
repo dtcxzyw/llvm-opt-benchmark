@@ -258,7 +258,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19_ComputeFlatNor
 18:                                               ; preds = %3
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %53
 
 .loopexit:                                        ; preds = %.lr.ph, %13
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -273,7 +273,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19_ComputeFlatNor
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %26
   %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #14
-  br label %56
+  br label %53
 
 ._crit_edge:                                      ; preds = %15, %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -319,31 +319,28 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_24HdTokens
           to label %40 unwind label %.loopexit.split-lp
 
 40:                                               ; preds = %34
-  %41 = ptrtoint ptr %37 to i64
-  %42 = and i64 %41, -8
-  %43 = inttoptr i64 %42 to ptr
-  %44 = ptrtoint ptr %38 to i64
-  %45 = and i64 %44, -8
-  %46 = inttoptr i64 %45 to ptr
-  %47 = icmp ne ptr %43, %46
-  %48 = zext i1 %47 to i8
+  %41 = ptrtoint ptr %38 to i64
+  %42 = ptrtoint ptr %37 to i64
+  %43 = xor i64 %41, %42
+  %44 = icmp ugt i64 %43, 7
+  %45 = zext i1 %44 to i8
   store ptr %4, ptr %5, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %7, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %20, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i8 %48, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %2, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %39, ptr %53, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %7, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %20, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i8 %45, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %2, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr %39, ptr %50, align 8
   store i64 ptrtoint (ptr @_ZN32pxrInternal_v0_24__pxrReserved__18_FlatNormalsWorkerINS_7GfVec3fES1_E7ComputeEmm to i64), ptr %6, align 8, !alias.scope !6
   %.repack7.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %.repack7.i.i, align 8, !alias.scope !6
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %55 = ptrtoint ptr %5 to i64
-  store i64 %55, ptr %54, align 8, !alias.scope !6
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %52 = ptrtoint ptr %5 to i64
+  store i64 %52, ptr %51, align 8, !alias.scope !6
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS_18_FlatNormalsWorkerINS_7GfVec3fES3_EEFvmmESt17reference_wrapperIS4_ESt12_PlaceholderILi1EES9_ILi2EEEEEEvmOT_m(i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS_18_FlatNormalsWorkerINS_7GfVec3fES3_EEFvmmESt17reference_wrapperIS4_ESt12_PlaceholderILi1EES9_ILi2EEEEEEvmOT_.exit unwind label %.loopexit.split-lp
 
@@ -351,7 +348,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS_18_FlatNor
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #14
   ret void
 
-56:                                               ; preds = %.body, %18
+53:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   resume { ptr, i32 } %.pn
@@ -406,7 +403,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19_ComputeFlatNor
 18:                                               ; preds = %3
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %56
+  br label %53
 
 .loopexit:                                        ; preds = %.lr.ph, %13
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -421,7 +418,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__19_ComputeFlatNor
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %26
   %eh.lpad-body = phi { ptr, i32 } [ %27, %26 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #14
-  br label %56
+  br label %53
 
 ._crit_edge:                                      ; preds = %15, %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -467,31 +464,28 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_24HdTokens
           to label %40 unwind label %.loopexit.split-lp
 
 40:                                               ; preds = %34
-  %41 = ptrtoint ptr %37 to i64
-  %42 = and i64 %41, -8
-  %43 = inttoptr i64 %42 to ptr
-  %44 = ptrtoint ptr %38 to i64
-  %45 = and i64 %44, -8
-  %46 = inttoptr i64 %45 to ptr
-  %47 = icmp ne ptr %43, %46
-  %48 = zext i1 %47 to i8
+  %41 = ptrtoint ptr %38 to i64
+  %42 = ptrtoint ptr %37 to i64
+  %43 = xor i64 %41, %42
+  %44 = icmp ugt i64 %43, 7
+  %45 = zext i1 %44 to i8
   store ptr %4, ptr %5, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %7, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %20, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i8 %48, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %2, ptr %52, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %39, ptr %53, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %7, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %20, ptr %47, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store i8 %45, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %2, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr %39, ptr %50, align 8
   store i64 ptrtoint (ptr @_ZN32pxrInternal_v0_24__pxrReserved__18_FlatNormalsWorkerINS_7GfVec3dES1_E7ComputeEmm to i64), ptr %6, align 8, !alias.scope !10
   %.repack7.i.i = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %.repack7.i.i, align 8, !alias.scope !10
-  %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %55 = ptrtoint ptr %5 to i64
-  store i64 %55, ptr %54, align 8, !alias.scope !10
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %52 = ptrtoint ptr %5 to i64
+  store i64 %52, ptr %51, align 8, !alias.scope !10
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS_18_FlatNormalsWorkerINS_7GfVec3dES3_EEFvmmESt17reference_wrapperIS4_ESt12_PlaceholderILi1EES9_ILi2EEEEEEvmOT_m(i64 noundef %9, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef 1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS_18_FlatNormalsWorkerINS_7GfVec3dES3_EEFvmmESt17reference_wrapperIS4_ESt12_PlaceholderILi1EES9_ILi2EEEEEEvmOT_.exit unwind label %.loopexit.split-lp
 
@@ -499,7 +493,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS_18_FlatNor
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #14
   ret void
 
-56:                                               ; preds = %.body, %18
+53:                                               ; preds = %.body, %18
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %19, %18 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #14
   resume { ptr, i32 } %.pn
@@ -636,33 +630,30 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_24HdTokens
           to label %43 unwind label %.loopexit.split-lp
 
 43:                                               ; preds = %38
-  %44 = ptrtoint ptr %41 to i64
-  %45 = and i64 %44, -8
-  %46 = inttoptr i64 %45 to ptr
-  %47 = ptrtoint ptr %42 to i64
-  %48 = and i64 %47, -8
-  %49 = inttoptr i64 %48 to ptr
-  %50 = icmp ne ptr %46, %49
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %53 = zext i1 %50 to i8
+  %44 = ptrtoint ptr %42 to i64
+  %45 = ptrtoint ptr %41 to i64
+  %46 = xor i64 %44, %45
+  %47 = icmp ugt i64 %46, 7
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %50 = zext i1 %47 to i8
   store ptr %6, ptr %7, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %9, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %24, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 %53, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %2, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %52, ptr %58, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %9, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %24, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i8 %50, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %2, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %49, ptr %55, align 8
   store i64 ptrtoint (ptr @_ZN32pxrInternal_v0_24__pxrReserved__18_FlatNormalsWorkerINS_7GfVec3fENS_22HdVec4f_2_10_10_10_REVEE7ComputeEmm to i64), ptr %8, align 8, !alias.scope !14
   %.repack7.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store i64 0, ptr %.repack7.i.i, align 8, !alias.scope !14
-  %59 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %60 = ptrtoint ptr %7 to i64
-  store i64 %60, ptr %59, align 8, !alias.scope !14
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %57 = ptrtoint ptr %7 to i64
+  store i64 %57, ptr %56, align 8, !alias.scope !14
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS_18_FlatNormalsWorkerINS_7GfVec3fENS_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperIS5_ESt12_PlaceholderILi1EESA_ILi2EEEEEEvmOT_m(i64 noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS_18_FlatNormalsWorkerINS_7GfVec3fENS_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperIS5_ESt12_PlaceholderILi1EESA_ILi2EEEEEEvmOT_.exit unwind label %.loopexit.split-lp
 
@@ -802,33 +793,30 @@ _ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_24HdTokens
           to label %43 unwind label %.loopexit.split-lp
 
 43:                                               ; preds = %38
-  %44 = ptrtoint ptr %41 to i64
-  %45 = and i64 %44, -8
-  %46 = inttoptr i64 %45 to ptr
-  %47 = ptrtoint ptr %42 to i64
-  %48 = and i64 %47, -8
-  %49 = inttoptr i64 %48 to ptr
-  %50 = icmp ne ptr %46, %49
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %52 = load ptr, ptr %51, align 8
-  %53 = zext i1 %50 to i8
+  %44 = ptrtoint ptr %42 to i64
+  %45 = ptrtoint ptr %41 to i64
+  %46 = xor i64 %44, %45
+  %47 = icmp ugt i64 %46, 7
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %50 = zext i1 %47 to i8
   store ptr %6, ptr %7, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %9, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %24, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i8 %53, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr %2, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr %52, ptr %58, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %9, ptr %51, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %24, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i8 %50, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr %2, ptr %54, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr %49, ptr %55, align 8
   store i64 ptrtoint (ptr @_ZN32pxrInternal_v0_24__pxrReserved__18_FlatNormalsWorkerINS_7GfVec3dENS_22HdVec4f_2_10_10_10_REVEE7ComputeEmm to i64), ptr %8, align 8, !alias.scope !18
   %.repack7.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store i64 0, ptr %.repack7.i.i, align 8, !alias.scope !18
-  %59 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %60 = ptrtoint ptr %7 to i64
-  store i64 %60, ptr %59, align 8, !alias.scope !18
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %57 = ptrtoint ptr %7 to i64
+  store i64 %57, ptr %56, align 8, !alias.scope !18
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS_18_FlatNormalsWorkerINS_7GfVec3dENS_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperIS5_ESt12_PlaceholderILi1EESA_ILi2EEEEEEvmOT_m(i64 noundef %12, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 noundef 1)
           to label %_ZN32pxrInternal_v0_24__pxrReserved__16WorkParallelForNISt5_BindIFMNS_18_FlatNormalsWorkerINS_7GfVec3dENS_22HdVec4f_2_10_10_10_REVEEEFvmmESt17reference_wrapperIS5_ESt12_PlaceholderILi1EESA_ILi2EEEEEEvmOT_.exit unwind label %.loopexit.split-lp
 

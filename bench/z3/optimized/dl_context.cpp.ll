@@ -6559,8 +6559,6 @@ for.body.i:                                       ; preds = %for.inc16.i, %for.b
   %arrayidx.i.i = getelementptr inbounds [0 x ptr], ptr %m_tail.i.i, i64 0, i64 %indvars.iv22.i
   %22 = load ptr, ptr %arrayidx.i.i, align 8
   %23 = ptrtoint ptr %22 to i64
-  %and.i.i = and i64 %23, -8
-  %24 = inttoptr i64 %and.i.i to ptr
   br label %for.body9.i
 
 for.cond6.i:                                      ; preds = %for.body9.i
@@ -6571,11 +6569,10 @@ for.cond6.i:                                      ; preds = %for.body9.i
 for.body9.i:                                      ; preds = %for.cond6.i, %for.body.i
   %indvars.iv.i = phi i64 [ 0, %for.body.i ], [ %indvars.iv.next.i, %for.cond6.i ]
   %arrayidx.i13.i = getelementptr inbounds [0 x ptr], ptr %m_tail.i11.i, i64 0, i64 %indvars.iv.i
-  %25 = load ptr, ptr %arrayidx.i13.i, align 8
-  %26 = ptrtoint ptr %25 to i64
-  %and.i14.i = and i64 %26, -8
-  %27 = inttoptr i64 %and.i14.i to ptr
-  %cmp11.i = icmp eq ptr %27, %24
+  %24 = load ptr, ptr %arrayidx.i13.i, align 8
+  %25 = ptrtoint ptr %24 to i64
+  %26 = xor i64 %25, %23
+  %cmp11.i = icmp ult i64 %26, 8
   br i1 %cmp11.i, label %for.inc16.i, label %for.cond6.i
 
 for.inc16.i:                                      ; preds = %for.body9.i
@@ -6601,12 +6598,12 @@ invoke.cont82:                                    ; preds = %invoke.cont79
           to label %invoke.cont84 unwind label %lpad78
 
 invoke.cont84:                                    ; preds = %invoke.cont82
-  %28 = load ptr, ptr %r, align 8
-  invoke void @_ZNK7datalog4rule7displayERNS_7contextERSob(ptr noundef nonnull align 8 dereferenceable(80) %28, ptr noundef nonnull align 8 dereferenceable(3556) %this, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr77, i1 noundef zeroext false)
+  %27 = load ptr, ptr %r, align 8
+  invoke void @_ZNK7datalog4rule7displayERNS_7contextERSob(ptr noundef nonnull align 8 dereferenceable(80) %27, ptr noundef nonnull align 8 dereferenceable(3556) %this, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr77, i1 noundef zeroext false)
           to label %invoke.cont89 unwind label %lpad78
 
 invoke.cont89:                                    ; preds = %invoke.cont84
-  invoke void @_ZN7datalog8rule_set8del_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %m_rule_set, ptr noundef nonnull %28)
+  invoke void @_ZN7datalog8rule_set8del_ruleEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(248) %m_rule_set, ptr noundef nonnull %27)
           to label %invoke.cont93 unwind label %lpad78
 
 invoke.cont93:                                    ; preds = %invoke.cont89
@@ -6622,24 +6619,24 @@ invoke.cont97:                                    ; preds = %invoke.cont93
           to label %unreachable unwind label %ehcleanup102
 
 lpad78:                                           ; preds = %invoke.cont89, %invoke.cont84, %invoke.cont82, %invoke.cont79, %invoke.cont76
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup106
 
 ehcleanup102:                                     ; preds = %invoke.cont97
-  %30 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp95) #27
   br label %ehcleanup106
 
 cleanup.action104:                                ; preds = %invoke.cont93
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr %exception94) #27
   br label %ehcleanup106
 
 ehcleanup106:                                     ; preds = %ehcleanup102, %cleanup.action104, %lpad78
-  %.pn.pn = phi { ptr, i32 } [ %31, %cleanup.action104 ], [ %30, %ehcleanup102 ], [ %29, %lpad78 ]
+  %.pn.pn = phi { ptr, i32 } [ %30, %cleanup.action104 ], [ %29, %ehcleanup102 ], [ %28, %lpad78 ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %strm75) #27
   br label %ehcleanup111
 
@@ -6652,20 +6649,20 @@ if.end107.if.end110_crit_edge:                    ; preds = %if.end107
   br label %if.end110
 
 if.end110:                                        ; preds = %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit, %if.end107.if.end110_crit_edge, %for.end
-  %32 = phi ptr [ %.pre, %if.end107.if.end110_crit_edge ], [ %9, %for.end ], [ %9, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit ]
-  %tobool.not.i.i39 = icmp eq ptr %32, null
+  %31 = phi ptr [ %.pre, %if.end107.if.end110_crit_edge ], [ %9, %for.end ], [ %9, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEEC2EPS1_RS2_.exit ]
+  %tobool.not.i.i39 = icmp eq ptr %31, null
   br i1 %tobool.not.i.i39, label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit, label %if.then.i.i40
 
 if.then.i.i40:                                    ; preds = %if.end110
-  %33 = load ptr, ptr %m_manager.i, align 8
-  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %33, ptr noundef nonnull %32)
+  %32 = load ptr, ptr %m_manager.i, align 8
+  invoke void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368) %32, ptr noundef nonnull %31)
           to label %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i40
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  tail call void @__clang_call_terminate(ptr %35) #29
+  %34 = extractvalue { ptr, i32 } %33, 0
+  tail call void @__clang_call_terminate(ptr %34) #29
   unreachable
 
 _ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit: ; preds = %if.end110, %if.then.i.i40
@@ -6753,8 +6750,6 @@ for.body:                                         ; preds = %for.body.preheader,
   %arrayidx.i = getelementptr inbounds [0 x ptr], ptr %m_tail.i, i64 0, i64 %indvars.iv22
   %4 = load ptr, ptr %arrayidx.i, align 8
   %5 = ptrtoint ptr %4 to i64
-  %and.i = and i64 %5, -8
-  %6 = inttoptr i64 %and.i to ptr
   br label %for.body9
 
 for.cond6:                                        ; preds = %for.body9
@@ -6765,11 +6760,10 @@ for.cond6:                                        ; preds = %for.body9
 for.body9:                                        ; preds = %for.body, %for.cond6
   %indvars.iv = phi i64 [ 0, %for.body ], [ %indvars.iv.next, %for.cond6 ]
   %arrayidx.i13 = getelementptr inbounds [0 x ptr], ptr %m_tail.i11, i64 0, i64 %indvars.iv
-  %7 = load ptr, ptr %arrayidx.i13, align 8
-  %8 = ptrtoint ptr %7 to i64
-  %and.i14 = and i64 %8, -8
-  %9 = inttoptr i64 %and.i14 to ptr
-  %cmp11 = icmp eq ptr %9, %6
+  %6 = load ptr, ptr %arrayidx.i13, align 8
+  %7 = ptrtoint ptr %6 to i64
+  %8 = xor i64 %7, %5
+  %cmp11 = icmp ult i64 %8, 8
   br i1 %cmp11, label %for.inc16, label %for.cond6
 
 for.inc16:                                        ; preds = %for.body9

@@ -853,7 +853,7 @@ _ZN4llvm23early_inc_iterator_implINS_26MachineInstrBundleIteratorINS_12MachineIn
   %.0.copyload.i.i.i.i.i.i.i.i28.i.i = load i64, ptr %207, align 8
   %208 = and i64 %.0.copyload.i.i.i.i.i.i.i.i28.i.i, -8
   %209 = inttoptr i64 %208 to ptr
-  %210 = icmp eq ptr %204, %209
+  %210 = icmp eq i64 %203, %208
   br i1 %210, label %241, label %_ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.i.i
 
 _ZNK4llvm19TargetRegisterClass11hasSubClassEPKS0_.exit.i.i: ; preds = %197

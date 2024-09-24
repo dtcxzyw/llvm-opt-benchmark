@@ -6979,19 +6979,19 @@ define linkonce_odr void @_ZN4llvm29appendReversedLoopsToWorklistINS_14iterator_
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %6, i64 noundef 4) #17
   %7 = load i64, ptr %0, align 8, !noalias !144
-  %8 = inttoptr i64 %7 to ptr
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load i64, ptr %9, align 8, !noalias !147
-  %11 = inttoptr i64 %10 to ptr
-  %.not13 = icmp eq ptr %8, %11
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8, !noalias !147
+  %10 = inttoptr i64 %9 to ptr
+  %.not13 = icmp eq i64 %7, %9
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
+  %11 = inttoptr i64 %7 to ptr
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %62
-  %.sroa.012.014 = phi ptr [ %8, %.lr.ph ], [ %14, %62 ]
+  %.sroa.012.014 = phi ptr [ %11, %.lr.ph ], [ %14, %62 ]
   %14 = getelementptr inbounds i8, ptr %.sroa.012.014, i64 -8
   %15 = load ptr, ptr %14, align 8
   %16 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #17
@@ -7081,7 +7081,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4LoopELb1EE9push_backES2_.exit10: ; preds 
   call void @_ZN4llvm16PriorityWorklistIPNS_4LoopENS_11SmallVectorIS2_Lj4EEENS_13SmallDenseMapIS2_lLj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_lEEEEE6insertIS4_EENSt9enable_ifIXntsr3std14is_convertibleIT_S2_EE5valueEvE4typeEOSF_(ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
   %63 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   store i32 0, ptr %12, align 8
-  %.not = icmp eq ptr %14, %11
+  %.not = icmp eq ptr %14, %10
   br i1 %.not, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %62, %2

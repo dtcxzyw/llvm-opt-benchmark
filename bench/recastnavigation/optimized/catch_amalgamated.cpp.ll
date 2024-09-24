@@ -25245,25 +25245,25 @@ define dso_local noundef zeroext i1 @_ZNK5Catch15WildcardPattern7matchesERKNSt7_
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.314") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %7) #56
   %32 = load i64, ptr %3, align 8
   %33 = load i64, ptr %4, align 8
-  %34 = inttoptr i64 %32 to ptr
-  %35 = inttoptr i64 %33 to ptr
-  %.not1.i.i.i.i.i = icmp eq ptr %34, %35
+  %34 = inttoptr i64 %33 to ptr
+  %.not1.i.i.i.i.i = icmp eq i64 %32, %33
   br i1 %.not1.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %31
-  %36 = load i64, ptr %5, align 8
-  %37 = inttoptr i64 %36 to ptr
+  %35 = load i64, ptr %5, align 8
+  %36 = inttoptr i64 %35 to ptr
+  %37 = inttoptr i64 %32 to ptr
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
-  %.sroa.0.0.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.preheader.i.i.i ], [ %41, %.lr.ph.i.i.i.i.i ]
-  %38 = phi ptr [ %34, %.lr.ph.i.i.preheader.i.i.i ], [ %39, %.lr.ph.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %36, %.lr.ph.i.i.preheader.i.i.i ], [ %41, %.lr.ph.i.i.i.i.i ]
+  %38 = phi ptr [ %37, %.lr.ph.i.i.preheader.i.i.i ], [ %39, %.lr.ph.i.i.i.i.i ]
   %39 = getelementptr inbounds i8, ptr %38, i64 -1
   %40 = load i8, ptr %39, align 1
   %41 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 -1
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %40, %42
-  %.not.i.i.i.i.i = icmp ne ptr %39, %35
+  %.not.i.i.i.i.i = icmp ne ptr %39, %34
   %or.cond.not = and i1 %.not.i.i.i.i.i, %43
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !260
 
@@ -45037,25 +45037,25 @@ define dso_local noundef zeroext i1 @_ZN5Catch8endsWithERKNSt7__cxx1112basic_str
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.314") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %0) #56
   %9 = load i64, ptr %3, align 8
   %10 = load i64, ptr %4, align 8
-  %11 = inttoptr i64 %9 to ptr
-  %12 = inttoptr i64 %10 to ptr
-  %.not1.i.i.i.i = icmp eq ptr %11, %12
+  %11 = inttoptr i64 %10 to ptr
+  %.not1.i.i.i.i = icmp eq i64 %9, %10
   br i1 %.not1.i.i.i.i, label %_ZSt5equalISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESC_EbT_SD_T0_.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %8
-  %13 = load i64, ptr %5, align 8
-  %14 = inttoptr i64 %13 to ptr
+  %12 = load i64, ptr %5, align 8
+  %13 = inttoptr i64 %12 to ptr
+  %14 = inttoptr i64 %9 to ptr
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
-  %.sroa.0.0.i.i.i = phi ptr [ %14, %.lr.ph.i.i.preheader.i.i ], [ %18, %.lr.ph.i.i.i.i ]
-  %15 = phi ptr [ %11, %.lr.ph.i.i.preheader.i.i ], [ %16, %.lr.ph.i.i.i.i ]
+  %.sroa.0.0.i.i.i = phi ptr [ %13, %.lr.ph.i.i.preheader.i.i ], [ %18, %.lr.ph.i.i.i.i ]
+  %15 = phi ptr [ %14, %.lr.ph.i.i.preheader.i.i ], [ %16, %.lr.ph.i.i.i.i ]
   %16 = getelementptr inbounds i8, ptr %15, i64 -1
   %17 = load i8, ptr %16, align 1
   %18 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 -1
   %19 = load i8, ptr %18, align 1
   %20 = icmp eq i8 %17, %19
-  %.not.i.i.i.i = icmp ne ptr %16, %12
+  %.not.i.i.i.i = icmp ne ptr %16, %11
   %or.cond.not = and i1 %.not.i.i.i.i, %20
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i, label %_ZSt5equalISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEESC_EbT_SD_T0_.exit, !llvm.loop !260
 
@@ -55015,25 +55015,25 @@ _ZNK5Catch8Matchers11CasedString12adjustStringERKNSt7__cxx1112basic_stringIcSt11
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6rbeginEv(ptr dead_on_unwind nonnull writable sret(%"class.std::reverse_iterator.314") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %6) #56
   %22 = load i64, ptr %3, align 8
   %23 = load i64, ptr %4, align 8
-  %24 = inttoptr i64 %22 to ptr
-  %25 = inttoptr i64 %23 to ptr
-  %.not1.i.i.i.i.i = icmp eq ptr %24, %25
+  %24 = inttoptr i64 %23 to ptr
+  %.not1.i.i.i.i.i = icmp eq i64 %22, %23
   br i1 %.not1.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.preheader.i.i.i
 
 .lr.ph.i.i.preheader.i.i.i:                       ; preds = %21
-  %26 = load i64, ptr %5, align 8
-  %27 = inttoptr i64 %26 to ptr
+  %25 = load i64, ptr %5, align 8
+  %26 = inttoptr i64 %25 to ptr
+  %27 = inttoptr i64 %22 to ptr
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph.i.i.preheader.i.i.i
-  %.sroa.0.0.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.preheader.i.i.i ], [ %31, %.lr.ph.i.i.i.i.i ]
-  %28 = phi ptr [ %24, %.lr.ph.i.i.preheader.i.i.i ], [ %29, %.lr.ph.i.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.preheader.i.i.i ], [ %31, %.lr.ph.i.i.i.i.i ]
+  %28 = phi ptr [ %27, %.lr.ph.i.i.preheader.i.i.i ], [ %29, %.lr.ph.i.i.i.i.i ]
   %29 = getelementptr inbounds i8, ptr %28, i64 -1
   %30 = load i8, ptr %29, align 1
   %31 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i, i64 -1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %30, %32
-  %.not.i.i.i.i.i = icmp ne ptr %29, %25
+  %.not.i.i.i.i.i = icmp ne ptr %29, %24
   %or.cond.not = and i1 %.not.i.i.i.i.i, %33
   br i1 %or.cond.not, label %.lr.ph.i.i.i.i.i, label %.loopexit, !llvm.loop !260
 

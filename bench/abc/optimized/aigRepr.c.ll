@@ -136,24 +136,24 @@ define void @Aig_ManTransferRepr(ptr nocapture noundef %0, ptr nocapture noundef
   %46 = load ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %47, -2
-  %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %37, i64 40
-  %51 = load ptr, ptr %50, align 8
-  %52 = ptrtoint ptr %51 to i64
-  %53 = and i64 %52, -2
-  %54 = inttoptr i64 %53 to ptr
-  %55 = icmp eq ptr %49, %54
-  br i1 %55, label %Aig_ObjSetRepr_.exit, label %.sink.split.i
+  %49 = getelementptr inbounds i8, ptr %37, i64 40
+  %50 = load ptr, ptr %49, align 8
+  %51 = ptrtoint ptr %50 to i64
+  %52 = and i64 %51, -2
+  %53 = icmp eq i64 %48, %52
+  br i1 %53, label %Aig_ObjSetRepr_.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %44
-  %56 = getelementptr inbounds i8, ptr %49, i64 36
+  %54 = inttoptr i64 %52 to ptr
+  %55 = inttoptr i64 %48 to ptr
+  %56 = getelementptr inbounds i8, ptr %55, i64 36
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds i8, ptr %54, i64 36
   %59 = load i32, ptr %58, align 4
   %60 = icmp slt i32 %57, %59
   %61 = load ptr, ptr %32, align 8
   %..i = tail call i32 @llvm.smax.i32(i32 %57, i32 %59)
-  %.16.i = select i1 %60, ptr %49, ptr %54
+  %.16.i = select i1 %60, ptr %55, ptr %54
   %62 = sext i32 %..i to i64
   %63 = getelementptr inbounds ptr, ptr %61, i64 %62
   store ptr %.16.i, ptr %63, align 8

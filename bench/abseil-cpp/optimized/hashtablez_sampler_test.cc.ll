@@ -20224,7 +20224,7 @@ invoke.cont21:                                    ; preds = %_ZN7testing15Assert
   %15 = atomicrmw sub ptr %size_estimate_.i, i64 1 monotonic, align 8
   %16 = atomicrmw xchg ptr %dispose_.i, i64 0 monotonic, align 8
   %atomic-temp.i.0.i.i25 = inttoptr i64 %16 to ptr
-  %cmp.i.i26 = icmp eq ptr %atomic-temp.i.0.i.i25, @"_ZZN4absl18container_internal12_GLOBAL__N_135HashtablezSamplerTest_Callback_Test8TestBodyEvEN3$_08__invokeERKNS0_14HashtablezInfoE"
+  %cmp.i.i26 = icmp eq i64 %16, ptrtoint (ptr @"_ZZN4absl18container_internal12_GLOBAL__N_135HashtablezSamplerTest_Callback_Test8TestBodyEvEN3$_08__invokeERKNS0_14HashtablezInfoE" to i64)
   br i1 %cmp.i.i26, label %if.then.i.i28, label %if.end.i.i27
 
 if.then.i.i28:                                    ; preds = %invoke.cont21

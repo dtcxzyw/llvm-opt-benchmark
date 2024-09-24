@@ -689,104 +689,98 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKN32pxrI
 .lr.ph:                                           ; preds = %3
   %10 = load ptr, ptr %2, align 8
   %11 = ptrtoint ptr %10 to i64
-  %12 = and i64 %11, -8
-  %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = mul nuw nsw i64 %8, 96
-  %scevgep = getelementptr i8, ptr %0, i64 %16
-  br label %17
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = mul nuw nsw i64 %8, 96
+  %scevgep = getelementptr i8, ptr %0, i64 %14
+  br label %15
 
-17:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
-  %.051 = phi i64 [ %8, %.lr.ph ], [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread ]
-  %.sroa.031.050 = phi ptr [ %0, %.lr.ph ], [ %77, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread ]
-  %18 = load ptr, ptr %.sroa.031.050, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, -8
-  %21 = inttoptr i64 %20 to ptr
-  %22 = icmp eq ptr %21, %13
-  br i1 %22, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread
+15:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
+  %.051 = phi i64 [ %8, %.lr.ph ], [ %72, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread ]
+  %.sroa.031.050 = phi ptr [ %0, %.lr.ph ], [ %71, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread ]
+  %16 = load ptr, ptr %.sroa.031.050, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = xor i64 %11, %17
+  %19 = icmp ult i64 %18, 8
+  br i1 %19, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit: ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 8
-  %24 = load i32, ptr %23, align 8
-  %25 = load i32, ptr %14, align 8
-  %26 = icmp eq i32 %24, %25
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = load i64, ptr %15, align 8
-  %30 = icmp eq i64 %28, %29
-  %31 = select i1 %26, i1 %30, i1 false
-  br i1 %31, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit: ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = load i32, ptr %12, align 8
+  %23 = icmp eq i32 %21, %22
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = load i64, ptr %13, align 8
+  %27 = icmp eq i64 %25, %26
+  %28 = select i1 %23, i1 %27, i1 false
+  br i1 %28, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread: ; preds = %17, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit
-  %32 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = and i64 %34, -8
-  %36 = inttoptr i64 %35 to ptr
-  %37 = icmp eq ptr %36, %13
-  br i1 %37, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread: ; preds = %15, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit
+  %29 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = ptrtoint ptr %30 to i64
+  %32 = xor i64 %31, %11
+  %33 = icmp ult i64 %32, 8
+  br i1 %33, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread
-  %38 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 32
-  %39 = load i32, ptr %38, align 8
-  %40 = load i32, ptr %14, align 8
-  %41 = icmp eq i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 40
-  %43 = load i64, ptr %42, align 8
-  %44 = load i64, ptr %15, align 8
-  %45 = icmp eq i64 %43, %44
-  %46 = select i1 %41, i1 %45, i1 false
-  br i1 %46, label %.loopexit.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread
+  %34 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 32
+  %35 = load i32, ptr %34, align 8
+  %36 = load i32, ptr %12, align 8
+  %37 = icmp eq i32 %35, %36
+  %38 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 40
+  %39 = load i64, ptr %38, align 8
+  %40 = load i64, ptr %13, align 8
+  %41 = icmp eq i64 %39, %40
+  %42 = select i1 %37, i1 %41, i1 false
+  br i1 %42, label %.loopexit.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16
-  %47 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 48
-  %48 = load ptr, ptr %47, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %50 = and i64 %49, -8
-  %51 = inttoptr i64 %50 to ptr
-  %52 = icmp eq ptr %51, %13
-  br i1 %52, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread
+  %43 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 48
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = xor i64 %45, %11
+  %47 = icmp ult i64 %46, 8
+  br i1 %47, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread
-  %53 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 56
-  %54 = load i32, ptr %53, align 8
-  %55 = load i32, ptr %14, align 8
-  %56 = icmp eq i32 %54, %55
-  %57 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 64
-  %58 = load i64, ptr %57, align 8
-  %59 = load i64, ptr %15, align 8
-  %60 = icmp eq i64 %58, %59
-  %61 = select i1 %56, i1 %60, i1 false
-  br i1 %61, label %.loopexit.loopexit.split.loop.exit73, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread
+  %48 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 56
+  %49 = load i32, ptr %48, align 8
+  %50 = load i32, ptr %12, align 8
+  %51 = icmp eq i32 %49, %50
+  %52 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 64
+  %53 = load i64, ptr %52, align 8
+  %54 = load i64, ptr %13, align 8
+  %55 = icmp eq i64 %53, %54
+  %56 = select i1 %51, i1 %55, i1 false
+  br i1 %56, label %.loopexit.loopexit.split.loop.exit65, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17
-  %62 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 72
-  %63 = load ptr, ptr %62, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = and i64 %64, -8
-  %66 = inttoptr i64 %65 to ptr
-  %67 = icmp eq ptr %66, %13
-  br i1 %67, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
+  %57 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 72
+  %58 = load ptr, ptr %57, align 8
+  %59 = ptrtoint ptr %58 to i64
+  %60 = xor i64 %59, %11
+  %61 = icmp ult i64 %60, 8
+  br i1 %61, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread
-  %68 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 80
-  %69 = load i32, ptr %68, align 8
-  %70 = load i32, ptr %14, align 8
-  %71 = icmp eq i32 %69, %70
-  %72 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 88
-  %73 = load i64, ptr %72, align 8
-  %74 = load i64, ptr %15, align 8
-  %75 = icmp eq i64 %73, %74
-  %76 = select i1 %71, i1 %75, i1 false
-  br i1 %76, label %.loopexit.loopexit.split.loop.exit75, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
+  %62 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 80
+  %63 = load i32, ptr %62, align 8
+  %64 = load i32, ptr %12, align 8
+  %65 = icmp eq i32 %63, %64
+  %66 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 88
+  %67 = load i64, ptr %66, align 8
+  %68 = load i64, ptr %13, align 8
+  %69 = icmp eq i64 %67, %68
+  %70 = select i1 %65, i1 %69, i1 false
+  br i1 %70, label %.loopexit.loopexit.split.loop.exit67, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18
-  %77 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 96
-  %78 = add nsw i64 %.051, -1
-  %79 = icmp sgt i64 %.051, 1
-  br i1 %79, label %17, label %._crit_edge.loopexit, !llvm.loop !9
+  %71 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 96
+  %72 = add nsw i64 %.051, -1
+  %73 = icmp sgt i64 %.051, 1
+  br i1 %73, label %15, label %._crit_edge.loopexit, !llvm.loop !9
 
 ._crit_edge.loopexit:                             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
   %.pre58 = ptrtoint ptr %scevgep to i64
@@ -796,126 +790,117 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBu
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.pre-phi60 = phi i64 [ %.pre59, %._crit_edge.loopexit ], [ %6, %3 ]
   %.sroa.031.0.lcssa = phi ptr [ %scevgep, %._crit_edge.loopexit ], [ %0, %3 ]
-  %80 = sdiv exact i64 %.pre-phi60, 24
-  switch i64 %80, label %.loopexit [
-    i64 3, label %81
+  %74 = sdiv exact i64 %.pre-phi60, 24
+  switch i64 %74, label %.loopexit [
+    i64 3, label %75
     i64 2, label %._crit_edge._crit_edge
     i64 1, label %._crit_edge._crit_edge56
   ]
 
 ._crit_edge._crit_edge56:                         ; preds = %._crit_edge
   %.pre57 = load ptr, ptr %2, align 8
-  %.pre67 = ptrtoint ptr %.pre57 to i64
-  %.pre69 = and i64 %.pre67, -8
-  %.pre71 = inttoptr i64 %.pre69 to ptr
-  br label %121
+  %.pre63 = ptrtoint ptr %.pre57 to i64
+  br label %111
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
   %.pre = load ptr, ptr %2, align 8
   %.pre61 = ptrtoint ptr %.pre to i64
-  %.pre63 = and i64 %.pre61, -8
-  %.pre65 = inttoptr i64 %.pre63 to ptr
-  br label %103
+  br label %94
 
-81:                                               ; preds = %._crit_edge
-  %82 = load ptr, ptr %.sroa.031.0.lcssa, align 8
-  %83 = ptrtoint ptr %82 to i64
-  %84 = and i64 %83, -8
-  %85 = inttoptr i64 %84 to ptr
-  %86 = load ptr, ptr %2, align 8
-  %87 = ptrtoint ptr %86 to i64
-  %88 = and i64 %87, -8
-  %89 = inttoptr i64 %88 to ptr
-  %90 = icmp eq ptr %85, %89
-  br i1 %90, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
+75:                                               ; preds = %._crit_edge
+  %76 = load ptr, ptr %.sroa.031.0.lcssa, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %78 = load ptr, ptr %2, align 8
+  %79 = ptrtoint ptr %78 to i64
+  %80 = xor i64 %79, %77
+  %81 = icmp ult i64 %80, 8
+  br i1 %81, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19: ; preds = %81
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa, i64 8
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %93 = load i32, ptr %91, align 8
-  %94 = load i32, ptr %92, align 8
-  %95 = icmp eq i32 %93, %94
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa, i64 16
-  %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %99 = load i64, ptr %98, align 8
-  %100 = icmp eq i64 %97, %99
-  %101 = select i1 %95, i1 %100, i1 false
-  br i1 %101, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19: ; preds = %75
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %84 = load i32, ptr %82, align 8
+  %85 = load i32, ptr %83, align 8
+  %86 = icmp eq i32 %84, %85
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa, i64 16
+  %88 = load i64, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %90 = load i64, ptr %89, align 8
+  %91 = icmp eq i64 %88, %90
+  %92 = select i1 %86, i1 %91, i1 false
+  br i1 %92, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread: ; preds = %81, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19
-  %102 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa, i64 24
-  br label %103
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread: ; preds = %75, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19
+  %93 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa, i64 24
+  br label %94
 
-103:                                              ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
-  %.pre-phi66 = phi ptr [ %.pre65, %._crit_edge._crit_edge ], [ %89, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread ]
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ], [ %102, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread ]
-  %104 = load ptr, ptr %.sroa.031.1, align 8
-  %105 = ptrtoint ptr %104 to i64
-  %106 = and i64 %105, -8
-  %107 = inttoptr i64 %106 to ptr
-  %108 = icmp eq ptr %.pre-phi66, %107
-  br i1 %108, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
+94:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
+  %.pre-phi62 = phi i64 [ %.pre61, %._crit_edge._crit_edge ], [ %79, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread ]
+  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ], [ %93, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread ]
+  %95 = load ptr, ptr %.sroa.031.1, align 8
+  %96 = ptrtoint ptr %95 to i64
+  %97 = xor i64 %.pre-phi62, %96
+  %98 = icmp ult i64 %97, 8
+  br i1 %98, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20: ; preds = %103
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 8
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %111 = load i32, ptr %109, align 8
-  %112 = load i32, ptr %110, align 8
-  %113 = icmp eq i32 %111, %112
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 16
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %117 = load i64, ptr %116, align 8
-  %118 = icmp eq i64 %115, %117
-  %119 = select i1 %113, i1 %118, i1 false
-  br i1 %119, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20: ; preds = %94
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %101 = load i32, ptr %99, align 8
+  %102 = load i32, ptr %100, align 8
+  %103 = icmp eq i32 %101, %102
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 16
+  %105 = load i64, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %107 = load i64, ptr %106, align 8
+  %108 = icmp eq i64 %105, %107
+  %109 = select i1 %103, i1 %108, i1 false
+  br i1 %109, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread: ; preds = %103, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20
-  %120 = getelementptr inbounds i8, ptr %.sroa.031.1, i64 24
-  br label %121
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread: ; preds = %94, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20
+  %110 = getelementptr inbounds i8, ptr %.sroa.031.1, i64 24
+  br label %111
 
-121:                                              ; preds = %._crit_edge._crit_edge56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
-  %.pre-phi72 = phi ptr [ %.pre71, %._crit_edge._crit_edge56 ], [ %.pre-phi66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread ]
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ], [ %120, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread ]
-  %122 = load ptr, ptr %.sroa.031.2, align 8
-  %123 = ptrtoint ptr %122 to i64
-  %124 = and i64 %123, -8
-  %125 = inttoptr i64 %124 to ptr
-  %126 = icmp eq ptr %.pre-phi72, %125
-  br i1 %126, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread
+111:                                              ; preds = %._crit_edge._crit_edge56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
+  %.pre-phi64 = phi i64 [ %.pre63, %._crit_edge._crit_edge56 ], [ %.pre-phi62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread ]
+  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ], [ %110, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread ]
+  %112 = load ptr, ptr %.sroa.031.2, align 8
+  %113 = ptrtoint ptr %112 to i64
+  %114 = xor i64 %.pre-phi64, %113
+  %115 = icmp ult i64 %114, 8
+  br i1 %115, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21: ; preds = %121
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 8
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %129 = load i32, ptr %127, align 8
-  %130 = load i32, ptr %128, align 8
-  %131 = icmp eq i32 %129, %130
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 16
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %135 = load i64, ptr %134, align 8
-  %136 = icmp eq i64 %133, %135
-  %137 = select i1 %131, i1 %136, i1 false
-  br i1 %137, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21: ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %118 = load i32, ptr %116, align 8
+  %119 = load i32, ptr %117, align 8
+  %120 = icmp eq i32 %118, %119
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 16
+  %122 = load i64, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %124 = load i64, ptr %123, align 8
+  %125 = icmp eq i64 %122, %124
+  %126 = select i1 %120, i1 %125, i1 false
+  br i1 %126, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread: ; preds = %121, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread: ; preds = %111, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit16
-  %138 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 24
+  %127 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 24
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit73:             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17
-  %139 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 48
+.loopexit.loopexit.split.loop.exit65:             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit17
+  %128 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 48
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit75:             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18
-  %140 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 72
+.loopexit.loopexit.split.loop.exit67:             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit18
+  %129 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 72
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit73, %.loopexit.loopexit.split.loop.exit75, %._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.031.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19 ], [ %.sroa.031.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20 ], [ %.sroa.031.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread ], [ %1, %._crit_edge ], [ %138, %.loopexit.loopexit.split.loop.exit ], [ %139, %.loopexit.loopexit.split.loop.exit73 ], [ %140, %.loopexit.loopexit.split.loop.exit75 ], [ %.sroa.031.050, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit ]
+.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit65, %.loopexit.loopexit.split.loop.exit67, %._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.031.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit19 ], [ %.sroa.031.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit20 ], [ %.sroa.031.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread ], [ %1, %._crit_edge ], [ %127, %.loopexit.loopexit.split.loop.exit ], [ %128, %.loopexit.loopexit.split.loop.exit65 ], [ %129, %.loopexit.loopexit.split.loop.exit67 ], [ %.sroa.031.050, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS4_St6vectorIS3_SaIS3_EEEEEEbT_.exit ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 
@@ -935,104 +920,98 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN32pxrIn
 .lr.ph:                                           ; preds = %3
   %10 = load ptr, ptr %2, align 8
   %11 = ptrtoint ptr %10 to i64
-  %12 = and i64 %11, -8
-  %13 = inttoptr i64 %12 to ptr
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %16 = mul nuw nsw i64 %8, 96
-  %scevgep = getelementptr i8, ptr %0, i64 %16
-  br label %17
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = mul nuw nsw i64 %8, 96
+  %scevgep = getelementptr i8, ptr %0, i64 %14
+  br label %15
 
-17:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
-  %.051 = phi i64 [ %8, %.lr.ph ], [ %78, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread ]
-  %.sroa.031.050 = phi ptr [ %0, %.lr.ph ], [ %77, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread ]
-  %18 = load ptr, ptr %.sroa.031.050, align 8
-  %19 = ptrtoint ptr %18 to i64
-  %20 = and i64 %19, -8
-  %21 = inttoptr i64 %20 to ptr
-  %22 = icmp eq ptr %21, %13
-  br i1 %22, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread
+15:                                               ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
+  %.051 = phi i64 [ %8, %.lr.ph ], [ %72, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread ]
+  %.sroa.031.050 = phi ptr [ %0, %.lr.ph ], [ %71, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread ]
+  %16 = load ptr, ptr %.sroa.031.050, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = xor i64 %11, %17
+  %19 = icmp ult i64 %18, 8
+  br i1 %19, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit: ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 8
-  %24 = load i32, ptr %23, align 8
-  %25 = load i32, ptr %14, align 8
-  %26 = icmp eq i32 %24, %25
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 16
-  %28 = load i64, ptr %27, align 8
-  %29 = load i64, ptr %15, align 8
-  %30 = icmp eq i64 %28, %29
-  %31 = select i1 %26, i1 %30, i1 false
-  br i1 %31, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit: ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = load i32, ptr %12, align 8
+  %23 = icmp eq i32 %21, %22
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.031.050, i64 16
+  %25 = load i64, ptr %24, align 8
+  %26 = load i64, ptr %13, align 8
+  %27 = icmp eq i64 %25, %26
+  %28 = select i1 %23, i1 %27, i1 false
+  br i1 %28, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread: ; preds = %17, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit
-  %32 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 24
-  %33 = load ptr, ptr %32, align 8
-  %34 = ptrtoint ptr %33 to i64
-  %35 = and i64 %34, -8
-  %36 = inttoptr i64 %35 to ptr
-  %37 = icmp eq ptr %36, %13
-  br i1 %37, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread: ; preds = %15, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit
+  %29 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 24
+  %30 = load ptr, ptr %29, align 8
+  %31 = ptrtoint ptr %30 to i64
+  %32 = xor i64 %31, %11
+  %33 = icmp ult i64 %32, 8
+  br i1 %33, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread
-  %38 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 32
-  %39 = load i32, ptr %38, align 8
-  %40 = load i32, ptr %14, align 8
-  %41 = icmp eq i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 40
-  %43 = load i64, ptr %42, align 8
-  %44 = load i64, ptr %15, align 8
-  %45 = icmp eq i64 %43, %44
-  %46 = select i1 %41, i1 %45, i1 false
-  br i1 %46, label %.loopexit.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread
+  %34 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 32
+  %35 = load i32, ptr %34, align 8
+  %36 = load i32, ptr %12, align 8
+  %37 = icmp eq i32 %35, %36
+  %38 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 40
+  %39 = load i64, ptr %38, align 8
+  %40 = load i64, ptr %13, align 8
+  %41 = icmp eq i64 %39, %40
+  %42 = select i1 %37, i1 %41, i1 false
+  br i1 %42, label %.loopexit.loopexit.split.loop.exit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit.thread, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16
-  %47 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 48
-  %48 = load ptr, ptr %47, align 8
-  %49 = ptrtoint ptr %48 to i64
-  %50 = and i64 %49, -8
-  %51 = inttoptr i64 %50 to ptr
-  %52 = icmp eq ptr %51, %13
-  br i1 %52, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread
+  %43 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 48
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = xor i64 %45, %11
+  %47 = icmp ult i64 %46, 8
+  br i1 %47, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread
-  %53 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 56
-  %54 = load i32, ptr %53, align 8
-  %55 = load i32, ptr %14, align 8
-  %56 = icmp eq i32 %54, %55
-  %57 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 64
-  %58 = load i64, ptr %57, align 8
-  %59 = load i64, ptr %15, align 8
-  %60 = icmp eq i64 %58, %59
-  %61 = select i1 %56, i1 %60, i1 false
-  br i1 %61, label %.loopexit.loopexit.split.loop.exit73, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread
+  %48 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 56
+  %49 = load i32, ptr %48, align 8
+  %50 = load i32, ptr %12, align 8
+  %51 = icmp eq i32 %49, %50
+  %52 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 64
+  %53 = load i64, ptr %52, align 8
+  %54 = load i64, ptr %13, align 8
+  %55 = icmp eq i64 %53, %54
+  %56 = select i1 %51, i1 %55, i1 false
+  br i1 %56, label %.loopexit.loopexit.split.loop.exit65, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16.thread, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17
-  %62 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 72
-  %63 = load ptr, ptr %62, align 8
-  %64 = ptrtoint ptr %63 to i64
-  %65 = and i64 %64, -8
-  %66 = inttoptr i64 %65 to ptr
-  %67 = icmp eq ptr %66, %13
-  br i1 %67, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
+  %57 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 72
+  %58 = load ptr, ptr %57, align 8
+  %59 = ptrtoint ptr %58 to i64
+  %60 = xor i64 %59, %11
+  %61 = icmp ult i64 %60, 8
+  br i1 %61, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread
-  %68 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 80
-  %69 = load i32, ptr %68, align 8
-  %70 = load i32, ptr %14, align 8
-  %71 = icmp eq i32 %69, %70
-  %72 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 88
-  %73 = load i64, ptr %72, align 8
-  %74 = load i64, ptr %15, align 8
-  %75 = icmp eq i64 %73, %74
-  %76 = select i1 %71, i1 %75, i1 false
-  br i1 %76, label %.loopexit.loopexit.split.loop.exit75, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
+  %62 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 80
+  %63 = load i32, ptr %62, align 8
+  %64 = load i32, ptr %12, align 8
+  %65 = icmp eq i32 %63, %64
+  %66 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 88
+  %67 = load i64, ptr %66, align 8
+  %68 = load i64, ptr %13, align 8
+  %69 = icmp eq i64 %67, %68
+  %70 = select i1 %65, i1 %69, i1 false
+  br i1 %70, label %.loopexit.loopexit.split.loop.exit67, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
 
 _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread: ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17.thread, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18
-  %77 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 96
-  %78 = add nsw i64 %.051, -1
-  %79 = icmp sgt i64 %.051, 1
-  br i1 %79, label %17, label %._crit_edge.loopexit, !llvm.loop !10
+  %71 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 96
+  %72 = add nsw i64 %.051, -1
+  %73 = icmp sgt i64 %.051, 1
+  br i1 %73, label %15, label %._crit_edge.loopexit, !llvm.loop !10
 
 ._crit_edge.loopexit:                             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18.thread
   %.pre58 = ptrtoint ptr %scevgep to i64
@@ -1042,126 +1021,117 @@ _ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBu
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
   %.pre-phi60 = phi i64 [ %.pre59, %._crit_edge.loopexit ], [ %6, %3 ]
   %.sroa.031.0.lcssa = phi ptr [ %scevgep, %._crit_edge.loopexit ], [ %0, %3 ]
-  %80 = sdiv exact i64 %.pre-phi60, 24
-  switch i64 %80, label %.loopexit [
-    i64 3, label %81
+  %74 = sdiv exact i64 %.pre-phi60, 24
+  switch i64 %74, label %.loopexit [
+    i64 3, label %75
     i64 2, label %._crit_edge._crit_edge
     i64 1, label %._crit_edge._crit_edge56
   ]
 
 ._crit_edge._crit_edge56:                         ; preds = %._crit_edge
   %.pre57 = load ptr, ptr %2, align 8
-  %.pre67 = ptrtoint ptr %.pre57 to i64
-  %.pre69 = and i64 %.pre67, -8
-  %.pre71 = inttoptr i64 %.pre69 to ptr
-  br label %121
+  %.pre63 = ptrtoint ptr %.pre57 to i64
+  br label %111
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
   %.pre = load ptr, ptr %2, align 8
   %.pre61 = ptrtoint ptr %.pre to i64
-  %.pre63 = and i64 %.pre61, -8
-  %.pre65 = inttoptr i64 %.pre63 to ptr
-  br label %103
+  br label %94
 
-81:                                               ; preds = %._crit_edge
-  %82 = load ptr, ptr %.sroa.031.0.lcssa, align 8
-  %83 = ptrtoint ptr %82 to i64
-  %84 = and i64 %83, -8
-  %85 = inttoptr i64 %84 to ptr
-  %86 = load ptr, ptr %2, align 8
-  %87 = ptrtoint ptr %86 to i64
-  %88 = and i64 %87, -8
-  %89 = inttoptr i64 %88 to ptr
-  %90 = icmp eq ptr %85, %89
-  br i1 %90, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
+75:                                               ; preds = %._crit_edge
+  %76 = load ptr, ptr %.sroa.031.0.lcssa, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %78 = load ptr, ptr %2, align 8
+  %79 = ptrtoint ptr %78 to i64
+  %80 = xor i64 %79, %77
+  %81 = icmp ult i64 %80, 8
+  br i1 %81, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19: ; preds = %81
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa, i64 8
-  %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %93 = load i32, ptr %91, align 8
-  %94 = load i32, ptr %92, align 8
-  %95 = icmp eq i32 %93, %94
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa, i64 16
-  %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %99 = load i64, ptr %98, align 8
-  %100 = icmp eq i64 %97, %99
-  %101 = select i1 %95, i1 %100, i1 false
-  br i1 %101, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19: ; preds = %75
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %84 = load i32, ptr %82, align 8
+  %85 = load i32, ptr %83, align 8
+  %86 = icmp eq i32 %84, %85
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.lcssa, i64 16
+  %88 = load i64, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %90 = load i64, ptr %89, align 8
+  %91 = icmp eq i64 %88, %90
+  %92 = select i1 %86, i1 %91, i1 false
+  br i1 %92, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread: ; preds = %81, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19
-  %102 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa, i64 24
-  br label %103
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread: ; preds = %75, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19
+  %93 = getelementptr inbounds i8, ptr %.sroa.031.0.lcssa, i64 24
+  br label %94
 
-103:                                              ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
-  %.pre-phi66 = phi ptr [ %.pre65, %._crit_edge._crit_edge ], [ %89, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread ]
-  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ], [ %102, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread ]
-  %104 = load ptr, ptr %.sroa.031.1, align 8
-  %105 = ptrtoint ptr %104 to i64
-  %106 = and i64 %105, -8
-  %107 = inttoptr i64 %106 to ptr
-  %108 = icmp eq ptr %.pre-phi66, %107
-  br i1 %108, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
+94:                                               ; preds = %._crit_edge._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread
+  %.pre-phi62 = phi i64 [ %.pre61, %._crit_edge._crit_edge ], [ %79, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread ]
+  %.sroa.031.1 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge ], [ %93, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19.thread ]
+  %95 = load ptr, ptr %.sroa.031.1, align 8
+  %96 = ptrtoint ptr %95 to i64
+  %97 = xor i64 %.pre-phi62, %96
+  %98 = icmp ult i64 %97, 8
+  br i1 %98, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20: ; preds = %103
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 8
-  %110 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %111 = load i32, ptr %109, align 8
-  %112 = load i32, ptr %110, align 8
-  %113 = icmp eq i32 %111, %112
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 16
-  %115 = load i64, ptr %114, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %117 = load i64, ptr %116, align 8
-  %118 = icmp eq i64 %115, %117
-  %119 = select i1 %113, i1 %118, i1 false
-  br i1 %119, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20: ; preds = %94
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %101 = load i32, ptr %99, align 8
+  %102 = load i32, ptr %100, align 8
+  %103 = icmp eq i32 %101, %102
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.031.1, i64 16
+  %105 = load i64, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %107 = load i64, ptr %106, align 8
+  %108 = icmp eq i64 %105, %107
+  %109 = select i1 %103, i1 %108, i1 false
+  br i1 %109, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread: ; preds = %103, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20
-  %120 = getelementptr inbounds i8, ptr %.sroa.031.1, i64 24
-  br label %121
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread: ; preds = %94, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20
+  %110 = getelementptr inbounds i8, ptr %.sroa.031.1, i64 24
+  br label %111
 
-121:                                              ; preds = %._crit_edge._crit_edge56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
-  %.pre-phi72 = phi ptr [ %.pre71, %._crit_edge._crit_edge56 ], [ %.pre-phi66, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread ]
-  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ], [ %120, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread ]
-  %122 = load ptr, ptr %.sroa.031.2, align 8
-  %123 = ptrtoint ptr %122 to i64
-  %124 = and i64 %123, -8
-  %125 = inttoptr i64 %124 to ptr
-  %126 = icmp eq ptr %.pre-phi72, %125
-  br i1 %126, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread
+111:                                              ; preds = %._crit_edge._crit_edge56, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread
+  %.pre-phi64 = phi i64 [ %.pre63, %._crit_edge._crit_edge56 ], [ %.pre-phi62, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread ]
+  %.sroa.031.2 = phi ptr [ %.sroa.031.0.lcssa, %._crit_edge._crit_edge56 ], [ %110, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20.thread ]
+  %112 = load ptr, ptr %.sroa.031.2, align 8
+  %113 = ptrtoint ptr %112 to i64
+  %114 = xor i64 %.pre-phi64, %113
+  %115 = icmp ult i64 %114, 8
+  br i1 %115, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21: ; preds = %121
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 8
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %129 = load i32, ptr %127, align 8
-  %130 = load i32, ptr %128, align 8
-  %131 = icmp eq i32 %129, %130
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 16
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %135 = load i64, ptr %134, align 8
-  %136 = icmp eq i64 %133, %135
-  %137 = select i1 %131, i1 %136, i1 false
-  br i1 %137, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21: ; preds = %111
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %118 = load i32, ptr %116, align 8
+  %119 = load i32, ptr %117, align 8
+  %120 = icmp eq i32 %118, %119
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.031.2, i64 16
+  %122 = load i64, ptr %121, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %124 = load i64, ptr %123, align 8
+  %125 = icmp eq i64 %122, %124
+  %126 = select i1 %120, i1 %125, i1 false
+  br i1 %126, label %.loopexit, label %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread
 
-_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread: ; preds = %121, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21
+_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread: ; preds = %111, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit16
-  %138 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 24
+  %127 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 24
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit73:             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17
-  %139 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 48
+.loopexit.loopexit.split.loop.exit65:             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit17
+  %128 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 48
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit75:             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18
-  %140 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 72
+.loopexit.loopexit.split.loop.exit67:             ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit18
+  %129 = getelementptr inbounds i8, ptr %.sroa.031.050, i64 72
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit73, %.loopexit.loopexit.split.loop.exit75, %._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19
-  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.031.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19 ], [ %.sroa.031.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20 ], [ %.sroa.031.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread ], [ %1, %._crit_edge ], [ %138, %.loopexit.loopexit.split.loop.exit ], [ %139, %.loopexit.loopexit.split.loop.exit73 ], [ %140, %.loopexit.loopexit.split.loop.exit75 ], [ %.sroa.031.050, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit ]
+.loopexit:                                        ; preds = %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit65, %.loopexit.loopexit.split.loop.exit67, %._crit_edge, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19
+  %.sroa.08.0.in.sroa.speculated = phi ptr [ %.sroa.031.0.lcssa, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit19 ], [ %.sroa.031.1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit20 ], [ %.sroa.031.2, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21 ], [ %1, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit21.thread ], [ %1, %._crit_edge ], [ %127, %.loopexit.loopexit.split.loop.exit ], [ %128, %.loopexit.loopexit.split.loop.exit65 ], [ %129, %.loopexit.loopexit.split.loop.exit67 ], [ %.sroa.031.050, %_ZN9__gnu_cxx5__ops16_Iter_equals_valIKN32pxrInternal_v0_24__pxrReserved__12HdBufferSpecEEclINS_17__normal_iteratorIPS3_St6vectorIS3_SaIS3_EEEEEEbT_.exit ]
   ret ptr %.sroa.08.0.in.sroa.speculated
 }
 

@@ -4781,18 +4781,18 @@ lookup_rollback_func.exit56.thread:               ; preds = %59, %51
 
 lookup_rollback_func.exit56:                      ; preds = %59
   %62 = load i64, ptr %3, align 8
-  %63 = inttoptr i64 %62 to ptr
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %64 = icmp eq ptr %63, inttoptr (i64 36 to ptr)
-  br i1 %64, label %69, label %65
+  %63 = icmp eq i64 %62, 36
+  br i1 %63, label %69, label %64
 
-65:                                               ; preds = %lookup_rollback_func.exit56
+64:                                               ; preds = %lookup_rollback_func.exit56
+  %65 = inttoptr i64 %62 to ptr
   %66 = getelementptr inbounds i8, ptr %53, i64 16
   %67 = load i64, ptr %66, align 8
-  %68 = call i64 %63(i64 noundef %67) #9
+  %68 = call i64 %65(i64 noundef %67) #9
   br label %69
 
-69:                                               ; preds = %lookup_rollback_func.exit56.thread, %lookup_rollback_func.exit56, %65
+69:                                               ; preds = %lookup_rollback_func.exit56.thread, %lookup_rollback_func.exit56, %64
   %70 = add nuw i64 %.04485, 1
   %exitcond94.not = icmp eq i64 %70, %.045.lcssa
   br i1 %exitcond94.not, label %._crit_edge87, label %51, !llvm.loop !31
