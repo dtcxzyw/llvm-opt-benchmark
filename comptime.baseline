@@ -439,7 +439,7 @@ abc/extraUtilMaj.c.ll 1170073876
 abc/extraUtilMemory.c.ll 169654839
 abc/extraUtilMisc.c.ll 1404408926
 abc/extraUtilMult.c.ll 269901784
-abc/extraUtilPath.c.ll 830006032
+abc/extraUtilPath.c.ll 829175451
 abc/extraUtilPerm.c.ll 714781331
 abc/extraUtilSupp.c.ll 643413433
 abc/extraUtilTruth.c.ll 1142076394
@@ -9981,7 +9981,7 @@ hdf5/H5Tconv.c.ll 442870437
 hdf5/H5Tconv_array.c.ll 103690005
 hdf5/H5Tconv_bitfield.c.ll 105185177
 hdf5/H5Tconv_compound.c.ll 334068825
-hdf5/H5Tconv_enum.c.ll 182447233
+hdf5/H5Tconv_enum.c.ll 182264286
 hdf5/H5Tconv_float.c.ll 8492618847
 hdf5/H5Tconv_integer.c.ll 24189690680
 hdf5/H5Tconv_reference.c.ll 124468561
@@ -10425,7 +10425,7 @@ hwloc/lstopo_no_graphics-lstopo-xml.ll 44235397
 hwloc/lstopo_no_graphics-lstopo.ll 1473370580
 hwloc/memattrs.ll 947266270
 hwloc/pci-common.ll 404026623
-hwloc/shmem.ll 81775583
+hwloc/shmem.ll 81693006
 hwloc/topology-cuda.ll 81073253
 hwloc/topology-linux.ll 4460080981
 hwloc/topology-nvml.ll 193832500
@@ -10919,7 +10919,7 @@ icu/reldatefmt.ll 1044952771
 icu/reldtfmt.ll 345232945
 icu/rematch.ll 2606640489
 icu/remtrans.ll 66960597
-icu/repattrn.ll 280711756
+icu/repattrn.ll 280430399
 icu/resbund.ll 114659464
 icu/resbund_cnv.ll 53490979
 icu/reslist.ll 1154837602
@@ -11173,7 +11173,7 @@ influxdb-rs/26y592k8de9dg2n1.ll 3144971090
 influxdb-rs/2aae49ekit6jj1ha.ll 82523289
 influxdb-rs/2du585cd6kvsz0m5.ll 589418764
 influxdb-rs/2g8nrbnslhx52xx1.ll 5029266002
-influxdb-rs/2gpesx480dqhic68.ll 6775769168
+influxdb-rs/2gpesx480dqhic68.ll 6768992829
 influxdb-rs/2hwft84a2d6liqrp.ll 120040781
 influxdb-rs/2i5qqg1f0a0eo8eq.ll 7156275650
 influxdb-rs/2kt1dw25zk3iqboc.ll 6767350298
@@ -11696,7 +11696,7 @@ libphonenumber/phonenumbermatcher.cc.ll 1090474070
 libphonenumber/phonenumbermatcher_test.cc.ll 4671924295
 libphonenumber/phonenumberutil.cc.ll 5353563310
 libphonenumber/phonenumberutil_test.cc.ll 15997582779
-libphonenumber/regex_based_matcher.cc.ll 99608518
+libphonenumber/regex_based_matcher.cc.ll 99508470
 libphonenumber/regexp_adapter_icu.cc.ll 189396259
 libphonenumber/regexp_adapter_test.cc.ll 1757238651
 libphonenumber/regexp_cache.cc.ll 569308729
@@ -12573,7 +12573,7 @@ lief/DyldChainedFixups.cpp.ll 7311598500
 lief/DyldEnvironment.cpp.ll 64229568
 lief/DyldExportsTrie.cpp.ll 225679728
 lief/DyldInfo.cpp.ll 16944554495
-lief/DylibCommand.cpp.ll 164263243
+lief/DylibCommand.cpp.ll 164098844
 lief/DylinkerCommand.cpp.ll 122150163
 lief/DynamicEntry.cpp.ll 134574664
 lief/DynamicEntryArray.cpp.ll 12752318835
@@ -14257,7 +14257,7 @@ linux/privflags.ll 74627890
 linux/prmt.ll 110723746
 linux/probe.ll 66634787
 linux/probe_64.ll 52221134
-linux/probe_roms.ll 120404866
+linux/probe_roms.ll 120283870
 linux/proc_namespace.ll 119287326
 linux/proc_net.ll 112007777
 linux/proc_sysctl.ll 498578287
@@ -21424,7 +21424,7 @@ openblas/dsysvx.c.ll 62433796
 openblas/dsytf2_rk.c.ll 236726869
 openblas/dsytrd_sb2st.c.ll 132822648
 openblas/dsytrd_sy2sb.c.ll 142302441
-openblas/dsytrf_aa.c.ll 168884919
+openblas/dsytrf_aa.c.ll 168715858
 openblas/dsytrf_aa_2stage.c.ll 367777918
 openblas/dsytri2x.c.ll 418449505
 openblas/dsytri_3x.c.ll 414267239
@@ -25804,7 +25804,7 @@ openmpi/libmpi_c_profile_la-lookup_name.ll 86823678
 openmpi/libmpi_c_profile_la-message_f2c.ll 50003816
 openmpi/libmpi_c_profile_la-mprobe.ll 90582408
 openmpi/libmpi_c_profile_la-mrecv.ll 89680187
-openmpi/libmpi_c_profile_la-neighbor_allgather.ll 107545776
+openmpi/libmpi_c_profile_la-neighbor_allgather.ll 107438085
 openmpi/libmpi_c_profile_la-neighbor_allgather_init.ll 98335254
 openmpi/libmpi_c_profile_la-neighbor_allgatherv.ll 115818410
 openmpi/libmpi_c_profile_la-neighbor_allgatherv_init.ll 105457536
@@ -26314,7 +26314,7 @@ openmpi/pmix_iof.ll 1683634434
 openmpi/pmix_keyval_parse.ll 204425942
 openmpi/pmix_list.ll 84960312
 openmpi/pmix_log.ll 306107128
-openmpi/pmix_mca_base_alias.ll 152600521
+openmpi/pmix_mca_base_alias.ll 152447446
 openmpi/pmix_mca_base_component_compare.ll 58219463
 openmpi/pmix_mca_base_component_find.ll 186038061
 openmpi/pmix_mca_base_component_repository.ll 265445587
@@ -29901,7 +29901,7 @@ openusd/testSdfPathTable.cpp.ll 3043759288
 openusd/testSdfPathThreading.cpp.ll 9042147403
 openusd/testSdfPredicateExpression.cpp.ll 7627602224
 openusd/testStackTrace.cpp.ll 106434285
-openusd/testSymbols.cpp.ll 58516258
+openusd/testSymbols.cpp.ll 58457109
 openusd/testSystemInfo.cpp.ll 37538011
 openusd/testTfCast.cpp.ll 63894845
 openusd/testTfSpan.cpp.ll 440318983
