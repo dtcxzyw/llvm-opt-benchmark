@@ -28642,7 +28642,7 @@ openssl/libssl-shlib-ssl_lib.ll 2277448834
 openssl/libssl-shlib-ssl_mcnf.ll 61057275
 openssl/libssl-shlib-ssl_rsa.ll 362053798
 openssl/libssl-shlib-ssl_sess.ll 363439339
-openssl/libssl-shlib-ssl_txt.ll 110926191
+openssl/libssl-shlib-ssl_txt.ll 111037299
 openssl/libssl-shlib-statem.ll 315067271
 openssl/libssl-shlib-statem_clnt.ll 1110534770
 openssl/libssl-shlib-statem_dtls.ll 470486748
