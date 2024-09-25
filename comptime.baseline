@@ -8684,7 +8684,7 @@ gromacs/gpp_nextnb.cpp.ll 556146278
 gromacs/gpu_utils.cpp.ll 38512640
 gromacs/gpu_utils_impl.cpp.ll 39348805
 gromacs/gpueventsynchronizer_helpers.cpp.ll 37600898
-gromacs/gpuforcereduction_impl_stubs.cpp.ll 72825052
+gromacs/gpuforcereduction_impl_stubs.cpp.ll 72897927
 gromacs/gpuhaloexchange_impl.cpp.ll 74129375
 gromacs/grid.cpp.ll 1762865114
 gromacs/gridset.cpp.ll 594876358
