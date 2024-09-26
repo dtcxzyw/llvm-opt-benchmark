@@ -8067,7 +8067,7 @@ graphviz/gvjobs.c.ll 68170849
 graphviz/gvlayout.c.ll 55159979
 graphviz/gvloadimage.c.ll 106091755
 graphviz/gvloadimage_pango.c.ll 80100039
-graphviz/gvmap.c.ll 229914810
+graphviz/gvmap.c.ll 229684873
 graphviz/gvpack.cpp.ll 898714411
 graphviz/gvplugin.c.ll 480342683
 graphviz/gvplugin_vt.c.ll 88043087
