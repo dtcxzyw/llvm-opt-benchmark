@@ -4519,7 +4519,7 @@ coreutils-rs/4rj5g5m7wtlzeoep.ll 396817246
 coreutils-rs/4rjs632i9cta2yqf.ll 42479291
 coreutils-rs/4rq4lile5pv9ztqb.ll 470734459
 coreutils-rs/4rqlx1ixuquicz1b.ll 100399706
-coreutils-rs/4s0pqft2t55xjh3y.ll 37417297
+coreutils-rs/4s0pqft2t55xjh3y.ll 37455099
 coreutils-rs/4s4bvlbvke7zn0hy.ll 87474903
 coreutils-rs/4sf64onf24scjhng.ll 891835758
 coreutils-rs/4swfi4zd4s6jp8qg.ll 944358522
@@ -5981,7 +5981,7 @@ darktable/SamsungV0Decompressor.cpp.ll 858102891
 darktable/SamsungV1Decompressor.cpp.ll 179574116
 darktable/SamsungV2Decompressor.cpp.ll 573090352
 darktable/SimpleTiffDecoder.cpp.ll 104115528
-darktable/SonyArw1Decompressor.cpp.ll 151902964
+darktable/SonyArw1Decompressor.cpp.ll 152054868
 darktable/SonyArw2Decompressor.cpp.ll 214540347
 darktable/SrwDecoder.cpp.ll 295854499
 darktable/StiDecoder.cpp.ll 158009623
@@ -7244,7 +7244,7 @@ folly/IPAddress.cpp.ll 89710794
 folly/IPAddressV4.cpp.ll 1190560013
 folly/IPAddressV6.cpp.ll 1396868374
 folly/ImmediateFileWriter.cpp.ll 122493066
-folly/Init.cpp.ll 81681012
+folly/Init.cpp.ll 81762884
 folly/InlineExecutor.cpp.ll 42514132
 folly/JSONSchema.cpp.ll 10348117022
 folly/JemallocHugePageAllocator.cpp.ll 176857098
@@ -39995,7 +39995,7 @@ wireshark/packet-enip.c.ll 753600995
 wireshark/packet-enrp.c.ll 334623894
 wireshark/packet-enttec.c.ll 166652802
 wireshark/packet-eobi.c.ll 278180927
-wireshark/packet-epl-profile-parser.c.ll 203087408
+wireshark/packet-epl-profile-parser.c.ll 203290567
 wireshark/packet-epl.c.ll 1362969423
 wireshark/packet-epl_v1.c.ll 87775477
 wireshark/packet-epon.c.ll 62965070
