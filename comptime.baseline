@@ -1777,7 +1777,7 @@ assimp/DefaultIOSystem.cpp.ll 232719735
 assimp/DefaultLogger.cpp.ll 357331241
 assimp/DropFaceNormalsProcess.cpp.ll 69721218
 assimp/EmbedTexturesProcess.cpp.ll 343136521
-assimp/Exceptional.cpp.ll 41782226
+assimp/Exceptional.cpp.ll 41825135
 assimp/Exporter.cpp.ll 2942870751
 assimp/FBXAnimation.cpp.ll 739877277
 assimp/FBXBinaryTokenizer.cpp.ll 479641858
