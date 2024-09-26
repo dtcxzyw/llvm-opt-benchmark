@@ -13473,7 +13473,7 @@ linux/hid-quirks.ll 113476957
 linux/hid-samsung.ll 96294246
 linux/hid-sony.ll 381849218
 linux/hid-sunplus.ll 55642511
-linux/hid-topseed.ll 108405204
+linux/hid-topseed.ll 108514112
 linux/hiddev.ll 305989832
 linux/hidraw.ll 168982732
 linux/hmac.ll 88287763
@@ -14400,7 +14400,7 @@ linux/scatterwalk.ll 122379719
 linux/sch_api.ll 802004279
 linux/sch_fifo.ll 113028151
 linux/sch_frag.ll 165530000
-linux/sch_generic.ll 588152773
+linux/sch_generic.ll 588742118
 linux/sch_mq.ll 121046951
 linux/sched.ll 2243735889
 linux/scm.ll 175056960
@@ -24508,7 +24508,7 @@ openjdk/metadataHandles.ll 126211895
 openjdk/metadataOnStackMark.ll 76808587
 openjdk/metaspace.ll 389471694
 openjdk/metaspaceArena.ll 224586226
-openjdk/metaspaceArenaGrowthPolicy.ll 56101640
+openjdk/metaspaceArenaGrowthPolicy.ll 56159215
 openjdk/metaspaceClosure.ll 133691609
 openjdk/metaspaceCommon.ll 68921422
 openjdk/metaspaceContext.ll 54373626
