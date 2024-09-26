@@ -37169,7 +37169,7 @@ spike/uradd64.ll 550556552
 spike/uradd8.ll 606535299
 spike/uraddw.ll 477411448
 spike/urcras16.ll 693813548
-spike/urcras32.ll 493431375
+spike/urcras32.ll 493924854
 spike/urcrsa16.ll 692638600
 spike/urcrsa32.ll 493648764
 spike/urstas16.ll 679976405
