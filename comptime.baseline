@@ -10360,7 +10360,7 @@ html5ever-rs/2ju3n2qmt0ooyuv4.ll 81279890
 html5ever-rs/2k27uywn6e9ruua6.ll 327372634
 html5ever-rs/2m5u67m26o51t2xt.ll 97655947
 html5ever-rs/2p0p1zz6gwjy9c4w.ll 725468988
-html5ever-rs/2smemja2l5hlqxk7.ll 62426360
+html5ever-rs/2smemja2l5hlqxk7.ll 62488905
 html5ever-rs/2viofaie60fezmt7.ll 159126936
 html5ever-rs/36m7ebdgxgmo653a.ll 120888610
 html5ever-rs/38n20yzo26sy51uu.ll 473570076
@@ -32756,7 +32756,7 @@ qemu/hw_ssi_sifive_spi.c.ll 123445801
 qemu/hw_timer_cadence_ttc.c.ll 182179032
 qemu/hw_timer_sifive_pwm.c.ll 201310212
 qemu/hw_tpm_tpm_tis_common.c.ll 421840737
-qemu/hw_ufs_lu.c.ll 148206792
+qemu/hw_ufs_lu.c.ll 148355077
 qemu/hw_ufs_ufs.c.ll 1002696380
 qemu/hw_usb_bus.c.ll 292911828
 qemu/hw_usb_combined-packet.c.ll 98684527
