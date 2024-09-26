@@ -12092,7 +12092,7 @@ libquic/ssl_rsa.c.ll 117152902
 libquic/ssl_session.c.ll 193542178
 libquic/ssl_test.cc.ll 1361065944
 libquic/stack.c.ll 145367012
-libquic/stack_trace.cc.ll 91145934
+libquic/stack_trace.cc.ll 91237083
 libquic/statistics_recorder.cc.ll 1379770373
 libquic/strike_register.cc.ll 659088804
 libquic/string16.cc.ll 1067314017
@@ -19245,7 +19245,7 @@ ncnn/hardsigmoid.cpp.ll 69571476
 ncnn/hardsigmoid_x86.cpp.ll 90372720
 ncnn/hardsigmoid_x86_avx.cpp.ll 87492751
 ncnn/hardsigmoid_x86_avx512.cpp.ll 100081452
-ncnn/hardsigmoid_x86_fma.cpp.ll 87765992
+ncnn/hardsigmoid_x86_fma.cpp.ll 87853884
 ncnn/hardswish.cpp.ll 69551113
 ncnn/hardswish_x86.cpp.ll 90727128
 ncnn/hardswish_x86_avx.cpp.ll 87933326
@@ -25679,7 +25679,7 @@ openmpi/libmpi_c_profile_la-file_get_group.ll 71611145
 openmpi/libmpi_c_profile_la-file_get_info.ll 75750892
 openmpi/libmpi_c_profile_la-file_get_position.ll 72656495
 openmpi/libmpi_c_profile_la-file_get_position_shared.ll 72670302
-openmpi/libmpi_c_profile_la-file_get_size.ll 72641631
+openmpi/libmpi_c_profile_la-file_get_size.ll 72714278
 openmpi/libmpi_c_profile_la-file_get_type_extent.ll 79083622
 openmpi/libmpi_c_profile_la-file_get_view.ll 75020325
 openmpi/libmpi_c_profile_la-file_iread.ll 80287577
@@ -38559,7 +38559,7 @@ wasmedge/engine.cpp.ll 14246435629
 wasmedge/environ-linux.cpp.ll 86043009
 wasmedge/environ.cpp.ll 6888755849
 wasmedge/errinfo.cpp.ll 6244906486
-wasmedge/executor.cpp.ll 10157911298
+wasmedge/executor.cpp.ll 10168074426
 wasmedge/export.cpp.ll 5611103784
 wasmedge/expression.cpp.ll 5463294281
 wasmedge/fault.cpp.ll 59699679
