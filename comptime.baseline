@@ -8218,7 +8218,7 @@ graphviz/xml.c.ll 131638799
 gromacs/3dtransforms.cpp.ll 134125449
 gromacs/abstractdata.cpp.ll 431726829
 gromacs/abstractoption.cpp.ll 280886277
-gromacs/abstractsection.cpp.ll 47655986
+gromacs/abstractsection.cpp.ll 47703698
 gromacs/add_par.cpp.ll 556022631
 gromacs/adler32.c.ll 195472976
 gromacs/alignedallocator.cpp.ll 57008897
@@ -13146,7 +13146,7 @@ linux/drm_atomic.ll 486968600
 linux/drm_atomic_helper.ll 1181309811
 linux/drm_atomic_state_helper.ll 168407426
 linux/drm_atomic_uapi.ll 480279092
-linux/drm_auth.ll 118943508
+linux/drm_auth.ll 119062475
 linux/drm_blend.ll 113763308
 linux/drm_bridge.ll 208722148
 linux/drm_bridge_connector.ll 97653310
@@ -14284,7 +14284,7 @@ linux/psopinfo.ll 45921113
 linux/psparse.ll 105617923
 linux/psscope.ll 56673972
 linux/psutils.ll 63619781
-linux/pswalk.ll 48552994
+linux/pswalk.ll 48601580
 linux/pt.ll 441484478
 linux/ptdump.ll 63159326
 linux/pti.ll 156490158
@@ -19955,7 +19955,7 @@ node/loop-watcher.ll 115466058
 node/loop.ll 84587967
 node/node.node_snapshot.ll 2021137106
 node/pipe.ll 137328698
-node/poll.ll 76476545
+node/poll.ll 76553023
 node/process.ll 240657853
 node/procfs-exepath.ll 40883550
 node/proctitle.ll 66327952
@@ -20201,7 +20201,7 @@ nuttx/lib_isascii.c.ll 37218975
 nuttx/lib_isatty.c.ll 36198962
 nuttx/lib_isblank.c.ll 38394064
 nuttx/lib_iscntrl.c.ll 38382346
-nuttx/lib_isdigit.c.ll 37714889
+nuttx/lib_isdigit.c.ll 37752887
 nuttx/lib_isgraph.c.ll 37984467
 nuttx/lib_isleapyear.c.ll 37708059
 nuttx/lib_islower.c.ll 38005006
@@ -28124,7 +28124,7 @@ openssl/libcrypto-shlib-legacy_mdc2.ll 39043907
 openssl/libcrypto-shlib-legacy_ripemd.ll 39078151
 openssl/libcrypto-shlib-legacy_sha.ll 78154016
 openssl/libcrypto-shlib-legacy_sm3.ll 39077680
-openssl/libcrypto-shlib-legacy_wp.ll 39052171
+openssl/libcrypto-shlib-legacy_wp.ll 39091238
 openssl/libcrypto-shlib-lh_stats.ll 76920355
 openssl/libcrypto-shlib-m_null.ll 37626994
 openssl/libcrypto-shlib-m_sigver.ll 234280101
@@ -34682,7 +34682,7 @@ rocksdb/charged_cache.cc.ll 645391770
 rocksdb/checkpoint_impl.cc.ll 1644327605
 rocksdb/cleanable.cc.ll 134887005
 rocksdb/clock_cache.cc.ll 3327633963
-rocksdb/coding.cc.ll 72166278
+rocksdb/coding.cc.ll 72238470
 rocksdb/column_family.cc.ll 6434166329
 rocksdb/compact_on_deletion_collector.cc.ll 1486428739
 rocksdb/compacted_db_impl.cc.ll 2189205168
@@ -38870,7 +38870,7 @@ wasmtime-rs/2qz8zuvte91gui70.ll 41253787
 wasmtime-rs/2r49shcrxx0jwl5v.ll 35380402
 wasmtime-rs/2r5ei4jfokkd66kd.ll 52439526
 wasmtime-rs/2r6ab1iu2ek8r0gl.ll 47334481
-wasmtime-rs/2rjyowm9kmwjra5h.ll 37232544
+wasmtime-rs/2rjyowm9kmwjra5h.ll 37269804
 wasmtime-rs/2rq7jdvcgv8h6zge.ll 838847153
 wasmtime-rs/2rxishkjui70pb7b.ll 312311079
 wasmtime-rs/2rz3i5err6tlfn2f.ll 42088747
