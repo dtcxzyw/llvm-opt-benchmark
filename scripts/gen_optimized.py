@@ -70,8 +70,7 @@ if __name__ == '__main__':
                 work_list.append((os.path.join(original_dir, file), os.path.join(optimized_dir, file)))
     
     print("total items: ", len(work_list))
-    loadavg = os.getloadavg()[2]
-    cores = os.cpu_count() - (10 if loadavg > 10 else 0)
+    cores = os.cpu_count()
     print("threads: ", cores)
 
     pool = Pool(processes=cores)
