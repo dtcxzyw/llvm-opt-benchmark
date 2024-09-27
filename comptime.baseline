@@ -6957,7 +6957,7 @@ faiss/AutoTune.cpp.ll 2031787514
 faiss/AuxIndexStructures.cpp.ll 429647767
 faiss/BlockInvertedLists.cpp.ll 655359454
 faiss/Clustering.cpp.ll 1271992793
-faiss/CodePacker.cpp.ll 58515086
+faiss/CodePacker.cpp.ll 58456233
 faiss/DirectMap.cpp.ll 789478686
 faiss/FaissException.cpp.ll 88452878
 faiss/HNSW.cpp.ll 3276387438
