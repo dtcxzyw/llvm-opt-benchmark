@@ -45,7 +45,8 @@ else
   ./scripts/filter_pr_changes.py
   git commit -m "pre-commit: Update"
   git push -f
-  echo "baseline: https://github.com/llvm/llvm-project/commit/$LLVM_REVISION" > scripts/pr-comment.md
+  echo "runner: $GH_RUNNER" > scripts/pr-comment.md
+  echo "baseline: https://github.com/llvm/llvm-project/commit/$LLVM_REVISION" >> scripts/pr-comment.md
   echo "patch: $COMMIT_URL" >> scripts/pr-comment.md
   echo "sha256: $PATCH_SHA256" >> scripts/pr-comment.md
   echo "commit: $(git rev-parse HEAD)" >> scripts/pr-comment.md

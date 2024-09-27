@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     if: github.event.issue.number == 1312 && github.event.sender.type == 'User'
-    runs-on: self-hosted
+    runs-on: [self-hosted, enqueue]
 
     permissions:
       issues: write
